@@ -23,15 +23,34 @@ public class Attack : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //set the aim icon
-        if (Input.GetAxis("Right X") != 0  || Input.GetAxis("Right Y") != 0 ){
-            float tempx = Input.GetAxis("Right X");
-            float tempy = Input.GetAxis("Right Y");
+        if (Mathf.Abs(Input.GetAxis("Right X")) <= 1 || Mathf.Abs(Input.GetAxis("Right Y")) <= 1)
+        {
+            
+            if (Mathf.Abs(Input.GetAxis("Right X")) > 0.03 || Mathf.Abs(Input.GetAxis("Right Y")) >0.03)
+            {
+                float tempx = Input.GetAxis("Right X");
+                float tempy = Input.GetAxis("Right Y");
+                Debug.Log(tempx);
+                Debug.Log(tempy);
+                Vector3 tempvector = new Vector3(tempx, tempy, 0);
+                tempvector = tempvector.normalized;
+                RightAimIcon.transform.localPosition = tempvector;
+            }
+            else
+            {
+                float tempx;
+                if (gameObject.GetComponent<Movement>().IsFaceRight)
+                    tempx = 1;
+                else
+                    tempx = -1;
+                float tempy = 0;
 
-            Vector3 tempvector = new Vector3(tempx, tempy, 0);
-            tempvector = tempvector.normalized;
-            RightAimIcon.transform.localPosition = tempvector;
+                //Debug.Log(tempx);
+                Vector3 tempvector = new Vector3(tempx, tempy, 0);
+                RightAimIcon.transform.localPosition = tempvector;
+            }
         }
-
+        /*
         //reduce the waiting time for the next bullet!
         if (!CanAttack && ListWeapons[CurrentWeaponIndex].TimeWaited > 0f)
         {
@@ -58,7 +77,7 @@ public class Attack : MonoBehaviour {
             BulletTime = false;
             ListWeapons[CurrentWeaponIndex].TimeBetweenShot = 0.1f;
         }
-
+        */
 
         //Debug.Log(RightAimIcon.transform.position);
     }

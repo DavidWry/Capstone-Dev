@@ -27,7 +27,7 @@ namespace AssemblyCSharp
         public float TimeWaited = 0f;
         public GameObject ImpactFX = null;                     //spawn something when impacting wall, npc. (explosion, spark...)
         public GameObject ShotFX = null;                       //little spark when shooting 
-        public int Dmg = 1;                                    //here we handle the dmg which will be transfered to the projectile
+        public int Damage = 1;                                    //here we handle the dmg which will be transfered to the projectile
         public int Rebounce = 0;                                //how many time the bullets will bounche on wall until destroyed
         public int AmmoSize = 5;                               //how many bullets are in this gun before recharging.
         public int AmmoCur = 0;
