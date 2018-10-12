@@ -28,7 +28,12 @@ public class Attack : MonoBehaviour {
             
             if (Mathf.Abs(Input.GetAxis("Right X")) > 0.03 || Mathf.Abs(Input.GetAxis("Right Y")) >0.03)
             {
-                float tempx = Input.GetAxis("Right X");
+                float tempx;
+                if (gameObject.GetComponent<Movement>().IsFaceRight)
+                    tempx = Input.GetAxis("Right X");
+                else
+                    tempx = -Input.GetAxis("Right X");
+                
                 float tempy = Input.GetAxis("Right Y");
                 Debug.Log(tempx);
                 Debug.Log(tempy);
