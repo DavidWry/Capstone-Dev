@@ -220,6 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WalkSpeed: 1
+  IsFaceRight: 1
 --- !u!212 &1949441003
 SpriteRenderer:
   m_ObjectHideFlags: 0
