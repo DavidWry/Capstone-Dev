@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     public Sprite HighIcon = null;
     public Sprite GodlyIcon = null;
 
+    public GameObject PressBObject = null;
+
     /* not use for now, Li will use these
     public List<Tds_Weapons> vWeaponList;
     public List<Tds_Items> vItemsList;
@@ -47,7 +49,7 @@ public class GameManager : MonoBehaviour
     public GameObject vCanvasUI = null;
     public bool IsReady = false;                        //start every player/enemy at the same time
     public GameObject vGameOverObj = null;              //when main player die, just stop the game and show the UI
-    public GameObject vPressSpaceObj = null;
+   
     public GameObject vItemObj = null;                  //has the item obj fabrik
     public GameObject vItemLootedAnim = null;           //when looting, if exist will show a little text line at the bottom showing the item name and it's color
 

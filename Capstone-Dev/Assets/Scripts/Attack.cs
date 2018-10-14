@@ -35,19 +35,15 @@ public class Attack : MonoBehaviour {
                     tempx = -Input.GetAxis("Right X");
                 
                 float tempy = Input.GetAxis("Right Y");
-                Debug.Log(tempx);
-                Debug.Log(tempy);
+               // Debug.Log(tempx);
+                //Debug.Log(tempy);
                 Vector3 tempvector = new Vector3(tempx, tempy, 0);
                 tempvector = tempvector.normalized;
                 RightAimIcon.transform.localPosition = tempvector;
             }
             else
             {
-                float tempx;
-                if (gameObject.GetComponent<Movement>().IsFaceRight)
-                    tempx = 1;
-                else
-                    tempx = -1;
+                float tempx=1;      
                 float tempy = 0;
 
                 //Debug.Log(tempx);
