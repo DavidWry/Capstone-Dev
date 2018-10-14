@@ -28,15 +28,57 @@ public class PickUp : MonoBehaviour {
         //check loot
         currentLoot = loot;
 
-        if (loot != null)
-        {
+        if (loot != null){
             isLootNearby = true;
             gameManager.PressBObject.SetActive(true);
         }
-        else 
-        {
+        else {
             isLootNearby = false;
             gameManager.PressBObject.SetActive(false);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        // Tds_Tile vTile = col.GetComponent<Tds_Tile>();
+        Loot loot = col.GetComponent<Loot>();
+        /*
+        if (vTile != null)
+        {
+
+            //ONLY refresh variable current level
+            vListCollider.Add(vTile);
+
+            //make the player refresh it's pixel tiles variables
+            if (vCharacter != null)
+                vCharacter.RefreshVariables(vListCollider);
+        }
+        */
+        if (loot != null){
+            //make the player refresh it's pixel tiles variables
+            RefreshLoot(loot);
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+        //Tds_Tile vTile = col.GetComponent<Tds_Tile>();
+        Loot loot = col.GetComponent<Loot>();
+
+        //check if we have it on the list so we can remove it
+        //if (vTile != null)
+        //{
+        //    if (vListCollider.Contains(vTile))
+        //   {
+        //       vListCollider.Remove(vTile);
+
+        //make the player refresh it's pixel tiles variables
+        //       vCharacter.RefreshVariables(vListCollider);
+        //   }
+        // }
+        if (loot != null){
+            loot = null;
+            RefreshLoot(loot);
         }
     }
 }
