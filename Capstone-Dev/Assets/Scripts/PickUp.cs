@@ -178,7 +178,7 @@ public class PickUp : MonoBehaviour {
         newWeapon.AttackAnimationUsed = oldWeapon.AttackAnimationUsed;
         newWeapon.WeaponType = oldWeapon.WeaponType;
         newWeapon.TimeWaited = oldWeapon.TimeWaited;
-        newWeapon.AmmoCur = oldWeapon.AmmoCur;
+        newWeapon.CurrentAmmos = oldWeapon.CurrentAmmos;
         newWeapon.BulletAngleList = oldWeapon.BulletAngleList;
 
         //return new tds_weapons
