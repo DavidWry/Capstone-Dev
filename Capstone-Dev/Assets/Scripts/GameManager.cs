@@ -15,9 +15,10 @@ public class GameManager : MonoBehaviour
     public Sprite GodlyIcon = null;
 
     public GameObject PressBObject = null;
-
+    public List<Weapon> WeaponList;
+    public GameObject ItemLootedAnim = null;
     /* not use for now, Li will use these
-    public List<Tds_Weapons> vWeaponList;
+    
     public List<Tds_Items> vItemsList;
     public List<Tds_SoundList> vSoundList;
     public List<Tds_WeaponMenu> vWeaponMenuList;
@@ -51,7 +52,7 @@ public class GameManager : MonoBehaviour
     public GameObject vGameOverObj = null;              //when main player die, just stop the game and show the UI
    
     public GameObject vItemObj = null;                  //has the item obj fabrik
-    public GameObject vItemLootedAnim = null;           //when looting, if exist will show a little text line at the bottom showing the item name and it's color
+               //when looting, if exist will show a little text line at the bottom showing the item name and it's color
 
     private bool PlayerIsDead = false;
     private AudioSource vAudioSource = null;

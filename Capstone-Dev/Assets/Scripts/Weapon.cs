@@ -30,7 +30,7 @@ namespace AssemblyCSharp
         public int Damage = 1;                                    //here we handle the dmg which will be transfered to the projectile
         public int Rebounce = 0;                                //how many time the bullets will bounche on wall until destroyed
         public int AmmoSize = 5;                               //how many bullets are in this gun before recharging.
-        public int AmmoCur = 0;
+        public int CurrentAmmos = 0;
         public GameObject ClipObj = null;                      //leave a clip on the ground when reloading
         public string AttackAnimationUsed = "";                 //each weapon can have their own shooting animation on the character. Put them here 
     }
