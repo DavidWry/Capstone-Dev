@@ -7,6 +7,9 @@ public class Shoot : MonoBehaviour {
 
     public Weapon LeftWeapon;
     public Weapon RightWeapon;
+    public GameObject Projectile;
+
+
     private bool LeftHandOn;            //Make sure there is a weapon in hand.
     private bool RightHandOn;
     private bool IsLeftShooting;
@@ -43,13 +46,23 @@ public class Shoot : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //Check inputs.
+        
 		if(Mathf.Round(Input.GetAxisRaw("LeftTrigger")) > 0)            //Push left trigger to shoot on left.
         {
             IsLeftShooting = true;
         }
+        else
+        {
+            IsLeftShooting = false;
+        }
         if (Mathf.Round(Input.GetAxisRaw("RightTrigger")) > 0)          //Push right trigger to shoot on right.
         {
             IsRightShooting = true;
+        }
+        else
+        {
+            IsRightShooting = false;
         }
         if (Mathf.Round(Input.GetAxisRaw("RightTrigger")) > 0 && Mathf.Round(Input.GetAxisRaw("LeftTrigger")) > 0)  //Push both trigger to combine.
         {
@@ -74,29 +87,32 @@ public class Shoot : MonoBehaviour {
         {
             CombinedTime = 0;
         }
+
+        //Shoot
+
         LeftShoot();
         RightShoot();
         CombineShoot();
 
         //Deal with the cool down time.
 
-        if (!CanLeftShoot && IsLeftShooting)
+        if (!CanLeftShoot)
         {
             LeftWaitedTime += Time.deltaTime;
-            if (LeftWaitedTime == LeftWeapon.TimeBetweenShot)
+            if (LeftWaitedTime >= LeftWeapon.TimeBetweenShot)
             {
                 CanLeftShoot = true;
                 LeftWaitedTime = 0f;
             }
         }
 
-        if (!CanRightShoot && IsRightShooting)
+        if (!CanRightShoot)
         {
             RightWaitedTime += Time.deltaTime;
             if (RightWaitedTime == RightWeapon.TimeBetweenShot)
             {
-                CanLeftShoot = true;
-                LeftWaitedTime = 0f;
+                CanRightShoot = true;
+                RightWaitedTime = 0f;
             }
         }
     }
@@ -105,7 +121,8 @@ public class Shoot : MonoBehaviour {
     {
         if (IsLeftShooting && CanLeftShoot)
         {
-
+            GameObject NewProj = Instantiate(Projectile);
+            CanLeftShoot = false;
         }
     }
 
@@ -113,7 +130,7 @@ public class Shoot : MonoBehaviour {
     {
         if (IsRightShooting && CanRightShoot)
         {
-
+            CanRightShoot = false;
         }
     }
 

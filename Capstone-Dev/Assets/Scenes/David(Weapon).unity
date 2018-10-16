@@ -313,6 +313,7 @@ MonoBehaviour:
     CurrentAmmos: 0
     ClipObj: {fileID: 0}
     AttackAnimationUsed: 
+  Projectile: {fileID: 1804453490864518, guid: e3bf4c8880e0b3549a05ad8c1d6f97c7, type: 2}
 --- !u!4 &1279014108
 Transform:
   m_ObjectHideFlags: 0

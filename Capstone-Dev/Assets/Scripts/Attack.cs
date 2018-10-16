@@ -35,7 +35,7 @@ public class Attack : MonoBehaviour {
                     tempx = -Input.GetAxis("Right X");
                 
                 float tempy = Input.GetAxis("Right Y");
-               // Debug.Log(tempx);
+                //Debug.Log(tempx);
                 //Debug.Log(tempy);
                 Vector3 tempvector = new Vector3(tempx, tempy, 0);
                 tempvector = tempvector.normalized;
