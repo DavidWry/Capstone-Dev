@@ -15,6 +15,7 @@ public class PickUp : MonoBehaviour {
     void Start () {
         //Player = transform.parent.GetComponent<Player>();
         Player = gameObject.GetComponent<Player>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 	
 	// Update is called once per frame
@@ -109,9 +110,22 @@ public class PickUp : MonoBehaviour {
 
     public void RefreshLoot(Loot loot)
     {
+        Item tempItem = new Item();
+        tempItem.ItemName = ItemName.Pistol;
+        tempItem.Name = "Pistol";
+        tempItem.GiveWeapon = true;
+        //tempItem.ItemIcon = vOld.ItemIcon;
+        tempItem.WeaponName = WeaponName.Pistol;
+        tempItem.Usable = true;
+        tempItem.AmmoType = WeaponValueType.Low;
+        tempItem.DamageType = WeaponValueType.Low;
+
         //show the loot items on ground
         if (loot != null)
+        {
+            loot.InitialiseLoot(tempItem, gameManager);
             loot.ShowHide(true);
+        }
         else if (currentLoot != null)
             currentLoot.ShowHide(false);
 
@@ -120,11 +134,11 @@ public class PickUp : MonoBehaviour {
 
         if (loot != null){
             isLootNearby = true;
-            gameManager.PressBObject.SetActive(true);
+            
         }
         else {
             isLootNearby = false;
-            gameManager.PressBObject.SetActive(false);
+            
         }
     }
     /*

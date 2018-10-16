@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public Sprite HighIcon = null;
     public Sprite GodlyIcon = null;
 
-    public GameObject PressBObject = null;
+    //public GameObject PressBObject = null;
     public List<Weapon> WeaponList;
     public GameObject ItemLootedAnim = null;
     /* not use for now, Li will use these

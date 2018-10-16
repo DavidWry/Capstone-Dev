@@ -48,8 +48,8 @@ public class Loot : MonoBehaviour
         Item = newItem;
 
         //show or hide info about weapons
-        damageLabel = transform.Find("DamageLabel");
-        damageValue = transform.Find("DamageValue");
+        damageLabel = transform.Find("DmgLabel");
+        damageValue = transform.Find("DmgValue");
         ammoLabel = transform.Find("AmmoLabel");
         ammoValue = transform.Find("AmmoValue");
         panel = transform.Find("Panel");
