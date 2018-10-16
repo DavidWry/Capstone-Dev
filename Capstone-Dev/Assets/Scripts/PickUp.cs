@@ -187,6 +187,7 @@ public class PickUp : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        //Debug.Log("enter");
         // Tds_Tile vTile = col.GetComponent<Tds_Tile>();
         Loot loot = col.GetComponent<Loot>();
         /*
