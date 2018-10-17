@@ -9,6 +9,16 @@ public class Shoot : MonoBehaviour {
     public Weapon RightWeapon;
     public GameObject Projectile;
 
+    private Transform Left;             //Where the hands should be
+    private Transform Right;
+    private Transform Center;
+
+    public int LeftAmmo;                //Deal with reload
+    public int RightAmmo;
+    public int CombineAmmo;
+    private float LeftReloadTime;
+    private float RightReloadTime;
+    private float CombineReloadTime;
 
     private bool LeftHandOn;            //Make sure there is a weapon in hand.
     private bool RightHandOn;
@@ -42,6 +52,16 @@ public class Shoot : MonoBehaviour {
         LeftWaitedTime = 0f;
         RightWaitedTime = 0f;
         CombinedTime = 0f;
+
+        Left = transform.Find("Left");
+        Right = transform.Find("Right");
+        Center = transform.Find("Center");
+
+        LeftAmmo = LeftWeapon.AmmoSize;
+        RightAmmo = RightWeapon.AmmoSize;
+        LeftReloadTime = 0;
+        RightReloadTime = 0;
+        CombineReloadTime = 0;
 	}
 	
 	// Update is called once per frame
@@ -94,25 +114,49 @@ public class Shoot : MonoBehaviour {
         RightShoot();
         CombineShoot();
 
-        //Deal with the cool down time.
+        //Deal with the cool down time and Reload.
 
-        if (!CanLeftShoot)
+        if (LeftAmmo > 0)
         {
-            LeftWaitedTime += Time.deltaTime;
-            if (LeftWaitedTime >= LeftWeapon.TimeBetweenShot)
+            if (!CanLeftShoot)
             {
-                CanLeftShoot = true;
-                LeftWaitedTime = 0f;
+                LeftWaitedTime += Time.deltaTime;
+                if (LeftWaitedTime >= LeftWeapon.TimeBetweenShot)
+                {
+                    CanLeftShoot = true;
+                    LeftWaitedTime = 0f;
+                }
+            }
+        }
+        else
+        {
+            LeftReloadTime += Time.deltaTime;
+            if (LeftReloadTime >= LeftWeapon.ReloadTime)
+            {
+                LeftAmmo = LeftWeapon.AmmoSize;
+                LeftReloadTime = 0;
             }
         }
 
-        if (!CanRightShoot)
+        if (RightAmmo > 0)
         {
-            RightWaitedTime += Time.deltaTime;
-            if (RightWaitedTime == RightWeapon.TimeBetweenShot)
+            if (!CanRightShoot)
             {
-                CanRightShoot = true;
-                RightWaitedTime = 0f;
+                RightWaitedTime += Time.deltaTime;
+                if (RightWaitedTime >= RightWeapon.TimeBetweenShot)
+                {
+                    CanRightShoot = true;
+                    RightWaitedTime = 0f;
+                }
+            }
+        }
+        else
+        {
+            RightReloadTime += Time.deltaTime;
+            if (RightReloadTime >= RightWeapon.ReloadTime)
+            {
+                RightAmmo = RightWeapon.AmmoSize;
+                RightReloadTime = 0;
             }
         }
     }
@@ -122,6 +166,8 @@ public class Shoot : MonoBehaviour {
         if (IsLeftShooting && CanLeftShoot)
         {
             GameObject NewProj = Instantiate(Projectile);
+            NewProj.transform.position = Left.position;
+            LeftAmmo--;
             CanLeftShoot = false;
         }
     }
@@ -130,15 +176,18 @@ public class Shoot : MonoBehaviour {
     {
         if (IsRightShooting && CanRightShoot)
         {
+            GameObject NewProj = Instantiate(Projectile);
+            NewProj.transform.position = Right.position;
+            RightAmmo--;
             CanRightShoot = false;
         }
     }
 
     private void CombineShoot()
     {
-        if (IsCombineShooting && CanLeftShoot)
+        if (IsCombineShooting && CanCombineShoot)
         {
-
+            CanCombineShoot = false;
         }
     }
 }

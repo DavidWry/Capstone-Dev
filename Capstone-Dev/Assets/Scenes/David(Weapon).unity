@@ -201,7 +201,7 @@ Camera:
   m_GameObject: {fileID: 995402771}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
@@ -293,6 +293,7 @@ MonoBehaviour:
     CurrentAmmos: 0
     ClipObj: {fileID: 0}
     AttackAnimationUsed: 
+    ReloadTime: 3
   RightWeapon:
     Name: 
     WeaponName: 0
@@ -313,7 +314,11 @@ MonoBehaviour:
     CurrentAmmos: 0
     ClipObj: {fileID: 0}
     AttackAnimationUsed: 
+    ReloadTime: 3
   Projectile: {fileID: 1804453490864518, guid: e3bf4c8880e0b3549a05ad8c1d6f97c7, type: 2}
+  LeftAmmo: 0
+  RightAmmo: 0
+  CombineAmmo: 0
 --- !u!4 &1279014108
 Transform:
   m_ObjectHideFlags: 0
