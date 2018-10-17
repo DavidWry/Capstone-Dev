@@ -17,9 +17,27 @@ public class GameManager : MonoBehaviour
     //public GameObject PressBObject = null;
     public List<Weapon> WeaponList;
     public GameObject ItemLootedAnim = null;
+    public List<Item> ItemsList;
+
+
+
+    public Item GetItem(ItemName itemName)
+    {
+       // Debug.Log("a");
+        Item itemFound = new Item();
+
+        foreach (Item currentItem in ItemsList)
+        {
+            //Debug.Log(itemName);
+            if (currentItem.ItemName == itemName)
+                itemFound=itemFound.CopyItem(currentItem);
+        }
+
+        return itemFound;
+    }
     /* not use for now, Li will use these
     
-    public List<Tds_Items> vItemsList;
+    
     public List<Tds_SoundList> vSoundList;
     public List<Tds_WeaponMenu> vWeaponMenuList;
     public List<Tds_Projectile> vProjectileList;

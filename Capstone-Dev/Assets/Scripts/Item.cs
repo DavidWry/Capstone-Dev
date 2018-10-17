@@ -20,5 +20,24 @@ namespace AssemblyCSharp
         public WeaponValueType DamageType = WeaponValueType.Low;
         public WeaponValueType AmmoType = WeaponValueType.Low;
         public WeaponName WeaponName = WeaponName.Pistol;
+
+        //make a TRUE copy of this weapon to be used
+        public Item CopyItem(Item oldItem)
+        {
+           // Debug.Log("B");
+            //copy everything for the weapon
+            Item newItem = new Item();
+            newItem.ItemName = oldItem.ItemName;
+            newItem.Name = oldItem.Name;
+            newItem.GiveWeapon = oldItem.GiveWeapon;
+            newItem.ItemIcon = oldItem.ItemIcon;
+            newItem.WeaponName = oldItem.WeaponName;
+            newItem.Usable = oldItem.Usable;
+            newItem.AmmoType = oldItem.AmmoType;
+            newItem.DamageType = oldItem.DamageType;
+
+            //return new tds_weapons
+            return newItem;
+        }
     }
 }

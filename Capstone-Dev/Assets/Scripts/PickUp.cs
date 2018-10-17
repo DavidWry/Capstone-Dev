@@ -110,6 +110,7 @@ public class PickUp : MonoBehaviour {
 
     public void RefreshLoot(Loot loot)
     {
+        /*
         Item tempItem = new Item();
         tempItem.ItemName = ItemName.Pistol;
         tempItem.Name = "Pistol";
@@ -117,12 +118,15 @@ public class PickUp : MonoBehaviour {
         //tempItem.ItemIcon = vOld.ItemIcon;
         tempItem.WeaponName = WeaponName.Pistol;
         tempItem.Usable = true;
-        tempItem.AmmoType = WeaponValueType.Low;
+        tempItem.AmmoType = WeaponValueType.High;
         tempItem.DamageType = WeaponValueType.Low;
-
+        tempItem.GiveWeapon = true;
+        */
         //show the loot items on ground
         if (loot != null)
         {
+            Item tempItem = gameManager.GetItem(ItemName.Pistol);
+            //Debug.Log("enter loot");
             loot.InitialiseLoot(tempItem, gameManager);
             loot.ShowHide(true);
         }

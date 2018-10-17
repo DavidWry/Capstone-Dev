@@ -12,7 +12,6 @@ public class Loot : MonoBehaviour
     private RaycastHit hit;
     private bool showItem = false;
     private GameManager gameManager;
-    private bool cursorIsAbove = false;
 
     Transform damageLabel;
     Transform damageValue;
@@ -57,7 +56,7 @@ public class Loot : MonoBehaviour
 
         //item name
         nameValue.GetComponent<Text>().text = newItem.Name;
-
+        
         //potions infos here
 
         //check if it's a weapon or a potion
@@ -65,6 +64,7 @@ public class Loot : MonoBehaviour
         {
             //item name
             damageValue.GetComponent<Image>().sprite = GetAssociateValue(newItem.DamageType);
+            //Debug.Log(damageValue.GetComponent<Image>().sprite);
             ammoValue.GetComponent<Image>().sprite = GetAssociateValue(newItem.AmmoType);
         }
 
@@ -83,7 +83,7 @@ public class Loot : MonoBehaviour
     public void ShowHide(bool show)
     {
         bool CanShow = false;
-        if (show || cursorIsAbove)
+        if (show)
             CanShow = true;
 
         //make sure we show/hide correctly (with player above items or with cursor)
@@ -92,6 +92,7 @@ public class Loot : MonoBehaviour
 
         if (Item.GiveWeapon)
         {
+            //Debug.Log(damageLabel);
             damageLabel.gameObject.SetActive(CanShow);
             damageValue.gameObject.SetActive(CanShow);
             ammoLabel.gameObject.SetActive(CanShow);
@@ -103,19 +104,5 @@ public class Loot : MonoBehaviour
 
     }
 
-    void OnMouseOver()
-    {
-        cursorIsAbove = true;
-
-        if (!showItem)
-            ShowHide(!showItem);
-    }
-
-    void OnMouseExit()
-    {
-        cursorIsAbove = false;
-
-        if (showItem)
-            ShowHide(!showItem);
-    }
+ 
 }
