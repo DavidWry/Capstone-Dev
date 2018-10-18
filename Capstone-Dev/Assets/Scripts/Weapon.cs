@@ -34,5 +34,8 @@ namespace AssemblyCSharp
         public GameObject ClipObj = null;                      //leave a clip on the ground when reloading
         public string AttackAnimationUsed = "";                 //each weapon can have their own shooting animation on the character. Put them here 
         public float ReloadTime = 3.0f;                         //Each weapon has its own reload time.
+        //For Projectiles
+        public float Duration = 3.0f;
+        public float Speed = 5.0f;
     }
 }

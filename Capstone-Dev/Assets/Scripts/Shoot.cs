@@ -165,8 +165,15 @@ public class Shoot : MonoBehaviour {
     {
         if (IsLeftShooting && CanLeftShoot)
         {
+            //Creat projectile
             GameObject NewProj = Instantiate(Projectile);
             NewProj.transform.position = Left.position;
+            //Change state according to the weapon
+            Projectile Proj = NewProj.GetComponent<Projectile>();
+            Proj.IsReady = true;
+            Proj.Speed = LeftWeapon.Speed;
+            Proj.Duration = LeftWeapon.Duration;
+            //Deal with reload
             LeftAmmo--;
             CanLeftShoot = false;
         }
@@ -176,8 +183,15 @@ public class Shoot : MonoBehaviour {
     {
         if (IsRightShooting && CanRightShoot)
         {
+            //Creat projectile
             GameObject NewProj = Instantiate(Projectile);
             NewProj.transform.position = Right.position;
+            //Change state according to the weapon
+            Projectile Proj = NewProj.GetComponent<Projectile>();
+            Proj.IsReady = true;
+            Proj.Speed = RightWeapon.Speed;
+            Proj.Duration = RightWeapon.Duration;
+            //Deal with reload
             RightAmmo--;
             CanRightShoot = false;
         }
