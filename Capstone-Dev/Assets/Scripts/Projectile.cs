@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour {
     public int Damage = 1;
     public int Rebounce = 0;
     public float Speed = 1f;
+    public bool Thrust;
     public GameObject Impact;
     public GameManager GameManage;
     public float Duration = 1;
@@ -36,4 +37,13 @@ public class Projectile : MonoBehaviour {
             Destroy(gameObject);
         }
 	}
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.tag == "Monster" && Thrust)
+        {
+            collision.gameObject.GetComponent<Rigidbody>().AddForce(gameObject.transform.right * 100);
+            Destroy(gameObject);
+        }
+    }
 }

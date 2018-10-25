@@ -32,8 +32,11 @@ public class Shoot : MonoBehaviour {
     private float RightWaitedTime;
     private float CombinedTime;         //How long has been pulled two triggers.
 
+    [SerializeField]
     private float TimeBeforeCombine = 0.5f;    //Don't combine if player is not keeping it.
+    [SerializeField]
     private float TimePrepareCombine = 1.0f;   //Preparing time.
+    [SerializeField]
     private float TimeTopCombine = 5.0f;       //Top time to combine.
 
 
@@ -165,14 +168,39 @@ public class Shoot : MonoBehaviour {
     {
         if (IsLeftShooting && CanLeftShoot)
         {
-            //Creat projectile
-            GameObject NewProj = Instantiate(Projectile);
-            NewProj.transform.position = Left.position;
-            //Change state according to the weapon
-            Projectile Proj = NewProj.GetComponent<Projectile>();
-            Proj.IsReady = true;
-            Proj.Speed = LeftWeapon.Speed;
-            Proj.Duration = LeftWeapon.Duration;
+            if (LeftWeapon.IsMultiBullets)
+            {
+                //create as many shot with the specific angle
+                foreach (float Angle in LeftWeapon.BulletAngleList)
+                {
+                    //create the projectile
+                    GameObject MultiNewProj = Instantiate(LeftWeapon.Projectile);
+                    MultiNewProj.transform.position = Left.position;
+
+                    //calculate the new angle for every shot
+                    Quaternion Temp = Left.rotation;
+                    Temp.z += Angle;
+                    MultiNewProj.transform.rotation = Temp;
+                    //give state
+                    Projectile Proj = MultiNewProj.GetComponent<Projectile>();
+                    Proj.IsReady = true;
+                    Proj.Speed = LeftWeapon.ProjectileSpeed;
+                    Proj.Duration = LeftWeapon.Duration;
+                    Proj.Thrust = LeftWeapon.IsThrust;
+                }
+            }
+            else
+            {
+                //Creat projectile
+                GameObject NewProj = Instantiate(LeftWeapon.Projectile);
+                NewProj.transform.position = Left.position;
+                //Change state according to the weapon
+                Projectile Proj = NewProj.GetComponent<Projectile>();
+                Proj.IsReady = true;
+                Proj.Speed = LeftWeapon.ProjectileSpeed;
+                Proj.Duration = LeftWeapon.Duration;
+                Proj.Thrust = LeftWeapon.IsThrust;
+            }
             //Deal with reload
             LeftAmmo--;
             CanLeftShoot = false;
@@ -183,14 +211,41 @@ public class Shoot : MonoBehaviour {
     {
         if (IsRightShooting && CanRightShoot)
         {
-            //Creat projectile
-            GameObject NewProj = Instantiate(Projectile);
-            NewProj.transform.position = Right.position;
-            //Change state according to the weapon
-            Projectile Proj = NewProj.GetComponent<Projectile>();
-            Proj.IsReady = true;
-            Proj.Speed = RightWeapon.Speed;
-            Proj.Duration = RightWeapon.Duration;
+
+            //create the projectile if it can shoot multi-bullets
+            if (RightWeapon.IsMultiBullets)
+            {
+                //create as many shot with the specific angle
+                foreach (float Angle in RightWeapon.BulletAngleList)
+                {
+                    //create the projectile
+                    GameObject MultiNewProj = Instantiate(RightWeapon.Projectile);
+                    MultiNewProj.transform.position = Right.position;
+
+                    //calculate the new angle for every shot
+                    Quaternion Temp = Right.rotation;
+                    Temp.z += Angle;
+                    MultiNewProj.transform.rotation = Temp;
+                    //give state
+                    Projectile Proj = MultiNewProj.GetComponent<Projectile>();
+                    Proj.IsReady = true;
+                    Proj.Speed = RightWeapon.ProjectileSpeed;
+                    Proj.Duration = RightWeapon.Duration;
+                    Proj.Thrust = RightWeapon.IsThrust;
+                }
+            }
+            else
+            {
+                //Creat projectile
+                GameObject NewProj = Instantiate(RightWeapon.Projectile);
+                NewProj.transform.position = Right.position;
+                //Change state according to the weapon
+                Projectile Proj = NewProj.GetComponent<Projectile>();
+                Proj.IsReady = true;
+                Proj.Speed = RightWeapon.ProjectileSpeed;
+                Proj.Duration = RightWeapon.Duration;
+                Proj.Thrust = RightWeapon.IsThrust;
+            }
             //Deal with reload
             RightAmmo--;
             CanRightShoot = false;

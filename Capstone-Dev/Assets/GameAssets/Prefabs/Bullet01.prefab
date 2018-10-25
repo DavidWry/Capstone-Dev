@@ -73,6 +73,7 @@ MonoBehaviour:
   Damage: 1
   Rebounce: 0
   Speed: 1
+  Thrust: 0
   Impact: {fileID: 0}
   GameManage: {fileID: 0}
   Duration: 1
