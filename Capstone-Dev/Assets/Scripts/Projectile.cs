@@ -40,9 +40,10 @@ public class Projectile : MonoBehaviour {
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.tag == "Monster" && Thrust)
+        if (collision.tag == "Monster")
         {
-            collision.gameObject.GetComponent<Rigidbody>().AddForce(gameObject.transform.right * 100);
+            if (Thrust)
+                collision.gameObject.GetComponent<Rigidbody>().AddForce(gameObject.transform.right * 100);
             Destroy(gameObject);
         }
     }
