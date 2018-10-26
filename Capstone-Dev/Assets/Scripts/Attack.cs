@@ -26,7 +26,7 @@ public class Attack : MonoBehaviour {
         if (Mathf.Abs(Input.GetAxis("Right X")) <= 1 || Mathf.Abs(Input.GetAxis("Right Y")) <= 1)
         {
             
-            if (Mathf.Abs(Input.GetAxis("Right X")) > 0.03 || Mathf.Abs(Input.GetAxis("Right Y")) >0.03)
+            if (Mathf.Abs(Input.GetAxis("Right X")) > 0.05 || Mathf.Abs(Input.GetAxis("Right Y")) >0.05)
             {
                 float tempx;
                 if (gameObject.GetComponent<Movement>().IsFaceRight)

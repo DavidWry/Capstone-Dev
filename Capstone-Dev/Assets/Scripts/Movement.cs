@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour {
 
-    public float WalkSpeed = 1f;
+    public float WalkSpeed = 3.0f;
     public bool IsFaceRight = true;
 
     private float yRotate;
@@ -23,18 +23,18 @@ public class Movement : MonoBehaviour {
                 IsFaceRight = true; 
                 yRotate = 0;
                 transform.rotation = Quaternion.Euler(0, yRotate, 0);
-                transform.Translate(Input.GetAxis("Left X") * 0.05f * WalkSpeed, Input.GetAxis("Left Y") * 0.05f * WalkSpeed, 0);
+                transform.Translate(Input.GetAxis("Left X") * Time.deltaTime * WalkSpeed, Input.GetAxis("Left Y") * Time.deltaTime * WalkSpeed, 0);
             }
             else if (Input.GetAxis("Left X") < -0.03) {
                 IsFaceRight = false;
                 yRotate = 180;
                 transform.rotation = Quaternion.Euler(0, yRotate, 0);
-                transform.Translate(-Input.GetAxis("Left X") * 0.05f * WalkSpeed, Input.GetAxis("Left Y") * 0.05f * WalkSpeed, 0);
+                transform.Translate(-Input.GetAxis("Left X") * Time.deltaTime * WalkSpeed, Input.GetAxis("Left Y") * Time.deltaTime * WalkSpeed, 0);
             }
             else
             {
                 transform.rotation = Quaternion.Euler(0, yRotate, 0);
-                transform.Translate(-Input.GetAxis("Left X") * 0.05f * WalkSpeed, Input.GetAxis("Left Y") * 0.05f * WalkSpeed, 0);
+                transform.Translate(-Input.GetAxis("Left X") * Time.deltaTime * WalkSpeed, Input.GetAxis("Left Y") * Time.deltaTime * WalkSpeed, 0);
             }
         }
 
