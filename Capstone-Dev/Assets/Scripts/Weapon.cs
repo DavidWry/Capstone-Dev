@@ -37,6 +37,7 @@ namespace AssemblyCSharp
         //For Projectiles
         public float Duration = 3.0f;
         public float ProjectileSpeed = 5.0f;                    //how fast will the projectile go
-        public bool IsThrust = true;                              //Like a shot gun, true means will push enemy backward a little bit.
+        public bool IsThrust = false;                              //Like a shot gun, true means will push enemy backward a little bit.
+        public bool IsLazer = false;                              //If it's true, projectiles will be lazer.
     }
 }

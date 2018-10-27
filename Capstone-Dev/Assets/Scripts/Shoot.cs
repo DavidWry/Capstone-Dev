@@ -9,16 +9,17 @@ public class Shoot : MonoBehaviour {
     public Weapon RightWeapon;
     public GameObject Projectile;
 
+    public Lazer LeftLazer;
+    public Lazer RightLazer;
+
     private Transform Left;             //Where the hands should be
     private Transform Right;
     private Transform Center;
 
     public int LeftAmmo;                //Deal with reload
     public int RightAmmo;
-    public int CombineAmmo;
     private float LeftReloadTime;
     private float RightReloadTime;
-    private float CombineReloadTime;
 
     private bool LeftHandOn;            //Make sure there is a weapon in hand.
     private bool RightHandOn;
@@ -64,13 +65,11 @@ public class Shoot : MonoBehaviour {
         RightAmmo = RightWeapon.AmmoSize;
         LeftReloadTime = 0;
         RightReloadTime = 0;
-        CombineReloadTime = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         //Check inputs.
-        
 		if(Mathf.Round(Input.GetAxisRaw("LeftTrigger")) > 0)            //Push left trigger to shoot on left.
         {
             IsLeftShooting = true;
@@ -189,6 +188,20 @@ public class Shoot : MonoBehaviour {
                     Proj.Thrust = LeftWeapon.IsThrust;
                 }
             }
+            else if (LeftWeapon.IsLazer)
+            {
+                if (LeftLazer == null)
+                {
+                    GameObject NewLazer = Instantiate(LeftWeapon.Projectile);
+                    NewLazer.transform.position = Left.position;
+
+                    Lazer Laz = NewLazer.GetComponent<Lazer>();
+                    Laz.IsReady = true;
+                    Laz.LazeDuration = LeftWeapon.Duration;
+
+                    LeftLazer = Laz;
+                }
+            }
             else
             {
                 //Creat projectile
@@ -199,11 +212,14 @@ public class Shoot : MonoBehaviour {
                 Proj.IsReady = true;
                 Proj.Speed = LeftWeapon.ProjectileSpeed;
                 Proj.Duration = LeftWeapon.Duration;
-                Proj.Thrust = LeftWeapon.IsThrust;
             }
             //Deal with reload
             LeftAmmo--;
             CanLeftShoot = false;
+        }
+        else if (!IsLeftShooting && LeftLazer != null)
+        {
+            LeftLazer.IsReady = false;
         }
     }
 
@@ -234,6 +250,20 @@ public class Shoot : MonoBehaviour {
                     Proj.Thrust = RightWeapon.IsThrust;
                 }
             }
+            else if (RightWeapon.IsLazer)
+            {
+                if (RightLazer == null)
+                {
+                    GameObject NewLazer = Instantiate(RightWeapon.Projectile);
+                    NewLazer.transform.position = Right.position;
+
+                    Lazer Laz = NewLazer.GetComponent<Lazer>();
+                    Laz.IsReady = true;
+                    Laz.LazeDuration = RightWeapon.Duration;
+
+                    RightLazer = Laz;
+                }
+            }
             else
             {
                 //Creat projectile
@@ -249,6 +279,10 @@ public class Shoot : MonoBehaviour {
             //Deal with reload
             RightAmmo--;
             CanRightShoot = false;
+        }
+        else if (!IsRightShooting && RightLazer != null)
+        {
+            RightLazer.IsReady = false;
         }
     }
 
