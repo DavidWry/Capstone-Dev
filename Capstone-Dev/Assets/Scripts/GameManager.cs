@@ -17,7 +17,8 @@ public class GameManager : MonoBehaviour
     //public GameObject PressBObject = null;
     public List<Weapon> WeaponList;
     public List<Item> ItemsList;
-
+    public WeaponMenu leftWeaponMenu;
+    public WeaponMenu rightWeaponMenu;
     // Use this for initialization
     void Start()
     {

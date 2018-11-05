@@ -21,13 +21,16 @@ public class PickUp : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-       
-            int handToPick = 0;//1=Left; 2=Right
-        if (Input.GetKeyDown(KeyCode.Joystick1Button4)){
+        int handToPick = 0;//1=Left; 2=Right
+        if (Input.GetKeyDown(KeyCode.JoystickButton4))
+        {
             handToPick = 1;
+            
+
         }
-        else if (Input.GetKeyDown(KeyCode.Joystick1Button5)) {
+        else if (Input.GetKeyDown(KeyCode.JoystickButton5)) {
             handToPick = 2;
+           
         }
         //get the item
         if (isLootNearby && (handToPick>0) && currentLoot != null)
@@ -63,6 +66,7 @@ public class PickUp : MonoBehaviour {
                             //found the weapon, add it for the player
                             Player.leftWeapon=newWeapon;
                             //Debug.Log(newWeapon.WeaponName);
+                            RefreshWeaponUI(1);
                         }
 
                         else if (handToPick == 2)
@@ -84,6 +88,7 @@ public class PickUp : MonoBehaviour {
 
                             //found the weapon, add it for the player
                             Player.rightWeapon = newWeapon;
+                            RefreshWeaponUI(2);
                         }
 
 
@@ -93,7 +98,7 @@ public class PickUp : MonoBehaviour {
 
             //destroy loot
            GameObject.Destroy(currentLoot.gameObject);
-           // RefreshWeaponUI();
+           // 
             
 
             //clear loot
@@ -105,18 +110,7 @@ public class PickUp : MonoBehaviour {
 
     public void RefreshLoot(Loot loot)
     {
-        /*
-        Item tempItem = new Item();
-        tempItem.ItemName = ItemName.Pistol;
-        tempItem.Name = "Pistol";
-        tempItem.GiveWeapon = true;
-        //tempItem.ItemIcon = vOld.ItemIcon;
-        tempItem.WeaponName = WeaponName.Pistol;
-        tempItem.Usable = true;
-        tempItem.AmmoType = WeaponValueType.High;
-        tempItem.DamageType = WeaponValueType.Low;
-        tempItem.GiveWeapon = true;
-        */
+        
         //show the loot items on ground
         if (loot != null)
         {
@@ -140,35 +134,27 @@ public class PickUp : MonoBehaviour {
             
         }
     }
-    /*
+    
     //refresh all the weapon on top
-    void RefreshWeaponUI()
+    //1=left;2=right
+    void RefreshWeaponUI(int leftOrRight)
     {
         //clear everything
-        foreach (Tds_WeaponMenu vCurMenu in vGameManager.vWeaponMenuList)
-            UpdateWeaponMenu(vCurMenu, null);
+        gameManager.leftWeaponMenu.UpdateWeaponMenu(null);
+        gameManager.rightWeaponMenu.UpdateWeaponMenu(null);
 
-        int vcpt = 0;
-        foreach (Tds_Weapons vCurWeapon in ListWeapons)
+        if (leftOrRight == 1)
         {
-
-            //get the right menu 
-            Tds_WeaponMenu vCurMenu = vGameManager.vWeaponMenuList[vcpt];
-
-            //check if we are on the selected weapon
-            if (vcpt == vCurWeapIndex)
-                vCurMenu.WepPanel.color = Color.yellow;
-            else
-                vCurMenu.WepPanel.color = Color.white;
-
-            //update the menu
-            UpdateWeaponMenu(vCurMenu, vCurWeapon);
-
-            //increase counter
-            vcpt++;
+            gameManager.leftWeaponMenu.UpdateWeaponMenu(Player.leftWeapon);
+        }
+        else if (leftOrRight == 2)
+        {
+            gameManager.leftWeaponMenu.UpdateWeaponMenu(Player.rightWeapon);
         }
     }
-    */
+
+    
+
 
     //make a TRUE copy of this weapon to be used
     public Weapon CopyWeapon(Weapon oldWeapon)
