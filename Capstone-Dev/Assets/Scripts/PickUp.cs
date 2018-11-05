@@ -140,8 +140,8 @@ public class PickUp : MonoBehaviour {
     void RefreshWeaponUI(int leftOrRight)
     {
         //clear everything
-        gameManager.leftWeaponMenu.UpdateWeaponMenu(null);
-        gameManager.rightWeaponMenu.UpdateWeaponMenu(null);
+        //gameManager.leftWeaponMenu.UpdateWeaponMenu(null);
+        //gameManager.rightWeaponMenu.UpdateWeaponMenu(null);
 
         if (leftOrRight == 1)
         {
@@ -149,7 +149,7 @@ public class PickUp : MonoBehaviour {
         }
         else if (leftOrRight == 2)
         {
-            gameManager.leftWeaponMenu.UpdateWeaponMenu(Player.rightWeapon);
+            gameManager.rightWeaponMenu.UpdateWeaponMenu(Player.rightWeapon);
         }
     }
 
