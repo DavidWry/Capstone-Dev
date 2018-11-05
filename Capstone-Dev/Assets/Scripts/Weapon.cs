@@ -21,7 +21,7 @@ namespace AssemblyCSharp
         public GameObject WeaponObj = null;                    //Has the weapon + bullets position 
         public GameObject AimObj = null;                       //where the projectile come from
         public GameObject Projectile = null;                   //Projectile used in this weapon
-        public bool IsMultiBullets = false;
+        public bool IsMultiBullets = false;//
         public List<float> BulletAngleList;                    //create as many bullet in the list with the specific angle (shotgun)
         public float TimeBetweenShot = 0.5f;
         public float TimeWaited = 0f;
@@ -33,7 +33,7 @@ namespace AssemblyCSharp
         public int CurrentAmmos = 0;
         public GameObject ClipObj = null;                      //leave a clip on the ground when reloading
         public string AttackAnimationUsed = "";                 //each weapon can have their own shooting animation on the character. Put them here 
-        public float ReloadTime = 3.0f;                         //Each weapon has its own reload time.
+        public float ReloadTime = 3.0f;  //                       //Each weapon has its own reload time.
         //For Projectiles
         public float Duration = 3.0f;
         public float ProjectileSpeed = 5.0f;                    //how fast will the projectile go

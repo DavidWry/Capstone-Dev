@@ -20,6 +20,7 @@ namespace AssemblyCSharp
         public WeaponValueType DamageType = WeaponValueType.Low;
         public WeaponValueType AmmoType = WeaponValueType.Low;
         public WeaponName WeaponName = WeaponName.Pistol;
+        public GameObject itemObj;
 
         //make a TRUE copy of this weapon to be used
         public Item CopyItem(Item oldItem)
@@ -35,6 +36,7 @@ namespace AssemblyCSharp
             newItem.Usable = oldItem.Usable;
             newItem.AmmoType = oldItem.AmmoType;
             newItem.DamageType = oldItem.DamageType;
+            newItem.itemObj = oldItem.itemObj;
 
             //return new tds_weapons
             return newItem;

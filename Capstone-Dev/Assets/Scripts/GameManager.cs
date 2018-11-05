@@ -16,10 +16,56 @@ public class GameManager : MonoBehaviour
 
     //public GameObject PressBObject = null;
     public List<Weapon> WeaponList;
-    public GameObject ItemLootedAnim = null;
     public List<Item> ItemsList;
 
+    // Use this for initialization
+    void Start()
+    {
+        InitialiseGame();
+    }
 
+    // Update is called once per frame
+    void Update()
+    {
+        //reload this scene when the player is dead
+        //if (PlayerIsDead && Input.GetMouseButton(0))
+          //  SceneManager.LoadScene(0);
+    }
+
+    void InitialiseGame()
+    {
+        //every character need a spriterenderer by default
+        //vSpriteMat = GetComponent<SpriteRenderer>().material;
+        //get back the default material
+        //vBlinkMat = (Material)Resources.Load("Components/DroidSansMono", typeof(Material));     //get this material which make the sprite white
+
+        //disable the gameover obj when the game start.
+        //if (vGameOverObj != null)
+         //   vGameOverObj.SetActive(false);
+
+        //disable the vPressSpaceObj obj when the game start.
+        //if (vPressSpaceObj != null)
+         //   vPressSpaceObj.SetActive(false);
+
+        //vAudioSource = GetComponent<AudioSource>();
+      /*
+        //initialise every character
+        foreach (Tds_Character vChar in Resources.FindObjectsOfTypeAll<Tds_Character>())
+            if (vChar.IsCharacter)
+            {
+
+                //get the main player
+                if (vChar.IsPlayer)
+                    vMainPlayer = vChar;
+
+                //initialise the character
+                vChar.InitialiseChar(this);
+            }
+
+        //game is ready
+        IsReady = true;
+        */
+    }
 
     public Item GetItem(ItemName itemName)
     {
@@ -31,6 +77,21 @@ public class GameManager : MonoBehaviour
             //Debug.Log(itemName);
             if (currentItem.ItemName == itemName)
                 itemFound=itemFound.CopyItem(currentItem);
+        }
+
+        return itemFound;
+    }
+
+    public GameObject GetItemObj(string itemName)
+    {
+        // Debug.Log("a");
+        GameObject itemFound = new GameObject();
+
+        foreach (Item currentItem in ItemsList)
+        {
+            //Debug.Log(itemName);
+            if (currentItem.ItemName.ToString() == itemName)
+                itemFound = currentItem.itemObj;
         }
 
         return itemFound;
@@ -82,57 +143,9 @@ public class GameManager : MonoBehaviour
     public Image vHpImage;
     public Text vPlayerText;
 
-    // Use this for initialization
-    void Start()
-    {
-        InitialiseGame();
-    }
+   
 
-    // Update is called once per frame
-    void Update()
-    {
-        //reload this scene when the player is dead
-        if (PlayerIsDead && Input.GetMouseButton(0))
-            SceneManager.LoadScene(0);
-    }
-
-    void InitialiseGame()
-    {
-        //every character need a spriterenderer by default
-        vSpriteMat = GetComponent<SpriteRenderer>().material;
-        //get back the default material
-        vBlinkMat = (Material)Resources.Load("Components/DroidSansMono", typeof(Material));     //get this material which make the sprite white
-
-        //disable the gameover obj when the game start.
-        if (vGameOverObj != null)
-            vGameOverObj.SetActive(false);
-
-        //disable the vPressSpaceObj obj when the game start.
-        if (vPressSpaceObj != null)
-            vPressSpaceObj.SetActive(false);
-
-        vAudioSource = GetComponent<AudioSource>();
-
-        //we hide the Mouse Icon completely
-        if (AimObj != null)
-            Cursor.visible = false;
-
-        //initialise every character
-        foreach (Tds_Character vChar in Resources.FindObjectsOfTypeAll<Tds_Character>())
-            if (vChar.IsCharacter)
-            {
-
-                //get the main player
-                if (vChar.IsPlayer)
-                    vMainPlayer = vChar;
-
-                //initialise the character
-                vChar.InitialiseChar(this);
-            }
-
-        //game is ready
-        IsReady = true;
-    }
+   
 
     public void SwitchScene(string vNewScene)
     {

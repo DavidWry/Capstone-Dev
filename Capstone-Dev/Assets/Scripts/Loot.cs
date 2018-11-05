@@ -23,6 +23,21 @@ public class Loot : MonoBehaviour
     void Start()
     {
         showItem = false;
+        //show or hide info about weapons
+        damageLabel = transform.Find("DmgLabel");
+        damageValue = transform.Find("DmgValue");
+        ammoLabel = transform.Find("AmmoLabel");
+        ammoValue = transform.Find("AmmoValue");
+        panel = transform.Find("Panel");
+        nameValue = transform.Find("Name");
+        //disable everything by default
+        damageLabel.gameObject.SetActive(false);
+        damageValue.gameObject.SetActive(false);
+        ammoLabel.gameObject.SetActive(false);
+        ammoValue.gameObject.SetActive(false);
+        panel.gameObject.SetActive(false);
+        nameValue.gameObject.SetActive(false);
+
     }
 
     public Sprite GetAssociateValue(WeaponValueType type)

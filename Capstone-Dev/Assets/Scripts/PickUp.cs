@@ -20,27 +20,40 @@ public class PickUp : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
-        //get the item
-        if (isLootNearby && Input.GetKeyDown(KeyCode.Joystick1Button1) && currentLoot != null)
-        {
 
+       
+            int handToPick = 0;//1=Left; 2=Right
+        if (Input.GetKeyDown(KeyCode.Joystick1Button4)){
+            handToPick = 1;
+        }
+        else if (Input.GetKeyDown(KeyCode.Joystick1Button5)) {
+            handToPick = 2;
+        }
+        //get the item
+        if (isLootNearby && (handToPick>0) && currentLoot != null)
+        {
             //check if we already have the weapon and show it
-            bool HasAlreadyWeapon = false;
+            //bool HasAlreadyWeapon = false;
 
             //check if looting give a weapon
             if (currentLoot.Item.GiveWeapon)
             {
+                
                 //give the right weapon 
                 foreach (Weapon weaponInManager in gameManager.WeaponList)
                     if (currentLoot.Item.WeaponName.ToString() == weaponInManager.WeaponName.ToString())
                     {
-                        foreach (Weapon weaponInPlayer in Player.WeaponList)
-                            if (weaponInPlayer.WeaponName == weaponInManager.WeaponName)
-                                HasAlreadyWeapon = true;
-
-                        if (!HasAlreadyWeapon)
+                        if (handToPick == 1)
                         {
+                            if (Player.leftWeapon.Name != "")
+                            {
+                                string tempName = Player.leftWeapon.WeaponName.ToString();
+                                GameObject itemObj = gameManager.GetItemObj(tempName);
+                                itemObj=Instantiate(itemObj, transform.position, Quaternion.Euler(0, 0, 0));
+                                var worldCanvas = GameObject.Find("worldCanvas").transform;
+                                itemObj.transform.parent = worldCanvas;
+
+                            }
                             //get a copy of this weapon 
                             Weapon newWeapon = CopyWeapon(weaponInManager);
 
@@ -48,58 +61,40 @@ public class PickUp : MonoBehaviour {
                             newWeapon.CurrentAmmos = newWeapon.AmmoSize;
 
                             //found the weapon, add it for the player
-                            Player.WeaponList.Add(newWeapon);
+                            Player.leftWeapon=newWeapon;
+                            //Debug.Log(newWeapon.WeaponName);
                         }
+
+                        else if (handToPick == 2)
+                        {
+                            if (Player.rightWeapon.Name != "")
+                            {
+                                string tempName = Player.rightWeapon.WeaponName.ToString();
+                                GameObject itemObj = gameManager.GetItemObj(tempName);
+                                itemObj = Instantiate(itemObj, transform.position, Quaternion.Euler(0, 0, 0));
+                                var worldCanvas = GameObject.Find("worldCanvas").transform;
+                                itemObj.transform.parent = worldCanvas;
+
+                            }
+                            //get a copy of this weapon 
+                            Weapon newWeapon = CopyWeapon(weaponInManager);
+
+                            //new weapon is already recharge
+                            newWeapon.CurrentAmmos = newWeapon.AmmoSize;
+
+                            //found the weapon, add it for the player
+                            Player.rightWeapon = newWeapon;
+                        }
+
+
+                        handToPick = 0;
                     }
             }
 
-            if (gameManager.ItemLootedAnim != null)
-            {
-                //show the itemlooted going up
-                GameObject newObj = gameManager.ItemLootedAnim;
-
-                //enable it for the very first use
-                newObj.SetActive(true);
-
-                Text label = newObj.transform.Find("Label").GetComponent<Text>();
-
-                //show different message
-                if (HasAlreadyWeapon)
-                {
-                    label.text = "Already have :";
-                    label.color = Color.red;
-                }
-                else
-                {
-                    label.color = Color.white;
-                    label.text = "Received :"; //change info on it
-                }
-
-                //change info on it
-                Text text = newObj.transform.Find("ItemName").GetComponent<Text>();
-
-                //show the right item name
-                text.text = currentLoot.Item.Name;
-
-                //default color
-                text.color = Color.green;
-                if (currentLoot.Item.DamageType == WeaponValueType.Average)
-                    text.color = Color.yellow;
-                else if (currentLoot.Item.DamageType == WeaponValueType.High)
-                    text.color = Color.red;
-                else if (currentLoot.Item.DamageType == WeaponValueType.GODLY)
-                    text.color = new Color(255f, 0f, 195f, 0f);
-
-                //reshow the whole animation
-                newObj.GetComponent<Animator>().SetTrigger("Show");
-            }
-
             //destroy loot
-            if (!HasAlreadyWeapon)
-            {
-                GameObject.Destroy(currentLoot.gameObject);
-               // RefreshWeaponUI();
-            }
+           GameObject.Destroy(currentLoot.gameObject);
+           // RefreshWeaponUI();
+            
 
             //clear loot
             currentLoot = null;
@@ -180,26 +175,31 @@ public class PickUp : MonoBehaviour {
     {
         //copy everything for the weapon
         Weapon newWeapon = new Weapon();
-        newWeapon.Rebounce = oldWeapon.Rebounce;
-        newWeapon.AmmoSize = oldWeapon.AmmoSize;
-        newWeapon.Damage = oldWeapon.Damage;
         newWeapon.Name = oldWeapon.Name;
-        newWeapon.Projectile = oldWeapon.Projectile;
+        newWeapon.WeaponName = oldWeapon.WeaponName;
+        newWeapon.WeaponType = oldWeapon.WeaponType;
         newWeapon.WeaponIcon = oldWeapon.WeaponIcon;
         newWeapon.WeaponObj = oldWeapon.WeaponObj;
         newWeapon.AimObj = oldWeapon.AimObj;
-        newWeapon.ImpactFX = oldWeapon.ImpactFX;
-        newWeapon.ProjectileSpeed = oldWeapon.ProjectileSpeed;
-        newWeapon.ShotFX = oldWeapon.ShotFX;
-        newWeapon.ClipObj = oldWeapon.ClipObj;
-        newWeapon.TimeBetweenShot = oldWeapon.TimeBetweenShot;
-        newWeapon.AttackAnimationUsed = oldWeapon.AttackAnimationUsed;
-        newWeapon.WeaponType = oldWeapon.WeaponType;
-        newWeapon.TimeWaited = oldWeapon.TimeWaited;
-        newWeapon.CurrentAmmos = oldWeapon.CurrentAmmos;
+        newWeapon.Projectile = oldWeapon.Projectile;
+        newWeapon.IsMultiBullets = oldWeapon.IsMultiBullets;
         newWeapon.BulletAngleList = oldWeapon.BulletAngleList;
+        newWeapon.TimeBetweenShot = oldWeapon.TimeBetweenShot;
+        newWeapon.TimeWaited = oldWeapon.TimeWaited;
+        newWeapon.ImpactFX = oldWeapon.ImpactFX;
+        newWeapon.ShotFX = oldWeapon.ShotFX;
+        newWeapon.Damage = oldWeapon.Damage;
+        newWeapon.Rebounce = oldWeapon.Rebounce;
+        newWeapon.AmmoSize = oldWeapon.AmmoSize;
+        newWeapon.CurrentAmmos = oldWeapon.CurrentAmmos;
+        newWeapon.ClipObj = oldWeapon.ClipObj;
+        newWeapon.AttackAnimationUsed = oldWeapon.AttackAnimationUsed;
+        newWeapon.ReloadTime = oldWeapon.ReloadTime;
+        newWeapon.Duration = oldWeapon.Duration;
+        newWeapon.ProjectileSpeed = oldWeapon.ProjectileSpeed;
+        newWeapon.IsThrust = oldWeapon.IsThrust;
+        newWeapon.IsLazer = oldWeapon.IsLazer;
 
-        //return new tds_weapons
         return newWeapon;
     }
 

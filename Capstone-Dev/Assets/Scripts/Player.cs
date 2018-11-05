@@ -7,9 +7,8 @@ namespace AssemblyCSharp
 {
     public class Player : MonoBehaviour
     {
-
-        public List<Weapon> WeaponList;
-
+        public Weapon leftWeapon;
+        public Weapon rightWeapon;
         // Use this for initialization
         void Start()
         {
