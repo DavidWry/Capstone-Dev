@@ -1,0 +1,157 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1581299719415248}
+  m_IsPrefabAsset: 1
+--- !u!1 &1581299719415248
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4390172704827272}
+  - component: {fileID: 114798871894109676}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4390172704827272
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1581299719415248}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.8978922, y: 0.93670607, z: -3.7146473}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114798871894109676
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1581299719415248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52647de3950f18e4590e879a24704caa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LowIcon: {fileID: 21300000, guid: 475e9306c6b5dd74eb6db2412f473721, type: 3}
+  MediumIcon: {fileID: 21300000, guid: f4250959215e59b419c4daab7858ec20, type: 3}
+  HighIcon: {fileID: 21300000, guid: 3e6b48183fe73164f88c9f08080f8d45, type: 3}
+  GodlyIcon: {fileID: 21300000, guid: bacef501f8d76594883bb892cd2064a3, type: 3}
+  WeaponList:
+  - Name: Pistol
+    WeaponName: 0
+    WeaponType: 1
+    WeaponIcon: {fileID: 21300000, guid: 379676913003f4b4fb67ca9e26fbeb97, type: 3}
+    WeaponObj: {fileID: 1031040304690994, guid: 06723e9a6ee9b7044b2613638ac2d4f8,
+      type: 2}
+    AimObj: {fileID: 1266085690551780, guid: 06723e9a6ee9b7044b2613638ac2d4f8, type: 2}
+    Projectile: {fileID: 1804453490864518, guid: e3bf4c8880e0b3549a05ad8c1d6f97c7,
+      type: 2}
+    IsMultiBullets: 0
+    BulletAngleList:
+    - 0
+    TimeBetweenShot: 0.1
+    TimeWaited: 0
+    ImpactFX: {fileID: 1882777859570806, guid: 26b9baa734847f140803e4e033a9212a, type: 2}
+    ShotFX: {fileID: 1000013086863710, guid: bfa2421e2a82beb4a9c7d7cdc2577f76, type: 2}
+    Damage: 1
+    Rebounce: 0
+    AmmoSize: 60
+    CurrentAmmos: 0
+    ClipObj: {fileID: 1766454748759930, guid: e74b0e6acc86e7542b2a19038b4464a6, type: 2}
+    AttackAnimationUsed: 
+    ReloadTime: 1
+    Duration: 1
+    ProjectileSpeed: 26
+    IsThrust: 0
+    IsLazer: 0
+  ItemsList:
+  - Name: Pistol
+    ItemName: 1
+    ItemIcon: {fileID: 21300000, guid: 379676913003f4b4fb67ca9e26fbeb97, type: 3}
+    GiveWeapon: 1
+    Usable: 1
+    DamageType: 0
+    AmmoType: 1
+    WeaponName: 0
+    itemObj: {fileID: 1652595029889896, guid: b8560118709f20d47a3cf1bc5356d6b3, type: 2}
+  leftWeaponMenu:
+    Weapons:
+      Name: 
+      WeaponName: 0
+      WeaponType: 1
+      WeaponIcon: {fileID: 0}
+      WeaponObj: {fileID: 0}
+      AimObj: {fileID: 0}
+      Projectile: {fileID: 0}
+      IsMultiBullets: 0
+      BulletAngleList: []
+      TimeBetweenShot: 0.5
+      TimeWaited: 0
+      ImpactFX: {fileID: 0}
+      ShotFX: {fileID: 0}
+      Damage: 1
+      Rebounce: 0
+      AmmoSize: 5
+      CurrentAmmos: 0
+      ClipObj: {fileID: 0}
+      AttackAnimationUsed: 
+      ReloadTime: 3
+      Duration: 3
+      ProjectileSpeed: 5
+      IsThrust: 0
+      IsLazer: 0
+    WepPanel: {fileID: 0}
+    WeaponSprite: {fileID: 0}
+    AmmoBar: {fileID: 0}
+    AmmoValue: {fileID: 0}
+    ReloadImg: {fileID: 0}
+  rightWeaponMenu:
+    Weapons:
+      Name: 
+      WeaponName: 0
+      WeaponType: 1
+      WeaponIcon: {fileID: 0}
+      WeaponObj: {fileID: 0}
+      AimObj: {fileID: 0}
+      Projectile: {fileID: 0}
+      IsMultiBullets: 0
+      BulletAngleList: []
+      TimeBetweenShot: 0.5
+      TimeWaited: 0
+      ImpactFX: {fileID: 0}
+      ShotFX: {fileID: 0}
+      Damage: 1
+      Rebounce: 0
+      AmmoSize: 5
+      CurrentAmmos: 0
+      ClipObj: {fileID: 0}
+      AttackAnimationUsed: 
+      ReloadTime: 3
+      Duration: 3
+      ProjectileSpeed: 5
+      IsThrust: 0
+      IsLazer: 0
+    WepPanel: {fileID: 0}
+    WeaponSprite: {fileID: 0}
+    AmmoBar: {fileID: 0}
+    AmmoValue: {fileID: 0}
+    ReloadImg: {fileID: 0}

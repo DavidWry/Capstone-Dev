@@ -5,9 +5,11 @@ using AssemblyCSharp;
 
 public class Shoot : MonoBehaviour {
 
-    public Weapon LeftWeapon;
-    public Weapon RightWeapon;
-    public GameObject Projectile;
+    private Player Player;
+
+    //public Weapon LeftWeapon;
+    //public Weapon RightWeapon;
+    //public GameObject Projectile;
 
     public Lazer LeftLazer;
     public Lazer RightLazer;
@@ -16,8 +18,8 @@ public class Shoot : MonoBehaviour {
     private Transform Right;
     private Transform Center;
 
-    public int LeftAmmo;                //Deal with reload
-    public int RightAmmo;
+   // public int LeftAmmo;                //Deal with reload
+    //public int RightAmmo;
     private float LeftReloadTime;
     private float RightReloadTime;
 
@@ -45,6 +47,9 @@ public class Shoot : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+        Player = gameObject.GetComponent<Player>();
+
         IsLeftShooting = false;
         IsRightShooting = false;
         IsCombineShooting = false;
@@ -57,12 +62,12 @@ public class Shoot : MonoBehaviour {
         RightWaitedTime = 0f;
         CombinedTime = 0f;
 
-        Left = transform.Find("Left");
-        Right = transform.Find("Right");
+        Left = transform.Find("LeftHand");
+        Right = transform.Find("RightHand");
         Center = transform.Find("Center");
 
-        LeftAmmo = LeftWeapon.AmmoSize;
-        RightAmmo = RightWeapon.AmmoSize;
+       // LeftAmmo = LeftWeapon.AmmoSize;
+        //RightAmmo = RightWeapon.AmmoSize;
         LeftReloadTime = 0;
         RightReloadTime = 0;
 	}
@@ -118,12 +123,12 @@ public class Shoot : MonoBehaviour {
 
         //Deal with the cool down time and Reload.
 
-        if (LeftAmmo > 0)
+        if (Player.leftWeapon.CurrentAmmos > 0)
         {
             if (!CanLeftShoot)
             {
                 LeftWaitedTime += Time.deltaTime;
-                if (LeftWaitedTime >= LeftWeapon.TimeBetweenShot)
+                if (LeftWaitedTime >= Player.leftWeapon.TimeBetweenShot)
                 {
                     CanLeftShoot = true;
                     LeftWaitedTime = 0f;
@@ -133,19 +138,19 @@ public class Shoot : MonoBehaviour {
         else
         {
             LeftReloadTime += Time.deltaTime;
-            if (LeftReloadTime >= LeftWeapon.ReloadTime)
+            if (LeftReloadTime >= Player.leftWeapon.ReloadTime)
             {
-                LeftAmmo = LeftWeapon.AmmoSize;
+                Player.leftWeapon.CurrentAmmos = Player.leftWeapon.AmmoSize;
                 LeftReloadTime = 0;
             }
         }
 
-        if (RightAmmo > 0)
+        if (Player.rightWeapon.CurrentAmmos > 0)
         {
             if (!CanRightShoot)
             {
                 RightWaitedTime += Time.deltaTime;
-                if (RightWaitedTime >= RightWeapon.TimeBetweenShot)
+                if (RightWaitedTime >= Player.rightWeapon.TimeBetweenShot)
                 {
                     CanRightShoot = true;
                     RightWaitedTime = 0f;
@@ -155,9 +160,9 @@ public class Shoot : MonoBehaviour {
         else
         {
             RightReloadTime += Time.deltaTime;
-            if (RightReloadTime >= RightWeapon.ReloadTime)
+            if (RightReloadTime >= Player.rightWeapon.ReloadTime)
             {
-                RightAmmo = RightWeapon.AmmoSize;
+                Player.rightWeapon.CurrentAmmos = Player.rightWeapon.AmmoSize;
                 RightReloadTime = 0;
             }
         }
@@ -167,13 +172,13 @@ public class Shoot : MonoBehaviour {
     {
         if (IsLeftShooting && CanLeftShoot)
         {
-            if (LeftWeapon.IsMultiBullets)
+            if (Player.leftWeapon.IsMultiBullets)
             {
                 //create as many shot with the specific angle
-                foreach (float Angle in LeftWeapon.BulletAngleList)
+                foreach (float Angle in Player.leftWeapon.BulletAngleList)
                 {
                     //create the projectile
-                    GameObject MultiNewProj = Instantiate(LeftWeapon.Projectile);
+                    GameObject MultiNewProj = Instantiate(Player.leftWeapon.Projectile);
                     MultiNewProj.transform.position = Left.position;
 
                     //calculate the new angle for every shot
@@ -183,21 +188,21 @@ public class Shoot : MonoBehaviour {
                     //give state
                     Projectile Proj = MultiNewProj.GetComponent<Projectile>();
                     Proj.IsReady = true;
-                    Proj.Speed = LeftWeapon.ProjectileSpeed;
-                    Proj.Duration = LeftWeapon.Duration;
-                    Proj.Thrust = LeftWeapon.IsThrust;
+                    Proj.Speed = Player.leftWeapon.ProjectileSpeed;
+                    Proj.Duration = Player.leftWeapon.Duration;
+                    Proj.Thrust = Player.leftWeapon.IsThrust;
                 }
             }
-            else if (LeftWeapon.IsLazer)
+            else if (Player.leftWeapon.IsLazer)
             {
                 if (LeftLazer == null)
                 {
-                    GameObject NewLazer = Instantiate(LeftWeapon.Projectile);
+                    GameObject NewLazer = Instantiate(Player.leftWeapon.Projectile);
                     NewLazer.transform.position = Left.position;
 
                     Lazer Laz = NewLazer.GetComponent<Lazer>();
                     Laz.IsReady = true;
-                    Laz.LazeDuration = LeftWeapon.Duration;
+                    Laz.LazeDuration = Player.leftWeapon.Duration;
 
                     LeftLazer = Laz;
                 }
@@ -205,16 +210,16 @@ public class Shoot : MonoBehaviour {
             else
             {
                 //Creat projectile
-                GameObject NewProj = Instantiate(LeftWeapon.Projectile);
+                GameObject NewProj = Instantiate(Player.leftWeapon.Projectile);
                 NewProj.transform.position = Left.position;
                 //Change state according to the weapon
                 Projectile Proj = NewProj.GetComponent<Projectile>();
                 Proj.IsReady = true;
-                Proj.Speed = LeftWeapon.ProjectileSpeed;
-                Proj.Duration = LeftWeapon.Duration;
+                Proj.Speed = Player.leftWeapon.ProjectileSpeed;
+                Proj.Duration = Player.leftWeapon.Duration;
             }
             //Deal with reload
-            LeftAmmo--;
+            Player.leftWeapon.CurrentAmmos--;
             CanLeftShoot = false;
         }
         else if (!IsLeftShooting && LeftLazer != null)
@@ -229,13 +234,13 @@ public class Shoot : MonoBehaviour {
         {
 
             //create the projectile if it can shoot multi-bullets
-            if (RightWeapon.IsMultiBullets)
+            if (Player.rightWeapon.IsMultiBullets)
             {
                 //create as many shot with the specific angle
-                foreach (float Angle in RightWeapon.BulletAngleList)
+                foreach (float Angle in Player.rightWeapon.BulletAngleList)
                 {
                     //create the projectile
-                    GameObject MultiNewProj = Instantiate(RightWeapon.Projectile);
+                    GameObject MultiNewProj = Instantiate(Player.rightWeapon.Projectile);
                     MultiNewProj.transform.position = Right.position;
 
                     //calculate the new angle for every shot
@@ -245,21 +250,21 @@ public class Shoot : MonoBehaviour {
                     //give state
                     Projectile Proj = MultiNewProj.GetComponent<Projectile>();
                     Proj.IsReady = true;
-                    Proj.Speed = RightWeapon.ProjectileSpeed;
-                    Proj.Duration = RightWeapon.Duration;
-                    Proj.Thrust = RightWeapon.IsThrust;
+                    Proj.Speed = Player.rightWeapon.ProjectileSpeed;
+                    Proj.Duration = Player.rightWeapon.Duration;
+                    Proj.Thrust = Player.rightWeapon.IsThrust;
                 }
             }
-            else if (RightWeapon.IsLazer)
+            else if (Player.rightWeapon.IsLazer)
             {
                 if (RightLazer == null)
                 {
-                    GameObject NewLazer = Instantiate(RightWeapon.Projectile);
+                    GameObject NewLazer = Instantiate(Player.rightWeapon.Projectile);
                     NewLazer.transform.position = Right.position;
 
                     Lazer Laz = NewLazer.GetComponent<Lazer>();
                     Laz.IsReady = true;
-                    Laz.LazeDuration = RightWeapon.Duration;
+                    Laz.LazeDuration = Player.rightWeapon.Duration;
 
                     RightLazer = Laz;
                 }
@@ -267,17 +272,17 @@ public class Shoot : MonoBehaviour {
             else
             {
                 //Creat projectile
-                GameObject NewProj = Instantiate(RightWeapon.Projectile);
+                GameObject NewProj = Instantiate(Player.rightWeapon.Projectile);
                 NewProj.transform.position = Right.position;
                 //Change state according to the weapon
                 Projectile Proj = NewProj.GetComponent<Projectile>();
                 Proj.IsReady = true;
-                Proj.Speed = RightWeapon.ProjectileSpeed;
-                Proj.Duration = RightWeapon.Duration;
-                Proj.Thrust = RightWeapon.IsThrust;
+                Proj.Speed = Player.rightWeapon.ProjectileSpeed;
+                Proj.Duration = Player.rightWeapon.Duration;
+                Proj.Thrust = Player.rightWeapon.IsThrust;
             }
             //Deal with reload
-            RightAmmo--;
+            Player.rightWeapon.CurrentAmmos--;
             CanRightShoot = false;
         }
         else if (!IsRightShooting && RightLazer != null)

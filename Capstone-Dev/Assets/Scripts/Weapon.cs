@@ -5,7 +5,7 @@ using AssemblyCSharp;
 
 namespace AssemblyCSharp
 {
-    public enum WeaponName { Pistol, ZombieHand, EnergyRifle, Ak47, Shotgun, DemoGun1 };
+    public enum WeaponName { Pistol, ZombieHand, EnergyRifle, Ak47, Shotgun, DemoGun1, Lazer};
 
     public enum WeaponType { Melee, Ranged };
 

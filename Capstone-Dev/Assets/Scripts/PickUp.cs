@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PickUp : MonoBehaviour {
 
-    public Player Player;
+    private Player Player;
 
     private bool isLootNearby = false;
     private Loot currentLoot = null;
