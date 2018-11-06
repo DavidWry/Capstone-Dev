@@ -5,7 +5,7 @@ using AssemblyCSharp;
 
 namespace AssemblyCSharp
 {
-    public enum ItemName { Potion, Pistol, EnergyRifle, Ak47, Shotgun, DemoGun1 };
+    public enum ItemName { Potion, Pistol, Lazer, Ak47, Shotgun, DemoGun1 };
     public enum WeaponValueType { Low, Average, High, GODLY };
 
     [System.Serializable]

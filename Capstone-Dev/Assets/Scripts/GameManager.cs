@@ -17,12 +17,14 @@ public class GameManager : MonoBehaviour
     //public GameObject PressBObject = null;
     public List<Weapon> WeaponList;
     public List<Item> ItemsList;
+    public List<WeaponObject> WeaponObjectList;
     public WeaponMenu leftWeaponMenu;
     public WeaponMenu rightWeaponMenu;
     // Use this for initialization
     void Start()
     {
         InitialiseGame();
+        
     }
 
     // Update is called once per frame
@@ -70,7 +72,7 @@ public class GameManager : MonoBehaviour
 
     public Item GetItem(ItemName itemName)
     {
-       // Debug.Log("a");
+         Debug.Log(itemName);
         Item itemFound = new Item();
 
         foreach (Item currentItem in ItemsList)
@@ -96,6 +98,20 @@ public class GameManager : MonoBehaviour
         }
 
         return itemFound;
+    }
+    public GameObject GetWeaponObj(WeaponName weaponName)
+    {
+        // Debug.Log("a");
+        GameObject weaponFound = new GameObject();
+
+        foreach (WeaponObject currentWeaponObj in WeaponObjectList)
+        {
+            //Debug.Log(itemName);
+            if (currentWeaponObj.WeaponName == weaponName)
+                weaponFound = currentWeaponObj.weaponObj;
+        }
+
+        return weaponFound;
     }
     /* not use for now, Li will use these
     

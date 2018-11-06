@@ -41,11 +41,12 @@ public class PickUp : MonoBehaviour {
             //check if looting give a weapon
             if (currentLoot.Item.GiveWeapon)
             {
-                
+                Debug.Log(currentLoot.Item.WeaponName.ToString());
                 //give the right weapon 
                 foreach (Weapon weaponInManager in gameManager.WeaponList)
                     if (currentLoot.Item.WeaponName.ToString() == weaponInManager.WeaponName.ToString())
                     {
+                        
                         if (handToPick == 1)
                         {
                             if (Player.leftWeapon.Name != "")
@@ -67,6 +68,7 @@ public class PickUp : MonoBehaviour {
                             Player.leftWeapon=newWeapon;
                             //Debug.Log(newWeapon.WeaponName);
                             RefreshWeaponUI(1);
+                            ChangeWeapon(1, currentLoot.Item.WeaponName);
                         }
 
                         else if (handToPick == 2)
@@ -89,6 +91,7 @@ public class PickUp : MonoBehaviour {
                             //found the weapon, add it for the player
                             Player.rightWeapon = newWeapon;
                             RefreshWeaponUI(2);
+                            ChangeWeapon(2,currentLoot.Item.WeaponName);
                         }
 
 
@@ -114,8 +117,9 @@ public class PickUp : MonoBehaviour {
         //show the loot items on ground
         if (loot != null)
         {
-            Item tempItem = gameManager.GetItem(ItemName.Pistol);
-            //Debug.Log("enter loot");
+            //Debug.Log(loot.Item.ItemName);
+            Item tempItem = gameManager.GetItem(loot.Item.ItemName);
+            //Debug.Log(tempItem.ItemName);
             loot.InitialiseLoot(tempItem, gameManager);
             loot.ShowHide(true);
         }
@@ -150,6 +154,52 @@ public class PickUp : MonoBehaviour {
         else if (leftOrRight == 2)
         {
             gameManager.rightWeaponMenu.UpdateWeaponMenu(Player.rightWeapon);
+        }
+    }
+
+    //change the weapon on hand
+    //1=left;2=right
+    void ChangeWeapon(int leftOrRight, WeaponName weaponName)
+    {
+        //Find face right or left
+        Movement playerMovement = gameObject.GetComponent<Movement>();
+        bool isFaceRight = playerMovement.IsFaceRight;
+        float eulerAngel;
+        if (isFaceRight)
+            eulerAngel = 0;
+        else
+            eulerAngel = 180;
+
+        GameObject weaponObj = gameManager.GetWeaponObj(weaponName);
+        Vector3 tempPosition = new Vector3(0, 0, 0);
+        weaponObj = Instantiate(weaponObj, tempPosition, Quaternion.Euler(0, eulerAngel, 0));
+
+
+        if (leftOrRight == 1)
+        {
+            // clear objects on hand
+            Transform leftHand = Player.transform.Find("LeftHand");
+            
+            foreach (Transform child in leftHand)
+            {
+                Destroy(child.gameObject);
+            }
+            weaponObj.transform.parent = leftHand;
+            weaponObj.transform.localPosition = tempPosition;
+
+        }
+        else if (leftOrRight == 2)
+        {
+            // clear objects on hand
+            Transform rightHand = Player.transform.Find("RightHand");
+
+            foreach (Transform child in rightHand)
+            {
+                Destroy(child.gameObject);
+            }
+
+            weaponObj.transform.parent = rightHand;
+            weaponObj.transform.localPosition = tempPosition;
         }
     }
 

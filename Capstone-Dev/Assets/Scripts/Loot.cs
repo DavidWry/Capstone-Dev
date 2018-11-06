@@ -60,7 +60,7 @@ public class Loot : MonoBehaviour
         gameManager = newGameManager;
         //get the items
         Item = newItem;
-
+        
         //show or hide info about weapons
         damageLabel = transform.Find("DmgLabel");
         damageValue = transform.Find("DmgValue");
