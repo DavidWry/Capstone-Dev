@@ -16427,6 +16427,12 @@ Prefab:
       propertyPath: rightWeapon.IsLazer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114965518587375164, guid: e9462501f7e1e6a4685c579f05922992,
+        type: 2}
+      propertyPath: LeftAimIcon
+      value: 
+      objectReference: {fileID: 1011836339694946, guid: 11057a4919a604d4eac617386bcf1494,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9462501f7e1e6a4685c579f05922992, type: 2}
   m_IsPrefabAsset: 0
