@@ -13,6 +13,8 @@ public class Movement : MonoBehaviour {
     private float yRotate;
     private bool isBulletTime;
     private Player Player;
+    private Rigidbody playerBody;
+
     // Use this for initialization
     void Start () {
         
@@ -27,7 +29,7 @@ public class Movement : MonoBehaviour {
 
         isBulletTime = false;
         Player = gameObject.GetComponent<Player>();
-        
+        playerBody = gameObject.GetComponent<Rigidbody>();
     }
 	
 	// Update is called once per frame
@@ -89,9 +91,7 @@ public class Movement : MonoBehaviour {
                 }
                 newRotation.x = 0;
                 newRotation.y = 0;
-                rightHand.rotation = newRotation;
-                //rightHand.rotation = Quaternion.Slerp(rightHand.rotation, Quaternion.LookRotation(targetPosition- selfPosition), Time.deltaTime*10);
-
+                rightHand.rotation = newRotation;              
             }
 
 
@@ -122,8 +122,6 @@ public class Movement : MonoBehaviour {
                         tempx = -Input.GetAxis("Left X");
 
                     float tempy = Input.GetAxis("Left Y");
-                    //Debug.Log(tempx);
-                    //Debug.Log(tempy);
                     Vector3 tempvector = new Vector3(tempx, tempy, 0);
                     tempvector = tempvector.normalized;
                     LeftAimIcon.transform.localPosition = tempvector;
@@ -162,25 +160,6 @@ public class Movement : MonoBehaviour {
                     leftHand.localRotation = newRotation;
 
                 }
-                /*
-                Transform leftHand = Player.transform.Find("LeftHand");
-                //leftHand.LookAt(LeftAimIcon.transform);
-                Vector3 targetPosition = LeftAimIcon.transform.position;
-                Vector3 selfPosition = leftHand.position;
-                Quaternion newRotation;
-                if (targetPosition.x > 0)
-                {
-                    newRotation = Quaternion.LookRotation(targetPosition - selfPosition, Vector3.back);
-                }
-                else
-                {
-                    // Debug.Log("XXX");
-                    newRotation = Quaternion.LookRotation(selfPosition - targetPosition, Vector3.back);
-                }
-                newRotation.x = 0f;
-                newRotation.y = 0f;
-                leftHand.transform.rotation = newRotation;
-                */
             }
         }
 
@@ -203,25 +182,26 @@ public class Movement : MonoBehaviour {
                 else
                 {
                     transform.rotation = Quaternion.Euler(0, yRotate, 0);
-                    transform.Translate(-Input.GetAxis("Left X") * Time.deltaTime * WalkSpeed, Input.GetAxis("Left Y") * Time.deltaTime * WalkSpeed, 0);
+                    Vector3 rigimove = new Vector3 (Input.GetAxis("Left X") * WalkSpeed, Input.GetAxis("Left Y") * WalkSpeed, 0);
+                    playerBody.velocity = rigimove;
                 }
 
                 if (IsFaceRight)
                 {
                     yRotate = 0;
-                    transform.rotation = Quaternion.Euler(0, yRotate, 0);
-                    transform.Translate(Input.GetAxis("Left X") * Time.deltaTime * WalkSpeed, Input.GetAxis("Left Y") * Time.deltaTime * WalkSpeed, 0);
+                    Quaternion rigirotate = Quaternion.Euler(0, yRotate, 0);
+                    Vector3 rigimove = new Vector3 (Input.GetAxis("Left X") * WalkSpeed, Input.GetAxis("Left Y") * WalkSpeed, 0);
+                    playerBody.AddForce(rigimove);
+                    playerBody.MoveRotation(rigirotate);
                 }
                 else {
                     yRotate = 180;
-                    transform.rotation = Quaternion.Euler(0, yRotate, 0);
-                    transform.Translate(-Input.GetAxis("Left X") * Time.deltaTime * WalkSpeed, Input.GetAxis("Left Y") * Time.deltaTime * WalkSpeed, 0);
+                    Quaternion rigirotate = Quaternion.Euler(0, yRotate, 0);
+                    Vector3 rigimove = new Vector3(Input.GetAxis("Left X") * WalkSpeed, Input.GetAxis("Left Y") * WalkSpeed, 0);
+                    playerBody.AddForce(rigimove);
+                    playerBody.MoveRotation(rigirotate);
                 }
             }
         }
-
-       
-
-
     }
 }

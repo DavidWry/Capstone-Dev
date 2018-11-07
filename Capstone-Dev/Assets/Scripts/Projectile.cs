@@ -43,7 +43,7 @@ public class Projectile : MonoBehaviour {
         if (collision.tag == "Monster")
         {
             if (Thrust)
-                collision.gameObject.GetComponent<Rigidbody>().AddForce(gameObject.transform.right * 100);
+                collision.gameObject.GetComponent<Rigidbody>().AddForce(gameObject.transform.right * 50);
             Destroy(gameObject);
         }
     }
