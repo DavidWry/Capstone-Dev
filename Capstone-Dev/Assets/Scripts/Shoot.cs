@@ -6,7 +6,7 @@ using AssemblyCSharp;
 public class Shoot : MonoBehaviour {
 
     private Player Player;
-
+    private GameManager gameManager = null;
     //public Weapon LeftWeapon;
     //public Weapon RightWeapon;
     //public GameObject Projectile;
@@ -65,8 +65,8 @@ public class Shoot : MonoBehaviour {
         Left = transform.Find("LeftHand");
         Right = transform.Find("RightHand");
         Center = transform.Find("Center");
-
-       // LeftAmmo = LeftWeapon.AmmoSize;
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        // LeftAmmo = LeftWeapon.AmmoSize;
         //RightAmmo = RightWeapon.AmmoSize;
         LeftReloadTime = 0;
         RightReloadTime = 0;
@@ -75,7 +75,7 @@ public class Shoot : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //Check inputs.
-		if(Mathf.Round(Input.GetAxisRaw("LeftTrigger")) > 0)            //Push left trigger to shoot on left.
+		if(Mathf.Round(Input.GetAxisRaw("LeftTrigger")) > 0 && Player.leftWeapon.Name!="")            //Push left trigger to shoot on left.
         {
             IsLeftShooting = true;
         }
@@ -83,7 +83,7 @@ public class Shoot : MonoBehaviour {
         {
             IsLeftShooting = false;
         }
-        if (Mathf.Round(Input.GetAxisRaw("RightTrigger")) > 0)          //Push right trigger to shoot on right.
+        if (Mathf.Round(Input.GetAxisRaw("RightTrigger")) > 0 && Player.rightWeapon.Name != "")          //Push right trigger to shoot on right.
         {
             IsRightShooting = true;
         }
@@ -91,7 +91,8 @@ public class Shoot : MonoBehaviour {
         {
             IsRightShooting = false;
         }
-        if (Mathf.Round(Input.GetAxisRaw("RightTrigger")) > 0 && Mathf.Round(Input.GetAxisRaw("LeftTrigger")) > 0)  //Push both trigger to combine.
+        if (Mathf.Round(Input.GetAxisRaw("RightTrigger")) > 0 && Mathf.Round(Input.GetAxisRaw("LeftTrigger")) > 0 && 
+            Player.leftWeapon.Name != "" && Player.rightWeapon.Name != "")  //Push both trigger to combine.
         {
             CombinedTime += Time.deltaTime;
             if(CombinedTime > TimeBeforeCombine && CombinedTime <= TimeTopCombine)     //Make sure it's not combining if player is not keeping the angle.
@@ -220,6 +221,7 @@ public class Shoot : MonoBehaviour {
             }
             //Deal with reload
             Player.leftWeapon.CurrentAmmos--;
+            gameManager.leftWeaponMenu.UpdateWeaponMenu(Player.leftWeapon);
             CanLeftShoot = false;
         }
         else if (!IsLeftShooting && LeftLazer != null)
@@ -283,6 +285,7 @@ public class Shoot : MonoBehaviour {
             }
             //Deal with reload
             Player.rightWeapon.CurrentAmmos--;
+            gameManager.rightWeaponMenu.UpdateWeaponMenu(Player.rightWeapon);
             CanRightShoot = false;
         }
         else if (!IsRightShooting && RightLazer != null)
