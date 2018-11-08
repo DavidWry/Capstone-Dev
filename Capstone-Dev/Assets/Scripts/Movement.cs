@@ -38,7 +38,7 @@ public class Movement : MonoBehaviour {
         if (Mathf.Abs(Input.GetAxis("Right X")) <= 1 || Mathf.Abs(Input.GetAxis("Right Y")) <= 1)
         {
 
-            if (Mathf.Abs(Input.GetAxis("Right X")) > 0.05 || Mathf.Abs(Input.GetAxis("Right Y")) > 0.05)
+            if (Mathf.Abs(Input.GetAxis("Right X")) > 0.3 || Mathf.Abs(Input.GetAxis("Right Y")) > 0.3)
             {
                 //aimming can also change the direction of player
                 //if (Input.GetAxis("Right X") > 0.05 && !isBulletTime)
@@ -167,38 +167,37 @@ public class Movement : MonoBehaviour {
         else
         {
             LeftAimIcon.SetActive(false);
-            if (Mathf.Abs(Input.GetAxis("Left X")) <= 1 && Mathf.Abs(Input.GetAxis("Left Y")) <= 1)
+            if (Mathf.Abs(Input.GetAxis("Left X")) >= 0.1 || Mathf.Abs(Input.GetAxis("Left Y")) >= 0.1)
             {
-                if (Input.GetAxis("Left X") > 0.03)
+                if (Input.GetAxis("Left X") > 0.1)
                 {
                     IsFaceRight = true;
                     
                 }
-                else if (Input.GetAxis("Left X") < -0.03)
+                else if (Input.GetAxis("Left X") < 0.1)
                 {
-                    IsFaceRight = false;
-                   
+                    IsFaceRight = false;                
                 }
                 else
                 {
                     transform.rotation = Quaternion.Euler(0, yRotate, 0);
-                    Vector3 rigimove = new Vector3 (Input.GetAxis("Left X") * WalkSpeed, Input.GetAxis("Left Y") * WalkSpeed, 0);
-                    playerBody.velocity = rigimove;
+                    Vector3 rigimove = new Vector3 (Input.GetAxis("Left X") * WalkSpeed * Time.deltaTime, Input.GetAxis("Left Y") * WalkSpeed * Time.deltaTime, 0);
+                    playerBody.MovePosition(transform.position + rigimove);
                 }
 
                 if (IsFaceRight)
                 {
                     yRotate = 0;
                     Quaternion rigirotate = Quaternion.Euler(0, yRotate, 0);
-                    Vector3 rigimove = new Vector3 (Input.GetAxis("Left X") * WalkSpeed, Input.GetAxis("Left Y") * WalkSpeed, 0);
-                    playerBody.AddForce(rigimove);
+                    Vector3 rigimove = new Vector3 (Input.GetAxis("Left X") * WalkSpeed * Time.deltaTime, Input.GetAxis("Left Y") * WalkSpeed * Time.deltaTime, 0);
+                    playerBody.MovePosition(transform.position + rigimove);
                     playerBody.MoveRotation(rigirotate);
                 }
                 else {
                     yRotate = 180;
                     Quaternion rigirotate = Quaternion.Euler(0, yRotate, 0);
-                    Vector3 rigimove = new Vector3(Input.GetAxis("Left X") * WalkSpeed, Input.GetAxis("Left Y") * WalkSpeed, 0);
-                    playerBody.AddForce(rigimove);
+                    Vector3 rigimove = new Vector3(Input.GetAxis("Left X") * WalkSpeed * Time.deltaTime, Input.GetAxis("Left Y") * WalkSpeed * Time.deltaTime, 0);
+                    playerBody.MovePosition(transform.position + rigimove);
                     playerBody.MoveRotation(rigirotate);
                 }
             }

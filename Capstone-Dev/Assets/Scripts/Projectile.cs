@@ -38,12 +38,14 @@ public class Projectile : MonoBehaviour {
         }
 	}
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (collision.tag == "Monster")
+        if (collision.gameObject.tag == "Monster")
         {
             if (Thrust)
-                collision.gameObject.GetComponent<Rigidbody>().AddForce(gameObject.transform.right * 50);
+            {
+                //collision.gameObject.GetComponent<Rigidbody>().velocity *= -1;
+            }
             Destroy(gameObject);
         }
     }
