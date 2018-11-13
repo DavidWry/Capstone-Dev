@@ -6,16 +6,19 @@ using UnityEngine.UI;
 
 public class PickUp : MonoBehaviour {
 
+    public Transform LeftHand;
+    public Transform RightHand;
     private Player Player;
-
     private bool isLootNearby = false;
     private Loot currentLoot = null;
     private GameManager gameManager = null;
-    // Use this for initialization
-    void Start () {
-        //Player = transform.parent.GetComponent<Player>();
+
+    void Start ()
+    {
         Player = gameObject.GetComponent<Player>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        //LeftHand = transform.GetChild(0);
+        //RightHand = transform.GetChild(1);
     }
 	
 	// Update is called once per frame
@@ -25,15 +28,13 @@ public class PickUp : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.JoystickButton4))
         {
             handToPick = 1;
-            
-
         }
-        else if (Input.GetKeyDown(KeyCode.JoystickButton5)) {
-            handToPick = 2;
-           
+        else if (Input.GetKeyDown(KeyCode.JoystickButton5))
+        {
+            handToPick = 2;          
         }
         //get the item
-        if (isLootNearby && (handToPick>0) && currentLoot != null)
+        if (isLootNearby && (handToPick > 0) && currentLoot != null)
         {
             //check if we already have the weapon and show it
             //bool HasAlreadyWeapon = false;
@@ -53,7 +54,7 @@ public class PickUp : MonoBehaviour {
                             {
                                 string tempName = Player.leftWeapon.WeaponName.ToString();
                                 GameObject itemObj = gameManager.GetItemObj(tempName);
-                                itemObj=Instantiate(itemObj, transform.position, Quaternion.Euler(0, 0, 0));
+                                itemObj = Instantiate(itemObj, transform.position, Quaternion.Euler(0, 0, 0), LeftHand);
                                 var worldCanvas = GameObject.Find("worldCanvas").transform;
                                 itemObj.transform.parent = worldCanvas;
 
@@ -77,7 +78,7 @@ public class PickUp : MonoBehaviour {
                             {
                                 string tempName = Player.rightWeapon.WeaponName.ToString();
                                 GameObject itemObj = gameManager.GetItemObj(tempName);
-                                itemObj = Instantiate(itemObj, transform.position, Quaternion.Euler(0, 0, 0));
+                                itemObj = Instantiate(itemObj, transform.position, Quaternion.Euler(0, 0, 0), RightHand);
                                 var worldCanvas = GameObject.Find("worldCanvas").transform;
                                 itemObj.transform.parent = worldCanvas;
 
@@ -101,9 +102,6 @@ public class PickUp : MonoBehaviour {
 
             //destroy loot
            GameObject.Destroy(currentLoot.gameObject);
-           // 
-            
-
             //clear loot
             currentLoot = null;
         }
@@ -178,27 +176,25 @@ public class PickUp : MonoBehaviour {
         if (leftOrRight == 1)
         {
             // clear objects on hand
-            Transform leftHand = Player.transform.Find("LeftHand");
             
-            foreach (Transform child in leftHand)
+            foreach (Transform child in LeftHand)
             {
                 Destroy(child.gameObject);
             }
-            weaponObj.transform.parent = leftHand;
+            weaponObj.transform.parent = LeftHand;
             weaponObj.transform.localPosition = tempPosition;
 
         }
         else if (leftOrRight == 2)
         {
             // clear objects on hand
-            Transform rightHand = Player.transform.Find("RightHand");
 
-            foreach (Transform child in rightHand)
+            foreach (Transform child in RightHand)
             {
                 Destroy(child.gameObject);
             }
 
-            weaponObj.transform.parent = rightHand;
+            weaponObj.transform.parent = RightHand;
             weaponObj.transform.localPosition = tempPosition;
         }
     }
@@ -239,7 +235,7 @@ public class PickUp : MonoBehaviour {
         return newWeapon;
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerEnter(Collider col)
     {
         //Debug.Log("enter");
         // Tds_Tile vTile = col.GetComponent<Tds_Tile>();

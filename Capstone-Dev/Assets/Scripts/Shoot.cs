@@ -7,18 +7,15 @@ public class Shoot : MonoBehaviour {
 
     private Player Player;
     private GameManager gameManager = null;
-    //public Weapon LeftWeapon;
-    //public Weapon RightWeapon;
-    //public GameObject Projectile;
 
     public Lazer LeftLazer;
     public Lazer RightLazer;
 
-    private Transform Left;             //Where the hands should be
-    private Transform Right;
+    public Transform Left;             //Where the hands should be
+    public Transform Right;
     private Transform Center;
 
-   // public int LeftAmmo;                //Deal with reload
+    //public int LeftAmmo;                //Deal with reload
     //public int RightAmmo;
     private float LeftReloadTime;
     private float RightReloadTime;
@@ -62,12 +59,7 @@ public class Shoot : MonoBehaviour {
         RightWaitedTime = 0f;
         CombinedTime = 0f;
 
-        Left = transform.Find("LeftHand");
-        Right = transform.Find("RightHand");
-        Center = transform.Find("Center");
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        // LeftAmmo = LeftWeapon.AmmoSize;
-        //RightAmmo = RightWeapon.AmmoSize;
         LeftReloadTime = 0;
         RightReloadTime = 0;
 	}
@@ -198,7 +190,7 @@ public class Shoot : MonoBehaviour {
             {
                 if (LeftLazer == null)
                 {
-                    GameObject NewLazer = Instantiate(Player.leftWeapon.Projectile);
+                    GameObject NewLazer = Instantiate(Player.leftWeapon.Projectile, Left);
                     NewLazer.transform.position = Left.position;
 
                     Lazer Laz = NewLazer.GetComponent<Lazer>();
@@ -213,6 +205,7 @@ public class Shoot : MonoBehaviour {
                 //Creat projectile
                 GameObject NewProj = Instantiate(Player.leftWeapon.Projectile);
                 NewProj.transform.position = Left.position;
+                NewProj.transform.rotation = Left.rotation;
                 //Change state according to the weapon
                 Projectile Proj = NewProj.GetComponent<Projectile>();
                 Proj.IsReady = true;
@@ -261,7 +254,7 @@ public class Shoot : MonoBehaviour {
             {
                 if (RightLazer == null)
                 {
-                    GameObject NewLazer = Instantiate(Player.rightWeapon.Projectile);
+                    GameObject NewLazer = Instantiate(Player.rightWeapon.Projectile, Right);
                     NewLazer.transform.position = Right.position;
 
                     Lazer Laz = NewLazer.GetComponent<Lazer>();
@@ -276,6 +269,8 @@ public class Shoot : MonoBehaviour {
                 //Creat projectile
                 GameObject NewProj = Instantiate(Player.rightWeapon.Projectile);
                 NewProj.transform.position = Right.position;
+                Vector3 rotateProj = new Vector3(Right.eulerAngles.x, Right.eulerAngles.y, Right.eulerAngles.z);
+                NewProj.transform.eulerAngles = rotateProj;
                 //Change state according to the weapon
                 Projectile Proj = NewProj.GetComponent<Projectile>();
                 Proj.IsReady = true;

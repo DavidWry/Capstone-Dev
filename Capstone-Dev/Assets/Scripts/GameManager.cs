@@ -23,8 +23,7 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        InitialiseGame();
-        
+        InitialiseGame();      
     }
 
     // Update is called once per frame

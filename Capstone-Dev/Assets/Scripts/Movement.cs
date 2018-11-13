@@ -12,28 +12,38 @@ public class Movement : MonoBehaviour {
 
     private float yRotate;
     private bool isBulletTime;
-    private Player Player;
+    private Player player;
     private Rigidbody playerBody;
+    private int aimScale = 3;
+    private int aimDistance;
+    //private Transform Sprite;
 
     // Use this for initialization
     void Start () {
         
         RightAimIcon = Instantiate(RightAimIcon, transform);
         RightAimIcon.transform.position = transform.position;
-        RightAimIcon.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+        RightAimIcon.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f) * aimScale; 
 
         LeftAimIcon = Instantiate(LeftAimIcon, transform);
         LeftAimIcon.transform.position = transform.position;
-        LeftAimIcon.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+        LeftAimIcon.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f) * aimScale;
         LeftAimIcon.SetActive(false);
 
         isBulletTime = false;
-        Player = gameObject.GetComponent<Player>();
+        player = gameObject.GetComponent<Player>();
         playerBody = gameObject.GetComponent<Rigidbody>();
+
+        player.LeftTarget = LeftAimIcon;
+        player.RightTarget = RightAimIcon;
+
+        aimDistance = 3;
+        //Sprite = GameObject.Find("Sprite").transform;
     }
 	
 	// Update is called once per frame
 	void Update () {
+
         //set the right aim icon
         if (Mathf.Abs(Input.GetAxis("Right X")) <= 1 || Mathf.Abs(Input.GetAxis("Right Y")) <= 1)
         {
@@ -57,7 +67,7 @@ public class Movement : MonoBehaviour {
                 float tempy = Input.GetAxis("Right Y");
                 Vector3 tempvector = new Vector3(tempx, tempy, 0);
                 tempvector = tempvector.normalized;
-                RightAimIcon.transform.localPosition = tempvector;
+                RightAimIcon.transform.localPosition = tempvector * aimDistance;
 
                 
             }
@@ -68,11 +78,13 @@ public class Movement : MonoBehaviour {
 
                 //Debug.Log(tempx);
                 Vector3 tempvector = new Vector3(tempx, tempy, 0);
-                RightAimIcon.transform.localPosition = tempvector;
+                RightAimIcon.transform.localPosition = tempvector * aimDistance;
             }
             
             //rotate right hand
-            Transform rightHand = Player.transform.Find("RightHand");
+            
+            /*
+            Transform rightHand = player.RightHand;
             if (rightHand.childCount > 0)
             {
                 
@@ -86,19 +98,20 @@ public class Movement : MonoBehaviour {
                 {
                     newRotation = Quaternion.LookRotation(targetPosition - selfPosition, -Vector3.up);
                 }
-                else {
+                else
+                {
                     newRotation = Quaternion.LookRotation(targetPosition - selfPosition, Vector3.up);
                 }
                 newRotation.x = 0;
                 newRotation.y = 0;
                 rightHand.rotation = newRotation;              
-            }
-
+            }*/
+        
 
         }
 
         if (Mathf.Round(Input.GetAxisRaw("RightTrigger")) > 0 && Mathf.Round(Input.GetAxisRaw("LeftTrigger")) > 0 &&
-            Player.leftWeapon.Name != "" && Player.rightWeapon.Name != "")
+            player.leftWeapon.Name != "" && player.rightWeapon.Name != "")
         {
             isBulletTime = true;
         }
@@ -124,7 +137,7 @@ public class Movement : MonoBehaviour {
                     float tempy = Input.GetAxis("Left Y");
                     Vector3 tempvector = new Vector3(tempx, tempy, 0);
                     tempvector = tempvector.normalized;
-                    LeftAimIcon.transform.localPosition = tempvector;
+                    LeftAimIcon.transform.localPosition = tempvector * aimDistance;
                 }
                 else
                 {
@@ -133,11 +146,11 @@ public class Movement : MonoBehaviour {
 
                     //Debug.Log(tempx);
                     Vector3 tempvector = new Vector3(tempx, tempy, 0);
-                    LeftAimIcon.transform.localPosition = tempvector;
+                    LeftAimIcon.transform.localPosition = tempvector * aimDistance;
                 }
 
                 //rotate left hand
-                Transform leftHand = Player.transform.Find("LeftHand");
+                Transform leftHand = player.LeftHand;
                 if (leftHand.childCount > 0)
                 {
 
@@ -146,7 +159,8 @@ public class Movement : MonoBehaviour {
                     // Debug.Log(targetPosition.x);
                     Vector3 selfPosition = leftHand.localPosition;
                     Quaternion newRotation;
-                    if (Input.GetAxis("Left X") < 0)
+
+                    if (Input.GetAxis("Right X") < 0)
                     {
                         newRotation = Quaternion.LookRotation(targetPosition - selfPosition, -Vector3.up);
                     }
@@ -154,7 +168,7 @@ public class Movement : MonoBehaviour {
                     {
                         newRotation = Quaternion.LookRotation(targetPosition - selfPosition, Vector3.up);
                     }
-                    
+
                     newRotation.x = 0;
                     newRotation.y = 0;
                     leftHand.localRotation = newRotation;
@@ -188,17 +202,17 @@ public class Movement : MonoBehaviour {
                 if (IsFaceRight)
                 {
                     yRotate = 0;
-                    Quaternion rigirotate = Quaternion.Euler(0, yRotate, 0);
+                    Quaternion rigiRotate = Quaternion.Euler(0, yRotate, 0);
                     Vector3 rigimove = new Vector3 (Input.GetAxis("Left X") * WalkSpeed * Time.deltaTime, Input.GetAxis("Left Y") * WalkSpeed * Time.deltaTime, 0);
                     playerBody.MovePosition(transform.position + rigimove);
-                    playerBody.MoveRotation(rigirotate);
+                    transform.rotation = rigiRotate;
                 }
                 else {
                     yRotate = 180;
-                    Quaternion rigirotate = Quaternion.Euler(0, yRotate, 0);
+                    Quaternion rigiRotate = Quaternion.Euler(0, yRotate, 0);
                     Vector3 rigimove = new Vector3(Input.GetAxis("Left X") * WalkSpeed * Time.deltaTime, Input.GetAxis("Left Y") * WalkSpeed * Time.deltaTime, 0);
                     playerBody.MovePosition(transform.position + rigimove);
-                    playerBody.MoveRotation(rigirotate);
+                    transform.rotation = rigiRotate;
                 }
             }
         }
