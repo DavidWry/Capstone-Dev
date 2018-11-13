@@ -1,0 +1,3501 @@
+fileFormatVersion: 2
+guid: 081527f31d297694b9fa2aa198555e43
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: eysonly_0
+    21300002: eysonly_1
+    21300004: eysonly_2
+    21300006: eysonly_3
+    21300008: eysonly_4
+    21300010: eysonly_5
+    21300012: eysonly_6
+    21300014: eysonly_7
+    21300016: eysonly_8
+    21300018: eysonly_9
+    21300020: eysonly_10
+    21300022: eysonly_11
+    21300024: eysonly_12
+    21300026: eysonly_13
+    21300028: eysonly_14
+    21300030: eysonly_15
+    21300032: eysonly_16
+    21300034: eysonly_17
+    21300036: eysonly_18
+    21300038: eysonly_19
+    21300040: eysonly_20
+    21300042: eysonly_21
+    21300044: eysonly_22
+    21300046: eysonly_23
+    21300048: eysonly_24
+    21300050: eysonly_25
+    21300052: eysonly_26
+    21300054: eysonly_27
+    21300056: eysonly_28
+    21300058: eysonly_29
+    21300060: eysonly_30
+    21300062: eysonly_31
+    21300064: eysonly_32
+    21300066: eysonly_33
+    21300068: eysonly_34
+    21300070: eysonly_35
+    21300072: eysonly_36
+    21300074: eysonly_37
+    21300076: eysonly_38
+    21300078: eysonly_39
+    21300080: eysonly_40
+    21300082: eysonly_41
+    21300084: eysonly_42
+    21300086: eysonly_43
+    21300088: eysonly_44
+    21300090: eysonly_45
+    21300092: eysonly_46
+    21300094: eysonly_47
+    21300096: eysonly_48
+    21300098: eysonly_49
+    21300100: eysonly_50
+    21300102: eysonly_51
+    21300104: eysonly_52
+    21300106: eysonly_53
+    21300108: eysonly_54
+    21300110: eysonly_55
+    21300112: eysonly_56
+    21300114: eysonly_57
+    21300116: eysonly_58
+    21300118: eysonly_59
+    21300120: eysonly_60
+    21300122: eysonly_61
+    21300124: eysonly_62
+    21300126: eysonly_63
+    21300128: eysonly_64
+    21300130: eysonly_65
+    21300132: eysonly_66
+    21300134: eysonly_67
+    21300136: eysonly_68
+    21300138: eysonly_69
+    21300140: eysonly_70
+    21300142: eysonly_71
+    21300144: eysonly_72
+    21300146: eysonly_73
+    21300148: eysonly_74
+    21300150: eysonly_75
+    21300152: eysonly_76
+    21300154: eysonly_77
+    21300156: eysonly_78
+    21300158: eysonly_79
+    21300160: eysonly_80
+    21300162: eysonly_81
+    21300164: eysonly_82
+    21300166: eysonly_83
+    21300168: eysonly_84
+    21300170: eysonly_85
+    21300172: eysonly_86
+    21300174: eysonly_87
+    21300176: eysonly_88
+    21300178: eysonly_89
+    21300180: eysonly_90
+    21300182: eysonly_91
+    21300184: eysonly_92
+    21300186: eysonly_93
+    21300188: eysonly_94
+    21300190: eysonly_95
+    21300192: eysonly_96
+    21300194: eysonly_97
+    21300196: eysonly_98
+    21300198: eysonly_99
+    21300200: eysonly_100
+    21300202: eysonly_101
+    21300204: eysonly_102
+    21300206: eysonly_103
+    21300208: eysonly_104
+    21300210: eysonly_105
+    21300212: eysonly_106
+    21300214: eysonly_107
+    21300216: eysonly_108
+    21300218: eysonly_109
+    21300220: eysonly_110
+    21300222: eysonly_111
+    21300224: eysonly_112
+    21300226: eysonly_113
+    21300228: eysonly_114
+    21300230: eysonly_115
+    21300232: eysonly_116
+    21300234: eysonly_117
+    21300236: eysonly_118
+    21300238: eysonly_119
+    21300240: eysonly_120
+    21300242: eysonly_121
+    21300244: eysonly_122
+    21300246: eysonly_123
+    21300248: eysonly_124
+    21300250: eysonly_125
+    21300252: eysonly_126
+    21300254: eysonly_127
+    21300256: eysonly_128
+    21300258: eysonly_129
+    21300260: eysonly_130
+    21300262: eysonly_131
+    21300264: eysonly_132
+    21300266: eysonly_133
+    21300268: eysonly_134
+    21300270: eysonly_135
+    21300272: eysonly_136
+    21300274: eysonly_137
+    21300276: eysonly_138
+    21300278: eysonly_139
+    21300280: eysonly_140
+    21300282: eysonly_141
+    21300284: eysonly_142
+    21300286: eysonly_143
+    21300288: eysonly_144
+    21300290: eysonly_145
+    21300292: eysonly_146
+    21300294: eysonly_147
+    21300296: eysonly_148
+    21300298: eysonly_149
+    21300300: eysonly_150
+    21300302: eysonly_151
+    21300304: eysonly_152
+    21300306: eysonly_153
+    21300308: eysonly_154
+    21300310: eysonly_155
+    21300312: eysonly_156
+    21300314: eysonly_157
+    21300316: eysonly_158
+    21300318: eysonly_159
+    21300320: eysonly_160
+    21300322: eysonly_161
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: eysonly_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 10764
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9236e1724b471bc4e893f6c5360dfe1d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_1
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 10764
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 374cc53c6645df745aeee233e02dd2e6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_2
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 10764
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc86f36d8aa060b45874a6843bb29d09
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_3
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 10764
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9409c6a0cf130248a3aca3d5fa4a175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_4
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 10764
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bee91a797c9c28a44a92e924bf1f05f9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_5
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 10764
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaaac054cc3437e4ba420df6cbed58d8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_6
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 10764
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce043b079555cd14bae2677747b66d65
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_7
+      rect:
+        serializedVersion: 2
+        x: 2455
+        y: 10532
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d1cbd8c60b575d4a9df54667feeef54
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_8
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 10764
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46a188078297a754fb21965cac3237a0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_9
+      rect:
+        serializedVersion: 2
+        x: 1557
+        y: 10764
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13db7aa5a226c394da5f31190b833369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_10
+      rect:
+        serializedVersion: 2
+        x: 1730
+        y: 10764
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 341ae97013537f04b8cffad9a3d77832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_11
+      rect:
+        serializedVersion: 2
+        x: 1903
+        y: 10764
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52146cc21a3786448b662c435de43190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_12
+      rect:
+        serializedVersion: 2
+        x: 2076
+        y: 10764
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e1dd376e4737844f8ccfcf80f2a1822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_13
+      rect:
+        serializedVersion: 2
+        x: 2249
+        y: 10764
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e48442a4a2078b740a588329cf3f4025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_14
+      rect:
+        serializedVersion: 2
+        x: 2422
+        y: 10764
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fae0cc649bb37d4f8c007964108480e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_15
+      rect:
+        serializedVersion: 2
+        x: 2595
+        y: 10764
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4133dfb9dd7bdb419bf1a70ee01d142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_16
+      rect:
+        serializedVersion: 2
+        x: 2768
+        y: 10764
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d58c29168e3102a44af03a7b74d98352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_17
+      rect:
+        serializedVersion: 2
+        x: 2941
+        y: 10764
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16618f5efbfc71d4f87c50f5a1441084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_18
+      rect:
+        serializedVersion: 2
+        x: 3114
+        y: 10764
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8d3f598bbcdd3342bff090cb6d4bd46
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_19
+      rect:
+        serializedVersion: 2
+        x: 3287
+        y: 10764
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7392f4e3fbfe3146a9340dd31c2ca18
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_20
+      rect:
+        serializedVersion: 2
+        x: 3460
+        y: 10764
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a46a6c7e4f158e24bb7e32eda1f3267e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_21
+      rect:
+        serializedVersion: 2
+        x: 3633
+        y: 10764
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 880b34f1c7dff6d47b60c94d8aac6eee
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_22
+      rect:
+        serializedVersion: 2
+        x: 3806
+        y: 10764
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 989e87ba2f253b74ca0659909de3377c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 10574
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8f632138d10fd24ea58257afa1c2fc5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_24
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 10574
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6602f1941506afc4792f80995db7809d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_25
+      rect:
+        serializedVersion: 2
+        x: 2609
+        y: 10006
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d105f47e2e11bd4f99c946309d9b018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_26
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 10574
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13fb0e308becfdd4cb960b868390fe36
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_27
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 10574
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83906c13f3ebdc545b9c17830c97a2bf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_28
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 10574
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6331db96d8a5c5b45baf688d28618883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_29
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 10574
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9c62a3699019404587137a729dedc9e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_30
+      rect:
+        serializedVersion: 2
+        x: 1903
+        y: 10525
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1f7219da17a89b4fbcb0cf2e5f27ddf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_31
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 10607
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 923e6ef11876c8b438c508d198d12f59
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_32
+      rect:
+        serializedVersion: 2
+        x: 1557
+        y: 10607
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e760776803dcb0b4692bbcf0d79fb3e6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_33
+      rect:
+        serializedVersion: 2
+        x: 1730
+        y: 10607
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c71ff174af62194493d42c6320e3438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_34
+      rect:
+        serializedVersion: 2
+        x: 1903
+        y: 10607
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b4d79e17f284874384180bd4540e087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_35
+      rect:
+        serializedVersion: 2
+        x: 2076
+        y: 10607
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7d1e28af5905664b96505e5a780bac2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_36
+      rect:
+        serializedVersion: 2
+        x: 2249
+        y: 10607
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9af615910209694a9c12beb51144292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_37
+      rect:
+        serializedVersion: 2
+        x: 2422
+        y: 10607
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd8bbb820c3443849bb361ccd1a1d3bb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_38
+      rect:
+        serializedVersion: 2
+        x: 2595
+        y: 10607
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d79b6047e7e1a1945834a6a9abad7f35
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_39
+      rect:
+        serializedVersion: 2
+        x: 2768
+        y: 10607
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c79dbc8d11eac744b8a3e19d6fe90d1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_40
+      rect:
+        serializedVersion: 2
+        x: 2941
+        y: 10607
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df18a94fd16568045861e493e515ae96
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_41
+      rect:
+        serializedVersion: 2
+        x: 3114
+        y: 10607
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0aab60aef676e3845ab1c51bccd49e2f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_42
+      rect:
+        serializedVersion: 2
+        x: 3287
+        y: 10607
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba9901bbdd02cb54ab06d88ac07a953c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_43
+      rect:
+        serializedVersion: 2
+        x: 3460
+        y: 10607
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a08e29af6312ce4f94fe1ef41a1a896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_44
+      rect:
+        serializedVersion: 2
+        x: 3633
+        y: 10607
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 689bb346b06de4c40b5740df6aa258b7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_45
+      rect:
+        serializedVersion: 2
+        x: 3806
+        y: 10607
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abd0aab70540e474e817bf625581ecbf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_46
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 10382
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a19795729ca19de46a2999a5185bf9d8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_47
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 10191
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1373aa83a0e414448d00887d63d7e33
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_48
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 10574
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7baa6edc8b8f69e47a50b3f577d9199e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_49
+      rect:
+        serializedVersion: 2
+        x: 1527
+        y: 10352
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e597160b4a3083448ace230335d3c981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_50
+      rect:
+        serializedVersion: 2
+        x: 1565
+        y: 10332
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 070055fdee1bc6443a74cf6b4d9b161d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_51
+      rect:
+        serializedVersion: 2
+        x: 1524
+        y: 10387
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19618e313f148124781f19f8c144222c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_52
+      rect:
+        serializedVersion: 2
+        x: 1561
+        y: 10391
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54c9e7544210e694cbc951dc54ad2e5c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_53
+      rect:
+        serializedVersion: 2
+        x: 2178
+        y: 10427
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5aa0ea7bcfe3eaa499401b5bd1fa544a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_54
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 10450
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aa1f8b541cb35a48a93c6055a800d99
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_55
+      rect:
+        serializedVersion: 2
+        x: 1557
+        y: 10450
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5f9dd10d450bde4ab3516e704f91541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_56
+      rect:
+        serializedVersion: 2
+        x: 1730
+        y: 10450
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa8e752433f639e42908b2c23669c4c6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_57
+      rect:
+        serializedVersion: 2
+        x: 1903
+        y: 10450
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8efb3250081a171498674742d60dba3a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_58
+      rect:
+        serializedVersion: 2
+        x: 2076
+        y: 10450
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58c0af3a345ec1d4897eb1c9284699e4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_59
+      rect:
+        serializedVersion: 2
+        x: 2249
+        y: 10450
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1b6258610f62bd46b1740495196dd8c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_60
+      rect:
+        serializedVersion: 2
+        x: 2422
+        y: 10450
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d4408f94bf6e4e43879140448c9a5d5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_61
+      rect:
+        serializedVersion: 2
+        x: 2595
+        y: 10450
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d6aed26081745740b751335b8f0ff17
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_62
+      rect:
+        serializedVersion: 2
+        x: 2768
+        y: 10450
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddf55f83d1964434fba6a3f34f95cf00
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_63
+      rect:
+        serializedVersion: 2
+        x: 2941
+        y: 10450
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b46c4664ceff9c74c919d1fd9d3bcf24
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_64
+      rect:
+        serializedVersion: 2
+        x: 3114
+        y: 10450
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72ec5ad7f0a750d4087c8b01e5a03d8f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_65
+      rect:
+        serializedVersion: 2
+        x: 3287
+        y: 10450
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80c6c492e6a03c44fb35aa09e94a1a07
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_66
+      rect:
+        serializedVersion: 2
+        x: 3460
+        y: 10450
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04edeceab57bb8e429494456e518cc00
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_67
+      rect:
+        serializedVersion: 2
+        x: 3633
+        y: 10450
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b23e9bad5826b4488c24fd7ca051232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_68
+      rect:
+        serializedVersion: 2
+        x: 3806
+        y: 10450
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4400d24932361740a05f80ceda66cf2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_69
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 9616
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b4872db2841eb045ac04715f2a7d640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_70
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 10382
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2f554e869d8026428f7f8dec45c9d14
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_71
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 10382
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ce0917f571054d4ebc94bb561f693b0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_72
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 10382
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68c4fcba087e4cf4caab54d03a314e3f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_73
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 10382
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a205d5986d400114b81ac4448f6c7063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_74
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 10382
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba4b37adfa9e09b42b553079f31ae960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_75
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 10382
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bdcb9ac17fd0d54bb54928a575e62a2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_76
+      rect:
+        serializedVersion: 2
+        x: 2338
+        y: 10153
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd2754ad2c208f84cb887b089cffcb81
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_77
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 10293
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9f87a51d2f60b747971004b569f736f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_78
+      rect:
+        serializedVersion: 2
+        x: 1557
+        y: 10293
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd3ed9ed3208fc24c89e5faf260ca026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_79
+      rect:
+        serializedVersion: 2
+        x: 1730
+        y: 10293
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 812a6fb370f8b2d42a0b6570cc3fe715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_80
+      rect:
+        serializedVersion: 2
+        x: 1903
+        y: 10293
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2663692b12254114cbf9ae8e26df757c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_81
+      rect:
+        serializedVersion: 2
+        x: 2076
+        y: 10293
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dec21a41b2e494498b9f6b4ed4b98f6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_82
+      rect:
+        serializedVersion: 2
+        x: 2249
+        y: 10293
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 238286bc9c430fc4cb9d12d573dc055c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_83
+      rect:
+        serializedVersion: 2
+        x: 2422
+        y: 10293
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56b3234af8a55804fbea56ad7567bd1a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_84
+      rect:
+        serializedVersion: 2
+        x: 2595
+        y: 10293
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2142b8e62125d794bbc221cae0ae6558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_85
+      rect:
+        serializedVersion: 2
+        x: 2768
+        y: 10293
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d1c8420a14829346bb7dbefd311416d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_86
+      rect:
+        serializedVersion: 2
+        x: 2941
+        y: 10293
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4c5c485d2079df46b49ece1ac7e5cfe
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_87
+      rect:
+        serializedVersion: 2
+        x: 3114
+        y: 10293
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d994946a8823bac4bba611754b4f7395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_88
+      rect:
+        serializedVersion: 2
+        x: 3287
+        y: 10293
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aaccb4f6f5e58d42ad96a14cd6a1de8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_89
+      rect:
+        serializedVersion: 2
+        x: 3460
+        y: 10293
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 917b3ecd63933b4409859b7f2500767e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_90
+      rect:
+        serializedVersion: 2
+        x: 3633
+        y: 10293
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62c2cf834688ba540bef8d383fc389c5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_91
+      rect:
+        serializedVersion: 2
+        x: 3806
+        y: 10293
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ab7738e910366744a5af12a4decb316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_92
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 9690
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e20fef46e5aac74181cd83824b95c50
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_93
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 10192
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfbff37dbde7569488dfeae40041d314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_94
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 10192
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8832637e7dd2dbc4dba39a0b45ce2cba
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_95
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 10192
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 367781a8a74698e46b06f8c415159668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_96
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 10192
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5794202622e4bd746b5fb9f023522b84
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_97
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 10192
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc915e24b7d8c2f43b42e4c63e344ee8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_98
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 10192
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76238a307f4dfe34cbd613353ce9c794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_99
+      rect:
+        serializedVersion: 2
+        x: 2197
+        y: 9992
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4075ba07e1efabe4c8e1dbbebebc65c8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_100
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 10136
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e45d2c1f8fef50459313c21ece53444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_101
+      rect:
+        serializedVersion: 2
+        x: 1557
+        y: 10136
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d549fd0353bd7d14f9f640a5ba8f62c9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_102
+      rect:
+        serializedVersion: 2
+        x: 1730
+        y: 10136
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 775da57263ed27c46ba474d95ba9229b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_103
+      rect:
+        serializedVersion: 2
+        x: 1903
+        y: 10136
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5aef2c3205e9da646b53307f9110cdb4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_104
+      rect:
+        serializedVersion: 2
+        x: 2076
+        y: 10136
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8962436ab990fb408d4fb9e4d1285a5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_105
+      rect:
+        serializedVersion: 2
+        x: 2249
+        y: 10136
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e62910962c6ce7743902852ad5c929e5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_106
+      rect:
+        serializedVersion: 2
+        x: 2422
+        y: 10136
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da276262eb6864c47b543b64ac008623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_107
+      rect:
+        serializedVersion: 2
+        x: 2595
+        y: 10136
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b19c0115dfb9ab44b5443a64701eae5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_108
+      rect:
+        serializedVersion: 2
+        x: 2768
+        y: 10136
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21d208c8c6b1da34eb167e40584919d9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_109
+      rect:
+        serializedVersion: 2
+        x: 2941
+        y: 10136
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddc0de26f2c02e74e9199416e41ef081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_110
+      rect:
+        serializedVersion: 2
+        x: 3114
+        y: 10136
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48b9d10a479873449a352f00fb67b4d0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_111
+      rect:
+        serializedVersion: 2
+        x: 3287
+        y: 10136
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b066b081db6c8b846b058cb89bfec184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_112
+      rect:
+        serializedVersion: 2
+        x: 3460
+        y: 10136
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01dc6de55e2cc2a428f24feed90fe858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_113
+      rect:
+        serializedVersion: 2
+        x: 3633
+        y: 10136
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03cf374fa778bd74b88bbeff1b330207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_114
+      rect:
+        serializedVersion: 2
+        x: 3806
+        y: 10136
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f0b72821a2016e4982d00da9dbe26dd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_115
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 9557
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9337dd02e74a634c9b88918b81b12e4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_116
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 10003
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29d56a53985fef74bbe14d001909904f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_117
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 10003
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd960bccfa804c2488582a7ac5178e4d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_118
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 10003
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41b409963626b9840aba2e5d65ad5fe6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_119
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 10003
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 605b2f538db61ac4ca8060daa049e4c7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_120
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 10003
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 233afbe62cbe2d14e8c9e512089336a5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_121
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 10003
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28f47a730fdaed648beddd1c1e4cef8a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_122
+      rect:
+        serializedVersion: 2
+        x: 1185
+        y: 9427
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b750db5affcb6e4383d055765327e76
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_123
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 9979
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4981e033c6715ce449e281b5c5a14766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_124
+      rect:
+        serializedVersion: 2
+        x: 1557
+        y: 9979
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39ac5093d0c953f49bd3f95ec4a28546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_125
+      rect:
+        serializedVersion: 2
+        x: 1730
+        y: 9979
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c71a63a27c0c38c4ba03a8720e5529ad
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_126
+      rect:
+        serializedVersion: 2
+        x: 1903
+        y: 9979
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62c0ec5cf315bb845bf9c3eb130af381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_127
+      rect:
+        serializedVersion: 2
+        x: 2076
+        y: 9979
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1df4ef58e0eb6eb4b94e7bbf0d9d5cee
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_128
+      rect:
+        serializedVersion: 2
+        x: 2249
+        y: 9979
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1472ec3f1f126bf4d835ec2e6a981b9e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_129
+      rect:
+        serializedVersion: 2
+        x: 2422
+        y: 9979
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f074bec3248a73c40b6025a05022d30b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_130
+      rect:
+        serializedVersion: 2
+        x: 2595
+        y: 9979
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4ccf2bd86bb1564799ac6dc0e6f955f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_131
+      rect:
+        serializedVersion: 2
+        x: 2768
+        y: 9979
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 648b5deeb4c9aab4a91042cf2639d407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_132
+      rect:
+        serializedVersion: 2
+        x: 2941
+        y: 9979
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bcf2c45e1d915b4fa43475dc5a289cc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_133
+      rect:
+        serializedVersion: 2
+        x: 3114
+        y: 9979
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b5983d85a04f804d9850bd753b47a1c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_134
+      rect:
+        serializedVersion: 2
+        x: 3287
+        y: 9979
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4824e4ae0b83e814fbac5f78aacb695f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_135
+      rect:
+        serializedVersion: 2
+        x: 3460
+        y: 9979
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edd46da5cac00b24da8863a70faa7994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_136
+      rect:
+        serializedVersion: 2
+        x: 3633
+        y: 9979
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f7163ef2f43b734eb80f76c0e7fee3a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_137
+      rect:
+        serializedVersion: 2
+        x: 3806
+        y: 9979
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cab8af9994122f4d86699925eaaff75
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_138
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 10001
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03c56f974f1c0304886061576d5d122c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_139
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 9375
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 239e194f384bc944fb84c135e5e43745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_140
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 9110
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cd004b34dac92d4ea59306defd44b87
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_141
+      rect:
+        serializedVersion: 2
+        x: 741
+        y: 9208
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d450f905805c9c040aee3641900d4feb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_142
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 9084
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab8467e085f4e084b936b38324d3d182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_143
+      rect:
+        serializedVersion: 2
+        x: 953
+        y: 9322
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 254070264290eef4aa2f9bb64653541a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_144
+      rect:
+        serializedVersion: 2
+        x: 1103
+        y: 8839
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9308b0aeed694d54da495e01aa3f8fb4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_145
+      rect:
+        serializedVersion: 2
+        x: 1211
+        y: 9296
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 352941f661ae1f8408503a5fc517fffa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_146
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 9822
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e66a7081378a83488c792dc1bfd9dcd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_147
+      rect:
+        serializedVersion: 2
+        x: 1557
+        y: 9822
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8b4871003b4e2c43ab30f20b5cb973c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_148
+      rect:
+        serializedVersion: 2
+        x: 1730
+        y: 9822
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69d769c007f141d4288e88a76cbb71c0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_149
+      rect:
+        serializedVersion: 2
+        x: 1903
+        y: 9822
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 125fc666316c35949a80e1d98b2ca690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_150
+      rect:
+        serializedVersion: 2
+        x: 2076
+        y: 9822
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7080935f1c76ee49822b00aa0fe9c96
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_151
+      rect:
+        serializedVersion: 2
+        x: 2249
+        y: 9822
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b626758f0da6c304abfa2caf1d8c7949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_152
+      rect:
+        serializedVersion: 2
+        x: 2422
+        y: 9822
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c2fb71c56b7a484b93fc601dee2ecc0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_153
+      rect:
+        serializedVersion: 2
+        x: 2595
+        y: 9822
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47a1d7c7e65c93b47b6acc428da611f9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_154
+      rect:
+        serializedVersion: 2
+        x: 2768
+        y: 9822
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd9ce015555204a45841abe6c735b219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_155
+      rect:
+        serializedVersion: 2
+        x: 2941
+        y: 9822
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90c47e4a7697a1f4e89ea690b0834154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_156
+      rect:
+        serializedVersion: 2
+        x: 3114
+        y: 9822
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a99f76a8158a30745b7ce9c0f8630a54
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_157
+      rect:
+        serializedVersion: 2
+        x: 3287
+        y: 9822
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45c37a632b167014ab77d52506231d69
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_158
+      rect:
+        serializedVersion: 2
+        x: 3460
+        y: 9822
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8248cad3a54092a4686a2e16ba8270c2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_159
+      rect:
+        serializedVersion: 2
+        x: 3633
+        y: 9822
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ee45e540675aba48a5434e26a4f74e6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_160
+      rect:
+        serializedVersion: 2
+        x: 3806
+        y: 9822
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 156d5e91a6f43c041ba0526dbdf87d1e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eysonly_161
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 9231
+        width: 164
+        height: 585
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef881809fb3ef0843a1bab2fa756c356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 970904a32c3c91441bb081071f117439
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
