@@ -23,9 +23,9 @@ public class Shoot : MonoBehaviour {
 
     private bool LeftHandOn;            //Make sure there is a weapon in hand.
     private bool RightHandOn;
-    private bool IsLeftShooting;
-    private bool IsRightShooting;
-    private bool IsCombineShooting;
+    public bool IsLeftShooting;
+    public bool IsRightShooting;
+    public bool IsCombineShooting;
     private bool CanLeftShoot;
     private bool CanRightShoot;
     private bool CanCombineShoot;
@@ -87,22 +87,47 @@ public class Shoot : MonoBehaviour {
         if (Mathf.Round(Input.GetAxisRaw("RightTrigger")) > 0 && Mathf.Round(Input.GetAxisRaw("LeftTrigger")) > 0 && 
             Player.leftWeapon.Name != "" && Player.rightWeapon.Name != "")  //Push both trigger to combine.
         {
+            float rx = Input.GetAxis("Left X");
+            float ry = Input.GetAxis("Left Y");
+            Vector3 pz = new Vector3(rx, ry, 0);
+            float rtx = Input.GetAxis("Right X");
+            float rty = Input.GetAxis("Right Y");
+            Vector3 ptz = new Vector3(rtx, rty, 0);
+            bool combineAngle = false;
+
             CombinedTime += Time.deltaTime;
-            if(CombinedTime > TimeBeforeCombine && CombinedTime <= TimeTopCombine)     //Make sure it's not combining if player is not keeping the angle.
+            if (Mathf.Abs(Vector3.Distance(ptz, pz)) < .6f && CombinedTime > TimeBeforeCombine)
             {
-                IsLeftShooting = false;
-                IsRightShooting = false;
-                if (CombinedTime > TimePrepareCombine)       //Take time to prepare.
+                combineAngle = true;
+            }
+            else if (Mathf.Abs(Vector3.Distance(ptz, pz)) > 1.2f)
+            {
+                combineAngle = false;
+            }
+            else
+            {
+                combineAngle = false;
+            }
+            if (!combineAngle)
+            {
+
+                if(CombinedTime > TimeBeforeCombine && CombinedTime <= TimeTopCombine)     //Make sure it's not combining if player is not keeping the angle.
                 {
-                    IsCombineShooting = true;
+                    IsLeftShooting = false;
+                    IsRightShooting = false;
+                    if (CombinedTime > TimePrepareCombine)       //Take time to prepare.
+                    {
+                        IsCombineShooting = true;
+                    }
+                }
+                else if (CombinedTime > TimeTopCombine)          //Cancel combine if the time is too much.
+                {
+                    IsLeftShooting = true;
+                    IsRightShooting = true;
+                    IsCombineShooting = false;
                 }
             }
-            else if (CombinedTime > TimeTopCombine)          //Cancel combine if the time is too much.
-            {
-                IsLeftShooting = true;
-                IsRightShooting = true;
-                IsCombineShooting = false;
-            }
+
         }
         else
         {
@@ -270,8 +295,7 @@ public class Shoot : MonoBehaviour {
                 //Creat projectile
                 GameObject NewProj = Instantiate(Player.rightWeapon.Projectile);
                 NewProj.transform.position = Right.position;
-                Vector3 rotateProj = new Vector3(0, 0, Mathf.Atan2(Input.GetAxis("Right Y"), Input.GetAxis("Right X")) * 180 / Mathf.PI);
-                NewProj.transform.eulerAngles = rotateProj;
+                NewProj.transform.rotation = Right.rotation;
                 //Change state according to the weapon
                 Projectile Proj = NewProj.GetComponent<Projectile>();
                 Proj.IsReady = true;

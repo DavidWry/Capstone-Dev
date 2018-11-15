@@ -10560,7 +10560,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 747130283}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.38043407, y: -0.6324865, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -11065,7 +11065,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 995402771}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -8.17}
+  m_LocalPosition: {x: 0, y: 1, z: -6.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -11378,14 +11378,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1296773188}
-  m_LocalRotation: {x: -0, y: -0, z: 0.49022236, w: 0.87159747}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.159, y: -0.552, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_Children:
   - {fileID: 18131250}
   m_Father: {fileID: 1595450458}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 58.710003}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1296773190
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11462,10 +11462,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 1.2994524
-  m_Height: 4.7426224
+  m_Radius: 0.692935
+  m_Height: 3.4129515
   m_Direction: 1
-  m_Center: {x: -0.11251564, y: -0.23687562, z: 0}
+  m_Center: {x: 0.0507777, y: -0.038591094, z: 0}
 --- !u!54 &1315459534
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11497,6 +11497,9 @@ MonoBehaviour:
   Left: {fileID: 535053231}
   Right: {fileID: 18131250}
   MainTarget: {fileID: 0}
+  IsLeftShooting: 0
+  IsRightShooting: 0
+  IsCombineShooting: 0
   TimeBeforeCombine: 0.5
   TimePrepareCombine: 1
   TimeTopCombine: 5
@@ -11596,6 +11599,7 @@ MonoBehaviour:
     type: 2}
   LeftAimIcon: {fileID: 1011836339694946, guid: 11057a4919a604d4eac617386bcf1494,
     type: 2}
+  isBulletTime: 0
 --- !u!4 &1315459539
 Transform:
   m_ObjectHideFlags: 0
@@ -11974,7 +11978,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1468586754}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.69, z: 0}
+  m_LocalPosition: {x: 0, y: 0.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1526164149}
@@ -12088,7 +12092,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1544204836}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.01, y: 1.18, z: 0}
+  m_LocalPosition: {x: 0.01, y: 0.83999985, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 1315459539}
@@ -12303,6 +12307,9 @@ MonoBehaviour:
   Left: {fileID: 0}
   Right: {fileID: 0}
   MainTarget: {fileID: 0}
+  IsLeftShooting: 0
+  IsRightShooting: 0
+  IsCombineShooting: 0
   TimeBeforeCombine: 0.5
   TimePrepareCombine: 1
   TimeTopCombine: 5
@@ -12329,7 +12336,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1595450457}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.392, y: -0.324, z: 0}
+  m_LocalPosition: {x: 0.392, y: -0.338, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1296773189}

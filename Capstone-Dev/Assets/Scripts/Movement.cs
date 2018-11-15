@@ -11,7 +11,7 @@ public class Movement : MonoBehaviour {
     public GameObject LeftAimIcon = null;
 
     private float yRotate;
-    private bool isBulletTime;
+    public bool isBulletTime;
     private Player player;
     private Rigidbody playerBody;
     private int aimScale = 3;
@@ -84,8 +84,7 @@ public class Movement : MonoBehaviour {
             }
             
             //rotate right hand
-            
-            /*
+            /*            
             Transform rightHand = player.RightHand;
             if (rightHand.childCount > 0)
             {
@@ -128,6 +127,7 @@ public class Movement : MonoBehaviour {
             if (Mathf.Abs(Input.GetAxis("Left X")) <= 1 || Mathf.Abs(Input.GetAxis("Left Y")) <= 1)
             {
                 LeftAimIcon.SetActive(true);
+                player.LeftTarget = LeftAimIcon;
                 if (Mathf.Abs(Input.GetAxis("Left X")) > 0.05 || Mathf.Abs(Input.GetAxis("Left Y")) > 0.05)
                 {
                     float tempx;
@@ -150,7 +150,7 @@ public class Movement : MonoBehaviour {
                     Vector3 tempvector = new Vector3(tempx, tempy, 0);
                     LeftAimIcon.transform.localPosition = tempvector * aimDistance;
                 }
-
+                /*
                 //rotate left hand
                 Transform leftHand = player.LeftHand;
                 if (leftHand.childCount > 0)
@@ -175,7 +175,7 @@ public class Movement : MonoBehaviour {
                     newRotation.y = 0;
                     leftHand.localRotation = newRotation;
 
-                }
+                }*/
             }
         }
 
@@ -193,12 +193,13 @@ public class Movement : MonoBehaviour {
             }
             if (Input.GetAxis("Right X") > 0.3)
             {
-                IsFaceRight = true;
-                    
+                if (!isBulletTime)
+                    IsFaceRight = true;                    
             }
             else if (Input.GetAxis("Right X") < -0.3)
             {
-                IsFaceRight = false;                
+                if (!isBulletTime)
+                    IsFaceRight = false;                
             }
             if (IsFaceRight)
             {
