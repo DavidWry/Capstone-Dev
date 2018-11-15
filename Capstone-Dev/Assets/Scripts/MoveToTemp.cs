@@ -13,7 +13,7 @@ public class MoveToTemp : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        gameObject.GetComponent<Rigidbody>().AddForce(-transform.right * 2);
+        gameObject.GetComponent<Rigidbody>().AddForce( - transform.right * 2);
         gameObject.GetComponent<Rigidbody>().velocity = Vector3.ClampMagnitude(gameObject.GetComponent<Rigidbody>().velocity, 1);
     }
 }

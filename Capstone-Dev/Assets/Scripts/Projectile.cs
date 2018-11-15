@@ -30,7 +30,7 @@ public class Projectile : MonoBehaviour {
         if (IsReady)
         {
             IsReady = false;
-            RBody.velocity = transform.rotation * transform.right * Speed;
+            RBody.velocity = transform.right * Speed;
         }
         if (LifeTime >= Duration)
         {

@@ -14,6 +14,7 @@ public class Shoot : MonoBehaviour {
     public Transform Left;             //Where the hands should be
     public Transform Right;
     private Transform Center;
+    public Transform MainTarget;
 
     //public int LeftAmmo;                //Deal with reload
     //public int RightAmmo;
@@ -269,7 +270,7 @@ public class Shoot : MonoBehaviour {
                 //Creat projectile
                 GameObject NewProj = Instantiate(Player.rightWeapon.Projectile);
                 NewProj.transform.position = Right.position;
-                Vector3 rotateProj = new Vector3(Right.eulerAngles.x, Right.eulerAngles.y, Right.eulerAngles.z);
+                Vector3 rotateProj = new Vector3(0, 0, Mathf.Atan2(Input.GetAxis("Right Y"), Input.GetAxis("Right X")) * 180 / Mathf.PI);
                 NewProj.transform.eulerAngles = rotateProj;
                 //Change state according to the weapon
                 Projectile Proj = NewProj.GetComponent<Projectile>();

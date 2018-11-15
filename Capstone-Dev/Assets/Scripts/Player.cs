@@ -16,13 +16,13 @@ namespace AssemblyCSharp
         public Transform RightHand;
 
         private float rotateSpeed;
+        private Movement playerMovement;
 
         // Use this for initialization
         void Start()
         {
-            //LeftHand = transform.GetChild(0);
-            //RightHand = transform.GetChild(1);
             rotateSpeed = 100f;
+            playerMovement = GetComponent<Movement>();
         }
 
         // Update is called once per frame
@@ -30,10 +30,22 @@ namespace AssemblyCSharp
         {
             if (RightTarget != null)
             {
-                Vector3 lookDirection = RightTarget.transform.position - LeftHand.transform.position;
-                float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
-                Quaternion lookRotation = Quaternion.AngleAxis(angle, Vector3.forward);
-                LeftHand.transform.rotation = Quaternion.Slerp(LeftHand.transform.rotation, lookRotation, rotateSpeed * Time.deltaTime);
+                if (playerMovement.IsFaceRight)
+                {
+                    Vector3 lookDirection = RightTarget.transform.position - LeftHand.transform.position;
+                    float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+                    Quaternion lookRotation = Quaternion.AngleAxis(angle, Vector3.forward);
+                    LeftHand.transform.rotation = Quaternion.Slerp(LeftHand.transform.rotation, lookRotation, rotateSpeed * Time.deltaTime);
+                    //LeftHand.transform.eulerAngles = new Vector3(0, 0, Mathf.Atan2(Input.GetAxis("Right Y"), Input.GetAxis("Right X")) * 180 / Mathf.PI);
+                }
+                else
+                {
+                    Vector3 lookDirection = RightTarget.transform.position - LeftHand.transform.position;
+                    float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+                    Quaternion lookRotation = Quaternion.AngleAxis(angle, Vector3.forward);
+                    LeftHand.transform.rotation = Quaternion.Slerp(LeftHand.transform.rotation, lookRotation, rotateSpeed * Time.deltaTime);
+                    LeftHand.transform.Rotate(180, 0, 0);
+                }
             }
         }
     }
