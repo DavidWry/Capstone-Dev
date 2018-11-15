@@ -14,7 +14,6 @@ public class Shoot : MonoBehaviour {
     public Transform Left;             //Where the hands should be
     public Transform Right;
     private Transform Center;
-    public Transform MainTarget;
 
     //public int LeftAmmo;                //Deal with reload
     //public int RightAmmo;
@@ -103,12 +102,13 @@ public class Shoot : MonoBehaviour {
             else if (Mathf.Abs(Vector3.Distance(ptz, pz)) > 1.2f)
             {
                 combineAngle = false;
+                CombinedTime = 0;
             }
             else
             {
                 combineAngle = false;
             }
-            if (!combineAngle)
+            if (combineAngle)
             {
 
                 if(CombinedTime > TimeBeforeCombine && CombinedTime <= TimeTopCombine)     //Make sure it's not combining if player is not keeping the angle.

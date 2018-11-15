@@ -11496,7 +11496,6 @@ MonoBehaviour:
   RightLazer: {fileID: 0}
   Left: {fileID: 535053231}
   Right: {fileID: 18131250}
-  MainTarget: {fileID: 0}
   IsLeftShooting: 0
   IsRightShooting: 0
   IsCombineShooting: 0
@@ -12306,7 +12305,6 @@ MonoBehaviour:
   RightLazer: {fileID: 0}
   Left: {fileID: 0}
   Right: {fileID: 0}
-  MainTarget: {fileID: 0}
   IsLeftShooting: 0
   IsRightShooting: 0
   IsCombineShooting: 0

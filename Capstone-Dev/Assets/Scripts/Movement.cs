@@ -23,7 +23,6 @@ public class Movement : MonoBehaviour {
         playerShoot = GetComponent<Shoot>();
 
         RightAimIcon = Instantiate(RightAimIcon, transform);
-        playerShoot.MainTarget = RightAimIcon.transform;
         RightAimIcon.transform.position = transform.position;
         RightAimIcon.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f) * aimScale; 
 
@@ -40,7 +39,6 @@ public class Movement : MonoBehaviour {
         player.RightTarget = RightAimIcon;
 
         aimDistance = 3;
-        //Sprite = GameObject.Find("Sprite").transform;
     }
 	
 	// Update is called once per frame
@@ -71,7 +69,7 @@ public class Movement : MonoBehaviour {
                 tempvector = tempvector.normalized;
                 RightAimIcon.transform.localPosition = tempvector * aimDistance;
 
-                
+
             }
             else
             {
@@ -82,33 +80,6 @@ public class Movement : MonoBehaviour {
                 Vector3 tempvector = new Vector3(tempx, tempy, 0);
                 RightAimIcon.transform.localPosition = tempvector * aimDistance;
             }
-            
-            //rotate right hand
-            /*            
-            Transform rightHand = player.RightHand;
-            if (rightHand.childCount > 0)
-            {
-                
-                Vector3 targetPosition = RightAimIcon.transform.position;
-                //targetPosition.x = -targetPosition.x;
-                //targetPosition.y = -targetPosition.y;
-                // Debug.Log(targetPosition.x);
-                Vector3 selfPosition = rightHand.position;
-                Quaternion newRotation;
-                if (Input.GetAxis("Right X") < 0)
-                {
-                    newRotation = Quaternion.LookRotation(targetPosition - selfPosition, -Vector3.up);
-                }
-                else
-                {
-                    newRotation = Quaternion.LookRotation(targetPosition - selfPosition, Vector3.up);
-                }
-                newRotation.x = 0;
-                newRotation.y = 0;
-                rightHand.rotation = newRotation;              
-            }*/
-        
-
         }
 
         if (Mathf.Round(Input.GetAxisRaw("RightTrigger")) > 0 && Mathf.Round(Input.GetAxisRaw("LeftTrigger")) > 0 &&
@@ -150,32 +121,6 @@ public class Movement : MonoBehaviour {
                     Vector3 tempvector = new Vector3(tempx, tempy, 0);
                     LeftAimIcon.transform.localPosition = tempvector * aimDistance;
                 }
-                /*
-                //rotate left hand
-                Transform leftHand = player.LeftHand;
-                if (leftHand.childCount > 0)
-                {
-
-                    Vector3 targetPosition = LeftAimIcon.transform.localPosition;
-
-                    // Debug.Log(targetPosition.x);
-                    Vector3 selfPosition = leftHand.localPosition;
-                    Quaternion newRotation;
-
-                    if (Input.GetAxis("Right X") < 0)
-                    {
-                        newRotation = Quaternion.LookRotation(targetPosition - selfPosition, -Vector3.up);
-                    }
-                    else
-                    {
-                        newRotation = Quaternion.LookRotation(targetPosition - selfPosition, Vector3.up);
-                    }
-
-                    newRotation.x = 0;
-                    newRotation.y = 0;
-                    leftHand.localRotation = newRotation;
-
-                }*/
             }
         }
 
