@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Projectile
   - Monster
+  - Minion
   layers:
   - Default
   - TransparentFX

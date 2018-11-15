@@ -187,11 +187,12 @@ GameObject:
   - component: {fileID: 209525643}
   - component: {fileID: 209525642}
   - component: {fileID: 209525644}
-  - component: {fileID: 209525645}
   - component: {fileID: 209525646}
+  - component: {fileID: 209525645}
+  - component: {fileID: 209525647}
   m_Layer: 0
-  m_Name: OnFootEnemy
-  m_TagString: Untagged
+  m_Name: Minion_Type_1
+  m_TagString: Minion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -250,7 +251,7 @@ Transform:
   m_GameObject: {fileID: 209525641}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.05, y: 0.88, z: -0.1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -261,14 +262,15 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 209525641}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4fee6a26fc8eeb447a97ea1390e540f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
---- !u!61 &209525645
-BoxCollider2D:
+  health: 0
+  speed: 1.5
+--- !u!58 &209525645
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -279,26 +281,16 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.022610426, y: -0.06973219}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.69, y: 0.77}
-    newSize: {x: 0.69, y: 0.77}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0.008856456, y: -0.012829463}
   serializedVersion: 2
-  m_Size: {x: 0.61744976, y: 0.6305356}
-  m_EdgeRadius: 0
+  m_Radius: 0.3280643
 --- !u!114 &209525646
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 209525641}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e18dd60a36aeb9546aa4a2e5ff4814c9, type: 3}
   m_Name: 
@@ -314,6 +306,26 @@ MonoBehaviour:
   - {fileID: 1802393983}
   - {fileID: 99947499}
   - {fileID: 1948073544}
+--- !u!50 &209525647
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 209525641}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &263924619
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,7 +481,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 786885799}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.003, y: 0.012, z: -10}
+  m_LocalPosition: {x: -0.01, y: 0, z: -6.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -602,7 +614,7 @@ Transform:
   m_GameObject: {fileID: 1370496562}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.33, y: 0, z: -0.1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -754,6 +766,52 @@ Transform:
   m_Father: {fileID: 135945306}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1988009771
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4124034662911754, guid: ad13327f91da61e4e8c09c7d51aaee26, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 4124034662911754, guid: ad13327f91da61e4e8c09c7d51aaee26, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -2.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 4124034662911754, guid: ad13327f91da61e4e8c09c7d51aaee26, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4124034662911754, guid: ad13327f91da61e4e8c09c7d51aaee26, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4124034662911754, guid: ad13327f91da61e4e8c09c7d51aaee26, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4124034662911754, guid: ad13327f91da61e4e8c09c7d51aaee26, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4124034662911754, guid: ad13327f91da61e4e8c09c7d51aaee26, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4124034662911754, guid: ad13327f91da61e4e8c09c7d51aaee26, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1751595794559236, guid: ad13327f91da61e4e8c09c7d51aaee26, type: 2}
+      propertyPath: m_Name
+      value: Minion_Type_2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ad13327f91da61e4e8c09c7d51aaee26, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &2132068260
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,7 +882,7 @@ Transform:
   m_GameObject: {fileID: 2132068260}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 2.13}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
