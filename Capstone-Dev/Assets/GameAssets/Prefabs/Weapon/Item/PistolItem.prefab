@@ -71,11 +71,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4211469389088508}
   - component: {fileID: 212262447401625298}
-  - component: {fileID: 58925192365853586}
   - component: {fileID: 114505586502700986}
+  - component: {fileID: 136778454431733066}
   m_Layer: 5
   m_Name: PistolItem
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -181,21 +181,6 @@ Transform:
   m_Father: {fileID: 4211469389088508}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &58925192365853586
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1652595029889896}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.2
 --- !u!114 &114266652695106424
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -328,7 +313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Item:
-    Name: 
+    Name: Pistol
     ItemName: 1
     ItemIcon: {fileID: 0}
     GiveWeapon: 0
@@ -397,6 +382,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Pistol
+--- !u!136 &136778454431733066
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1652595029889896}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.1
+  m_Height: 0.09
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &198001857942976084
 ParticleSystem:
   m_ObjectHideFlags: 1

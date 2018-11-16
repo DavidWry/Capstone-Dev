@@ -10,6 +10,7 @@ public class PickUp : MonoBehaviour {
     public Transform RightHand;
     private Player Player;
     private bool isLootNearby = false;
+    [SerializeField]
     private Loot currentLoot = null;
     private GameManager gameManager = null;
 
@@ -53,8 +54,7 @@ public class PickUp : MonoBehaviour {
                             if (Player.leftWeapon.Name != "")
                             {
                                 string tempName = Player.leftWeapon.WeaponName.ToString();
-                                GameObject itemObj = gameManager.GetItemObj(tempName);
-                                itemObj = Instantiate(itemObj, transform.position, Quaternion.Euler(0, 0, 0), LeftHand);
+                                GameObject itemObj = Instantiate(gameManager.GetItemObj(tempName), transform.position, Quaternion.Euler(0, 0, 0));
                                 var worldCanvas = GameObject.Find("worldCanvas").transform;
                                 itemObj.transform.parent = worldCanvas;
 
@@ -78,7 +78,7 @@ public class PickUp : MonoBehaviour {
                             {
                                 string tempName = Player.rightWeapon.WeaponName.ToString();
                                 GameObject itemObj = gameManager.GetItemObj(tempName);
-                                itemObj = Instantiate(itemObj, transform.position, Quaternion.Euler(0, 0, 0), RightHand);
+                                itemObj = Instantiate(gameManager.GetItemObj(tempName), transform.position, Quaternion.Euler(0, 0, 0));
                                 var worldCanvas = GameObject.Find("worldCanvas").transform;
                                 itemObj.transform.parent = worldCanvas;
 
@@ -94,8 +94,6 @@ public class PickUp : MonoBehaviour {
                             RefreshWeaponUI(2);
                             ChangeWeapon(2,currentLoot.Item.WeaponName);
                         }
-
-
                         handToPick = 0;
                     }
             }
@@ -111,7 +109,7 @@ public class PickUp : MonoBehaviour {
 
     public void RefreshLoot(Loot loot)
     {
-        
+
         //show the loot items on ground
         if (loot != null)
         {
@@ -122,7 +120,7 @@ public class PickUp : MonoBehaviour {
             loot.ShowHide(true);
         }
         else if (currentLoot != null)
-            currentLoot.ShowHide(false);
+                currentLoot.ShowHide(false);
 
         //check loot
         currentLoot = loot;
@@ -183,7 +181,7 @@ public class PickUp : MonoBehaviour {
             }
             weaponObj.transform.parent = LeftHand;
             weaponObj.transform.localPosition = tempPosition;
-
+            weaponObj.transform.rotation = LeftHand.rotation;
         }
         else if (leftOrRight == 2)
         {
@@ -196,6 +194,7 @@ public class PickUp : MonoBehaviour {
 
             weaponObj.transform.parent = RightHand;
             weaponObj.transform.localPosition = tempPosition;
+            weaponObj.transform.rotation = RightHand.rotation;
         }
     }
 
@@ -258,25 +257,17 @@ public class PickUp : MonoBehaviour {
         }
     }
 
-    void OnTriggerExit2D(Collider2D col)
+    void OnTriggerExit(Collider col)
     {
-        //Tds_Tile vTile = col.GetComponent<Tds_Tile>();
-        Loot loot = col.GetComponent<Loot>();
+        if (col.tag == "Item")
+        {
+            Loot loot = col.GetComponent<Loot>();
 
-        //check if we have it on the list so we can remove it
-        //if (vTile != null)
-        //{
-        //    if (vListCollider.Contains(vTile))
-        //   {
-        //       vListCollider.Remove(vTile);
-
-        //make the player refresh it's pixel tiles variables
-        //       vCharacter.RefreshVariables(vListCollider);
-        //   }
-        // }
-        if (loot != null){
-            loot = null;
-            RefreshLoot(loot);
+            if (loot != null){
+                loot = null;
+                RefreshLoot(loot);
+            }
         }
+
     }
 }

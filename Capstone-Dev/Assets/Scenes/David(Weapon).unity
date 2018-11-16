@@ -5576,13 +5576,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114245210799043458, guid: af0360be5601ac94f84067ffa511fc7d,
-        type: 2}
-      propertyPath: Item.ItemName
-      value: 3
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 58653686206932002, guid: af0360be5601ac94f84067ffa511fc7d, type: 2}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af0360be5601ac94f84067ffa511fc7d, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &408139569
@@ -5735,24 +5729,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &440093827 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1876295848165562, guid: af0360be5601ac94f84067ffa511fc7d,
-    type: 2}
-  m_PrefabInternal: {fileID: 405230957}
---- !u!136 &440093829
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 440093827}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.14
-  m_Height: 0.11
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &452139263
 GameObject:
   m_ObjectHideFlags: 0
@@ -5899,8 +5875,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 58653686206932002, guid: dbbd9055a5163f84ab3ff204a6c82c2f, type: 2}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbbd9055a5163f84ab3ff204a6c82c2f, type: 2}
   m_IsPrefabAsset: 0
 --- !u!4 &559263048 stripped
@@ -11460,7 +11435,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1315459532}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.692935
   m_Height: 3.4129515
@@ -11581,6 +11556,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LeftHand: {fileID: 535053231}
   RightHand: {fileID: 18131250}
+  currentLoot: {fileID: 0}
 --- !u!114 &1315459538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11713,7 +11689,7 @@ GameObject:
   - component: {fileID: 1417981871}
   m_Layer: 5
   m_Name: ItemObj (1)
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11835,7 +11811,7 @@ GameObject:
   - component: {fileID: 1451554940}
   m_Layer: 5
   m_Name: ItemObj (2)
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12582,7 +12558,7 @@ GameObject:
   - component: {fileID: 1669487776}
   m_Layer: 5
   m_Name: PistolItem
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18152,6 +18128,16 @@ Prefab:
       value: 
       objectReference: {fileID: 1031040304690994, guid: 06723e9a6ee9b7044b2613638ac2d4f8,
         type: 2}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: WeaponList.Array.data[0].TimeBetweenShot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: WeaponList.Array.data[0].ProjectileSpeed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7430308c60b9dc74396db2694886222b, type: 2}
   m_IsPrefabAsset: 0
@@ -18258,24 +18244,6 @@ RectTransform:
   m_AnchoredPosition: {x: 477.5, y: 268.5}
   m_SizeDelta: {x: 955, y: 537}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1913238195 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1876295848165562, guid: dbbd9055a5163f84ab3ff204a6c82c2f,
-    type: 2}
-  m_PrefabInternal: {fileID: 559263047}
---- !u!136 &1913238197
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1913238195}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.11
-  m_Height: 0.11
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1955674226
 GameObject:
   m_ObjectHideFlags: 0

@@ -122,11 +122,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4259266099646536}
   - component: {fileID: 212820363362238454}
-  - component: {fileID: 58653686206932002}
   - component: {fileID: 114245210799043458}
+  - component: {fileID: 136751489567800818}
   m_Layer: 5
   m_Name: LazerItem
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,7 +155,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1876295848165562}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -474.81003, y: -268.16107, z: -3.99}
+  m_LocalPosition: {x: -480.31, y: -266.35, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 224774932309474098}
@@ -181,21 +181,6 @@ Transform:
   m_Father: {fileID: 4259266099646536}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &58653686206932002
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1876295848165562}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.2
 --- !u!114 &114022338750951336
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -241,7 +226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Item:
-    Name: 
+    Name: Lazer
     ItemName: 2
     ItemIcon: {fileID: 21300010, guid: 379676913003f4b4fb67ca9e26fbeb97, type: 3}
     GiveWeapon: 0
@@ -399,6 +384,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!136 &136751489567800818
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1876295848165562}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.11
+  m_Height: 0.11
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &198691303147335716
 ParticleSystem:
   m_ObjectHideFlags: 1
