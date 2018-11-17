@@ -5,9 +5,9 @@ using AssemblyCSharp;
 
 namespace AssemblyCSharp
 {
-    public enum WeaponName { Pistol, ZombieHand, EnergyRifle, Ak47, Shotgun, DemoGun1, Lazer};
+    public enum WeaponName { Pistol, ZombieHand, EnergyRifle, Ak47, Shotgun, DemoGun1, Lazer, Sword};
 
-    public enum WeaponType { Melee, Ranged };
+    public enum WeaponType { Melee, Ranged, ShortRange};
 
     [System.Serializable]
     public class Weapon
@@ -39,5 +39,6 @@ namespace AssemblyCSharp
         public float ProjectileSpeed = 5.0f;                    //how fast will the projectile go
         public bool IsThrust = false;                              //Like a shot gun, true means will push enemy backward a little bit.
         public bool IsLazer = false;                              //If it's true, projectiles will be lazer.
+        public bool IsShortRange = false;
     }
 }

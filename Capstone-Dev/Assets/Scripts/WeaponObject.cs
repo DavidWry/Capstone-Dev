@@ -10,16 +10,5 @@ namespace AssemblyCSharp
         public string Name = "";
         public WeaponName WeaponName;
         public GameObject weaponObj;
-        // Use this for initialization
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
     }
 }

@@ -239,7 +239,10 @@ public class Shoot : MonoBehaviour {
                 Proj.Duration = Player.leftWeapon.Duration;
             }
             //Deal with reload
-            Player.leftWeapon.CurrentAmmos--;
+            if (!Player.leftWeapon.IsShortRange)
+            {
+                Player.leftWeapon.CurrentAmmos--;
+            }
             gameManager.leftWeaponMenu.UpdateWeaponMenu(Player.leftWeapon);
             CanLeftShoot = false;
         }
@@ -290,6 +293,19 @@ public class Shoot : MonoBehaviour {
                     RightLazer = Laz;
                 }
             }
+            else if (Player.rightWeapon.IsShortRange)
+            {
+                //Creat projectile
+                GameObject NewProj = Instantiate(Player.rightWeapon.Projectile);
+                NewProj.transform.position = Right.position;
+                NewProj.transform.rotation = Right.rotation;
+                //Change state according to the weapon
+                Projectile Proj = NewProj.GetComponent<Projectile>();
+                Proj.IsReady = true;
+                Proj.Speed = Player.rightWeapon.ProjectileSpeed;
+                Proj.Duration = Player.rightWeapon.Duration;
+                Proj.Thrust = Player.rightWeapon.IsThrust;
+            }
             else
             {
                 //Creat projectile
@@ -304,7 +320,10 @@ public class Shoot : MonoBehaviour {
                 Proj.Thrust = Player.rightWeapon.IsThrust;
             }
             //Deal with reload
-            Player.rightWeapon.CurrentAmmos--;
+            if (!Player.rightWeapon.IsShortRange)
+            {
+                Player.rightWeapon.CurrentAmmos--;
+            }
             gameManager.rightWeaponMenu.UpdateWeaponMenu(Player.rightWeapon);
             CanRightShoot = false;
         }
