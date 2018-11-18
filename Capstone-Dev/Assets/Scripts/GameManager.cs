@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public List<Weapon> WeaponList;
     public List<Item> ItemsList;
     public List<WeaponObject> WeaponObjectList;
+    public List<GameObject> Tiles;
     public WeaponMenu leftWeaponMenu;
     public WeaponMenu rightWeaponMenu;
     // Use this for initialization
@@ -71,7 +72,7 @@ public class GameManager : MonoBehaviour
 
     public Item GetItem(ItemName itemName)
     {
-         Debug.Log(itemName);
+        Debug.Log(itemName);
         Item itemFound = new Item();
 
         foreach (Item currentItem in ItemsList)
@@ -83,7 +84,14 @@ public class GameManager : MonoBehaviour
 
         return itemFound;
     }
+    public GameObject GetTile(string tileName) {
+        GameObject tempTile=new GameObject();
+        foreach (GameObject tile in Tiles)
+            if (tile.name == tileName)
+                    tempTile=tile;
+        return tempTile;
 
+    }
     public GameObject GetItemObj(string itemName)
     {
         // Debug.Log("a");
