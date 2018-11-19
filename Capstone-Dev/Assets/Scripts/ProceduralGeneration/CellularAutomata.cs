@@ -39,16 +39,16 @@ public class CellularAutomata : MonoBehaviour {
         iteration = 8;
 
         //generate up to 2 level platforms
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 3; i++)
         {
-            Generate();
+            Generate(i);
             Draw(i);
             ChangeEdge();
             DrawEdge();
         }
     }
 	
-    void Generate() {
+    void Generate(int currentLevel) {
         //initialize
         for (int i = 0; i < levelWidth; i++) {
             for (int j = 0; j < levelHeight; j++) {
@@ -72,11 +72,11 @@ public class CellularAutomata : MonoBehaviour {
 
                     if (!isSimultaneous)
                     {
-                        landArray[w, h] = DetermineCell(w, h, 1);
+                        landArray[w, h] = DetermineCell(w, h, 1, currentLevel);
                     }
                     else
                     {
-                        newLandArray[w, h] = DetermineCell(w, h, 1);
+                        newLandArray[w, h] = DetermineCell(w, h, 1, currentLevel);
                     }
                 }
             }
@@ -92,7 +92,7 @@ public class CellularAutomata : MonoBehaviour {
         }
     }
 
-    int DetermineCell(int row, int col, int targetCellNum) {
+    int DetermineCell(int row, int col, int targetCellNum, int currentLevel) {
         int found = 0;
         int cellNum = 0;
 
@@ -216,7 +216,7 @@ public class CellularAutomata : MonoBehaviour {
                 }
             }
             //Debug.Log("found"+found);
-            if (found > 4)
+            if (found > Random.Range(3,6))
                 cellNum=1;
             //Debug.Log(cellNum);
         }
@@ -225,8 +225,8 @@ public class CellularAutomata : MonoBehaviour {
         
     }
 
-    void Draw(int iteration) {
-        if (iteration == 0)//no need to redraw tile_5 when draw second level
+    void Draw(int currentLevel) {
+        if (currentLevel == 0)//no need to redraw tile_5 when draw second level
         {
             GameObject tile0 = gameManager.GetTile("Tile_0");
             GameObject tile5 = gameManager.GetTile("Tile_5");
@@ -249,6 +249,8 @@ public class CellularAutomata : MonoBehaviour {
                 }
             }
         }
+        
+        
     }
 
     void ChangeEdge() {
@@ -299,7 +301,7 @@ public class CellularAutomata : MonoBehaviour {
                     else if (row > 0 && row < levelWidth - 1 && col == 0)
                     {
                         int bitMask = 32 * landArray[row + 1, col] + 128 * landArray[row - 1, col] +
-                             8 * landArray[row-1, col + 1] + 16 * landArray[row, col + 1] + 1 * landArray[row + 1, col + 1];
+                             8 * landArray[row - 1, col + 1] + 16 * landArray[row, col + 1] + 1 * landArray[row + 1, col + 1];
                         edgeArray[row, col] = bitMask;
                     }
                     else if (row > 0 && row < levelWidth - 1 && col == levelHeight - 1)
@@ -317,6 +319,10 @@ public class CellularAutomata : MonoBehaviour {
                         edgeArray[row, col] = bitMask;
                     }
                 }//end if platform
+
+                else {
+                    edgeArray[row, col] = 0;
+                }
             }//end for col
         }//end for row
     }//end Changeedge
@@ -354,6 +360,9 @@ public class CellularAutomata : MonoBehaviour {
                 {
                     
                     Instantiate(tile1, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, -0.1f), transform.rotation);
+                    if (cellState[i, j] == 1) {
+                        Debug.Log("重复了");
+                    }
                     cellState[i, j] = 1;
                     landArray[i, j] = 0;
                 }
