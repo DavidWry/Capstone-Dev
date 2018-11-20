@@ -49,12 +49,12 @@ public class CellularAutomata : MonoBehaviour {
             DrawEdge();
         }
 
-       // GenerateTrees();
+        GenerateTrees();
 
-       // DrawTrees();
+        DrawTrees();
     }
 
-    void CA(float ratio, int iteration,int threshold,int neighborSize) {
+    void CA(float ratio, int iteration,int threshold,int neighborSize, bool isSimultaneous) {
         //initialize
         for (int i = 0; i < levelWidth; i++)
         {
@@ -104,7 +104,7 @@ public class CellularAutomata : MonoBehaviour {
 
     }
     void Generate(int currentLevel) {
-        CA(0.5f, 8, 4, 1);
+        CA(0.5f, 8, 4, 1,false);
     }
 
     int DetermineCell(int row, int col, int targetCellNum, int threshold, int neighborSize) {
@@ -569,6 +569,7 @@ public class CellularAutomata : MonoBehaviour {
     }
 
     void GenerateTrees() {
+        //initialize
         for (int i = 0; i < levelWidth; i++) {
             for (int j = 0; j < levelHeight; j++) {
                 if (cellState[i, j] == 5)
@@ -578,40 +579,13 @@ public class CellularAutomata : MonoBehaviour {
                 else {
                     landArray[i, j] = 0;//do not generate trees on edge
                 }
+                //Debug.Log(landArray[i, j]);
             }
         }
 
-        //initialize
-        for (int i = 0; i < levelWidth; i++)
-        {
-            for (int j = 0; j < levelHeight; j++)
-            {
-                if (landArray[i, j] == 1)
-                {
-                    if (Random.value < treeRatio)
-                        landArray[i, j] = 1;
-                    else
-                        landArray[i, j] = 0;
-                }
-                //Debug.Log(landArray[i,j]);
-            }
-        }
+        CA(0.5f, 1, 6, 1,true);
 
-
-        //change value
-        for (int i = 0; i < iteration; i++)
-        {
-
-            for (int w = 0; w < levelWidth; w++)
-            {
-                for (int h = 0; h < levelHeight; h++)
-                {
-                    //landArray[w, h] = DetermineCell(w, h, 1);
-                  
-                }
-            }
-        }
-        
+       
     }
 
     void DrawTrees()
