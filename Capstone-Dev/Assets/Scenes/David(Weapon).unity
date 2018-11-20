@@ -12330,6 +12330,12 @@ Prefab:
       value: 
       objectReference: {fileID: 1530939543040866, guid: ce52afbac42e1f84da524ae52a381e7b,
         type: 2}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: CombineProjectile.Array.data[6]
+      value: 
+      objectReference: {fileID: 1974920550631064, guid: a7c05b14b35a2844bb679a5628ea42de,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7430308c60b9dc74396db2694886222b, type: 2}
   m_IsPrefabAsset: 0

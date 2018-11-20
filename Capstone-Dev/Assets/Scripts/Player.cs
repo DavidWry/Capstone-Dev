@@ -16,6 +16,8 @@ namespace AssemblyCSharp
         public Transform LeftHand;
         public Transform RightHand;
 
+        public int HitPoint;
+
         private float rotateSpeed;
         private Movement playerMovement;
         private Shoot playerShoot;
@@ -26,6 +28,7 @@ namespace AssemblyCSharp
         // Use this for initialization
         void Start()
         {
+            HitPoint = 100;
             rotateSpeed = 100f;
             playerMovement = GetComponent<Movement>();
             playerShoot = GetComponent<Shoot>();
@@ -54,7 +57,11 @@ namespace AssemblyCSharp
                 isLeftInHand = true;
             }
 
-
+            if (HitPoint <= 0)
+            {
+                Destroy(gameObject);
+                Debug.Log("Dead");
+            }
 
             if (playerMovement.isBulletTime)
             {
@@ -182,6 +189,11 @@ namespace AssemblyCSharp
                     }
                 }
             }
+        }
+        //take damage with hp.
+        public void TakeDamage(int Damage)
+        {
+            HitPoint -= Damage;
         }
     }
 }

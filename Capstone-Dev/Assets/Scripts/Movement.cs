@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour {
     public bool IsFaceRight = true;
     public GameObject RightAimIcon = null;
     public GameObject LeftAimIcon = null;
+    public Vector3 Recoil;
 
     private float yRotate;
     public bool isBulletTime;
@@ -18,9 +19,12 @@ public class Movement : MonoBehaviour {
     private int aimDistance;
     private Shoot playerShoot;
 
+
     // Use this for initialization
     void Start () {
         playerShoot = GetComponent<Shoot>();
+
+        Recoil = Vector3.zero;
 
         RightAimIcon = Instantiate(RightAimIcon, transform);
         RightAimIcon.transform.position = transform.position;
@@ -43,6 +47,8 @@ public class Movement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        RecoilReduce();
 
         //set the right aim icon
         if (Mathf.Abs(Input.GetAxis("Right X")) <= 1 || Mathf.Abs(Input.GetAxis("Right Y")) <= 1)
@@ -122,19 +128,22 @@ public class Movement : MonoBehaviour {
                     LeftAimIcon.transform.localPosition = tempvector * aimDistance;
                 }
             }
+            if (Recoil != Vector3.zero)
+            {
+                Vector3 rigimove = Recoil * Time.deltaTime;
+                playerBody.MovePosition(transform.position + rigimove);
+            }
         }
 
         //move
         else
         {
             LeftAimIcon.SetActive(false);
-            if (Mathf.Abs(Input.GetAxis("Left X")) >= 0.1 || Mathf.Abs(Input.GetAxis("Left Y")) >= 0.1)
+            if (Mathf.Abs(Input.GetAxis("Left X")) >= 0.1 || Mathf.Abs(Input.GetAxis("Left Y")) >= 0.1 || Recoil != Vector3.zero)
             {
-
                 transform.rotation = Quaternion.Euler(0, yRotate, 0);
-                Vector3 rigimove = new Vector3 (Input.GetAxis("Left X") * WalkSpeed * Time.deltaTime, Input.GetAxis("Left Y") * WalkSpeed * Time.deltaTime, 0);
+                Vector3 rigimove = new Vector3 (Input.GetAxis("Left X") * WalkSpeed * Time.deltaTime, Input.GetAxis("Left Y") * WalkSpeed * Time.deltaTime, 0) + Recoil * Time.deltaTime;
                 playerBody.MovePosition(transform.position + rigimove);
-
             }
             if (Input.GetAxis("Right X") > 0.3)
             {
@@ -158,6 +167,34 @@ public class Movement : MonoBehaviour {
                 Quaternion rigiRotate = Quaternion.Euler(0, yRotate, 0);
                 transform.rotation = rigiRotate;
              }
+        }
+    }
+
+    private void RecoilReduce()
+    {
+        if (Recoil.x > 0)
+        {
+            Recoil.x -= Time.deltaTime;
+            if (Recoil.x < 0)
+                Recoil.x = 0;
+        }
+        else if (Recoil.x < 0)
+        {
+            Recoil.x += Time.deltaTime;
+            if (Recoil.x > 0)
+                Recoil.x = 0;
+        }
+        if (Recoil.y > 0)
+        {
+            Recoil.y -= Time.deltaTime;
+            if (Recoil.y < 0)
+                Recoil.y = 0;
+        }
+        else if (Recoil.y < 0)
+        {
+            Recoil.y += Time.deltaTime;
+            if (Recoil.y > 0)
+                Recoil.y = 0;
         }
     }
 }
