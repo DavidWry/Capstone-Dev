@@ -8,7 +8,7 @@ public class PickUp : MonoBehaviour {
 
     public Transform LeftHand;
     public Transform RightHand;
-    private Player Player;
+    private Player player;
     private bool isLootNearby = false;
     [SerializeField]
     private Loot currentLoot = null;
@@ -16,7 +16,7 @@ public class PickUp : MonoBehaviour {
 
     void Start ()
     {
-        Player = gameObject.GetComponent<Player>();
+        player = gameObject.GetComponent<Player>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         //LeftHand = transform.GetChild(0);
         //RightHand = transform.GetChild(1);
@@ -51,9 +51,9 @@ public class PickUp : MonoBehaviour {
                         
                         if (handToPick == 1)
                         {
-                            if (Player.leftWeapon.Name != "")
+                            if (player.leftWeapon.Name != "")
                             {
-                                string tempName = Player.leftWeapon.WeaponName.ToString();
+                                string tempName = player.leftWeapon.WeaponName.ToString();
                                 GameObject itemObj = Instantiate(gameManager.GetItemObj(tempName), transform.position, Quaternion.Euler(0, 0, 0));
                                 var worldCanvas = GameObject.Find("worldCanvas").transform;
                                 itemObj.transform.parent = worldCanvas;
@@ -66,7 +66,7 @@ public class PickUp : MonoBehaviour {
                             newWeapon.CurrentAmmos = newWeapon.AmmoSize;
 
                             //found the weapon, add it for the player
-                            Player.leftWeapon=newWeapon;
+                            player.leftWeapon=newWeapon;
                             //Debug.Log(newWeapon.WeaponName);
                             RefreshWeaponUI(1);
                             ChangeWeapon(1, currentLoot.Item.WeaponName);
@@ -74,9 +74,9 @@ public class PickUp : MonoBehaviour {
 
                         else if (handToPick == 2)
                         {
-                            if (Player.rightWeapon.Name != "")
+                            if (player.rightWeapon.Name != "")
                             {
-                                string tempName = Player.rightWeapon.WeaponName.ToString();
+                                string tempName = player.rightWeapon.WeaponName.ToString();
                                 GameObject itemObj = gameManager.GetItemObj(tempName);
                                 itemObj = Instantiate(gameManager.GetItemObj(tempName), transform.position, Quaternion.Euler(0, 0, 0));
                                 var worldCanvas = GameObject.Find("worldCanvas").transform;
@@ -90,7 +90,7 @@ public class PickUp : MonoBehaviour {
                             newWeapon.CurrentAmmos = newWeapon.AmmoSize;
 
                             //found the weapon, add it for the player
-                            Player.rightWeapon = newWeapon;
+                            player.rightWeapon = newWeapon;
                             RefreshWeaponUI(2);
                             ChangeWeapon(2,currentLoot.Item.WeaponName);
                         }
@@ -145,11 +145,11 @@ public class PickUp : MonoBehaviour {
 
         if (leftOrRight == 1)
         {
-            gameManager.leftWeaponMenu.UpdateWeaponMenu(Player.leftWeapon);
+            gameManager.leftWeaponMenu.UpdateWeaponMenu(player.leftWeapon);
         }
         else if (leftOrRight == 2)
         {
-            gameManager.rightWeaponMenu.UpdateWeaponMenu(Player.rightWeapon);
+            gameManager.rightWeaponMenu.UpdateWeaponMenu(player.rightWeapon);
         }
     }
 
@@ -182,6 +182,7 @@ public class PickUp : MonoBehaviour {
             weaponObj.transform.parent = LeftHand;
             weaponObj.transform.localPosition = tempPosition;
             weaponObj.transform.rotation = LeftHand.rotation;
+            player.CombineWeapon();
         }
         else if (leftOrRight == 2)
         {
@@ -195,6 +196,7 @@ public class PickUp : MonoBehaviour {
             weaponObj.transform.parent = RightHand;
             weaponObj.transform.localPosition = tempPosition;
             weaponObj.transform.rotation = RightHand.rotation;
+            player.CombineWeapon();
         }
     }
 

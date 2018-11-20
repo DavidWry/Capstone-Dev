@@ -11,6 +11,7 @@ namespace AssemblyCSharp
         public Weapon rightWeapon;
         public GameObject LeftTarget;
         public GameObject RightTarget;
+        public int CombineType;
 
         public Transform LeftHand;
         public Transform RightHand;
@@ -52,6 +53,8 @@ namespace AssemblyCSharp
                 isCombine = false;
                 isLeftInHand = true;
             }
+
+
 
             if (playerMovement.isBulletTime)
             {
@@ -117,6 +120,68 @@ namespace AssemblyCSharp
                 }
             }
         }
-    }
 
+        public void CombineWeapon()
+        {
+            if (leftWeapon.WeaponName == rightWeapon.WeaponName)
+            {
+                CombineType = 0;
+            }
+            else
+            {
+                if (leftWeapon.WeaponName == WeaponName.Pistol || rightWeapon.WeaponName == WeaponName.Pistol)
+                {
+                    if (leftWeapon.WeaponName == WeaponName.Ak47 || rightWeapon.WeaponName == WeaponName.Ak47)
+                    {
+                        CombineType = 12;
+                    }
+                    else if (leftWeapon.WeaponName == WeaponName.Lazer || rightWeapon.WeaponName == WeaponName.Lazer)
+                    {
+                        CombineType = 13;
+                    }
+                    else if (leftWeapon.WeaponName == WeaponName.Shotgun || rightWeapon.WeaponName == WeaponName.Shotgun)
+                    {
+                        CombineType = 14;
+                    }
+                    else if (leftWeapon.WeaponName == WeaponName.Sword || rightWeapon.WeaponName == WeaponName.Sword)
+                    {
+                        CombineType = 15;
+                    }
+                }
+                else if (leftWeapon.WeaponName == WeaponName.Ak47 || rightWeapon.WeaponName == WeaponName.Ak47)
+                {
+                    if (leftWeapon.WeaponName == WeaponName.Lazer || rightWeapon.WeaponName == WeaponName.Lazer)
+                    {
+                        CombineType = 23;
+                    }
+                    else if (leftWeapon.WeaponName == WeaponName.Shotgun || rightWeapon.WeaponName == WeaponName.Shotgun)
+                    {
+                        CombineType = 24;
+                    }
+                    else if (leftWeapon.WeaponName == WeaponName.Sword || rightWeapon.WeaponName == WeaponName.Sword)
+                    {
+                        CombineType = 25;
+                    }
+                }
+                else if (leftWeapon.WeaponName == WeaponName.Lazer || rightWeapon.WeaponName == WeaponName.Lazer)
+                {
+                    if (leftWeapon.WeaponName == WeaponName.Shotgun || rightWeapon.WeaponName == WeaponName.Shotgun)
+                    {
+                        CombineType = 34;
+                    }
+                    else if (leftWeapon.WeaponName == WeaponName.Sword || rightWeapon.WeaponName == WeaponName.Sword)
+                    {
+                        CombineType = 35;
+                    }
+                }
+                else if (leftWeapon.WeaponName == WeaponName.Shotgun || rightWeapon.WeaponName == WeaponName.Shotgun)
+                {
+                    if (leftWeapon.WeaponName == WeaponName.Sword || rightWeapon.WeaponName == WeaponName.Sword)
+                    {
+                        CombineType = 45;
+                    }
+                }
+            }
+        }
+    }
 }
