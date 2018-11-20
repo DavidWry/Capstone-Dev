@@ -16,6 +16,7 @@ public class CellularAutomata : MonoBehaviour {
     private int[,] cellState;
     private bool isSimultaneous;
     private float landRatio;
+    private float treeRatio;
     private int iteration;
 
     // Use this for initialization
@@ -36,6 +37,7 @@ public class CellularAutomata : MonoBehaviour {
         cellState = new int[levelWidth, levelHeight];
         isSimultaneous = false;
         landRatio = 0.5f;
+        treeRatio = 0.5f;
         iteration = 8;
 
         //generate up to 2 level platforms
@@ -46,43 +48,52 @@ public class CellularAutomata : MonoBehaviour {
             ChangeEdge();
             DrawEdge();
         }
+
+       // GenerateTrees();
+
+       // DrawTrees();
     }
-	
-    void Generate(int currentLevel) {
+
+    void CA(float ratio, int iteration,int threshold,int neighborSize) {
         //initialize
-        for (int i = 0; i < levelWidth; i++) {
-            for (int j = 0; j < levelHeight; j++) {
+        for (int i = 0; i < levelWidth; i++)
+        {
+            for (int j = 0; j < levelHeight; j++)
+            {
                 if (landArray[i, j] == 1)
                 {
-                    if (Random.value < landRatio)
+                    if (Random.value < ratio)
                         landArray[i, j] = 1;
                     else
                         landArray[i, j] = 0;
                 }
-                //Debug.Log(landArray[i,j]);
             }
         }
-        
 
-        //change value
-        for (int i = 0; i < iteration; i++) {
-
-            for (int w = 0; w < levelWidth; w++) {
-                for (int h = 0; h < levelHeight; h++) {
+        //change value in landArray
+        for (int i = 0; i < iteration; i++)
+        {
+            for (int w = 0; w < levelWidth; w++)
+            {
+                for (int h = 0; h < levelHeight; h++)
+                {
 
                     if (!isSimultaneous)
                     {
-                        landArray[w, h] = DetermineCell(w, h, 1, currentLevel);
+                        landArray[w, h] = DetermineCell(w, h, 1,threshold,neighborSize);
                     }
                     else
                     {
-                        newLandArray[w, h] = DetermineCell(w, h, 1, currentLevel);
+                        newLandArray[w, h] = DetermineCell(w, h, 1, threshold, neighborSize);
                     }
                 }
             }
-            if (isSimultaneous) {
-                for (int w = 0; w < levelWidth; w++) {
-                    for (int h = 0; h < levelHeight; h++) {
+            if (isSimultaneous)
+            {
+                for (int w = 0; w < levelWidth; w++)
+                {
+                    for (int h = 0; h < levelHeight; h++)
+                    {
                         landArray[w, h] = newLandArray[w, h];
                     }
                 }
@@ -90,12 +101,16 @@ public class CellularAutomata : MonoBehaviour {
 
 
         }
+
+    }
+    void Generate(int currentLevel) {
+        CA(0.5f, 8, 4, 1);
     }
 
-    int DetermineCell(int row, int col, int targetCellNum, int currentLevel) {
+    int DetermineCell(int row, int col, int targetCellNum, int threshold, int neighborSize) {
         int found = 0;
         int cellNum = 0;
-
+/*
         //calculate four corners
         if (row == 0 && col == 0)
         {
@@ -204,22 +219,33 @@ public class CellularAutomata : MonoBehaviour {
             if (found > 3)
                 cellNum = 1;
         }
+        */
         //calculate main area
-        else
+        int minX = row-neighborSize;
+        int maxX = row+neighborSize;
+        int minY = col-neighborSize;
+        int maxY = col+neighborSize;
+        if (minX < 0)
+            minX = 0;
+        if (maxX > levelWidth - 1)
+            maxX = levelWidth - 1;
+        if (minY < 0)
+            minY = 0;
+        if (maxY > levelHeight - 1)
+            maxY = levelHeight - 1;
+
+        for (int x = minX; x <= maxX; x++)
         {
-            for (int x = -1; x <= 1; x++)
+            for (int y = minY; y <= maxY; y++)
             {
-                for (int y = -1; y <= 1; y++)
-                {
-                    if (landArray[row + x, col + y] == targetCellNum)
-                        found++;
-                }
+                if (landArray[x, y] == targetCellNum)
+                found++;
             }
-            //Debug.Log("found"+found);
-            if (found > Random.Range(3,6))
-                cellNum=1;
-            //Debug.Log(cellNum);
         }
+            //Debug.Log("found"+found);
+        if (found > threshold)
+            cellNum=1;
+            //Debug.Log(cellNum);
         
         return cellNum;
         
@@ -360,9 +386,6 @@ public class CellularAutomata : MonoBehaviour {
                 {
                     
                     Instantiate(tile1, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, -0.1f), transform.rotation);
-                    if (cellState[i, j] == 1) {
-                        Debug.Log("重复了");
-                    }
                     cellState[i, j] = 1;
                     landArray[i, j] = 0;
                 }
@@ -545,5 +568,89 @@ public class CellularAutomata : MonoBehaviour {
         }
     }
 
+    void GenerateTrees() {
+        for (int i = 0; i < levelWidth; i++) {
+            for (int j = 0; j < levelHeight; j++) {
+                if (cellState[i, j] == 5)
+                {
+                    landArray[i, j] = 1;//draw trees on blank tiles
+                }
+                else {
+                    landArray[i, j] = 0;//do not generate trees on edge
+                }
+            }
+        }
 
+        //initialize
+        for (int i = 0; i < levelWidth; i++)
+        {
+            for (int j = 0; j < levelHeight; j++)
+            {
+                if (landArray[i, j] == 1)
+                {
+                    if (Random.value < treeRatio)
+                        landArray[i, j] = 1;
+                    else
+                        landArray[i, j] = 0;
+                }
+                //Debug.Log(landArray[i,j]);
+            }
+        }
+
+
+        //change value
+        for (int i = 0; i < iteration; i++)
+        {
+
+            for (int w = 0; w < levelWidth; w++)
+            {
+                for (int h = 0; h < levelHeight; h++)
+                {
+                    //landArray[w, h] = DetermineCell(w, h, 1);
+                  
+                }
+            }
+        }
+        
+    }
+
+    void DrawTrees()
+    {
+        GameObject tree1 = gameManager.GetTile("Tree_1");
+        GameObject tree2 = gameManager.GetTile("Tree_2");
+        GameObject tree3 = gameManager.GetTile("Tree_3");
+        GameObject tree4 = gameManager.GetTile("Tree_4");
+
+        for (int i = 0; i < levelWidth; i++)
+        {
+            for (int j = 0; j < levelHeight; j++)
+            {
+                if (landArray[i, j] == 1)
+                {
+                    Debug.Log("shu");
+                    float tempValue = Random.value;
+                    if (tempValue < 0.25)
+                    {
+                        Instantiate(tree1, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, -0.2f), transform.rotation);
+                        cellState[i, j] = 18;
+                    }
+                    else if (tempValue < 0.5)
+                    {
+                        Instantiate(tree2, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, -0.2f), transform.rotation);
+                        cellState[i, j] = 19;
+                    }
+                    else if (tempValue < 0.75)
+                    {
+                        Instantiate(tree3, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, -0.2f), transform.rotation);
+                        cellState[i, j] = 20;
+                    }
+                    else if (tempValue < 1)
+                    {
+                        Instantiate(tree4, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, -0.2f), transform.rotation);
+                        cellState[i, j] = 21;
+                    }
+                }
+            }
+        }
+    }
 }
