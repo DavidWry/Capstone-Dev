@@ -45,6 +45,7 @@ public class Shoot : MonoBehaviour {
     private float preRightInputY = 0f;
     private float preLeftInputX = 0f;
     private float preLeftInputY = 0f;
+    [SerializeField]
     private float frameTimer = 0;
     private float CombineBtw = 1.0f;
     bool combineAngle = false;
@@ -54,7 +55,7 @@ public class Shoot : MonoBehaviour {
     private float CombineSpeed_24 = 10f;
     private float CombineDuration_24 = 2f;
     //25-7
-    private float CombineBtw_25 = 0.2f;
+    private float CombineBtw_25 = 0.05f;
     private float CombineSpeed_25 = 15f;
     private float CombineDuration_25 = 0.5f;
 
@@ -132,7 +133,7 @@ public class Shoot : MonoBehaviour {
             {
                 if (preLeftInputX != rx && preLeftInputY != ry && preRightInputX != rtx && preRightInputY != rty)
                 {
-                    if (Mathf.Abs(Vector3.Distance(ptz, pz)) > 1.2f)
+                    if (Mathf.Abs(Vector3.Distance(ptz, pz)) > 1.0f)
                     {
                         combineAngle = true;
                     }
@@ -140,7 +141,7 @@ public class Shoot : MonoBehaviour {
                     {
                         combineAngle = false;
                         CombinedTime = 0;
-                    }
+                    }                    
                     frameTimer += Time.deltaTime;
                     if (frameTimer >= 0.2f)
                     {
@@ -154,7 +155,7 @@ public class Shoot : MonoBehaviour {
                 else
                 {
                     combineAngle = false;
-                    CombinedTime = 0;
+                    //CombinedTime = 0;
                 }
             }
             if (combineAngle)
@@ -270,7 +271,7 @@ public class Shoot : MonoBehaviour {
                     Proj.Duration = player.leftWeapon.Duration;
                     Proj.Thrust = player.leftWeapon.IsThrust;
                 }
-                movement.Recoil = -Left.transform.right * 0.2f;
+                //movement.Recoil = -Left.transform.right * 0.2f;
             }
             else if (player.leftWeapon.IsLazer)
             {
@@ -341,7 +342,7 @@ public class Shoot : MonoBehaviour {
                     Proj.Duration = player.rightWeapon.Duration;
                     Proj.Thrust = player.rightWeapon.IsThrust;                    
                 }
-                movement.Recoil = - Right.transform.right * 0.2f;
+                //movement.Recoil = - Right.transform.right * 0.2f;
             }
             else if (player.rightWeapon.IsLazer)
             {
@@ -486,6 +487,15 @@ public class Shoot : MonoBehaviour {
         Proj.IsReady = true;
         Proj.Speed = CombineSpeed_25;
         Proj.Duration = CombineDuration_25;
+
+        GameObject NewProj02 = Instantiate(gameManager.CombineProjectile[7]);
+        NewProj02.transform.position = Center.position;
+        NewProj02.transform.rotation = Left.rotation;
+        //Change state according to the weapon
+        Projectile Proj02 = NewProj02.GetComponent<Projectile>();
+        Proj02.IsReady = true;
+        Proj02.Speed = CombineSpeed_25;
+        Proj02.Duration = CombineDuration_25;
     }
     private void CombineShoot_34()
     {

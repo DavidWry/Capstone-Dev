@@ -35,13 +35,14 @@ public class EnemyFollow : MonoBehaviour
         
     }
  
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter(Collider other)
     {
         // if hit then move to the opposite direction to show a PUSHBACK effect
         if (other.CompareTag("Projectile"))
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(-transform.right * 2);
-            gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.ClampMagnitude(gameObject.GetComponent<Rigidbody2D>().velocity, 1);
+            gameObject.GetComponent<Rigidbody>().AddForce(-transform.right * 2);
+            gameObject.GetComponent<Rigidbody>().velocity = Vector2.ClampMagnitude(gameObject.GetComponent<Rigidbody>().velocity, 1);
+            Debug.Log("000");
         }
     }
 
