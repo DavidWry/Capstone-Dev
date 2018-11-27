@@ -54,6 +54,18 @@ public class CellularAutomata : MonoBehaviour {
 
         GenerateCactus();
         DrawCactus();
+
+        GenerateGrass();
+        DrawGrass();
+
+        GenerateShrub();
+        DrawShrub();
+
+        GenerateRock();
+        DrawRock();
+
+        GenerateLoot();
+        DrawLoot();
     }
 
     void CA(float ratio, int iteration,int threshold,int neighborSize, bool isSimultaneous, int targetNum) {
@@ -639,17 +651,18 @@ public class CellularAutomata : MonoBehaviour {
             {
                 if (cellState[i, j] == 5|| (cellState[i, j]>=18 && cellState[i, j] <= 21))
                 {
-                    landArray[i, j] = 1;//draw trees on blank tiles
+                    landArray[i, j] = 1;
                 }
                 else
                 {
-                    landArray[i, j] = -1;//do not generate trees on edge
+                    landArray[i, j] = -1;
                 }
-                //Debug.Log(landArray[i, j]);
+
             }
         }
 
-        CA(0.5f, 1, 8, 1, true, 0);
+        //CA(0.5f, 1, 8, 1, true, 0);
+        CA(0.5f, 1, 8, 1, false, 0);
     }
 
     void DrawCactus()
@@ -670,23 +683,246 @@ public class CellularAutomata : MonoBehaviour {
                     if (tempValue < 0.25)
                     {
                         Instantiate(cactus1, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
-                        cellState[i, j] = 18;//number in tileset folder
+                        cellState[i, j] = 22;//number in tileset folder
                     }
                     else if (tempValue < 0.5)
                     {
                         Instantiate(cactus2, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
-                        cellState[i, j] = 19;
+                        cellState[i, j] = 23;
                     }
                     else if (tempValue < 0.75)
                     {
                         Instantiate(cactus3, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
-                        cellState[i, j] = 20;
+                        cellState[i, j] = 24;
                     }
                     else if (tempValue < 1)
                     {
                         Instantiate(cactus4, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
-                        cellState[i, j] = 21;
+                        cellState[i, j] = 25;
                     }
+                }
+            }
+        }
+    }
+
+    void GenerateGrass()
+    {
+        //initialize
+        for (int i = 0; i < levelWidth; i++)
+        {
+            for (int j = 0; j < levelHeight; j++)
+            {
+                if (cellState[i, j] == 5 || (cellState[i, j] >= 18 && cellState[i, j] <= 25))
+                {
+                    landArray[i, j] = 1;
+                }
+                else
+                {
+                    landArray[i, j] = -1;
+                }
+               
+            }
+        }
+
+        //CA(0.5f, 1, 8, 1, true, 0);
+        CA(0.5f, 1, 8, 1, false, 0);
+    }
+
+    void DrawGrass()
+    {
+        GameObject grass1 = gameManager.GetTile("Grass_1");
+        GameObject grass2 = gameManager.GetTile("Grass_2");
+
+        for (int i = 0; i < levelWidth; i++)
+        {
+            for (int j = 0; j < levelHeight; j++)
+            {
+                if (landArray[i, j] == 1)
+                {
+
+                    float tempValue = Random.value;
+                    if (tempValue < 0.5)
+                    {
+                        Instantiate(grass1, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
+                        cellState[i, j] = 26;//number in tileset folder
+                    }
+                    else if (tempValue < 1)
+                    {
+                        Instantiate(grass2, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
+                        cellState[i, j] = 27;
+                    }
+                }
+            }
+        }
+    }
+
+    void GenerateShrub()
+    {
+        //initialize
+        for (int i = 0; i < levelWidth; i++)
+        {
+            for (int j = 0; j < levelHeight; j++)
+            {
+                if (cellState[i, j] == 5 || (cellState[i, j] >= 18 && cellState[i, j] <= 27))
+                {
+                    landArray[i, j] = 1;
+                }
+                else
+                {
+                    landArray[i, j] = -1;
+                }
+
+            }
+        }
+
+        //CA(0.5f, 1, 8, 1, true, 0);
+        CA(0.5f, 1, 8, 1, false, 0);
+    }
+
+    void DrawShrub()
+    {
+        GameObject shrub1 = gameManager.GetTile("Shrub_1");
+        GameObject shrub2 = gameManager.GetTile("Shrub_2");
+        GameObject shrub3 = gameManager.GetTile("Shrub_3");
+        GameObject shrub4 = gameManager.GetTile("Shrub_4");
+
+        for (int i = 0; i < levelWidth; i++)
+        {
+            for (int j = 0; j < levelHeight; j++)
+            {
+                if (landArray[i, j] == 1)
+                {
+
+                    float tempValue = Random.value;
+                    if (tempValue < 0.25)
+                    {
+                        Instantiate(shrub1, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
+                        cellState[i, j] = 28;//number in tileset folder
+                    }
+                    else if (tempValue < 0.5)
+                    {
+                        Instantiate(shrub2, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
+                        cellState[i, j] = 29;
+                    }
+                    else if (tempValue < 0.75)
+                    {
+                        Instantiate(shrub3, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
+                        cellState[i, j] = 30;
+                    }
+                    else if (tempValue < 1)
+                    {
+                        Instantiate(shrub4, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
+                        cellState[i, j] = 31;
+                    }
+                }
+            }
+        }
+    }
+
+    void GenerateRock()
+    {
+        //initialize
+        for (int i = 0; i < levelWidth; i++)
+        {
+            for (int j = 0; j < levelHeight; j++)
+            {
+                if (cellState[i, j] == 5 || (cellState[i, j] >= 18 && cellState[i, j] <= 31))
+                {
+                    landArray[i, j] = 1;
+                }
+                else
+                {
+                    landArray[i, j] = -1;
+                }
+
+            }
+        }
+
+        // CA(0.5f, 1, 8, 1, true, 0);
+        CA(0.5f, 1, 8, 1, false, 0);
+    }
+
+    void DrawRock()
+    {
+        GameObject rock1 = gameManager.GetTile("Rock_1");
+        GameObject rock2 = gameManager.GetTile("Rock_2");
+        GameObject rock3 = gameManager.GetTile("Rock_3");
+        GameObject rock4 = gameManager.GetTile("Rock_4");
+        GameObject prop2 = gameManager.GetTile("Prop_2");// add the plate here
+
+        for (int i = 0; i < levelWidth; i++)
+        {
+            for (int j = 0; j < levelHeight; j++)
+            {
+                if (landArray[i, j] == 1)
+                {
+
+                    float tempValue = Random.value;
+                    if (tempValue < 0.20)
+                    {
+                        Instantiate(rock1, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
+                        cellState[i, j] = 34;//number in tileset folder
+                    }
+                    else if (tempValue < 0.4)
+                    {
+                        Instantiate(rock2, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
+                        cellState[i, j] = 35;
+                    }
+                    else if (tempValue < 0.6)
+                    {
+                        Instantiate(rock3, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
+                        cellState[i, j] = 36;
+                    }
+                    else if (tempValue < 0.8)
+                    {
+                        Instantiate(rock4, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
+                        cellState[i, j] = 37;
+                    }
+                    else if (tempValue < 1)
+                    {
+                        Instantiate(prop2, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
+                        cellState[i, j] = 33;
+                    }
+                }
+            }
+        }
+    }
+
+    void GenerateLoot()
+    {
+        //initialize
+        for (int i = 0; i < levelWidth; i++)
+        {
+            for (int j = 0; j < levelHeight; j++)
+            {
+                if (cellState[i, j] == 5 || (cellState[i, j] >= 18 && cellState[i, j] <= 37))
+                {
+                    landArray[i, j] = 1;
+                }
+                else
+                {
+                    landArray[i, j] = -1;
+                }
+
+            }
+        }
+
+        CA(0.65f, 1, 8, 1, false, 0);
+    }
+
+    void DrawLoot()
+    {
+        GameObject prop1 = gameManager.GetTile("Prop_1");
+       
+
+        for (int i = 0; i < levelWidth; i++)
+        {
+            for (int j = 0; j < levelHeight; j++)
+            {
+                if (landArray[i, j] == 1)
+                {
+                    Instantiate(prop1, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
+                    cellState[i, j] = 32;//number in tileset folder            
                 }
             }
         }

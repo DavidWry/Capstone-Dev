@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public List<Item> ItemsList;
     public List<WeaponObject> WeaponObjectList;
     public List<GameObject> Tiles;
+    public List<GameObject> EnemyList;
     public List<GameObject> CombineProjectile;        //12-1 13-2 14-3 15-4 23-5 24-6 25-7 34-8 35-9 45-10
     public WeaponMenu leftWeaponMenu;
     public WeaponMenu rightWeaponMenu;
@@ -91,8 +92,17 @@ public class GameManager : MonoBehaviour
             if (tile.name == tileName)
                     tempTile=tile;
         return tempTile;
-
     }
+
+    public GameObject GetEnemy(string enemyName)
+    {
+        GameObject tempEnemy = new GameObject();
+        foreach (GameObject enemy in EnemyList)
+            if (enemy.name == enemyName)
+                tempEnemy = enemy;
+        return tempEnemy;
+    }
+
     public GameObject GetItemObj(string itemName)
     {
         // Debug.Log("a");
