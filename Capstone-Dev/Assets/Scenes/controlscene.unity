@@ -59,7 +59,7 @@ LightmapSettings:
     m_Resolution: 2
     m_BakeResolution: 40
     m_AtlasSize: 1024
-    m_AO: 0
+    m_AO: 1
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
     m_CompAOExponentDirect: 0
@@ -500,7 +500,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1843048888}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 1, z: -30.69}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -516,7 +516,7 @@ Prefab:
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
       propertyPath: Tiles.Array.size
-      value: 22
+      value: 38
       objectReference: {fileID: 0}
     - target: {fileID: 4390172704827272, guid: 7430308c60b9dc74396db2694886222b, type: 2}
       propertyPath: m_LocalPosition.x
@@ -548,7 +548,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4390172704827272, guid: 7430308c60b9dc74396db2694886222b, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
@@ -736,97 +736,97 @@ Prefab:
         type: 2}
       propertyPath: Tiles.Array.data[22]
       value: 
-      objectReference: {fileID: 1008682546140488, guid: 68175a0d585b3974fb7a58f02c673137,
+      objectReference: {fileID: 1008682546140488, guid: eb26b066fb2b9464e935cc6b659cd05f,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
       propertyPath: Tiles.Array.data[23]
       value: 
-      objectReference: {fileID: 1008682546140488, guid: 68175a0d585b3974fb7a58f02c673137,
+      objectReference: {fileID: 1008682546140488, guid: badfc52144f876a46b6646ad76b43f1b,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
       propertyPath: Tiles.Array.data[24]
       value: 
-      objectReference: {fileID: 1008682546140488, guid: 68175a0d585b3974fb7a58f02c673137,
+      objectReference: {fileID: 1008682546140488, guid: 84ad8a444f14cf2479420602f89b3b88,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
       propertyPath: Tiles.Array.data[25]
       value: 
-      objectReference: {fileID: 1008682546140488, guid: 68175a0d585b3974fb7a58f02c673137,
+      objectReference: {fileID: 1008682546140488, guid: 4ba98352395cf0f4ba0d0625f7875380,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
       propertyPath: Tiles.Array.data[26]
       value: 
-      objectReference: {fileID: 1008682546140488, guid: 68175a0d585b3974fb7a58f02c673137,
+      objectReference: {fileID: 1008682546140488, guid: 465df9dedf6e3e44285b6c2d8a18e31f,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
       propertyPath: Tiles.Array.data[27]
       value: 
-      objectReference: {fileID: 1008682546140488, guid: 68175a0d585b3974fb7a58f02c673137,
+      objectReference: {fileID: 1008682546140488, guid: 52bf8412afc74744a9a18f737b980f16,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
       propertyPath: Tiles.Array.data[28]
       value: 
-      objectReference: {fileID: 1008682546140488, guid: 68175a0d585b3974fb7a58f02c673137,
+      objectReference: {fileID: 1008682546140488, guid: 4805d271751e3d34f8fe3d99473f416c,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
       propertyPath: Tiles.Array.data[29]
       value: 
-      objectReference: {fileID: 1008682546140488, guid: 68175a0d585b3974fb7a58f02c673137,
+      objectReference: {fileID: 1008682546140488, guid: a4e3e84f50c70fe4ab114ba7361562da,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
       propertyPath: Tiles.Array.data[30]
       value: 
-      objectReference: {fileID: 1008682546140488, guid: 68175a0d585b3974fb7a58f02c673137,
+      objectReference: {fileID: 1008682546140488, guid: 12abf7f60b4ff4a47b3d5c26d0e3f425,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
       propertyPath: Tiles.Array.data[31]
       value: 
-      objectReference: {fileID: 1008682546140488, guid: 68175a0d585b3974fb7a58f02c673137,
+      objectReference: {fileID: 1008682546140488, guid: 58846101c29765340800c53becf40107,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
       propertyPath: Tiles.Array.data[32]
       value: 
-      objectReference: {fileID: 1008682546140488, guid: 68175a0d585b3974fb7a58f02c673137,
+      objectReference: {fileID: 1008682546140488, guid: 04662781dc4f4744bb9b75ce7d02e25c,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
       propertyPath: Tiles.Array.data[33]
       value: 
-      objectReference: {fileID: 1008682546140488, guid: 68175a0d585b3974fb7a58f02c673137,
+      objectReference: {fileID: 1008682546140488, guid: 04662781dc4f4744bb9b75ce7d02e25c,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
       propertyPath: Tiles.Array.data[34]
       value: 
-      objectReference: {fileID: 1008682546140488, guid: 68175a0d585b3974fb7a58f02c673137,
+      objectReference: {fileID: 1008682546140488, guid: 4b2472ff5f6f0a2488e41703aa081a98,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
       propertyPath: Tiles.Array.data[35]
       value: 
-      objectReference: {fileID: 1008682546140488, guid: 68175a0d585b3974fb7a58f02c673137,
+      objectReference: {fileID: 1008682546140488, guid: 410ced76ea84ea743906dcfc22ec45e4,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
       propertyPath: Tiles.Array.data[36]
       value: 
-      objectReference: {fileID: 1008682546140488, guid: 68175a0d585b3974fb7a58f02c673137,
+      objectReference: {fileID: 1008682546140488, guid: fbee2d7eda933b24881856b857a6ec68,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
       propertyPath: Tiles.Array.data[37]
       value: 
-      objectReference: {fileID: 1008682546140488, guid: 68175a0d585b3974fb7a58f02c673137,
+      objectReference: {fileID: 1008682546140488, guid: 07884be851adda24596d183388b8ec87,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
@@ -13981,5 +13981,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}

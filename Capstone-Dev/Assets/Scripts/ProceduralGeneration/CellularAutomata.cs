@@ -50,11 +50,13 @@ public class CellularAutomata : MonoBehaviour {
         }
 
         GenerateTrees();
-
         DrawTrees();
+
+        GenerateCactus();
+        DrawCactus();
     }
 
-    void CA(float ratio, int iteration,int threshold,int neighborSize, bool isSimultaneous) {
+    void CA(float ratio, int iteration,int threshold,int neighborSize, bool isSimultaneous, int targetNum) {
         //initialize
         for (int i = 0; i < levelWidth; i++)
         {
@@ -80,11 +82,11 @@ public class CellularAutomata : MonoBehaviour {
 
                     if (!isSimultaneous)
                     {
-                        landArray[w, h] = DetermineCell(w, h, 1,threshold,neighborSize);
+                        landArray[w, h] = DetermineCell(w, h, targetNum,threshold,neighborSize);
                     }
                     else
                     {
-                        newLandArray[w, h] = DetermineCell(w, h, 1, threshold, neighborSize);
+                        newLandArray[w, h] = DetermineCell(w, h, targetNum, threshold, neighborSize);
                     }
                 }
             }
@@ -104,7 +106,7 @@ public class CellularAutomata : MonoBehaviour {
 
     }
     void Generate(int currentLevel) {
-        CA(0.5f, 8, 4, 1,false);
+        CA(0.5f, 8, 4, 1,false,1);
     }
 
     int DetermineCell(int row, int col, int targetCellNum, int threshold, int neighborSize) {
@@ -385,7 +387,7 @@ public class CellularAutomata : MonoBehaviour {
                     ))
                 {
                     
-                    Instantiate(tile1, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, -0.1f), transform.rotation);
+                    Instantiate(tile1, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, 0), transform.rotation);
                     cellState[i, j] = 1;
                     landArray[i, j] = 0;
                 }
@@ -399,7 +401,7 @@ public class CellularAutomata : MonoBehaviour {
                     ))
                 {
                    
-                    Instantiate(tile3, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, -0.1f), transform.rotation);
+                    Instantiate(tile3, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, 0), transform.rotation);
                     cellState[i, j] = 3;
                     landArray[i, j] = 0;
                 }
@@ -413,7 +415,7 @@ public class CellularAutomata : MonoBehaviour {
                     ))
                 {
                    
-                    Instantiate(tile7, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, -0.1f), transform.rotation);
+                    Instantiate(tile7, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, 0), transform.rotation);
                     cellState[i, j] = 7;
                     landArray[i, j] = 0;
                 }
@@ -427,7 +429,7 @@ public class CellularAutomata : MonoBehaviour {
                     ))
                 {
                     
-                    Instantiate(tile9, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, -0.1f), transform.rotation);
+                    Instantiate(tile9, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, 0), transform.rotation);
                     cellState[i, j] = 9;
                     landArray[i, j] = 0;
                 }
@@ -440,13 +442,13 @@ public class CellularAutomata : MonoBehaviour {
 
                     if (Random.value < 0.1 && j != levelHeight - 1)
                     {
-                        Instantiate(tile17, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, -0.1f), transform.rotation);
+                        Instantiate(tile17, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, 0), transform.rotation);
                         cellState[i, j] = 17;
                         landArray[i, j] = 0;
                     }
                     else
                     {
-                        Instantiate(tile2, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, -0.1f), transform.rotation);
+                        Instantiate(tile2, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, 0), transform.rotation);
                         cellState[i, j] = 2;
                         landArray[i, j] = 0;
                     }
@@ -460,14 +462,14 @@ public class CellularAutomata : MonoBehaviour {
                     //open the gate!
                     if (Random.value < 0.1 && j != 0)
                     {
-                        Instantiate(tile16, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, -0.1f), transform.rotation);
+                        Instantiate(tile16, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, 0), transform.rotation);
                         cellState[i, j] = 16;
                         landArray[i, j] = 0;
                     }
 
                     else
                     {
-                        Instantiate(tile8, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, -0.1f), transform.rotation);
+                        Instantiate(tile8, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, 0), transform.rotation);
                         cellState[i, j] = 8;
                         landArray[i, j] = 0;
                     }
@@ -480,13 +482,13 @@ public class CellularAutomata : MonoBehaviour {
                     //open the gate!
                     if (Random.value < 0.1 && i != 0)
                     {
-                        Instantiate(tile14, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, -0.1f), transform.rotation);
+                        Instantiate(tile14, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, 0), transform.rotation);
                         cellState[i, j] = 14;
                         landArray[i, j] = 0;
                     }
                     else
                     {
-                        Instantiate(tile4, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, -0.1f), transform.rotation);
+                        Instantiate(tile4, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, 0), transform.rotation);
                         cellState[i, j] = 4;
                         landArray[i, j] = 0;
                     }
@@ -500,14 +502,14 @@ public class CellularAutomata : MonoBehaviour {
                     //open the gate!
                     if (Random.value < 0.1 && i != levelWidth - 1)
                     {
-                        Instantiate(tile15, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, -0.1f), transform.rotation);
+                        Instantiate(tile15, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, 0), transform.rotation);
                         cellState[i, j] = 15;
                         landArray[i, j] = 0;
                     }
 
                     else
                     {
-                        Instantiate(tile6, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, -0.1f), transform.rotation);
+                        Instantiate(tile6, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, 0), transform.rotation);
                         cellState[i, j] = 6;
                         landArray[i, j] = 0;
                     }
@@ -518,7 +520,7 @@ public class CellularAutomata : MonoBehaviour {
                 else if (edgeArray[i, j] / 240 == 1 && edgeArray[i, j] % 240 >= 0 && edgeArray[i, j] % 240 <= 7)
                 {
                   
-                    Instantiate(tile13, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, -0.1f), transform.rotation);
+                    Instantiate(tile13, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, 0), transform.rotation);
                     cellState[i, j] = 13;
                     landArray[i, j] = 0;
                 }
@@ -532,7 +534,7 @@ public class CellularAutomata : MonoBehaviour {
                     ))
                 {
                   
-                    Instantiate(tile12, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, -0.1f), transform.rotation);
+                    Instantiate(tile12, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, 0), transform.rotation);
                     cellState[i, j] = 12;
                     landArray[i, j] = 0;
                 }
@@ -546,7 +548,7 @@ public class CellularAutomata : MonoBehaviour {
                     ))
                 {
                    
-                    Instantiate(tile10, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, -0.1f), transform.rotation);
+                    Instantiate(tile10, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, 0), transform.rotation);
                     cellState[i, j] = 10;
                     landArray[i, j] = 0;
                 }
@@ -560,7 +562,7 @@ public class CellularAutomata : MonoBehaviour {
                     ))
                 {
                
-                    Instantiate(tile11, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, -0.1f), transform.rotation);
+                    Instantiate(tile11, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, 0), transform.rotation);
                     cellState[i, j] = 11;
                     landArray[i, j] = 0;
                 }
@@ -577,15 +579,15 @@ public class CellularAutomata : MonoBehaviour {
                     landArray[i, j] = 1;//draw trees on blank tiles
                 }
                 else {
-                    landArray[i, j] = 0;//do not generate trees on edge
+                    landArray[i, j] = -1;//do not generate trees on edge
                 }
                 //Debug.Log(landArray[i, j]);
             }
         }
 
-        CA(0.5f, 1, 6, 1,true);
+        CA(0.5f, 1, 7, 1,true,1);
+      
 
-       
     }
 
     void DrawTrees()
@@ -605,22 +607,84 @@ public class CellularAutomata : MonoBehaviour {
                     float tempValue = Random.value;
                     if (tempValue < 0.25)
                     {
-                        Instantiate(tree1, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, -0.2f), transform.rotation);
-                        cellState[i, j] = 18;
+                        Instantiate(tree1, new Vector3((i+Random.Range(-0.5f,0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
+                        cellState[i, j] = 18;//number in tileset folder
                     }
                     else if (tempValue < 0.5)
                     {
-                        Instantiate(tree2, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, -0.2f), transform.rotation);
+                        Instantiate(tree2, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
                         cellState[i, j] = 19;
                     }
                     else if (tempValue < 0.75)
                     {
-                        Instantiate(tree3, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, -0.2f), transform.rotation);
+                        Instantiate(tree3, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
                         cellState[i, j] = 20;
                     }
                     else if (tempValue < 1)
                     {
-                        Instantiate(tree4, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, -0.2f), transform.rotation);
+                        Instantiate(tree4, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
+                        cellState[i, j] = 21;
+                    }
+                }
+            }
+        }
+    }
+
+    void GenerateCactus()
+    {
+        //initialize
+        for (int i = 0; i < levelWidth; i++)
+        {
+            for (int j = 0; j < levelHeight; j++)
+            {
+                if (cellState[i, j] == 5|| (cellState[i, j]>=18 && cellState[i, j] <= 21))
+                {
+                    landArray[i, j] = 1;//draw trees on blank tiles
+                }
+                else
+                {
+                    landArray[i, j] = -1;//do not generate trees on edge
+                }
+                //Debug.Log(landArray[i, j]);
+            }
+        }
+
+        CA(0.5f, 1, 8, 1, true, 0);
+    }
+
+    void DrawCactus()
+    {
+        GameObject cactus1 = gameManager.GetTile("Cactus_1");
+        GameObject cactus2 = gameManager.GetTile("Cactus_2");
+        GameObject cactus3 = gameManager.GetTile("Cactus_3");
+        GameObject cactus4 = gameManager.GetTile("Cactus_4");
+
+        for (int i = 0; i < levelWidth; i++)
+        {
+            for (int j = 0; j < levelHeight; j++)
+            {
+                if (landArray[i, j] == 1)
+                {
+                
+                    float tempValue = Random.value;
+                    if (tempValue < 0.25)
+                    {
+                        Instantiate(cactus1, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
+                        cellState[i, j] = 18;//number in tileset folder
+                    }
+                    else if (tempValue < 0.5)
+                    {
+                        Instantiate(cactus2, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
+                        cellState[i, j] = 19;
+                    }
+                    else if (tempValue < 0.75)
+                    {
+                        Instantiate(cactus3, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
+                        cellState[i, j] = 20;
+                    }
+                    else if (tempValue < 1)
+                    {
+                        Instantiate(cactus4, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
                         cellState[i, j] = 21;
                     }
                 }
