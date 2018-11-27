@@ -37,7 +37,8 @@ public class EnemyRanged : MonoBehaviour
                 timeBetweenShots -= Time.deltaTime;
             }
         }
-        else if()
+
+    
 
         
 	}
