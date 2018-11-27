@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyRanged : MonoBehaviour
 {
     private float rangeForAttack; //Within what range the enemy will start and continue attacking the player
-
+    private float chaseRange;
     private float timeBetweenShots; 
     private float startTimeBetweenShots; 
 
@@ -14,7 +14,8 @@ public class EnemyRanged : MonoBehaviour
 
     void Start ()
     {
-        rangeForAttack = 5;
+        rangeForAttack = 6;
+        chaseRange = 8;
         startTimeBetweenShots = 2;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         timeBetweenShots = startTimeBetweenShots;
@@ -36,6 +37,7 @@ public class EnemyRanged : MonoBehaviour
                 timeBetweenShots -= Time.deltaTime;
             }
         }
+        else if()
 
         
 	}
