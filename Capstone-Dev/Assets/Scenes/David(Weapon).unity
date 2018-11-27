@@ -5958,6 +5958,11 @@ Prefab:
       propertyPath: Center
       value: 
       objectReference: {fileID: 384725422}
+    - target: {fileID: 114539793252749876, guid: 53c48bee7d55ecc48af61050d2c56229,
+        type: 2}
+      propertyPath: CombineTag
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53c48bee7d55ecc48af61050d2c56229, type: 2}
   m_IsPrefabAsset: 0
@@ -6397,6 +6402,7 @@ MonoBehaviour:
   TimeBeforeCombine: 0.5
   TimePrepareCombine: 1
   TimeTopCombine: 5
+  CombineTag: 1
 --- !u!1 &1604131029
 GameObject:
   m_ObjectHideFlags: 0

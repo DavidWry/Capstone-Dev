@@ -16,8 +16,6 @@ public class Shoot : MonoBehaviour {
     public Transform Right;
     public Transform Center;
 
-    //public int LeftAmmo;                //Deal with reload
-    //public int RightAmmo;
     private float LeftReloadTime;
     private float RightReloadTime;
 
@@ -39,11 +37,18 @@ public class Shoot : MonoBehaviour {
     [SerializeField]
     private float TimePrepareCombine = 1.0f;   //Preparing time.
     [SerializeField]
-    private float TimeTopCombine = 5.0f;       //Top time to combine.
+    private float TimeTopCombine = 6.0f;       //Top time to combine.
 
     //For Combine Shooting
+    public bool CombineTag = false;            //Two Kinds of "combine". True means real "Combine", false means actrually "seperate".
+    private float preRightInputX = 0f;
+    private float preRightInputY = 0f;
+    private float preLeftInputX = 0f;
+    private float preLeftInputY = 0f;
+    private float frameTimer = 0;
     private float CombineBtw = 1.0f;
     bool combineAngle = false;
+    bool rotateAngle = false;
     //24-6
     private float CombineBtw_24 = 0.5f;
     private float CombineSpeed_24 = 10f;
@@ -106,24 +111,54 @@ public class Shoot : MonoBehaviour {
             float rty = Input.GetAxis("Right Y");
             Vector3 ptz = new Vector3(rtx, rty, 0);
             combineAngle = false;
-
             CombinedTime += Time.deltaTime;
-            if (Mathf.Abs(Vector3.Distance(ptz, pz)) < .6f && CombinedTime > TimeBeforeCombine)
+            if (CombineTag)
             {
-                combineAngle = true;
-            }
-            else if (Mathf.Abs(Vector3.Distance(ptz, pz)) > 1.2f)
-            {
-                combineAngle = false;
-                CombinedTime = 0;
+                if (Mathf.Abs(Vector3.Distance(ptz, pz)) < .6f && CombinedTime > TimeBeforeCombine)
+                {
+                    combineAngle = true;
+                }
+                else if (Mathf.Abs(Vector3.Distance(ptz, pz)) > 1.2f)
+                {
+                    combineAngle = false;
+                    CombinedTime = 0;
+                }
+                else
+                {
+                    combineAngle = false;
+                }
             }
             else
             {
-                combineAngle = false;
+                if (preLeftInputX != rx && preLeftInputY != ry && preRightInputX != rtx && preRightInputY != rty)
+                {
+                    if (Mathf.Abs(Vector3.Distance(ptz, pz)) > 1.2f)
+                    {
+                        combineAngle = true;
+                    }
+                    else
+                    {
+                        combineAngle = false;
+                        CombinedTime = 0;
+                    }
+                    frameTimer += Time.deltaTime;
+                    if (frameTimer >= 0.2f)
+                    {
+                        preLeftInputX = rx;
+                        preLeftInputY = ry;
+                        preRightInputX = rtx;
+                        preRightInputY = rty;
+                        frameTimer = 0;
+                    }
+                }
+                else
+                {
+                    combineAngle = false;
+                    CombinedTime = 0;
+                }
             }
             if (combineAngle)
             {
-
                 if(CombinedTime > TimeBeforeCombine && CombinedTime <= TimeTopCombine)     //Make sure it's not combining if player is not keeping the angle.
                 {
                     IsLeftShooting = false;
@@ -140,12 +175,12 @@ public class Shoot : MonoBehaviour {
                     IsCombineShooting = false;
                 }
             }
-
         }
         else
         {
             CombinedTime = 0;
             CombineWaitedime = 0f;
+            IsCombineShooting = false;
         }
 
         //Shoot
@@ -230,6 +265,7 @@ public class Shoot : MonoBehaviour {
                     //give state
                     Projectile Proj = MultiNewProj.GetComponent<Projectile>();
                     Proj.IsReady = true;
+                    Proj.Damage = player.rightWeapon.Damage;
                     Proj.Speed = player.leftWeapon.ProjectileSpeed;
                     Proj.Duration = player.leftWeapon.Duration;
                     Proj.Thrust = player.leftWeapon.IsThrust;
@@ -259,8 +295,10 @@ public class Shoot : MonoBehaviour {
                 //Change state according to the weapon
                 Projectile Proj = NewProj.GetComponent<Projectile>();
                 Proj.IsReady = true;
+                Proj.Damage = player.rightWeapon.Damage;
                 Proj.Speed = player.leftWeapon.ProjectileSpeed;
                 Proj.Duration = player.leftWeapon.Duration;
+                Proj.Thrust = player.rightWeapon.IsThrust;
             }
             //Deal with reload
             if (!player.leftWeapon.IsShortRange)
@@ -298,6 +336,7 @@ public class Shoot : MonoBehaviour {
                     //give state
                     Projectile Proj = MultiNewProj.GetComponent<Projectile>();
                     Proj.IsReady = true;
+                    Proj.Damage = player.rightWeapon.Damage;
                     Proj.Speed = player.rightWeapon.ProjectileSpeed;
                     Proj.Duration = player.rightWeapon.Duration;
                     Proj.Thrust = player.rightWeapon.IsThrust;                    
@@ -327,6 +366,7 @@ public class Shoot : MonoBehaviour {
                 //Change state according to the weapon
                 Projectile Proj = NewProj.GetComponent<Projectile>();
                 Proj.IsReady = true;
+                Proj.Damage = player.rightWeapon.Damage;
                 Proj.Speed = player.rightWeapon.ProjectileSpeed;
                 Proj.Duration = player.rightWeapon.Duration;
                 Proj.Thrust = player.rightWeapon.IsThrust;
@@ -340,10 +380,10 @@ public class Shoot : MonoBehaviour {
                 //Change state according to the weapon
                 Projectile Proj = NewProj.GetComponent<Projectile>();
                 Proj.IsReady = true;
+                Proj.Damage = player.rightWeapon.Damage;
                 Proj.Speed = player.rightWeapon.ProjectileSpeed;
                 Proj.Duration = player.rightWeapon.Duration;
                 Proj.Thrust = player.rightWeapon.IsThrust;
-                //movement.Recoil = -Right.transform.right;
             }
             //Deal with reload
             if (!player.rightWeapon.IsShortRange)

@@ -17,6 +17,7 @@ namespace AssemblyCSharp
         public Transform RightHand;
 
         public int HitPoint;
+        public int Power;
 
         private float rotateSpeed;
         private Movement playerMovement;
