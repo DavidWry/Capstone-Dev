@@ -66,6 +66,9 @@ public class CellularAutomata : MonoBehaviour {
 
         GenerateLoot();
         DrawLoot();
+
+        GenerateEnemy();
+        DrawEnemy();
     }
 
     void CA(float ratio, int iteration,int threshold,int neighborSize, bool isSimultaneous, int targetNum) {
@@ -134,10 +137,13 @@ public class CellularAutomata : MonoBehaviour {
         return enemyNum;
     }
 
-    void Seed(Vector2 position, int size, float ratio) {
+    void Seed(int xPos,int yPos, int size, float ratio) {
         bool isReady = false;
-        for (int i = (int)position.x - size; i <= (int)position.x + size; i++) {
-            for (int j = (int)position.y - size; j <= (int)position.y + size; j++) {
+        
+        for (int i = xPos - size; i <= xPos + size; i++) {
+            for (int j = yPos - size; j <= yPos + size; j++) {
+                if (i < 0 || i > levelWidth - 1 || j < 0 || j > levelHeight - 1)
+                    continue;
                 if (Random.value < ratio) {
                     if (cellState[i, j] == 5)
                     {
@@ -156,6 +162,9 @@ public class CellularAutomata : MonoBehaviour {
                     
             }
         }
+
+
+
     }
     void Generate(int currentLevel) {
         CA(0.5f, 8, 4, 1,false,1);
@@ -973,27 +982,34 @@ public class CellularAutomata : MonoBehaviour {
         for (int i = 0; i < 8; i++) {
             int xPos = Random.Range(0, levelWidth);
             int yPos = Random.Range(0, levelHeight);
-            Vector2 tempLocation = new Vector2(xPos, yPos);
             int size = Random.Range(1, 4);
             float ratio = (float)Random.Range(4,10)/(size*2+1)/ (size * 2 + 1);
-            Seed(tempLocation,size,ratio);
+            Seed(xPos,yPos,size,ratio);
         }
    
     }
 
     void DrawEnemy()
     {
-        GameObject prop1 = gameManager.GetTile("Prop_1");
-
+        GameObject enemy1 = gameManager.GetEnemy("Minion_Type_1");
+        GameObject enemy2 = gameManager.GetEnemy("Minion_Type_2");
+        GameObject enemy3 = gameManager.GetEnemy("Minion_Type_3");
 
         for (int i = 0; i < levelWidth; i++)
         {
             for (int j = 0; j < levelHeight; j++)
             {
-                if (landArray[i, j] == 1)
+                if (cellState[i, j] == 100)
                 {
-                    Instantiate(prop1, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
-                    cellState[i, j] = 32;//number in tileset folder            
+                    Instantiate(enemy1, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);          
+                }
+                else if (cellState[i, j] == 101)
+                {
+                    Instantiate(enemy2, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
+                }
+                else if (cellState[i, j] == 102)
+                {
+                    Instantiate(enemy3, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
                 }
             }
         }

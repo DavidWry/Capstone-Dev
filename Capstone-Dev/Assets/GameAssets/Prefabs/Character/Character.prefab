@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 136925195487186992}
   m_Layer: 0
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -536,12 +536,15 @@ MonoBehaviour:
   RightLazer: {fileID: 0}
   Left: {fileID: 4278053241860954}
   Right: {fileID: 4851458821234730}
+  Center: {fileID: 0}
   IsLeftShooting: 0
   IsRightShooting: 0
   IsCombineShooting: 0
   TimeBeforeCombine: 0.5
   TimePrepareCombine: 1
   TimeTopCombine: 5
+  CombineTag: 0
+  frameTimer: 0
 --- !u!114 &114552904399088650
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -559,6 +562,7 @@ MonoBehaviour:
     type: 2}
   LeftAimIcon: {fileID: 1011836339694946, guid: 11057a4919a604d4eac617386bcf1494,
     type: 2}
+  Recoil: {x: 0, y: 0, z: 0}
   isBulletTime: 0
 --- !u!114 &114700414012763062
 MonoBehaviour:
@@ -596,6 +600,7 @@ MonoBehaviour:
     ProjectileSpeed: 5
     IsThrust: 0
     IsLazer: 0
+    IsShortRange: 0
   rightWeapon:
     Name: Pistol
     WeaponName: 0
@@ -621,11 +626,15 @@ MonoBehaviour:
     ProjectileSpeed: 5
     IsThrust: 0
     IsLazer: 0
+    IsShortRange: 0
   LeftTarget: {fileID: 1011836339694946, guid: 11057a4919a604d4eac617386bcf1494, type: 2}
   RightTarget: {fileID: 1011836339694946, guid: 070212531c3eb2b47b35d1d9daf0811e,
     type: 2}
+  CombineType: 0
   LeftHand: {fileID: 4268244406168516}
   RightHand: {fileID: 4594479478641552}
+  HitPoint: 0
+  Power: 0
 --- !u!136 &136925195487186992
 CapsuleCollider:
   m_ObjectHideFlags: 1
