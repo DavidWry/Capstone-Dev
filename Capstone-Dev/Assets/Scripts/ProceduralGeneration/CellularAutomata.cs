@@ -9,7 +9,7 @@ public class CellularAutomata : MonoBehaviour {
     private GameManager gameManager;
     private int levelWidth;
     private int levelHeight;
-    private int tileSize;
+    private float tileSize;
     private int[,] landArray;
     private int[,] newLandArray;
     private int[,] edgeArray;
@@ -116,6 +116,46 @@ public class CellularAutomata : MonoBehaviour {
 
         }
 
+    }
+
+    int DetermineEnemyType() {
+        int enemyNum = 0;
+        if (Random.value < 0.4f)
+        {
+            enemyNum = 100;
+        }
+        else if (Random.value < 0.6f) {
+            enemyNum = 101;//This type will always drop ultimate resources
+        }
+        else if (Random.value < 1.0f)
+        {
+            enemyNum = 102;
+        }
+        return enemyNum;
+    }
+
+    void Seed(Vector2 position, int size, float ratio) {
+        bool isReady = false;
+        for (int i = (int)position.x - size; i <= (int)position.x + size; i++) {
+            for (int j = (int)position.y - size; j <= (int)position.y + size; j++) {
+                if (Random.value < ratio) {
+                    if (cellState[i, j] == 5)
+                    {
+                        if (isReady) {
+                            cellState[i, j] = DetermineEnemyType();
+                            isReady = false;
+                        }
+                        else if(Random.value<ratio)
+                            cellState[i, j] = DetermineEnemyType();
+                    }
+                    else
+                    {
+                        isReady = true;
+                    }
+                }
+                    
+            }
+        }
     }
     void Generate(int currentLevel) {
         CA(0.5f, 8, 4, 1,false,1);
@@ -914,6 +954,37 @@ public class CellularAutomata : MonoBehaviour {
     {
         GameObject prop1 = gameManager.GetTile("Prop_1");
        
+
+        for (int i = 0; i < levelWidth; i++)
+        {
+            for (int j = 0; j < levelHeight; j++)
+            {
+                if (landArray[i, j] == 1)
+                {
+                    Instantiate(prop1, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
+                    cellState[i, j] = 32;//number in tileset folder            
+                }
+            }
+        }
+    }
+
+    void GenerateEnemy()
+    {
+        for (int i = 0; i < 8; i++) {
+            int xPos = Random.Range(0, levelWidth);
+            int yPos = Random.Range(0, levelHeight);
+            Vector2 tempLocation = new Vector2(xPos, yPos);
+            int size = Random.Range(1, 4);
+            float ratio = (float)Random.Range(4,10)/(size*2+1)/ (size * 2 + 1);
+            Seed(tempLocation,size,ratio);
+        }
+   
+    }
+
+    void DrawEnemy()
+    {
+        GameObject prop1 = gameManager.GetTile("Prop_1");
+
 
         for (int i = 0; i < levelWidth; i++)
         {
