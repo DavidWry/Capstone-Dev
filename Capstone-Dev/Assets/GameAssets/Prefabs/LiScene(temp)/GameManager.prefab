@@ -68,11 +68,39 @@ MonoBehaviour:
     IsMultiBullets: 0
     BulletAngleList:
     - 0
+    TimeBetweenShot: 1
+    TimeWaited: 0
+    ImpactFX: {fileID: 1882777859570806, guid: 26b9baa734847f140803e4e033a9212a, type: 2}
+    ShotFX: {fileID: 1000013086863710, guid: bfa2421e2a82beb4a9c7d7cdc2577f76, type: 2}
+    Damage: 8
+    Rebounce: 0
+    AmmoSize: 30
+    CurrentAmmos: 0
+    ClipObj: {fileID: 1766454748759930, guid: e74b0e6acc86e7542b2a19038b4464a6, type: 2}
+    AttackAnimationUsed: 
+    ReloadTime: 1
+    Duration: 1
+    ProjectileSpeed: 10
+    IsThrust: 0
+    IsLazer: 0
+    IsShortRange: 0
+  - Name: Ak47
+    WeaponName: 3
+    WeaponType: 1
+    WeaponIcon: {fileID: 21300012, guid: 379676913003f4b4fb67ca9e26fbeb97, type: 3}
+    WeaponObj: {fileID: 1031040304690994, guid: 547f7afa1dc54ce43aa7c9b6b4ee9500,
+      type: 2}
+    AimObj: {fileID: 1266085690551780, guid: 547f7afa1dc54ce43aa7c9b6b4ee9500, type: 2}
+    Projectile: {fileID: 1804453490864518, guid: e3bf4c8880e0b3549a05ad8c1d6f97c7,
+      type: 2}
+    IsMultiBullets: 0
+    BulletAngleList:
+    - 0
     TimeBetweenShot: 0.1
     TimeWaited: 0
     ImpactFX: {fileID: 1882777859570806, guid: 26b9baa734847f140803e4e033a9212a, type: 2}
     ShotFX: {fileID: 1000013086863710, guid: bfa2421e2a82beb4a9c7d7cdc2577f76, type: 2}
-    Damage: 1
+    Damage: 5
     Rebounce: 0
     AmmoSize: 60
     CurrentAmmos: 0
@@ -83,6 +111,95 @@ MonoBehaviour:
     ProjectileSpeed: 26
     IsThrust: 0
     IsLazer: 0
+    IsShortRange: 0
+  - Name: Lazer
+    WeaponName: 6
+    WeaponType: 1
+    WeaponIcon: {fileID: 21300010, guid: 379676913003f4b4fb67ca9e26fbeb97, type: 3}
+    WeaponObj: {fileID: 1031040304690994, guid: 858c0a7e8afeff947aac67d3b0474392,
+      type: 2}
+    AimObj: {fileID: 1266085690551780, guid: 858c0a7e8afeff947aac67d3b0474392, type: 2}
+    Projectile: {fileID: 1492668062637958, guid: a7712268a7826174d9d742243cd573a2,
+      type: 2}
+    IsMultiBullets: 0
+    BulletAngleList:
+    - 0
+    TimeBetweenShot: 0.1
+    TimeWaited: 0
+    ImpactFX: {fileID: 1882777859570806, guid: 26b9baa734847f140803e4e033a9212a, type: 2}
+    ShotFX: {fileID: 1000013086863710, guid: bfa2421e2a82beb4a9c7d7cdc2577f76, type: 2}
+    Damage: 20
+    Rebounce: 0
+    AmmoSize: 60
+    CurrentAmmos: 0
+    ClipObj: {fileID: 1766454748759930, guid: e74b0e6acc86e7542b2a19038b4464a6, type: 2}
+    AttackAnimationUsed: 
+    ReloadTime: 1
+    Duration: 1
+    ProjectileSpeed: 26
+    IsThrust: 0
+    IsLazer: 1
+    IsShortRange: 0
+  - Name: Sword
+    WeaponName: 7
+    WeaponType: 2
+    WeaponIcon: {fileID: 21300000, guid: 1ded39d8126baa1459a4f1657e83b630, type: 3}
+    WeaponObj: {fileID: 1358715624640800, guid: 312ac8fecd912884fa8b161ea20b22f4,
+      type: 2}
+    AimObj: {fileID: 1803898552282656, guid: 312ac8fecd912884fa8b161ea20b22f4, type: 2}
+    Projectile: {fileID: 1237818012864596, guid: 85128dbed4f709a43a877a594909445b,
+      type: 2}
+    IsMultiBullets: 0
+    BulletAngleList:
+    - 0
+    TimeBetweenShot: 1
+    TimeWaited: 0
+    ImpactFX: {fileID: 1882777859570806, guid: 26b9baa734847f140803e4e033a9212a, type: 2}
+    ShotFX: {fileID: 1000013086863710, guid: bfa2421e2a82beb4a9c7d7cdc2577f76, type: 2}
+    Damage: 30
+    Rebounce: 0
+    AmmoSize: 1
+    CurrentAmmos: 0
+    ClipObj: {fileID: 1766454748759930, guid: e74b0e6acc86e7542b2a19038b4464a6, type: 2}
+    AttackAnimationUsed: 
+    ReloadTime: 1
+    Duration: 0.3
+    ProjectileSpeed: 10
+    IsThrust: 1
+    IsLazer: 0
+    IsShortRange: 1
+  - Name: Shotgun
+    WeaponName: 4
+    WeaponType: 0
+    WeaponIcon: {fileID: 21300014, guid: 379676913003f4b4fb67ca9e26fbeb97, type: 3}
+    WeaponObj: {fileID: 1328907374582074, guid: f2cbd30f70b6f46499c4578e693661f9,
+      type: 2}
+    AimObj: {fileID: 1213304965054408, guid: f2cbd30f70b6f46499c4578e693661f9, type: 2}
+    Projectile: {fileID: 1761329038343370, guid: e20f3ff12c6e00f48a52c2fbb5b06203,
+      type: 2}
+    IsMultiBullets: 1
+    BulletAngleList:
+    - 0
+    - 15
+    - -15
+    - 30
+    - -30
+    TimeBetweenShot: 0.8
+    TimeWaited: 0
+    ImpactFX: {fileID: 1882777859570806, guid: 26b9baa734847f140803e4e033a9212a, type: 2}
+    ShotFX: {fileID: 1000013086863710, guid: bfa2421e2a82beb4a9c7d7cdc2577f76, type: 2}
+    Damage: 8
+    Rebounce: 0
+    AmmoSize: 10
+    CurrentAmmos: 0
+    ClipObj: {fileID: 1766454748759930, guid: e74b0e6acc86e7542b2a19038b4464a6, type: 2}
+    AttackAnimationUsed: 
+    ReloadTime: 1
+    Duration: 0.2
+    ProjectileSpeed: 15
+    IsThrust: 1
+    IsLazer: 0
+    IsShortRange: 0
   ItemsList:
   - Name: Pistol
     ItemName: 1
@@ -93,6 +210,76 @@ MonoBehaviour:
     AmmoType: 1
     WeaponName: 0
     itemObj: {fileID: 1652595029889896, guid: b8560118709f20d47a3cf1bc5356d6b3, type: 2}
+  - Name: Lazer
+    ItemName: 2
+    ItemIcon: {fileID: 21300010, guid: 379676913003f4b4fb67ca9e26fbeb97, type: 3}
+    GiveWeapon: 1
+    Usable: 1
+    DamageType: 0
+    AmmoType: 2
+    WeaponName: 6
+    itemObj: {fileID: 1876295848165562, guid: dbbd9055a5163f84ab3ff204a6c82c2f, type: 2}
+  - Name: Ak47
+    ItemName: 3
+    ItemIcon: {fileID: 21300012, guid: 379676913003f4b4fb67ca9e26fbeb97, type: 3}
+    GiveWeapon: 1
+    Usable: 1
+    DamageType: 1
+    AmmoType: 1
+    WeaponName: 3
+    itemObj: {fileID: 1876295848165562, guid: af0360be5601ac94f84067ffa511fc7d, type: 2}
+  - Name: Sword
+    ItemName: 6
+    ItemIcon: {fileID: 21300000, guid: 1ded39d8126baa1459a4f1657e83b630, type: 3}
+    GiveWeapon: 1
+    Usable: 1
+    DamageType: 1
+    AmmoType: 1
+    WeaponName: 7
+    itemObj: {fileID: 1119368855546066, guid: 5a166331dfd6c1740b4fc7f55c7e5870, type: 2}
+  - Name: Shotgun
+    ItemName: 4
+    ItemIcon: {fileID: 21300014, guid: 379676913003f4b4fb67ca9e26fbeb97, type: 3}
+    GiveWeapon: 1
+    Usable: 1
+    DamageType: 2
+    AmmoType: 1
+    WeaponName: 4
+    itemObj: {fileID: 1095468374369076, guid: 80deb0b7296f24c41b68055399e8982a, type: 2}
+  WeaponObjectList:
+  - Name: Pistol
+    WeaponName: 0
+    weaponObj: {fileID: 1031040304690994, guid: 06723e9a6ee9b7044b2613638ac2d4f8,
+      type: 2}
+  - Name: AK47
+    WeaponName: 3
+    weaponObj: {fileID: 1031040304690994, guid: 547f7afa1dc54ce43aa7c9b6b4ee9500,
+      type: 2}
+  - Name: Lazer
+    WeaponName: 6
+    weaponObj: {fileID: 1031040304690994, guid: 858c0a7e8afeff947aac67d3b0474392,
+      type: 2}
+  - Name: Sword
+    WeaponName: 7
+    weaponObj: {fileID: 1358715624640800, guid: 312ac8fecd912884fa8b161ea20b22f4,
+      type: 2}
+  - Name: Shotgun
+    WeaponName: 4
+    weaponObj: {fileID: 1328907374582074, guid: f2cbd30f70b6f46499c4578e693661f9,
+      type: 2}
+  Tiles: []
+  EnemyList: []
+  CombineProjectile:
+  - {fileID: 0}
+  - {fileID: 1429720330512874, guid: b2d7723cc30d4064392519711cb723c8, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1974920550631064, guid: a7c05b14b35a2844bb679a5628ea42de, type: 2}
+  - {fileID: 1530939543040866, guid: ce52afbac42e1f84da524ae52a381e7b, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
   leftWeaponMenu:
     Weapons:
       Name: 
@@ -119,6 +306,7 @@ MonoBehaviour:
       ProjectileSpeed: 5
       IsThrust: 0
       IsLazer: 0
+      IsShortRange: 0
     WepPanel: {fileID: 0}
     WeaponSprite: {fileID: 0}
     AmmoBar: {fileID: 0}
@@ -150,6 +338,7 @@ MonoBehaviour:
       ProjectileSpeed: 5
       IsThrust: 0
       IsLazer: 0
+      IsShortRange: 0
     WepPanel: {fileID: 0}
     WeaponSprite: {fileID: 0}
     AmmoBar: {fileID: 0}

@@ -536,15 +536,15 @@ MonoBehaviour:
   RightLazer: {fileID: 0}
   Left: {fileID: 4278053241860954}
   Right: {fileID: 4851458821234730}
-  Center: {fileID: 0}
+  Center: {fileID: 4947957174051934}
   IsLeftShooting: 0
   IsRightShooting: 0
   IsCombineShooting: 0
+  CombinedTime: 0
   TimeBeforeCombine: 0.5
   TimePrepareCombine: 1
   TimeTopCombine: 5
-  CombineTag: 0
-  frameTimer: 0
+  CombineTag: 1
 --- !u!114 &114552904399088650
 MonoBehaviour:
   m_ObjectHideFlags: 1
