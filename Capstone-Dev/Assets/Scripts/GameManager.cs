@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> CombineProjectile;        //12-1 13-2 14-3 15-4 23-5 24-6 25-7 34-8 35-9 45-10
     public WeaponMenu leftWeaponMenu;
     public WeaponMenu rightWeaponMenu;
+    public GameObject Player;
     // Use this for initialization
     void Start()
     {

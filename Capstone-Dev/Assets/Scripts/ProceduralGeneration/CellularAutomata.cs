@@ -71,6 +71,8 @@ public class CellularAutomata : MonoBehaviour {
         DrawEnemy();
 
         DrawPortal();
+
+        DrawPlayer();
     }
 
     void CA(float ratio, int iteration,int threshold,int neighborSize, bool isSimultaneous, int targetNum) {
@@ -1036,6 +1038,33 @@ public class CellularAutomata : MonoBehaviour {
                         }
                     }
                            
+                }
+            }
+        }
+
+    }
+
+    void DrawPlayer()
+    {
+        GameObject player1 = gameManager.Player;
+        bool isCreated = false;
+        int xPos = Random.Range(0, levelWidth);
+        int yPos = Random.Range(0, levelHeight);
+        for (int i = levelWidth-1; i > -1; i--)
+        {
+            for (int j = levelHeight-1; j > -1; j--)
+            {
+                if (cellState[i, j] == 5)
+                {
+                    if (Random.Range(1, 1000) < 10)
+                    {
+                        if (!isCreated)
+                        {
+                            Instantiate(player1, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, 0), transform.rotation);
+                            isCreated = true;
+                        }
+                    }
+
                 }
             }
         }

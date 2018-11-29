@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Loading : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class Loading : MonoBehaviour
     private float waitTime;
     private bool isLoading;
     private GUIStyle labelStyle;
-
+    public Text myText;
 
    
     public Texture2D[] animations;
@@ -24,6 +25,7 @@ public class Loading : MonoBehaviour
 
     void Start()
     {
+       
         waitTime = 5.0f;
         isPressed = false;
         isLoading = false;
@@ -54,7 +56,7 @@ public class Loading : MonoBehaviour
     void OnGUI()
     {
         
-        DrawAnimation(animations);
+        //DrawAnimation(animations);
 
     }
 
@@ -68,7 +70,7 @@ public class Loading : MonoBehaviour
             StartCoroutine(LoadScene());
             isLoading = true;
         }
-
+       
 
         /*
         if (Input.GetKeyDown(KeyCode.Space)) {
@@ -88,7 +90,8 @@ public class Loading : MonoBehaviour
             progress = (int)((5 - waitTime) / 5 * 100 / 100 * 99);
             
         }
-        Debug.Log("xuanyusong" + progress);
+        myText.text = "LOADING......"+progress;
+        //Debug.Log("xuanyusong" + progress);
     }
     
     void DrawAnimation(Texture2D[] tex)
@@ -108,7 +111,7 @@ public class Loading : MonoBehaviour
                 nowFram = 0;
             }
         }
-        GUI.DrawTexture(new Rect(0, 0, 1920, 1080), tex[nowFram]);
+        //GUI.DrawTexture(new Rect(0, 0, 1920, 1080), tex[nowFram]);
 
         
         GUI.Label(new Rect(700, 800, 300, 100),"<color=FFFFFFFF>" + "LOADING......" + progress+ "</color>", labelStyle);
