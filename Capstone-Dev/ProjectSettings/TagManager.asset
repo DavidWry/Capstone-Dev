@@ -9,6 +9,7 @@ TagManager:
   - Minion
   - Item
   - Stompwave
+  - Obstacle
   layers:
   - Default
   - TransparentFX

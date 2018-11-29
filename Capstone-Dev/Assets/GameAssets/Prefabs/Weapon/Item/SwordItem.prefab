@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212272234955935612}
   - component: {fileID: 114595541259330348}
   - component: {fileID: 136901164864230502}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: SwordItem
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 224398097942076260}
   - component: {fileID: 222706795059253268}
   - component: {fileID: 114668088581207866}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: DmgLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 224227292796614810}
   - component: {fileID: 222116350543987070}
   - component: {fileID: 114831955527186852}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 224700724310669680}
   - component: {fileID: 222655044368351756}
   - component: {fileID: 114989326101890536}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: DmgValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 224442688945163346}
   - component: {fileID: 222810729467819774}
   - component: {fileID: 114682143918988876}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: AmmoLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 4007432756632522}
   - component: {fileID: 198535729762290462}
   - component: {fileID: 199681565374241122}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Glowing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 224164005293957918}
   - component: {fileID: 222251451161887702}
   - component: {fileID: 114346877071805428}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: AmmoValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4038869473942454}
   - component: {fileID: 212627008366834428}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: WeaponSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 224998995793702260}
   - component: {fileID: 222904010398966890}
   - component: {fileID: 114372082278561838}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5093,8 +5093,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2140784465
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1ded39d8126baa1459a4f1657e83b630, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

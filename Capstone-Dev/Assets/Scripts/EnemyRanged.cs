@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class EnemyRanged : MonoBehaviour
 {
     private float rangeForAttack; //Within what range the enemy will start and continue attacking the player
     private float chaseRange;
+
     public float speed;
     private float timeBetweenShots; 
     private float startTimeBetweenShots;

@@ -40,7 +40,7 @@ public class Projectile : MonoBehaviour {
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "Monster")
+        if (collision.gameObject.tag == "Minion")
         {
             if (collision.gameObject.GetComponent<EnemyFollow>())
             {
@@ -52,7 +52,7 @@ public class Projectile : MonoBehaviour {
             }
             Dead();
         }
-        else if (collision.gameObject.tag == "Loot")
+        else if (collision.gameObject.tag == "Obstacle")
         {
             Dead();
         }
