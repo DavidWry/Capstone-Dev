@@ -8,13 +8,12 @@ public class EnemyFollow : MonoBehaviour
     public int health;
     public float speed;
     private float rangeForAttack; //Within what range the enemy will start and continue attacking the player
-
     private Transform target;
 
     void Start()
     {
         //Set player as the target
-        health = 50;
+        health = 100;
         rangeForAttack = 4;
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }

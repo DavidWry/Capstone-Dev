@@ -9,9 +9,13 @@ public class SpearProjectile : MonoBehaviour
     public float speed;
     private Transform player;
     private Vector2 target;
+  
+    
     void Start()
     {
         //speed = 5;
+        //var trail = GameObject.FindGameObjectsWithTag("Stompwavetrail");
+       
         player = GameObject.FindGameObjectWithTag("Player").transform;
         target = new Vector2(player.position.x, player.position.y);
     }
@@ -24,6 +28,7 @@ public class SpearProjectile : MonoBehaviour
         if (transform.position.x == target.x && transform.position.y == target.y)
         {
             DestroyProjectile();
+       
 
         }
     }
@@ -34,6 +39,9 @@ public class SpearProjectile : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             DestroyProjectile();
+            //Call TakeDamage function from the player's script
+
+
         }
  
     }
