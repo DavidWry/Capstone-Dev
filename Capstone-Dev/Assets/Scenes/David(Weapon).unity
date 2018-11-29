@@ -5581,7 +5581,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1489556863665108, guid: 0033028c61be62246a5bb7499249fa01, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0033028c61be62246a5bb7499249fa01, type: 2}
@@ -6488,11 +6488,11 @@ MonoBehaviour:
   IsLeftShooting: 0
   IsRightShooting: 0
   IsCombineShooting: 0
+  CombinedTime: 0
   TimeBeforeCombine: 0.5
   TimePrepareCombine: 1
   TimeTopCombine: 5
   CombineTag: 1
-  frameTimer: 0
 --- !u!1 &1604131029
 GameObject:
   m_ObjectHideFlags: 0
@@ -12435,6 +12435,12 @@ Prefab:
       propertyPath: CombineProjectile.Array.data[6]
       value: 
       objectReference: {fileID: 1974920550631064, guid: a7c05b14b35a2844bb679a5628ea42de,
+        type: 2}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: CombineProjectile.Array.data[1]
+      value: 
+      objectReference: {fileID: 1429720330512874, guid: b2d7723cc30d4064392519711cb723c8,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7430308c60b9dc74396db2694886222b, type: 2}

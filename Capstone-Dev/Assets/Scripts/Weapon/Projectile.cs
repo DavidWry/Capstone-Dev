@@ -42,11 +42,28 @@ public class Projectile : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Monster")
         {
+            if (collision.gameObject.GetComponent<EnemyFollow>())
+            {
+                collision.gameObject.GetComponent<EnemyFollow>().TakeDamage(Damage);
+            }
             if (Thrust)
             {
                 //collision.gameObject.GetComponent<Rigidbody>().velocity *= -1;
             }
-            Destroy(gameObject);
+            Dead();
         }
+        else if (collision.gameObject.tag == "Loot")
+        {
+            Dead();
+        }
+    }
+
+    private void Dead()
+    {
+        if (Impact != null)
+        {
+            GameObject ImpactObject = Instantiate(Impact, transform.position, transform.rotation);
+        }
+        Destroy(gameObject);
     }
 }

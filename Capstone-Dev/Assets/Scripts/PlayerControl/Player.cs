@@ -142,6 +142,7 @@ namespace AssemblyCSharp
                     if (leftWeapon.WeaponName == WeaponName.Ak47 || rightWeapon.WeaponName == WeaponName.Ak47)
                     {
                         CombineType = 12;
+                        playerShoot.CombineTag = false;
                     }
                     else if (leftWeapon.WeaponName == WeaponName.Lazer || rightWeapon.WeaponName == WeaponName.Lazer)
                     {
@@ -165,10 +166,12 @@ namespace AssemblyCSharp
                     else if (leftWeapon.WeaponName == WeaponName.Shotgun || rightWeapon.WeaponName == WeaponName.Shotgun)
                     {
                         CombineType = 24;
+                        playerShoot.CombineTag = true;
                     }
                     else if (leftWeapon.WeaponName == WeaponName.Sword || rightWeapon.WeaponName == WeaponName.Sword)
                     {
                         CombineType = 25;
+                        playerShoot.CombineTag = true;
                     }
                 }
                 else if (leftWeapon.WeaponName == WeaponName.Lazer || rightWeapon.WeaponName == WeaponName.Lazer)

@@ -30,6 +30,7 @@ public class Shoot : MonoBehaviour {
     private float LeftWaitedTime;       //How long have been waited.
     private float RightWaitedTime;
     private float CombineWaitedime;
+    [SerializeField]
     private float CombinedTime;         //How long has been pulled two triggers.
 
     [SerializeField]
@@ -45,17 +46,20 @@ public class Shoot : MonoBehaviour {
     private float preRightInputY = 0f;
     private float preLeftInputX = 0f;
     private float preLeftInputY = 0f;
-    [SerializeField]
     private float frameTimer = 0;
     private float CombineBtw = 1.0f;
     bool combineAngle = false;
     bool rotateAngle = false;
+    //12-1
+    private float CombineBtw_12 = 0.05f;
+    private float CombineSpeed_12 = 5f;
+    private float CombineDuration_12 = 2f;
     //24-6
-    private float CombineBtw_24 = 0.5f;
+    private float CombineBtw_24 = 1f;
     private float CombineSpeed_24 = 10f;
     private float CombineDuration_24 = 2f;
     //25-7
-    private float CombineBtw_25 = 0.05f;
+    private float CombineBtw_25 = 0.15f;
     private float CombineSpeed_25 = 15f;
     private float CombineDuration_25 = 0.5f;
 
@@ -133,14 +137,13 @@ public class Shoot : MonoBehaviour {
             {
                 if (preLeftInputX != rx && preLeftInputY != ry && preRightInputX != rtx && preRightInputY != rty)
                 {
-                    if (Mathf.Abs(Vector3.Distance(ptz, pz)) > 1.0f)
+                    if (Mathf.Abs(Vector3.Distance(ptz, pz)) > 1.8f)
                     {
                         combineAngle = true;
                     }
                     else
                     {
                         combineAngle = false;
-                        CombinedTime = 0;
                     }                    
                     frameTimer += Time.deltaTime;
                     if (frameTimer >= 0.2f)
@@ -410,7 +413,9 @@ public class Shoot : MonoBehaviour {
             {
                 case 0:
                     break;
-                case 12: CombineShoot_12();
+                case 12:
+                    CombineShoot_12();
+                    CombineBtw = CombineBtw_12;
                     break;
                 case 13:
                     CombineShoot_13();
@@ -426,6 +431,7 @@ public class Shoot : MonoBehaviour {
                     break;
                 case 24:
                     CombineShoot_24();
+                    CombineBtw = CombineBtw_24;
                     break;
                 case 25:
                     CombineShoot_25();
@@ -447,7 +453,23 @@ public class Shoot : MonoBehaviour {
 
     private void CombineShoot_12()
     {
+        GameObject NewProj = Instantiate(gameManager.CombineProjectile[1]);
+        NewProj.transform.position = Center.position;
+        NewProj.transform.rotation = Right.rotation;
+        //Change state according to the weapon
+        Projectile Proj = NewProj.GetComponent<Projectile>();
+        Proj.IsReady = true;
+        Proj.Speed = CombineSpeed_12;
+        Proj.Duration = CombineDuration_12;
 
+        GameObject NewProj02 = Instantiate(gameManager.CombineProjectile[1]);
+        NewProj02.transform.position = Center.position;
+        NewProj02.transform.rotation = Left.rotation;
+        //Change state according to the weapon
+        Projectile Proj02 = NewProj02.GetComponent<Projectile>();
+        Proj02.IsReady = true;
+        Proj02.Speed = CombineSpeed_12;
+        Proj02.Duration = CombineDuration_12;
     }
     private void CombineShoot_13()
     {
@@ -487,15 +509,6 @@ public class Shoot : MonoBehaviour {
         Proj.IsReady = true;
         Proj.Speed = CombineSpeed_25;
         Proj.Duration = CombineDuration_25;
-
-        GameObject NewProj02 = Instantiate(gameManager.CombineProjectile[7]);
-        NewProj02.transform.position = Center.position;
-        NewProj02.transform.rotation = Left.rotation;
-        //Change state according to the weapon
-        Projectile Proj02 = NewProj02.GetComponent<Projectile>();
-        Proj02.IsReady = true;
-        Proj02.Speed = CombineSpeed_25;
-        Proj02.Duration = CombineDuration_25;
     }
     private void CombineShoot_34()
     {
