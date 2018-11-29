@@ -43,12 +43,27 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background
-    uniqueID: 3375593583
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Foreground
-    uniqueID: 4150757719
+  - name: Terrain
+    uniqueID: 3609701241
+    locked: 0
+  - name: Platform
+    uniqueID: 2154182831
+    locked: 0
+  - name: Tree
+    uniqueID: 1833277
+    locked: 0
+  - name: HugeItem
+    uniqueID: 1051040845
+    locked: 0
+  - name: BigItem
+    uniqueID: 860630135
+    locked: 0
+  - name: MediumItem
+    uniqueID: 2114101981
+    locked: 0
+  - name: SmallItem
+    uniqueID: 589507203
     locked: 0

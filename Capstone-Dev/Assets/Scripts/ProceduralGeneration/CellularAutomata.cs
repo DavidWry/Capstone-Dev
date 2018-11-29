@@ -69,6 +69,8 @@ public class CellularAutomata : MonoBehaviour {
 
         GenerateEnemy();
         DrawEnemy();
+
+        DrawPortal();
     }
 
     void CA(float ratio, int iteration,int threshold,int neighborSize, bool isSimultaneous, int targetNum) {
@@ -1014,4 +1016,30 @@ public class CellularAutomata : MonoBehaviour {
             }
         }
     }
+
+    void DrawPortal()
+    {
+        GameObject portal1 = gameManager.GetPortal("Portal_1");
+        bool isCreated = false;
+        int xPos = Random.Range(0, levelWidth);
+        int yPos = Random.Range(0, levelHeight);
+        for (int i = 0; i < levelWidth; i++)
+        {
+            for (int j = 0; j < levelHeight; j++)
+            {
+                if (cellState[i, j] == 5)
+                {
+                    if (Random.Range(1, 1000) < 10) {
+                        if (!isCreated) {
+                            Instantiate(portal1, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, 0), transform.rotation);
+                            isCreated = true;
+                        }
+                    }
+                           
+                }
+            }
+        }
+
+    }
+
 }

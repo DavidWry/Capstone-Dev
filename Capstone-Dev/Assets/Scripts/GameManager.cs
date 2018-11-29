@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     public List<WeaponObject> WeaponObjectList;
     public List<GameObject> Tiles;
     public List<GameObject> EnemyList;
+    public List<GameObject> PortalList;
     public List<GameObject> CombineProjectile;        //12-1 13-2 14-3 15-4 23-5 24-6 25-7 34-8 35-9 45-10
     public WeaponMenu leftWeaponMenu;
     public WeaponMenu rightWeaponMenu;
@@ -101,6 +102,15 @@ public class GameManager : MonoBehaviour
             if (enemy.name == enemyName)
                 tempEnemy = enemy;
         return tempEnemy;
+    }
+
+    public GameObject GetPortal(string portalName)
+    {
+        GameObject tempPortal = new GameObject();
+        foreach (GameObject portal in PortalList)
+            if (portal.name == portalName)
+                tempPortal = portal;
+        return tempPortal;
     }
 
     public GameObject GetItemObj(string itemName)
