@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4111891256167624}
   - component: {fileID: 212627275908898606}
+  - component: {fileID: 136846727643642496}
+  - component: {fileID: 136892261278658148}
   m_Layer: 13
   m_Name: Tree_4
   m_TagString: Untagged
@@ -34,12 +36,38 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1008682546140488}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.7524624, y: -4.128916, z: -5.8554983}
+  m_LocalPosition: {x: 128.45787, y: -11.964407, z: -154.4253}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &136846727643642496
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1008682546140488}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.47882462
+  m_Height: 2.2335157
+  m_Direction: 1
+  m_Center: {x: -0.3035164, y: -0.9259753, z: 0}
+--- !u!136 &136892261278658148
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1008682546140488}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5357971
+  m_Height: 1.1586742
+  m_Direction: 1
+  m_Center: {x: 0.46777344, y: 0.041752815, z: 0}
 --- !u!212 &212627275908898606
 SpriteRenderer:
   m_ObjectHideFlags: 1
