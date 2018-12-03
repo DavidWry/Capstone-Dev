@@ -10,6 +10,7 @@ TagManager:
   - Item
   - Stompwave
   - Obstacle
+  - Chest
   layers:
   - Default
   - TransparentFX

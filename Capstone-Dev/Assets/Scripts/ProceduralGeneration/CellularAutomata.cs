@@ -72,7 +72,7 @@ public class CellularAutomata : MonoBehaviour {
 
         DrawPortal();
 
-        DrawPlayer();
+       // DrawPlayer();
     }
 
     void CA(float ratio, int iteration,int threshold,int neighborSize, bool isSimultaneous, int targetNum) {

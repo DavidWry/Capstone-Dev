@@ -22,9 +22,10 @@ GameObject:
   - component: {fileID: 212627275908898606}
   - component: {fileID: 136909889685876818}
   - component: {fileID: 114763059951849758}
+  - component: {fileID: 114140875625829788}
   m_Layer: 0
   m_Name: Prop_1
-  m_TagString: Untagged
+  m_TagString: Chest
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,6 +43,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114140875625829788
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1008682546140488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ebcdc21bd8216e4eb4ebae5661eb159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114763059951849758
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -63,7 +75,7 @@ MonoBehaviour:
     AmmoType: 1
     WeaponName: 0
     itemObj: {fileID: 1652595029889896, guid: b8560118709f20d47a3cf1bc5356d6b3, type: 2}
-    Probability: 0
+    Probability: 10000
   - Name: Lazer
     ItemName: 2
     ItemIcon: {fileID: 21300010, guid: 379676913003f4b4fb67ca9e26fbeb97, type: 3}
@@ -73,7 +85,7 @@ MonoBehaviour:
     AmmoType: 2
     WeaponName: 6
     itemObj: {fileID: 1876295848165562, guid: dbbd9055a5163f84ab3ff204a6c82c2f, type: 2}
-    Probability: 0
+    Probability: 10000
   - Name: Ak47
     ItemName: 3
     ItemIcon: {fileID: 21300012, guid: 379676913003f4b4fb67ca9e26fbeb97, type: 3}
@@ -83,7 +95,7 @@ MonoBehaviour:
     AmmoType: 1
     WeaponName: 3
     itemObj: {fileID: 1876295848165562, guid: af0360be5601ac94f84067ffa511fc7d, type: 2}
-    Probability: 0
+    Probability: 10000
   - Name: Sword
     ItemName: 6
     ItemIcon: {fileID: 21300000, guid: 1ded39d8126baa1459a4f1657e83b630, type: 3}
@@ -93,7 +105,7 @@ MonoBehaviour:
     AmmoType: 1
     WeaponName: 7
     itemObj: {fileID: 1119368855546066, guid: 5a166331dfd6c1740b4fc7f55c7e5870, type: 2}
-    Probability: 0
+    Probability: 10000
   - Name: Shotgun
     ItemName: 4
     ItemIcon: {fileID: 21300014, guid: 379676913003f4b4fb67ca9e26fbeb97, type: 3}
@@ -103,7 +115,7 @@ MonoBehaviour:
     AmmoType: 1
     WeaponName: 4
     itemObj: {fileID: 1095468374369076, guid: 80deb0b7296f24c41b68055399e8982a, type: 2}
-    Probability: 0
+    Probability: 10000
 --- !u!136 &136909889685876818
 CapsuleCollider:
   m_ObjectHideFlags: 1
