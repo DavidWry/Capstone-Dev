@@ -72,7 +72,7 @@ public class CellularAutomata : MonoBehaviour {
 
         DrawPortal();
 
-       // DrawPlayer();
+        DrawPlayer();
     }
 
     void CA(float ratio, int iteration,int threshold,int neighborSize, bool isSimultaneous, int targetNum) {
@@ -1060,7 +1060,8 @@ public class CellularAutomata : MonoBehaviour {
                     {
                         if (!isCreated)
                         {
-                            Instantiate(player1, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, 0), transform.rotation);
+                            player1=Instantiate(player1, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, 0), transform.rotation);
+                            player1.transform.localScale = new Vector3(0.5f,0.5f,0.5f);
                             isCreated = true;
                         }
                     }
