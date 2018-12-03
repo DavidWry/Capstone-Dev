@@ -443,6 +443,7 @@ public class Shoot : MonoBehaviour {
                     break;
                 case 34:
                     CombineShoot_34();
+                    CombineBtw = CombineBtw_34;
                     break;
                 case 35:
                     CombineShoot_35();
@@ -516,7 +517,15 @@ public class Shoot : MonoBehaviour {
     }
     private void CombineShoot_34()
     {
-
+        GameObject NewProj = Instantiate(gameManager.CombineProjectile[7]);
+        NewProj.transform.position = Center.position;
+        NewProj.transform.rotation = Right.rotation;
+        //Change state according to the weapon
+        Projectile Proj = NewProj.GetComponent<Projectile>();
+        Proj.IsReady = true;
+        Proj.Speed = CombineSpeed_34;
+        Proj.Duration = CombineDuration_34;
+        Proj.Sheild = true;
     }
     private void CombineShoot_35()
     {

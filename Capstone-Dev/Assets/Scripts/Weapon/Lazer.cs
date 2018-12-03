@@ -27,6 +27,15 @@ public class Lazer : Projectile {
                 if (hit.collider)
                 {
                     LazerRenderer.SetPosition(1, hit.point);
+                    if (hit.transform.tag == "Minion")
+                    {
+                        EnemyFollow enemy = hit.transform.gameObject.GetComponent<EnemyFollow>();
+                        if (timeCounter >= 1)
+                        {
+                            enemy.TakeDamage(Damage);
+                            timeCounter = 0;
+                        }
+                    }
                 }
             }
             else
@@ -35,15 +44,7 @@ public class Lazer : Projectile {
             }
             LazeDuration -= Time.deltaTime;
             timeCounter += Time.deltaTime;
-            if (hit.transform.tag == "Minion")
-            {
-                EnemyFollow enemy = hit.transform.gameObject.GetComponent<EnemyFollow>();
-                if (timeCounter >= 1)
-                {
-                    enemy.TakeDamage(Damage);
-                    timeCounter = 0;
-                }
-            }
+
         }
         else
         {

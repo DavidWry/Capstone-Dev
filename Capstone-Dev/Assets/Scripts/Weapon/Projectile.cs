@@ -10,6 +10,7 @@ public class Projectile : MonoBehaviour {
     public float Speed = 1f;
     public bool Thrust;
     public bool Pierce = false;
+    public bool Sheild = false;
     public GameObject Impact;
     public GameManager GameManage;
     public float Duration = 1;
@@ -61,6 +62,10 @@ public class Projectile : MonoBehaviour {
         {
             Dead();
             collision.GetComponent<Chest>().TakeDamage(Damage);
+        }
+        else if (collision.gameObject.tag == "" && Sheild)
+        {
+            Destroy(collision.gameObject);
         }
     }
 
