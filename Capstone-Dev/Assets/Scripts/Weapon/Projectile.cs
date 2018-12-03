@@ -9,6 +9,7 @@ public class Projectile : MonoBehaviour {
     public int Rebounce = 0;
     public float Speed = 1f;
     public bool Thrust;
+    public bool Pierce = false;
     public GameObject Impact;
     public GameManager GameManage;
     public float Duration = 1;
@@ -56,6 +57,11 @@ public class Projectile : MonoBehaviour {
         {
             Dead();
         }
+        else if (collision.gameObject.tag == "Chest")
+        {
+            Dead();
+            collision.GetComponent<Chest>().TakeDamage(Damage);
+        }
     }
 
     private void Dead()
@@ -64,6 +70,9 @@ public class Projectile : MonoBehaviour {
         {
             GameObject ImpactObject = Instantiate(Impact, transform.position, transform.rotation);
         }
-        Destroy(gameObject);
+        if (!Pierce)
+        {
+            Destroy(gameObject);
+        }
     }
 }

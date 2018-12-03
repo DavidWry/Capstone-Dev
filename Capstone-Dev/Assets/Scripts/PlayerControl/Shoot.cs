@@ -62,9 +62,13 @@ public class Shoot : MonoBehaviour {
     private float CombineBtw_25 = 0.15f;
     private float CombineSpeed_25 = 15f;
     private float CombineDuration_25 = 0.5f;
+    //34-8
+    private float CombineBtw_34 = 10f;
+    private float CombineSpeed_34 = 1f;
+    private float CombineDuration_34 = 10f;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 
         player = gameObject.GetComponent<Player>();
         movement = gameObject.GetComponent<Movement>();

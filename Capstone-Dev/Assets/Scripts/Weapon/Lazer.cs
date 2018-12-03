@@ -7,11 +7,13 @@ public class Lazer : Projectile {
     public Transform LazerHit;
     public bool IsReloading;
     public float LazeDuration;
+    private float timeCounter;
 
 	// Use this for initialization
 	void Start () {
         LazerRenderer = GetComponent<LineRenderer>();
         LazerRenderer.useWorldSpace = true;
+        timeCounter = 0;
 	}
 	
 	// Update is called once per frame
@@ -32,7 +34,16 @@ public class Lazer : Projectile {
                 LazerRenderer.SetPosition(1, transform.right * 10);
             }
             LazeDuration -= Time.deltaTime;
-
+            timeCounter += Time.deltaTime;
+            if (hit.transform.tag == "Minion")
+            {
+                EnemyFollow enemy = hit.transform.gameObject.GetComponent<EnemyFollow>();
+                if (timeCounter >= 1)
+                {
+                    enemy.TakeDamage(Damage);
+                    timeCounter = 0;
+                }
+            }
         }
         else
         {
