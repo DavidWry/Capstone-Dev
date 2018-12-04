@@ -13,6 +13,9 @@ public class EnemyFollow : MonoBehaviour
     private float rangeForAttack; //Within what range the enemy will start and continue attacking the player
     private Transform target;
 
+    private DropProbability probability = null;
+    private GameManager gameManager = null;
+
     void Start()
     {
         //Set player as the target
@@ -22,6 +25,8 @@ public class EnemyFollow : MonoBehaviour
         rangeForAttack = 6;
         damage = 5;
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        probability = gameObject.GetComponent<DropProbability>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     void Update()
