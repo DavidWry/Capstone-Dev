@@ -259,7 +259,7 @@ MonoBehaviour:
     DamageType: 0
     AmmoType: 0
     WeaponName: 0
-    itemObj: {fileID: 1141863764639654, guid: e71aca9953d2e5d4380aedac964a59d5, type: 2}
+    itemObj: {fileID: 1876295848165562, guid: fa456d51518b62b45aa38fb26fe23ad2, type: 2}
     Probability: 0
   - Name: RedCrystal
     ItemName: 8
@@ -269,7 +269,7 @@ MonoBehaviour:
     DamageType: 0
     AmmoType: 0
     WeaponName: 0
-    itemObj: {fileID: 1723111770143308, guid: 87d9caedefed26f4fb4294bec5cd39ad, type: 2}
+    itemObj: {fileID: 1876295848165562, guid: 4cb0c877680f8dc429745e95ede68fb5, type: 2}
     Probability: 0
   WeaponObjectList:
   - Name: Pistol
