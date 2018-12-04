@@ -16,6 +16,9 @@ public class EnemyRanged : MonoBehaviour
     public GameObject projectile;
     private Transform player;
 
+    private DropProbability probability = null;
+    private GameManager gameManager = null;
+
     void Start ()
     {
         health = 20;
@@ -25,7 +28,10 @@ public class EnemyRanged : MonoBehaviour
         startTimeBetweenShots = 2;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         timeBetweenShots = startTimeBetweenShots;
-	}
+
+        probability = gameObject.GetComponent<DropProbability>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
 	
 	
 	void Update ()
@@ -52,6 +58,13 @@ public class EnemyRanged : MonoBehaviour
 
             if (health <= 0)
             {
+                //drop item
+                string tempName = probability.DetermineDrop();
+                GameObject itemObj = gameManager.GetItemObj(tempName);
+                itemObj = Instantiate(gameManager.GetItemObj(tempName), transform.position, Quaternion.Euler(0, 0, 0));
+                itemObj.transform.localScale = new Vector3(4, 4, 4);
+                var worldCanvas = GameObject.Find("worldCanvas").transform;
+                itemObj.transform.parent = worldCanvas;
                 Destroy(gameObject);
             }
 

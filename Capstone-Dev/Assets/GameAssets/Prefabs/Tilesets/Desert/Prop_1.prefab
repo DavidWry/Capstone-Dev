@@ -95,7 +95,7 @@ MonoBehaviour:
     AmmoType: 1
     WeaponName: 3
     itemObj: {fileID: 1876295848165562, guid: af0360be5601ac94f84067ffa511fc7d, type: 2}
-    Probability: 10000
+    Probability: 100
   - Name: Sword
     ItemName: 6
     ItemIcon: {fileID: 21300000, guid: 1ded39d8126baa1459a4f1657e83b630, type: 3}
