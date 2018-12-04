@@ -76,7 +76,7 @@ public class EnemyRanged : MonoBehaviour
                 var worldCanvas = GameObject.Find("worldCanvas").transform;
                 itemObj.transform.parent = worldCanvas;
                 Destroy(gameObject);
-                Instantiate(crystal, transform.position,Quaternion.identity);
+                //Instantiate(crystal, transform.position,Quaternion.identity);
             }
 
         }  

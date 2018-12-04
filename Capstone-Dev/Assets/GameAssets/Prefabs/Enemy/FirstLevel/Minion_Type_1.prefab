@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114778003983963334}
   - component: {fileID: 65369613796982802}
   - component: {fileID: 54880618210051812}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Minion_Type_1
   m_TagString: Minion
   m_Icon: {fileID: 0}
@@ -81,7 +81,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fee6a26fc8eeb447a97ea1390e540f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.8
 --- !u!212 &212490055577331952
 SpriteRenderer:
   m_ObjectHideFlags: 1

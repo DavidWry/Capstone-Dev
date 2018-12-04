@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65750166466947190}
   - component: {fileID: 114136424787076262}
   - component: {fileID: 114596808289364668}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Minion_Type_3
   m_TagString: Minion
   m_Icon: {fileID: 0}
