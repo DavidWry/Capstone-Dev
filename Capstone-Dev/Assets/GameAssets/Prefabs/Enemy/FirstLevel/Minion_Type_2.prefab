@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1330782127039832}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 239.34, y: 14.47, z: 0}
+  m_LocalPosition: {x: 191.06732, y: -0.54333305, z: 0}
   m_LocalScale: {x: 0.20834666, y: 0.21725333, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -84,13 +84,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   projectile: {fileID: 1926552392740888, guid: ab2672fd9ee45314ab19dd9441879295, type: 2}
+  crystal: {fileID: 1876295848165562, guid: fa456d51518b62b45aa38fb26fe23ad2, type: 2}
 --- !u!114 &114353933904221840
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1330782127039832}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e8d827f037c26347b9dd401662d1fa0, type: 3}
   m_Name: 
