@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 54467026271102344}
   - component: {fileID: 65750166466947190}
   - component: {fileID: 114136424787076262}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Minion_Type_3
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -81,6 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 077abf50e97a3cc45ad6e25a2acb8b04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
   projectile: {fileID: 1879253388266996, guid: 091540548d3ce1941b9c369cf92ea2dc, type: 2}
 --- !u!212 &212929368356966168
 SpriteRenderer:
