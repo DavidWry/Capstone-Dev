@@ -1069,6 +1069,7 @@ public class CellularAutomata : MonoBehaviour {
                         {
                             player1=Instantiate(player1, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, 0), transform.rotation);
                             player1.transform.localScale = new Vector3(0.5f,0.5f,0.5f);
+                            player1.GetComponent<Movement>().WalkSpeed = 5;
                             isCreated = true;
                         }
                     }
