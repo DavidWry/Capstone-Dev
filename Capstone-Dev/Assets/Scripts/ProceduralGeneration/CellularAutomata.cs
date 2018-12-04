@@ -7,8 +7,8 @@ using AssemblyCSharp;
 public class CellularAutomata : MonoBehaviour {
 
     private GameManager gameManager;
-    private int levelWidth;
-    private int levelHeight;
+    public int levelWidth;
+    public int levelHeight;
     private float tileSize;
     private int[,] landArray;
     private int[,] newLandArray;
@@ -19,13 +19,20 @@ public class CellularAutomata : MonoBehaviour {
     private float treeRatio;
     private int iteration;
 
+    private CameraControl cameraControl;
+
     // Use this for initialization
     void Start () {
+        cameraControl = GameObject.Find("CameraFollowing").GetComponent<CameraControl>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         
         levelWidth=(int)Random.Range(40, 60);
         levelHeight = (int)Random.Range(40, 60);
         tileSize = 256;
+
+        cameraControl.border2 = new Vector2((float)(levelWidth+1) * tileSize / 100, (float)(levelHeight+1) * tileSize / 100);
+        //cameraControl.border2 = new Vector2(levelWidth + 1, levelHeight + 1);
+        
         landArray = new int[levelWidth, levelHeight];
         for (int i = 0; i < levelWidth; i++) {
             for (int j = 0; j < levelHeight; j++) {

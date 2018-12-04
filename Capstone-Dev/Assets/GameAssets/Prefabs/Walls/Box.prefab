@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 136358415143639818}
   - component: {fileID: 114911254164045272}
   - component: {fileID: 114750157691138528}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Box
   m_TagString: Chest
   m_Icon: {fileID: 0}
@@ -134,7 +134,7 @@ SpriteRenderer:
   m_SortingLayerID: 2114101981
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: aa39b036491b65a4789e01d9924f818b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0cdb4e37abd8acb49a70cdf3e6e8a95b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -7,9 +7,9 @@ public class CameraControl : MonoBehaviour {
     public Transform PlayerPos;
     private float speed;
     [SerializeField]
-    private Vector2 border;    //left bottom
+    public Vector2 border;    //left bottom
     [SerializeField]
-    private Vector2 border2;   //right top
+    public Vector2 border2;   //right top
 
     // Use this for initialization
     void Start () {
@@ -22,13 +22,29 @@ public class CameraControl : MonoBehaviour {
         if(!PlayerPos)
             PlayerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         Vector3 pos = transform.position;
-        if (PlayerPos.position.x > border.x && PlayerPos.position.x < border2.x)
+        if (PlayerPos.position.x > border.x + 15f && PlayerPos.position.x < border2.x - 15f)
         {
             pos.x = PlayerPos.position.x;
         }
-        if (PlayerPos.position.y > border.y && PlayerPos.position.y < border2.y)
+        else if (PlayerPos.position.x < border.x + 15f)
+        {
+            pos.x = border.x + 15f;
+        }
+        else if (PlayerPos.position.x > border2.x - 15f)
+        {
+            pos.x = border2.x - 15f;
+        }
+        if (PlayerPos.position.y > border.y+5 && PlayerPos.position.y < border2.y-5)
         {
             pos.y = PlayerPos.position.y;
+        }
+        else if (PlayerPos.position.y < border.y + 5)
+        {
+            pos.y = border.y + 5;
+        }
+        else if (PlayerPos.position.y > border2.y - 5)
+        {
+            pos.y = border2.y - 5;
         }
         transform.position = pos;
     }
