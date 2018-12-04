@@ -14,6 +14,7 @@ public class EnemyRanged : MonoBehaviour
     private float health;
 
     public GameObject projectile;
+    public GameObject crystal;
     private Transform player;
 
     private DropProbability probability = null;
@@ -21,11 +22,19 @@ public class EnemyRanged : MonoBehaviour
 
     void Start ()
     {
-        health = 20;
-        speed = 3;
-        rangeForAttack = 6;
-        chaseRange = 10;
-        startTimeBetweenShots = 2;
+        if (gameObject.name == "Minion_Type_2")
+        {
+            health = 120;
+        }
+        else
+        {
+            health = 150;
+        }
+         
+        speed = 2.5f;
+        rangeForAttack = 5;
+        chaseRange = 8;
+        startTimeBetweenShots = 2.0f;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         timeBetweenShots = startTimeBetweenShots;
 
@@ -66,6 +75,7 @@ public class EnemyRanged : MonoBehaviour
                 var worldCanvas = GameObject.Find("worldCanvas").transform;
                 itemObj.transform.parent = worldCanvas;
                 Destroy(gameObject);
+                Instantiate(crystal, transform.position,Quaternion.identity);
             }
 
         }  

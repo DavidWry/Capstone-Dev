@@ -1,20 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using AssemblyCSharp;
 
 // Follow the player everywhere
 public class EnemyFollow : MonoBehaviour
 {
     private int health;
-    public float speed;
+    private float speed;
+    private Player player2;
+    private int damage;
     private float rangeForAttack; //Within what range the enemy will start and continue attacking the player
     private Transform target;
 
     void Start()
     {
         //Set player as the target
-        health = 40;
-        rangeForAttack = 4;
+        health = 100;
+        speed = 1.0f ;
+        player2 = GetComponent<Player>();
+        rangeForAttack = 6;
+        damage = 5;
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
@@ -36,6 +42,14 @@ public class EnemyFollow : MonoBehaviour
         }
         
         
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            other.gameObject.GetComponent<Player>().TakeDamage(damage);
+        }
     }
 
     /*private void OnTriggerEnter(Collider other)
