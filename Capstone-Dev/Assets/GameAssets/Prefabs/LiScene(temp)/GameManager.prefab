@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4390172704827272}
   - component: {fileID: 114798871894109676}
+  - component: {fileID: 114744981980483458}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -40,6 +41,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114744981980483458
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1581299719415248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5b15223f7d06264c931724d3e63d760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelWidth: 0
+  levelHeight: 0
 --- !u!114 &114798871894109676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -63,7 +77,7 @@ MonoBehaviour:
     WeaponObj: {fileID: 1031040304690994, guid: 06723e9a6ee9b7044b2613638ac2d4f8,
       type: 2}
     AimObj: {fileID: 1266085690551780, guid: 06723e9a6ee9b7044b2613638ac2d4f8, type: 2}
-    Projectile: {fileID: 1804453490864518, guid: e3bf4c8880e0b3549a05ad8c1d6f97c7,
+    Projectile: {fileID: 1654640730964290, guid: a8a68d77543a73a49a2e6c7e53db31f7,
       type: 2}
     IsMultiBullets: 0
     BulletAngleList:
@@ -91,7 +105,7 @@ MonoBehaviour:
     WeaponObj: {fileID: 1031040304690994, guid: 547f7afa1dc54ce43aa7c9b6b4ee9500,
       type: 2}
     AimObj: {fileID: 1266085690551780, guid: 547f7afa1dc54ce43aa7c9b6b4ee9500, type: 2}
-    Projectile: {fileID: 1804453490864518, guid: e3bf4c8880e0b3549a05ad8c1d6f97c7,
+    Projectile: {fileID: 1652324266871320, guid: fbacd4b65cb6ceb4eb2bef72254c9ec2,
       type: 2}
     IsMultiBullets: 0
     BulletAngleList:
@@ -292,20 +306,63 @@ MonoBehaviour:
     WeaponName: 4
     weaponObj: {fileID: 1328907374582074, guid: f2cbd30f70b6f46499c4578e693661f9,
       type: 2}
-  Tiles: []
-  EnemyList: []
-  PortalList: []
+  Tiles:
+  - {fileID: 1008682546140488, guid: 0d9dd61d194a7e54589f2e865f7a712d, type: 2}
+  - {fileID: 1008682546140488, guid: bd12fb9002fb99e459514f772a5b3cfb, type: 2}
+  - {fileID: 1008682546140488, guid: dd2bd486a40e8e445a9f5b3614bf2e69, type: 2}
+  - {fileID: 1008682546140488, guid: 892be0b2006014d408cf8cfbe4e4f1e8, type: 2}
+  - {fileID: 1008682546140488, guid: dbda402e7a95884468cf7216108fa4e5, type: 2}
+  - {fileID: 1008682546140488, guid: 3f664dcc3e2782d42b9c717c13d87233, type: 2}
+  - {fileID: 1008682546140488, guid: 91fbb5a7069008b409d6601857979027, type: 2}
+  - {fileID: 1008682546140488, guid: 75b4385e49d61b3418e738a3f18b56d6, type: 2}
+  - {fileID: 1008682546140488, guid: 3dd251ede70eb8e43a09e714a5055109, type: 2}
+  - {fileID: 1008682546140488, guid: 349326a14395cdd42abb8372bf80316a, type: 2}
+  - {fileID: 1008682546140488, guid: a05ba4437f86aa64fb3f10e882b6f697, type: 2}
+  - {fileID: 1008682546140488, guid: 436ee6e72d3bdd1498e0197b1184c089, type: 2}
+  - {fileID: 1008682546140488, guid: b01a52f3e5ad6234c928f97dfabf26d1, type: 2}
+  - {fileID: 1008682546140488, guid: 84c77221dcc19074d85ac4f97948f07e, type: 2}
+  - {fileID: 1008682546140488, guid: 3c7864e67b7e9fc4095e6a90c4978984, type: 2}
+  - {fileID: 1008682546140488, guid: 8d4d35154368e8d4785e7962e70b7923, type: 2}
+  - {fileID: 1008682546140488, guid: 2d31bd2d2288aa14ab049e73b6742860, type: 2}
+  - {fileID: 1008682546140488, guid: 68175a0d585b3974fb7a58f02c673137, type: 2}
+  - {fileID: 1008682546140488, guid: 6182afc4f9f31d7478cb4c586fc56877, type: 2}
+  - {fileID: 1008682546140488, guid: b815497e5a3d100499d8627831d381bc, type: 2}
+  - {fileID: 1008682546140488, guid: 792afcff9db9d2041a1c0aedd2631c71, type: 2}
+  - {fileID: 1008682546140488, guid: a74a40512b4282e4aacf783a906fe15f, type: 2}
+  - {fileID: 1008682546140488, guid: eb26b066fb2b9464e935cc6b659cd05f, type: 2}
+  - {fileID: 1008682546140488, guid: badfc52144f876a46b6646ad76b43f1b, type: 2}
+  - {fileID: 1008682546140488, guid: 84ad8a444f14cf2479420602f89b3b88, type: 2}
+  - {fileID: 1008682546140488, guid: 4ba98352395cf0f4ba0d0625f7875380, type: 2}
+  - {fileID: 1008682546140488, guid: 465df9dedf6e3e44285b6c2d8a18e31f, type: 2}
+  - {fileID: 1008682546140488, guid: 52bf8412afc74744a9a18f737b980f16, type: 2}
+  - {fileID: 1008682546140488, guid: 4805d271751e3d34f8fe3d99473f416c, type: 2}
+  - {fileID: 1008682546140488, guid: a4e3e84f50c70fe4ab114ba7361562da, type: 2}
+  - {fileID: 1008682546140488, guid: 12abf7f60b4ff4a47b3d5c26d0e3f425, type: 2}
+  - {fileID: 1008682546140488, guid: 58846101c29765340800c53becf40107, type: 2}
+  - {fileID: 1008682546140488, guid: 04662781dc4f4744bb9b75ce7d02e25c, type: 2}
+  - {fileID: 1008682546140488, guid: 04662781dc4f4744bb9b75ce7d02e25c, type: 2}
+  - {fileID: 1008682546140488, guid: 4b2472ff5f6f0a2488e41703aa081a98, type: 2}
+  - {fileID: 1008682546140488, guid: 410ced76ea84ea743906dcfc22ec45e4, type: 2}
+  - {fileID: 1008682546140488, guid: fbee2d7eda933b24881856b857a6ec68, type: 2}
+  - {fileID: 1008682546140488, guid: 07884be851adda24596d183388b8ec87, type: 2}
+  EnemyList:
+  - {fileID: 1489556863665108, guid: 0033028c61be62246a5bb7499249fa01, type: 2}
+  - {fileID: 1330782127039832, guid: 74ddbb7d70505884e882c9dc8ffb2c03, type: 2}
+  - {fileID: 1100377277429338, guid: e93b26714d3cde04899da730e14310af, type: 2}
+  PortalList:
+  - {fileID: 1367659576493558, guid: babca655dd8db00428ac6738dc7f3c0e, type: 2}
   CombineProjectile:
-  - {fileID: 0}
+  - {fileID: 1400804421902210, guid: 687347364fd274a46af20839d40d75f0, type: 2}
   - {fileID: 1429720330512874, guid: b2d7723cc30d4064392519711cb723c8, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1052645419911094, guid: dcb05ffbeede6a541beae74126120013, type: 2}
+  - {fileID: 1718711784783534, guid: 90f7d46ec778fdf44a1d0d269f4130a8, type: 2}
+  - {fileID: 1777722769396900, guid: 3a80a728bf6f1e941bca2deb84eff8ea, type: 2}
   - {fileID: 0}
   - {fileID: 1974920550631064, guid: a7c05b14b35a2844bb679a5628ea42de, type: 2}
   - {fileID: 1530939543040866, guid: ce52afbac42e1f84da524ae52a381e7b, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1899085504715622, guid: e34f2f32bc6359a4089fecc8be006325, type: 2}
+  - {fileID: 1471961655910682, guid: c70b2144956daf440a25cde7f712e39a, type: 2}
+  - {fileID: 1159396787669600, guid: 7c5f768e8f251be4d876a942dcea72ae, type: 2}
   leftWeaponMenu:
     Weapons:
       Name: 
@@ -370,4 +427,4 @@ MonoBehaviour:
     AmmoBar: {fileID: 0}
     AmmoValue: {fileID: 0}
     ReloadImg: {fileID: 0}
-  Player: {fileID: 0}
+  Player: {fileID: 1075490410967942, guid: 53c48bee7d55ecc48af61050d2c56229, type: 2}

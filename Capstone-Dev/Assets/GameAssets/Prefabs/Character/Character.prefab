@@ -604,6 +604,9 @@ MonoBehaviour:
   TimePrepareCombine: 1
   TimeTopCombine: 5
   CombineTag: 1
+  SkillReady: 0
+  GoldenFinger: 0
+  CameraObj: {fileID: 0}
 --- !u!114 &114552904399088650
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -668,7 +671,7 @@ MonoBehaviour:
     WeaponObj: {fileID: 1031040304690994, guid: 06723e9a6ee9b7044b2613638ac2d4f8,
       type: 2}
     AimObj: {fileID: 0}
-    Projectile: {fileID: 1804453490864518, guid: e3bf4c8880e0b3549a05ad8c1d6f97c7,
+    Projectile: {fileID: 1654640730964290, guid: a8a68d77543a73a49a2e6c7e53db31f7,
       type: 2}
     IsMultiBullets: 0
     BulletAngleList: []
@@ -676,7 +679,7 @@ MonoBehaviour:
     TimeWaited: 0
     ImpactFX: {fileID: 0}
     ShotFX: {fileID: 0}
-    Damage: 8
+    Damage: 20
     Rebounce: 0
     AmmoSize: 10
     CurrentAmmos: 10
