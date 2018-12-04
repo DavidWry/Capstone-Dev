@@ -198,6 +198,7 @@ namespace AssemblyCSharp
                     if (leftWeapon.WeaponName == WeaponName.Sword || rightWeapon.WeaponName == WeaponName.Sword)
                     {
                         CombineType = 45;
+                        playerShoot.CombineTag = true;
                     }
                 }
             }

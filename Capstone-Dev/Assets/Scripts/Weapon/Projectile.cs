@@ -11,6 +11,7 @@ public class Projectile : MonoBehaviour {
     public bool Thrust;
     public bool Pierce = false;
     public bool Sheild = false;
+    public bool Scale = false;
     public GameObject Impact;
     public GameManager GameManage;
     public float Duration = 1;
@@ -34,6 +35,10 @@ public class Projectile : MonoBehaviour {
             IsReady = false;
             RBody.velocity = transform.right * Speed;
         }
+        if (Scale)
+        {
+            transform.localScale += new Vector3(0.5f, 0.5f, 0) * Time.deltaTime;
+        }
         if (LifeTime >= Duration)
         {
             Destroy(gameObject);
@@ -47,6 +52,10 @@ public class Projectile : MonoBehaviour {
             if (collision.gameObject.GetComponent<EnemyFollow>())
             {
                 collision.gameObject.GetComponent<EnemyFollow>().TakeDamage(Damage);
+            }
+            else if (collision.gameObject.GetComponent<EnemyRanged>())
+            {
+                collision.gameObject.GetComponent<EnemyRanged>().TakeDamage(Damage);
             }
             if (Thrust)
             {
@@ -63,7 +72,7 @@ public class Projectile : MonoBehaviour {
             Dead();
             collision.GetComponent<Chest>().TakeDamage(Damage);
         }
-        else if (collision.gameObject.tag == "" && Sheild)
+        else if (collision.gameObject.tag == "EnemyProjectile" && Sheild)
         {
             Destroy(collision.gameObject);
         }

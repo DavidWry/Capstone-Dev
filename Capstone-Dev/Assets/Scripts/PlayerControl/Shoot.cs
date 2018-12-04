@@ -56,18 +56,32 @@ public class Shoot : MonoBehaviour {
     private float CombineBtw_12 = 0.05f;
     private float CombineSpeed_12 = 5f;
     private float CombineDuration_12 = 2f;
+    private float CombineDamage_12 = 5f;
     //24-6
     private float CombineBtw_24 = 1f;
     private float CombineSpeed_24 = 10f;
     private float CombineDuration_24 = 2f;
+    private float CombineDamage_24 = 20f;
     //25-7
     private float CombineBtw_25 = 0.15f;
     private float CombineSpeed_25 = 15f;
     private float CombineDuration_25 = 0.5f;
+    private float CombineDamage_25 = 5f;
     //34-8
-    private float CombineBtw_34 = 10f;
-    private float CombineSpeed_34 = 1f;
-    private float CombineDuration_34 = 10f;
+    private float CombineBtw_34 = 1.5f;
+    private float CombineSpeed_34 = 0f;
+    private float CombineDuration_34 = 5f;
+    private float CombineDamage_34 = 10f;
+    //35-9
+    private float CombineBtw_35 = 1.5f;
+    private float CombineSpeed_35 = 5f;
+    private float CombineDuration_35 = 2f;
+    private float CombineDamage_35 = 10f;
+    //45-10
+    private float CombineBtw_45 = 10f;
+    private float CombineSpeed_45 = 1f;
+    private float CombineDuration_45 = 10f;
+    private float CombineDamage_45 = 5f;
 
     // Use this for initialization
     void Start () {
@@ -458,6 +472,7 @@ public class Shoot : MonoBehaviour {
                     break;
                 case 45:
                     CombineShoot_45();
+                    CombineBtw = CombineBtw_45;
                     break;
             }
             CanCombineShoot = false;
@@ -525,7 +540,7 @@ public class Shoot : MonoBehaviour {
     }
     private void CombineShoot_34()
     {
-        GameObject NewProj = Instantiate(gameManager.CombineProjectile[7]);
+        GameObject NewProj = Instantiate(gameManager.CombineProjectile[8]);
         NewProj.transform.position = Center.position;
         NewProj.transform.rotation = Right.rotation;
         //Change state according to the weapon
@@ -533,15 +548,32 @@ public class Shoot : MonoBehaviour {
         Proj.IsReady = true;
         Proj.Speed = CombineSpeed_34;
         Proj.Duration = CombineDuration_34;
-        Proj.Sheild = true;
+        Proj.Scale = true;
     }
     private void CombineShoot_35()
     {
-
+        GameObject NewProj = Instantiate(gameManager.CombineProjectile[9]);
+        NewProj.transform.position = Center.position;
+        NewProj.transform.rotation = Right.rotation;
+        //Change state according to the weapon
+        Projectile Proj = NewProj.GetComponent<Projectile>();
+        Proj.IsReady = true;
+        Proj.Speed = CombineSpeed_35;
+        Proj.Duration = CombineDuration_35;
+        Proj.Sheild = true;
+        Proj.Scale = true;
     }
     private void CombineShoot_45()
     {
-
+        GameObject NewProj = Instantiate(gameManager.CombineProjectile[10]);
+        NewProj.transform.position = Center.position;
+        NewProj.transform.rotation = Right.rotation;
+        //Change state according to the weapon
+        Projectile Proj = NewProj.GetComponent<Projectile>();
+        Proj.IsReady = true;
+        Proj.Speed = CombineSpeed_45;
+        Proj.Duration = CombineDuration_45;
+        Proj.Sheild = true;
     }
 
     private void useSkill()
