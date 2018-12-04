@@ -2,10 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using AssemblyCSharp;
+using UnityEngine.UI;
 
 namespace AssemblyCSharp
 {
-    public enum ItemName { Potion, Pistol, Lazer, Ak47, Shotgun, DemoGun1, Sword};
+    public enum ItemName { Potion, Pistol, Lazer, Ak47, Shotgun, DemoGun1, Sword, PurpleCrystal, RedCrystal };
     public enum WeaponValueType { Low, Average, High, GODLY };
 
     [System.Serializable]

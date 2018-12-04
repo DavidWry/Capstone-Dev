@@ -12,11 +12,18 @@ public class Loot : MonoBehaviour
     private RaycastHit hit;
     private bool showItem = false;
     private GameManager gameManager;
+    public bool isItem;
 
+    //weapon
     Transform damageLabel;
     Transform damageValue;
     Transform ammoLabel;
     Transform ammoValue;
+
+    //item
+    Transform description;
+
+    //shared
     Transform panel;
     Transform nameValue;
 
@@ -24,19 +31,39 @@ public class Loot : MonoBehaviour
     {
         showItem = false;
         //show or hide info about weapons
-        damageLabel = transform.Find("DmgLabel");
-        damageValue = transform.Find("DmgValue");
-        ammoLabel = transform.Find("AmmoLabel");
-        ammoValue = transform.Find("AmmoValue");
+        if (isItem)
+        {
+            description = transform.Find("Description");
+        }
+        else
+        {
+            damageLabel = transform.Find("DmgLabel");
+            damageValue = transform.Find("DmgValue");
+            ammoLabel = transform.Find("AmmoLabel");
+            ammoValue = transform.Find("AmmoValue");
+        }
+        
         panel = transform.Find("Panel");
         nameValue = transform.Find("Name");
+
+
+
         //disable everything by default
-        damageLabel.gameObject.SetActive(false);
-        damageValue.gameObject.SetActive(false);
-        ammoLabel.gameObject.SetActive(false);
-        ammoValue.gameObject.SetActive(false);
+        if (isItem)
+        {
+            description.gameObject.SetActive(false);
+        }
+        else
+        {
+            damageLabel.gameObject.SetActive(false);
+            damageValue.gameObject.SetActive(false);
+            ammoLabel.gameObject.SetActive(false);
+            ammoValue.gameObject.SetActive(false);
+        }
+        
         panel.gameObject.SetActive(false);
         nameValue.gameObject.SetActive(false);
+        
 
     }
 
@@ -60,19 +87,25 @@ public class Loot : MonoBehaviour
         gameManager = newGameManager;
         //get the items
         Item = newItem;
-        
+
         //show or hide info about weapons
-        damageLabel = transform.Find("DmgLabel");
-        damageValue = transform.Find("DmgValue");
-        ammoLabel = transform.Find("AmmoLabel");
-        ammoValue = transform.Find("AmmoValue");
+        if (isItem)
+        {
+            description = transform.Find("Description");
+        }
+        else
+        {
+            damageLabel = transform.Find("DmgLabel");
+            damageValue = transform.Find("DmgValue");
+            ammoLabel = transform.Find("AmmoLabel");
+            ammoValue = transform.Find("AmmoValue");
+        }
+
         panel = transform.Find("Panel");
         nameValue = transform.Find("Name");
 
         //item name
-        nameValue.GetComponent<Text>().text = newItem.Name;
-        
-        //potions infos here
+        //nameValue.GetComponent<Text>().text = newItem.Name;
 
         //check if it's a weapon or a potion
         if (newItem.GiveWeapon)
@@ -83,14 +116,22 @@ public class Loot : MonoBehaviour
             ammoValue.GetComponent<Image>().sprite = GetAssociateValue(newItem.AmmoType);
         }
 
+
         //disable everything by default
-        damageLabel.gameObject.SetActive(false);
-        damageValue.gameObject.SetActive(false);
-        ammoLabel.gameObject.SetActive(false);
-        ammoValue.gameObject.SetActive(false);
+        if (newItem.GiveWeapon)
+        {
+            damageLabel.gameObject.SetActive(false);
+            damageValue.gameObject.SetActive(false);
+            ammoLabel.gameObject.SetActive(false);
+            ammoValue.gameObject.SetActive(false);
+        }
+        else
+        {
+            description.gameObject.SetActive(false);
+        }
         panel.gameObject.SetActive(false);
         nameValue.gameObject.SetActive(false);
-
+        
         //doens't show the item at first
         showItem = false;
     }
@@ -112,6 +153,9 @@ public class Loot : MonoBehaviour
             damageValue.gameObject.SetActive(CanShow);
             ammoLabel.gameObject.SetActive(CanShow);
             ammoValue.gameObject.SetActive(CanShow);
+        }
+        else {
+            description.gameObject.SetActive(CanShow);
         }
 
         //replace old value

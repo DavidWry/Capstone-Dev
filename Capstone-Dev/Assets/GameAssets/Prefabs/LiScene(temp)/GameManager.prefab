@@ -210,6 +210,7 @@ MonoBehaviour:
     AmmoType: 1
     WeaponName: 0
     itemObj: {fileID: 1652595029889896, guid: b8560118709f20d47a3cf1bc5356d6b3, type: 2}
+    Probability: 0
   - Name: Lazer
     ItemName: 2
     ItemIcon: {fileID: 21300010, guid: 379676913003f4b4fb67ca9e26fbeb97, type: 3}
@@ -219,6 +220,7 @@ MonoBehaviour:
     AmmoType: 2
     WeaponName: 6
     itemObj: {fileID: 1876295848165562, guid: dbbd9055a5163f84ab3ff204a6c82c2f, type: 2}
+    Probability: 0
   - Name: Ak47
     ItemName: 3
     ItemIcon: {fileID: 21300012, guid: 379676913003f4b4fb67ca9e26fbeb97, type: 3}
@@ -228,6 +230,7 @@ MonoBehaviour:
     AmmoType: 1
     WeaponName: 3
     itemObj: {fileID: 1876295848165562, guid: af0360be5601ac94f84067ffa511fc7d, type: 2}
+    Probability: 0
   - Name: Sword
     ItemName: 6
     ItemIcon: {fileID: 21300000, guid: 1ded39d8126baa1459a4f1657e83b630, type: 3}
@@ -237,6 +240,7 @@ MonoBehaviour:
     AmmoType: 1
     WeaponName: 7
     itemObj: {fileID: 1119368855546066, guid: 5a166331dfd6c1740b4fc7f55c7e5870, type: 2}
+    Probability: 0
   - Name: Shotgun
     ItemName: 4
     ItemIcon: {fileID: 21300014, guid: 379676913003f4b4fb67ca9e26fbeb97, type: 3}
@@ -246,6 +250,27 @@ MonoBehaviour:
     AmmoType: 1
     WeaponName: 4
     itemObj: {fileID: 1095468374369076, guid: 80deb0b7296f24c41b68055399e8982a, type: 2}
+    Probability: 0
+  - Name: PurpleCrystal
+    ItemName: 7
+    ItemIcon: {fileID: 21300000, guid: 46745a3a2cbf5804a9deaa241dc0a496, type: 3}
+    GiveWeapon: 0
+    Usable: 0
+    DamageType: 0
+    AmmoType: 0
+    WeaponName: 0
+    itemObj: {fileID: 1141863764639654, guid: e71aca9953d2e5d4380aedac964a59d5, type: 2}
+    Probability: 0
+  - Name: RedCrystal
+    ItemName: 8
+    ItemIcon: {fileID: 21300000, guid: 5e8763ac03d7f674abfaeb63a3d8fa0a, type: 3}
+    GiveWeapon: 0
+    Usable: 0
+    DamageType: 0
+    AmmoType: 0
+    WeaponName: 0
+    itemObj: {fileID: 1723111770143308, guid: 87d9caedefed26f4fb4294bec5cd39ad, type: 2}
+    Probability: 0
   WeaponObjectList:
   - Name: Pistol
     WeaponName: 0
@@ -269,6 +294,7 @@ MonoBehaviour:
       type: 2}
   Tiles: []
   EnemyList: []
+  PortalList: []
   CombineProjectile:
   - {fileID: 0}
   - {fileID: 1429720330512874, guid: b2d7723cc30d4064392519711cb723c8, type: 2}
@@ -344,3 +370,4 @@ MonoBehaviour:
     AmmoBar: {fileID: 0}
     AmmoValue: {fileID: 0}
     ReloadImg: {fileID: 0}
+  Player: {fileID: 0}

@@ -34,7 +34,7 @@ public class PickUp : MonoBehaviour {
         {
             handToPick = 2;          
         }
-        //get the item
+        //get the weapon
         if (isLootNearby && (handToPick > 0) && currentLoot != null)
         {
             //check if we already have the weapon and show it
@@ -96,10 +96,32 @@ public class PickUp : MonoBehaviour {
                         }
                         handToPick = 0;
                     }
+
+                //destroy loot
+                GameObject.Destroy(currentLoot.gameObject);
+                //clear loot
+                currentLoot = null;
+            }
+        }
+
+        //get the item
+        if (isLootNearby && Input.GetKeyDown(KeyCode.Joystick1Button1) && currentLoot != null)//button B on controller
+        {
+            if (!currentLoot.Item.GiveWeapon)
+            {
+                if (currentLoot.Item.Name == "PurpleCrystal")
+                {
+                    player.Power += 20;
+                }
+                else if (currentLoot.Item.Name == "RedCrystal")
+                {
+                    player.Power += 10;
+                }
+                
             }
 
             //destroy loot
-           GameObject.Destroy(currentLoot.gameObject);
+            GameObject.Destroy(currentLoot.gameObject);
             //clear loot
             currentLoot = null;
         }
@@ -130,8 +152,7 @@ public class PickUp : MonoBehaviour {
             
         }
         else {
-            isLootNearby = false;
-            
+            isLootNearby = false;        
         }
     }
     
