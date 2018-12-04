@@ -13,8 +13,8 @@ public class UITemp : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
-	}
+        PlayerObj = GameObject.FindGameObjectWithTag("Player");
+    }
 	
 	// Update is called once per frame
 	void Update () {

@@ -42,6 +42,8 @@ public class Shoot : MonoBehaviour {
 
     //For Combine Shooting
     public bool CombineTag = false;            //Two Kinds of "combine". True means real "Combine", false means actrually "seperate".
+    public bool SkillReady = false;
+    public bool GoldenFinger = false;
     private float preRightInputX = 0f;
     private float preRightInputY = 0f;
     private float preLeftInputX = 0f;
@@ -111,7 +113,7 @@ public class Shoot : MonoBehaviour {
             IsRightShooting = false;
         }
         if (Mathf.Round(Input.GetAxisRaw("RightTrigger")) > 0 && Mathf.Round(Input.GetAxisRaw("LeftTrigger")) > 0 && 
-            player.leftWeapon.Name != "" && player.rightWeapon.Name != "")  //Push both trigger to combine.
+            player.leftWeapon.Name != "" && player.rightWeapon.Name != "" && (SkillReady || GoldenFinger))  //Push both trigger to combine.
         {
             float rx = Input.GetAxis("Left X");
             float ry = Input.GetAxis("Left Y");
@@ -181,6 +183,7 @@ public class Shoot : MonoBehaviour {
                     IsLeftShooting = true;
                     IsRightShooting = true;
                     IsCombineShooting = false;
+                    useSkill();
                 }
             }
         }
@@ -189,6 +192,10 @@ public class Shoot : MonoBehaviour {
             CombinedTime = 0;
             CombineWaitedime = 0f;
             IsCombineShooting = false;
+            if (player.Power < 100 && SkillReady)
+            {
+                SkillReady = false;
+            }
         }
 
         //Shoot
@@ -413,6 +420,7 @@ public class Shoot : MonoBehaviour {
     {
         if (IsCombineShooting && CanCombineShoot)
         {
+            player.Power = 0;
             switch (player.CombineType)
             {
                 case 0:
@@ -534,5 +542,11 @@ public class Shoot : MonoBehaviour {
     private void CombineShoot_45()
     {
 
+    }
+
+    private void useSkill()
+    {
+        player.Power = 0;
+        SkillReady = false;
     }
 }

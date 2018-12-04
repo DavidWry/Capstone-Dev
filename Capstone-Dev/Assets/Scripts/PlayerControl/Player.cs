@@ -63,6 +63,14 @@ namespace AssemblyCSharp
                 Destroy(gameObject);
                 Debug.Log("Dead");
             }
+            if (Power > 100)
+            {
+                Power = 100;
+            }
+            else if (Power == 100)
+            {
+                playerShoot.SkillReady = true;
+            }
 
             if (playerMovement.isBulletTime)
             {
