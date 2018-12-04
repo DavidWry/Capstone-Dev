@@ -55,6 +55,8 @@ public class PickUp : MonoBehaviour {
                             {
                                 string tempName = player.leftWeapon.WeaponName.ToString();
                                 GameObject itemObj = Instantiate(gameManager.GetItemObj(tempName), transform.position, Quaternion.Euler(0, 0, 0));
+                                if (NextScene.nowName == "2_1")
+                                    itemObj.transform.localScale = new Vector3(4, 4, 4);
                                 var worldCanvas = GameObject.Find("worldCanvas").transform;
                                 itemObj.transform.parent = worldCanvas;
 
