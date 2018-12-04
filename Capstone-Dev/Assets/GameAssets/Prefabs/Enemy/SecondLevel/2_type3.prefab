@@ -23,8 +23,9 @@ GameObject:
   - component: {fileID: 114029235223461856}
   - component: {fileID: 65643763342890740}
   - component: {fileID: 54223349674815694}
+  - component: {fileID: 114824677233835518}
   m_Layer: 12
-  m_Name: Minion_Type_6
+  m_Name: 2_type3
   m_TagString: Minion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,6 +84,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   projectile: {fileID: 1926552392740888, guid: ab2672fd9ee45314ab19dd9441879295, type: 2}
+  crystal: {fileID: 0}
+--- !u!114 &114824677233835518
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1330782127039832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e8d827f037c26347b9dd401662d1fa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemList:
+  - Name: PurpleCrystal
+    ItemName: 7
+    ItemIcon: {fileID: 21300000, guid: 46745a3a2cbf5804a9deaa241dc0a496, type: 3}
+    GiveWeapon: 0
+    Usable: 0
+    DamageType: 0
+    AmmoType: 0
+    WeaponName: 0
+    itemObj: {fileID: 1876295848165562, guid: fa456d51518b62b45aa38fb26fe23ad2, type: 2}
+    Probability: 100
 --- !u!212 &212016188773790518
 SpriteRenderer:
   m_ObjectHideFlags: 1

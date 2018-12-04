@@ -23,8 +23,10 @@ GameObject:
   - component: {fileID: 54467026271102344}
   - component: {fileID: 65750166466947190}
   - component: {fileID: 114136424787076262}
+  - component: {fileID: 114569459832606338}
+  - component: {fileID: 114552718065321168}
   m_Layer: 12
-  m_Name: Minion_Type_5
+  m_Name: 2_type2
   m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,6 +85,111 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   projectile: {fileID: 1879253388266996, guid: 091540548d3ce1941b9c369cf92ea2dc, type: 2}
+  crystal: {fileID: 0}
+--- !u!114 &114552718065321168
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1100377277429338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e8d827f037c26347b9dd401662d1fa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemList:
+  - Name: Pistol
+    ItemName: 1
+    ItemIcon: {fileID: 21300000, guid: 379676913003f4b4fb67ca9e26fbeb97, type: 3}
+    GiveWeapon: 1
+    Usable: 1
+    DamageType: 0
+    AmmoType: 1
+    WeaponName: 0
+    itemObj: {fileID: 1652595029889896, guid: b8560118709f20d47a3cf1bc5356d6b3, type: 2}
+    Probability: 100
+  - Name: Lazer
+    ItemName: 2
+    ItemIcon: {fileID: 21300010, guid: 379676913003f4b4fb67ca9e26fbeb97, type: 3}
+    GiveWeapon: 1
+    Usable: 1
+    DamageType: 0
+    AmmoType: 2
+    WeaponName: 6
+    itemObj: {fileID: 1876295848165562, guid: dbbd9055a5163f84ab3ff204a6c82c2f, type: 2}
+    Probability: 100
+  - Name: Ak47
+    ItemName: 3
+    ItemIcon: {fileID: 21300012, guid: 379676913003f4b4fb67ca9e26fbeb97, type: 3}
+    GiveWeapon: 1
+    Usable: 1
+    DamageType: 1
+    AmmoType: 1
+    WeaponName: 3
+    itemObj: {fileID: 1876295848165562, guid: af0360be5601ac94f84067ffa511fc7d, type: 2}
+    Probability: 100
+  - Name: Sword
+    ItemName: 6
+    ItemIcon: {fileID: 21300000, guid: 1ded39d8126baa1459a4f1657e83b630, type: 3}
+    GiveWeapon: 1
+    Usable: 1
+    DamageType: 1
+    AmmoType: 1
+    WeaponName: 7
+    itemObj: {fileID: 1119368855546066, guid: 5a166331dfd6c1740b4fc7f55c7e5870, type: 2}
+    Probability: 100
+  - Name: PurpleCrystal
+    ItemName: 7
+    ItemIcon: {fileID: 21300000, guid: 46745a3a2cbf5804a9deaa241dc0a496, type: 3}
+    GiveWeapon: 0
+    Usable: 0
+    DamageType: 0
+    AmmoType: 0
+    WeaponName: 0
+    itemObj: {fileID: 1876295848165562, guid: fa456d51518b62b45aa38fb26fe23ad2, type: 2}
+    Probability: 1000
+  - Name: RedCrystal
+    ItemName: 8
+    ItemIcon: {fileID: 21300000, guid: 5e8763ac03d7f674abfaeb63a3d8fa0a, type: 3}
+    GiveWeapon: 0
+    Usable: 0
+    DamageType: 0
+    AmmoType: 0
+    WeaponName: 0
+    itemObj: {fileID: 1876295848165562, guid: 4cb0c877680f8dc429745e95ede68fb5, type: 2}
+    Probability: 2000
+  - Name: Shotgun
+    ItemName: 4
+    ItemIcon: {fileID: 21300014, guid: 379676913003f4b4fb67ca9e26fbeb97, type: 3}
+    GiveWeapon: 1
+    Usable: 1
+    DamageType: 2
+    AmmoType: 1
+    WeaponName: 4
+    itemObj: {fileID: 1095468374369076, guid: 80deb0b7296f24c41b68055399e8982a, type: 2}
+    Probability: 100
+--- !u!114 &114569459832606338
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1100377277429338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e8d827f037c26347b9dd401662d1fa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemList:
+  - Name: PurpleCrystal
+    ItemName: 7
+    ItemIcon: {fileID: 21300000, guid: 46745a3a2cbf5804a9deaa241dc0a496, type: 3}
+    GiveWeapon: 0
+    Usable: 0
+    DamageType: 0
+    AmmoType: 0
+    WeaponName: 0
+    itemObj: {fileID: 1876295848165562, guid: fa456d51518b62b45aa38fb26fe23ad2, type: 2}
+    Probability: 100
 --- !u!212 &212929368356966168
 SpriteRenderer:
   m_ObjectHideFlags: 1

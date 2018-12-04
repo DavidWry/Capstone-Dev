@@ -1003,9 +1003,9 @@ public class CellularAutomata : MonoBehaviour {
 
     void DrawEnemy()
     {
-        GameObject enemy1 = gameManager.GetEnemy("Minion_Type_1");
-        GameObject enemy2 = gameManager.GetEnemy("Minion_Type_2");
-        GameObject enemy3 = gameManager.GetEnemy("Minion_Type_3");
+        GameObject enemy1 = gameManager.GetEnemy("2_type1");
+        GameObject enemy2 = gameManager.GetEnemy("2_type2");
+        GameObject enemy3 = gameManager.GetEnemy("2_type3");
 
         for (int i = 0; i < levelWidth; i++)
         {
