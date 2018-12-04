@@ -155,14 +155,17 @@ namespace AssemblyCSharp
                     else if (leftWeapon.WeaponName == WeaponName.Lazer || rightWeapon.WeaponName == WeaponName.Lazer)
                     {
                         CombineType = 13;
+                        playerShoot.CombineTag = true;
                     }
                     else if (leftWeapon.WeaponName == WeaponName.Shotgun || rightWeapon.WeaponName == WeaponName.Shotgun)
                     {
                         CombineType = 14;
+                        playerShoot.CombineTag = false;
                     }
                     else if (leftWeapon.WeaponName == WeaponName.Sword || rightWeapon.WeaponName == WeaponName.Sword)
                     {
                         CombineType = 15;
+                        playerShoot.CombineTag = false;
                     }
                 }
                 else if (leftWeapon.WeaponName == WeaponName.Ak47 || rightWeapon.WeaponName == WeaponName.Ak47)
@@ -170,6 +173,7 @@ namespace AssemblyCSharp
                     if (leftWeapon.WeaponName == WeaponName.Lazer || rightWeapon.WeaponName == WeaponName.Lazer)
                     {
                         CombineType = 23;
+                        playerShoot.CombineTag = true;
                     }
                     else if (leftWeapon.WeaponName == WeaponName.Shotgun || rightWeapon.WeaponName == WeaponName.Shotgun)
                     {
@@ -187,10 +191,12 @@ namespace AssemblyCSharp
                     if (leftWeapon.WeaponName == WeaponName.Shotgun || rightWeapon.WeaponName == WeaponName.Shotgun)
                     {
                         CombineType = 34;
+                        playerShoot.CombineTag = true;
                     }
                     else if (leftWeapon.WeaponName == WeaponName.Sword || rightWeapon.WeaponName == WeaponName.Sword)
                     {
                         CombineType = 35;
+                        playerShoot.CombineTag = true;
                     }
                 }
                 else if (leftWeapon.WeaponName == WeaponName.Shotgun || rightWeapon.WeaponName == WeaponName.Shotgun)

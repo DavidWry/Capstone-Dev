@@ -9,6 +9,7 @@ public class Projectile : MonoBehaviour {
     public int Rebounce = 0;
     public float Speed = 1f;
     public bool Thrust;
+    public int SlowDown = 0;
     public bool Pierce = false;
     public bool Sheild = false;
     public bool Scale = false;
@@ -35,6 +36,15 @@ public class Projectile : MonoBehaviour {
             IsReady = false;
             RBody.velocity = transform.right * Speed;
         }
+        if (SlowDown > 0)
+        {
+            Speed -= SlowDown * Time.deltaTime;
+            if (Speed < 0)
+            {
+                Speed = 0;
+            }
+            RBody.velocity = transform.right * Speed;
+        }
         if (Scale)
         {
             transform.localScale += new Vector3(0.5f, 0.5f, 0) * Time.deltaTime;
@@ -42,6 +52,10 @@ public class Projectile : MonoBehaviour {
         if (LifeTime >= Duration)
         {
             Destroy(gameObject);
+            if (SlowDown > 0)
+            {
+                GameObject ImpactObject = Instantiate(Impact, transform.position, transform.rotation);
+            }
         }
 	}
 

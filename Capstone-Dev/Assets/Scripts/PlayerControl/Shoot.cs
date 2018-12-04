@@ -56,35 +56,60 @@ public class Shoot : MonoBehaviour {
     private float CombineBtw_12 = 0.05f;
     private float CombineSpeed_12 = 5f;
     private float CombineDuration_12 = 2f;
-    private float CombineDamage_12 = 5f;
+    private int CombineDamage_12 = 5;
+    //13-2
+    private float CombineBtw_13 = 0.8f;
+    private float CombineSpeed_13 = 10f;
+    private float CombineDuration_13 = 5f;
+    private int CombineDamage_13 = 50;
+    //14-3
+    private float CombineBtw_14 = 0.2f;
+    private float CombineSpeed_14 = 5f;
+    private float CombineDuration_14 = 0.8f;
+    private int CombineDamage_14 = 5;
+    //15-4
+    private float CombineBtw_15 = 0.2f;
+    private float CombineSpeed_15 = 8f;
+    private float CombineDuration_15 = 0.8f;
+    private int CombineDamage_15 = 5;
+    //23-5
+    private float CombineBtw_23 = 0.2f;
     //24-6
     private float CombineBtw_24 = 1f;
     private float CombineSpeed_24 = 10f;
     private float CombineDuration_24 = 2f;
-    private float CombineDamage_24 = 20f;
+    private int CombineDamage_24 = 20;
     //25-7
     private float CombineBtw_25 = 0.15f;
     private float CombineSpeed_25 = 15f;
     private float CombineDuration_25 = 0.5f;
-    private float CombineDamage_25 = 5f;
+    private int CombineDamage_25 = 5;
     //34-8
     private float CombineBtw_34 = 1.5f;
     private float CombineSpeed_34 = 0f;
     private float CombineDuration_34 = 5f;
-    private float CombineDamage_34 = 10f;
+    private int CombineDamage_34 = 10;
     //35-9
     private float CombineBtw_35 = 1.5f;
     private float CombineSpeed_35 = 5f;
     private float CombineDuration_35 = 2f;
-    private float CombineDamage_35 = 10f;
+    private int CombineDamage_35 = 10;
     //45-10
     private float CombineBtw_45 = 10f;
     private float CombineSpeed_45 = 1f;
     private float CombineDuration_45 = 10f;
-    private float CombineDamage_45 = 5f;
+    private int CombineDamage_45 = 5;
+
+    //Camera zoom;
+    public GameObject CameraObj;
+    private bool zoomOn;
+    private float preZoom;
+    private int zoomSpeed = 5;
 
     // Use this for initialization
     void Start () {
+        CameraObj = GameObject.Find("Main Camera");
+        preZoom = CameraObj.GetComponent<Camera>().fieldOfView;
 
         player = gameObject.GetComponent<Player>();
         movement = gameObject.GetComponent<Movement>();
@@ -143,7 +168,7 @@ public class Shoot : MonoBehaviour {
                 {
                     combineAngle = true;
                 }
-                else if (Mathf.Abs(Vector3.Distance(ptz, pz)) > 1.2f)
+                else if (Mathf.Abs(Vector3.Distance(ptz, pz)) > 2.1f)
                 {
                     combineAngle = false;
                     CombinedTime = 0;
@@ -197,6 +222,7 @@ public class Shoot : MonoBehaviour {
                     IsLeftShooting = true;
                     IsRightShooting = true;
                     IsCombineShooting = false;
+                    zoomOn = false;
                     useSkill();
                 }
             }
@@ -206,6 +232,7 @@ public class Shoot : MonoBehaviour {
             CombinedTime = 0;
             CombineWaitedime = 0f;
             IsCombineShooting = false;
+            zoomOn = false;
             if (player.Power < 100 && SkillReady)
             {
                 SkillReady = false;
@@ -271,6 +298,21 @@ public class Shoot : MonoBehaviour {
                 CanCombineShoot = true;
                 CombineWaitedime = 0f;
             }
+        }
+
+        //Camera Zoom
+        CameraZoom();
+    }
+
+    private void CameraZoom()
+    {
+        if (zoomOn)
+        {
+            CameraObj.GetComponent<Camera>().fieldOfView += zoomSpeed * Time.deltaTime;
+        }
+        else if (CameraObj.GetComponent<Camera>().fieldOfView > preZoom)
+        {
+            CameraObj.GetComponent<Camera>().fieldOfView -= zoomSpeed * Time.deltaTime;
         }
     }
 
@@ -445,15 +487,19 @@ public class Shoot : MonoBehaviour {
                     break;
                 case 13:
                     CombineShoot_13();
+                    CombineBtw = CombineBtw_13;
                     break;
                 case 14:
                     CombineShoot_14();
+                    CombineBtw = CombineBtw_14;
                     break;
                 case 15:
                     CombineShoot_15();
+                    CombineBtw = CombineBtw_14;
                     break;
                 case 23:
                     CombineShoot_23();
+                    CombineBtw = CombineBtw_23;
                     break;
                 case 24:
                     CombineShoot_24();
@@ -469,6 +515,7 @@ public class Shoot : MonoBehaviour {
                     break;
                 case 35:
                     CombineShoot_35();
+                    CombineBtw = CombineBtw_35;
                     break;
                 case 45:
                     CombineShoot_45();
@@ -489,6 +536,7 @@ public class Shoot : MonoBehaviour {
         Proj.IsReady = true;
         Proj.Speed = CombineSpeed_12;
         Proj.Duration = CombineDuration_12;
+        Proj.Damage = CombineDamage_12;
 
         GameObject NewProj02 = Instantiate(gameManager.CombineProjectile[1]);
         NewProj02.transform.position = Center.position;
@@ -498,22 +546,75 @@ public class Shoot : MonoBehaviour {
         Proj02.IsReady = true;
         Proj02.Speed = CombineSpeed_12;
         Proj02.Duration = CombineDuration_12;
+        Proj02.Damage = CombineDamage_12;
     }
     private void CombineShoot_13()
     {
-
+        zoomOn = true;
+        GameObject NewProj = Instantiate(gameManager.CombineProjectile[2]);
+        NewProj.transform.position = Center.position;
+        NewProj.transform.rotation = Right.rotation;
+        //Change state according to the weapon
+        Projectile Proj = NewProj.GetComponent<Projectile>();
+        Proj.IsReady = true;
+        Proj.Speed = CombineSpeed_13;
+        Proj.Duration = CombineDuration_13;
+        Proj.Damage = CombineDamage_13;
     }
     private void CombineShoot_14()
     {
+        GameObject NewProj = Instantiate(gameManager.CombineProjectile[3]);
+        NewProj.transform.position = Center.position;
+        NewProj.transform.rotation = Right.rotation;
+        //Change state according to the weapon
+        Projectile Proj = NewProj.GetComponent<Projectile>();
+        Proj.IsReady = true;
+        Proj.Speed = CombineSpeed_14;
+        Proj.Duration = CombineDuration_14;
+        Proj.Damage = CombineDamage_14;
+        Proj.SlowDown = 10;
 
+        GameObject NewProj02 = Instantiate(gameManager.CombineProjectile[3]);
+        NewProj02.transform.position = Center.position;
+        NewProj02.transform.rotation = Left.rotation;
+        //Change state according to the weapon
+        Projectile Proj02 = NewProj02.GetComponent<Projectile>();
+        Proj02.IsReady = true;
+        Proj02.Speed = CombineSpeed_14;
+        Proj02.Duration = CombineDuration_14;
+        Proj02.Damage = CombineDamage_14;
+        Proj02.SlowDown = 5;
     }
     private void CombineShoot_15()
     {
+        GameObject NewProj = Instantiate(gameManager.CombineProjectile[4]);
+        NewProj.transform.position = Center.position;
+        NewProj.transform.rotation = Right.rotation;
+        //Change state according to the weapon
+        Projectile Proj = NewProj.GetComponent<Projectile>();
+        Proj.IsReady = true;
+        Proj.Speed = CombineSpeed_15;
+        Proj.Duration = CombineDuration_15;
+        Proj.Damage = CombineDamage_15;
 
+        GameObject NewProj02 = Instantiate(gameManager.CombineProjectile[4]);
+        NewProj02.transform.position = Center.position;
+        NewProj02.transform.rotation = Left.rotation;
+        //Change state according to the weapon
+        Projectile Proj02 = NewProj02.GetComponent<Projectile>();
+        Proj02.IsReady = true;
+        Proj02.Speed = CombineSpeed_15;
+        Proj02.Duration = CombineDuration_15;
+        Proj02.Damage = CombineDamage_15;
+        movement.Recoil = - (Right.transform.right);
     }
     private void CombineShoot_23()
     {
-
+        if (movement.Recoil == Vector3.zero)
+        {
+            sheildUp();
+        }
+        movement.Recoil = Left.transform.right * 3;
     }
     private void CombineShoot_24()
     {
@@ -525,6 +626,7 @@ public class Shoot : MonoBehaviour {
         Proj.IsReady = true;
         Proj.Speed = CombineSpeed_24;
         Proj.Duration = CombineDuration_24;
+        Proj.Damage = CombineDamage_24;
         movement.Recoil = - Right.transform.right;
     }
     private void CombineShoot_25()
@@ -537,6 +639,7 @@ public class Shoot : MonoBehaviour {
         Proj.IsReady = true;
         Proj.Speed = CombineSpeed_25;
         Proj.Duration = CombineDuration_25;
+        Proj.Damage = CombineDamage_25;
     }
     private void CombineShoot_34()
     {
@@ -548,6 +651,7 @@ public class Shoot : MonoBehaviour {
         Proj.IsReady = true;
         Proj.Speed = CombineSpeed_34;
         Proj.Duration = CombineDuration_34;
+        Proj.Damage = CombineDamage_34;
         Proj.Scale = true;
     }
     private void CombineShoot_35()
@@ -560,6 +664,7 @@ public class Shoot : MonoBehaviour {
         Proj.IsReady = true;
         Proj.Speed = CombineSpeed_35;
         Proj.Duration = CombineDuration_35;
+        Proj.Damage = CombineDamage_35;
         Proj.Sheild = true;
         Proj.Scale = true;
     }
@@ -573,6 +678,20 @@ public class Shoot : MonoBehaviour {
         Proj.IsReady = true;
         Proj.Speed = CombineSpeed_45;
         Proj.Duration = CombineDuration_45;
+        Proj.Damage = CombineDamage_45;
+        Proj.Sheild = true;
+    }
+    private void sheildUp()
+    {
+        GameObject NewProj = Instantiate(gameManager.CombineProjectile[0], transform);
+        NewProj.transform.position = Center.position;
+        NewProj.transform.rotation = Right.rotation;
+        //Change state according to the weapon
+        Projectile Proj = NewProj.GetComponent<Projectile>();
+        Proj.IsReady = true;
+        Proj.Speed = 0;
+        Proj.Duration = 5f;
+        Proj.Damage = 1000;
         Proj.Sheild = true;
     }
 

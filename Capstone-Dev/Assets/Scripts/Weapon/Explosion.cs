@@ -5,7 +5,7 @@ using UnityEngine;
 public class Explosion : MonoBehaviour {
 
     public int Damage = 1;
-    private float speed = 0.1f;
+    public float speed = 0.1f;
     private float lifetime = 0f;
 
 	// Use this for initialization
@@ -25,7 +25,7 @@ public class Explosion : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Monster")
+        if (other.gameObject.tag == "Minion")
         {
             if (other.gameObject.GetComponent<EnemyFollow>())
             {

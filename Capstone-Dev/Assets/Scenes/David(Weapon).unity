@@ -1304,6 +1304,7 @@ MonoBehaviour:
   CombineTag: 1
   SkillReady: 0
   GoldenFinger: 0
+  CameraObj: {fileID: 0}
 --- !u!1 &1604131029
 GameObject:
   m_ObjectHideFlags: 0
@@ -1652,6 +1653,35 @@ Prefab:
       propertyPath: CombineProjectile.Array.data[9]
       value: 
       objectReference: {fileID: 1471961655910682, guid: c70b2144956daf440a25cde7f712e39a,
+        type: 2}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: CombineProjectile.Array.data[0]
+      value: 
+      objectReference: {fileID: 1400804421902210, guid: 687347364fd274a46af20839d40d75f0,
+        type: 2}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: CombineProjectile.Array.data[3]
+      value: 
+      objectReference: {fileID: 1718711784783534, guid: 90f7d46ec778fdf44a1d0d269f4130a8,
+        type: 2}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: CombineProjectile.Array.data[2]
+      value: 
+      objectReference: {fileID: 1052645419911094, guid: dcb05ffbeede6a541beae74126120013,
+        type: 2}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: CombineProjectile.Array.data[5]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: CombineProjectile.Array.data[4]
+      value: 
+      objectReference: {fileID: 1777722769396900, guid: 3a80a728bf6f1e941bca2deb84eff8ea,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7430308c60b9dc74396db2694886222b, type: 2}
