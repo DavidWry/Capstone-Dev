@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4904405264167372}
   - component: {fileID: 212071493708617784}
   - component: {fileID: 65671958463184302}
+  - component: {fileID: 65834573036283532}
   m_Layer: 0
   m_Name: Tile_1
   m_TagString: Obstacle
@@ -35,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1006907208825578}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.701, y: 8.181, z: 0}
+  m_LocalPosition: {x: -0.69, y: 13.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -53,6 +54,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.13780999, y: 0.5996976, z: 1}
   m_Center: {x: 0.012317061, y: -0.2001512, z: 0}
+--- !u!65 &65834573036283532
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1006907208825578}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.41789818, y: 0.118245125, z: 0.2}
+  m_Center: {x: 0.2910509, y: 0.062024593, z: 0}
 --- !u!212 &212071493708617784
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -85,8 +98,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2140784465
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 58d44031ac6e8374dad832efd6db704d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

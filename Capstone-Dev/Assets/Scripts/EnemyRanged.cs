@@ -18,7 +18,7 @@ public class EnemyRanged : MonoBehaviour
 
     void Start ()
     {
-        health = 100;
+        health = 20;
         speed = 3;
         rangeForAttack = 6;
         chaseRange = 10;
@@ -31,29 +31,35 @@ public class EnemyRanged : MonoBehaviour
 	void Update ()
     {
         //Attack if under the range
-        if (Vector2.Distance(transform.position, player.position) <= rangeForAttack)
+        if (player != null)
         {
-            if (timeBetweenShots <= 0)
+            if (Vector2.Distance(transform.position, player.position) <= rangeForAttack)
             {
-                Instantiate(projectile, transform.position, Quaternion.identity);
-                timeBetweenShots = startTimeBetweenShots;
+                if (timeBetweenShots <= 0)
+                {
+                    Instantiate(projectile, transform.position, Quaternion.identity);
+                    timeBetweenShots = startTimeBetweenShots;
+                }
+                else
+                {
+                    timeBetweenShots -= Time.deltaTime;
+                }
             }
-            else
+            if (Vector2.Distance(transform.position, player.position) <= chaseRange && Vector2.Distance(transform.position, player.position) > rangeForAttack)
             {
-                timeBetweenShots -= Time.deltaTime;
+                transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
             }
-        }
 
-        
+            if (health <= 0)
+            {
+                Destroy(gameObject);
+            }
 
-        if (Vector2.Distance(transform.position, player.position) <= chaseRange && Vector2.Distance(transform.position, player.position) > rangeForAttack)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
-        }
-   
-	}
+        }  
 
-    private void OnTriggerEnter(Collider other)
+    }
+
+    /*private void OnTriggerEnter(Collider other)
     {
         // if hit then move to the opposite direction to show a PUSHBACK effect
         if (other.CompareTag("Projectile"))
@@ -62,7 +68,7 @@ public class EnemyRanged : MonoBehaviour
             gameObject.GetComponent<Rigidbody>().velocity = Vector2.ClampMagnitude(gameObject.GetComponent<Rigidbody>().velocity, 1);
             Debug.Log("000");
         }
-    }
+    }*/
 
     public void TakeDamage(int damage)
     {

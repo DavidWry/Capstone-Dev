@@ -24,9 +24,9 @@ GameObject:
   - component: {fileID: 65750166466947190}
   - component: {fileID: 114136424787076262}
   - component: {fileID: 114596808289364668}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Minion_Type_3
-  m_TagString: Monster
+  m_TagString: Minion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,8 +38,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1100377277429338}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 208.14, y: 16.24, z: 0}
-  m_LocalScale: {x: 0.15146667, y: 0.14912, z: 0}
+  m_LocalPosition: {x: 26.97, y: -2.86, z: 0}
+  m_LocalScale: {x: 0.15146667, y: 0.14912, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0

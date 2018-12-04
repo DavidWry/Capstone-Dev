@@ -40,14 +40,23 @@ public class SpearProjectile : MonoBehaviour
     //Handle Collision
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.tag == "Obstacle")
         {
+            DestroyProjectile();
+            
+        } 
+
+        if (other.gameObject.tag =="Player")
+        {
+            Debug.Log("dsdajsio");
             DestroyProjectile();
 
             //Call TakeDamage function from the player's script
             other.gameObject.GetComponent<Player>().TakeDamage(damage);
 
         }
+
+        
  
     }
 
