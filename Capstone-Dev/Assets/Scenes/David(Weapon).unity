@@ -392,6 +392,23 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbc2bf4c2e0be184686f6b93fee608e3, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &372587456 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1842210533161968, guid: a4f9603215259a847b374acc74b1e4fc,
+    type: 2}
+  m_PrefabInternal: {fileID: 1551951411}
+--- !u!114 &372587460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 372587456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67389ab260e7e8a4d8edcb3373e42535, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerObj: {fileID: 0}
 --- !u!114 &639973067 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114383740085930552, guid: a4f9603215259a847b374acc74b1e4fc,
@@ -1128,6 +1145,11 @@ Prefab:
     - target: {fileID: 1322993930039550, guid: a4f9603215259a847b374acc74b1e4fc, type: 2}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 114709815969048902, guid: a4f9603215259a847b374acc74b1e4fc,
+        type: 2}
+      propertyPath: m_FillAmount
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4f9603215259a847b374acc74b1e4fc, type: 2}
