@@ -358,7 +358,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4905523969802840, guid: 398e8268db1e5dc469de90d4c99c84ac, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 398e8268db1e5dc469de90d4c99c84ac, type: 2}
@@ -405,7 +405,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4051192015309756, guid: 7bee7bc086dd45445a73be91a1ea8485, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bee7bc086dd45445a73be91a1ea8485, type: 2}
@@ -597,296 +597,40 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4111891256167624, guid: 04662781dc4f4744bb9b75ce7d02e25c, type: 2}
+    - target: {fileID: 4713910373371116, guid: ba37630b184c677489594c83e7da834c, type: 2}
       propertyPath: m_LocalPosition.x
       value: 132.05174
       objectReference: {fileID: 0}
-    - target: {fileID: 4111891256167624, guid: 04662781dc4f4744bb9b75ce7d02e25c, type: 2}
+    - target: {fileID: 4713910373371116, guid: ba37630b184c677489594c83e7da834c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2.0349536
+      value: 0.29
       objectReference: {fileID: 0}
-    - target: {fileID: 4111891256167624, guid: 04662781dc4f4744bb9b75ce7d02e25c, type: 2}
+    - target: {fileID: 4713910373371116, guid: ba37630b184c677489594c83e7da834c, type: 2}
       propertyPath: m_LocalPosition.z
       value: -63.2524
       objectReference: {fileID: 0}
-    - target: {fileID: 4111891256167624, guid: 04662781dc4f4744bb9b75ce7d02e25c, type: 2}
+    - target: {fileID: 4713910373371116, guid: ba37630b184c677489594c83e7da834c, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4111891256167624, guid: 04662781dc4f4744bb9b75ce7d02e25c, type: 2}
+    - target: {fileID: 4713910373371116, guid: ba37630b184c677489594c83e7da834c, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4111891256167624, guid: 04662781dc4f4744bb9b75ce7d02e25c, type: 2}
+    - target: {fileID: 4713910373371116, guid: ba37630b184c677489594c83e7da834c, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4111891256167624, guid: 04662781dc4f4744bb9b75ce7d02e25c, type: 2}
+    - target: {fileID: 4713910373371116, guid: ba37630b184c677489594c83e7da834c, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4111891256167624, guid: 04662781dc4f4744bb9b75ce7d02e25c, type: 2}
+    - target: {fileID: 4713910373371116, guid: ba37630b184c677489594c83e7da834c, type: 2}
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 212627275908898606, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: aa39b036491b65a4789e01d9924f818b,
-        type: 3}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[2].Name
-      value: Ak47
-      objectReference: {fileID: 0}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[2].ItemName
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[2].ItemIcon
-      value: 
-      objectReference: {fileID: 21300012, guid: 379676913003f4b4fb67ca9e26fbeb97,
-        type: 3}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[2].GiveWeapon
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[2].Usable
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[2].DamageType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[2].AmmoType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[2].WeaponName
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[2].itemObj
-      value: 
-      objectReference: {fileID: 1876295848165562, guid: af0360be5601ac94f84067ffa511fc7d,
-        type: 2}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[2].Probability
-      value: 10000
-      objectReference: {fileID: 0}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[3].Name
-      value: Sword
-      objectReference: {fileID: 0}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[3].ItemName
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[3].ItemIcon
-      value: 
-      objectReference: {fileID: 21300000, guid: 1ded39d8126baa1459a4f1657e83b630,
-        type: 3}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[3].GiveWeapon
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[3].Usable
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[3].DamageType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[3].AmmoType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[3].WeaponName
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[3].itemObj
-      value: 
-      objectReference: {fileID: 1119368855546066, guid: 5a166331dfd6c1740b4fc7f55c7e5870,
-        type: 2}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[3].Probability
-      value: 10000
-      objectReference: {fileID: 0}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[4].Name
-      value: Shotgun
-      objectReference: {fileID: 0}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[4].ItemName
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[4].ItemIcon
-      value: 
-      objectReference: {fileID: 21300014, guid: 379676913003f4b4fb67ca9e26fbeb97,
-        type: 3}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[4].GiveWeapon
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[4].Usable
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[4].DamageType
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[4].AmmoType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[4].WeaponName
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[4].itemObj
-      value: 
-      objectReference: {fileID: 1095468374369076, guid: 80deb0b7296f24c41b68055399e8982a,
-        type: 2}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[4].Probability
-      value: 10000
-      objectReference: {fileID: 0}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[0].ItemName
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[0].Name
-      value: PurpleCrystal
-      objectReference: {fileID: 0}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[0].ItemIcon
-      value: 
-      objectReference: {fileID: 21300000, guid: 46745a3a2cbf5804a9deaa241dc0a496,
-        type: 3}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[0].GiveWeapon
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[0].Usable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[0].AmmoType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[0].itemObj
-      value: 
-      objectReference: {fileID: 1141863764639654, guid: e71aca9953d2e5d4380aedac964a59d5,
-        type: 2}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[0].Probability
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[1].ItemName
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[1].Name
-      value: RedCrystal
-      objectReference: {fileID: 0}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[1].ItemIcon
-      value: 
-      objectReference: {fileID: 21300000, guid: 5e8763ac03d7f674abfaeb63a3d8fa0a,
-        type: 3}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[1].GiveWeapon
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[1].Usable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[1].AmmoType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[1].WeaponName
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[1].itemObj
-      value: 
-      objectReference: {fileID: 1723111770143308, guid: 87d9caedefed26f4fb4294bec5cd39ad,
-        type: 2}
-    - target: {fileID: 114763059951849758, guid: 04662781dc4f4744bb9b75ce7d02e25c,
-        type: 2}
-      propertyPath: ItemList.Array.data[1].Probability
-      value: 100
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 04662781dc4f4744bb9b75ce7d02e25c, type: 2}
+  m_SourcePrefab: {fileID: 100100000, guid: ba37630b184c677489594c83e7da834c, type: 2}
   m_IsPrefabAsset: 0
 --- !u!114 &1801506931 stripped
 MonoBehaviour:
@@ -14523,7 +14267,7 @@ RectTransform:
   - {fileID: 635001809}
   - {fileID: 747487803}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -14594,5 +14338,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}

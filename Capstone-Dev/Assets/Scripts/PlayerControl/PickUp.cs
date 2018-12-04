@@ -117,15 +117,13 @@ public class PickUp : MonoBehaviour {
                 {
                     player.Power += 10;
                 }
-                
+                //destroy loot
+                GameObject.Destroy(currentLoot.gameObject);
+                //clear loot
+                currentLoot = null;
             }
-
-            //destroy loot
-            GameObject.Destroy(currentLoot.gameObject);
-            //clear loot
-            currentLoot = null;
+            
         }
-        
 
     }
 
