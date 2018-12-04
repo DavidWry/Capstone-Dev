@@ -23,6 +23,7 @@ public class CellularAutomata : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        NextScene.nowName = "2_1";
         cameraControl = GameObject.Find("CameraFollowing").GetComponent<CameraControl>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         
