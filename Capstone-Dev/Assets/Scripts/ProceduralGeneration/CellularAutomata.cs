@@ -1038,7 +1038,7 @@ public class CellularAutomata : MonoBehaviour {
             {
                 if (cellState[i, j] == 5)
                 {
-                    if (Random.Range(1, 1000) < 10) {
+                    if (Random.Range(1, 1000) < 5) {
                         if (!isCreated) {
                             Instantiate(portal1, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, 0), transform.rotation);
                             isCreated = true;
@@ -1063,7 +1063,7 @@ public class CellularAutomata : MonoBehaviour {
             {
                 if (cellState[i, j] == 5)
                 {
-                    if (Random.Range(1, 1000) < 10)
+                    if (Random.Range(1, 1000) < 5)
                     {
                         if (!isCreated)
                         {

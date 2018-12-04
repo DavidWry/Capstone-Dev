@@ -18,7 +18,10 @@ public class UITemp : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        AP = PlayerObj.GetComponent<Player>().Power;
+        if(!PlayerObj)
+            PlayerObj = GameObject.FindGameObjectWithTag("Player");
+        else
+            AP = PlayerObj.GetComponent<Player>().Power;
         percentage = AP / 100f;
         PowerBar.value = percentage;
 	}

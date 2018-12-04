@@ -21,8 +21,10 @@ public class Chest : MonoBehaviour {
             string tempName = probability.DetermineDrop();
             GameObject itemObj = gameManager.GetItemObj(tempName);
             itemObj = Instantiate(gameManager.GetItemObj(tempName), transform.position, Quaternion.Euler(0, 0, 0));
+            itemObj.transform.localScale = new Vector3(4, 4, 4);
             var worldCanvas = GameObject.Find("worldCanvas").transform;
             itemObj.transform.parent = worldCanvas;
+            itemObj.transform.position = transform.position;
             Destroy(gameObject);
         }
 	}
