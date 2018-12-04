@@ -75,7 +75,7 @@ MonoBehaviour:
     AmmoType: 1
     WeaponName: 0
     itemObj: {fileID: 1652595029889896, guid: b8560118709f20d47a3cf1bc5356d6b3, type: 2}
-    Probability: 10000
+    Probability: 100
   - Name: Lazer
     ItemName: 2
     ItemIcon: {fileID: 21300010, guid: 379676913003f4b4fb67ca9e26fbeb97, type: 3}
@@ -85,7 +85,7 @@ MonoBehaviour:
     AmmoType: 2
     WeaponName: 6
     itemObj: {fileID: 1876295848165562, guid: dbbd9055a5163f84ab3ff204a6c82c2f, type: 2}
-    Probability: 10000
+    Probability: 100
   - Name: Ak47
     ItemName: 3
     ItemIcon: {fileID: 21300012, guid: 379676913003f4b4fb67ca9e26fbeb97, type: 3}
@@ -105,7 +105,7 @@ MonoBehaviour:
     AmmoType: 1
     WeaponName: 7
     itemObj: {fileID: 1119368855546066, guid: 5a166331dfd6c1740b4fc7f55c7e5870, type: 2}
-    Probability: 10000
+    Probability: 100
   - Name: PurpleCrystal
     ItemName: 7
     ItemIcon: {fileID: 21300000, guid: 46745a3a2cbf5804a9deaa241dc0a496, type: 3}
@@ -115,7 +115,7 @@ MonoBehaviour:
     AmmoType: 0
     WeaponName: 0
     itemObj: {fileID: 1876295848165562, guid: fa456d51518b62b45aa38fb26fe23ad2, type: 2}
-    Probability: 10000
+    Probability: 100
   - Name: RedCrystal
     ItemName: 8
     ItemIcon: {fileID: 21300000, guid: 5e8763ac03d7f674abfaeb63a3d8fa0a, type: 3}
@@ -125,7 +125,7 @@ MonoBehaviour:
     AmmoType: 0
     WeaponName: 0
     itemObj: {fileID: 1876295848165562, guid: 4cb0c877680f8dc429745e95ede68fb5, type: 2}
-    Probability: 10000
+    Probability: 100
   - Name: Shotgun
     ItemName: 4
     ItemIcon: {fileID: 21300014, guid: 379676913003f4b4fb67ca9e26fbeb97, type: 3}
@@ -135,7 +135,7 @@ MonoBehaviour:
     AmmoType: 1
     WeaponName: 4
     itemObj: {fileID: 1095468374369076, guid: 80deb0b7296f24c41b68055399e8982a, type: 2}
-    Probability: 10000
+    Probability: 100
 --- !u!136 &136909889685876818
 CapsuleCollider:
   m_ObjectHideFlags: 1
