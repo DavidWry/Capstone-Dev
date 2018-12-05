@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class particlecent : MonoBehaviour {
+public class Particlecent : MonoBehaviour {
 
 
     public ParticleSystem ParticleCent;

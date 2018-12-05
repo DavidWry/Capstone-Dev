@@ -1,17 +1,15 @@
 fileFormatVersion: 2
-guid: f021c283154baff45865165e3301d986
+guid: 9df2b43e247f73f419cecccc37187a7b
 TextureImporter:
   fileIDToRecycleName:
-    21300000: bodyonly_0
-    21300002: bodyonly_1
-    21300004: bodyonly_2
-    21300006: bodyonly_3
-    21300008: bodyonly_4
-    21300010: bodyonly_5
-    21300012: bodyonly_6
-    21300014: bodyonly_7
+    21300000: ultimate_beam_fx_3_by_xypter_0
+    21300002: ultimate_beam_fx_3_by_xypter_1
+    21300004: ultimate_beam_fx_3_by_xypter_2
+    21300006: ultimate_beam_fx_3_by_xypter_3
+    21300008: ultimate_beam_fx_3_by_xypter_4
+    21300010: ultimate_beam_fx_3_by_xypter_5
   externalObjects: {}
-  serializedVersion: 5
+  serializedVersion: 4
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -39,7 +37,7 @@ TextureImporter:
     serializedVersion: 2
     filterMode: -1
     aniso: -1
-    mipBias: -100
+    mipBias: -1
     wrapU: 1
     wrapV: 1
     wrapW: -1
@@ -51,21 +49,19 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 27.8
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
-  alphaUsage: 1
+  alphaUsage: 2
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
-  singleChannelComponent: 0
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
   platformSettings:
-  - serializedVersion: 2
-    buildTarget: DefaultTexturePlatform
+  - buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -75,8 +71,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: Standalone
+  - buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -90,173 +85,91 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bodyonly_0
+      name: ultimate_beam_fx_3_by_xypter_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1
-        height: 10947
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 957e32b1eaaa7be4d9d7a2f52871d435
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bodyonly_1
-      rect:
-        serializedVersion: 2
-        x: 1320
-        y: 8539
-        width: 1312
-        height: 1179
+        x: 13
+        y: 1671
+        width: 60
+        height: 152
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
-      bones: []
-      spriteID: 415d7a8a48817fd48a3a6de53043e5b7
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     - serializedVersion: 2
-      name: bodyonly_2
+      name: ultimate_beam_fx_3_by_xypter_1
       rect:
         serializedVersion: 2
-        x: 2644
-        y: 953
-        width: 1326
-        height: 1211
+        x: 13
+        y: 1511
+        width: 60
+        height: 152
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
-      bones: []
-      spriteID: b5cd4bf3162907e45b60680f1167d90f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     - serializedVersion: 2
-      name: bodyonly_3
+      name: ultimate_beam_fx_3_by_xypter_2
       rect:
         serializedVersion: 2
-        x: 1316
-        y: 952
-        width: 1328
-        height: 1211
+        x: 13
+        y: 1353
+        width: 60
+        height: 152
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
-      bones: []
-      spriteID: 1bc8b106528e6a645bc0c2b985c191a0
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     - serializedVersion: 2
-      name: bodyonly_4
+      name: ultimate_beam_fx_3_by_xypter_3
       rect:
         serializedVersion: 2
-        x: 9
-        y: 952
-        width: 1308
-        height: 1211
+        x: 98
+        y: 1671
+        width: 648
+        height: 152
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
-      bones: []
-      spriteID: de3bd6cd6c27e8748b550405f2a1205c
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     - serializedVersion: 2
-      name: bodyonly_5
+      name: ultimate_beam_fx_3_by_xypter_4
       rect:
         serializedVersion: 2
-        x: 2643
-        y: 2174
-        width: 1326
-        height: 1211
+        x: 98
+        y: 1512
+        width: 648
+        height: 152
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
-      bones: []
-      spriteID: 56b3536496e8d914192508ea42feda63
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     - serializedVersion: 2
-      name: bodyonly_6
+      name: ultimate_beam_fx_3_by_xypter_5
       rect:
         serializedVersion: 2
-        x: 1313
-        y: 2174
-        width: 1326
-        height: 1211
+        x: 97
+        y: 1352
+        width: 648
+        height: 151
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
-      bones: []
-      spriteID: 4e1122ebd84f48a46bc3f41044cd996f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bodyonly_7
-      rect:
-        serializedVersion: 2
-        x: 1321
-        y: 5896
-        width: 1327
-        height: 1263
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fb9a4de49771c874f85627f1370897d4
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     physicsShape: []
-    bones: []
-    spriteID: 4a7bb8a6ae331974d94a04cefe5af271
-    vertices: []
-    indices: 
-    edges: []
-    weights: []
   spritePackingTag: 
   userData: 
   assetBundleName: 

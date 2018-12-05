@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class particlebg : MonoBehaviour {
+public class Particlebg : MonoBehaviour {
 
     public ParticleSystem ParticleCons;
     public ParticleSystem ParticleDes;
