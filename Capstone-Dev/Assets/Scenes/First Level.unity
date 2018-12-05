@@ -58317,7 +58317,8 @@ Prefab:
       propertyPath: rightWeaponMenu.ReloadImg
       value: 
       objectReference: {fileID: 1360718255}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114744981980483458, guid: 7430308c60b9dc74396db2694886222b, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 7430308c60b9dc74396db2694886222b, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &676568303

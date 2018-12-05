@@ -67,14 +67,17 @@ public class EnemyRanged : MonoBehaviour
 
             if (health <= 0)
             {
-                //drop item
-                string tempName = probability.DetermineDrop();
-                GameObject itemObj = gameManager.GetItemObj(tempName);
-                itemObj = Instantiate(gameManager.GetItemObj(tempName), transform.position, Quaternion.Euler(0, 0, 0));
-                if (NextScene.nowName == "2_1")
-                    itemObj.transform.localScale = new Vector3(4, 4, 4);
-                var worldCanvas = GameObject.Find("worldCanvas").transform;
-                itemObj.transform.parent = worldCanvas;
+                if (probability)
+                {
+                    //drop item
+                    string tempName = probability.DetermineDrop();
+                    GameObject itemObj = gameManager.GetItemObj(tempName);
+                    itemObj = Instantiate(gameManager.GetItemObj(tempName), transform.position, Quaternion.Euler(0, 0, 0));
+                    if (NextScene.nowName == "2_1")
+                        itemObj.transform.localScale = new Vector3(4, 4, 4);
+                    var worldCanvas = GameObject.Find("worldCanvas").transform;
+                    itemObj.transform.parent = worldCanvas;
+                }
                 Destroy(gameObject);
                 //Instantiate(crystal, transform.position,Quaternion.identity);
             }
