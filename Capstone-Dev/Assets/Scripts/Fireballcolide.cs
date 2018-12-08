@@ -27,7 +27,7 @@ public class Fireballcolide : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
-            print(transform.parent.name);
+          
             Instantiate(explosion, other.transform.position, Quaternion.identity);
             Destroy(gameObject.transform.parent.gameObject);
           

@@ -12,16 +12,17 @@ public class Fsmandhp : MonoBehaviour {
     private float DistanceBP;
     private float DistanceBO;
     private GameObject player;
-    private float maxpos=100;
+    public float range=100;
     private Vector3 originalpos;
-    private bool supposetomove;
+    public bool supposetomove=false;
     private int yuancount=0;
    private Animator anim;
 	// Use this for initialization
 	void Start () {
+        player = GameObject.FindGameObjectWithTag("Player");
         a = gameObject;
         anim = a.GetComponent<Animator>();
-        originalpos = gameObject.transform.position;
+        originalpos = gameObject.transform.parent.transform.position;
 	}
 	
 	// Update is called once per frame
@@ -29,6 +30,7 @@ public class Fsmandhp : MonoBehaviour {
 
         if (hp <= 30 && yuancount == 1)
         {
+           
             yuancount++;
             supposetomove = true;
 
@@ -36,6 +38,7 @@ public class Fsmandhp : MonoBehaviour {
         }
        else if (hp <= 50 && yuancount == 0)
         {
+            
             yuancount++;
             supposetomove = true;
 
@@ -52,9 +55,11 @@ public class Fsmandhp : MonoBehaviour {
 
         if (!supposetomove)
         {
-            DistanceBP = Vector3.Distance(transform.position, player.transform.position);
-            DistanceBO = Vector3.Distance(transform.position, originalpos);
-            if (DistanceBP < maxpos && DistanceBO < maxpos)
+            DistanceBP = Vector3.Distance(gameObject.transform.parent.transform.position, player.transform.position);
+            DistanceBO = Vector3.Distance(gameObject.transform.parent.transform.position, originalpos);
+           
+            print(DistanceBP);
+            if (DistanceBP < range && DistanceBO < range)
             { 
                 if (hp < 50)
                 {
@@ -97,7 +102,7 @@ public class Fsmandhp : MonoBehaviour {
     {
         if (hp > 30) {
             int randoma = (int)Random.Range(0, 3);
-            print(randoma);
+           
             if (randoma == 0) {
                 toufazuo.SetActive(true);
                     

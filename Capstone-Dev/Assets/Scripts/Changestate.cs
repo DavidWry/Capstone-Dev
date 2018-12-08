@@ -14,7 +14,7 @@ public class Changestate : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        print(this.transform.eulerAngles);
+        
         if (rotateDir == 0)
         {
             transform.Rotate(Vector3.forward * Time.deltaTime * speed);
