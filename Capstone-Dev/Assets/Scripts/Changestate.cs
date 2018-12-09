@@ -14,6 +14,7 @@ public class Changestate : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
         
         if (rotateDir == 0)
         {

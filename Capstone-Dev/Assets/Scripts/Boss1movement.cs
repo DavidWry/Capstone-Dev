@@ -77,11 +77,15 @@ public class Boss1movement : MonoBehaviour {
         }
         else
         {
-
+            if (p > 0)
+            {
+                gameObject.GetComponent<Fsmandhp>().originalpos = gameObject.transform.parent.transform.position;
+            }
             valid = false;
             p = 0;
             gameObject.GetComponent<Fsmandhp>().supposetomove = false;
-            supposetomove1 = false;
+          
+            
         }
 
 
