@@ -18,7 +18,8 @@ public class Fsmandhp : MonoBehaviour {
     private int yuancount=0;
     private float remainingtime;
    private Animator anim;
-    private bool wander = false;
+    private bool walk = false;
+    private Vector3 nexspot;
 	// Use this for initialization
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -36,15 +37,16 @@ public class Fsmandhp : MonoBehaviour {
            
             yuancount++;
             supposetomove = true;
-
-
+            remainingtime = Random.Range(5, 10);
+            walk = false;
         }
        else if (hp <= 50 && yuancount == 0)
         {
             
             yuancount++;
             supposetomove = true;
-
+            remainingtime = Random.Range(5, 10);
+            walk = false;
 
 
         }
@@ -68,23 +70,36 @@ public class Fsmandhp : MonoBehaviour {
                     anim.SetInteger("stage", 0);
                 }
 
-                if (!wander)
+                if (!walk)
                 {
 
                     remainingtime -= Time.deltaTime;
+                   
 
                 }
                 else
-                {
-
-
+                { float distancebtemp = Vector3.Distance(gameObject.transform.parent.transform.position, nexspot);
+                    if (distancebtemp>2) {
+                        gameObject.transform.parent.GetComponent<Rigidbody>().MovePosition(gameObject.transform.parent.transform.position+(nexspot - gameObject.transform.parent.transform.position).normalized*Time.deltaTime*10);
+                   
+                    }
+                    else
+                    {
+                        walk = false;
+                    }
                 }
 
 
-                if (remainingtime < 0)
+                if (remainingtime <= 0)
                 {
                     remainingtime = Random.Range(5, 10);
-                    wander = true;
+
+                    walk = true;
+
+
+                    nexspot=new Vector3(player.transform.position.x+Random.Range(-10.0f, 10.0f), player.transform.position.y + Random.Range(-10.0f, 10.0f),0);
+
+
 
 
                 }
@@ -177,5 +192,8 @@ public class Fsmandhp : MonoBehaviour {
 
     }
     
-
+    public void takedamage(float a)
+    {
+        hp -= a;
+    }
 }

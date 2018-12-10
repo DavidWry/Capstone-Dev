@@ -196,6 +196,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 198634812665594198, guid: 88e9ed6318010b74c8737048f7deed4c,
+        type: 2}
+      propertyPath: moveWithTransform
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88e9ed6318010b74c8737048f7deed4c, type: 2}
   m_IsPrefabAsset: 0
