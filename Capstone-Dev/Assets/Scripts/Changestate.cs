@@ -28,7 +28,7 @@ public class Changestate : MonoBehaviour {
         {
             resetRot();
         }
-
+        
 
 
     }

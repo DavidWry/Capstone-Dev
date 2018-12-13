@@ -19,6 +19,7 @@ public class Fsmandhp : MonoBehaviour {
     private float remainingtime;
    private Animator anim;
     private bool walk = false;
+    bool notyet = false;
     private Vector3 nexspot;
 	// Use this for initialization
 	void Start () {
@@ -31,7 +32,7 @@ public class Fsmandhp : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        print(notyet);
         if (hp <= 30 && yuancount == 1)
         {
            
@@ -62,14 +63,14 @@ public class Fsmandhp : MonoBehaviour {
         {
             DistanceBP = Vector3.Distance(gameObject.transform.parent.transform.position, player.transform.position);
             DistanceBO = Vector3.Distance(gameObject.transform.parent.transform.position, originalpos);
-           
+            print(DistanceBO); 
          
-            if (DistanceBP < range && DistanceBO < range)
+            if (DistanceBP < range && DistanceBO < range&&!notyet)
             {
                 if (anim.GetInteger("stage")==-1) {
                     anim.SetInteger("stage", 0);
                 }
-
+                
                 if (!walk)
                 {
 
@@ -95,9 +96,11 @@ public class Fsmandhp : MonoBehaviour {
                     remainingtime = Random.Range(5, 10);
 
                     walk = true;
+                    while (Vector3.Distance(nexspot,originalpos)>range)
+                    {
+                        nexspot = new Vector3(player.transform.position.x + Random.Range(-100.0f, 100.0f), player.transform.position.y + Random.Range(-100.0f, 100.0f), 0);
+                    }
 
-
-                    nexspot=new Vector3(player.transform.position.x+Random.Range(-10.0f, 10.0f), player.transform.position.y + Random.Range(-10.0f, 10.0f),0);
 
 
 
@@ -129,8 +132,12 @@ public class Fsmandhp : MonoBehaviour {
             else
             {   
                 anim.SetInteger("stage", -1);
-              
-                if (DistanceBO > 2)
+                if (!notyet)
+                {
+                    notyet = true;
+
+                }
+                if (DistanceBO > 2&&notyet)
                 {
                     
                     Vector3 backvec=originalpos - this.transform.parent.transform.position;
@@ -138,6 +145,7 @@ public class Fsmandhp : MonoBehaviour {
                     gameObject.transform.parent.GetComponent<Rigidbody>().MovePosition(gameObject.transform.parent.transform.position+backvec);
 
                 }
+                else { notyet = false; }
 
             }
 

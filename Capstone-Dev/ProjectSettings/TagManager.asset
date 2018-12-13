@@ -11,6 +11,7 @@ TagManager:
   - Stompwave
   - Obstacle
   - Chest
+  - Playerparent
   layers:
   - Default
   - TransparentFX

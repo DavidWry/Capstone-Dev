@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using AssemblyCSharp;
 
-namespace AssemblyCSharp
-{
+ 
     public class Player : MonoBehaviour
     {
         public Weapon leftWeapon;
@@ -215,4 +214,4 @@ namespace AssemblyCSharp
             HitPoint -= Damage;
         }
     }
-}
+ 

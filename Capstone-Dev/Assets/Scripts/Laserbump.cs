@@ -45,4 +45,16 @@ public class Laserbump : MonoBehaviour {
 
 
 	}
+
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player") {
+            other.GetComponent<Player>().TakeDamage(20);//same
+                
+                }
+
+
+    }
 }

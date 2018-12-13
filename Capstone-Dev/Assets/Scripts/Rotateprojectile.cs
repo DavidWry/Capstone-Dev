@@ -12,9 +12,9 @@ public class Rotateprojectile : MonoBehaviour {
 	void Start () {
         rotateVector = new Vector3(Random.Range(-15, 15), Random.Range(-15, 15), Random.Range(-15, 15));
         rotateVector = rotateVector.normalized * rotateFreq;
-        this.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.forward * Random.Range(upMin*3, upMax*3));
-        this.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.down * Random.Range(upMin*40, upMax* 40));
-        this.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.left * Random.Range(-upMax*40, upMax*40 ));
+        this.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.forward * Random.Range(upMin, upMax));
+        this.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.down * Random.Range(upMin*30, upMax* 30));
+        this.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.left * Random.Range(-upMax*30, upMax*30 ));
     }
 	
 	// Update is called once per frame

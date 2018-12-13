@@ -5,8 +5,7 @@ using UnityEngine;
 public class Xiplayer : MonoBehaviour {
    public GameObject player1;
     Rigidbody playerbody;
-    int xiqisudu;
-    int xishu = -8000;
+    int xishu = -18000;
     bool zaixiqi = false;
     bool invin = false;
 	// Use this for initialization
@@ -26,7 +25,7 @@ public class Xiplayer : MonoBehaviour {
 
             newvec = newvec.normalized;
 
-            playerbody.AddForce(newvec * 1.5f * Mathf.Sqrt(2));
+            playerbody.AddForce(newvec * 5.5f * Mathf.Sqrt(2));
 
         }
 
@@ -34,7 +33,7 @@ public class Xiplayer : MonoBehaviour {
 
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
 
     
