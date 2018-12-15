@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+namespace AssemblyCSharp { 
 public class haircollision : MonoBehaviour {
     public GameObject player;
 	// Use this for initialization
@@ -28,5 +28,6 @@ public class haircollision : MonoBehaviour {
         }
 
 
+    }
     }
 }

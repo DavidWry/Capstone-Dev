@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using AssemblyCSharp;
 
- 
+ namespace AssemblyCSharp {
     public class Player : MonoBehaviour
     {
         public Weapon leftWeapon;
@@ -37,7 +37,7 @@ using AssemblyCSharp;
         // Update is called once per frame
         void Update()
         {
-            if(playerShoot.IsLeftShooting)
+            if (playerShoot.IsLeftShooting)
             {
                 isLeftInHand = true;
                 isRightInHand = false;
@@ -213,5 +213,6 @@ using AssemblyCSharp;
         {
             HitPoint -= Damage;
         }
+    }
     }
  
