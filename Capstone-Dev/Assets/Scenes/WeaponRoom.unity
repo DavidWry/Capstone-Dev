@@ -9605,52 +9605,6 @@ Prefab:
       propertyPath: rightWeaponMenu.ReloadImg
       value: 
       objectReference: {fileID: 1361833057}
-    - target: {fileID: 114744981980483458, guid: 7430308c60b9dc74396db2694886222b,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
-        type: 2}
-      propertyPath: WeaponList.Array.data[3].ShotFX
-      value: 
-      objectReference: {fileID: 1186793302542922, guid: 17fc967a340b0634abd7311dd8cc54b0,
-        type: 2}
-    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
-        type: 2}
-      propertyPath: WeaponList.Array.data[4].ShotFX
-      value: 
-      objectReference: {fileID: 1919837370558522, guid: f8c71a952a175b64c89240acf3fc8bbe,
-        type: 2}
-    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
-        type: 2}
-      propertyPath: WeaponList.Array.data[1].ShotFX
-      value: 
-      objectReference: {fileID: 1527268017831476, guid: 1b6caa07492f1ba4d81381fb780847eb,
-        type: 2}
-    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
-        type: 2}
-      propertyPath: WeaponList.Array.data[1].TimeBetweenShot
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
-        type: 2}
-      propertyPath: WeaponList.Array.data[0].Projectile
-      value: 
-      objectReference: {fileID: 1652324266871320, guid: fbacd4b65cb6ceb4eb2bef72254c9ec2,
-        type: 2}
-    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
-        type: 2}
-      propertyPath: WeaponList.Array.data[1].Projectile
-      value: 
-      objectReference: {fileID: 1654640730964290, guid: a8a68d77543a73a49a2e6c7e53db31f7,
-        type: 2}
-    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
-        type: 2}
-      propertyPath: WeaponList.Array.data[0].ImpactFX
-      value: 
-      objectReference: {fileID: 1501866481023270, guid: 658b9b1f4267b454c9c153d3961f4422,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7430308c60b9dc74396db2694886222b, type: 2}
   m_IsPrefabAsset: 0
