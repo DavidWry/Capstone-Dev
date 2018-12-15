@@ -74,7 +74,11 @@ MonoBehaviour:
   Rebounce: 0
   Speed: 1
   Thrust: 0
-  Impact: {fileID: 0}
+  SlowDown: 0
+  Pierce: 0
+  Sheild: 0
+  Scale: 0
+  Impact: {fileID: 1631767811152066, guid: c62edb0c85153b142b84c2ceb7c0d36d, type: 2}
   GameManage: {fileID: 0}
   Duration: 1
 --- !u!136 &136228104835954302

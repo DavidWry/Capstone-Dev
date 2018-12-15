@@ -324,7 +324,7 @@ public class Shoot : MonoBehaviour {
             {
                 //create as many shot with the specific angle
                 foreach (float Angle in player.leftWeapon.BulletAngleList)
-                {
+                {                    
                     //create the projectile
                     GameObject MultiNewProj = Instantiate(player.leftWeapon.Projectile);
                     MultiNewProj.transform.position = Left.position;
@@ -336,11 +336,13 @@ public class Shoot : MonoBehaviour {
                     //give state
                     Projectile Proj = MultiNewProj.GetComponent<Projectile>();
                     Proj.IsReady = true;
-                    Proj.Damage = player.rightWeapon.Damage;
+                    Proj.Damage = player.leftWeapon.Damage;
                     Proj.Speed = player.leftWeapon.ProjectileSpeed;
                     Proj.Duration = player.leftWeapon.Duration;
                     Proj.Thrust = player.leftWeapon.IsThrust;
                 }
+                GameObject Shot = Instantiate(player.leftWeapon.ShotFX, Left.GetChild(0).GetChild(0));
+                Shot.transform.position = Left.GetChild(0).GetChild(0).position;
                 //movement.Recoil = -Left.transform.right * 0.2f;
             }
             else if (player.leftWeapon.IsLazer)
@@ -359,6 +361,9 @@ public class Shoot : MonoBehaviour {
             }
             else
             {
+                //Creat Impact
+                GameObject Shot = Instantiate(player.leftWeapon.ShotFX, Left.GetChild(0).GetChild(0));
+                Shot.transform.position = Left.GetChild(0).GetChild(0).position;
                 //Creat projectile
                 GameObject NewProj = Instantiate(player.leftWeapon.Projectile);
                 NewProj.transform.position = Left.position;
@@ -366,10 +371,10 @@ public class Shoot : MonoBehaviour {
                 //Change state according to the weapon
                 Projectile Proj = NewProj.GetComponent<Projectile>();
                 Proj.IsReady = true;
-                Proj.Damage = player.rightWeapon.Damage;
+                Proj.Damage = player.leftWeapon.Damage;
                 Proj.Speed = player.leftWeapon.ProjectileSpeed;
                 Proj.Duration = player.leftWeapon.Duration;
-                Proj.Thrust = player.rightWeapon.IsThrust;
+                Proj.Thrust = player.leftWeapon.IsThrust;
             }
             //Deal with reload
             if (!player.leftWeapon.IsShortRange)
@@ -413,6 +418,8 @@ public class Shoot : MonoBehaviour {
                     Proj.Thrust = player.rightWeapon.IsThrust;                    
                 }
                 //movement.Recoil = - Right.transform.right * 0.2f;
+                GameObject Shot = Instantiate(player.rightWeapon.ShotFX, Right.GetChild(0).GetChild(0));
+                Shot.transform.position = Right.GetChild(0).GetChild(0).position;
             }
             else if (player.rightWeapon.IsLazer)
             {
@@ -444,6 +451,9 @@ public class Shoot : MonoBehaviour {
             }
             else
             {
+                //Creat impact
+                GameObject Shot = Instantiate(player.rightWeapon.ShotFX, Right.GetChild(0).GetChild(0));
+                Shot.transform.position = Right.GetChild(0).GetChild(0).position;
                 //Creat projectile
                 GameObject NewProj = Instantiate(player.rightWeapon.Projectile);
                 NewProj.transform.position = Right.position;

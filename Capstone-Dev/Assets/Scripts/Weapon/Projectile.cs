@@ -83,12 +83,17 @@ public class Projectile : MonoBehaviour {
         }
         else if (collision.gameObject.tag == "Chest")
         {
-            Dead();
             collision.GetComponent<Chest>().TakeDamage(Damage);
+            Dead();
         }
         else if (collision.gameObject.tag == "EnemyProjectile" && Sheild)
         {
             Destroy(collision.gameObject);
+        }
+        else if (collision.gameObject.tag == "Dummy")
+        {
+            collision.GetComponent<Dummy>().TakeDamage(Damage);
+            Dead();
         }
     }
 
