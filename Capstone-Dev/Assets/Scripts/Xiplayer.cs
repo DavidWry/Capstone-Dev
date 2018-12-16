@@ -8,6 +8,7 @@ public class Xiplayer : MonoBehaviour {
     int xishu = -18000;
     bool zaixiqi = false;
     bool invin = false;
+   public GameObject spark;
 	// Use this for initialization
 	void Start () {
         player1 = GameObject.FindGameObjectWithTag("Player");
@@ -32,17 +33,40 @@ public class Xiplayer : MonoBehaviour {
         
 
     }
+    void OnTriggerEnter(Collider other)
+    {
 
+        print("nsnmn");
+        Vector3 newvec = (this.transform.position - player1.transform.position);
+        newvec = newvec.normalized;
+        if (other.gameObject == player1)
+        {
+
+
+            playerbody.AddForce(newvec * xishu);
+            invin = true;
+        }
+
+        else if (other.gameObject.tag == "Projectile")
+        {
+
+            Instantiate(spark, other.gameObject.transform.position, Quaternion.identity);
+            Destroy(other.gameObject);
+
+
+        }
+
+    }
     void OnTriggerStay(Collider other)
     {
 
-    
+        print("nsnmn");
         Vector3 newvec = (this.transform.position - player1.transform.position);
         newvec = newvec.normalized;
         if (other.gameObject == player1)
         {
            
-            playerbody.velocity = Vector3.zero;
+            
             playerbody.AddForce(newvec * xishu);
             invin = true;
         }

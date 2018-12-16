@@ -63,7 +63,7 @@ public class Fsmandhp : MonoBehaviour {
         {
             DistanceBP = Vector3.Distance(gameObject.transform.parent.transform.position, player.transform.position);
             DistanceBO = Vector3.Distance(gameObject.transform.parent.transform.position, originalpos);
-            print(DistanceBO); 
+ 
          
             if (DistanceBP < range && DistanceBO < range&&!notyet)
             {

@@ -8,7 +8,7 @@ public class Shoot : MonoBehaviour {
     private Player player;
     private GameManager gameManager = null;
     private Movement movement;
-    private float BulletSizeUp = 1;
+    public float BulletSizeUp = 1;
 
     public Lazer LeftLazer;
     public Lazer RightLazer;
