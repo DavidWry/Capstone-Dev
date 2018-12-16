@@ -6,6 +6,7 @@ public class Explosion : MonoBehaviour {
 
     public int Damage = 1;
     public float speed = 0.1f;
+    public float Life = 0.5f;
     private float lifetime = 0f;
 
 	// Use this for initialization
@@ -17,7 +18,7 @@ public class Explosion : MonoBehaviour {
 	void Update () {
         transform.localScale += new Vector3(1f, 1f, 1f) * Time.deltaTime * speed;
         lifetime += Time.deltaTime;
-        if (lifetime > 0.5f)
+        if (lifetime > Life)
         {
             Destroy(gameObject);
         }

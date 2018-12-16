@@ -13,6 +13,7 @@ public class Projectile : MonoBehaviour {
     public bool Pierce = false;
     public bool Sheild = false;
     public bool Scale = false;
+    public bool OnTarget = false;
     public GameObject Impact;
     public GameManager GameManage;
     public float Duration = 1;
@@ -75,16 +76,16 @@ public class Projectile : MonoBehaviour {
             {
                 //collision.gameObject.GetComponent<Rigidbody>().velocity *= -1;
             }
-            Dead();
+            Dead(collision);
         }
         else if (collision.gameObject.tag == "Obstacle")
         {
-            Dead();
+            Dead(collision);
         }
         else if (collision.gameObject.tag == "Chest")
         {
             collision.GetComponent<Chest>().TakeDamage(Damage);
-            Dead();
+            Dead(collision);
         }
         else if (collision.gameObject.tag == "EnemyProjectile" && Sheild)
         {
@@ -93,15 +94,25 @@ public class Projectile : MonoBehaviour {
         else if (collision.gameObject.tag == "Dummy")
         {
             collision.GetComponent<Dummy>().TakeDamage(Damage);
-            Dead();
+            Dead(collision);
         }
     }
 
-    private void Dead()
+    private void Dead(Collider collision)
     {
         if (Impact != null)
         {
-            GameObject ImpactObject = Instantiate(Impact, transform.position, transform.rotation);
+            if (!OnTarget)
+            {
+                GameObject ImpactObject = Instantiate(Impact, transform.position, transform.rotation);
+            }
+            else
+            {
+                if (collision.tag == "Minion" || collision.tag == "Dummy")
+                {
+                    GameObject ImpactObject = Instantiate(Impact, collision.transform.position, collision.transform.rotation);
+                }
+            }
         }
         if (!Pierce)
         {
