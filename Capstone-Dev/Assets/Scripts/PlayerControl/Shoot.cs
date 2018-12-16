@@ -8,6 +8,7 @@ public class Shoot : MonoBehaviour {
     private Player player;
     private GameManager gameManager = null;
     private Movement movement;
+    private float BulletSizeUp = 1;
 
     public Lazer LeftLazer;
     public Lazer RightLazer;
@@ -328,6 +329,7 @@ public class Shoot : MonoBehaviour {
                     //create the projectile
                     GameObject MultiNewProj = Instantiate(player.leftWeapon.Projectile);
                     MultiNewProj.transform.position = Left.position;
+                    MultiNewProj.transform.localScale = BulletSizeUp * MultiNewProj.transform.localScale;
 
                     //calculate the new angle for every shot
                     Vector3 Temp = Left.eulerAngles;
@@ -368,6 +370,7 @@ public class Shoot : MonoBehaviour {
                 GameObject NewProj = Instantiate(player.leftWeapon.Projectile);
                 NewProj.transform.position = Left.position;
                 NewProj.transform.rotation = Left.rotation;
+                NewProj.transform.localScale = BulletSizeUp * NewProj.transform.localScale;
                 //Change state according to the weapon
                 Projectile Proj = NewProj.GetComponent<Projectile>();
                 Proj.IsReady = true;
@@ -404,6 +407,7 @@ public class Shoot : MonoBehaviour {
                     //create the projectile
                     GameObject MultiNewProj = Instantiate(player.rightWeapon.Projectile);
                     MultiNewProj.transform.position = Right.position;
+                    MultiNewProj.transform.localScale = BulletSizeUp * MultiNewProj.transform.localScale;
 
                     //calculate the new angle for every shot
                     Vector3 Temp = Right.eulerAngles;
@@ -441,6 +445,7 @@ public class Shoot : MonoBehaviour {
                 GameObject NewProj = Instantiate(player.rightWeapon.Projectile);
                 NewProj.transform.position = Right.position;
                 NewProj.transform.rotation = Right.rotation;
+                NewProj.transform.localScale = BulletSizeUp * NewProj.transform.localScale;
                 //Change state according to the weapon
                 Projectile Proj = NewProj.GetComponent<Projectile>();
                 Proj.IsReady = true;
@@ -458,6 +463,7 @@ public class Shoot : MonoBehaviour {
                 GameObject NewProj = Instantiate(player.rightWeapon.Projectile);
                 NewProj.transform.position = Right.position;
                 NewProj.transform.rotation = Right.rotation;
+                NewProj.transform.localScale = BulletSizeUp * NewProj.transform.localScale;
                 //Change state according to the weapon
                 Projectile Proj = NewProj.GetComponent<Projectile>();
                 Proj.IsReady = true;

@@ -8995,6 +8995,16 @@ Prefab:
       propertyPath: rightWeapon.ProjectileSpeed
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 114360617567929864, guid: 53c48bee7d55ecc48af61050d2c56229,
+        type: 2}
+      propertyPath: WeaponSizeUp
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114360617567929864, guid: 53c48bee7d55ecc48af61050d2c56229,
+        type: 2}
+      propertyPath: ItemSizeUp
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53c48bee7d55ecc48af61050d2c56229, type: 2}
   m_IsPrefabAsset: 0
