@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraControl : MonoBehaviour {
 
     public Transform PlayerPos;
+    private GameObject playerObject;
     private float speed;
     [SerializeField]
     public Vector2 border;    //left bottom
@@ -19,32 +20,37 @@ public class CameraControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(!PlayerPos)
-            PlayerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        if (!playerObject)
+            playerObject = GameObject.FindGameObjectWithTag("Player");
+        if (!PlayerPos && playerObject)
+            PlayerPos = playerObject.GetComponent<Transform>();
         Vector3 pos = transform.position;
-        if (PlayerPos.position.x > border.x + 17 && PlayerPos.position.x < border2.x - 17)
+        if (PlayerPos)
         {
-            pos.x = PlayerPos.position.x;
-        }
-        else if (PlayerPos.position.x < border.x + 17)
-        {
-            pos.x = border.x + 17;
-        }
-        else if (PlayerPos.position.x > border2.x - 17)
-        {
-            pos.x = border2.x - 17;
-        }
-        if (PlayerPos.position.y > border.y+9.56f && PlayerPos.position.y < border2.y-9.56f)
-        {
-            pos.y = PlayerPos.position.y;
-        }
-        else if (PlayerPos.position.y < border.y + 9.56f)
-        {
-            pos.y = border.y + 9.56f;
-        }
-        else if (PlayerPos.position.y > border2.y - 9.56f)
-        {
-            pos.y = border2.y - 9.56f;
+            if (PlayerPos.position.x > border.x + 17 && PlayerPos.position.x < border2.x - 17)
+            {
+                pos.x = PlayerPos.position.x;
+            }
+            else if (PlayerPos.position.x < border.x + 17)
+            {
+                pos.x = border.x + 17;
+            }
+            else if (PlayerPos.position.x > border2.x - 17)
+            {
+                pos.x = border2.x - 17;
+            }
+            if (PlayerPos.position.y > border.y + 9.56f && PlayerPos.position.y < border2.y - 9.56f)
+            {
+                pos.y = PlayerPos.position.y;
+            }
+            else if (PlayerPos.position.y < border.y + 9.56f)
+            {
+                pos.y = border.y + 9.56f;
+            }
+            else if (PlayerPos.position.y > border2.y - 9.56f)
+            {
+                pos.y = border2.y - 9.56f;
+            }
         }
         transform.position = pos;
     }
