@@ -669,6 +669,8 @@ public class Shoot : MonoBehaviour {
         Proj.Duration = CombineDuration_34;
         Proj.Damage = CombineDamage_34;
         Proj.Scale = true;
+        Proj.OnTarget = true;
+        Proj.Pierce = true;
     }
     private void CombineShoot_35()
     {

@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4027308349354816}
   - component: {fileID: 212841091284693638}
   - component: {fileID: 114649535219460544}
-  - component: {fileID: 136975730725133706}
   - component: {fileID: 54639312456000360}
+  - component: {fileID: 65025769938291510}
   m_Layer: 0
   m_Name: Combine_8
   m_TagString: Projectile
@@ -58,6 +58,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65025769938291510
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1899085504715622}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 20, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114649535219460544
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -74,25 +86,14 @@ MonoBehaviour:
   Rebounce: 0
   Speed: 1
   Thrust: 0
+  SlowDown: 0
   Pierce: 0
   Sheild: 0
   Scale: 0
-  Impact: {fileID: 0}
+  OnTarget: 0
+  Impact: {fileID: 1675813666557294, guid: 8c3592343307a0b44aa565aa700aa5bf, type: 2}
   GameManage: {fileID: 0}
   Duration: 1
---- !u!136 &136975730725133706
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1899085504715622}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.18
-  m_Height: 1.3399999
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &212841091284693638
 SpriteRenderer:
   m_ObjectHideFlags: 1

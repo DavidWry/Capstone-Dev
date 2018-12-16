@@ -12,6 +12,7 @@ TagManager:
   - Obstacle
   - Chest
   - Dummy
+  - EnemyProjectile
   layers:
   - Default
   - TransparentFX
