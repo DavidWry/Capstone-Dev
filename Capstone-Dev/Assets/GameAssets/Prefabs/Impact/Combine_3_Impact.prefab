@@ -20,8 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4441633284658040}
   - component: {fileID: 212802758879322830}
-  - component: {fileID: 70108967274416064}
+  - component: {fileID: 95548325938304180}
   - component: {fileID: 114559896677927028}
+  - component: {fileID: 136775101154175882}
   m_Layer: 0
   m_Name: Combine_3_Impact
   m_TagString: Untagged
@@ -36,27 +37,30 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1744783967049040}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.651, y: -1.7622561, z: 0}
-  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &70108967274416064
-CapsuleCollider2D:
+--- !u!95 &95548325938304180
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1744783967049040}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 5, y: 1}
-  m_Direction: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 00a4edf646c611d48ba8355ab9bdd4cf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114559896677927028
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -68,8 +72,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0816337be8f3f5343a0773dfc1044fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 1
-  speed: 0.5
+  Damage: 5
+  speed: 0
+  Life: 1.1
+--- !u!136 &136775101154175882
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1744783967049040}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 2.035
+  m_Height: 3.15
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &212802758879322830
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -102,15 +120,15 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1051040845
+  m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d208cd82bb517d645802e24152b88352, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 747133deed560ba4284638fc7e4011e9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 7.89, y: 8.25}
+  m_Size: {x: 4.07, y: 3.15}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

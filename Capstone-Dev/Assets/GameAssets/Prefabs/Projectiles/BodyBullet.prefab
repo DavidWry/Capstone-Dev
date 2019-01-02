@@ -76,9 +76,11 @@ MonoBehaviour:
   Speed: 1
   Thrust: 0
   SlowDown: 0
-  Pierce: 0
+  Pierce: 1
   Sheild: 0
   Scale: 0
+  OnTarget: 0
+  OnFloor: 0
   Impact: {fileID: 0}
   GameManage: {fileID: 0}
   Duration: 1
