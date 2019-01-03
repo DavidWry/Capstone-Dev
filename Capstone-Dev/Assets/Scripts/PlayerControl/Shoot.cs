@@ -45,8 +45,6 @@ public class Shoot : MonoBehaviour {
     public bool CombineTag = false;            //Two Kinds of "combine". True means real "Combine", false means actrually "seperate".
     public bool SkillReady = false;
     public bool GoldenFinger = false;
-    public GameObject CombineShot;
-    public GameObject SeperateShot;
     private float preRightInputX = 0f;
     private float preRightInputY = 0f;
     private float preLeftInputX = 0f;
@@ -55,7 +53,6 @@ public class Shoot : MonoBehaviour {
     private float CombineBtw = 1.0f;
     bool combineAngle = false;
     bool rotateAngle = false;
-    bool combineAnim = true;
     //12-1
     private float CombineBtw_12 = 0.05f;
     private float CombineSpeed_12 = 5f;
@@ -67,8 +64,8 @@ public class Shoot : MonoBehaviour {
     private float CombineDuration_13 = 5f;
     private int CombineDamage_13 = 50;
     //14-3
-    private float CombineBtw_14 = 0.1f;
-    private float CombineSpeed_14 = 8f;
+    private float CombineBtw_14 = 0.2f;
+    private float CombineSpeed_14 = 5f;
     private float CombineDuration_14 = 0.8f;
     private int CombineDamage_14 = 5;
     //15-4
@@ -180,16 +177,6 @@ public class Shoot : MonoBehaviour {
                 else
                 {
                     combineAngle = false;
-                }
-                if (CombinedTime < TimeBeforeCombine && combineAnim)
-                {
-                    GameObject combShot = Instantiate(CombineShot, transform);
-                    combShot.transform.position = transform.position;
-                    combineAnim = false;
-                }
-                else
-                {
-                    combineAnim = true;
                 }
             }
             else
@@ -505,16 +492,6 @@ public class Shoot : MonoBehaviour {
     {
         if (IsCombineShooting && CanCombineShoot)
         {
-            if (CombineTag)
-            {
-                GameObject combShot = Instantiate(CombineShot, transform);
-                combShot.transform.position = transform.position;
-            }
-            else
-            {
-                GameObject combShot = Instantiate(SeperateShot, transform);
-                combShot.transform.position = transform.position;
-            }
             player.Power = 0;
             switch (player.CombineType)
             {
@@ -611,8 +588,7 @@ public class Shoot : MonoBehaviour {
         Proj.Speed = CombineSpeed_14;
         Proj.Duration = CombineDuration_14;
         Proj.Damage = CombineDamage_14;
-        Proj.SlowDown = Random.Range(7,10);
-        Proj.OnFloor = true;
+        Proj.SlowDown = 10;
 
         GameObject NewProj02 = Instantiate(gameManager.CombineProjectile[3]);
         NewProj02.transform.position = Center.position;
@@ -623,8 +599,7 @@ public class Shoot : MonoBehaviour {
         Proj02.Speed = CombineSpeed_14;
         Proj02.Duration = CombineDuration_14;
         Proj02.Damage = CombineDamage_14;
-        Proj.SlowDown = Random.Range(7, 10);
-        Proj02.OnFloor = true;
+        Proj02.SlowDown = 5;
     }
     private void CombineShoot_15()
     {
@@ -655,7 +630,7 @@ public class Shoot : MonoBehaviour {
         {
             sheildUp();
         }
-        movement.Recoil = Left.transform.right * 10;
+        movement.Recoil = Left.transform.right * 3;
     }
     private void CombineShoot_24()
     {
@@ -668,8 +643,6 @@ public class Shoot : MonoBehaviour {
         Proj.Speed = CombineSpeed_24;
         Proj.Duration = CombineDuration_24;
         Proj.Damage = CombineDamage_24;
-        Proj.OnTarget = true;
-        Proj.Pierce = true;
         movement.Recoil = - Right.transform.right;
     }
     private void CombineShoot_25()
@@ -736,7 +709,7 @@ public class Shoot : MonoBehaviour {
         Proj.IsReady = true;
         Proj.Speed = 0;
         Proj.Duration = 5f;
-        Proj.Damage = 100;
+        Proj.Damage = 1000;
         Proj.Sheild = true;
     }
 

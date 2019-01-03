@@ -14,7 +14,6 @@ public class Projectile : MonoBehaviour {
     public bool Sheild = false;
     public bool Scale = false;
     public bool OnTarget = false;
-    public bool OnFloor = false;
     public GameObject Impact;
     public GameManager GameManage;
     public float Duration = 1;
@@ -56,15 +55,7 @@ public class Projectile : MonoBehaviour {
             Destroy(gameObject);
             if (SlowDown > 0)
             {
-                if (!OnFloor)
-                {
-                    GameObject ImpactObject = Instantiate(Impact, transform.position, transform.rotation);
-                }
-                else
-                {
-                    GameObject ImpactObject = Instantiate(Impact);
-                    ImpactObject.transform.position = transform.position;
-                }
+                GameObject ImpactObject = Instantiate(Impact, transform.position, transform.rotation);
             }
         }
 	}
@@ -113,15 +104,7 @@ public class Projectile : MonoBehaviour {
         {
             if (!OnTarget)
             {
-                if (!OnFloor)
-                {
-                    GameObject ImpactObject = Instantiate(Impact, transform.position, transform.rotation);
-                }
-                else
-                {
-                    GameObject ImpactObject = Instantiate(Impact);
-                    ImpactObject.transform.position = transform.position;
-                }
+                GameObject ImpactObject = Instantiate(Impact, transform.position, transform.rotation);
             }
             else
             {
