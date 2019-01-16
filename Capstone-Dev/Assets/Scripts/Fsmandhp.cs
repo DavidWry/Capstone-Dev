@@ -32,7 +32,7 @@ public class Fsmandhp : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        print(notyet);
+       
         if (hp <= 30 && yuancount == 1)
         {
            

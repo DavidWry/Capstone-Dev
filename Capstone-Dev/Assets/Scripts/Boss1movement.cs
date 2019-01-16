@@ -23,14 +23,16 @@ public class Boss1movement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        
         supposetomove1 = gameObject.GetComponent<Fsmandhp>().supposetomove;
         if (supposetomove1&&!valid)
         {
+             
 
             while (!valid)
             {
-                 
-               
+
+                
                 xpos = Random.Range(-1.0f, 1.0f);
                 ypos = Random.Range(-1.0f, 1.0f);
                
@@ -49,7 +51,7 @@ public class Boss1movement : MonoBehaviour {
 
                     valid = true;
                     targetvec = movevec.normalized;
-                  
+                    
                  
                 }
 
