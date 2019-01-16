@@ -1009,6 +1009,12 @@ Prefab:
       propertyPath: GoldenFinger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114700414012763062, guid: 53c48bee7d55ecc48af61050d2c56229,
+        type: 2}
+      propertyPath: rightWeapon.ShotFX
+      value: 
+      objectReference: {fileID: 1000013086863710, guid: bfa2421e2a82beb4a9c7d7cdc2577f76,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53c48bee7d55ecc48af61050d2c56229, type: 2}
   m_IsPrefabAsset: 0
@@ -1311,6 +1317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c5846d077403546b4bfe8944ae4398, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BulletSizeUp: 1
   LeftLazer: {fileID: 0}
   RightLazer: {fileID: 0}
   Left: {fileID: 0}
