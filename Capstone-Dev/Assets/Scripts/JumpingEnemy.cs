@@ -3,56 +3,57 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class EnemyRanged : MonoBehaviour
+public class JumpingEnemy : MonoBehaviour
 {
     private float rangeForAttack; //Within what range the enemy will start and continue attacking the player
     private float chaseRange;
 
     public float speed;
-    private float timeBetweenShots; 
-    private float startTimeBetweenShots;
-    private float health;
+    private float timeBetweenJumps;
+    private float startTimeBetweenJumps;
+    private int health;
 
-    public GameObject projectile;
+   
     public GameObject crystal;
     private Transform player;
-
+    public GameObject AreaDamage;
     private DropProbability probability = null;
     private GameManager gameManager = null;
 
-    void Start ()
+    void Start()
     {
-
-        health = 55;
-        speed = 2.3f;
+        speed = 2.5f;
         rangeForAttack = 5;
-        chaseRange = 6;
-        startTimeBetweenShots = 1.8f;
+        chaseRange = 8;
+        startTimeBetweenJumps = 1.5f;
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        timeBetweenShots = startTimeBetweenShots;
+        timeBetweenJumps = startTimeBetweenJumps;
 
         probability = gameObject.GetComponent<DropProbability>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        
     }
-	
-	
-	void Update ()
+
+
+    void Update()
     {
         //Attack if under the range
         if (player != null)
         {
             if (Vector2.Distance(transform.position, player.position) <= rangeForAttack)
             {
-                if (timeBetweenShots <= 0)
+                if (timeBetweenJumps<=0)
                 {
-                    Instantiate(projectile, transform.position, Quaternion.identity);
-                    timeBetweenShots = startTimeBetweenShots;
+                    Instantiate(AreaDamage, player.transform.position, Quaternion.identity);
+
+                    timeBetweenJumps = startTimeBetweenJumps;
                 }
                 else
                 {
-                    timeBetweenShots -= Time.deltaTime;
+                    timeBetweenJumps -= Time.deltaTime;
                 }
             }
+
             if (Vector2.Distance(transform.position, player.position) <= chaseRange && Vector2.Distance(transform.position, player.position) > rangeForAttack)
             {
                 transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
@@ -75,7 +76,7 @@ public class EnemyRanged : MonoBehaviour
                 //Instantiate(crystal, transform.position,Quaternion.identity);
             }
 
-        }  
+        }
 
     }
 

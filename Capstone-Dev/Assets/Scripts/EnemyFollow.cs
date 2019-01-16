@@ -15,18 +15,20 @@ public class EnemyFollow : MonoBehaviour
 
     private DropProbability probability = null;
     private GameManager gameManager = null;
+    public GameObject explosion;
 
     void Start()
     {
         //Set player as the target
-        health = 100;
-        speed = 1.0f ;
+        health = 40;
+        speed = 1.2f ;
         player2 = GetComponent<Player>();
         rangeForAttack = 6;
         damage = 5;
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         probability = gameObject.GetComponent<DropProbability>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        
     }
 
     void Update()
@@ -64,20 +66,16 @@ public class EnemyFollow : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            
+            
+            GameObject expl = Instantiate(explosion, transform.position, Quaternion.identity) as GameObject;
+            Destroy(gameObject);
             other.gameObject.GetComponent<Player>().TakeDamage(damage);
+            Destroy(expl,3);
+
         }
     }
 
-    /*private void OnTriggerEnter(Collider other)
-    {
-        // if hit then move to the opposite direction to show a PUSHBACK effect
-        if (other.CompareTag("Projectile"))
-        {
-            gameObject.GetComponent<Rigidbody>().AddForce(-transform.right * 2);
-            gameObject.GetComponent<Rigidbody>().velocity = Vector2.ClampMagnitude(gameObject.GetComponent<Rigidbody>().velocity, 1);
-            Debug.Log("000");
-        }
-    }*/
 
     //Handle damage taken
     public void TakeDamage(int damage)

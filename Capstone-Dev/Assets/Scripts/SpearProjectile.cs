@@ -16,7 +16,7 @@ public class SpearProjectile : MonoBehaviour
     
     void Start()
     {
-        damage = 10;
+        damage = 8;
         //speed = 5;
         //var trail = GameObject.FindGameObjectsWithTag("Stompwavetrail");
        player2 = GetComponent<Player>();
@@ -48,7 +48,7 @@ public class SpearProjectile : MonoBehaviour
 
         if (other.gameObject.tag =="Player")
         {
-            Debug.Log("dsdajsio");
+
             DestroyProjectile();
 
             //Call TakeDamage function from the player's script
