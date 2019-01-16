@@ -25,7 +25,7 @@ namespace AssemblyCSharp
             if (distanceabc < 15&&!currentactive)
             {
                 currentactive = true;
-                Player1.GetComponent<Movement>().WalkSpeed-=4;
+                Player1.GetComponent<Movement>().WalkSpeed-=10;
             }
             if (currentactive)
             {
@@ -36,13 +36,14 @@ namespace AssemblyCSharp
                     p = 0;
                 }
 
-            }
+            
             if (this.gameObject.GetComponent<ParticleSystem>().isStopped)
             {
                 p = 0;
-                Player1.GetComponent<Movement>().WalkSpeed += 4;
+                Player1.GetComponent<Movement>().WalkSpeed += 10;
                 Destroy(this.gameObject);
 
+            }
             }
         }
 

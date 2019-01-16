@@ -16,7 +16,7 @@ public class Fsmandhp : MonoBehaviour {
     public Vector3 originalpos;
     public bool supposetomove=false;
     private int yuancount=0;
-    private float remainingtime;
+    public float remainingtime;
    private Animator anim;
     private bool walk = false;
     bool notyet = false;
@@ -28,7 +28,8 @@ public class Fsmandhp : MonoBehaviour {
         anim = a.GetComponent<Animator>();
         originalpos = gameObject.transform.parent.transform.position;
         remainingtime = Random.Range(5.0f, 10.0f);
-	}
+        nexspot = new Vector3(player.transform.position.x + Random.Range(-100.0f, 100.0f), player.transform.position.y + Random.Range(-100.0f, 100.0f), 0);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -61,31 +62,38 @@ public class Fsmandhp : MonoBehaviour {
 
         if (!supposetomove)
         {
+            
             DistanceBP = Vector3.Distance(gameObject.transform.parent.transform.position, player.transform.position);
             DistanceBO = Vector3.Distance(gameObject.transform.parent.transform.position, originalpos);
  
          
             if (DistanceBP < range && DistanceBO < range&&!notyet)
             {
+                 
+                
                 if (anim.GetInteger("stage")==-1) {
                     anim.SetInteger("stage", 0);
                 }
                 
                 if (!walk)
                 {
-
+                    
                     remainingtime -= Time.deltaTime;
                    
 
                 }
                 else
                 { float distancebtemp = Vector3.Distance(gameObject.transform.parent.transform.position, nexspot);
+                    print(gameObject.transform.parent.transform.position+"asdf");
+                    
+
                     if (distancebtemp>2) {
                         gameObject.transform.parent.GetComponent<Rigidbody>().MovePosition(gameObject.transform.parent.transform.position+(nexspot - gameObject.transform.parent.transform.position).normalized*Time.deltaTime*10);
                    
                     }
                     else
                     {
+                         
                         walk = false;
                     }
                 }
@@ -96,9 +104,14 @@ public class Fsmandhp : MonoBehaviour {
                     remainingtime = Random.Range(5, 10);
 
                     walk = true;
+                    print(Vector3.Distance(nexspot, originalpos));
+                    nexspot = new Vector3(player.transform.position.x + Random.Range(-100.0f, 100.0f), player.transform.position.y + Random.Range(-100.0f, 100.0f), 0);
                     while (Vector3.Distance(nexspot,originalpos)>range)
                     {
+
+                        
                         nexspot = new Vector3(player.transform.position.x + Random.Range(-100.0f, 100.0f), player.transform.position.y + Random.Range(-100.0f, 100.0f), 0);
+                      
                     }
 
 
