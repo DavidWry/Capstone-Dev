@@ -48,20 +48,9 @@ namespace AssemblyCSharp
                 invin = true;
             }
 
-            else if (other.gameObject.tag == "Projectile")
-            {
-                gameObject.GetComponent<Fsmandhp>().takedamage(10);
-                Instantiate(spark, other.gameObject.transform.position, Quaternion.identity);
-                Destroy(other.gameObject);
-
-
-            }
-
         }
         void OnTriggerStay(Collider other)
         {
-
-            print("nsnmn");
             Vector3 newvec = (this.transform.position - player1.transform.position);
             newvec = newvec.normalized;
             if (other.gameObject == player1)

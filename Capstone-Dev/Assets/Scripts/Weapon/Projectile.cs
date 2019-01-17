@@ -96,6 +96,11 @@ public class Projectile : MonoBehaviour {
             collision.GetComponent<Dummy>().TakeDamage(Damage);
             Dead(collision);
         }
+        else if (collision.gameObject.tag == "Boss")
+        {
+            collision.GetComponent<Fsmandhp>().takedamage(Damage);
+            Dead(collision);
+        }
     }
 
     private void Dead(Collider collision)
