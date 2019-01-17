@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 114539793252749876}
   - component: {fileID: 54158255408492160}
   - component: {fileID: 136925195487186992}
+  - component: {fileID: 81393224690631118}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -449,8 +450,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1075490410967942}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.17, y: -1.64, z: 0}
-  m_LocalScale: {x: 0.21831454, y: 0.21831454, z: 0.21831454}
+  m_LocalPosition: {x: -12.51, y: 13.22, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4898388484430658}
   - {fileID: 4207620212259218}
@@ -505,8 +506,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1760574338453344}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.01, y: 0.83999985, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 0.01, y: 1.3, z: 0}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.5}
   m_Children: []
   m_Father: {fileID: 4388373643902428}
   m_RootOrder: 0
@@ -559,13 +560,20 @@ Rigidbody:
   m_GameObject: {fileID: 1075490410967942}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 100
+  m_Drag: 10
   m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!81 &81393224690631118
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1075490410967942}
+  m_Enabled: 1
 --- !u!114 &114360617567929864
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -579,6 +587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LeftHand: {fileID: 4278053241860954}
   RightHand: {fileID: 4851458821234730}
+  WeaponSizeUp: 2
   currentLoot: {fileID: 0}
 --- !u!114 &114539793252749876
 MonoBehaviour:
@@ -591,6 +600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c5846d077403546b4bfe8944ae4398, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BulletSizeUp: 1
   LeftLazer: {fileID: 0}
   RightLazer: {fileID: 0}
   Left: {fileID: 4278053241860954}
@@ -605,7 +615,7 @@ MonoBehaviour:
   TimeTopCombine: 5
   CombineTag: 1
   SkillReady: 0
-  GoldenFinger: 0
+  GoldenFinger: 1
   CameraObj: {fileID: 0}
 --- !u!114 &114552904399088650
 MonoBehaviour:
@@ -618,7 +628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b61c994cd57c6124cb7e3be2ceb95c3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WalkSpeed: 3
+  WalkSpeed: 8
   IsFaceRight: 1
   RightAimIcon: {fileID: 1011836339694946, guid: 070212531c3eb2b47b35d1d9daf0811e,
     type: 2}
@@ -678,7 +688,7 @@ MonoBehaviour:
     TimeBetweenShot: 1
     TimeWaited: 0
     ImpactFX: {fileID: 0}
-    ShotFX: {fileID: 0}
+    ShotFX: {fileID: 1000013086863710, guid: bfa2421e2a82beb4a9c7d7cdc2577f76, type: 2}
     Damage: 20
     Rebounce: 0
     AmmoSize: 10
@@ -687,7 +697,7 @@ MonoBehaviour:
     AttackAnimationUsed: 
     ReloadTime: 3
     Duration: 3
-    ProjectileSpeed: 10
+    ProjectileSpeed: 20
     IsThrust: 0
     IsLazer: 0
     IsShortRange: 0
@@ -708,10 +718,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.692935
-  m_Height: 3.4129515
+  m_Radius: 0.42
+  m_Height: 3.3
   m_Direction: 1
-  m_Center: {x: 0.0507777, y: -0.038591094, z: 0}
+  m_Center: {x: 0.0507777, y: -0.09, z: 0}
 --- !u!212 &212121034317212898
 SpriteRenderer:
   m_ObjectHideFlags: 1
