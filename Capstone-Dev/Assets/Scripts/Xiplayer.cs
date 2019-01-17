@@ -1,93 +1,95 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+namespace AssemblyCSharp
+{
+    public class Xiplayer : MonoBehaviour {
+        public GameObject player1;
+        Rigidbody playerbody;
+        int xishu = -18000;
+        bool zaixiqi = false;
+        bool invin = false;
+        public GameObject spark;
+        // Use this for initialization
+        void Start() {
+            player1 = GameObject.FindGameObjectWithTag("Player");
+            playerbody = player1.GetComponent<Rigidbody>();
+        }
 
-public class Xiplayer : MonoBehaviour {
-   public GameObject player1;
-    Rigidbody playerbody;
-    int xishu = -18000;
-    bool zaixiqi = false;
-    bool invin = false;
-   public GameObject spark;
-	// Use this for initialization
-	void Start () {
-        player1 = GameObject.FindGameObjectWithTag("Player");
-        playerbody = player1.GetComponent<Rigidbody>();
-    }
-	
-	// Update is called once per frame
-	void Update () {
-        Vector3 newvec = (this.transform.position - player1.transform.position);
+        // Update is called once per frame
+        void Update() {
+            Vector3 newvec = (this.transform.position - player1.transform.position);
 
-        if (zaixiqi)
+            if (zaixiqi)
+            {
+
+
+
+                newvec = newvec.normalized;
+
+                playerbody.AddForce(newvec * 5.5f * Mathf.Sqrt(2)*30);
+
+            }
+
+
+
+        }
+        void OnTriggerEnter(Collider other)
         {
 
 
-
+            Vector3 newvec = (this.transform.position - player1.transform.position);
             newvec = newvec.normalized;
+            if (other.gameObject == player1)
+            {
 
-            playerbody.AddForce(newvec * 5.5f * Mathf.Sqrt(2));
+                player1.GetComponent<Player>().TakeDamage(5);
+                playerbody.AddForce(newvec * xishu);
+                invin = true;
+            }
+
+            else if (other.gameObject.tag == "Projectile")
+            {
+                gameObject.GetComponent<Fsmandhp>().takedamage(10);
+                Instantiate(spark, other.gameObject.transform.position, Quaternion.identity);
+                Destroy(other.gameObject);
+
+
+            }
 
         }
-
-        
-
-    }
-    void OnTriggerEnter(Collider other)
-    {
-
-        print("nsnmn");
-        Vector3 newvec = (this.transform.position - player1.transform.position);
-        newvec = newvec.normalized;
-        if (other.gameObject == player1)
+        void OnTriggerStay(Collider other)
         {
 
+            print("nsnmn");
+            Vector3 newvec = (this.transform.position - player1.transform.position);
+            newvec = newvec.normalized;
+            if (other.gameObject == player1)
+            {
 
-            playerbody.AddForce(newvec * xishu);
-            invin = true;
+
+                playerbody.AddForce(newvec * xishu);
+                invin = true;
+            }
+
+
         }
 
-        else if (other.gameObject.tag == "Projectile")
+
+        void xi()
         {
 
-            Instantiate(spark, other.gameObject.transform.position, Quaternion.identity);
-            Destroy(other.gameObject);
+            if (zaixiqi == false)
+            {
+                zaixiqi = true;
+            }
+            else
+            {
+
+                zaixiqi = false;
+            }
 
 
         }
-
-    }
-    void OnTriggerStay(Collider other)
-    {
-
-        print("nsnmn");
-        Vector3 newvec = (this.transform.position - player1.transform.position);
-        newvec = newvec.normalized;
-        if (other.gameObject == player1)
-        {
-           
-            
-            playerbody.AddForce(newvec * xishu);
-            invin = true;
-        }
-
-
-    }
-
-    
-    void xi()
-    {
-        
-        if (zaixiqi == false)
-        {
-            zaixiqi = true;
-        }
-        else
-        {
-
-            zaixiqi = false;
-        }
-
-
     }
 }

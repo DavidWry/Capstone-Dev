@@ -1083,6 +1083,21 @@ Prefab:
       propertyPath: m_Drag
       value: 14.73
       objectReference: {fileID: 0}
+    - target: {fileID: 114539793252749876, guid: 53c48bee7d55ecc48af61050d2c56229,
+        type: 2}
+      propertyPath: BulletSizeUp
+      value: 31.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 114700414012763062, guid: 53c48bee7d55ecc48af61050d2c56229,
+        type: 2}
+      propertyPath: rightWeapon.ProjectileSpeed
+      value: 87.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 114700414012763062, guid: 53c48bee7d55ecc48af61050d2c56229,
+        type: 2}
+      propertyPath: rightWeapon.TimeBetweenShot
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53c48bee7d55ecc48af61050d2c56229, type: 2}
   m_IsPrefabAsset: 0

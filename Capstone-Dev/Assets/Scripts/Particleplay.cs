@@ -17,15 +17,16 @@ namespace AssemblyCSharp
 
         // Update is called once per frame
         void Update()
-        {  
-          
-           
+        {
+
+            print(Player1.GetComponent<Movement>().WalkSpeed);
             float distanceabc = Vector3.Distance(Player1.transform.position, gameObject.transform.position);
 
             if (distanceabc < 15&&!currentactive)
             {
                 currentactive = true;
                 Player1.GetComponent<Movement>().WalkSpeed-=10;
+              
             }
             if (currentactive)
             {
@@ -36,6 +37,11 @@ namespace AssemblyCSharp
                     p = 0;
                 }
 
+                if (distanceabc > 15)
+                {
+                    currentactive = false;
+                    Player1.GetComponent<Movement>().WalkSpeed += 10;
+                }
             
             if (this.gameObject.GetComponent<ParticleSystem>().isStopped)
             {

@@ -12,7 +12,7 @@ public class Fsmandhp : MonoBehaviour {
     public float DistanceBP;
     public float DistanceBO;
     private GameObject player;
-    public float range=100;
+    public float range=300;
     public Vector3 originalpos;
     public bool supposetomove=false;
     private int yuancount=0;
@@ -84,7 +84,7 @@ public class Fsmandhp : MonoBehaviour {
                 }
                 else
                 { float distancebtemp = Vector3.Distance(gameObject.transform.parent.transform.position, nexspot);
-                    print(gameObject.transform.parent.transform.position+"asdf");
+                    
                     
 
                     if (distancebtemp>2) {
