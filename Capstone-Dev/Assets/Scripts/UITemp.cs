@@ -8,7 +8,7 @@ public class UITemp : MonoBehaviour {
 
     public GameObject PlayerObj;
     public float AP = 0;
-    public Slider PowerBar;
+    public Image PowerBar;
     public float percentage;
 
     // Use this for initialization
@@ -23,6 +23,6 @@ public class UITemp : MonoBehaviour {
         else
             AP = PlayerObj.GetComponent<Player>().Power;
         percentage = AP / 100f;
-        PowerBar.value = percentage;
+        PowerBar.fillAmount = percentage;
 	}
 }
