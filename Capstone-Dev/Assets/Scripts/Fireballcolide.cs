@@ -1,36 +1,46 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Fireballcolide : MonoBehaviour {
-    public GameObject explosion;
-    private float remainingtime;
-	// Use this for initialization
-	void Start () {
-        remainingtime = Random.Range(4,8);
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        remainingtime -= Time.deltaTime;
-        if(remainingtime <= 0)
-        {
-
-            Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
-            Destroy(gameObject.transform.parent.gameObject);
-
+namespace AssemblyCSharp
+{
+    public class Fireballcolide : MonoBehaviour {
+        public GameObject explosion;
+        public GameObject player1;
+        private float remainingtime;
+        // Use this for initialization
+        void Start() {
+            remainingtime = Random.Range(4, 8);
+            player1 = GameObject.FindGameObjectWithTag("Player");
         }
-	}
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player")
+        // Update is called once per frame
+        void Update() {
+            remainingtime -= Time.deltaTime;
+            if (remainingtime <= 0)
+            {
+
+                Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
+                if (Vector3.Distance(player1.transform.position, gameObject.transform.parent.transform.position) < 5)
+                {
+                    player1.GetComponent<Player>().TakeDamage(15);
+
+
+                }
+                Destroy(gameObject.transform.parent.gameObject);
+               
+            }
+        }
+
+        private void OnTriggerEnter(Collider other)
         {
-          
-            Instantiate(explosion, other.transform.position, Quaternion.identity);
-            Destroy(gameObject.transform.parent.gameObject);
-          
+            if (other.tag == "Player")
+            {
+
+                Instantiate(explosion, other.transform.position, Quaternion.identity);
+                Destroy(gameObject.transform.parent.gameObject);
+
+                player1.GetComponent<Player>().TakeDamage(15);
+            }
         }
     }
 }

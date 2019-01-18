@@ -27,8 +27,8 @@ public class Fsmandhp : MonoBehaviour {
         a = gameObject;
         anim = a.GetComponent<Animator>();
         originalpos = gameObject.transform.parent.transform.position;
-        remainingtime = Random.Range(5.0f, 10.0f);
-        nexspot = new Vector3(player.transform.position.x + Random.Range(-100.0f, 100.0f), player.transform.position.y + Random.Range(-100.0f, 100.0f), 0);
+        remainingtime = Random.Range(3.0f, 5.0f);
+        nexspot = new Vector3(player.transform.position.x + Random.Range(-50.0f, 50.0f), player.transform.position.y + Random.Range(-50.0f, 50.0f), 0);
     }
 	
 	// Update is called once per frame
@@ -39,7 +39,7 @@ public class Fsmandhp : MonoBehaviour {
            
             yuancount++;
             supposetomove = true;
-            remainingtime = Random.Range(5, 10);
+            remainingtime = Random.Range(3.0f, 5.0f);
             walk = false;
         }
        else if (hp <= 50 && yuancount == 0)
@@ -47,7 +47,7 @@ public class Fsmandhp : MonoBehaviour {
             
             yuancount++;
             supposetomove = true;
-            remainingtime = Random.Range(5, 10);
+            remainingtime = Random.Range(3.0f, 5.0f);
             walk = false;
 
 
@@ -101,16 +101,16 @@ public class Fsmandhp : MonoBehaviour {
 
                 if (remainingtime <= 0)
                 {
-                    remainingtime = Random.Range(5, 10);
+                    remainingtime = Random.Range(3.0f, 5.0f);
 
                     walk = true;
                     print(Vector3.Distance(nexspot, originalpos));
-                    nexspot = new Vector3(player.transform.position.x + Random.Range(-100.0f, 100.0f), player.transform.position.y + Random.Range(-100.0f, 100.0f), 0);
+                    nexspot = new Vector3(player.transform.position.x + Random.Range(-50.0f, 50.0f), player.transform.position.y + Random.Range(-50.0f, 50.0f), 0);
                     while (Vector3.Distance(nexspot,originalpos)>range)
                     {
 
                         
-                        nexspot = new Vector3(player.transform.position.x + Random.Range(-100.0f, 100.0f), player.transform.position.y + Random.Range(-100.0f, 100.0f), 0);
+                        nexspot = new Vector3(player.transform.position.x + Random.Range(-50.0f, 50.0f), player.transform.position.y + Random.Range(-50.0f, 50.0f), 0);
                       
                     }
 

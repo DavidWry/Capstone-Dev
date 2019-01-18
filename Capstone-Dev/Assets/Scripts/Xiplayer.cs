@@ -27,7 +27,7 @@ namespace AssemblyCSharp
 
                 newvec = newvec.normalized;
 
-                playerbody.AddForce(newvec * 5.5f * Mathf.Sqrt(2)*30);
+                playerbody.AddForce(newvec * 5.5f * Mathf.Sqrt(2)*90);
 
             }
 
