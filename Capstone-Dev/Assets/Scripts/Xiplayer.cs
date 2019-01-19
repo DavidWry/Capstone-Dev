@@ -6,9 +6,13 @@ namespace AssemblyCSharp
     public class Xiplayer : MonoBehaviour {
         public GameObject player1;
         Rigidbody playerbody;
+        public Material mat1;
+        public Material mat2;
         int xishu = -18000;
         bool zaixiqi = false;
         bool invin = false;
+        bool hitflash = false;
+        float flashtime = 0;
         public GameObject spark;
         // Use this for initialization
         void Start() {
@@ -30,7 +34,32 @@ namespace AssemblyCSharp
                 playerbody.AddForce(newvec * 5.5f * Mathf.Sqrt(2)*90);
 
             }
+            if (hitflash)
+            {
+                flashtime += Time.deltaTime;
+                if (flashtime < .1f)
+                {
+                    gameObject.GetComponent<SpriteRenderer>().material = mat1;
 
+                }
+                else if (flashtime < 0.2f)
+                {
+                    gameObject.GetComponent<SpriteRenderer>().material = mat2;
+                }
+                else if (flashtime < 0.3f)
+                {
+                    gameObject.GetComponent<SpriteRenderer>().material = mat1;
+                }
+                else {
+
+                    gameObject.GetComponent<SpriteRenderer>().material = mat2;
+
+                    hitflash = false;
+                    flashtime = 0;
+
+
+                }
+            }
 
 
         }
@@ -46,6 +75,11 @@ namespace AssemblyCSharp
                 player1.GetComponent<Player>().TakeDamage(5);
                 playerbody.AddForce(newvec * xishu);
                 invin = true;
+            }
+            if (other.gameObject.tag == "Projectile")
+            {
+                hitflash = true;
+
             }
 
         }
