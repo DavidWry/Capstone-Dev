@@ -5822,10 +5822,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dfdfcbe6f4e58c4d9ca2be2ec3466cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextBox: {fileID: 0}
+  TextBox: {fileID: 1750688601}
+  Player: {fileID: 0}
   TextContent: {fileID: 1870251302}
   TextFile: {fileID: 4900000, guid: d7ca78f29c083a6488c6e0daf95458a8, type: 3}
   textLines: []
+  typingSpeed: 0
 --- !u!1 &555164037
 GameObject:
   m_ObjectHideFlags: 0
@@ -7075,6 +7077,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1034309972}
   - component: {fileID: 1034309973}
+  - component: {fileID: 1034309975}
+  - component: {fileID: 1034309974}
   m_Layer: 0
   m_Name: Switch (1)
   m_TagString: Obstacle
@@ -7141,6 +7145,30 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1034309974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1034309971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ce4c9f72ff3c714ba9392f249204d23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theTextBox: {fileID: 0}
+--- !u!65 &1034309975
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1034309971}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.72, y: 1.61, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1038852663
 GameObject:
   m_ObjectHideFlags: 0
@@ -9032,7 +9060,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1750688602
 RectTransform:
   m_ObjectHideFlags: 0
