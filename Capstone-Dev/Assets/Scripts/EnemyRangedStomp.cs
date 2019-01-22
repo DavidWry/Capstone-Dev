@@ -3,40 +3,50 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class EnemyRanged : MonoBehaviour
+public class EnemyRangedStomp : MonoBehaviour
 {
     private float rangeForAttack; //Within what range the enemy will start and continue attacking the player
     private float chaseRange;
 
     public float speed;
-    private float timeBetweenShots; 
+    private float timeBetweenShots;
     private float startTimeBetweenShots;
     private float health;
-
     public GameObject projectile;
+
+    private int numProjectiles = 5;
+    private float spreadFactor = 0.1f;
     public GameObject crystal;
     private Transform player;
 
     private DropProbability probability = null;
     private GameManager gameManager = null;
 
-    void Start ()
+    /*private float coneSize =100;
+    private float xSpread;
+    private float ySpread;
+    private Vector3 spread;*/
+
+
+    void Start()
     {
 
         health = 55;
         speed = 2.3f;
         rangeForAttack = 5;
         chaseRange = 6;
-        startTimeBetweenShots = 1.8f;
+        startTimeBetweenShots = 2.5f;
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        timeBetweenShots = startTimeBetweenShots;
+        timeBetweenShots = startTimeBetweenShots - 1.5f;
 
         probability = gameObject.GetComponent<DropProbability>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        //projectileArray = new GameObject[numProjectiles];
     }
-	
-	
-	void Update ()
+
+
+    void FixedUpdate()
     {
         //Attack if under the range
         if (player != null)
@@ -45,7 +55,15 @@ public class EnemyRanged : MonoBehaviour
             {
                 if (timeBetweenShots <= 0)
                 {
-                    Instantiate(projectile, transform.position, Quaternion.identity);
+                    for (int i = 0; i < numProjectiles; i++)
+                    {
+                        Quaternion projRotation = transform.rotation;
+                        projRotation.x += Random.Range(-spreadFactor, spreadFactor);
+                        projRotation.y += Random.Range(-spreadFactor, spreadFactor);
+                        Instantiate(projectile, transform.position, projRotation);
+
+                    }
+
                     timeBetweenShots = startTimeBetweenShots;
                 }
                 else
@@ -75,7 +93,7 @@ public class EnemyRanged : MonoBehaviour
                 //Instantiate(crystal, transform.position,Quaternion.identity);
             }
 
-        }  
+        }
 
     }
 

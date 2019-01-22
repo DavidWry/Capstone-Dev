@@ -68,9 +68,13 @@ public class Projectile : MonoBehaviour {
             {
                 collision.gameObject.GetComponent<EnemyFollow>().TakeDamage(Damage);
             }
-            else if (collision.gameObject.GetComponent<EnemyRanged>())
+            else if (collision.gameObject.GetComponent<EnemyRangedSpear>())
             {
-                collision.gameObject.GetComponent<EnemyRanged>().TakeDamage(Damage);
+                collision.gameObject.GetComponent<EnemyRangedSpear>().TakeDamage(Damage);
+            }
+            else if(collision.gameObject.GetComponent<EnemyRangedStomp>())
+            {
+                collision.gameObject.GetComponent<EnemyRangedStomp>().TakeDamage(Damage);
             }
             if (Thrust)
             {

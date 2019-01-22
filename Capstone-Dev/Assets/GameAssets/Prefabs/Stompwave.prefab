@@ -20,10 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4747356482744026}
   - component: {fileID: 212831701144049818}
-  - component: {fileID: 114464377721601484}
   - component: {fileID: 96595615225564128}
   - component: {fileID: 114997483304686176}
   - component: {fileID: 65779520857147616}
+  - component: {fileID: 114302295294413312}
   m_Layer: 0
   m_Name: Stompwave
   m_TagString: Stompwave
@@ -157,7 +157,7 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!114 &114464377721601484
+--- !u!114 &114302295294413312
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165,17 +165,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1879253388266996}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f9a8e2778fbb3e46a69636dc93dd4ec, type: 3}
+  m_Script: {fileID: 11500000, guid: 0cbd824a23537f348a4702784d731236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 15
 --- !u!114 &114997483304686176
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1879253388266996}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d238331cea99f247b6a5dde27d798a2, type: 3}
   m_Name: 

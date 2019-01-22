@@ -20,10 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4201686253973046}
   - component: {fileID: 212016188773790518}
-  - component: {fileID: 114029235223461856}
   - component: {fileID: 65643763342890740}
   - component: {fileID: 54223349674815694}
   - component: {fileID: 114353933904221840}
+  - component: {fileID: 114701488098667274}
   m_Layer: 13
   m_Name: Minion_Type_2
   m_TagString: Minion
@@ -71,20 +71,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6.83, y: 6.110001, z: 1}
   m_Center: {x: 0.000030517578, y: 0, z: 0}
---- !u!114 &114029235223461856
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1330782127039832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 077abf50e97a3cc45ad6e25a2acb8b04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  projectile: {fileID: 1926552392740888, guid: ab2672fd9ee45314ab19dd9441879295, type: 2}
-  crystal: {fileID: 1876295848165562, guid: fa456d51518b62b45aa38fb26fe23ad2, type: 2}
 --- !u!114 &114353933904221840
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -107,6 +93,20 @@ MonoBehaviour:
     WeaponName: 0
     itemObj: {fileID: 1876295848165562, guid: fa456d51518b62b45aa38fb26fe23ad2, type: 2}
     Probability: 100
+--- !u!114 &114701488098667274
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1330782127039832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 077abf50e97a3cc45ad6e25a2acb8b04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2.3
+  projectile: {fileID: 1926552392740888, guid: ab2672fd9ee45314ab19dd9441879295, type: 2}
+  crystal: {fileID: 1141863764639654, guid: e71aca9953d2e5d4380aedac964a59d5, type: 2}
 --- !u!212 &212016188773790518
 SpriteRenderer:
   m_ObjectHideFlags: 1
