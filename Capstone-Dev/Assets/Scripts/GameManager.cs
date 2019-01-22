@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     public List<WeaponObject> WeaponObjectList;
     public List<GameObject> Tiles;
     public List<GameObject> EnemyList;
+    public List<GameObject> BossList;
     public List<GameObject> PortalList;
     public List<GameObject> CombineProjectile;        //12-1 13-2 14-3 15-4 23-5 24-6 25-7 34-8 35-9 45-10
     public WeaponMenu leftWeaponMenu;
@@ -103,6 +104,15 @@ public class GameManager : MonoBehaviour
             if (enemy.name == enemyName)
                 tempEnemy = enemy;
         return tempEnemy;
+    }
+
+    public GameObject GetBoss(string bossName)
+    {
+        GameObject tempBoss = new GameObject();
+        foreach (GameObject boss in BossList)
+            if (boss.name == bossName)
+                tempBoss = boss;
+        return tempBoss;
     }
 
     public GameObject GetPortal(string portalName)

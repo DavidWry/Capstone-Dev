@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 4676807888349874}
   - component: {fileID: 54587183780517352}
   m_Layer: 0
-  m_Name: 13456
+  m_Name: FairBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 114194084838851634}
   m_Layer: 0
   m_Name: bus
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -318,7 +318,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1223286310376418}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 512.7, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2.4, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4749464131891386}
@@ -479,6 +479,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player1: {fileID: 0}
+  mat1: {fileID: 2100000, guid: 75f1f00dc3764c64f9881d4a96b04285, type: 3}
+  mat2: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   spark: {fileID: 1634098757104156, guid: 36ea264f7aaf24c409b915b8368efabf, type: 2}
 --- !u!114 &114121999814231650
 MonoBehaviour:
@@ -537,6 +539,7 @@ MonoBehaviour:
   range: 100
   originalpos: {x: 0, y: 0, z: 0}
   supposetomove: 0
+  remainingtime: 0
 --- !u!114 &114408140362015614
 MonoBehaviour:
   m_ObjectHideFlags: 1

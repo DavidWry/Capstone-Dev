@@ -633,39 +633,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4676807888349874, guid: 88e9ed6318010b74c8737048f7deed4c, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 212935356717506402, guid: 88e9ed6318010b74c8737048f7deed4c,
-        type: 2}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212935356717506402, guid: 88e9ed6318010b74c8737048f7deed4c,
-        type: 2}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212935356717506402, guid: 88e9ed6318010b74c8737048f7deed4c,
-        type: 2}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1799268460232038, guid: 88e9ed6318010b74c8737048f7deed4c, type: 2}
-      propertyPath: m_TagString
-      value: Boss
-      objectReference: {fileID: 0}
-    - target: {fileID: 114101227033612738, guid: 88e9ed6318010b74c8737048f7deed4c,
-        type: 2}
-      propertyPath: mat1
-      value: 
-      objectReference: {fileID: 2100000, guid: 75f1f00dc3764c64f9881d4a96b04285, type: 3}
-    - target: {fileID: 114101227033612738, guid: 88e9ed6318010b74c8737048f7deed4c,
-        type: 2}
-      propertyPath: mat2
-      value: 
-      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88e9ed6318010b74c8737048f7deed4c, type: 2}
   m_IsPrefabAsset: 0

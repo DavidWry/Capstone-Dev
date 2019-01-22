@@ -219,6 +219,21 @@ Prefab:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 224648154032687588, guid: 5459165c1a6a0d8459bae141378f4087,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 224987206703728602, guid: 5459165c1a6a0d8459bae141378f4087,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224491381450814178, guid: 5459165c1a6a0d8459bae141378f4087,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5459165c1a6a0d8459bae141378f4087, type: 2}
   m_IsPrefabAsset: 0
@@ -590,6 +605,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: EnemyList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4390172704827272, guid: 7430308c60b9dc74396db2694886222b, type: 2}
       propertyPath: m_LocalPosition.x
       value: 2.8978922
@@ -677,6 +697,36 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: EnemyList.Array.data[1]
+      value: 
+      objectReference: {fileID: 1866432659326030, guid: 09ab328fe981a7344bd6885de2e72357,
+        type: 2}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: EnemyList.Array.data[2]
+      value: 
+      objectReference: {fileID: 1444116714279436, guid: 89c2365495464d34ba1b1c3f52289862,
+        type: 2}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: EnemyList.Array.data[3]
+      value: 
+      objectReference: {fileID: 1489556863665108, guid: e1ac0005b05d6fe418e81b57aab0e4e9,
+        type: 2}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: EnemyList.Array.data[4]
+      value: 
+      objectReference: {fileID: 1100377277429338, guid: 29afc769a7c70f64fb2282c2f3471eb0,
+        type: 2}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: EnemyList.Array.data[5]
+      value: 
+      objectReference: {fileID: 1330782127039832, guid: bf9c4842646df394d9c9cf71dd22bd1f,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7430308c60b9dc74396db2694886222b, type: 2}
   m_IsPrefabAsset: 0

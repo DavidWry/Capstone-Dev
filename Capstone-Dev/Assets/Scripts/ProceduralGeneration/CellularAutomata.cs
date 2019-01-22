@@ -1003,9 +1003,9 @@ public class CellularAutomata : MonoBehaviour {
 
     void DrawEnemy()
     {
-        GameObject enemy1 = gameManager.GetEnemy("2_type1");
-        GameObject enemy2 = gameManager.GetEnemy("2_type2");
-        GameObject enemy3 = gameManager.GetEnemy("2_type3");
+        GameObject enemy1 = gameManager.GetEnemy("Minion_Type_1");
+        GameObject enemy2 = gameManager.GetEnemy("SpearThrower");
+        GameObject enemy3 = gameManager.GetEnemy("Stomper");
 
         for (int i = 0; i < levelWidth; i++)
         {
@@ -1079,6 +1079,64 @@ public class CellularAutomata : MonoBehaviour {
             }
         }
 
+    }
+
+    void DrawBoss()
+    {
+
+        bool isCreated = false;
+        int xPos = Random.Range(0, levelWidth);
+        int yPos = Random.Range(0, levelHeight);
+        for (int i = levelWidth - 1; i > -1; i--)
+        {
+            for (int j = levelHeight - 1; j > -1; j--)
+            {
+                if (cellState[i, j] == 5)
+                {
+                    if (Random.Range(1, 1000) < 5)
+                    {
+                        if (!isCreated)
+                        {
+                            player1 = Instantiate(player1, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, 0), transform.rotation);
+                            player1.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+                            player1.GetComponent<Movement>().WalkSpeed = 5;
+                            isCreated = true;
+                        }
+                    }
+
+                }
+            }
+        }
+
+        for (int i = 0; i < 8; i++)
+        {
+            int xPos = Random.Range(0, levelWidth);
+            int yPos = Random.Range(0, levelHeight);
+            int size = Random.Range(1, 4);
+            float ratio = (float)Random.Range(4, 10) / (size * 2 + 1) / (size * 2 + 1);
+            Seed(xPos, yPos, size, ratio);
+        }
+        GameObject boss = gameManager.GetBoss("Minion_Type_1");
+     
+
+        for (int i = 0; i < levelWidth; i++)
+        {
+            for (int j = 0; j < levelHeight; j++)
+            {
+                if (cellState[i, j] == 100)
+                {
+                    Instantiate(enemy1, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
+                }
+                else if (cellState[i, j] == 101)
+                {
+                    Instantiate(enemy2, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
+                }
+                else if (cellState[i, j] == 102)
+                {
+                    Instantiate(enemy3, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
+                }
+            }
+        }
     }
 
 }
