@@ -607,6 +607,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
+      propertyPath: BossList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
       propertyPath: EnemyList.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -726,6 +731,12 @@ Prefab:
       propertyPath: EnemyList.Array.data[5]
       value: 
       objectReference: {fileID: 1330782127039832, guid: bf9c4842646df394d9c9cf71dd22bd1f,
+        type: 2}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: BossList.Array.data[0]
+      value: 
+      objectReference: {fileID: 1223286310376418, guid: 88e9ed6318010b74c8737048f7deed4c,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7430308c60b9dc74396db2694886222b, type: 2}

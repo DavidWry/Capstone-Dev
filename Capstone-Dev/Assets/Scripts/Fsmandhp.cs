@@ -12,7 +12,7 @@ public class Fsmandhp : MonoBehaviour {
     public float DistanceBP;
     public float DistanceBO;
     private GameObject player;
-    public float range=300;
+    public float range=100;
     public Vector3 originalpos;
     public bool supposetomove=false;
     private int yuancount=0;

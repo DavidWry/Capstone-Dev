@@ -16,12 +16,15 @@ namespace AssemblyCSharp
         public GameObject spark;
         // Use this for initialization
         void Start() {
-            player1 = GameObject.FindGameObjectWithTag("Player");
+            if(!player1)
+                player1 = GameObject.FindGameObjectWithTag("Player");
             playerbody = player1.GetComponent<Rigidbody>();
         }
 
         // Update is called once per frame
         void Update() {
+            if (!player1)
+                player1 = GameObject.FindGameObjectWithTag("Player");
             Vector3 newvec = (this.transform.position - player1.transform.position);
 
             if (zaixiqi)

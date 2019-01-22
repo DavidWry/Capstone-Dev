@@ -6,8 +6,8 @@ public class Boss1movement : MonoBehaviour {
     private GameObject boss;
     private bool supposetomove1=false;
     private float range;
-    Vector3 upperright= new Vector3(500, 500, 0);
-    Vector3 lowerleft=new Vector3(-500,-500,0);
+    Vector3 upperright= new Vector3(100, 100, 0);
+    Vector3 lowerleft=new Vector3(-100,-100,0);
     Vector3 targetvec;
     bool valid = false;
     int moveref;
