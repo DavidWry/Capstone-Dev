@@ -46,7 +46,7 @@ public class EnemyJumper : MonoBehaviour {
           
             
         }
-        if (Vector3.Distance(startPos.position, endPos.position) <= 1.0)
+        if (Vector3.Distance(startPos.position, endPos.position) <= 1.5)
         {
             Destroy(gameObject);
         }

@@ -22,6 +22,8 @@ public class EnemyRangedStomp : MonoBehaviour
     private DropProbability probability = null;
     private GameManager gameManager = null;
 
+    private Animator anim;
+
     /*private float coneSize =100;
     private float xSpread;
     private float ySpread;
@@ -42,6 +44,8 @@ public class EnemyRangedStomp : MonoBehaviour
         probability = gameObject.GetComponent<DropProbability>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
+        anim = GetComponent<Animator>();
+
         //projectileArray = new GameObject[numProjectiles];
     }
 
@@ -55,6 +59,8 @@ public class EnemyRangedStomp : MonoBehaviour
             {
                 if (timeBetweenShots <= 0)
                 {
+                    anim.SetTrigger("Attack");
+                    anim.SetBool("isRunning", false);
                     for (int i = 0; i < numProjectiles; i++)
                     {
                         Quaternion projRotation = transform.rotation;
@@ -71,10 +77,16 @@ public class EnemyRangedStomp : MonoBehaviour
                     timeBetweenShots -= Time.deltaTime;
                 }
             }
-            if (Vector2.Distance(transform.position, player.position) <= chaseRange && Vector2.Distance(transform.position, player.position) > rangeForAttack)
+            else if (Vector2.Distance(transform.position, player.position) <= chaseRange && Vector2.Distance(transform.position, player.position) > rangeForAttack)
             {
                 transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+                anim.SetBool("isRunning", true);
             }
+            else
+            {
+                anim.SetBool("isRunning", false);
+            }
+
 
             if (health <= 0)
             {

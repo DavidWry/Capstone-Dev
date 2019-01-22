@@ -21,6 +21,8 @@ public class EnemyRangedSpear : MonoBehaviour
     private DropProbability probability = null;
     private GameManager gameManager = null;
 
+    private Animator anim;
+
 
     void Start ()
     {
@@ -36,6 +38,8 @@ public class EnemyRangedSpear : MonoBehaviour
         probability = gameObject.GetComponent<DropProbability>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
+        anim = GetComponent<Animator>();
+
         //projectileArray = new GameObject[numProjectiles];
     }
 	
@@ -50,6 +54,8 @@ public class EnemyRangedSpear : MonoBehaviour
                 if (timeBetweenShots <= 0)
                 {
                     Instantiate(projectile, transform.position, Quaternion.identity);
+                    anim.SetTrigger("Attack");
+                    anim.SetBool("isRunning", false);
                     timeBetweenShots = startTimeBetweenShots;
                 }
                 else
@@ -57,9 +63,15 @@ public class EnemyRangedSpear : MonoBehaviour
                     timeBetweenShots -= Time.deltaTime;
                 }
             }
-            if (Vector2.Distance(transform.position, player.position) <= chaseRange && Vector2.Distance(transform.position, player.position) > rangeForAttack)
+            else if (Vector2.Distance(transform.position, player.position) <= chaseRange && Vector2.Distance(transform.position, player.position) > rangeForAttack)
             {
+                
                 transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+                anim.SetBool("isRunning", true);
+            }
+            else
+            {
+                anim.SetBool("isRunning", false);
             }
 
             if (health <= 0)
