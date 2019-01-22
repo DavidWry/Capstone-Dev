@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Xml;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TextBoxManager : MonoBehaviour {
+public class TextBoxManagerXML : MonoBehaviour {
+
     public GameObject TextBox;
     public GameObject Player;
     public Text TextContent;
@@ -22,26 +25,19 @@ public class TextBoxManager : MonoBehaviour {
     private bool isTyping = false;
     private bool cancelTyping = false;
 
-    public string playerName;
-    public string npcName;
-    private bool NameTag = false;                    //false is NPC. 
-
     [SerializeField]
     private float typingSpeed = 0.02f;
+
+    public const string path = "TestXML";
+    private DialogueContainer dialogueContainer;
 
     // Use this for initialization
     void Start()
     {
+        dialogueContainer = DialogueContainer.Load(path);      
         currentLine = 0;
         Player = GameObject.FindWithTag("Player");
-        if (TextFile != null)
-        {
-            textLines = (TextFile.text.Split('\n'));
-        }
-        if (endOfLine == 0)
-        {
-            endOfLine = textLines.Length - 1;
-        }
+        endOfLine = dialogueContainer.lines.Count;
     }
 
     // Update is called once per frame
@@ -51,26 +47,16 @@ public class TextBoxManager : MonoBehaviour {
         {
             if (!isTyping)
             {
-                if (NameTag)
-                {
-                    NameBox.text = playerName;
-                    NameTag = false;
-                }
-                else
-                {
-                    NameBox.text = npcName;
-                    NameTag = true;
-                }
-                currentLine ++;
+                currentLine++;
                 if (currentLine > endOfLine)
                 {
                     DisableTextBox();
                 }
                 else
                 {
-                    StartCoroutine(TextScroll(textLines[currentLine]));
+                    NameBox.text = dialogueContainer.lines[currentLine - 1].Name;
+                    StartCoroutine(TextScroll(dialogueContainer.lines[currentLine - 1].Content));
                 }
-
             }
             else if (isTyping && !cancelTyping)
             {
@@ -80,13 +66,13 @@ public class TextBoxManager : MonoBehaviour {
 
     }
 
-    private IEnumerator TextScroll (string lineOfText)
+    private IEnumerator TextScroll(string lineOfText)
     {
         int letter = 0;
         TextContent.text = "";
         isTyping = true;
         cancelTyping = false;
-        while(isTyping && !cancelTyping && (letter < lineOfText.Length - 1))
+        while (isTyping && !cancelTyping && (letter < lineOfText.Length - 1))
         {
             TextContent.text += lineOfText[letter];
             letter++;
@@ -103,7 +89,6 @@ public class TextBoxManager : MonoBehaviour {
         Player.GetComponent<Movement>().enabled = false;
         Player.GetComponent<Shoot>().enabled = false;
         isActive = true;
-        NameTag = false;
     }
 
     public void DisableTextBox()
@@ -115,14 +100,8 @@ public class TextBoxManager : MonoBehaviour {
         isActive = false;
     }
 
-    public void ReloadText(TextAsset newText)
+    public void ReloadText(string newTextPath)
     {
-        if (newText != null)
-        {
-            textLines = new string[0];
-            textLines = newText.text.Split('\n');
-            endOfLine = textLines.Length - 1;
-            currentLine = 0;
-        }
+        dialogueContainer = DialogueContainer.Load(path);
     }
 }

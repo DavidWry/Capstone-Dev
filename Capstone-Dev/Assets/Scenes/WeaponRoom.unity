@@ -9131,6 +9131,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114316243410899306, guid: 5459165c1a6a0d8459bae141378f4087,
+        type: 2}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 251957654}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5459165c1a6a0d8459bae141378f4087, type: 2}
   m_IsPrefabAsset: 0
@@ -9959,6 +9964,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theTextBox: {fileID: 0}
+  NPCText: (
+  NPCName: Switch
 --- !u!65 &1034309975
 BoxCollider:
   m_ObjectHideFlags: 0

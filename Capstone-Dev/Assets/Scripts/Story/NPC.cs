@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour {
 
-    public TextBoxManager theTextBox;
+    public TextBoxManagerXML theTextBox;
+    public string NPCText = "TestXML";
+    [SerializeField]
+    private string NPCName = "NPC";
 
 	// Use this for initialization
 	void Start () {
-        theTextBox = FindObjectOfType<TextBoxManager>();
+        theTextBox = FindObjectOfType<TextBoxManagerXML>();
 	}
 	
 	// Update is called once per frame
@@ -22,7 +25,11 @@ public class NPC : MonoBehaviour {
         {
             if (Input.GetButtonDown("AButton"))
             {
-                theTextBox.EnableTextBox();
+                if (!theTextBox.isActive)
+                {
+                    theTextBox.ReloadText(NPCText);
+                    theTextBox.EnableTextBox();
+                }
             }
         }
     }
