@@ -1137,59 +1137,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}
-    - target: {fileID: 114539793252749876, guid: 53c48bee7d55ecc48af61050d2c56229,
-        type: 2}
-      propertyPath: GoldenFinger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114700414012763062, guid: 53c48bee7d55ecc48af61050d2c56229,
-        type: 2}
-      propertyPath: rightWeapon.ShotFX
-      value: 
-      objectReference: {fileID: 1000013086863710, guid: bfa2421e2a82beb4a9c7d7cdc2577f76,
-        type: 2}
-    - target: {fileID: 4388373643902428, guid: 53c48bee7d55ecc48af61050d2c56229, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4388373643902428, guid: 53c48bee7d55ecc48af61050d2c56229, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4388373643902428, guid: 53c48bee7d55ecc48af61050d2c56229, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114552904399088650, guid: 53c48bee7d55ecc48af61050d2c56229,
-        type: 2}
-      propertyPath: WalkSpeed
-      value: 79.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 54158255408492160, guid: 53c48bee7d55ecc48af61050d2c56229,
-        type: 2}
-      propertyPath: m_Drag
-      value: 14.73
-      objectReference: {fileID: 0}
-    - target: {fileID: 114539793252749876, guid: 53c48bee7d55ecc48af61050d2c56229,
-        type: 2}
-      propertyPath: BulletSizeUp
-      value: 31.93
-      objectReference: {fileID: 0}
-    - target: {fileID: 114700414012763062, guid: 53c48bee7d55ecc48af61050d2c56229,
-        type: 2}
-      propertyPath: rightWeapon.ProjectileSpeed
-      value: 87.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 114700414012763062, guid: 53c48bee7d55ecc48af61050d2c56229,
-        type: 2}
-      propertyPath: rightWeapon.TimeBetweenShot
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114700414012763062, guid: 53c48bee7d55ecc48af61050d2c56229,
-        type: 2}
-      propertyPath: rightWeapon.ReloadTime
-      value: 0.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53c48bee7d55ecc48af61050d2c56229, type: 2}
   m_IsPrefabAsset: 0

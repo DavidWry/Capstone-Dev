@@ -530,13 +530,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b613e4c058bd05d47834228d7a526036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+  hp: 500
   jiguang: {fileID: 1429517382218680}
   toufazuo: {fileID: 1141555934845864}
   toufayou: {fileID: 1389141280431712}
   DistanceBP: 0
   DistanceBO: 0
-  range: 100
+  range: 20
   originalpos: {x: 0, y: 0, z: 0}
   supposetomove: 0
   remainingtime: 0
@@ -9676,8 +9676,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 589507203
+  m_SortingLayer: 7
   m_SortingOrder: 1633
   m_RenderMode: 0
   m_SortMode: 0
@@ -9733,8 +9733,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 589507203
+  m_SortingLayer: 7
   m_SortingOrder: 1633
   m_RenderMode: 0
   m_SortMode: 0
@@ -9788,8 +9788,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 589507203
+  m_SortingLayer: 7
   m_SortingOrder: 1607
   m_Sprite: {fileID: 21300000, guid: c3e814a9dc6ce1b41af1186e70bb2d27, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -9834,8 +9834,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 589507203
+  m_SortingLayer: 7
   m_SortingOrder: 1607
   m_Sprite: {fileID: 21300000, guid: c3e814a9dc6ce1b41af1186e70bb2d27, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

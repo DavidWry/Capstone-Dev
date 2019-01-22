@@ -8,7 +8,7 @@ namespace AssemblyCSharp
         Rigidbody playerbody;
         public Material mat1;
         public Material mat2;
-        int xishu = -18000;
+        int xishu = -1000;
         bool zaixiqi = false;
         bool invin = false;
         bool hitflash = false;
@@ -16,9 +16,11 @@ namespace AssemblyCSharp
         public GameObject spark;
         // Use this for initialization
         void Start() {
-            if(!player1)
+            if (GameObject.FindGameObjectWithTag("Player"))
+            {
                 player1 = GameObject.FindGameObjectWithTag("Player");
-            playerbody = player1.GetComponent<Rigidbody>();
+                playerbody = player1.GetComponent<Rigidbody>();
+            }
         }
 
         // Update is called once per frame
@@ -68,37 +70,41 @@ namespace AssemblyCSharp
         }
         void OnTriggerEnter(Collider other)
         {
+            if (player1)
+            {
 
-
-            Vector3 newvec = (this.transform.position - player1.transform.position);
+                Vector3 newvec = (this.transform.position - player1.transform.position);
             newvec = newvec.normalized;
-            if (other.gameObject == player1)
-            {
+         
+                if (other.gameObject == player1)
+                {
 
-                player1.GetComponent<Player>().TakeDamage(5);
-                playerbody.AddForce(newvec * xishu);
-                invin = true;
+                    player1.GetComponent<Player>().TakeDamage(5);
+                    playerbody.AddForce(newvec * xishu);
+                    invin = true;
+                }
+                if (other.gameObject.tag == "Projectile")
+                {
+                    hitflash = true;
+
+                }
             }
-            if (other.gameObject.tag == "Projectile")
-            {
-                hitflash = true;
-
-            }
-
         }
         void OnTriggerStay(Collider other)
         {
-            Vector3 newvec = (this.transform.position - player1.transform.position);
-            newvec = newvec.normalized;
-            if (other.gameObject == player1)
+            if (player1)
             {
+                Vector3 newvec = (this.transform.position - player1.transform.position);
+                newvec = newvec.normalized;
+                if (other.gameObject == player1)
+                {
 
 
-                playerbody.AddForce(newvec * xishu);
-                invin = true;
+                    playerbody.AddForce(newvec * xishu);
+                    invin = true;
+                }
+
             }
-
-
         }
 
 

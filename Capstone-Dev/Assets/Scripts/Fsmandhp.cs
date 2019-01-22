@@ -12,7 +12,7 @@ public class Fsmandhp : MonoBehaviour {
     public float DistanceBP;
     public float DistanceBO;
     private GameObject player;
-    public float range=100;
+    public float range=20;
     public Vector3 originalpos;
     public bool supposetomove=false;
     private int yuancount=0;
@@ -28,7 +28,7 @@ public class Fsmandhp : MonoBehaviour {
         anim = a.GetComponent<Animator>();
         originalpos = gameObject.transform.parent.transform.position;
         remainingtime = Random.Range(3.0f, 5.0f);
-        nexspot = new Vector3(player.transform.position.x + Random.Range(-50.0f, 50.0f), player.transform.position.y + Random.Range(-50.0f, 50.0f), 0);
+        nexspot = new Vector3(player.transform.position.x + Random.Range(-10.0f, 10.0f), player.transform.position.y + Random.Range(-10.0f, 10.0f), 0);
     }
 	
 	// Update is called once per frame
@@ -105,12 +105,12 @@ public class Fsmandhp : MonoBehaviour {
 
                     walk = true;
                     print(Vector3.Distance(nexspot, originalpos));
-                    nexspot = new Vector3(player.transform.position.x + Random.Range(-50.0f, 50.0f), player.transform.position.y + Random.Range(-50.0f, 50.0f), 0);
+                    nexspot = new Vector3(player.transform.position.x + Random.Range(-10.0f, 10.0f), player.transform.position.y + Random.Range(-10.0f, 10.0f), 0);
                     while (Vector3.Distance(nexspot,originalpos)>range)
                     {
 
                         
-                        nexspot = new Vector3(player.transform.position.x + Random.Range(-50.0f, 50.0f), player.transform.position.y + Random.Range(-50.0f, 50.0f), 0);
+                        nexspot = new Vector3(player.transform.position.x + Random.Range(-10.0f, 10.0f), player.transform.position.y + Random.Range(-10.0f, 10.0f), 0);
                       
                     }
 

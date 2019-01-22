@@ -35,7 +35,7 @@ public class Fireinthehoe : MonoBehaviour {
     {
 
         GameObject frb = Instantiate(fireball1, fireballpos.gameObject.transform.position, Quaternion.identity);
-        print("nmsl");
+     
 
     }
 }
