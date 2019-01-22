@@ -26,7 +26,7 @@ public class EnemyJumper : MonoBehaviour {
         attackRange = 5f;
         startPos = gameObject.transform;
         endPos = GameObject.FindGameObjectWithTag("Player").transform;
-        //target = new Vector3(endPos.position.x, endPos.position.y, endPos.position.z);
+        target = new Vector3(endPos.position.x, endPos.position.y, endPos.position.z);
         
 
     }
@@ -36,7 +36,7 @@ public class EnemyJumper : MonoBehaviour {
        // if (transform.position.x == target.x && transform.position.y == target.y )
        
 
-        if (Vector3.Distance(startPos.position,endPos.position) <= attackRange)
+        if (Vector3.Distance(startPos.position,target) <= attackRange)
         {
            
                 GetCenter(Vector3.up);
@@ -46,10 +46,10 @@ public class EnemyJumper : MonoBehaviour {
           
             
         }
-        if (Vector3.Distance(startPos.position, endPos.position) <= 1.5)
+        /*if (Vector3.Distance(startPos.position, endPos.position) <= 1.5)
         {
             Destroy(gameObject);
-        }
+        }*/
 
             if (health <= 0)
         {
@@ -62,9 +62,9 @@ public class EnemyJumper : MonoBehaviour {
     }
     private void GetCenter(Vector3 direction)
     {
-        centerPoint = (startPos.position + endPos.position) * 0.5f;
+        centerPoint = (startPos.position + target) * 0.5f;
         centerPoint -= direction;
         startRelCenter = startPos.position - centerPoint;
-        endRelCenter = endPos.position - centerPoint;
+        endRelCenter = target - centerPoint;
     }
 }

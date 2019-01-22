@@ -24,10 +24,10 @@ public class EnemyRangedStomp : MonoBehaviour
 
     private Animator anim;
 
-    /*private float coneSize =100;
+    private float coneSize =100;
     private float xSpread;
     private float ySpread;
-    private Vector3 spread;*/
+    private Vector3 spread;
 
 
     void Start()
@@ -46,7 +46,6 @@ public class EnemyRangedStomp : MonoBehaviour
 
         anim = GetComponent<Animator>();
 
-        //projectileArray = new GameObject[numProjectiles];
     }
 
 
@@ -63,9 +62,14 @@ public class EnemyRangedStomp : MonoBehaviour
                     anim.SetBool("isRunning", false);
                     for (int i = 0; i < numProjectiles; i++)
                     {
-                        Quaternion projRotation = transform.rotation;
-                        projRotation.x += Random.Range(-spreadFactor, spreadFactor);
-                        projRotation.y += Random.Range(-spreadFactor, spreadFactor);
+                        // transform.LookAt(player);
+                          Quaternion projRotation = transform.rotation;
+                         projRotation.x += Random.Range(-spreadFactor, spreadFactor);
+                         projRotation.y += Random.Range(-spreadFactor, spreadFactor);
+                       // xSpread = Random.Range(-1, 1);
+                      //  ySpread = Random.Range(-1, 1);
+                        //Vector3 spread = new Vector3(spreadFactor, spreadFactor, 0.0f).normalized * coneSize;
+                       // Quaternion rotation = Quaternion.Euler(spread) * transform.rotation;
                         Instantiate(projectile, transform.position, projRotation);
 
                     }

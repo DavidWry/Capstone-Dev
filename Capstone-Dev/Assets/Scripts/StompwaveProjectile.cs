@@ -33,7 +33,7 @@ public class StompwaveProjectile : MonoBehaviour {
 
         //Once instantiated, head to the player's position
         //transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
-        transform.position += transform.forward * speed * Time.deltaTime;
+        transform.position += transform.right * speed * Time.deltaTime;
         if (Vector3.Distance(initialPos, transform.position) >= travelDistance)
         {
             DestroyProjectile();
