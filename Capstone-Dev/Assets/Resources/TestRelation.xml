@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CharacterTree>
+  <CharacterNodes>
+    <CharacterNode name = "Nick">
+      <ID>01</ID>
+      <Childs>
+        <Child>02</Child>
+        <Child>03</Child>
+      </Childs>
+      <State>Start</State>
+    </CharacterNode>
+    <CharacterNode name ="Dick">
+      <ID>02</ID>
+      <Childs>
+      </Childs>
+      <State>End</State>
+    </CharacterNode>
+  </CharacterNodes>
+</CharacterTree>
