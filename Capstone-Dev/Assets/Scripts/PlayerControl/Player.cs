@@ -11,6 +11,7 @@ using AssemblyCSharp;
         public GameObject LeftTarget;
         public GameObject RightTarget;
         public int CombineType;
+        public string[] NPCIDs;          //NPCs player met.
 
         public Transform LeftHand;
         public Transform RightHand;
@@ -212,6 +213,18 @@ using AssemblyCSharp;
         public void TakeDamage(int Damage)
         {
             HitPoint -= Damage;
+        }
+
+        public void SavePlayerData()
+        {
+            SaveSystem.SavePlayer(this);
+        }
+
+        public void LoadPlayerData()
+        {
+            PlayerData data = SaveSystem.LoadPlayer();
+
+            //Loading process will depend on what kind of situation.
         }
     }
     }
