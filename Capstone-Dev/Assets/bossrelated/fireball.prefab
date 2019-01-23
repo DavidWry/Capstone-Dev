@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4279784872911534}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 135448788562531748}
   - component: {fileID: 114890520062697476}
   - component: {fileID: 54307211535379366}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}

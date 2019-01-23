@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4183270787203220}
   - component: {fileID: 198962958130371844}
   - component: {fileID: 199979468027945252}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4223909456662530}
   - component: {fileID: 114730372112999270}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: New Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 135306385834326522}
   - component: {fileID: 54531469936963838}
   - component: {fileID: 114361440501128022}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4765,8 +4765,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 589507203
+  m_SortingLayer: 7
   m_SortingOrder: 2041
   m_RenderMode: 0
   m_SortMode: 0

@@ -104,9 +104,9 @@ public class Fsmandhp : MonoBehaviour {
                     remainingtime = Random.Range(3.0f, 5.0f);
 
                     walk = true;
-                    print(Vector3.Distance(nexspot, originalpos));
+                 
                     nexspot = new Vector3(player.transform.position.x + Random.Range(-10.0f, 10.0f), player.transform.position.y + Random.Range(-10.0f, 10.0f), 0);
-                    while (Vector3.Distance(nexspot,originalpos)>range)
+                    while (Vector3.Distance(nexspot,originalpos)>range||nexspot.x>100||nexspot.y>100||nexspot.x<0||nexspot.y<0)
                     {
 
                         
