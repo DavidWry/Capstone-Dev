@@ -25,7 +25,6 @@ GameObject:
   - component: {fileID: 114314465829823620}
   - component: {fileID: 114949589349740256}
   - component: {fileID: 95562033313078478}
-  - component: {fileID: 114842581777259520}
   m_Layer: 0
   m_Name: Stomper
   m_TagString: Minion
@@ -113,7 +112,7 @@ MonoBehaviour:
     WeaponName: 0
     itemObj: {fileID: 1876295848165562, guid: 4cb0c877680f8dc429745e95ede68fb5, type: 2}
     Probability: 100
---- !u!114 &114842581777259520
+--- !u!114 &114949589349740256
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,28 +120,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1444116714279436}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7a9f4fd9a7a5434a99cd94103c5fdfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numberOfProjectiles: 100
-  projectileSpeed: 4
-  ProjectilePrefab: {fileID: 1879253388266996, guid: 091540548d3ce1941b9c369cf92ea2dc,
-    type: 2}
-  speed: 3
---- !u!114 &114949589349740256
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1444116714279436}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e8cd61a8c04e744a8edc1eddc21c6c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  projectile: {fileID: 1879253388266996, guid: 091540548d3ce1941b9c369cf92ea2dc, type: 2}
-  crystal: {fileID: 1723111770143308, guid: 87d9caedefed26f4fb4294bec5cd39ad, type: 2}
+  numberOfProjectiles: 12
+  projectileSpeed: 2
+  ProjectilePrefab: {fileID: 1879253388266996, guid: 091540548d3ce1941b9c369cf92ea2dc,
+    type: 2}
+  speed: 4
 --- !u!212 &212406157120643782
 SpriteRenderer:
   m_ObjectHideFlags: 1

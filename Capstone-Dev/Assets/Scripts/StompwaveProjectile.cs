@@ -5,7 +5,7 @@ using AssemblyCSharp;
 
 public class StompwaveProjectile : MonoBehaviour {
 
-   // public float speed;
+   
     private Player player2;
     private Transform player;
     private Vector3 target;
@@ -17,8 +17,6 @@ public class StompwaveProjectile : MonoBehaviour {
     void Start()
     {
         damage = 8;
-        //speed = 5;
-        //var trail = GameObject.FindGameObjectsWithTag("Stompwavetrail");
         player2 = GetComponent<Player>();
        // player = GameObject.FindGameObjectWithTag("Player").transform;
        // target = new Vector3(player.position.x, player.position.y, player.position.z);

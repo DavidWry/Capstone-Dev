@@ -1,96 +1,80 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+
 
 
 public class EnemyRangedStomp : MonoBehaviour
 {
-    private float rangeForAttack; //Within what range the enemy will start and continue attacking the player
-    private float chaseRange;
 
+    public int numberOfProjectiles;             // Number of projectiles to shoot.
+    public float projectileSpeed;               // Speed of the projectile.
+    public GameObject ProjectilePrefab;         // Prefab to spawn.
+
+
+    private Vector3 startPoint;                 // Starting position of the stomp.
+    private const float radius = 1F;            // Help us find the move direction.
+
+    private int health;
+    private float attackRange;
+    private float chaseRange;
     public float speed;
+    private Transform target;
+
+
     private float timeBetweenShots;
     private float startTimeBetweenShots;
-    private float health;
-    public GameObject projectile;
-
-    private int numProjectiles = 5;
-    private float spreadFactor = 0.1f;
-    public GameObject crystal;
-    private Transform player;
 
     private DropProbability probability = null;
     private GameManager gameManager = null;
 
     private Animator anim;
 
-    private float coneSize =100;
-    private float xSpread;
-    private float ySpread;
-    private Vector3 spread;
 
-
-    void Start()
+    private void Start()
     {
-
-        health = 55;
-        speed = 2.3f;
-        rangeForAttack = 5;
+        health = 75;
+        attackRange = 5f;
         chaseRange = 6;
         startTimeBetweenShots = 2.5f;
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        timeBetweenShots = startTimeBetweenShots - 1.5f;
-
-        probability = gameObject.GetComponent<DropProbability>();
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-
+        timeBetweenShots = startTimeBetweenShots;
+        target = GameObject.FindGameObjectWithTag("Player").transform;
         anim = GetComponent<Animator>();
+
 
     }
 
-
-    void FixedUpdate()
+    // Update is called once per frame
+    void Update()
     {
-        //Attack if under the range
-        if (player != null)
+        if (target != null)
         {
-            if (Vector2.Distance(transform.position, player.position) <= rangeForAttack)
+            startPoint = transform.position;
+
+            if (Vector3.Distance(startPoint, target.position) <= attackRange)
             {
                 if (timeBetweenShots <= 0)
                 {
                     anim.SetTrigger("Attack");
                     anim.SetBool("isRunning", false);
-                    for (int i = 0; i < numProjectiles; i++)
-                    {
-                        // transform.LookAt(player);
-                          Quaternion projRotation = transform.rotation;
-                         projRotation.x += Random.Range(-spreadFactor, spreadFactor);
-                         projRotation.y += Random.Range(-spreadFactor, spreadFactor);
-                       // xSpread = Random.Range(-1, 1);
-                      //  ySpread = Random.Range(-1, 1);
-                        //Vector3 spread = new Vector3(spreadFactor, spreadFactor, 0.0f).normalized * coneSize;
-                       // Quaternion rotation = Quaternion.Euler(spread) * transform.rotation;
-                        Instantiate(projectile, transform.position, projRotation);
-
-                    }
-
+                    SpawnProjectile(numberOfProjectiles);
                     timeBetweenShots = startTimeBetweenShots;
+
                 }
                 else
                 {
                     timeBetweenShots -= Time.deltaTime;
                 }
+
             }
-            else if (Vector2.Distance(transform.position, player.position) <= chaseRange && Vector2.Distance(transform.position, player.position) > rangeForAttack)
+            else if (Vector2.Distance(transform.position, target.position) <= chaseRange && Vector2.Distance(transform.position, target.position) > attackRange)
             {
-                transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+
+                transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
                 anim.SetBool("isRunning", true);
             }
             else
             {
-                anim.SetBool("isRunning", false);
+                  anim.SetBool("isRunning", false);
             }
-
 
             if (health <= 0)
             {
@@ -109,25 +93,40 @@ public class EnemyRangedStomp : MonoBehaviour
                 //Instantiate(crystal, transform.position,Quaternion.identity);
             }
 
+
         }
 
     }
 
-    /*private void OnTriggerEnter(Collider other)
+    // Spawns x number of projectiles.
+    private void SpawnProjectile(int _numberOfProjectiles)
     {
-        // if hit then move to the opposite direction to show a PUSHBACK effect
-        if (other.CompareTag("Projectile"))
+        float angleStep = 360f / _numberOfProjectiles;
+        float angle = 0f;
+
+        for (int i = 0; i <= _numberOfProjectiles - 1; i++)
         {
-            gameObject.GetComponent<Rigidbody>().AddForce(-transform.right * 2);
-            gameObject.GetComponent<Rigidbody>().velocity = Vector2.ClampMagnitude(gameObject.GetComponent<Rigidbody>().velocity, 1);
-            Debug.Log("000");
+            // Direction calculations.
+            float projectileDirXPosition = startPoint.x + Mathf.Sin((angle * Mathf.PI) / 180) * radius;
+            float projectileDirYPosition = startPoint.y + Mathf.Cos((angle * Mathf.PI) / 180) * radius;
+
+            // Create vectors.
+            Vector3 projectileVector = new Vector3(projectileDirXPosition, projectileDirYPosition, 0);
+            Vector3 projectileMoveDirection = (projectileVector - startPoint).normalized * projectileSpeed;
+
+            // Create game objects.
+            GameObject tmpObj = Instantiate(ProjectilePrefab, startPoint, Quaternion.identity);
+            tmpObj.GetComponent<Rigidbody>().velocity = new Vector3(projectileMoveDirection.x, projectileMoveDirection.y, 0);
+
+            // Destory the gameobject after 10 seconds.
+            Destroy(tmpObj, 3F);
+
+            angle += angleStep;
         }
-    }*/
+    }
 
     public void TakeDamage(int damage)
     {
         health -= damage;
-
     }
-
 }
