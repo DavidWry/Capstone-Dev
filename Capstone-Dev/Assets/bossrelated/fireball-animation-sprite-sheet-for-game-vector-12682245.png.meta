@@ -1,0 +1,519 @@
+fileFormatVersion: 2
+guid: b51e8479a1171744aa9ed953c1cf61b4
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: fireball-animation-sprite-sheet-for-game-vector-12682245_0
+    21300002: fireball-animation-sprite-sheet-for-game-vector-12682245_2
+    21300004: fireball-animation-sprite-sheet-for-game-vector-12682245_4
+    21300006: fireball-animation-sprite-sheet-for-game-vector-12682245_7
+    21300008: fireball-animation-sprite-sheet-for-game-vector-12682245_8
+    21300010: fireball-animation-sprite-sheet-for-game-vector-12682245_10
+    21300012: fireball-animation-sprite-sheet-for-game-vector-12682245_11
+    21300014: fireball-animation-sprite-sheet-for-game-vector-12682245_12
+    21300016: fireball-animation-sprite-sheet-for-game-vector-12682245_13
+    21300018: fireball-animation-sprite-sheet-for-game-vector-12682245_14
+    21300020: fireball-animation-sprite-sheet-for-game-vector-12682245_15
+    21300022: fireball-animation-sprite-sheet-for-game-vector-12682245_16
+    21300024: fireball-animation-sprite-sheet-for-game-vector-12682245_17
+    21300026: fireball-animation-sprite-sheet-for-game-vector-12682245_18
+    21300028: fireball-animation-sprite-sheet-for-game-vector-12682245_19
+    21300030: fireball-animation-sprite-sheet-for-game-vector-12682245_20
+    21300032: fireball-animation-sprite-sheet-for-game-vector-12682245_21
+    21300034: fireball-animation-sprite-sheet-for-game-vector-12682245_22
+    21300036: fireball-animation-sprite-sheet-for-game-vector-12682245_23
+    21300038: fireball-animation-sprite-sheet-for-game-vector-12682245_24
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: fireball-animation-sprite-sheet-for-game-vector-12682245_0
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 856
+        width: 483
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ea86eeb01c128548969e27098b56d89
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireball-animation-sprite-sheet-for-game-vector-12682245_2
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 546
+        width: 424
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0aae8ef010e978943a109057cd22bed0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireball-animation-sprite-sheet-for-game-vector-12682245_4
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 520
+        width: 436
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8985e061381518f44868f916ad67af9d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireball-animation-sprite-sheet-for-game-vector-12682245_7
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 231
+        width: 462
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caaa1258fe865304f8665cea845ba772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireball-animation-sprite-sheet-for-game-vector-12682245_8
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 214
+        width: 406
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85e15db9163e44d4a9dee14d680e9fcc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireball-animation-sprite-sheet-for-game-vector-12682245_10
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 26
+        width: 36
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a25b1efb3416b6b4b8703de8832863ce
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireball-animation-sprite-sheet-for-game-vector-12682245_11
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 37
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cb511538b5640f4fb912d7b22c9eec6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireball-animation-sprite-sheet-for-game-vector-12682245_12
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 26
+        width: 36
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05e935013478dec41873f0bb17c2a663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireball-animation-sprite-sheet-for-game-vector-12682245_13
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 26
+        width: 59
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da992df9cddfcc94f8ca1f22a994eae5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireball-animation-sprite-sheet-for-game-vector-12682245_14
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 26
+        width: 33
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c5c045eb3af3654fb5b1db5f5c73a5c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireball-animation-sprite-sheet-for-game-vector-12682245_15
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 43
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e384af42d2c76f44ca8c89e9753adf14
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireball-animation-sprite-sheet-for-game-vector-12682245_16
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 26
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b34d205d19d18741924e9a04a5309eb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireball-animation-sprite-sheet-for-game-vector-12682245_17
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 27
+        width: 33
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2405261fcc06ef444bba2a90a83cfb31
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireball-animation-sprite-sheet-for-game-vector-12682245_18
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 33
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5be17684a98d7104183799802dfcd264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireball-animation-sprite-sheet-for-game-vector-12682245_19
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 27
+        width: 34
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40f1dcc313a62504b953fa92c9ba5105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireball-animation-sprite-sheet-for-game-vector-12682245_20
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 27
+        width: 37
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38c6b31b1f6ad96408a9130832e722d8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireball-animation-sprite-sheet-for-game-vector-12682245_21
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 27
+        width: 37
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66d3440d0a58b9e45b6bab25ff9ee226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireball-animation-sprite-sheet-for-game-vector-12682245_22
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 26
+        width: 42
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 000aa771f893d2e4c9df06256a96b5ab
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireball-animation-sprite-sheet-for-game-vector-12682245_23
+      rect:
+        serializedVersion: 2
+        x: 909
+        y: 27
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1be2bfe151804614fa9fb6cfce7eb13a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireball-animation-sprite-sheet-for-game-vector-12682245_24
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 27
+        width: 43
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26727fea0073fbf47ae753cd67c48491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 2186f2937adf9a94ea4c95c71a92dae9
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
