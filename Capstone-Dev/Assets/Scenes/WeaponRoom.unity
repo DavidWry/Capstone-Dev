@@ -8658,6 +8658,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114700414012763062, guid: 53c48bee7d55ecc48af61050d2c56229,
+        type: 2}
+      propertyPath: NPCIDs.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4388373643902428, guid: 53c48bee7d55ecc48af61050d2c56229, type: 2}
       propertyPath: m_LocalPosition.x
       value: -12.51
@@ -8764,6 +8769,11 @@ Prefab:
         type: 2}
       propertyPath: GoldenFinger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114700414012763062, guid: 53c48bee7d55ecc48af61050d2c56229,
+        type: 2}
+      propertyPath: NPCIDs.Array.data[0]
+      value: 01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53c48bee7d55ecc48af61050d2c56229, type: 2}
@@ -9964,8 +9974,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theTextBox: {fileID: 0}
-  NPCText: (
+  NPCText: 
   NPCName: Switch
+  NpcID: 02
+  NpcParents: []
+  npcManager: {fileID: 0}
 --- !u!65 &1034309975
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10035,6 +10048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d1ede0c324a814f8deec1e3c828fff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  possibleIds: []
 --- !u!1001 &1083903216
 Prefab:
   m_ObjectHideFlags: 0

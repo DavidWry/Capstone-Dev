@@ -7,7 +7,7 @@ using AssemblyCSharp;
 public class PlayerData {
     public Weapon LeftWeapon;
     public Weapon RightWeapon;
-    public string[] NpcIDs;            //Npc player met.
+    public List<string> NpcIDs;            //Npc player met.
     public int Hp;
     public int Ap;
 

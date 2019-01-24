@@ -13,6 +13,9 @@
       <ID>02</ID>
       <Childs>
       </Childs>
+      <Parents>
+        <Parent>01</Parent>
+      </Parents>
       <State>End</State>
     </CharacterNode>
   </CharacterNodes>

@@ -15,6 +15,10 @@ public class CharacterNode{
     [XmlArrayItem("Child")]
     public string[] Childs;
 
+    [XmlArray("Parents")]
+    [XmlArrayItem("Parent")]
+    public string[] Parents;
+
     [XmlElement]
     public string State;
 
