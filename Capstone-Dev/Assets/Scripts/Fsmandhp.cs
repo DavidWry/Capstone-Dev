@@ -34,7 +34,7 @@ public class Fsmandhp : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
        
-        if (hp <= 30 && yuancount == 1)
+        if (hp <= 150 && yuancount == 1)
         {
            
             yuancount++;
@@ -42,7 +42,7 @@ public class Fsmandhp : MonoBehaviour {
             remainingtime = Random.Range(3.0f, 5.0f);
             walk = false;
         }
-       else if (hp <= 50 && yuancount == 0)
+       else if (hp <= 250 && yuancount == 0)
         {
             
             yuancount++;
@@ -124,7 +124,7 @@ public class Fsmandhp : MonoBehaviour {
 
 
 
-                if (hp < 50)
+                if (hp < 250)
                 {
                     int randomNum = (int)Random.Range(1, 6);
                     anim.SetInteger("stage", randomNum);
@@ -178,7 +178,7 @@ public class Fsmandhp : MonoBehaviour {
     public void insttoufa()
     {
   
-        if (hp > 30) {
+        if (hp > 150) {
             int randoma = (int)Random.Range(0, 3);
            
             if (randoma == 0) {
