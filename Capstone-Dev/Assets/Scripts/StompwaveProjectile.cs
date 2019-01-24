@@ -5,7 +5,7 @@ using AssemblyCSharp;
 
 public class StompwaveProjectile : MonoBehaviour {
 
-    public float speed;
+   // public float speed;
     private Player player2;
     private Transform player;
     private Vector3 target;
@@ -20,32 +20,33 @@ public class StompwaveProjectile : MonoBehaviour {
         //speed = 5;
         //var trail = GameObject.FindGameObjectsWithTag("Stompwavetrail");
         player2 = GetComponent<Player>();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        target = new Vector3(player.position.x, player.position.y, player.position.z);
-        travelDistance = 30f;
+       // player = GameObject.FindGameObjectWithTag("Player").transform;
+       // target = new Vector3(player.position.x, player.position.y, player.position.z);
+        travelDistance = 4f;
         initialPos = transform.position;
         //transform.rotation = Quaternion.LookRotation(target);
         // transform.LookAt(player.position);
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
 
         //Once instantiated, head to the player's position
         //transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
-        transform.position += transform.right * speed * Time.deltaTime;
+        // transform.position += transform.right * speed * Time.deltaTime;
+        
         if (Vector3.Distance(initialPos, transform.position) >= travelDistance)
         {
             DestroyProjectile();
         }
 
 
-        if (transform.position.x == target.x && transform.position.y == target.y)
+       /* if (transform.position.x == target.x && transform.position.y == target.y)
         {
             DestroyProjectile();
 
 
-        }
+        }*/
 
     }
 
