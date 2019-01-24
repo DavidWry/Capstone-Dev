@@ -43,27 +43,30 @@ public class TextBoxManagerXML : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("AButton"))
+        if (isActive)
         {
-            if (!isTyping)
+
+            if (Input.GetButtonDown("AButton"))
             {
-                currentLine++;
-                if (currentLine > endOfLine)
+                if (!isTyping)
                 {
-                    DisableTextBox();
+                    currentLine++;
+                    if (currentLine > endOfLine)
+                    {
+                        DisableTextBox();
+                    }
+                    else
+                    {
+                        NameBox.text = dialogueContainer.lines[currentLine - 1].Name;
+                        StartCoroutine(TextScroll(dialogueContainer.lines[currentLine - 1].Content));
+                    }
                 }
-                else
+                else if (isTyping && !cancelTyping)
                 {
-                    NameBox.text = dialogueContainer.lines[currentLine - 1].Name;
-                    StartCoroutine(TextScroll(dialogueContainer.lines[currentLine - 1].Content));
+                    cancelTyping = true;
                 }
-            }
-            else if (isTyping && !cancelTyping)
-            {
-                cancelTyping = true;
             }
         }
-
     }
 
     private IEnumerator TextScroll(string lineOfText)
