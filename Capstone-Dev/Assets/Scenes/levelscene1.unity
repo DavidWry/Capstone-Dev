@@ -5240,6 +5240,7 @@ GameObject:
   - component: {fileID: 644983152}
   - component: {fileID: 644983154}
   - component: {fileID: 644983153}
+  - component: {fileID: 644983155}
   m_Layer: 0
   m_Name: Minotaur - Sprite Sheet_0
   m_TagString: Untagged
@@ -5324,6 +5325,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &644983155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 644983151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed93d0a20e5038846a97e03233d49066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeSprite: {fileID: 707705570}
 --- !u!1001 &691792656
 Prefab:
   m_ObjectHideFlags: 0
@@ -5504,8 +5517,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 589507203
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b51e8479a1171744aa9ed953c1cf61b4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.81960785}
@@ -11472,6 +11485,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1662470807}
   - component: {fileID: 1662470806}
+  - component: {fileID: 1662470808}
+  - component: {fileID: 1662470809}
   m_Layer: 0
   m_Name: Potential boss 2
   m_TagString: Untagged
@@ -11543,6 +11558,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &1662470808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1662470805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4035a206c5d1fdd4987eb9baa30f9c14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &1662470809
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1662470805}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1708100441
 GameObject:
   m_ObjectHideFlags: 0
