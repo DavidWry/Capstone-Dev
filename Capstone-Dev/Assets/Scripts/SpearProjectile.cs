@@ -25,9 +25,12 @@ public class SpearProjectile : MonoBehaviour
 
     private void FixedUpdate()
     {
+
+        //spin 
         
         //Once instantiated, head to the player's position
         transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
+        transform.Rotate(Vector3.forward, Time.deltaTime * 270, Space.Self);
         if (transform.position.x == target.x && transform.position.y == target.y)
         {
             DestroyProjectile();
