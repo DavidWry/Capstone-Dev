@@ -75,24 +75,9 @@ namespace Assets.HeroEditor.Common.CharacterScripts
 			Shield = FindSpriteById(sc.Shield, description["Shield"]);
 			Bow = FindSpritesById(sc.Bow, description["Bow"]);
 			Firearms = FindSpritesById(GetWeaponCollection(WeaponType), description["Firearms"]);
-			//Firearm.Params = string.IsNullOrEmpty(description["FirearmParams"]) || FirearmCollection.Instance.Firearms == null ? new FirearmParams() : FirearmCollection.Instance.Firearms.Single(i => i.Name == description["FirearmParams"]);
+			Firearm.Params = string.IsNullOrEmpty(description["FirearmParams"]) ? new FirearmParams() : FirearmCollection.Instance.Firearms.Single(i => i.Name == description["FirearmParams"]);
 			Expression = description["Expression"];
 			Expressions = new List<Expression>();
-
-			if (string.IsNullOrEmpty(description["FirearmParams"]))
-			{
-				Firearm.Params = new FirearmParams();
-			}
-			else
-			{
-				if (FirearmCollection.Instance == null) throw new Exception("FirearmCollection is missed on scene!");
-
-				var firearmParams = FirearmCollection.Instance.Firearms.Single(i => i.Name == description["FirearmParams"]);
-
-				if (firearmParams == null) throw new Exception(string.Format("FirearmCollection doesn't contain a definition for {0}!", description["FirearmParams"]));
-
-				Firearm.Params = firearmParams;
-			}
 
 			foreach (var key in description.Keys)
 			{

@@ -36,7 +36,7 @@ using AssemblyCSharp;
         }
 
         // Update is called once per frame
-        void Update()
+        void LateUpdate()
         {
             if (playerShoot.IsLeftShooting)
             {

@@ -38,8 +38,8 @@ namespace Assets.HeroEditor.Common.CharacterScripts
         public void OnEnable()
         {
             HairMask.isCustomRangeActive = true;
-            HairMask.frontSortingOrder = HelmetRenderer.sortingOrder;
-            HairMask.backSortingOrder = HairRenderer.sortingOrder;
+            HairMask.frontSortingOrder = HairRenderer.sortingOrder;
+            HairMask.backSortingOrder = HairRenderer.sortingOrder - 1;
 			UpdateAnimation();
         }
 
@@ -48,7 +48,7 @@ namespace Assets.HeroEditor.Common.CharacterScripts
 		    _animationState = -1;
 	    }
 
-	    private int _animationState = -1;
+	    private int _animationState;
 
 		/// <summary>
 		/// Refer to Animator window to learn animation params, states and transitions!
@@ -57,16 +57,11 @@ namespace Assets.HeroEditor.Common.CharacterScripts
         {
 	        if (!Animator.isInitialized) return;
 
-			var state = 100 * (int) WeaponType;
-
 			Animator.SetInteger("WeaponType", (int) WeaponType);
+	        Animator.SetInteger("MagazineType", (int) Firearm.Params.MagazineType);
+	        Animator.SetInteger("HoldType", (int) Firearm.Params.HoldType);
 
-	        if (WeaponType == WeaponType.Firearms1H || WeaponType == WeaponType.Firearms2H || WeaponType == WeaponType.FirearmsPaired)
-	        {
-		        Animator.SetInteger("MagazineType", (int)Firearm.Params.MagazineType);
-		        Animator.SetInteger("HoldType", (int)Firearm.Params.HoldType);
-		        state = (int) Firearm.Params.HoldType;
-	        }
+			var state = 100 * (int) WeaponType + (int) Firearm.Params.HoldType;
 
 	        if (state == _animationState) return; // No need to change animation.
 
