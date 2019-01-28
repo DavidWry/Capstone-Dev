@@ -23,6 +23,7 @@ namespace AssemblyCSharp
 
         public float fixRightAngle = 0;
         public float fixLeftAngle = 0;
+        public float fixAngle = 110;
 
         public Transform LeftHand;
         public Transform RightHand;
@@ -123,7 +124,7 @@ namespace AssemblyCSharp
                             float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
                             //Quaternion lookRotation = Quaternion.AngleAxis(angle, Vector3.forward);
                             //LeftHand.transform.rotation = Quaternion.Slerp(LeftHand.transform.rotation, lookRotation, rotateSpeed * Time.deltaTime);
-                            LeftHand.transform.eulerAngles = new Vector3(0, 0, angle + fixLeftAngle);
+                            LeftHand.transform.eulerAngles = new Vector3(0, 0, angle + fixAngle);
                             RightHand.transform.eulerAngles = new Vector3(0, 0, - fixRightAngle);
                         }
                         else if (isRightInHand)
@@ -144,7 +145,7 @@ namespace AssemblyCSharp
                             float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
                             //Quaternion lookRotation = Quaternion.AngleAxis(angle, Vector3.forward);
                             //LeftHand.transform.rotation = Quaternion.Slerp(LeftHand.transform.rotation, lookRotation, rotateSpeed * Time.deltaTime);
-                            LeftHand.transform.eulerAngles = new Vector3(0, 0, angle - fixLeftAngle);
+                            LeftHand.transform.eulerAngles = new Vector3(0, 0, angle - fixAngle);
                             RightHand.transform.eulerAngles = new Vector3(0, 0, fixRightAngle);
                             LeftHand.transform.Rotate(180, 0, 0);
                             RightHand.transform.Rotate(0, 180, 0);
@@ -253,6 +254,22 @@ namespace AssemblyCSharp
             PlayerData data = SaveSystem.LoadPlayer();
 
             //Loading process will depend on what kind of situation.
+        }
+
+        public void ChangeWeapon()
+        {
+            Character.EquipFirearm(SpriteCollection.Firearms2H[0].Sprites, firearmCollection.Firearms[0], true);
+        }
+
+        public void EmptyWeapon()
+        {
+            List<Sprite> Emptys = new List<Sprite>();
+            Sprite empty = null;
+            for (int i = 0; i < 7; i++)
+            {
+                Emptys.Add(empty);
+            }
+            Character.EquipFirearm(Emptys, firearmCollection.Firearms[0], false);
         }
     }
 }

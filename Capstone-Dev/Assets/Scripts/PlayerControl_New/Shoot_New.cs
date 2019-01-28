@@ -108,6 +108,10 @@ public class Shoot_New : MonoBehaviour
     private float preZoom;
     private int zoomSpeed = 5;
 
+    //New combine Type
+    public GameObject LeftWeaponObj;
+    public GameObject RightWeaponObj;
+
     // Use this for initialization
     void Start()
     {
@@ -133,6 +137,8 @@ public class Shoot_New : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         LeftReloadTime = 0;
         RightReloadTime = 0;
+
+        player.leftWeapon = gameManager.WeaponList[0];
     }
 
     // Update is called once per frame
@@ -218,6 +224,12 @@ public class Shoot_New : MonoBehaviour
                     IsRightShooting = false;
                     if (CombinedTime > TimePrepareCombine)       //Take time to prepare.
                     {
+                        if (LeftWeaponObj != null && RightWeaponObj != null)
+                        {
+                            LeftWeaponObj.SetActive(false);
+                            RightWeaponObj.SetActive(false);
+                            player.ChangeWeapon();
+                        }
                         IsCombineShooting = true;
                     }
                 }
@@ -240,6 +252,12 @@ public class Shoot_New : MonoBehaviour
             if (player.Power < 100 && SkillReady)
             {
                 SkillReady = false;
+            }
+            if (LeftWeaponObj != null && RightWeaponObj != null)
+            {
+                LeftWeaponObj.SetActive(true);
+                RightWeaponObj.SetActive(true);
+                player.EmptyWeapon();
             }
         }
 
@@ -306,6 +324,9 @@ public class Shoot_New : MonoBehaviour
 
         //Camera Zoom
         CameraZoom();
+
+        //get weapon object
+        getWeapon();
     }
 
     private void CameraZoom()
@@ -317,6 +338,18 @@ public class Shoot_New : MonoBehaviour
         else if (CameraObj.GetComponent<Camera>().fieldOfView > preZoom)
         {
             CameraObj.GetComponent<Camera>().fieldOfView -= zoomSpeed * Time.deltaTime;
+        }
+    }
+
+    private void getWeapon()
+    {
+        if (Left.childCount != 0)
+        {
+            LeftWeaponObj = Left.GetChild(0).gameObject;
+        }
+        if (Right.childCount != 0)
+        {
+            RightWeaponObj = Right.GetChild(0).gameObject;
         }
     }
 
