@@ -197,12 +197,11 @@ namespace Assets.HeroEditor.Common.CharacterScripts
 		    WeaponType = twoHanded ? WeaponType.Firearms2H : WeaponType.Firearms1H;
 			Initialize();
 		}
-
-		/// <summary>
-		/// Equip shield.
-		/// </summary>
-		/// <param name="sprite">Shield sprite. It can be obtained from SpriteCollection.Instance.Shield[].Sprite.</param>
-		public void EquipShield(Sprite sprite)
+        /// <summary>
+        /// Equip shield.
+        /// </summary>
+        /// <param name="sprite">Shield sprite. It can be obtained from SpriteCollection.Instance.Shield[].Sprite.</param>
+        public void EquipShield(Sprite sprite)
 	    {
 		    Shield = sprite;
 		    WeaponType = WeaponType.Melee1H;
@@ -349,7 +348,7 @@ namespace Assets.HeroEditor.Common.CharacterScripts
                 case WeaponType.Firearms2H:
                     Firearm.AmmoShooted = 0;
 	                BuildFirearms(Firearm.Params);
-					break;
+                    break;
             }
 		}
 
@@ -367,7 +366,7 @@ namespace Assets.HeroEditor.Common.CharacterScripts
 		    }
 	    }
 
-		private void MapSprites(List<SpriteRenderer> spriteRenderers, List<Sprite> sprites)
+        private void MapSprites(List<SpriteRenderer> spriteRenderers, List<Sprite> sprites)
         {
             foreach (var part in spriteRenderers)
             {
