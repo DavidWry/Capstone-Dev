@@ -11,6 +11,7 @@ public class PickUp_New : MonoBehaviour
     public Transform RightHand;
     public float WeaponSizeUp = 1;
     private Player_New player;
+    private Shoot_New shoot;
     private bool isLootNearby = false;
     [SerializeField]
     private Loot currentLoot = null;

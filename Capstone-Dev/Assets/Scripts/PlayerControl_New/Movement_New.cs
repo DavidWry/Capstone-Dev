@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Assets.HeroEditor.Common.CharacterScripts;
 using UnityEngine;
 using AssemblyCSharp;
 
@@ -16,8 +17,9 @@ public class Movement_New : MonoBehaviour {
     private Player_New player;
     private Rigidbody playerBody;
     private int aimScale = 3;
-    private int aimDistance;
+    private float aimDistance;
     private Shoot_New playerShoot;
+    private Character character;
 
 
     // Use this for initialization
@@ -43,7 +45,9 @@ public class Movement_New : MonoBehaviour {
         player.LeftTarget = LeftAimIcon;
         player.RightTarget = RightAimIcon;
 
-        aimDistance = 3;
+        aimDistance = 3.5f;
+
+        character = GetComponent<Character>();
     }
 
     // Update is called once per frame
@@ -118,14 +122,13 @@ public class Movement_New : MonoBehaviour {
                     float tempy = Input.GetAxis("Left Y");
                     Vector3 tempvector = new Vector3(tempx, tempy, 0);
                     tempvector = tempvector.normalized;
-                    LeftAimIcon.transform.localPosition = tempvector * aimDistance;
+                    LeftAimIcon.transform.localPosition = tempvector * aimDistance;                    
                 }
                 else
                 {
                     float tempx = 1;
                     float tempy = 0;
 
-                    //Debug.Log(tempx);
                     Vector3 tempvector = new Vector3(tempx, tempy, 0);
                     LeftAimIcon.transform.localPosition = tempvector * aimDistance;
                 }
@@ -146,6 +149,11 @@ public class Movement_New : MonoBehaviour {
                 transform.rotation = Quaternion.Euler(0, yRotate, 0);
                 Vector3 rigimove = new Vector3(Input.GetAxis("Left X") * WalkSpeed * Time.deltaTime, Input.GetAxis("Left Y") * WalkSpeed * Time.deltaTime, 0) + Recoil * Time.deltaTime;
                 playerBody.MovePosition(transform.position + rigimove);
+                character.Animator.SetBool("Walk", true);
+            }
+            else
+            {
+                character.Animator.SetBool("Walk", false);
             }
             if (Input.GetAxis("Right X") > 0.3)
             {
