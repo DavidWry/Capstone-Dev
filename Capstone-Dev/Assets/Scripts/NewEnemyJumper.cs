@@ -6,8 +6,8 @@ public class NewEnemyJumper : MonoBehaviour
 {
    
     private float rangeForAttack;
-    private float timeBetweenJumps;
-    private float startTimeBetweenJumps;
+    private float waitTime;
+    private float startWaitTime;
 
     private float health;
 
@@ -23,14 +23,15 @@ public class NewEnemyJumper : MonoBehaviour
     public float arcHeight = 1;
 
     public GameObject landing;
+    private bool hasReached;
 
     void Start()
     {
         health = 55;
         rangeForAttack = 7;
 
-        startTimeBetweenJumps = 2.5f;
-        timeBetweenJumps = startTimeBetweenJumps - 1f;
+        startWaitTime = 2.5f;
+        waitTime = 2f;
 
         startPos = transform.position;
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -38,6 +39,8 @@ public class NewEnemyJumper : MonoBehaviour
         probability = gameObject.GetComponent<DropProbability>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         targetPos = new Vector3(player.position.x, player.position.y, player.position.z);
+
+        hasReached = false;
 
     }
 
@@ -47,11 +50,10 @@ public class NewEnemyJumper : MonoBehaviour
         if (player !=null)
         {
           
-            if (Vector3.Distance(transform.position, player.position) <= rangeForAttack)
+            if ((Vector3.Distance(transform.position, player.position) <= rangeForAttack) && (hasReached == false))
             {
-                //  if (timeBetweenJumps <= 0)
+                 // if(waitTime <= 0)
 
-                //if (isJumping)
                 // {
               //  Instantiate(landing, targetPos, Quaternion.identity);
                     float x0 = startPos.x;
@@ -67,27 +69,42 @@ public class NewEnemyJumper : MonoBehaviour
                     transform.position = nextPos;
                    
                      // timeBetweenJumps = startTimeBetweenJumps;
-                //}
+               // }
 
             }
+            Debug.Log(waitTime);
             if (nextPos == targetPos)
             {
-               // timeBetweenJumps = 2.0f;
+
+                hasReached = true;
+            }
+            else
+            {
+                hasReached = false;
+            }
+            if (hasReached == true)
+            {
+                waitTime -= Time.deltaTime;
+            }
+            if (waitTime <= 0)
+            {
+                hasReached = false;
+                waitTime = 2.0f;
             }
 
 
-               // else
-               // {
-                   // if ((nextPos == targetPos))
-                   // {
-                     //   timeBetweenJumps -= Time.deltaTime;
-                   // }
-                
-              //  }
-                
-                    
-                    
-               
+            // else
+            // {
+            // if ((nextPos == targetPos))
+            // {
+            //   timeBetweenJumps -= Time.deltaTime;
+            // }
+
+            //  }
+
+
+
+
         }
 
             if (health <= 0)
