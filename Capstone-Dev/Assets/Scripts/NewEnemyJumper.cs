@@ -53,12 +53,20 @@ public class NewEnemyJumper : MonoBehaviour
         if (player !=null)
         {
 
-
+            //initial states for jumping
             if ((Vector3.Distance(startPos, player.position) <= rangeForAttack) && (canJump == true))
             {
-                anim.SetBool("isJumping", true);
+                
                 targetPos = new Vector3(player.position.x, player.position.y, player.position.z);
-                //  Instantiate(landing, targetPos, Quaternion.identity);
+
+                startPos = transform.position;
+                anim.SetBool("isJumping", true);
+                Instantiate(landing, targetPos, Quaternion.identity);
+                canJump = false;
+            }
+            
+            if (anim.GetBool("isJumping") == true) {
+               
                 float x0 = startPos.x;
                 float x1 = targetPos.x;
                 float dist = x1 - x0;
@@ -66,27 +74,19 @@ public class NewEnemyJumper : MonoBehaviour
                 float baseY = Mathf.Lerp(startPos.y, targetPos.y, (nextX - x0) / dist);
                 float arc = arcHeight * (nextX - x0) * (nextX - x1) / (-0.25f * dist * dist);
                 nextPos = new Vector3(nextX, baseY + arc, transform.position.z);
-                
+
                 // Rotate to face the next position, and then move there
                 // transform.rotation = LookAt2D(nextPos - transform.position);
                 transform.position = nextPos;
 
-
-
             }
-            else
-            {
-                anim.SetBool("isJumping", false);
-
-            }
-
-           // Debug.Log(Vector3.Distance(transform.position, targetPos));
-          //  Debug.Log(waitTime);
+            
+            // Debug.Log(Vector3.Distance(transform.position, targetPos));
+            //  Debug.Log(waitTime);
             if (nextPos == targetPos)
             {
                 waitTime -= Time.deltaTime;
-                canJump= false;
-               
+                anim.SetBool("isJumping", false);
             }
           
            
