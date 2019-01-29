@@ -3322,6 +3322,8 @@ MonoBehaviour:
   SpriteCollection: {fileID: 0}
   Character: {fileID: 0}
   firearmCollection: {fileID: 0}
+  BackPack: {fileID: 0}
+  Back: {fileID: 0}
 --- !u!114 &114090638817769560
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3584,6 +3586,9 @@ MonoBehaviour:
   CombineTag: 0
   SkillReady: 0
   GoldenFinger: 0
+  CombineAmmos: 0
+  CombineOn: 0
+  CombineBulPos: {fileID: 0}
   CameraObj: {fileID: 0}
   LeftWeaponObj: {fileID: 0}
   RightWeaponObj: {fileID: 0}

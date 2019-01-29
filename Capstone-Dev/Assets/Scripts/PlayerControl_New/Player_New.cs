@@ -35,6 +35,9 @@ namespace AssemblyCSharp
         public Character Character;
         public FirearmCollection firearmCollection;
 
+        public Sprite BackPack;
+        public SpriteRenderer Back;
+
         private float rotateSpeed;
         private Movement_New playerMovement;
         private Shoot_New playerShoot;
@@ -179,22 +182,25 @@ namespace AssemblyCSharp
                     if (leftWeapon.WeaponName == WeaponName.Ak47 || rightWeapon.WeaponName == WeaponName.Ak47)
                     {
                         CombineType = 12;
-                        playerShoot.CombineTag = false;
+                        playerShoot.CombineTag = true;
+                        playerShoot.CombineAmmos = 20;
                     }
                     else if (leftWeapon.WeaponName == WeaponName.Lazer || rightWeapon.WeaponName == WeaponName.Lazer)
                     {
                         CombineType = 13;
                         playerShoot.CombineTag = true;
+                        playerShoot.CombineAmmos = 10;
                     }
                     else if (leftWeapon.WeaponName == WeaponName.Shotgun || rightWeapon.WeaponName == WeaponName.Shotgun)
                     {
                         CombineType = 14;
                         playerShoot.CombineTag = false;
+                        playerShoot.CombineAmmos = 20;
                     }
                     else if (leftWeapon.WeaponName == WeaponName.Sword || rightWeapon.WeaponName == WeaponName.Sword)
                     {
                         CombineType = 15;
-                        playerShoot.CombineTag = false;
+                        playerShoot.CombineTag = true;
                     }
                 }
                 else if (leftWeapon.WeaponName == WeaponName.Ak47 || rightWeapon.WeaponName == WeaponName.Ak47)
@@ -203,16 +209,19 @@ namespace AssemblyCSharp
                     {
                         CombineType = 23;
                         playerShoot.CombineTag = true;
+                        playerShoot.CombineAmmos = 20;
                     }
                     else if (leftWeapon.WeaponName == WeaponName.Shotgun || rightWeapon.WeaponName == WeaponName.Shotgun)
                     {
                         CombineType = 24;
                         playerShoot.CombineTag = true;
+                        playerShoot.CombineAmmos = 15;
                     }
                     else if (leftWeapon.WeaponName == WeaponName.Sword || rightWeapon.WeaponName == WeaponName.Sword)
                     {
                         CombineType = 25;
                         playerShoot.CombineTag = true;
+                        playerShoot.CombineAmmos = 50;
                     }
                 }
                 else if (leftWeapon.WeaponName == WeaponName.Lazer || rightWeapon.WeaponName == WeaponName.Lazer)
@@ -221,11 +230,13 @@ namespace AssemblyCSharp
                     {
                         CombineType = 34;
                         playerShoot.CombineTag = true;
+                        playerShoot.CombineAmmos = 20;
                     }
                     else if (leftWeapon.WeaponName == WeaponName.Sword || rightWeapon.WeaponName == WeaponName.Sword)
                     {
                         CombineType = 35;
                         playerShoot.CombineTag = true;
+                        playerShoot.CombineAmmos = 20;
                     }
                 }
                 else if (leftWeapon.WeaponName == WeaponName.Shotgun || rightWeapon.WeaponName == WeaponName.Shotgun)
@@ -234,6 +245,7 @@ namespace AssemblyCSharp
                     {
                         CombineType = 45;
                         playerShoot.CombineTag = true;
+                        playerShoot.CombineAmmos = 20;
                     }
                 }
             }
@@ -258,7 +270,7 @@ namespace AssemblyCSharp
 
         public void ChangeWeapon()
         {
-            Character.EquipFirearm(SpriteCollection.Firearms2H[0].Sprites, firearmCollection.Firearms[0], true);
+            Character.EquipFirearm(SpriteCollection.Firearms2H[1].Sprites, firearmCollection.Firearms[0], true);
         }
 
         public void EmptyWeapon()
@@ -270,6 +282,16 @@ namespace AssemblyCSharp
                 Emptys.Add(empty);
             }
             Character.EquipFirearm(Emptys, firearmCollection.Firearms[0], false);
+        }
+
+        public void ChangeBackPack()
+        {
+            Back.sprite = BackPack;
+        }
+
+        public void EmptyBackPack()
+        {
+            Back.sprite = null;
         }
     }
 }

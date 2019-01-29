@@ -46,14 +46,13 @@ public class Shoot_New : MonoBehaviour
     public bool CombineTag = false;            //Two Kinds of "combine". True means real "Combine", false means actrually "seperate".
     public bool SkillReady = false;
     public bool GoldenFinger = false;
-    private float preRightInputX = 0f;
-    private float preRightInputY = 0f;
-    private float preLeftInputX = 0f;
-    private float preLeftInputY = 0f;
-    private float frameTimer = 0;
     private float CombineBtw = 1.0f;
     bool combineAngle = false;
     bool rotateAngle = false;
+    public int CombineAmmos = 0;
+    public bool CombineOn = false;
+    public Transform CombineBulPos;
+    private int currentAmmo = 0;
     //12-1
     private float CombineBtw_12 = 0.05f;
     private float CombineSpeed_12 = 5f;
@@ -66,9 +65,9 @@ public class Shoot_New : MonoBehaviour
     private int CombineDamage_13 = 50;
     //14-3
     private float CombineBtw_14 = 0.2f;
-    private float CombineSpeed_14 = 5f;
-    private float CombineDuration_14 = 0.8f;
-    private int CombineDamage_14 = 5;
+    private float CombineSpeed_14 = 0f;
+    private float CombineDuration_14 = 2f;
+    private int CombineDamage_14 = 50;
     //15-4
     private float CombineBtw_15 = 0.2f;
     private float CombineSpeed_15 = 8f;
@@ -161,91 +160,75 @@ public class Shoot_New : MonoBehaviour
         {
             IsRightShooting = false;
         }
-        if (Mathf.Round(Input.GetAxisRaw("RightTrigger")) > 0 && Mathf.Round(Input.GetAxisRaw("LeftTrigger")) > 0 &&
-            player.leftWeapon.Name != "" && player.rightWeapon.Name != "" && (SkillReady || GoldenFinger))  //Push both trigger to combine.
+        if (player.leftWeapon.Name != "" && player.rightWeapon.Name != "" && (SkillReady || GoldenFinger))  //Hold "Y" to combine.
         {
-            float rx = Input.GetAxis("Left X");
-            float ry = Input.GetAxis("Left Y");
-            Vector3 pz = new Vector3(rx, ry, 0);
-            float rtx = Input.GetAxis("Right X");
-            float rty = Input.GetAxis("Right Y");
-            Vector3 ptz = new Vector3(rtx, rty, 0);
-            combineAngle = false;
-            CombinedTime += Time.deltaTime;
-            if (CombineTag)
+            if (Input.GetButton("YButton") && (SkillReady || GoldenFinger) && !CombineOn)
             {
-                if (Mathf.Abs(Vector3.Distance(ptz, pz)) < .6f && CombinedTime > TimeBeforeCombine)
+                CombinedTime += Time.deltaTime;
+                if (CombinedTime > TimeBeforeCombine)
                 {
-                    combineAngle = true;
-                }
-                else if (Mathf.Abs(Vector3.Distance(ptz, pz)) > 2.1f)
-                {
-                    combineAngle = false;
+                    CombineOn = true;
                     CombinedTime = 0;
-                }
-                else
-                {
-                    combineAngle = false;
+                    SkillReady = false;
+                    currentAmmo = CombineAmmos;
                 }
             }
             else
             {
-                if (preLeftInputX != rx && preLeftInputY != ry && preRightInputX != rtx && preRightInputY != rty)
+                if (CombinedTime > 0)
                 {
-                    if (Mathf.Abs(Vector3.Distance(ptz, pz)) > 1.8f)
-                    {
-                        combineAngle = true;
-                    }
-                    else
-                    {
-                        combineAngle = false;
-                    }
-                    frameTimer += Time.deltaTime;
-                    if (frameTimer >= 0.2f)
-                    {
-                        preLeftInputX = rx;
-                        preLeftInputY = ry;
-                        preRightInputX = rtx;
-                        preRightInputY = rty;
-                        frameTimer = 0;
-                    }
+                    CombinedTime -= Time.deltaTime;
+                    if (CombinedTime < 0)
+                        CombinedTime = 0;
+                }
+            }
+        }
+        if (CombineOn)
+        {
+            if (CombineTag)
+            {
+                if (LeftWeaponObj != null && RightWeaponObj != null)
+                {
+                    LeftWeaponObj.SetActive(false);
+                    RightWeaponObj.SetActive(false);
+                    player.ChangeWeapon();
+                }
+                if (Mathf.Round(Input.GetAxisRaw("RightTrigger")) > 0 || Mathf.Round(Input.GetAxisRaw("LeftTrigger")) > 0)
+                {
+                    IsCombineShooting = true;
                 }
                 else
                 {
-                    combineAngle = false;
-                    //CombinedTime = 0;
+                    IsCombineShooting = false;
+                }
+                IsLeftShooting = false;
+                IsRightShooting = false;
+            }
+            else
+            {
+                player.ChangeBackPack();
+                if (Input.GetButtonDown("XButton"))
+                {
+                    IsCombineShooting = true;
+                }
+                else
+                {
+                    IsCombineShooting = false;
                 }
             }
-            if (combineAngle)
+
+            if (Input.GetButtonDown("YButton"))
             {
-                if (CombinedTime > TimeBeforeCombine && CombinedTime <= TimeTopCombine)     //Make sure it's not combining if player is not keeping the angle.
-                {
-                    IsLeftShooting = false;
-                    IsRightShooting = false;
-                    if (CombinedTime > TimePrepareCombine)       //Take time to prepare.
-                    {
-                        if (LeftWeaponObj != null && RightWeaponObj != null)
-                        {
-                            LeftWeaponObj.SetActive(false);
-                            RightWeaponObj.SetActive(false);
-                            player.ChangeWeapon();
-                        }
-                        IsCombineShooting = true;
-                    }
-                }
-                else if (CombinedTime > TimeTopCombine)          //Cancel combine if the time is too much.
-                {
-                    IsLeftShooting = true;
-                    IsRightShooting = true;
-                    IsCombineShooting = false;
-                    zoomOn = false;
-                    useSkill();
-                }
+                CombineOn = false;
+                CombinedTime = 0;
+            }
+            if (currentAmmo == 0)
+            {
+                CombineOn = false;
             }
         }
         else
         {
-            CombinedTime = 0;
             CombineWaitedime = 0f;
             IsCombineShooting = false;
             zoomOn = false;
@@ -258,6 +241,7 @@ public class Shoot_New : MonoBehaviour
                 LeftWeaponObj.SetActive(true);
                 RightWeaponObj.SetActive(true);
                 player.EmptyWeapon();
+                player.EmptyBackPack();
             }
         }
 
@@ -312,7 +296,7 @@ public class Shoot_New : MonoBehaviour
                 RightReloadTime = 0;
             }
         }
-        if (!CanCombineShoot && combineAngle)
+        if (!CanCombineShoot)
         {
             CombineWaitedime += Time.deltaTime;
             if (CombineWaitedime >= CombineBtw)
@@ -577,14 +561,15 @@ public class Shoot_New : MonoBehaviour
                     break;
             }
             CanCombineShoot = false;
+            currentAmmo--;
         }
     }
 
     private void CombineShoot_12()
     {
         GameObject NewProj = Instantiate(gameManager.CombineProjectile[1]);
-        NewProj.transform.position = Center.position;
-        NewProj.transform.rotation = Right.rotation;
+        NewProj.transform.position = CombineBulPos.position;
+        NewProj.transform.rotation = CombineBulPos.rotation;
         //Change state according to the weapon
         Projectile Proj = NewProj.GetComponent<Projectile>();
         Proj.IsReady = true;
@@ -626,18 +611,6 @@ public class Shoot_New : MonoBehaviour
         Proj.Speed = CombineSpeed_14;
         Proj.Duration = CombineDuration_14;
         Proj.Damage = CombineDamage_14;
-        Proj.SlowDown = 10;
-
-        GameObject NewProj02 = Instantiate(gameManager.CombineProjectile[3]);
-        NewProj02.transform.position = Center.position;
-        NewProj02.transform.rotation = Left.rotation;
-        //Change state according to the weapon
-        Projectile Proj02 = NewProj02.GetComponent<Projectile>();
-        Proj02.IsReady = true;
-        Proj02.Speed = CombineSpeed_14;
-        Proj02.Duration = CombineDuration_14;
-        Proj02.Damage = CombineDamage_14;
-        Proj02.SlowDown = 5;
     }
     private void CombineShoot_15()
     {
@@ -673,21 +646,20 @@ public class Shoot_New : MonoBehaviour
     private void CombineShoot_24()
     {
         GameObject NewProj = Instantiate(gameManager.CombineProjectile[6]);
-        NewProj.transform.position = Center.position;
-        NewProj.transform.rotation = Right.rotation;
+        NewProj.transform.position = CombineBulPos.position;
+        NewProj.transform.rotation = CombineBulPos.rotation;
         //Change state according to the weapon
         Projectile Proj = NewProj.GetComponent<Projectile>();
         Proj.IsReady = true;
         Proj.Speed = CombineSpeed_24;
         Proj.Duration = CombineDuration_24;
         Proj.Damage = CombineDamage_24;
-        movement.Recoil = -Right.transform.right;
     }
     private void CombineShoot_25()
     {
         GameObject NewProj = Instantiate(gameManager.CombineProjectile[7]);
-        NewProj.transform.position = Center.position;
-        NewProj.transform.rotation = Right.rotation;
+        NewProj.transform.position = CombineBulPos.position;
+        NewProj.transform.rotation = CombineBulPos.rotation;
         //Change state according to the weapon
         Projectile Proj = NewProj.GetComponent<Projectile>();
         Proj.IsReady = true;
@@ -713,8 +685,8 @@ public class Shoot_New : MonoBehaviour
     private void CombineShoot_35()
     {
         GameObject NewProj = Instantiate(gameManager.CombineProjectile[9]);
-        NewProj.transform.position = Center.position;
-        NewProj.transform.rotation = Right.rotation;
+        NewProj.transform.position = CombineBulPos.position;
+        NewProj.transform.rotation = CombineBulPos.rotation;
         //Change state according to the weapon
         Projectile Proj = NewProj.GetComponent<Projectile>();
         Proj.IsReady = true;
@@ -728,7 +700,7 @@ public class Shoot_New : MonoBehaviour
     {
         GameObject NewProj = Instantiate(gameManager.CombineProjectile[10]);
         NewProj.transform.position = Center.position;
-        NewProj.transform.rotation = Right.rotation;
+        NewProj.transform.rotation = CombineBulPos.rotation;
         //Change state according to the weapon
         Projectile Proj = NewProj.GetComponent<Projectile>();
         Proj.IsReady = true;
