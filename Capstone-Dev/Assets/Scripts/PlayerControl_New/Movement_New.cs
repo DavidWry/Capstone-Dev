@@ -105,7 +105,7 @@ public class Movement_New : MonoBehaviour {
         }
 
         //show left aimIcon
-        if (isBulletTime)
+        if (isBulletTime && !playerShoot.CombineOn)
         {
             if (Mathf.Abs(Input.GetAxis("Left X")) <= 1 || Mathf.Abs(Input.GetAxis("Left Y")) <= 1)
             {

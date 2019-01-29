@@ -21,6 +21,7 @@ public class PickUp_New : MonoBehaviour
     {
         player = gameObject.GetComponent<Player_New>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        shoot = gameObject.GetComponent<Shoot_New>();
         //LeftHand = transform.GetChild(0);
         //RightHand = transform.GetChild(1);
     }
@@ -199,7 +200,7 @@ public class PickUp_New : MonoBehaviour
         Vector3 tempPosition = new Vector3(0, 0, 0);
         weaponObj = Instantiate(weaponObj, tempPosition, Quaternion.Euler(0, eulerAngel, 0));
         weaponObj.transform.localScale = WeaponSizeUp * weaponObj.transform.localScale;
-
+        shoot.CombineOn = false;
 
         if (leftOrRight == 1)
         {

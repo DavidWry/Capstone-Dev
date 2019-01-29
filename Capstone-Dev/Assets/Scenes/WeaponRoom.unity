@@ -4016,6 +4016,22 @@ Prefab:
       propertyPath: GoldenFinger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114412990771979018, guid: c2e5f753fcf49c64d87884c1108debe8,
+        type: 2}
+      propertyPath: CombineBulPos
+      value: 
+      objectReference: {fileID: 910691450}
+    - target: {fileID: 114039260084271232, guid: c2e5f753fcf49c64d87884c1108debe8,
+        type: 2}
+      propertyPath: Back
+      value: 
+      objectReference: {fileID: 1896903163}
+    - target: {fileID: 114039260084271232, guid: c2e5f753fcf49c64d87884c1108debe8,
+        type: 2}
+      propertyPath: BackPack
+      value: 
+      objectReference: {fileID: 21300000, guid: 6511aac6e59a4eaf833874728059c3d2,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2e5f753fcf49c64d87884c1108debe8, type: 2}
   m_IsPrefabAsset: 0
@@ -13753,6 +13769,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4561768522793552, guid: 5a166331dfd6c1740b4fc7f55c7e5870,
     type: 2}
   m_PrefabInternal: {fileID: 902655375}
+--- !u!4 &910691450 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4283415803691152, guid: c2e5f753fcf49c64d87884c1108debe8,
+    type: 2}
+  m_PrefabInternal: {fileID: 411476679}
 --- !u!4 &911481673 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4259266099646536, guid: dbbd9055a5163f84ab3ff204a6c82c2f,
@@ -16245,6 +16266,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af0360be5601ac94f84067ffa511fc7d, type: 2}
   m_IsPrefabAsset: 0
+--- !u!212 &1896903163 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 212150053041565294, guid: c2e5f753fcf49c64d87884c1108debe8,
+    type: 2}
+  m_PrefabInternal: {fileID: 411476679}
 --- !u!1 &1909139431
 GameObject:
   m_ObjectHideFlags: 0
