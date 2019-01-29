@@ -53,21 +53,23 @@ public class EnemyRangedSpear : MonoBehaviour
             {
                 if (timeBetweenShots <= 0)
                 {
-                    Instantiate(projectile, transform.position, Quaternion.identity);
                     anim.SetTrigger("Attack");
-                    anim.SetBool("isRunning", false);
+                    Instantiate(projectile, transform.position, Quaternion.identity);
+                    
+                   
                     timeBetweenShots = startTimeBetweenShots;
                 }
                 else
                 {
+                    anim.SetBool("isRunning", false);
                     timeBetweenShots -= Time.deltaTime;
                 }
             }
             else if (Vector2.Distance(transform.position, player.position) <= chaseRange && Vector2.Distance(transform.position, player.position) > rangeForAttack)
             {
-                
-                transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
                 anim.SetBool("isRunning", true);
+                transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+               
             }
             else
             {
@@ -95,16 +97,7 @@ public class EnemyRangedSpear : MonoBehaviour
 
     }
 
-    /*private void OnTriggerEnter(Collider other)
-    {
-        // if hit then move to the opposite direction to show a PUSHBACK effect
-        if (other.CompareTag("Projectile"))
-        {
-            gameObject.GetComponent<Rigidbody>().AddForce(-transform.right * 2);
-            gameObject.GetComponent<Rigidbody>().velocity = Vector2.ClampMagnitude(gameObject.GetComponent<Rigidbody>().velocity, 1);
-            Debug.Log("000");
-        }
-    }*/
+
 
     public void TakeDamage(int damage)
     {

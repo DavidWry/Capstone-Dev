@@ -20,7 +20,7 @@ public class StompwaveProjectile : MonoBehaviour {
         player2 = GetComponent<Player>();
        // player = GameObject.FindGameObjectWithTag("Player").transform;
        // target = new Vector3(player.position.x, player.position.y, player.position.z);
-        travelDistance = 4f;
+        travelDistance = 2.8f;
         initialPos = transform.position;
         //transform.rotation = Quaternion.LookRotation(target);
         // transform.LookAt(player.position);

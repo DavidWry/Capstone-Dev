@@ -67,4 +67,10 @@ public class EnemyJumper : MonoBehaviour {
         startRelCenter = startPos.position - centerPoint;
         endRelCenter = target - centerPoint;
     }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+
+    }
 }

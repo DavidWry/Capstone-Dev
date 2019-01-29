@@ -34,7 +34,7 @@ public class EnemyRangedStomp : MonoBehaviour
         health = 75;
         attackRange = 5f;
         chaseRange = 6;
-        startTimeBetweenShots = 2.5f;
+        startTimeBetweenShots = 1.5f;
         timeBetweenShots = startTimeBetweenShots;
         target = GameObject.FindGameObjectWithTag("Player").transform;
         anim = GetComponent<Animator>();
@@ -54,22 +54,23 @@ public class EnemyRangedStomp : MonoBehaviour
                 if (timeBetweenShots <= 0)
                 {
                     anim.SetTrigger("Attack");
-                    anim.SetBool("isRunning", false);
+                    
                     SpawnProjectile(numberOfProjectiles);
                     timeBetweenShots = startTimeBetweenShots;
 
                 }
                 else
                 {
+                    anim.SetBool("isRunning", false);
                     timeBetweenShots -= Time.deltaTime;
                 }
 
             }
             else if (Vector2.Distance(transform.position, target.position) <= chaseRange && Vector2.Distance(transform.position, target.position) > attackRange)
             {
+                anim.SetBool("isRunning", true);
 
                 transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-                anim.SetBool("isRunning", true);
             }
             else
             {

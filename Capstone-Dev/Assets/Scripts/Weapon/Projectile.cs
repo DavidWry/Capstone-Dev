@@ -70,9 +70,9 @@ namespace AssemblyCSharp
         {
             if (collision.gameObject.tag == "Minion")
             {
-                if (collision.gameObject.GetComponent<EnemyFollow>())
+                if (collision.gameObject.GetComponent<EnemySuicideBomber>())
                 {
-                    collision.gameObject.GetComponent<EnemyFollow>().TakeDamage(Damage);
+                    collision.gameObject.GetComponent<EnemySuicideBomber>().TakeDamage(Damage);
                 }
                 else if (collision.gameObject.GetComponent<EnemyRangedSpear>())
                 {
@@ -81,6 +81,10 @@ namespace AssemblyCSharp
                 else if (collision.gameObject.GetComponent<EnemyRangedStomp>())
                 {
                     collision.gameObject.GetComponent<EnemyRangedStomp>().TakeDamage(Damage);
+                }
+                else if (collision.gameObject.GetComponent<NewEnemyJumper>())
+                {
+                    collision.gameObject.GetComponent<NewEnemyJumper>().TakeDamage(Damage);
                 }
                 if (Thrust)
                 {
