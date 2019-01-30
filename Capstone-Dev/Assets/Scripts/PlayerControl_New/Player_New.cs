@@ -117,6 +117,10 @@ namespace AssemblyCSharp
             {
                 if (RightTarget != null)
                 {
+                    if (playerShoot.CombineOn)
+                    {
+                        isLeftInHand = true;
+                    }
                     if (playerMovement.IsFaceRight)
                     {
                         if (isLeftInHand)
@@ -227,7 +231,7 @@ namespace AssemblyCSharp
                     if (leftWeapon.WeaponName == WeaponName.Shotgun || rightWeapon.WeaponName == WeaponName.Shotgun)
                     {
                         CombineType = 34;
-                        playerShoot.CombineTag = true;
+                        playerShoot.CombineTag = false;
                         playerShoot.CombineAmmos = 20;
                     }
                     else if (leftWeapon.WeaponName == WeaponName.Sword || rightWeapon.WeaponName == WeaponName.Sword)
@@ -242,7 +246,7 @@ namespace AssemblyCSharp
                     if (leftWeapon.WeaponName == WeaponName.Sword || rightWeapon.WeaponName == WeaponName.Sword)
                     {
                         CombineType = 45;
-                        playerShoot.CombineTag = true;
+                        playerShoot.CombineTag = false;
                         playerShoot.CombineAmmos = 20;
                     }
                 }
@@ -266,9 +270,24 @@ namespace AssemblyCSharp
             //Loading process will depend on what kind of situation.
         }
 
-        public void ChangeWeapon()
+        public void ChangeWeapon(string weaponName)
         {
-            Character.EquipFirearm(SpriteCollection.Firearms2H[1].Sprites, firearmCollection.Firearms[0], true);
+            List<Sprite> weaponSprites = new List<Sprite>();
+            foreach (SpriteGroupEntry spriteGroupEntry in SpriteCollection.Firearms2H)
+            {
+                if (spriteGroupEntry.Name == weaponName)
+                {
+                    weaponSprites = spriteGroupEntry.Sprites;
+                }
+            }
+            if (weaponSprites.Count > 0)
+            {
+                Character.EquipFirearm(weaponSprites, firearmCollection.Firearms[0], true);
+            }
+            else
+            {
+                Debug.LogError("Wrong combine weapon sprite name.");
+            }
         }
 
         public void EmptyWeapon()

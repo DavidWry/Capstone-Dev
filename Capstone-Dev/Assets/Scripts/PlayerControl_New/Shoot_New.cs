@@ -52,15 +52,15 @@ public class Shoot_New : MonoBehaviour
     public int CombineAmmos = 0;
     public bool CombineOn = false;
     public Transform CombineBulPos;
-    private int currentAmmo = 0;
+    public int currentAmmo = 0;
     //12-1
-    private float CombineBtw_12 = 0.05f;
-    private float CombineSpeed_12 = 5f;
+    private float CombineBtw_12 = 1f;
+    private float CombineSpeed_12 = 10f;
     private float CombineDuration_12 = 2f;
-    private int CombineDamage_12 = 5;
+    private int CombineDamage_12 = 50;
     //13-2
     private float CombineBtw_13 = 0.8f;
-    private float CombineSpeed_13 = 10f;
+    private float CombineSpeed_13 = 20f;
     private float CombineDuration_13 = 5f;
     private int CombineDamage_13 = 50;
     //14-3
@@ -191,7 +191,8 @@ public class Shoot_New : MonoBehaviour
                 {
                     LeftWeaponObj.SetActive(false);
                     RightWeaponObj.SetActive(false);
-                    player.ChangeWeapon();
+                    string weaponName = FindWeaponName();
+                    player.ChangeWeapon(weaponName);
                 }
                 if (Mathf.Round(Input.GetAxisRaw("RightTrigger")) > 0 || Mathf.Round(Input.GetAxisRaw("LeftTrigger")) > 0)
                 {
@@ -317,7 +318,10 @@ public class Shoot_New : MonoBehaviour
     {
         if (zoomOn)
         {
-            CameraObj.GetComponent<Camera>().fieldOfView += zoomSpeed * Time.deltaTime;
+            if (CameraObj.GetComponent<Camera>().fieldOfView < preZoom + 15f)
+            {
+                CameraObj.GetComponent<Camera>().fieldOfView += zoomSpeed * Time.deltaTime;
+            }
         }
         else if (CameraObj.GetComponent<Camera>().fieldOfView > preZoom)
         {
@@ -509,6 +513,35 @@ public class Shoot_New : MonoBehaviour
     }
 
     // 1 - Pistol 2 - Ak47 3 - Lazer 4 - Shotgun 5 - Sword
+    private string FindWeaponName()
+    {
+        switch (player.CombineType)
+        {
+            case 0:
+                return null;
+            case 12:
+                return "RL-800";
+            case 13:
+                return "SR-MDK";
+            case 14:
+                return null;
+            case 15:
+                return "RRII";
+            case 23:
+                return "LR-100";
+            case 24:
+                return "OblivionPlasmaGun";
+            case 25:
+                return "LR-500";
+            case 34:
+                return null;
+            case 35:
+                return "RL-DIY200";
+            case 45:
+                return null;
+        }
+        return null;
+    }
 
     private void CombineShoot()
     {
@@ -576,23 +609,13 @@ public class Shoot_New : MonoBehaviour
         Proj.Speed = CombineSpeed_12;
         Proj.Duration = CombineDuration_12;
         Proj.Damage = CombineDamage_12;
-
-        GameObject NewProj02 = Instantiate(gameManager.CombineProjectile[1]);
-        NewProj02.transform.position = Center.position;
-        NewProj02.transform.rotation = Left.rotation;
-        //Change state according to the weapon
-        Projectile Proj02 = NewProj02.GetComponent<Projectile>();
-        Proj02.IsReady = true;
-        Proj02.Speed = CombineSpeed_12;
-        Proj02.Duration = CombineDuration_12;
-        Proj02.Damage = CombineDamage_12;
     }
     private void CombineShoot_13()
     {
         zoomOn = true;
         GameObject NewProj = Instantiate(gameManager.CombineProjectile[2]);
-        NewProj.transform.position = Center.position;
-        NewProj.transform.rotation = Right.rotation;
+        NewProj.transform.position = CombineBulPos.position;
+        NewProj.transform.rotation = CombineBulPos.rotation;
         //Change state according to the weapon
         Projectile Proj = NewProj.GetComponent<Projectile>();
         Proj.IsReady = true;

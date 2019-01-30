@@ -4180,6 +4180,7 @@ MonoBehaviour:
   CombineAmmos: 0
   CombineOn: 0
   CombineBulPos: {fileID: 4283415803691152}
+  currentAmmo: 0
   CameraObj: {fileID: 0}
   LeftWeaponObj: {fileID: 0}
   RightWeaponObj: {fileID: 0}
