@@ -9,14 +9,14 @@ public class NPCManager : MonoBehaviour {
     public const string path = "TestRelation";
     private CharacterNodeContainer characterNodeContainer;
     private GameObject PlayerObj;
-    private Player player;
+    private Player_New player;
     public List<string> possibleIds;
 
     // Use this for initialization
     void Start () {
         characterNodeContainer = CharacterNodeContainer.Load(path);
         PlayerObj = GameObject.FindWithTag("Player");
-        player = PlayerObj.GetComponent<Player>();
+        player = PlayerObj.GetComponent<Player_New>();
         possibleIds = FindAllPossibleId();
     }
 	

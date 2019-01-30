@@ -30,6 +30,7 @@ namespace AssemblyCSharp
 
         public int HitPoint;
         public int Power;
+        public Vector3 Recoil = new Vector3(0, 0, 0);
 
         public SpriteCollection SpriteCollection;
         public Character Character;
@@ -57,10 +58,7 @@ namespace AssemblyCSharp
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                Character.EquipFirearm(SpriteCollection.Firearms1H[6].Sprites, firearmCollection.Firearms[0], false);
-            }
+            playerMovement.Recoil += Recoil;
         }
 
         // Update is called once per frame

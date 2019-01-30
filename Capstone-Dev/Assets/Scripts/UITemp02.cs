@@ -21,7 +21,7 @@ public class UITemp02 : MonoBehaviour {
         if (!PlayerObj)
             PlayerObj = GameObject.FindGameObjectWithTag("Player");
         else
-            Hp = PlayerObj.GetComponent<Player>().HitPoint;
+            Hp = PlayerObj.GetComponent<Player_New>().HitPoint;
         image.fillAmount = Hp / 100;
 	}
 }

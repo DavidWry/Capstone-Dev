@@ -276,6 +276,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224491381450814178}
   - component: {fileID: 114316243410899306}
+  - component: {fileID: 114782169578311880}
   m_Layer: 5
   m_Name: TextManager
   m_TagString: Untagged
@@ -659,7 +660,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1842955282435266}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67389ab260e7e8a4d8edcb3373e42535, type: 3}
   m_Name: 
@@ -1032,6 +1033,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114782169578311880
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1537729035055996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11d1ede0c324a814f8deec1e3c828fff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  possibleIds: []
 --- !u!114 &114847235768859032
 MonoBehaviour:
   m_ObjectHideFlags: 1

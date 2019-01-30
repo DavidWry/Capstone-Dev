@@ -89,8 +89,8 @@ public class TextBoxManagerXML : MonoBehaviour {
     public void EnableTextBox()
     {
         TextBox.SetActive(true);
-        Player.GetComponent<Movement>().enabled = false;
-        Player.GetComponent<Shoot>().enabled = false;
+        Player.GetComponent<Movement_New>().enabled = false;
+        Player.GetComponent<Shoot_New>().enabled = false;
         isActive = true;
     }
 
@@ -98,8 +98,8 @@ public class TextBoxManagerXML : MonoBehaviour {
     {
         currentLine = 0;
         TextBox.SetActive(false);
-        Player.GetComponent<Movement>().enabled = true;
-        Player.GetComponent<Shoot>().enabled = true;
+        Player.GetComponent<Movement_New>().enabled = true;
+        Player.GetComponent<Shoot_New>().enabled = true;
         isActive = false;
     }
 

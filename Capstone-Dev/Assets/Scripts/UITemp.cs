@@ -21,7 +21,7 @@ public class UITemp : MonoBehaviour {
         if(!PlayerObj)
             PlayerObj = GameObject.FindGameObjectWithTag("Player");
         else
-            AP = PlayerObj.GetComponent<Player>().Power;
+            AP = PlayerObj.GetComponent<Player_New>().Power;
         percentage = AP / 100f;
         PowerBar.fillAmount = percentage;
 	}

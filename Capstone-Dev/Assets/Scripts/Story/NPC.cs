@@ -62,8 +62,8 @@ public class NPC : MonoBehaviour {
                 {
                     theTextBox.ReloadText(NPCText);
                     theTextBox.EnableTextBox();
-                    other.GetComponent<Player>().NPCIDs.Add(NpcID);
-                    other.GetComponent<Player>().NPCIDs = other.GetComponent<Player>().NPCIDs.Distinct().ToList();
+                    other.GetComponent<Player_New>().NPCIDs.Add(NpcID);
+                    other.GetComponent<Player_New>().NPCIDs = other.GetComponent<Player_New>().NPCIDs.Distinct().ToList();
                 }
             }
         }
