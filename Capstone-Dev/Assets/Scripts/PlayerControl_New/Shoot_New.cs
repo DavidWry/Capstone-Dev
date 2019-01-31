@@ -66,7 +66,7 @@ public class Shoot_New : MonoBehaviour
     //14-3
     private float CombineBtw_14 = 0.2f;
     private float CombineSpeed_14 = 0f;
-    private float CombineDuration_14 = 2f;
+    private float CombineDuration_14 = 15f;
     private int CombineDamage_14 = 50;
     //15-4
     private float CombineBtw_15 = 0.2f;
@@ -631,13 +631,14 @@ public class Shoot_New : MonoBehaviour
     {
         GameObject NewProj = Instantiate(gameManager.CombineProjectile[3]);
         NewProj.transform.position = Center.position;
-        NewProj.transform.rotation = Right.rotation;
+        NewProj.transform.eulerAngles = new Vector3(0, 0, - 90);
         //Change state according to the weapon
         Projectile Proj = NewProj.GetComponent<Projectile>();
         Proj.IsReady = true;
         Proj.Speed = CombineSpeed_14;
         Proj.Duration = CombineDuration_14;
         Proj.Damage = CombineDamage_14;
+        Proj.Boom = true;
     }
     private void CombineShoot_15()
     {
