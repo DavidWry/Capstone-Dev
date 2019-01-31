@@ -117,7 +117,7 @@ namespace AssemblyCSharp
             {
                 if (RightTarget != null)
                 {
-                    if (playerShoot.CombineOn)
+                    if (playerShoot.CombineOn && playerShoot.CombineTag)
                     {
                         isLeftInHand = true;
                     }

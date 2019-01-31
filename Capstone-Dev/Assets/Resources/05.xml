@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Lines>
+  <Line>
+    <Name>Clergy</Name>
+    <Content>Hi traveler.</Content>
+    <Emoji>LOL</Emoji>
+  </Line>
+  <Line>
+    <Name>Player</Name>
+    <Content>Dear Clergy. Does God Sofia have a way to end this war?</Content>
+    <Emoji>Sad</Emoji>
+  </Line>
+  <Line>
+    <Name>Clergy</Name>
+    <Content>Well, church has a problem now. Our three hallows were stolen, so can't get in touch with God Sofia. If you can help us out, (To be continue).</Content>
+    <Emoji>LOL</Emoji>
+  </Line>
+</Lines>

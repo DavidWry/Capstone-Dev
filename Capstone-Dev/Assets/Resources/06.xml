@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dialogue>
+  <Lines>
+    <Line>
+      <Name>Saman</Name>
+      <Content>Hi traveler.</Content>
+      <Emoji>LOL</Emoji>
+    </Line>
+    <Line>
+      <Name>Player</Name>
+      <Content>Dear Saman. I got a scepter for you.</Content>
+      <Emoji>Sad</Emoji>
+    </Line>
+    <Line>
+      <Name>Saman</Name>
+      <Content>Great! They would like to join us. This war will end soon enough.</Content>
+      <Emoji>LOL</Emoji>
+    </Line>
+  </Lines>
+</Dialogue>

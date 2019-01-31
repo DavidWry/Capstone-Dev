@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dialogue>
+  <Lines>
+    <Line>
+      <Name>The Cacique</Name>
+      <Content>Hey there.</Content>
+      <Emoji>LOL</Emoji>
+    </Line>
+    <Line>
+      <Name>Player</Name>
+      <Content>Dear Cacique. I got a letter for you.</Content>
+      <Emoji>Sad</Emoji>
+    </Line>
+    <Line>
+      <Name>The Cacique</Name>
+      <Content>Oh, let me see.</Content>
+      <Emoji>LOL</Emoji>
+    </Line>
+    <Line>
+      <Name>The Cacique</Name>
+      <Content>My dear traveler. Orcs are strong but we are not smart. We used to follow what people told us, but when they have different thoughts, we got confused.</Content>
+      <Emoji>LOL</Emoji>
+    </Line>
+    <Line>
+      <Name>The Cacique</Name>
+      <Content>We don't know who is right. So you can make the decision for us. Give this scepter to whoever you believe.</Content>
+      <Emoji>LOL</Emoji>
+    </Line>
+    <Line>
+      <Name>The Cacique</Name>
+      <Content>But my dear traveler, I don't want to see this war keeps going on. I think their God Sofia may have the answer.</Content>
+      <Emoji>LOL</Emoji>
+    </Line>
+    <Line>
+      <Name>The Cacique</Name>
+      <Content>So, please. Before you talk to their leaders, find the clergy first. Ask them if there is a way to end this war peacefully. Thank you.</Content>
+      <Emoji>LOL</Emoji>
+    </Line>
+  </Lines>
+</Dialogue>

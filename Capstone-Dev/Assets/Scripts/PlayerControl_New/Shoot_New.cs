@@ -246,6 +246,10 @@ public class Shoot_New : MonoBehaviour
             }
         }
 
+    }
+
+    private void LateUpdate()
+    {        
         //Shoot
 
         LeftShoot();

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dialogue>
+  <Lines>
+    <Line>
+      <Name>Jane</Name>
+      <Content>Hey! What are you doing？You are not some sci-fi guy from SURIV, are you?</Content>
+      <Emoji>LOL</Emoji>
+    </Line>
+    <Line>
+      <Name>Player</Name>
+      <Content>Wait, WAIT. I'm just a traveler.</Content>
+      <Emoji>Sad</Emoji>
+    </Line>
+    <Line>
+      <Name>Jane</Name>
+      <Content>Traveler? There's a WAR going on here. You'd better leave as soon as possible. Sofia can't protect you since you're not her child.</Content>
+      <Emoji>LOL</Emoji>
+    </Line>
+    <Line>
+      <Name>Player</Name>
+      <Content>Sofia?</Content>
+      <Emoji>LOL</Emoji>
+    </Line>
+    <Line>
+      <Name>Jane</Name>
+      <Content>She is the God. She protects us, gives us food, and makes the sun rise up.</Content>
+      <Emoji>LOL</Emoji>
+    </Line>
+    <Line>
+      <Name>Player</Name>
+      <Content>If that so, why there's a war.</Content>
+      <Emoji>LOL</Emoji>
+    </Line>
+    <Line>
+      <Name>Jane</Name>
+      <Content>Some infidel do not believe in Sofia anymore. They use some so called "SCINCE" against us. We are in a pretty bad position in this war now.</Content>
+      <Emoji>LOL</Emoji>
+    </Line>
+    <Line>
+      <Name>Player</Name>
+      <Content>But you have the protection from Sofia, right?</Content>
+      <Emoji>LOL</Emoji>
+    </Line>
+    <Line>
+      <Name>Jane</Name>
+      <Content>So does them! God Sofia loves all her child, not only the believer. That's how good she is.</Content>
+      <Emoji>LOL</Emoji>
+    </Line>
+    <Line>
+      <Name>Jane</Name>
+      <Content>We would like some help from our old ally -- The orcs. If one day you met the Cacique of the Orcs, please give this letter to him. Our Saman will wait for their reply.</Content>
+      <Emoji>LOL</Emoji>
+    </Line>
+    <Line>
+      <Name>Jane</Name>
+      <Content>May Sofia be with you.</Content>
+      <Emoji>LOL</Emoji>
+    </Line>
+  </Lines>
+</Dialogue>

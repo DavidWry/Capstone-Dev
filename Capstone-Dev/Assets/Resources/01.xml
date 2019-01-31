@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dialogue>
+  <Lines>
+    <Line>
+      <Name>Nick</Name>
+      <Content>Hey! What are you doing？ This is a Military exclusion zone.</Content>
+      <Emoji>LOL</Emoji>
+    </Line>
+    <Line>
+      <Name>Player</Name>
+      <Content>Oh, sorry. But you don't look like a soldier.</Content>
+      <Emoji>Sad</Emoji>
+    </Line>
+    <Line>
+      <Name>Nick</Name>
+      <Content>What are you talking about! We are the revolutionary military. We got high tech weapons from SURIV, and we are starting a revolution!</Content>
+      <Emoji>LOL</Emoji>
+    </Line>
+    <Line>
+      <Name>Player</Name>
+      <Content>But, you are using a sword.</Content>
+      <Emoji>LOL</Emoji>
+    </Line>
+    <Line>
+      <Name>Nick</Name>
+      <Content>It's a STEEL SWORD you fool! Anyway, we are fighting against the conservative party. They believe their god will lead them, and they refuse to accept the new tech.</Content>
+      <Emoji>LOL</Emoji>
+    </Line>
+    <Line>
+      <Name>Nick</Name>
+      <Content>I mean have you ever seen a television? There are cows moving in it! Can god do that?</Content>
+      <Emoji>LOL</Emoji>
+    </Line>
+    <Line>
+      <Name>Player</Name>
+      <Content>God?</Content>
+      <Emoji>LOL</Emoji>
+    </Line>
+    <Line>
+      <Name>Nick</Name>
+      <Content>Yeah, GOD SOFIA. We used to believe the whole world is a gift given by GOD SOFIA. But with SURIV came in, I realized only science can change my life.</Content>
+      <Emoji>LOL</Emoji>
+    </Line>
+    <Line>
+      <Name>Nick</Name>
+      <Content>We are trying to make Orcs become our ally. That way we can end this war soon. If one day you met the Cacique of the Orcs, please give this letter to him. Our General will wait for their reply.</Content>
+      <Emoji>LOL</Emoji>
+    </Line>
+  </Lines>
+</Dialogue>

@@ -723,6 +723,25 @@ Prefab:
       propertyPath: m_Name
       value: New_character
       objectReference: {fileID: 0}
+    - target: {fileID: 1061408184291216, guid: c2e5f753fcf49c64d87884c1108debe8, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212931631587595704, guid: c2e5f753fcf49c64d87884c1108debe8,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: -2140784465
+      objectReference: {fileID: 0}
+    - target: {fileID: 212931631587595704, guid: c2e5f753fcf49c64d87884c1108debe8,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 212931631587595704, guid: c2e5f753fcf49c64d87884c1108debe8,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2e5f753fcf49c64d87884c1108debe8, type: 2}
   m_IsPrefabAsset: 0
