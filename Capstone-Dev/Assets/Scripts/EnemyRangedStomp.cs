@@ -31,12 +31,16 @@ public class EnemyRangedStomp : MonoBehaviour
 
     private void Start()
     {
-        health = 75;
-        attackRange = 5f;
+        health = 60;
+        attackRange = 4f;
         chaseRange = 6;
-        startTimeBetweenShots = 1.5f;
-        timeBetweenShots = startTimeBetweenShots;
+        startTimeBetweenShots = 1.0f;
+        timeBetweenShots = 2.0f;
         target = GameObject.FindGameObjectWithTag("Player").transform;
+
+        probability = gameObject.GetComponent<DropProbability>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
         anim = GetComponent<Animator>();
 
 
@@ -45,6 +49,17 @@ public class EnemyRangedStomp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //face the player
+        var scale = transform.localScale;
+        scale.x = Mathf.Abs(scale.x);
+        if (target.position.x < transform.position.x)
+        {
+            scale.x *= -1;
+        }
+        transform.localScale = scale;
+
+        //behavior here
         if (target != null)
         {
             startPoint = transform.position;
@@ -56,7 +71,7 @@ public class EnemyRangedStomp : MonoBehaviour
                     anim.SetTrigger("Attack");
                     
                     SpawnProjectile(numberOfProjectiles);
-                    timeBetweenShots = startTimeBetweenShots;
+                    timeBetweenShots = 2.0f;
 
                 }
                 else

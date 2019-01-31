@@ -8,7 +8,8 @@ public class SpearProjectile : MonoBehaviour
 {
 
     public float speed;
-    private Player player2;
+    private Player_New player2;
+    //private Player player2;
     private Transform player;
     private Vector3 target;
     private int damage;
@@ -17,7 +18,7 @@ public class SpearProjectile : MonoBehaviour
     void Start()
     {
         damage = 8;
-        player2 = GetComponent<Player>();
+        player2 = GetComponent<Player_New>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         target = new Vector3(player.position.x, player.position.y,player.position.z);
         
@@ -55,7 +56,7 @@ public class SpearProjectile : MonoBehaviour
             DestroyProjectile();
 
             //Call TakeDamage function from the player's script
-            other.gameObject.GetComponent<Player>().TakeDamage(damage);
+            other.gameObject.GetComponent<Player_New>().TakeDamage(damage);
 
         }
 

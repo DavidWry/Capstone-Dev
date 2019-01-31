@@ -8,7 +8,8 @@ public class EnemySuicideBomber : MonoBehaviour
 {
     private int health;
     private float speed;
-    private Player player2;
+    private Player_New player2;
+    //private Player player2;
     private int damage;
     private float rangeForAttack; //Within what range the enemy will start and continue attacking the player
     private Transform target;
@@ -30,8 +31,8 @@ public class EnemySuicideBomber : MonoBehaviour
     {
         //Set player as the target
         health = 40;
-        speed = 1.5f;
-        player2 = GetComponent<Player>();
+        speed = 2.0f;
+        player2 = GetComponent<Player_New>();
         rangeForAttack = 6;
         damage = 5;
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -45,6 +46,16 @@ public class EnemySuicideBomber : MonoBehaviour
 
     void Update()
     {
+
+        //face the player
+        var scale = transform.localScale;
+        scale.x = Mathf.Abs(scale.x);
+        if (target.position.x < transform.position.x)
+        {
+            scale.x *= -1;
+        }
+        transform.localScale = scale;
+
         // Attack player if its under the range
         if (target != null)
         {
@@ -94,7 +105,7 @@ public class EnemySuicideBomber : MonoBehaviour
 
             GameObject expl = Instantiate(explosion, transform.position, Quaternion.identity) as GameObject;
             Destroy(gameObject);
-            other.gameObject.GetComponent<Player>().TakeDamage(damage);
+            other.gameObject.GetComponent<Player_New>().TakeDamage(damage);
             Destroy(expl, 3);
 
         }

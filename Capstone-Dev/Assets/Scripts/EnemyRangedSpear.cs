@@ -46,6 +46,16 @@ public class EnemyRangedSpear : MonoBehaviour
 	
 	void Update ()
     {
+        //face the player
+        var scale = transform.localScale;
+        scale.x = Mathf.Abs(scale.x);
+        if (player.position.x < transform.position.x)
+        {
+            scale.x *= -1;
+        }
+        transform.localScale = scale;
+
+
         //Attack if under the range
         if (player != null)
         {

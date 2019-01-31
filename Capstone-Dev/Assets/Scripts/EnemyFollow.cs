@@ -8,7 +8,8 @@ public class EnemyFollow : MonoBehaviour
 {
     private int health;
     private float speed;
-    private Player player2;
+    private Player_New player2;
+    //private Player player2;
     private int damage;
     private float rangeForAttack; //Within what range the enemy will start and continue attacking the player
     private Transform target;
@@ -17,12 +18,14 @@ public class EnemyFollow : MonoBehaviour
     private GameManager gameManager = null;
     public GameObject explosion;
 
+    
+
     void Start()
     {
         //Set player as the target
         health = 40;
         speed = 1.2f ;
-        player2 = GetComponent<Player>();
+        player2 = GetComponent<Player_New>();
         rangeForAttack = 6;
         damage = 5;
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -33,6 +36,7 @@ public class EnemyFollow : MonoBehaviour
 
     void Update()
     {
+
         // Attack player if its under the range
         if (target != null)
         {
@@ -70,7 +74,7 @@ public class EnemyFollow : MonoBehaviour
             
             GameObject expl = Instantiate(explosion, transform.position, Quaternion.identity) as GameObject;
             Destroy(gameObject);
-            other.gameObject.GetComponent<Player>().TakeDamage(damage);
+            other.gameObject.GetComponent<Player_New>().TakeDamage(damage);
             Destroy(expl,3);
 
         }

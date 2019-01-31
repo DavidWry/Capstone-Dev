@@ -52,6 +52,14 @@ public class NewEnemyJumper : MonoBehaviour
 
         if (player !=null)
         {
+            //face the player
+            var scale = transform.localScale;
+            scale.x = Mathf.Abs(scale.x);
+            if (player.position.x < transform.position.x)
+            {
+                scale.x *= -1;
+            }
+            transform.localScale = scale;
 
             //initial states for jumping
             if ((Vector3.Distance(startPos, player.position) <= rangeForAttack) && (canJump == true))
@@ -62,18 +70,21 @@ public class NewEnemyJumper : MonoBehaviour
                 startPos = transform.position;
                 anim.SetBool("isJumping", true);
                 Instantiate(landing, targetPos, Quaternion.identity);
+                
                 canJump = false;
             }
             
-            if (anim.GetBool("isJumping") == true) {
+            if (anim.GetBool("isJumping") == true)
+            {
                
                 float x0 = startPos.x;
                 float x1 = targetPos.x;
                 float dist = x1 - x0;
                 float nextX = Mathf.MoveTowards(transform.position.x, x1, speed * Time.deltaTime);
                 float baseY = Mathf.Lerp(startPos.y, targetPos.y, (nextX - x0) / dist);
+                float baseZ = Mathf.Lerp(startPos.z, targetPos.z, (nextX - x0) / dist);
                 float arc = arcHeight * (nextX - x0) * (nextX - x1) / (-0.25f * dist * dist);
-                nextPos = new Vector3(nextX, baseY + arc, transform.position.z);
+                nextPos = new Vector3(nextX, baseY + arc, baseZ - arc);
 
                 // Rotate to face the next position, and then move there
                 // transform.rotation = LookAt2D(nextPos - transform.position);
@@ -83,8 +94,9 @@ public class NewEnemyJumper : MonoBehaviour
             
             // Debug.Log(Vector3.Distance(transform.position, targetPos));
             //  Debug.Log(waitTime);
-            if (nextPos == targetPos)
+            if (Vector3.Distance(nextPos,targetPos) <=0.2f)
             {
+              
                 waitTime -= Time.deltaTime;
                 anim.SetBool("isJumping", false);
             }
@@ -94,7 +106,7 @@ public class NewEnemyJumper : MonoBehaviour
             {
                 canJump = true;
                // targetPos = new Vector3(player.position.x, player.position.y, player.position.z);
-                waitTime = 3.0f;
+                waitTime = 2.0f;
             }
 
            
