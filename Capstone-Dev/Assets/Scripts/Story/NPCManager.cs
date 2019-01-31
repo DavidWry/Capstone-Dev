@@ -9,23 +9,34 @@ public class NPCManager : MonoBehaviour {
     public const string path = "TestRelation";
     private CharacterNodeContainer characterNodeContainer;
     private GameObject PlayerObj;
-    private Player_New player;
+    public Player_New player;
     public List<string> possibleIds;
+    public List<GameObject> allNpcs;
 
     // Use this for initialization
     void Start () {
         characterNodeContainer = CharacterNodeContainer.Load(path);
         PlayerObj = GameObject.FindWithTag("Player");
         player = PlayerObj.GetComponent<Player_New>();
-        possibleIds = FindAllPossibleId();
+        FindAllPossibleId();
     }
-	
 	// Update is called once per frame
 	void Update () {
-
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            GameObject gameObject = GenerateNPC();
+            if(gameObject != null)
+            {
+                Instantiate(gameObject);
+            }
+            else
+            {
+                Debug.Log("Can't find the NPC Object");
+            }
+        }
     }
 
-    private List<string> FindAllPossibleId()
+    public void FindAllPossibleId()
     {
         List<string> possibleNodes = new List<string>();
         if (player.NPCIDs.Count != 0)
@@ -38,14 +49,28 @@ public class NPCManager : MonoBehaviour {
                     {
                         foreach (string NewIds in NpcNode.Childs)
                         {
-                            possibleNodes.Add(NewIds);
+                            bool canAdd = true;
+                            foreach (string usedID in player.NPCIDs)
+                            {
+                                if (usedID == NewIds)
+                                    canAdd = false;
+                            }
+                            if (canAdd)
+                                possibleNodes.Add(NewIds);
                         }
                     }
                     else
                     {
                         if(NpcNode.State == "Start")
                         {
-                            possibleNodes.Add(NpcNode.ID);
+                            bool canAdd = true;
+                            foreach (string usedID in player.NPCIDs)
+                            {
+                                if (usedID == NpcNode.ID)
+                                    canAdd = false;
+                            }
+                            if (canAdd)
+                                possibleNodes.Add(NpcNode.ID);
                         }
                     }
                 }
@@ -57,12 +82,18 @@ public class NPCManager : MonoBehaviour {
             {
                 if (NpcNode.State == "Start")
                 {
-                    possibleNodes.Add(NpcNode.ID);
+                    bool canAdd = true;
+                    foreach (string usedID in player.NPCIDs)
+                    {
+                        if (usedID == NpcNode.ID)
+                            canAdd = false;
+                    }
+                    if (canAdd)
+                        possibleNodes.Add(NpcNode.ID);
                 }
             }
         }
-        List<string> allNodes = possibleNodes.Distinct().ToList();
-        return allNodes;
+        possibleIds = possibleNodes.Distinct().ToList();
     }
 
     public List<string> GetParent(string ID)
@@ -98,5 +129,24 @@ public class NPCManager : MonoBehaviour {
             }
         }
         return result;
+    }
+
+    public GameObject GenerateNPC()
+    {
+        int num = Random.Range(0, possibleIds.Count);
+        string name = possibleIds[num];
+        foreach (GameObject curentNPC in allNpcs)
+        {
+            if (curentNPC.GetComponent<NPC>().NPCText == name)
+            {
+                return curentNPC;
+            }
+        }
+        return null;
+    }
+
+    public void DeletUsedID(string Id)
+    {
+        possibleIds.Remove(Id);
     }
 }
