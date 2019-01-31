@@ -23,6 +23,7 @@ public class NewEnemyJumper : MonoBehaviour
     public float arcHeight = 1;
 
     public GameObject landing;
+    public GameObject impact;
     private bool canJump;
     Vector3 newTargetPos;
 
@@ -74,6 +75,7 @@ public class NewEnemyJumper : MonoBehaviour
                 canJump = false;
             }
             
+            
             if (anim.GetBool("isJumping") == true)
             {
                
@@ -91,21 +93,22 @@ public class NewEnemyJumper : MonoBehaviour
                 transform.position = nextPos;
 
             }
-            
-            // Debug.Log(Vector3.Distance(transform.position, targetPos));
-            //  Debug.Log(waitTime);
-            if (Vector3.Distance(nextPos,targetPos) <=0.2f)
+          
+            if (Vector3.Distance(nextPos,targetPos)<=0.1f)
+           // if(nextPos == targetPos)
             {
-              
                 waitTime -= Time.deltaTime;
+                canJump = false;
+                Instantiate(impact, targetPos, Quaternion.identity);
                 anim.SetBool("isJumping", false);
             }
-          
+
            
+
             if (waitTime <= 0)
             {
                 canJump = true;
-               // targetPos = new Vector3(player.position.x, player.position.y, player.position.z);
+                targetPos = new Vector3(player.position.x, player.position.y, player.position.z);
                 waitTime = 2.0f;
             }
 
@@ -136,30 +139,24 @@ public class NewEnemyJumper : MonoBehaviour
         health -= damage;
 
     }
-
-    // Compute the next position, with arc added in
-
-
-    // Do something when we reach the target
-    // if (nextPos == targetPos) Arrived();*/
-
-}
-
-   /* void Arrived()
-    {
-        Destroy(gameObject);
-    }
-
-    /// 
-    /// This is a 2D version of Quaternion.LookAt; it returns a quaternion
-    /// that makes the local +X axis point in the given forward direction.
-    /// 
-    /// forward direction
-    /// Quaternion that rotates +X to align with forward
     static Quaternion LookAt2D(Vector2 forward)
     {
         return Quaternion.Euler(0, 0, Mathf.Atan2(forward.y, forward.x) * Mathf.Rad2Deg);
     }
 
-    
-}*/
+
+
+
+}
+
+
+
+/// 
+/// This is a 2D version of Quaternion.LookAt; it returns a quaternion
+/// that makes the local +X axis point in the given forward direction.
+/// 
+/// forward direction
+/// Quaternion that rotates +X to align with forward
+
+
+

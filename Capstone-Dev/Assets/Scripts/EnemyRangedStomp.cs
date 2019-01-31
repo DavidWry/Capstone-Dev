@@ -50,18 +50,22 @@ public class EnemyRangedStomp : MonoBehaviour
     void Update()
     {
 
-        //face the player
-        var scale = transform.localScale;
-        scale.x = Mathf.Abs(scale.x);
-        if (target.position.x < transform.position.x)
-        {
-            scale.x *= -1;
-        }
-        transform.localScale = scale;
+        
 
         //behavior here
         if (target != null)
         {
+
+            //face the player
+            var scale = transform.localScale;
+            scale.x = Mathf.Abs(scale.x);
+            if (target.position.x < transform.position.x)
+            {
+                scale.x *= -1;
+            }
+            transform.localScale = scale;
+
+
             startPoint = transform.position;
 
             if (Vector3.Distance(startPoint, target.position) <= attackRange)

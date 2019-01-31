@@ -47,18 +47,20 @@ public class EnemySuicideBomber : MonoBehaviour
     void Update()
     {
 
-        //face the player
-        var scale = transform.localScale;
-        scale.x = Mathf.Abs(scale.x);
-        if (target.position.x < transform.position.x)
-        {
-            scale.x *= -1;
-        }
-        transform.localScale = scale;
+       
 
         // Attack player if its under the range
         if (target != null)
         {
+            //face the player
+            var scale = transform.localScale;
+            scale.x = Mathf.Abs(scale.x);
+            if (target.position.x < transform.position.x)
+            {
+                scale.x *= -1;
+            }
+            transform.localScale = scale;
+
 
             distanceForColor = Vector2.Distance(target.position, transform.position);
             
