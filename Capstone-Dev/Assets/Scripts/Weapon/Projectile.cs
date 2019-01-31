@@ -18,6 +18,7 @@ namespace AssemblyCSharp
         public bool Sheild = false;
         public bool Scale = false;
         public bool OnTarget = false;
+        public bool Boom = false;
         public GameObject Impact;
         public GameManager GameManage;
         public float Duration = 1;
@@ -114,6 +115,11 @@ namespace AssemblyCSharp
             {
                 collision.GetComponent<Fsmandhp>().takedamage(Damage);
                 Dead(collision);
+            }
+            else if (collision.gameObject.tag == "Projectile" && Boom)
+            { 
+                if (!collision.GetComponent<Projectile>().Boom)
+                    Dead(collision);
             }
         }
 

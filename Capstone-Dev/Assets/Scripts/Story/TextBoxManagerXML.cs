@@ -105,6 +105,7 @@ public class TextBoxManagerXML : MonoBehaviour {
 
     public void ReloadText(string newTextPath)
     {
-        dialogueContainer = DialogueContainer.Load(path);
+        dialogueContainer = DialogueContainer.Load(newTextPath);
+        endOfLine = dialogueContainer.lines.Count;
     }
 }

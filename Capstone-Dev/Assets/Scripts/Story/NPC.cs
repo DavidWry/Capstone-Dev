@@ -21,6 +21,7 @@ public class NPC : MonoBehaviour {
     // Use this for initialization
     void Start () {
         theTextBox = FindObjectOfType<TextBoxManagerXML>();
+        npcManager = FindObjectOfType<NPCManager>();
         /*if (NonRelatedNpc)
         {
             NPCText = NpcID;
@@ -40,15 +41,15 @@ public class NPC : MonoBehaviour {
             NpcParents = npcManager.GetParent(NpcID);
         }
         
-        /*
+        
         if (NpcParents.Count == 0)
         {
             NPCText = NpcID;
         }
         else
         {
-            //Random get a parent;
-        }*/
+            NPCText = NpcID;
+        }
         
     }
 
@@ -62,8 +63,10 @@ public class NPC : MonoBehaviour {
                 {
                     theTextBox.ReloadText(NPCText);
                     theTextBox.EnableTextBox();
-                    other.GetComponent<Player_New>().NPCIDs.Add(NpcID);
-                    other.GetComponent<Player_New>().NPCIDs = other.GetComponent<Player_New>().NPCIDs.Distinct().ToList();
+                    other.gameObject.GetComponent<Player_New>().NPCIDs.Add(NpcID);
+                    other.gameObject.GetComponent<Player_New>().NPCIDs = other.gameObject.GetComponent<Player_New>().NPCIDs.Distinct().ToList();
+                    npcManager.FindAllPossibleId();
+                    npcManager.DeletUsedID(NpcID);
                 }
             }
         }
