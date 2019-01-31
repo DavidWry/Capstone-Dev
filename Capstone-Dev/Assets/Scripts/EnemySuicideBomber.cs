@@ -11,8 +11,9 @@ public class EnemySuicideBomber : MonoBehaviour
     private Player_New player2;
     //private Player player2;
     private int damage;
-    private float rangeForAttack; //Within what range the enemy will start and continue attacking the player
+     //Within what range the enemy will start and continue attacking the player
     private Transform target;
+    private float rangeForAttack;
 
     private DropProbability probability = null;
     private GameManager gameManager = null;

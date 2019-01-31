@@ -25,7 +25,7 @@ public class NewEnemyJumper : MonoBehaviour
     public GameObject landing;
     public GameObject impact;
     private bool canJump;
-    Vector3 newTargetPos;
+   
 
     private Animator anim;
     void Start()
@@ -62,13 +62,14 @@ public class NewEnemyJumper : MonoBehaviour
             }
             transform.localScale = scale;
 
+            startPos = transform.position;
             //initial states for jumping
             if ((Vector3.Distance(startPos, player.position) <= rangeForAttack) && (canJump == true))
             {
                 
                 targetPos = new Vector3(player.position.x, player.position.y, player.position.z);
 
-                startPos = transform.position;
+                
                 anim.SetBool("isJumping", true);
                 Instantiate(landing, targetPos, Quaternion.identity);
                 
@@ -94,12 +95,12 @@ public class NewEnemyJumper : MonoBehaviour
 
             }
           
-            if (Vector3.Distance(nextPos,targetPos)<=0.1f)
-           // if(nextPos == targetPos)
+           // if (Vector3.Distance(nextPos,targetPos)<=0.001f)
+            if(nextPos == targetPos)
             {
                 waitTime -= Time.deltaTime;
                 canJump = false;
-                Instantiate(impact, targetPos, Quaternion.identity);
+             //   Instantiate(impact, targetPos, Quaternion.identity);
                 anim.SetBool("isJumping", false);
             }
 
