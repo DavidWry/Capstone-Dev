@@ -1539,6 +1539,8 @@ MonoBehaviour:
     AmmoType: 1
     WeaponName: 7
     itemObj: {fileID: 0}
+    Probability: 0
+  isItem: 0
 --- !u!114 &114124795176344426
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1593,6 +1595,8 @@ MonoBehaviour:
     AmmoType: 1
     WeaponName: 4
     itemObj: {fileID: 0}
+    Probability: 0
+  isItem: 0
 --- !u!114 &114147816171351212
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1804,6 +1808,8 @@ MonoBehaviour:
     AmmoType: 0
     WeaponName: 3
     itemObj: {fileID: 0}
+    Probability: 0
+  isItem: 0
 --- !u!114 &114249394391527450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1920,6 +1926,8 @@ MonoBehaviour:
     AmmoType: 0
     WeaponName: 0
     itemObj: {fileID: 0}
+    Probability: 0
+  isItem: 0
 --- !u!114 &114316715992917102
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2067,6 +2075,8 @@ MonoBehaviour:
     AmmoType: 0
     WeaponName: 0
     itemObj: {fileID: 0}
+    Probability: 0
+  isItem: 0
 --- !u!114 &114493633101876852
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2241,6 +2251,8 @@ MonoBehaviour:
     AmmoType: 0
     WeaponName: 0
     itemObj: {fileID: 0}
+    Probability: 0
+  isItem: 0
 --- !u!114 &114669190093680266
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2778,6 +2790,8 @@ MonoBehaviour:
     AmmoType: 0
     WeaponName: 6
     itemObj: {fileID: 0}
+    Probability: 0
+  isItem: 0
 --- !u!114 &114980883067018724
 MonoBehaviour:
   m_ObjectHideFlags: 1
