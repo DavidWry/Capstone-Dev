@@ -25,7 +25,6 @@ namespace AssemblyCSharp
             {
                 //enable current menu
                 WepPanel.gameObject.SetActive(true);
-                WepPanel.color = Color.yellow;
 
                 //weapon sprite
                 WeaponSprite.sprite = CurrentWeapon.WeaponIcon;
