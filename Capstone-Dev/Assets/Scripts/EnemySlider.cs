@@ -33,7 +33,7 @@ public class EnemySlider : MonoBehaviour
         canDash = true;
         dashTime = 2f;
         rangeForAttack = 6f;
-        damage = 8;
+        damage = 7;
 
         player = GetComponent<Player_New>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -101,7 +101,7 @@ public class EnemySlider : MonoBehaviour
         
         if (other.gameObject.tag == "Player")
          {
-            if (hasCollided == false)
+            if (hasCollided == false && dashTime == 2.0f)
             {
                 hasCollided = true;
                 rb.velocity = Vector3.zero;
