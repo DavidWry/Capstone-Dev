@@ -75,12 +75,14 @@ public class CellularAutomata : MonoBehaviour {
         GenerateLoot();
         DrawLoot();
 
+        DrawPlayer();
+
         GenerateEnemy();
         DrawEnemy();
 
         DrawPortal();
 
-        DrawPlayer();
+        
 
         DrawBoss();
     }
