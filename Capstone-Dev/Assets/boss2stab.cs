@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class boss2stab : MonoBehaviour {
     public GameObject stabSprite;
+    public bool stab1;
 	// Use this for initialization
 	void Start () {
 		
@@ -21,5 +22,10 @@ public class boss2stab : MonoBehaviour {
     public void stabEnd()
     {
         stabSprite.SetActive(false);
+    }
+    public void stabbing()
+    {
+        if (stab1) { stab1 = false; }
+        if (!stab1) { stab1 = true; }
     }
 }

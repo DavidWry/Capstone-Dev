@@ -5,6 +5,7 @@ using UnityEngine;
 public class boss2slam : MonoBehaviour {
     public GameObject slamParticle;
     public ParticleSystem slamParticleSystem;
+    public bool slam1 = false;
 	// Use this for initialization
 	void Start () {
 		
@@ -27,5 +28,11 @@ public class boss2slam : MonoBehaviour {
         slamParticle.SetActive(true);
         slamParticleSystem.Play();
 
+    }
+
+    public void slamming()
+    {
+        if (slam1) { slam1 = false; }
+        if (!slam1) { slam1 = true; }
     }
 }

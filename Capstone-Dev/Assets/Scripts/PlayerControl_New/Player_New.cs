@@ -28,7 +28,7 @@ namespace AssemblyCSharp
         public Transform LeftHand;
         public Transform RightHand;
 
-        public int HitPoint;
+        public float HitPoint;
         public int Power;
         public Vector3 Recoil = new Vector3(0, 0, 0);
 
@@ -253,7 +253,7 @@ namespace AssemblyCSharp
             }
         }
         //take damage with hp.
-        public void TakeDamage(int Damage)
+        public void TakeDamage(float Damage)
         {
             HitPoint -= Damage;
         }

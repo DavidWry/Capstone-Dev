@@ -79,7 +79,7 @@ namespace AssemblyCSharp
                 if (other.gameObject == player1)
                 {
 
-                    player1.GetComponent<Player>().TakeDamage(5);
+                    player1.GetComponent<Player_New>().TakeDamage(5);
                     playerbody.AddForce(newvec * xishu);
                     invin = true;
                 }

@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace AssemblyCSharp { 
 public class boss2charge : MonoBehaviour {
     int waitcount=0;
     float chargetime = 0;
     public GameObject chargeSprite;
     Vector3 unitvec;
+    float distance = 15;
 	// Use this for initialization
 	void Start () {
         
@@ -26,13 +28,20 @@ public class boss2charge : MonoBehaviour {
         if (gameObject.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.name == "row2" )
         {
 
-            if (chargetime < 3 || Vector3.Distance(GameObject.FindGameObjectWithTag("Player").gameObject.transform.position, gameObject.transform.parent.gameObject.transform.position) < 5)
+            if (chargetime < 3  )
             {
-                gameObject.GetComponentInParent<Rigidbody>().MovePosition(gameObject.transform.parent.gameObject.transform.position + unitvec*Time.deltaTime*50);
+                gameObject.GetComponentInParent<Rigidbody2D>().MovePosition(gameObject.transform.parent.gameObject.transform.position + unitvec*Time.deltaTime*50);
                 chargetime += Time.deltaTime;
                 chargeSprite.SetActive(true);
                 gameObject.GetComponent<Animator>().SetBool("canCharge", false);
-            }
+                if (Vector3.Distance(GameObject.FindGameObjectWithTag("Player").gameObject.transform.position, gameObject.transform.parent.gameObject.transform.position) < distance) {
+                        GameObject player = GameObject.FindGameObjectWithTag("Player");
+                        player.GetComponent<Rigidbody>().AddForce(unitvec * 15000);
+                       // player.GetComponent<Player_New>().TakeDamage(20);
+                        
+
+                    }
+                }
             else
             {
                 chargeSprite.SetActive(false);
@@ -93,4 +102,5 @@ public class boss2charge : MonoBehaviour {
 
     }
 
+}
 }

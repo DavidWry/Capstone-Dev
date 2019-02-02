@@ -23,7 +23,7 @@ public class haircollision : MonoBehaviour {
         if (other.gameObject.tag == "Player")
         {
 
-            other.gameObject.GetComponent<Player>().TakeDamage(20);//should be stay, something*time.deltatime
+            other.gameObject.GetComponent<Player_New>().TakeDamage(20);//should be stay, something*time.deltatime
 
         }
 
