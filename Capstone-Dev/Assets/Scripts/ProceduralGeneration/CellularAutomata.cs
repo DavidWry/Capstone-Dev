@@ -146,9 +146,13 @@ public class CellularAutomata : MonoBehaviour {
         else if (Random.value < 0.6f) {
             enemyNum = 101;//This type will always drop ultimate resources
         }
+        else if (Random.value < 0.8f)
+        {
+            enemyNum = 102;//This type will always drop ultimate resources
+        }
         else if (Random.value < 1.0f)
         {
-            enemyNum = 102;
+            enemyNum = 103;
         }
         return enemyNum;
     }
@@ -1007,9 +1011,10 @@ public class CellularAutomata : MonoBehaviour {
 
     void DrawEnemy()
     {
-        GameObject enemy1 = gameManager.GetEnemy("Minion_Type_1");
+        GameObject enemy1 = gameManager.GetEnemy("Slider");
         GameObject enemy2 = gameManager.GetEnemy("SpearThrower");
         GameObject enemy3 = gameManager.GetEnemy("Stomper");
+        GameObject enemy4 = gameManager.GetEnemy("SuicideBomber");
 
         for (int i = 0; i < levelWidth; i++)
         {
@@ -1026,6 +1031,10 @@ public class CellularAutomata : MonoBehaviour {
                 else if (cellState[i, j] == 102)
                 {
                     Instantiate(enemy3, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
+                }
+                else if (cellState[i, j] == 103)
+                {
+                    Instantiate(enemy4, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
                 }
             }
         }
