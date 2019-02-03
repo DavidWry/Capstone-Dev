@@ -170,7 +170,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1876295848165562}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -485.87, y: -258.98, z: 0}
+  m_LocalPosition: {x: -485.87, y: -259.04, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 224774932309474098}
@@ -204,8 +204,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1637411730940926}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.08, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalPosition: {x: -0.004, y: 0.06, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 4259266099646536}
   m_RootOrder: 7
@@ -231,11 +231,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 075754b36d045ee4da3e41de8c059535, type: 3}
-    m_FontSize: 75
+    m_FontSize: 120
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
-    m_MaxSize: 110
+    m_MaxSize: 120
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -255,14 +255,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Item:
-    Name: Lazer
-    ItemName: 2
-    ItemIcon: {fileID: 21300010, guid: 379676913003f4b4fb67ca9e26fbeb97, type: 3}
+    Name: AK47
+    ItemName: 3
+    ItemIcon: {fileID: 21300012, guid: 379676913003f4b4fb67ca9e26fbeb97, type: 3}
     GiveWeapon: 1
     Usable: 1
     DamageType: 1
     AmmoType: 0
-    WeaponName: 6
+    WeaponName: 3
     itemObj: {fileID: 0}
     Probability: 0
   isItem: 0
@@ -287,18 +287,18 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 75f1f00dc3764c64f9881d4a96b04285, type: 3}
-    m_FontSize: 85
+    m_FontSize: 140
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
-    m_MaxSize: 110
+    m_MaxSize: 180
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Lazer
+  m_Text: 'Laser
 
 '
 --- !u!114 &114626830969688532
@@ -322,11 +322,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 075754b36d045ee4da3e41de8c059535, type: 3}
-    m_FontSize: 75
+    m_FontSize: 120
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
-    m_MaxSize: 110
+    m_MaxSize: 120
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -380,7 +380,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 3e6b48183fe73164f88c9f08080f8d45, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 475e9306c6b5dd74eb6db2412f473721, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -407,7 +407,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 475e9306c6b5dd74eb6db2412f473721, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f4250959215e59b419c4daab7858ec20, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5050,15 +5050,15 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2140784465
-  m_SortingLayer: 2
+  m_SortingLayerID: 589507203
+  m_SortingLayer: 7
   m_SortingOrder: 1600
-  m_Sprite: {fileID: 21300010, guid: 379676913003f4b4fb67ca9e26fbeb97, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2ea73904072e28244957c39846d73d2e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.22, y: 0.11}
+  m_Size: {x: 0.28, y: 0.11}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -5121,8 +5121,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.1059939, y: -0.232}
-  m_SizeDelta: {x: 150, y: 150}
+  m_AnchoredPosition: {x: 0.1402016, y: -0.48029423}
+  m_SizeDelta: {x: 214.9764, y: 214.9764}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224368275335317856
 RectTransform:
@@ -5139,8 +5139,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.07399389, y: -0.145}
-  m_SizeDelta: {x: 150, y: 150}
+  m_AnchoredPosition: {x: 0.09430158, y: -0.35569417}
+  m_SizeDelta: {x: 214.9764, y: 214.9764}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224690020971178626
 RectTransform:
@@ -5157,8 +5157,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.013, y: -0.083}
-  m_SizeDelta: {x: 719.701, y: 148.289}
+  m_AnchoredPosition: {x: 0.015, y: -0.184}
+  m_SizeDelta: {x: 2074.439, y: 190.2722}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224774932309474098
 RectTransform:
@@ -5175,8 +5175,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.009, y: -0.106}
-  m_SizeDelta: {x: 42.956, y: 43.408}
+  m_AnchoredPosition: {x: -0.001, y: -0.178}
+  m_SizeDelta: {x: 97.2893, y: 98.313}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224837143118551050
 RectTransform:
@@ -5193,8 +5193,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0510061, y: -0.241}
-  m_SizeDelta: {x: 380.2499, y: 148.289}
+  m_AnchoredPosition: {x: -0.08479841, y: -0.49319422}
+  m_SizeDelta: {x: 544.9651, y: 212.5243}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224922392398035440
 RectTransform:
@@ -5211,6 +5211,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.07, y: -0.148}
-  m_SizeDelta: {x: 304.4143, y: 148.289}
+  m_AnchoredPosition: {x: -0.112, y: -0.36}
+  m_SizeDelta: {x: 436.2793, y: 212.5243}
   m_Pivot: {x: 0.5, y: 0.5}

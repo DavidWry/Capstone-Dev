@@ -204,6 +204,10 @@ public class Shoot_New : MonoBehaviour
                 }
                 IsLeftShooting = false;
                 IsRightShooting = false;
+                if (player.CombineType == 13)
+                {
+                    zoomOn = true;
+                }
             }
             else
             {
@@ -415,7 +419,7 @@ public class Shoot_New : MonoBehaviour
             }
             gameManager.leftWeaponMenu.UpdateWeaponMenu(player.leftWeapon);
             CanLeftShoot = false;
-            var offset = -0.15f * player.LeftHand.parent.InverseTransformDirection(player.Character.Firearm.FireTransform.right);
+            var offset = -0.1f * player.LeftHand.parent.InverseTransformDirection(player.Character.Firearm.FireTransform.right);
             StartCoroutine(AnimateOffset(player.LeftHand, offset, player.LeftHand.localPosition, spring: true));
         }
         else if (!IsLeftShooting && LeftLazer != null)
@@ -511,7 +515,7 @@ public class Shoot_New : MonoBehaviour
             }
             gameManager.rightWeaponMenu.UpdateWeaponMenu(player.rightWeapon);
             CanRightShoot = false;
-            var offset = -0.15f * player.RightHand.parent.InverseTransformDirection(-Right.up);
+            var offset = -0.1f * player.RightHand.parent.InverseTransformDirection(-Right.up);
             StartCoroutine(AnimateOffset(player.RightHand, offset, player.RightHand.localPosition, spring: true));
         }
         else if (!IsRightShooting && RightLazer != null)
@@ -603,6 +607,8 @@ public class Shoot_New : MonoBehaviour
             }
             CanCombineShoot = false;
             currentAmmo--;
+            var offset = -0.25f * player.LeftHand.parent.InverseTransformDirection(player.Character.Firearm.FireTransform.right);
+            StartCoroutine(AnimateOffset(player.LeftHand, offset, player.LeftHand.localPosition, spring: true, duration: 0.1f));
         }
     }
 
