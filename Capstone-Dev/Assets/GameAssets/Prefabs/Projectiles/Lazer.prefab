@@ -58,6 +58,12 @@ MonoBehaviour:
   Rebounce: 0
   Speed: 1
   Thrust: 0
+  SlowDown: 0
+  Pierce: 0
+  Sheild: 0
+  Scale: 0
+  OnTarget: 0
+  Boom: 0
   Impact: {fileID: 0}
   GameManage: {fileID: 0}
   Duration: 1
@@ -152,7 +158,7 @@ LineRenderer:
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
-    textureMode: 0
+    textureMode: 3
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0

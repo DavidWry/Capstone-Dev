@@ -415,6 +415,8 @@ public class Shoot_New : MonoBehaviour
             }
             gameManager.leftWeaponMenu.UpdateWeaponMenu(player.leftWeapon);
             CanLeftShoot = false;
+            var offset = -0.15f * player.LeftHand.parent.InverseTransformDirection(player.Character.Firearm.FireTransform.right);
+            StartCoroutine(AnimateOffset(player.LeftHand, offset, player.LeftHand.localPosition, spring: true));
         }
         else if (!IsLeftShooting && LeftLazer != null)
         {
@@ -509,6 +511,8 @@ public class Shoot_New : MonoBehaviour
             }
             gameManager.rightWeaponMenu.UpdateWeaponMenu(player.rightWeapon);
             CanRightShoot = false;
+            var offset = -0.15f * player.RightHand.parent.InverseTransformDirection(-Right.up);
+            StartCoroutine(AnimateOffset(player.RightHand, offset, player.RightHand.localPosition, spring: true));
         }
         else if (!IsRightShooting && RightLazer != null)
         {
@@ -755,6 +759,28 @@ public class Shoot_New : MonoBehaviour
     {
         player.Power = 0;
         SkillReady = false;
+    }
+
+    private static IEnumerator AnimateOffset(Transform target, Vector3 offset, Vector3 origin, bool spring = false, float duration = 0.05f)
+    {
+        var state = 0f;
+        var startTime = Time.time;
+
+        while (state < 1)
+        {
+            state = (Time.time - startTime) / duration;
+
+            if (state <= 1)
+            {
+                target.localPosition = origin + offset * (spring ? Mathf.Sin(state * Mathf.PI) : state);
+                yield return null;
+            }
+            else
+            {
+                target.localPosition = spring ? origin : origin + offset;
+                break;
+            }
+        }
     }
 }
 

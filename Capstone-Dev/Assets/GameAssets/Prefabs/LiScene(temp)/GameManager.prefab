@@ -82,19 +82,19 @@ MonoBehaviour:
     IsMultiBullets: 0
     BulletAngleList:
     - 0
-    TimeBetweenShot: 1
+    TimeBetweenShot: 0.8
     TimeWaited: 0
     ImpactFX: {fileID: 1501866481023270, guid: 658b9b1f4267b454c9c153d3961f4422, type: 2}
     ShotFX: {fileID: 1000013086863710, guid: bfa2421e2a82beb4a9c7d7cdc2577f76, type: 2}
-    Damage: 8
+    Damage: 15
     Rebounce: 0
-    AmmoSize: 30
+    AmmoSize: 7
     CurrentAmmos: 0
     ClipObj: {fileID: 1766454748759930, guid: e74b0e6acc86e7542b2a19038b4464a6, type: 2}
     AttackAnimationUsed: 
     ReloadTime: 1
-    Duration: 1
-    ProjectileSpeed: 10
+    Duration: 3
+    ProjectileSpeed: 15
     IsThrust: 0
     IsLazer: 0
     IsShortRange: 0
@@ -114,15 +114,15 @@ MonoBehaviour:
     TimeWaited: 0
     ImpactFX: {fileID: 1882777859570806, guid: 26b9baa734847f140803e4e033a9212a, type: 2}
     ShotFX: {fileID: 1527268017831476, guid: 1b6caa07492f1ba4d81381fb780847eb, type: 2}
-    Damage: 5
+    Damage: 2
     Rebounce: 0
-    AmmoSize: 60
+    AmmoSize: 20
     CurrentAmmos: 0
     ClipObj: {fileID: 1766454748759930, guid: e74b0e6acc86e7542b2a19038b4464a6, type: 2}
     AttackAnimationUsed: 
     ReloadTime: 1
     Duration: 1
-    ProjectileSpeed: 26
+    ProjectileSpeed: 25
     IsThrust: 0
     IsLazer: 0
     IsShortRange: 0
@@ -179,7 +179,7 @@ MonoBehaviour:
     ReloadTime: 1
     Duration: 0.3
     ProjectileSpeed: 10
-    IsThrust: 1
+    IsThrust: 0
     IsLazer: 0
     IsShortRange: 1
   - Name: Shotgun
@@ -288,23 +288,23 @@ MonoBehaviour:
   WeaponObjectList:
   - Name: Pistol
     WeaponName: 0
-    weaponObj: {fileID: 1031040304690994, guid: 06723e9a6ee9b7044b2613638ac2d4f8,
+    weaponObj: {fileID: 1484126054811364, guid: 9a4b4fc14cc5c2b45a4d22ae970271f1,
       type: 2}
   - Name: AK47
     WeaponName: 3
-    weaponObj: {fileID: 1031040304690994, guid: 547f7afa1dc54ce43aa7c9b6b4ee9500,
+    weaponObj: {fileID: 1978408523781704, guid: 2b888677e82378342ba24db48486837b,
       type: 2}
   - Name: Lazer
     WeaponName: 6
-    weaponObj: {fileID: 1031040304690994, guid: 858c0a7e8afeff947aac67d3b0474392,
+    weaponObj: {fileID: 1647848053764792, guid: 9b1db0d6e18d73f4b84903dc65106ff2,
       type: 2}
   - Name: Sword
     WeaponName: 7
-    weaponObj: {fileID: 1358715624640800, guid: 312ac8fecd912884fa8b161ea20b22f4,
+    weaponObj: {fileID: 1997536123995246, guid: 710cd73f31fc0344ba6372aa3a39346b,
       type: 2}
   - Name: Shotgun
     WeaponName: 4
-    weaponObj: {fileID: 1328907374582074, guid: f2cbd30f70b6f46499c4578e693661f9,
+    weaponObj: {fileID: 1975073028321906, guid: f1a0e4f23f7d6f34d983924cdafa1fc9,
       type: 2}
   Tiles:
   - {fileID: 1008682546140488, guid: 0d9dd61d194a7e54589f2e865f7a712d, type: 2}
@@ -352,6 +352,7 @@ MonoBehaviour:
   - {fileID: 1489556863665108, guid: e1ac0005b05d6fe418e81b57aab0e4e9, type: 2}
   - {fileID: 1100377277429338, guid: 29afc769a7c70f64fb2282c2f3471eb0, type: 2}
   - {fileID: 1330782127039832, guid: bf9c4842646df394d9c9cf71dd22bd1f, type: 2}
+  BossList: []
   PortalList:
   - {fileID: 1367659576493558, guid: babca655dd8db00428ac6738dc7f3c0e, type: 2}
   CombineProjectile:

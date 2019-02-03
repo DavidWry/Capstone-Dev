@@ -1,13 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using Assets.HeroEditor.Common.Data;
-using Assets.HeroEditor.Common.Enums;
 using HeroEditor.Common;
 using Assets.HeroEditor.Common.CharacterScripts;
 using Assets.HeroEditor.Common.EditorScripts;
-using HeroEditor.Common.Enums;
 using UnityEngine;
-using AssemblyCSharp;
 
 namespace AssemblyCSharp
 {
