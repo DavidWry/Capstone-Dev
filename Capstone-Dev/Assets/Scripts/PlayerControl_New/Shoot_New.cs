@@ -377,6 +377,8 @@ public class Shoot_New : MonoBehaviour
                 }
                 GameObject Shot = Instantiate(player.leftWeapon.ShotFX, Left.GetChild(0).GetChild(0));
                 Shot.transform.position = Left.GetChild(0).GetChild(0).position;
+                var offset = -0.1f * player.LeftHand.parent.InverseTransformDirection(player.Character.Firearm.FireTransform.right);
+                StartCoroutine(AnimateOffset(player.LeftHand, offset, player.LeftHand.localPosition, spring: true));
                 //movement.Recoil = -Left.transform.right * 0.2f;
             }
             else if (player.leftWeapon.IsLazer)
@@ -393,6 +395,25 @@ public class Shoot_New : MonoBehaviour
 
                     LeftLazer = Laz;
                 }
+            }
+            else if (player.leftWeapon.WeaponType == WeaponType.Melee)
+            {
+                //Creat projectile
+                GameObject NewProj = Instantiate(player.leftWeapon.Projectile);
+                NewProj.transform.position = Left.GetChild(0).GetChild(0).position;
+                NewProj.transform.eulerAngles = Left.eulerAngles + new Vector3(0, 0, -player.fixLeftAngle);
+                NewProj.transform.localScale = BulletSizeUp * NewProj.transform.localScale;
+                //Change state according to the weapon
+                Projectile Proj = NewProj.GetComponent<Projectile>();
+                Proj.IsReady = true;
+                Proj.Damage = player.leftWeapon.Damage;
+                Proj.Speed = player.leftWeapon.ProjectileSpeed;
+                Proj.Duration = player.leftWeapon.Duration;
+                Proj.Thrust = player.leftWeapon.IsThrust;
+                var offsets = new Vector3(0, 0, -60);
+                StartCoroutine(SwordOffset(Left.GetChild(0), offsets, Left.GetChild(0).eulerAngles, spring: true));
+                var offset = -0.1f * player.LeftHand.parent.InverseTransformDirection(-Left.up);
+                StartCoroutine(AnimateOffset(player.LeftHand, offset, player.LeftHand.localPosition, spring: true, duration: 0.3f));
             }
             else
             {
@@ -411,6 +432,8 @@ public class Shoot_New : MonoBehaviour
                 Proj.Speed = player.leftWeapon.ProjectileSpeed;
                 Proj.Duration = player.leftWeapon.Duration;
                 Proj.Thrust = player.leftWeapon.IsThrust;
+                var offset = -0.1f * player.LeftHand.parent.InverseTransformDirection(player.Character.Firearm.FireTransform.right);
+                StartCoroutine(AnimateOffset(player.LeftHand, offset, player.LeftHand.localPosition, spring: true));
             }
             //Deal with reload
             if (!player.leftWeapon.IsShortRange)
@@ -419,8 +442,6 @@ public class Shoot_New : MonoBehaviour
             }
             gameManager.leftWeaponMenu.UpdateWeaponMenu(player.leftWeapon);
             CanLeftShoot = false;
-            var offset = -0.1f * player.LeftHand.parent.InverseTransformDirection(player.Character.Firearm.FireTransform.right);
-            StartCoroutine(AnimateOffset(player.LeftHand, offset, player.LeftHand.localPosition, spring: true));
         }
         else if (!IsLeftShooting && LeftLazer != null)
         {
@@ -459,6 +480,8 @@ public class Shoot_New : MonoBehaviour
                 //movement.Recoil = - Right.transform.right * 0.2f;
                 GameObject Shot = Instantiate(player.rightWeapon.ShotFX, Right.GetChild(0).GetChild(0));
                 Shot.transform.position = Right.GetChild(0).GetChild(0).position;
+                var offset = -0.1f * player.RightHand.parent.InverseTransformDirection(-Right.up);
+                StartCoroutine(AnimateOffset(player.RightHand, offset, player.RightHand.localPosition, spring: true));
             }
             else if (player.rightWeapon.IsLazer)
             {
@@ -475,7 +498,7 @@ public class Shoot_New : MonoBehaviour
                     RightLazer = Laz;
                 }
             }
-            else if (player.rightWeapon.IsShortRange)
+            else if (player.rightWeapon.WeaponType == WeaponType.Melee)
             {
                 //Creat projectile
                 GameObject NewProj = Instantiate(player.rightWeapon.Projectile);
@@ -489,6 +512,10 @@ public class Shoot_New : MonoBehaviour
                 Proj.Speed = player.rightWeapon.ProjectileSpeed;
                 Proj.Duration = player.rightWeapon.Duration;
                 Proj.Thrust = player.rightWeapon.IsThrust;
+                var offsets = new Vector3(0, 0, -60);
+                StartCoroutine(SwordOffset(Right.GetChild(0), offsets, Right.GetChild(0).eulerAngles, spring: true));
+                var offset = -0.1f * player.RightHand.parent.InverseTransformDirection(-Right.up);
+                StartCoroutine(AnimateOffset(player.RightHand, offset, player.RightHand.localPosition, spring: true , duration:0.3f));
             }
             else
             {
@@ -507,6 +534,8 @@ public class Shoot_New : MonoBehaviour
                 Proj.Speed = player.rightWeapon.ProjectileSpeed;
                 Proj.Duration = player.rightWeapon.Duration;
                 Proj.Thrust = player.rightWeapon.IsThrust;
+                var offset = -0.1f * player.RightHand.parent.InverseTransformDirection(-Right.up);
+                StartCoroutine(AnimateOffset(player.RightHand, offset, player.RightHand.localPosition, spring: true));
             }
             //Deal with reload
             if (!player.rightWeapon.IsShortRange)
@@ -515,8 +544,6 @@ public class Shoot_New : MonoBehaviour
             }
             gameManager.rightWeaponMenu.UpdateWeaponMenu(player.rightWeapon);
             CanRightShoot = false;
-            var offset = -0.1f * player.RightHand.parent.InverseTransformDirection(-Right.up);
-            StartCoroutine(AnimateOffset(player.RightHand, offset, player.RightHand.localPosition, spring: true));
         }
         else if (!IsRightShooting && RightLazer != null)
         {
@@ -784,6 +811,28 @@ public class Shoot_New : MonoBehaviour
             else
             {
                 target.localPosition = spring ? origin : origin + offset;
+                break;
+            }
+        }
+    }
+
+    private static IEnumerator SwordOffset(Transform target, Vector3 offset, Vector3 origin, bool spring = false, float duration = 0.3f)
+    {
+        var state = 0f;
+        var startTime = Time.time;
+
+        while (state < 1)
+        {
+            state = (Time.time - startTime) / duration;
+
+            if (state <= 1)
+            {
+                target.eulerAngles = origin + offset * (spring ? Mathf.Sin(state * Mathf.PI) : state);
+                yield return null;
+            }
+            else
+            {
+                target.eulerAngles = spring ? origin : origin + offset;
                 break;
             }
         }

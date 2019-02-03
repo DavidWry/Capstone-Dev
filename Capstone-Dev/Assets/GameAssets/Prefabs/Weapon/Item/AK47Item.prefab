@@ -261,7 +261,7 @@ MonoBehaviour:
     GiveWeapon: 1
     Usable: 1
     DamageType: 1
-    AmmoType: 0
+    AmmoType: 1
     WeaponName: 3
     itemObj: {fileID: 0}
     Probability: 0

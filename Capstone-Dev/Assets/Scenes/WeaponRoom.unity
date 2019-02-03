@@ -8924,6 +8924,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 23
       objectReference: {fileID: 0}
+    - target: {fileID: 1378971161083444, guid: 8a6797675ec4b8f45ab3602f5389c195, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a6797675ec4b8f45ab3602f5389c195, type: 2}
   m_IsPrefabAsset: 0
@@ -9539,6 +9543,16 @@ Prefab:
       propertyPath: rightWeaponMenu.ReloadImg
       value: 
       objectReference: {fileID: 1361833057}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: WeaponList.Array.data[3].IsShortRange
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: WeaponList.Array.data[3].WeaponType
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7430308c60b9dc74396db2694886222b, type: 2}
   m_IsPrefabAsset: 0

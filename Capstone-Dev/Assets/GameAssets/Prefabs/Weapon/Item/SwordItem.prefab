@@ -276,14 +276,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Item:
-    Name: AK47
-    ItemName: 3
+    Name: Sword
+    ItemName: 6
     ItemIcon: {fileID: 21300012, guid: 379676913003f4b4fb67ca9e26fbeb97, type: 3}
     GiveWeapon: 1
     Usable: 1
-    DamageType: 1
+    DamageType: 2
     AmmoType: 0
-    WeaponName: 3
+    WeaponName: 7
     itemObj: {fileID: 0}
     Probability: 0
   isItem: 0
