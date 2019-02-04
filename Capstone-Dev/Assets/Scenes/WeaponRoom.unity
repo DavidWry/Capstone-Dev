@@ -706,11 +706,11 @@ Prefab:
       propertyPath: m_Name
       value: New_character
       objectReference: {fileID: 0}
-    - target: {fileID: 114039260084271232, guid: c2e5f753fcf49c64d87884c1108debe8,
+    - target: {fileID: 114412990771979018, guid: c2e5f753fcf49c64d87884c1108debe8,
         type: 2}
-      propertyPath: Head
-      value: 
-      objectReference: {fileID: 1190106938}
+      propertyPath: GoldenFinger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2e5f753fcf49c64d87884c1108debe8, type: 2}
   m_IsPrefabAsset: 0
@@ -10137,11 +10137,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.06, y: 1.12, z: 100}
   m_Center: {x: -0.1, y: -0.82, z: 0}
---- !u!4 &1190106938 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4397608821431086, guid: c2e5f753fcf49c64d87884c1108debe8,
-    type: 2}
-  m_PrefabInternal: {fileID: 411476679}
 --- !u!1001 &1192052021
 Prefab:
   m_ObjectHideFlags: 0
