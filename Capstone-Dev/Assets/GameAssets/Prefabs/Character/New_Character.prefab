@@ -3952,6 +3952,7 @@ MonoBehaviour:
   fixAngle: 110
   LeftHand: {fileID: 4899022458591688}
   RightHand: {fileID: 4892194566540712}
+  Head: {fileID: 0}
   HitPoint: 0
   Power: 0
   Recoil: {x: 0, y: 0, z: 0}

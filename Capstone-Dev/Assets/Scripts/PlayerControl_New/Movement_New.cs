@@ -60,7 +60,7 @@ public class Movement_New : MonoBehaviour {
         if (Mathf.Abs(Input.GetAxis("Right X")) <= 1 || Mathf.Abs(Input.GetAxis("Right Y")) <= 1)
         {
 
-            if (Mathf.Abs(Input.GetAxis("Right X")) > 0.3 || Mathf.Abs(Input.GetAxis("Right Y")) > 0.3)
+            if (Mathf.Abs(Input.GetAxis("Right X")) > 0.65 || Mathf.Abs(Input.GetAxis("Right Y")) > 0.65)
             {
                 //aimming can also change the direction of player
                 //if (Input.GetAxis("Right X") > 0.05 && !isBulletTime)
@@ -155,12 +155,12 @@ public class Movement_New : MonoBehaviour {
             {
                 character.Animator.SetBool("Walk", false);
             }
-            if (Input.GetAxis("Right X") > 0.3)
+            if (Input.GetAxis("Right X") > 0.1)
             {
                 if (!isBulletTime)
                     IsFaceRight = true;
             }
-            else if (Input.GetAxis("Right X") < -0.3)
+            else if (Input.GetAxis("Right X") < -0.1)
             {
                 if (!isBulletTime)
                     IsFaceRight = false;

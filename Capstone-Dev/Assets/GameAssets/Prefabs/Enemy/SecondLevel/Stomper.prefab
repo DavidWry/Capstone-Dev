@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 114949589349740256}
   - component: {fileID: 95562033313078478}
   m_Layer: 0
-  m_Name: Stomper 1
+  m_Name: Stomper
   m_TagString: Minion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

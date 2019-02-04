@@ -22,6 +22,7 @@ namespace AssemblyCSharp
 
         public Transform LeftHand;
         public Transform RightHand;
+        public Transform Head;
 
         public float HitPoint;
         public int Power;
@@ -52,12 +53,6 @@ namespace AssemblyCSharp
         }
 
         private void Update()
-        {
-            playerMovement.Recoil += Recoil;
-        }
-
-        // Update is called once per frame
-        void LateUpdate()
         {
             if (playerShoot.IsLeftShooting)
             {
@@ -92,7 +87,12 @@ namespace AssemblyCSharp
             {
                 playerShoot.SkillReady = true;
             }
+            playerMovement.Recoil += Recoil;
+        }
 
+        // Update is called once per frame
+        void LateUpdate()
+        {
             if (playerMovement.isBulletTime)
             {
                 if (LeftTarget != null && RightTarget != null)
@@ -126,6 +126,7 @@ namespace AssemblyCSharp
                             //LeftHand.transform.rotation = Quaternion.Slerp(LeftHand.transform.rotation, lookRotation, rotateSpeed * Time.deltaTime);
                             LeftHand.transform.eulerAngles = new Vector3(0, 0, angle + fixAngle);
                             RightHand.transform.eulerAngles = new Vector3(0, 0, - fixRightAngle);
+                            HeadLookAround(true);
                         }
                         else if (isRightInHand)
                         {
@@ -135,6 +136,7 @@ namespace AssemblyCSharp
                             //RightHand.transform.rotation = Quaternion.Slerp(RightHand.transform.rotation, lookRotation, rotateSpeed * Time.deltaTime);
                             RightHand.transform.eulerAngles = new Vector3(0, 0, angle);
                             LeftHand.transform.eulerAngles = new Vector3(0, 0, 0);
+                            HeadLookAround(true);
                         }
                     }
                     else
@@ -147,8 +149,10 @@ namespace AssemblyCSharp
                             //LeftHand.transform.rotation = Quaternion.Slerp(LeftHand.transform.rotation, lookRotation, rotateSpeed * Time.deltaTime);
                             LeftHand.transform.eulerAngles = new Vector3(0, 0, angle - fixAngle);
                             RightHand.transform.eulerAngles = new Vector3(0, 0, fixRightAngle);
+                            HeadLookAround(false);
                             LeftHand.transform.Rotate(180, 0, 0);
                             RightHand.transform.Rotate(0, 180, 0);
+                            Head.transform.Rotate(0, 180, 0);
                         }
                         else if (isRightInHand)
                         {
@@ -158,8 +162,10 @@ namespace AssemblyCSharp
                             //RightHand.transform.rotation = Quaternion.Slerp(RightHand.transform.rotation, lookRotation, rotateSpeed * Time.deltaTime);
                             RightHand.transform.eulerAngles = new Vector3(0, 0, angle);
                             LeftHand.transform.eulerAngles = new Vector3(0, 0, 0);
+                            HeadLookAround(false);
                             RightHand.transform.Rotate(180, 0, 0);
                             LeftHand.transform.Rotate(0, 180, 0);
+                            Head.transform.Rotate(0, 180, 0);
                         }
                     }
                 }
@@ -304,6 +310,22 @@ namespace AssemblyCSharp
         public void EmptyBackPack()
         {
             Back.sprite = null;
+        }
+
+        public void HeadLookAround(bool right)
+        {
+            if (right)
+            {
+                Vector3 lookDirection = RightTarget.transform.position - Head.transform.position;
+                float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+                Head.transform.eulerAngles = new Vector3(0, 0, angle / 3);
+            }
+            else
+            {
+                Vector3 lookDirection = - RightTarget.transform.position + Head.transform.position;
+                float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+                Head.transform.eulerAngles = new Vector3(0, 0, angle / 3);
+            }
         }
     }
 }

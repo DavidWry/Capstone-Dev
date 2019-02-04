@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 114203904570293912}
   - component: {fileID: 114660153150795732}
   m_Layer: 12
-  m_Name: SpearThrower 1
+  m_Name: SpearThrower
   m_TagString: Minion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
