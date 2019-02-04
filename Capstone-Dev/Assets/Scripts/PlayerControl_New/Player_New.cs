@@ -54,25 +54,7 @@ namespace AssemblyCSharp
 
         private void Update()
         {
-            if (playerShoot.IsLeftShooting)
-            {
-                isLeftInHand = true;
-                isRightInHand = false;
-            }
-            else if (playerShoot.IsRightShooting)
-            {
-                isRightInHand = true;
-                isLeftInHand = false;
-            }
-            else if (playerShoot.IsCombineShooting)
-            {
-                isCombine = true;
-            }
-            else if (isCombine)
-            {
-                isCombine = false;
-                isLeftInHand = true;
-            }
+ 
 
             if (HitPoint <= 0)
             {
@@ -93,6 +75,25 @@ namespace AssemblyCSharp
         // Update is called once per frame
         void LateUpdate()
         {
+            if (playerShoot.IsLeftShooting)
+            {
+                isLeftInHand = true;
+                isRightInHand = false;
+            }
+            else if (playerShoot.IsRightShooting)
+            {
+                isRightInHand = true;
+                isLeftInHand = false;
+            }
+            else if (playerShoot.IsCombineShooting)
+            {
+                isCombine = true;
+            }
+            else if (isCombine)
+            {
+                isCombine = false;
+                isLeftInHand = true;
+            }
             if (playerMovement.isBulletTime)
             {
                 if (LeftTarget != null && RightTarget != null)
@@ -203,7 +204,8 @@ namespace AssemblyCSharp
                     else if (leftWeapon.WeaponName == WeaponName.Sword || rightWeapon.WeaponName == WeaponName.Sword)
                     {
                         CombineType = 15;
-                        playerShoot.CombineTag = true;
+                        playerShoot.CombineAmmos = 20;
+                        playerShoot.CombineTag = false;
                     }
                 }
                 else if (leftWeapon.WeaponName == WeaponName.Ak47 || rightWeapon.WeaponName == WeaponName.Ak47)

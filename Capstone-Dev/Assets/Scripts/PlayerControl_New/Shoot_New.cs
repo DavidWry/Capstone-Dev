@@ -70,8 +70,8 @@ public class Shoot_New : MonoBehaviour
     private int CombineDamage_14 = 50;
     //15-4
     private float CombineBtw_15 = 0.2f;
-    private float CombineSpeed_15 = 8f;
-    private float CombineDuration_15 = 0.8f;
+    private float CombineSpeed_15 = 0f;
+    private float CombineDuration_15 = 15f;
     private int CombineDamage_15 = 5;
     //23-5
     private float CombineBtw_23 = 0.2f;
@@ -281,6 +281,7 @@ public class Shoot_New : MonoBehaviour
             {
                 player.leftWeapon.CurrentAmmos = player.leftWeapon.AmmoSize;
                 LeftReloadTime = 0;
+                gameManager.leftWeaponMenu.UpdateWeaponMenu(player.leftWeapon);
             }
         }
 
@@ -303,6 +304,7 @@ public class Shoot_New : MonoBehaviour
             {
                 player.rightWeapon.CurrentAmmos = player.rightWeapon.AmmoSize;
                 RightReloadTime = 0;
+                gameManager.rightWeaponMenu.UpdateWeaponMenu(player.rightWeapon);
             }
         }
         if (!CanCombineShoot)
@@ -411,7 +413,7 @@ public class Shoot_New : MonoBehaviour
                 Proj.Duration = player.leftWeapon.Duration;
                 Proj.Thrust = player.leftWeapon.IsThrust;
                 var offsets = new Vector3(0, 0, -60);
-                StartCoroutine(SwordOffset(Left.GetChild(0), offsets, Left.GetChild(0).eulerAngles, spring: true));
+                StartCoroutine(SwordOffset(Left.GetChild(0), offsets, Left.GetChild(0).eulerAngles, Left.GetChild(0).localRotation, spring: true));
                 var offset = -0.1f * player.LeftHand.parent.InverseTransformDirection(-Left.up);
                 StartCoroutine(AnimateOffset(player.LeftHand, offset, player.LeftHand.localPosition, spring: true, duration: 0.3f));
             }
@@ -513,7 +515,7 @@ public class Shoot_New : MonoBehaviour
                 Proj.Duration = player.rightWeapon.Duration;
                 Proj.Thrust = player.rightWeapon.IsThrust;
                 var offsets = new Vector3(0, 0, -60);
-                StartCoroutine(SwordOffset(Right.GetChild(0), offsets, Right.GetChild(0).eulerAngles, spring: true));
+                StartCoroutine(SwordOffset(Right.GetChild(0), offsets, Right.GetChild(0).eulerAngles, Right.GetChild(0).localRotation, spring: true));
                 var offset = -0.1f * player.RightHand.parent.InverseTransformDirection(-Right.up);
                 StartCoroutine(AnimateOffset(player.RightHand, offset, player.RightHand.localPosition, spring: true , duration:0.3f));
             }
@@ -565,7 +567,7 @@ public class Shoot_New : MonoBehaviour
             case 14:
                 return null;
             case 15:
-                return "RRII";
+                return null;
             case 23:
                 return "LR-100";
             case 24:
@@ -635,7 +637,7 @@ public class Shoot_New : MonoBehaviour
             CanCombineShoot = false;
             currentAmmo--;
             var offset = -0.25f * player.LeftHand.parent.InverseTransformDirection(player.Character.Firearm.FireTransform.right);
-            StartCoroutine(AnimateOffset(player.LeftHand, offset, player.LeftHand.localPosition, spring: true, duration: 0.1f));
+            StartCoroutine(AnimateOffset(player.LeftHand, offset, player.LeftHand.localPosition, spring: true));
         }
     }
 
@@ -688,17 +690,6 @@ public class Shoot_New : MonoBehaviour
         Proj.Speed = CombineSpeed_15;
         Proj.Duration = CombineDuration_15;
         Proj.Damage = CombineDamage_15;
-
-        GameObject NewProj02 = Instantiate(gameManager.CombineProjectile[4]);
-        NewProj02.transform.position = Center.position;
-        NewProj02.transform.rotation = Left.rotation;
-        //Change state according to the weapon
-        Projectile Proj02 = NewProj02.GetComponent<Projectile>();
-        Proj02.IsReady = true;
-        Proj02.Speed = CombineSpeed_15;
-        Proj02.Duration = CombineDuration_15;
-        Proj02.Damage = CombineDamage_15;
-        movement.Recoil = -(Right.transform.right);
     }
     private void CombineShoot_23()
     {
@@ -816,7 +807,7 @@ public class Shoot_New : MonoBehaviour
         }
     }
 
-    private static IEnumerator SwordOffset(Transform target, Vector3 offset, Vector3 origin, bool spring = false, float duration = 0.3f)
+    private static IEnumerator SwordOffset(Transform target, Vector3 offset, Vector3 origin, Quaternion rotation, bool spring = false, float duration = 0.2f)
     {
         var state = 0f;
         var startTime = Time.time;
@@ -832,7 +823,7 @@ public class Shoot_New : MonoBehaviour
             }
             else
             {
-                target.eulerAngles = spring ? origin : origin + offset;
+                target.localRotation = rotation;
                 break;
             }
         }
