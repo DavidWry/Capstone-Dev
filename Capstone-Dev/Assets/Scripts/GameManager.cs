@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public List<Item> ItemsList;
     public List<WeaponObject> WeaponObjectList;
     public List<GameObject> Tiles;
+    public List<GameObject> Tiles2;
     public List<GameObject> EnemyList;
     public List<GameObject> BossList;
     public List<GameObject> PortalList;
@@ -94,6 +95,14 @@ public class GameManager : MonoBehaviour
         foreach (GameObject tile in Tiles)
             if (tile.name == tileName)
                     tempTile=tile;
+        return tempTile;
+    }
+    public GameObject GetTile2(string tileName)
+    {
+        GameObject tempTile = new GameObject();
+        foreach (GameObject tile in Tiles2)
+            if (tile.name == tileName)
+                tempTile = tile;
         return tempTile;
     }
 
