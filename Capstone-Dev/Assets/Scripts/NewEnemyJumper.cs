@@ -28,13 +28,20 @@ public class NewEnemyJumper : MonoBehaviour
    
 
     private Animator anim;
+
+    private bool hasInstantiatedLanding;
+    private bool hasInstantiatedImpact;
+
+    private Vector3 offset;
+    private Rigidbody rb;
+
     void Start()
     {
         health = 55;
         rangeForAttack = 7;
 
         
-        waitTime = 3f;
+        waitTime = 0f;
         canJump = true;
 
         startPos = transform.position;
@@ -46,6 +53,11 @@ public class NewEnemyJumper : MonoBehaviour
 
         anim = GetComponent<Animator>();
 
+        hasInstantiatedLanding = false;
+        hasInstantiatedImpact = false;
+
+        offset = new Vector3(0, 0.5f, 0);
+        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -62,24 +74,89 @@ public class NewEnemyJumper : MonoBehaviour
             }
             transform.localScale = scale;
 
-            startPos = transform.position;
+            // startPos = transform.position;
             //initial states for jumping
-            if ((Vector3.Distance(startPos, player.position) <= rangeForAttack) && (canJump == true))
-            {
-                
-                targetPos = new Vector3(player.position.x, player.position.y, player.position.z);
+            /*  if ((Vector3.Distance(startPos, player.position) <= rangeForAttack) && (canJump == true))
+              {
 
-                
-                anim.SetBool("isJumping", true);
-                Instantiate(landing, targetPos, Quaternion.identity);
-                
-                canJump = false;
-            }
-            
-            
-            if (anim.GetBool("isJumping") == true)
+                  targetPos = new Vector3(player.position.x, player.position.y, player.position.z);
+
+                  startPos = transform.position;
+                  anim.SetBool("isJumping", true);
+                  Instantiate(landing, targetPos - offset , Quaternion.identity);
+
+                  canJump = false;
+              }
+
+
+              if (anim.GetBool("isJumping") == true)
+              {
+
+                  float x0 = startPos.x;
+                  float x1 = targetPos.x;
+                  float dist = x1 - x0;
+                  float nextX = Mathf.MoveTowards(transform.position.x, x1, speed * Time.deltaTime);
+                  float baseY = Mathf.Lerp(startPos.y, targetPos.y, (nextX - x0) / dist);
+                  float baseZ = Mathf.Lerp(startPos.z, targetPos.z, (nextX - x0) / dist);
+                  float arc = arcHeight * (nextX - x0) * (nextX - x1) / (-0.25f * dist * dist);
+                  nextPos = new Vector3(nextX, baseY + arc, baseZ - arc);
+
+                  // Rotate to face the next position, and then move there
+                  // transform.rotation = LookAt2D(nextPos - transform.position);
+                  transform.position = nextPos;
+
+              }
+              else
+              {
+                  anim.SetBool("isJumping", false);
+              }
+
+              if (Vector3.Distance(nextPos,targetPos)<=0.01f)
+             // if(nextPos == targetPos)
+              {
+
+                  waitTime -= Time.deltaTime;
+                  canJump = false;
+
+                  anim.SetBool("isJumping", false);
+              }
+
+
+
+              if( (Vector3.Distance(nextPos, targetPos) > 0.01) && (Vector3.Distance(nextPos, targetPos) < 0.1))
+              {
+                  Instantiate(impact, targetPos - offset, Quaternion.identity);
+              }
+
+
+              if (waitTime <= 0)
+              {
+                  canJump = true;
+                  targetPos = new Vector3(player.position.x, player.position.y, player.position.z);
+                  waitTime = 3.0f;
+              }*/
+
+            if (waitTime <= 0f)
             {
-               
+                //targetPos = player.position;
+                targetPos = new Vector3(player.position.x, player.position.y, player.position.z);
+                startPos = transform.position;
+                canJump = true;
+                hasInstantiatedLanding = false;
+                hasInstantiatedImpact = false;
+            }
+            if ((Vector3.Distance(startPos, targetPos) <= rangeForAttack) && (canJump == true))
+            {
+                //targetPos = new Vector3(player.position.x, player.position.y, player.position.z);
+
+                anim.SetBool("isJumping", true);
+
+                if (hasInstantiatedLanding == false)
+                {
+                    Instantiate(landing, targetPos - offset, Quaternion.identity);
+                    hasInstantiatedLanding = true;
+                }
+                
                 float x0 = startPos.x;
                 float x1 = targetPos.x;
                 float dist = x1 - x0;
@@ -88,32 +165,31 @@ public class NewEnemyJumper : MonoBehaviour
                 float baseZ = Mathf.Lerp(startPos.z, targetPos.z, (nextX - x0) / dist);
                 float arc = arcHeight * (nextX - x0) * (nextX - x1) / (-0.25f * dist * dist);
                 nextPos = new Vector3(nextX, baseY + arc, baseZ - arc);
-
+                //baseZ - arc
                 // Rotate to face the next position, and then move there
                 // transform.rotation = LookAt2D(nextPos - transform.position);
                 transform.position = nextPos;
 
+                waitTime = 2f;
             }
-          
-           // if (Vector3.Distance(nextPos,targetPos)<=0.001f)
-            if(nextPos == targetPos)
+            else
             {
-                waitTime -= Time.deltaTime;
-                canJump = false;
-             //   Instantiate(impact, targetPos, Quaternion.identity);
                 anim.SetBool("isJumping", false);
             }
-
-           
-
-            if (waitTime <= 0)
+          
+            if (Vector3.Distance(nextPos, targetPos) <= 0.1f)
             {
-                canJump = true;
-                targetPos = new Vector3(player.position.x, player.position.y, player.position.z);
-                waitTime = 2.0f;
+                anim.SetBool("isJumping", false);
+                if (hasInstantiatedImpact == false)
+                {
+                    Instantiate(impact, targetPos - offset, Quaternion.identity);
+                    hasInstantiatedImpact = true;
+                }
+                canJump = false;
+                waitTime -= Time.deltaTime;
+                
+               
             }
-
-           
 
 
         }
@@ -145,6 +221,18 @@ public class NewEnemyJumper : MonoBehaviour
         return Quaternion.Euler(0, 0, Mathf.Atan2(forward.y, forward.x) * Mathf.Rad2Deg);
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Minion" || collision.gameObject.tag == "Player")
+        {
+            rb.velocity = Vector3.zero;
+        }
+
+        if (collision.gameObject.tag == "Obstacle")
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
+        }
+    }
 
 
 
