@@ -635,7 +635,7 @@ Prefab:
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
       propertyPath: Tiles2.Array.size
-      value: 1
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
@@ -787,6 +787,54 @@ Prefab:
       propertyPath: Tiles2.Array.data[0]
       value: 
       objectReference: {fileID: 1008682546140488, guid: 5be88b62395bba141a93a91f0512e80c,
+        type: 2}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: Tiles2.Array.data[1]
+      value: 
+      objectReference: {fileID: 1008682546140488, guid: 912c0fb2013e0074ab9075806a6b726f,
+        type: 2}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: Tiles2.Array.data[2]
+      value: 
+      objectReference: {fileID: 1008682546140488, guid: 2c756c416d398d04e953e95d4e1ef9c8,
+        type: 2}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: Tiles2.Array.data[3]
+      value: 
+      objectReference: {fileID: 1008682546140488, guid: 6f15345c90ae416459cdf970d2480e01,
+        type: 2}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: Tiles2.Array.data[4]
+      value: 
+      objectReference: {fileID: 1008682546140488, guid: 07d3b924866941c4fbdd0030104b00d4,
+        type: 2}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: Tiles2.Array.data[5]
+      value: 
+      objectReference: {fileID: 1008682546140488, guid: ddfd3610b92e81344b3356970057569b,
+        type: 2}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: Tiles2.Array.data[6]
+      value: 
+      objectReference: {fileID: 1008682546140488, guid: 3ad61d93274d0d942859ca39266492ab,
+        type: 2}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: Tiles2.Array.data[7]
+      value: 
+      objectReference: {fileID: 1008682546140488, guid: 7b83700b1e3702e46a78625b230359d2,
+        type: 2}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: Tiles2.Array.data[8]
+      value: 
+      objectReference: {fileID: 1008682546140488, guid: 2704dceb72a8c604b8b44c8f67b63ea6,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7430308c60b9dc74396db2694886222b, type: 2}
