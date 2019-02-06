@@ -366,74 +366,72 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
     }
 
     void ChangeEdge() {
-        for (int row = 0; row < levelWidth; row++)
+        for (int i = 0; i < levelWidth; i++)
         {
-            for (int col = 0; col < levelHeight; col++)
+            for (int j = 0; j < levelHeight; j++)
             {
-                if (landArray[row, col] == 1)
+                if (landArray[i, j] == 1)
                 {
-                    //calculate four corners
-                    if (row == 0 && col == 0)
+                    if (i < levelWidth - 1 && i > 0
+                   && j < levelHeight - 1 && j > 0
+                   && landArray[i, j + 1] == 1 && landArray[i, j] == 1
+                   && landArray[i, j - 1] == 0 && landArray[i - 1, j - 1] == 0 && landArray[i + 1, j - 1] == 0)
                     {
-                        int bitMask = 32 * landArray[row + 1, col] + 16 * landArray[row, col + 1] + 1 * landArray[row + 1, col + 1];
-                        edgeArray[row, col] = bitMask;
+                        edgeArray[i, j] = 1;//下底边
                     }
-                    else if (row == 0 && col == levelHeight - 1)
+                    else if (i < levelWidth - 1 && i > 0
+                    && j < levelHeight && j > 0
+                    && landArray[i, j - 1] == 0 && landArray[i + 1, j - 1] == 1
+                    && landArray[i - 1, j - 1] == 0 && landArray[i, j] == 1)
                     {
-                        int bitMask = 32 * landArray[row + 1, col] + 64 * landArray[row, col - 1] + 2 * landArray[row + 1, col - 1];
-                        edgeArray[row, col] = bitMask;
+                        edgeArray[i, j] = 3;//左下角
                     }
-
-                    else if (row == levelWidth - 1 && col == 0)
+                    else if (i < levelWidth - 1 && i > 0
+                    && j < levelHeight && j > 0
+                    && landArray[i, j - 1] == 0 && landArray[i - 1, j - 1] == 1
+                    && landArray[i + 1, j - 1] == 0 && landArray[i, j] == 1)
                     {
-                        int bitMask = 128 * landArray[row - 1, col] + 8 * landArray[row - 1, col + 1] + 16 * landArray[row, col + 1];
-                        edgeArray[row, col] = bitMask;
+                        edgeArray[i, j] = 2;//右下角
                     }
-
-                    else if (row == levelWidth - 1 && col == levelHeight - 1)
+                    else if (i < levelWidth - 1 && i > 0
+                   && j < levelHeight - 1 && j > 0
+                   && landArray[i, j - 1] == 1 && landArray[i, j] == 1
+                   && landArray[i, j + 1] == 0 && landArray[i - 1, j + 1] == 0 && landArray[i + 1, j + 1] == 0)
                     {
-                        int bitMask = 128 * landArray[row - 1, col] + 4 * landArray[row - 1, col - 1] + 64 * landArray[row, col - 1];
-                        edgeArray[row, col] = bitMask;
+                        edgeArray[i, j] = 7;//上底边
                     }
-                    //calculate four edges
-                    else if (row == 0 && col > 0 && col < levelHeight - 1)
+                    else if (i < levelWidth - 1 && i > 0
+                    && j < levelHeight - 1 && j > -1
+                    && landArray[i, j + 1] == 0 && landArray[i + 1, j + 1] == 1
+                    && landArray[i - 1, j + 1] == 0 && landArray[i, j] == 1)
                     {
-                        int bitMask = 16 * landArray[row, col + 1] + 1 * landArray[row + 1, col + 1] +
-                            64 * landArray[row, col - 1] + 2 * landArray[row + 1, col - 1]
-                            + 32 * landArray[row + 1, col];
-                        edgeArray[row, col] = bitMask;
+                        edgeArray[i, j] = 8;//左上角
                     }
-                    else if (row == levelWidth - 1 && col > 0 && col < levelHeight - 1)
+                    else if (i < levelWidth - 1 && i > 0
+                    && j < levelHeight - 1 && j > -1
+                    && landArray[i, j + 1] == 0 && landArray[i - 1, j + 1] == 1
+                    && landArray[i + 1, j + 1] == 0 && landArray[i, j] == 1)
                     {
-                        int bitMask = 16 * landArray[row, col + 1] + 8 * landArray[row - 1, col + 1] +
-                             64 * landArray[row, col - 1] + 4 * landArray[row - 1, col - 1]
-                             + 128 * landArray[row - 1, col];
-                        edgeArray[row, col] = bitMask;
+                        edgeArray[i, j] = 6;//右上角
                     }
-                    else if (row > 0 && row < levelWidth - 1 && col == 0)
+                    else if (i < levelWidth - 1 && i > 0
+                    && j < levelHeight - 1 && j > 0
+                    && landArray[i-1, j + 1] == 0 && landArray[i - 1, j - 1] == 0 && landArray[i - 1, j] == 0
+                    && landArray[i + 1, j] == 1 && landArray[i, j] == 1)
                     {
-                        int bitMask = 32 * landArray[row + 1, col] + 128 * landArray[row - 1, col] +
-                             8 * landArray[row - 1, col + 1] + 16 * landArray[row, col + 1] + 1 * landArray[row + 1, col + 1];
-                        edgeArray[row, col] = bitMask;
+                        edgeArray[i, j] = 4;//左边
                     }
-                    else if (row > 0 && row < levelWidth - 1 && col == levelHeight - 1)
+                    else if (i < levelWidth - 1 && i > 0
+                    && j < levelHeight - 1 && j > 0
+                    && landArray[i + 1, j + 1] == 0 && landArray[i + 1, j - 1] == 0 && landArray[i + 1, j] == 0
+                    && landArray[i - 1, j] == 1 && landArray[i, j] == 1)
                     {
-                        int bitMask = 32 * landArray[row + 1, col] + 128 * landArray[row - 1, col] +
-                            4 * landArray[row - 1, col - 1] + 64 * landArray[row, col - 1] + 2 * landArray[row + 1, col - 1];
-                        edgeArray[row, col] = bitMask;
+                        edgeArray[i, j] = 5;//右边
                     }
-                    //calculate main area
-                    else
-                    {
-                        int bitMask = 32 * landArray[row + 1, col] + 128 * landArray[row - 1, col] +
-                             4 * landArray[row - 1, col - 1] + 64 * landArray[row, col - 1] + 2 * landArray[row + 1, col - 1] +
-                             8 * landArray[row - 1, col + 1] + 16 * landArray[row, col + 1] + 1 * landArray[row + 1, col + 1];
-                        edgeArray[row, col] = bitMask;
-                    }
-                }//end if platform
-
-                else {
-                    edgeArray[row, col] = 0;
+                }
+                else
+                {
+                    edgeArray[i, j] = 0;
                 }
             }//end for col
         }//end for row
@@ -449,7 +447,17 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
         GameObject tile6 = gameManager.GetTile2("Tile_6");
         GameObject tile7 = gameManager.GetTile2("Tile_7");
         GameObject tile8 = gameManager.GetTile2("Tile_8");
-
+        GameObject tile9 = gameManager.GetTile2("Tile_9");
+        GameObject tile10 = gameManager.GetTile2("Tile_10");
+        GameObject tile11 = gameManager.GetTile2("Tile_11");
+        GameObject tile99 = gameManager.GetTile2("99");
+        GameObject tile100 = gameManager.GetTile2("100");
+        GameObject tile101 = gameManager.GetTile2("101");
+        GameObject tile102 = gameManager.GetTile2("102");
+        GameObject tile103 = gameManager.GetTile2("103");
+        GameObject tile104 = gameManager.GetTile2("104");
+        GameObject tile105 = gameManager.GetTile2("105");
+        GameObject tile106 = gameManager.GetTile2("106");
         /*
         GameObject tile9 = gameManager.GetTile("Tile_9");
         GameObject tile10 = gameManager.GetTile("Tile_10");
@@ -465,161 +473,127 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
         {
             
             for (int i = 0; i < levelWidth; i++)
+
             {
+                if (landArray[i, j] == 1) {
+                    Instantiate(tile10, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                }
+                //down
+
+                if (edgeArray[i,j]==1)
+                {
+                    //open the gate!
+                    //if (Random.value < 0.1 && j != 0)
+                    //{
+                    //Instantiate(tile16, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, 0), transform.rotation);
+                    //cellState[i, j] = 16;
+                    //landArray[i, j] = 0;
+                    //}
+
+                    Instantiate(tile99, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                    //只画奇数，偶数不画
+                    if (cellState[i, j].state != 1)
+                    {
+                        //到右边界了
+                        if (i < levelWidth - 1 && landArray[i + 1, j] == 0)
+                        {
+                            //Instantiate(tile99, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                            cellState[i + 1, j].state = 9;
+                            cellState[i + 1, j].position = new Vector2(i * (float)tileSize, j * (float)tileSize);
+
+                        }
+                        else
+                        {
+                            //Instantiate(tile99, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                            cellState[i, j].state = 1;
+                            cellState[i, j].position = new Vector2(i * (float)tileSize, j * (float)tileSize);
+                            //如果右边也是下底边，则合并那个格子
+                            if (i < levelWidth - 1 && landArray[i + 1, j] == 1)
+                            {
+                                cellState[i + 1, j].state = 1;
+                                cellState[i + 1, j].position = new Vector2(i * (float)tileSize, j * (float)tileSize);
+
+                            }
+                        }
+                        
+                    }
+                    
+                }
+
+                //left-bot corner
+                else if (edgeArray[i, j] == 3)
+                {
+                    Instantiate(tile100, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                    Vector2 position=new Vector2(0,0);
+                    if (cellState[i + 1, j - 1].state == 1 || cellState[i + 1, j - 1].state == 9)
+                    {
+                        position = cellState[i + 1, j - 1].position;
+                        position.x = position.x - 24;
+                    }
+                    //Vector2 position = new Vector2(i * (float)tileSize, j * (float)tileSize);
+                    //Instantiate(tile11, new Vector3(position.x, position.y, 0), transform.rotation);
+                    cellState[i, j].state = 3;
+                    cellState[i, j].position= position;
+                }
+
+                //right-bot corner
+                else if (edgeArray[i, j] == 2)
+                {
+                    Instantiate(tile101, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                    //Instantiate(tile2, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                    cellState[i, j].state = 2;
+                }
+
+                //top
+                else if (edgeArray[i, j] == 7)
+                {
+                    Instantiate(tile102, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+
+                }
+
                 //left-top corner
-                if (edgeArray[i, j] / 96 == 1 &&
-                    (edgeArray[i, j] % 96 == 2 || edgeArray[i, j] % 96 == 3 ||
-                    edgeArray[i, j] % 96 == 6 || edgeArray[i, j] % 96 == 7 ||
-                    edgeArray[i, j] % 96 == 10 || edgeArray[i, j] % 96 == 11 ||
-                    edgeArray[i, j] % 96 == 14 || edgeArray[i, j] % 96 == 15
-                    ))
+                else if (edgeArray[i, j] == 8)
                 {
 
-                    Instantiate(tile8, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                    Instantiate(tile103, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                     cellState[i, j].state = 8;
                     
                 }
 
                 //right-top corner
-                else if (edgeArray[i, j] / 192 == 1 &&
-                    (edgeArray[i, j] % 192 == 4 || edgeArray[i, j] % 192 == 5 ||
-                    edgeArray[i, j] % 192 == 6 || edgeArray[i, j] % 192 == 7 ||
-                    edgeArray[i, j] % 192 == 12 || edgeArray[i, j] % 192 == 13 ||
-                    edgeArray[i, j] % 192 == 14 || edgeArray[i, j] % 192 == 15
-                    ))
+                else if (edgeArray[i, j] == 6)
                 {
 
-                    Instantiate(tile6, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                    Instantiate(tile104, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                     cellState[i, j].state = 6;
                     
                 }
-
-                //left-bot corner
-                else if (edgeArray[i, j] / 48 == 1 &&
-                    (edgeArray[i, j] % 48 == 1 || edgeArray[i, j] % 48 == 3 ||
-                    edgeArray[i, j] % 48 == 5 || edgeArray[i, j] % 48 == 7 ||
-                    edgeArray[i, j] % 48 == 9 || edgeArray[i, j] % 48 == 11 ||
-                    edgeArray[i, j] % 48 == 13 || edgeArray[i, j] % 48 == 15
-                    ))
-                {
-
-                    Instantiate(tile3, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                    cellState[i, j].state = 3;
-                    
-                }
-
-                //right-bot corner
-                else if (edgeArray[i, j] / 144 == 1 &&
-                    (edgeArray[i, j] % 144 == 8 || edgeArray[i, j] % 144 == 9 ||
-                    edgeArray[i, j] % 144 == 10 || edgeArray[i, j] % 144 == 11 ||
-                    edgeArray[i, j] % 144 == 12 || edgeArray[i, j] % 144 == 13 ||
-                    edgeArray[i, j] % 144 == 14 || edgeArray[i, j] % 144 == 15
-                    ))
-                {
-
-                    Instantiate(tile2, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                    cellState[i, j].state = 2;
-                    
-                }
-
-                //top
-                else if (edgeArray[i, j] / 224 == 1 && edgeArray[i, j] % 224 >= 0 && edgeArray[i, j] % 224 <= 15)
-                {
-
-                    //open the gate!
-
-                    if (Random.value < 0.1 && j != levelHeight - 1)
-                    {
-                        //Instantiate(tile17, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, 0), transform.rotation);
-                        //cellState[i, j] = 17;
-                        //landArray[i, j] = 0;
-                    }
-                    else
-                    {
-                        Instantiate(tile7, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                        cellState[i, j].state = 7;
-                        
-                    }
-
-                }
-
-                //down
-                
-                else if (i < levelWidth-1 && i>0
-                    && j<levelHeight-1 && j>0
-                    && landArray[i,j+1]==1 && landArray[i, j - 1] == 0 && landArray[i-1, j - 1] == 0 && landArray[i + 1, j - 1] == 0)
-                {
-
-                    //open the gate!
-                    //if (Random.value < 0.1 && j != 0)
-                    //{
-                        //Instantiate(tile16, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, 0), transform.rotation);
-                        //cellState[i, j] = 16;
-                        //landArray[i, j] = 0;
-                    //}
-
-                    //else
-                    //{
-                        //只画奇数，偶数不画
-                        if (cellState[i, j].state == 0)
-                        {
-                            Instantiate(tile1, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                            cellState[i, j].state = 1;
-                            cellState[i, j].position = new Vector2(i * (float)tileSize, j * (float)tileSize);
-                            
-                        }
-                        //如果右边也是下底边，则合并那个格子
-                        
-                        if (edgeArray[i + 1, j] / 176 == 1 && edgeArray[i+1, j] % 176 >= 0 && edgeArray[i+1, j] % 176 <= 15)
-                        {
-                            cellState[i+1, j].state = 1;
-                            cellState[i+1, j].position = new Vector2(i * (float)tileSize, j * (float)tileSize);
-                                
-                        }
-                        
-                    //}
-                }
-
                 //left
-                else if (edgeArray[i, j] / 112 == 1 && edgeArray[i, j] % 112 >= 0 && edgeArray[i, j] % 112 <= 15)
+                else if (edgeArray[i, j] == 4)
                 {
 
-                    //open the gate!
-                    if (Random.value < 0.1 && i != 0)
-                    {
-                        //Instantiate(tile14, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, 0), transform.rotation);
-                        //cellState[i, j] = 14;
-                        //landArray[i, j] = 0;
-                    }
-                    else
-                    {
-                        Instantiate(tile4, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                        cellState[i, j].state = 4;
-                        
-                    }
+                    Instantiate(tile105, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                    cellState[i, j].state = 4;
 
                 }
 
                 //right
-                else if (edgeArray[i, j] / 208 == 1 && edgeArray[i, j] % 208 >= 0 && edgeArray[i, j] % 208 <= 15)
+                else if (edgeArray[i, j] == 5)
                 {
 
-                    //open the gate!
-                    if (Random.value < 0.1 && i != levelWidth - 1)
-                    {
-                        //Instantiate(tile15, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, 0), transform.rotation);
-                        //cellState[i, j] = 15;
-                        //landArray[i, j] = 0;
-                    }
-
-                    else
-                    {
-                        Instantiate(tile5, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                        cellState[i, j].state = 5;
-                        
-                    }
+                    Instantiate(tile106, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                    cellState[i, j].state = 5;
 
                 }
+
+
+
+
+
+
+
+
+
 
                 //link left and top
                 else if (edgeArray[i, j] / 240 == 1 && edgeArray[i, j] % 240 >= 0 && edgeArray[i, j] % 240 <= 7)
