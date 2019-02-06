@@ -23,7 +23,7 @@ namespace AssemblyCSharp
         public WeaponName WeaponName = WeaponName.Pistol;
         public GameObject itemObj;
         public float Probability;
-
+        
         //make a TRUE copy of this weapon to be used
         public Item CopyItem(Item oldItem)
         {
