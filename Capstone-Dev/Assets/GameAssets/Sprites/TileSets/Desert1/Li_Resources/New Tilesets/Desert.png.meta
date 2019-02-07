@@ -273,6 +273,7 @@ TextureImporter:
     21300536: Desert_306
     21300538: Desert_307
     21300540: Desert_14
+    21300542: Desert_15
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -381,11 +382,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 48
-        y: 864
+        y: 744
         width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 96
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -440,8 +441,8 @@ TextureImporter:
       name: Desert_3
       rect:
         serializedVersion: 2
-        x: 72
-        y: 840
+        x: 73
+        y: 841
         width: 24
         height: 24
       alignment: 0
@@ -1881,11 +1882,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 24
-        y: 624
+        y: 752
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1900,12 +1901,12 @@ TextureImporter:
       name: Desert_114
       rect:
         serializedVersion: 2
-        x: 48
-        y: 624
+        x: 192
+        y: 751
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -5692,6 +5693,26 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: c44d1a682735900498b38864b5ed69cf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_15
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 744
+        width: 24
+        height: 96
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 279949ef9b2593a47b6b8bec93ffbf4a
       vertices: []
       indices: 
       edges: []

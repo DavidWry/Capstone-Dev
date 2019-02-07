@@ -156,7 +156,7 @@ MonoBehaviour:
     IsShortRange: 0
   - Name: Sword
     WeaponName: 7
-    WeaponType: 2
+    WeaponType: 0
     WeaponIcon: {fileID: 21300000, guid: 1ded39d8126baa1459a4f1657e83b630, type: 3}
     WeaponObj: {fileID: 1358715624640800, guid: 312ac8fecd912884fa8b161ea20b22f4,
       type: 2}
@@ -345,6 +345,7 @@ MonoBehaviour:
   - {fileID: 1008682546140488, guid: 410ced76ea84ea743906dcfc22ec45e4, type: 2}
   - {fileID: 1008682546140488, guid: fbee2d7eda933b24881856b857a6ec68, type: 2}
   - {fileID: 1008682546140488, guid: 07884be851adda24596d183388b8ec87, type: 2}
+  Tiles2: []
   EnemyList:
   - {fileID: 1489556863665108, guid: 0033028c61be62246a5bb7499249fa01, type: 2}
   - {fileID: 1330782127039832, guid: 74ddbb7d70505884e882c9dc8ffb2c03, type: 2}
@@ -367,6 +368,7 @@ MonoBehaviour:
   - {fileID: 1899085504715622, guid: e34f2f32bc6359a4089fecc8be006325, type: 2}
   - {fileID: 1471961655910682, guid: c70b2144956daf440a25cde7f712e39a, type: 2}
   - {fileID: 1159396787669600, guid: 7c5f768e8f251be4d876a942dcea72ae, type: 2}
+  - {fileID: 1378971161083444, guid: 8a6797675ec4b8f45ab3602f5389c195, type: 2}
   leftWeaponMenu:
     Weapons:
       Name: 

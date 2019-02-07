@@ -177,7 +177,12 @@ namespace AssemblyCSharp
         {
             if (leftWeapon.WeaponName == rightWeapon.WeaponName)
             {
-                CombineType = 0;
+                if (leftWeapon.WeaponName == WeaponName.Pistol)
+                {
+                    CombineType = 11;
+                    playerShoot.CombineTag = false;
+                    playerShoot.CombineAmmos = 1;
+                }
             }
             else
             {

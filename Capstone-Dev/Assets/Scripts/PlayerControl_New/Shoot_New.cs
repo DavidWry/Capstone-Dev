@@ -169,7 +169,7 @@ public class Shoot_New : MonoBehaviour
                 {
                     CombineOn = true;
                     CombinedTime = 0;
-                    SkillReady = false;
+                    useSkill();
                     currentAmmo = CombineAmmos;
                 }
             }
@@ -588,10 +588,14 @@ public class Shoot_New : MonoBehaviour
     {
         if (IsCombineShooting && CanCombineShoot)
         {
-            player.Power = 0;
+            //player.Power = 0;
             switch (player.CombineType)
             {
                 case 0:
+                    break;
+                case 11:
+                    CombineShoot_11();
+                    CombineBtw = 1;
                     break;
                 case 12:
                     CombineShoot_12();
@@ -641,6 +645,11 @@ public class Shoot_New : MonoBehaviour
         }
     }
 
+    private void CombineShoot_11()
+    {
+        GameObject NewProj = Instantiate(gameManager.CombineProjectile[11]);
+        NewProj.transform.position = Center.position;
+    }
     private void CombineShoot_12()
     {
         GameObject NewProj = Instantiate(gameManager.CombineProjectile[1]);
