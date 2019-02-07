@@ -2021,10 +2021,10 @@ TextureImporter:
       name: Desert_120
       rect:
         serializedVersion: 2
-        x: 48
-        y: 600
+        x: 96
+        y: 648
         width: 24
-        height: 24
+        height: 96
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2221,12 +2221,12 @@ TextureImporter:
       name: Desert_130
       rect:
         serializedVersion: 2
-        x: 24
-        y: 576
+        x: 72
+        y: 648
         width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 96
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
