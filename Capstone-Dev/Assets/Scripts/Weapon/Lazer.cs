@@ -30,10 +30,24 @@ public class Lazer : Projectile {
                     LazerRenderer.SetPosition(1, hit.point);
                     if (hit.transform.tag == "Minion")
                     {
-                        EnemyFollow enemy = hit.transform.gameObject.GetComponent<EnemyFollow>();
-                        if (timeCounter >= 1)
+                        if (timeCounter >= 0.3)
                         {
-                            enemy.TakeDamage(Damage);
+                            if (hit.transform.GetComponent<EnemySuicideBomber>())
+                            {
+                                hit.transform.gameObject.GetComponent<EnemySuicideBomber>().TakeDamage(Damage/3);
+                            }
+                            else if (hit.transform.gameObject.GetComponent<EnemyRangedSpear>())
+                            {
+                                hit.transform.gameObject.GetComponent<EnemyRangedSpear>().TakeDamage(Damage/3);
+                            }
+                            else if (hit.transform.gameObject.GetComponent<EnemyRangedStomp>())
+                            {
+                                hit.transform.gameObject.GetComponent<EnemyRangedStomp>().TakeDamage(Damage/3);
+                            }
+                            else if (hit.transform.gameObject.GetComponent<NewEnemyJumper>())
+                            {
+                                hit.transform.gameObject.GetComponent<NewEnemyJumper>().TakeDamage(Damage/3);
+                            }
                             timeCounter = 0;
                         }
                     }

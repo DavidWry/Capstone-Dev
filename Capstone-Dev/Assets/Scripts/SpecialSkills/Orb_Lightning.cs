@@ -7,6 +7,7 @@ public class Orb_Lightning : MonoBehaviour {
     public GameObject Lightnnig;
     public float distance = 9.18f;
     float timeBtw = 0;
+    int Damage = 20;
 
 	// Use this for initialization
 	void Start () {
@@ -20,8 +21,30 @@ public class Orb_Lightning : MonoBehaviour {
 
     void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Player" && timeBtw >= 0.5f)
+        if (other.gameObject.tag == "Minion" && timeBtw >= 0.5f)
         {
+            if (other.gameObject.GetComponent<EnemySuicideBomber>())
+            {
+                other.gameObject.GetComponent<EnemySuicideBomber>().TakeDamage(Damage);
+            }
+            else if (other.gameObject.GetComponent<EnemyRangedSpear>())
+            {
+                other.gameObject.GetComponent<EnemyRangedSpear>().TakeDamage(Damage);
+            }
+            else if (other.gameObject.GetComponent<EnemyRangedStomp>())
+            {
+                other.gameObject.GetComponent<EnemyRangedStomp>().TakeDamage(Damage);
+            }
+            else if (other.gameObject.GetComponent<NewEnemyJumper>())
+            {
+                other.gameObject.GetComponent<NewEnemyJumper>().TakeDamage(Damage);
+            }
+            DrawLightning(other);
+        }
+    }
+
+    void DrawLightning(Collider other)
+    {
             Vector3 start = transform.parent.position;
             Vector3 end = other.gameObject.transform.position;
             float newdistance = Vector3.Distance(start, end);
@@ -37,6 +60,5 @@ public class Orb_Lightning : MonoBehaviour {
             posORnag = posORnag * 2 - 1;
             atack.transform.localScale = new Vector3(-1, y * posORnag, 1) * scale;
             timeBtw = 0;
-        }
     }
 }
