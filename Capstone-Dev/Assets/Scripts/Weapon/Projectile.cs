@@ -87,7 +87,12 @@ namespace AssemblyCSharp
                 {
                     collision.gameObject.GetComponent<NewEnemyJumper>().TakeDamage(Damage);
                 }
-                if (Thrust)
+                else if(collision.gameObject.GetComponent<EnemySlider>())
+                {
+                    collision.gameObject.GetComponent<EnemySlider>().TakeDamage(Damage);
+
+                }
+                else if(Thrust)
                 {
                     //collision.gameObject.GetComponent<Rigidbody>().velocity *= -1;
                 }

@@ -25,6 +25,9 @@ public class EnemySlider : MonoBehaviour
     private bool hasCollided ;
     private bool hasReached;
 
+    private DropProbability probability = null;
+    private GameManager gameManager = null;
+
 
     void Start ()
     {
@@ -34,12 +37,16 @@ public class EnemySlider : MonoBehaviour
         dashTime = 2f;
         rangeForAttack = 6f;
         damage = 7;
+        health = 130;
 
         player = GetComponent<Player_New>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
         anim = GetComponent<Animator>();
         hasCollided = false;
         hasReached = false;
+
+        probability = gameObject.GetComponent<DropProbability>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -72,9 +79,7 @@ public class EnemySlider : MonoBehaviour
             if (Vector2.Distance(transform.position, targetPos) <= 0.1f)
             {
                 hasReached = true;
-                
-                   
-
+              
             }
             if (hasReached == true)
             {
@@ -90,6 +95,22 @@ public class EnemySlider : MonoBehaviour
                canDash = true;
                 dashTime = 2f;
                 target = GameObject.FindGameObjectWithTag("Player").transform; 
+            }
+
+            if (health <= 0)
+            {
+                //drop item
+                if (probability)
+                {
+                    string tempName = probability.DetermineDrop();
+                    GameObject itemObj = gameManager.GetItemObj(tempName);
+                    itemObj = Instantiate(gameManager.GetItemObj(tempName), transform.position, Quaternion.Euler(0, 0, 0));
+                    if (NextScene.nowName == "2_1")
+                        itemObj.transform.localScale = new Vector3(4, 4, 4);
+                    var worldCanvas = GameObject.Find("worldCanvas").transform;
+                    itemObj.transform.parent = worldCanvas;
+                }
+                Destroy(gameObject);
             }
 
         }
