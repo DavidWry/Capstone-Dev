@@ -394,6 +394,7 @@ public class Shoot_New : MonoBehaviour
                     Lazer Laz = NewLazer.GetComponent<Lazer>();
                     Laz.IsReady = true;
                     Laz.LazeDuration = player.leftWeapon.Duration;
+                    Laz.Damage = player.leftWeapon.Damage;
 
                     LeftLazer = Laz;
                 }
@@ -496,6 +497,7 @@ public class Shoot_New : MonoBehaviour
                     Lazer Laz = NewLazer.GetComponent<Lazer>();
                     Laz.IsReady = true;
                     Laz.LazeDuration = player.rightWeapon.Duration;
+                    Laz.Damage = player.rightWeapon.Damage;
 
                     RightLazer = Laz;
                 }

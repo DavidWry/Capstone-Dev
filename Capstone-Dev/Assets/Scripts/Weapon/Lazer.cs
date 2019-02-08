@@ -32,7 +32,7 @@ public class Lazer : Projectile {
                     {
                         if (timeCounter >= 0.3)
                         {
-                            if (hit.transform.GetComponent<EnemySuicideBomber>())
+                            if (hit.transform.gameObject.GetComponent<EnemySuicideBomber>())
                             {
                                 hit.transform.gameObject.GetComponent<EnemySuicideBomber>().TakeDamage(Damage/3);
                             }
