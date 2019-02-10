@@ -13,9 +13,14 @@ public class detect : MonoBehaviour {
     bool directionFlag = false;
     float minDistance = 1.5f;
     float coefficient = 5;
+    bool wander=true;
+    float idleTime = 2;
+    float timeCount = 0;
+    Vector3 newvec = new Vector3(Random.Range(-15,15),Random.Range(-15,15),0);
     // Use this for initialization
     void Start () {
         Original = gameObject.transform.position;
+        
         anim = gameObject.GetComponentInChildren<Animator>();
 	}
 	
@@ -26,6 +31,34 @@ public class detect : MonoBehaviour {
             player = GameObject.FindGameObjectWithTag("Player");
         }
         
+        if (wander)
+        {
+          
+                if (Vector3.Distance(gameObject.transform.position, Original) < minDistance)
+                {
+                    Vector3 thisvec = (player.transform.position - gameObject.transform.position).normalized;
+                    gameObject.GetComponent<Rigidbody>().MovePosition(gameObject.transform.position + thisvec * Time.deltaTime * coefficient);
+               
+                }
+                else
+            {
+                 
+                if (timeCount < idleTime)
+                {
+                    timeCount += Time.deltaTime;
+                }
+                else
+                {
+                    timeCount = 0;
+                    newvec = new Vector3(Random.Range(-15, 15), Random.Range(-15, 15), 0);
+                    Original += newvec;
+                }
+            }
+           
+
+        }
+
+
 
         if (!returnOriginal)
         
@@ -33,8 +66,8 @@ public class detect : MonoBehaviour {
 
             if (Vector3.Distance(player.transform.position, this.gameObject.transform.position) < distance && Vector3.Distance(gameObject.transform.position, Original) < distance)
             {
-
-                print("running");
+                wander = false;
+                timeCount = 0;
                 if (!directionFlag)
                 {
                     var scale = transform.localScale;
@@ -66,13 +99,14 @@ public class detect : MonoBehaviour {
         else
         {
             Vector3 unitvec = (Original - gameObject.transform.position).normalized;
-            print("running1");
+           
             
             if (Vector3.Distance(gameObject.transform.position, Original) < minDistance)
             {
                 directionFlag = false;
                 anim.SetBool("Run", false);
                 returnOriginal = false;
+                wander = true;
             }
             else{
                 if (!directionFlag)
@@ -84,7 +118,7 @@ public class detect : MonoBehaviour {
                         scale.x = 1;
                     else
                         scale.x = -1;
-                    print("nmha");
+                   
                     transform.localScale = scale;
                     directionFlag = true;
                 }
@@ -111,4 +145,6 @@ public class detect : MonoBehaviour {
             knockback((other.transform.position - gameObject.transform.position).normalized);
         }
     }
+
+ 
 }
