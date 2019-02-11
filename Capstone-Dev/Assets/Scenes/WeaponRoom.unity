@@ -10003,11 +10003,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theTextBox: {fileID: 0}
-  NPCText: 
+  NPCText: 02
   NPCName: Switch
   NpcID: 02
   NpcParents: []
   NonRelatedNpc: 1
+  DirectToDialogue: 0
   npcManager: {fileID: 0}
 --- !u!65 &1034309975
 BoxCollider:

@@ -203,7 +203,7 @@ Transform:
   m_LocalScale: {x: 0.655, y: 0.655, z: 0.655}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &259055927
 BoxCollider:
@@ -227,9 +227,11 @@ GameObject:
   - component: {fileID: 282867157}
   - component: {fileID: 282867156}
   - component: {fileID: 282867158}
+  - component: {fileID: 282867160}
+  - component: {fileID: 282867159}
   m_Layer: 0
   m_Name: Tile_19
-  m_TagString: Untagged
+  m_TagString: WithPopUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -302,6 +304,30 @@ BoxCollider:
   m_GameObject: {fileID: 282867155}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.47, y: 0.24, z: 0.2}
+  m_Center: {x: 0, y: 0.03, z: 0}
+--- !u!114 &282867159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 282867155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c265c20dc58ced48a0b25873a03b31f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  context: Choose my target planet.
+--- !u!65 &282867160
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 282867155}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.6757815, y: 0.88671875, z: 0.2}
@@ -380,7 +406,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &355420398
 BoxCollider:
@@ -454,7 +480,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &429711025 stripped
 GameObject:
@@ -556,7 +582,7 @@ Transform:
   m_LocalScale: {x: 0.405216, y: 0.405216, z: 0.405216}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &682406515
 Animator:
@@ -661,7 +687,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4280471702915560, guid: 9209ecdeef52d904da95d4039473471d, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2.41
+      value: 2.4099998
       objectReference: {fileID: 0}
     - target: {fileID: 4280471702915560, guid: 9209ecdeef52d904da95d4039473471d, type: 2}
       propertyPath: m_LocalPosition.y
@@ -721,8 +747,8 @@ GameObject:
   - component: {fileID: 809359903}
   - component: {fileID: 809359902}
   m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
+  m_Name: PopForWeaponRoom
+  m_TagString: WithPopUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -738,7 +764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c265c20dc58ced48a0b25873a03b31f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  context: 
+  context: To weapon room, I can test my weapons there.
 --- !u!65 &809359903
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -746,7 +772,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 809359901}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 3.61, y: 1.31, z: 1}
@@ -758,11 +784,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 809359901}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.44, y: -3.81, z: -0.23242188}
+  m_LocalPosition: {x: -9.44, y: -3.81, z: -0.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1021691849
 GameObject:
@@ -3186,7 +3212,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4390172704827272, guid: 7430308c60b9dc74396db2694886222b, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7430308c60b9dc74396db2694886222b, type: 2}
@@ -3578,7 +3604,7 @@ Transform:
   m_LocalScale: {x: 0.385541, y: 0.385541, z: 0.385541}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1510447420
 GameObject:
@@ -3694,7 +3720,7 @@ Transform:
   m_LocalScale: {x: 0.755, y: 0.755, z: 0.755}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1653638515
 GameObject:
@@ -3767,6 +3793,61 @@ Transform:
   - {fileID: 1260914268}
   - {fileID: 1653638516}
   - {fileID: 1510447421}
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1681848059
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1681848062}
+  - component: {fileID: 1681848061}
+  - component: {fileID: 1681848060}
+  m_Layer: 0
+  m_Name: NeedlePop
+  m_TagString: WithPopUp
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1681848060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1681848059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c265c20dc58ced48a0b25873a03b31f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  context: Needle can change my ultimate weapon for me.
+--- !u!136 &1681848061
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1681848059}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1.92
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1681848062
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1681848059}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.04, y: -2.56, z: -0.10546875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3873,7 +3954,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4527442569376206, guid: c2e5f753fcf49c64d87884c1108debe8, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 114412990771979018, guid: c2e5f753fcf49c64d87884c1108debe8,
         type: 2}

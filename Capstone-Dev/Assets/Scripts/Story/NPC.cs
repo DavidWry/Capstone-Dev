@@ -36,7 +36,7 @@ public class NPC : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (DirectToDialogue)
+        if (!DirectToDialogue)
         {
             if (other.tag == "Player" && NpcParents.Count == 0 && !NonRelatedNpc)
             {
@@ -56,14 +56,14 @@ public class NPC : MonoBehaviour {
         else
         {
             if (!theTextBox.isActive)
-                {
+            {
                     theTextBox.ReloadText(NPCText);
                     theTextBox.EnableTextBox();
                     other.gameObject.GetComponent<Player_New>().NPCIDs.Add(NpcID);
                     other.gameObject.GetComponent<Player_New>().NPCIDs = other.gameObject.GetComponent<Player_New>().NPCIDs.Distinct().ToList();
                     npcManager.FindAllPossibleId();
                     npcManager.DeletUsedID(NpcID);
-                }
+            }
         }
         
     }
@@ -74,7 +74,15 @@ public class NPC : MonoBehaviour {
         {
             if (Input.GetButtonDown("AButton"))
             {
-
+                if (!theTextBox.isActive)
+                {
+                    theTextBox.ReloadText(NPCText);
+                    theTextBox.EnableTextBox();
+                    other.gameObject.GetComponent<Player_New>().NPCIDs.Add(NpcID);
+                    other.gameObject.GetComponent<Player_New>().NPCIDs = other.gameObject.GetComponent<Player_New>().NPCIDs.Distinct().ToList();
+                    npcManager.FindAllPossibleId();
+                    npcManager.DeletUsedID(NpcID);
+                }
             }
         }
     }
