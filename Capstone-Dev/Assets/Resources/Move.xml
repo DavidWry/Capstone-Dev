@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Dialogue>
+  <Lines>
+    <Line>
+      <Name>TIP</Name>
+      <Content>Welcome to Cosmic Atlas. This is planet Mercury. Press 'A' to continue. </Content>
+      <Emoji>Null</Emoji>
+    </Line>
+  <Line>
+    <Name>TIP</Name>
+    <Content>Use the left Analog stick to move around. Press 'A' to continue.</Content>
+    <Emoji>LOL</Emoji>
+  </Line>
+  
+  <Line>
+    <Name>TIP</Name>
+    <Content>Proceed to the next area. Press 'A' to continue.</Content>
+    <Emoji>LOL</Emoji>
+  </Line>
+  
+  </Lines>
+</Dialogue>
