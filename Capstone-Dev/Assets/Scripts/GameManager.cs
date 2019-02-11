@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> EnemyList;
     public List<GameObject> BossList;
     public List<GameObject> PortalList;
-    public List<GameObject> CombineProjectile;        //12-1 13-2 14-3 15-4 23-5 24-6 25-7 34-8 35-9 45-10
+    public List<GameObject> CombineProjectile;        //12-1 13-2 14-3 15-4 23-5 24-6 25-7 34-8 35-9 45-10 11-11 22-12 33-13 44-14 55-15
     public WeaponMenu leftWeaponMenu;
     public WeaponMenu rightWeaponMenu;
     public GameObject Player;
