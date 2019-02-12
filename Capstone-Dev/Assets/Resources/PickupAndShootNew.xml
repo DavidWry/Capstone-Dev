@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Dialogue>
+  <Lines>
+    <Line>
+      <Name>TIP</Name>
+      <Content>Press RB to pickup the 2nd weapon and RT to shoot. Press 'A' to continue. </Content>
+      <Emoji>Null</Emoji>
+    </Line>
+
+  
+  </Lines>
+</Dialogue>

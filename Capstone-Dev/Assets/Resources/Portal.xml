@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Dialogue>
+  <Lines>
+    <Line>
+      <Name>TIP</Name>
+      <Content> Press B to access the Portal and head to the next level. </Content>
+      <Emoji>Null</Emoji>
+    </Line>
+
+  
+  </Lines>
+</Dialogue>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Dialogue>
+  <Lines>
+    <Line>
+      <Name>TIP</Name>
+      <Content> Some type of enemies will drop crystals when they die. Pick them up to charge your Ultron skill. Press 'A' to continue. </Content>
+      <Emoji>Null</Emoji>
+    </Line>
+
+    <Line>
+      <Name>TIP</Name>
+      <Content> Press 'B' to pickup a crystal. Press 'A' to continue. </Content>
+      <Emoji>Null</Emoji>
+    </Line>
+
+  
+  </Lines>
+</Dialogue>
