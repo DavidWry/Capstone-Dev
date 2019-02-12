@@ -60,10 +60,11 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
   
         //initial terrain
         Draw();
-        
+
         //generate up to 2 level platforms
         //for (int i = 0; i < 3; i++)
         //{
+        //}
         Generate(0);
             
         ChangeEdge();
@@ -72,23 +73,27 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
             DrawEdge();
         }
         
-        //}
         
-        /*
+        
+        
         GenerateTrees();
         DrawTrees();
-
+        
         GenerateCactus();
         DrawCactus();
 
         GenerateGrass();
         DrawGrass();
 
-        GenerateShrub();
-        DrawShrub();
-
         GenerateRock();
         DrawRock();
+        
+       
+
+        GenerateBone();
+        DrawBone();
+
+        /*
 
         GenerateLoot();
         DrawLoot();
@@ -372,6 +377,12 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
                 {
                     Instantiate(tile0, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
                     cellState[i, j].state = 0;
+                    if (i + 1 < levelWidth && j + 1 < levelHeight)
+                    {
+                        cellState[i + 1, j].state = 0;
+                        cellState[i, j + 1].state = 0;
+                        cellState[i + 1, j + 1].state = 0;
+                    }
                 }
 
             }
@@ -472,6 +483,7 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
         GameObject tile16 = gameManager.GetTile2("Tile_16");
         GameObject tile17 = gameManager.GetTile2("Tile_17");
         GameObject tile18 = gameManager.GetTile2("Tile_18");
+        GameObject tile19 = gameManager.GetTile2("Tile_19");
         GameObject tile99 = gameManager.GetTile2("99");
         GameObject tile100 = gameManager.GetTile2("100");
         GameObject tile101 = gameManager.GetTile2("101");
@@ -504,24 +516,31 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
                 //down
                 if (edgeArray[i,j]==1 && cellState[i, j].state == 0)
                 {
-                    //open the gate!
-                    //if (Random.value < 0.1 && j != 0)
-                    //{
-                    //Instantiate(tile16, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, 0), transform.rotation);
-                    //cellState[i, j] = 16;
-                    //landArray[i, j] = 0;
-                    //}
+                   
 
                     
                     Vector2 position = new Vector2(-100, -100);
                     //如果右边还是自己，则使用两个格子的tile
                     if (edgeArray[i + 1, j] == 1 && cellState[i, j].state != 1)
                     {
-                        Instantiate(tile1, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                        cellState[i, j].state = 1;
-                        cellState[i, j].position = new Vector2(i * (float)tileSize, j * (float)tileSize);
-                        cellState[i + 1, j].state = 1;
-                        cellState[i + 1, j].position = new Vector2(i * (float)tileSize, j * (float)tileSize);
+                        //open the gate!
+                        if (Random.value < 0.1 && j != 0)
+                        {
+                            Instantiate(tile19, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                            cellState[i, j].state = 19;
+                            cellState[i, j].position = new Vector2(i * (float)tileSize, j * (float)tileSize);
+                            cellState[i + 1, j].state = 19;
+                            cellState[i + 1, j].position = new Vector2(i * (float)tileSize, j * (float)tileSize);
+
+                        }
+                        else
+                        {
+                            Instantiate(tile1, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                            cellState[i, j].state = 1;
+                            cellState[i, j].position = new Vector2(i * (float)tileSize, j * (float)tileSize);
+                            cellState[i + 1, j].state = 1;
+                            cellState[i + 1, j].position = new Vector2(i * (float)tileSize, j * (float)tileSize);
+                        }
                     }
                     else if (cellState[i, j].state != 1) {
                         Instantiate(tile9, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
@@ -1423,9 +1442,9 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
         //initialize
         for (int i = 0; i < levelWidth; i++) {
             for (int j = 0; j < levelHeight; j++) {
-                if (cellState[i, j].state == 5)
+                if (cellState[i, j].state == 0)
                 {
-                    landArray[i, j] = 1;//draw trees on blank tiles
+                    landArray[i, j] = 0;//draw trees on blank tiles
                 }
                 else {
                     landArray[i, j] = -1;//do not generate trees on edge
@@ -1441,39 +1460,29 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
 
     void DrawTrees()
     {
-        GameObject tree1 = gameManager.GetTile("Tree_1");
-        GameObject tree2 = gameManager.GetTile("Tree_2");
-        GameObject tree3 = gameManager.GetTile("Tree_3");
-        GameObject tree4 = gameManager.GetTile("Tree_4");
+        GameObject tree1 = gameManager.GetTile2("Tile_20");
+        GameObject tree2 = gameManager.GetTile2("Tile_21");
+        
 
         for (int i = 0; i < levelWidth; i++)
         {
-            for (int j = 0; j < levelHeight; j++)
+            for (int j = levelHeight-1; j > -1; j--)
             {
                 if (landArray[i, j] == 1)
                 {
                     Debug.Log("shu");
                     float tempValue = Random.value;
-                    if (tempValue < 0.25)
+                    if (tempValue < 0.5)
                     {
-                        Instantiate(tree1, new Vector3((i+Random.Range(-0.5f,0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
-                        cellState[i, j].state = 18;//number in tileset folder
-                    }
-                    else if (tempValue < 0.5)
-                    {
-                        Instantiate(tree2, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
-                        cellState[i, j].state = 19;
-                    }
-                    else if (tempValue < 0.75)
-                    {
-                        Instantiate(tree3, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
-                        cellState[i, j].state = 20;
+                        Instantiate(tree1, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 20;//number in tileset folder
                     }
                     else if (tempValue < 1)
                     {
-                        Instantiate(tree4, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
+                        Instantiate(tree2, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
                         cellState[i, j].state = 21;
                     }
+
                 }
             }
         }
@@ -1486,9 +1495,9 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
         {
             for (int j = 0; j < levelHeight; j++)
             {
-                if (cellState[i, j].state == 5|| (cellState[i, j].state >= 18 && cellState[i, j].state <= 21))
+                if (cellState[i, j].state == 0)
                 {
-                    landArray[i, j] = 1;
+                    landArray[i, j] = 0;
                 }
                 else
                 {
@@ -1504,38 +1513,63 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
 
     void DrawCactus()
     {
-        GameObject cactus1 = gameManager.GetTile("Cactus_1");
-        GameObject cactus2 = gameManager.GetTile("Cactus_2");
-        GameObject cactus3 = gameManager.GetTile("Cactus_3");
-        GameObject cactus4 = gameManager.GetTile("Cactus_4");
+        GameObject tile22 = gameManager.GetTile2("Tile_22");
+        GameObject tile23 = gameManager.GetTile2("Tile_23");
+        GameObject tile24 = gameManager.GetTile2("Tile_24");
+        GameObject tile25 = gameManager.GetTile2("Tile_25");
+        GameObject tile26 = gameManager.GetTile2("Tile_26");
+        GameObject tile27 = gameManager.GetTile2("Tile_27");
+        GameObject tile28 = gameManager.GetTile2("Tile_28");
+        GameObject tile29 = gameManager.GetTile2("Tile_29");
+
 
         for (int i = 0; i < levelWidth; i++)
         {
-            for (int j = 0; j < levelHeight; j++)
+            for (int j = levelHeight-1; j > -1; j--)
             {
                 if (landArray[i, j] == 1)
                 {
                 
                     float tempValue = Random.value;
-                    if (tempValue < 0.25)
+                    if (tempValue < 0.125)
                     {
-                        Instantiate(cactus1, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
+                        Instantiate(tile22, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
                         cellState[i, j].state = 22;//number in tileset folder
+                    }
+                    else if (tempValue < 0.25)
+                    {
+                        Instantiate(tile23, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 23;//number in tileset folder
+                    }
+                    else if (tempValue < 0.375)
+                    {
+                        Instantiate(tile24, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 24;//number in tileset folder
                     }
                     else if (tempValue < 0.5)
                     {
-                        Instantiate(cactus2, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
-                        cellState[i, j].state = 23;
+                        Instantiate(tile25, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 25;//number in tileset folder
+                    }
+                    else if (tempValue < 0.625)
+                    {
+                        Instantiate(tile26, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 26;//number in tileset folder
                     }
                     else if (tempValue < 0.75)
                     {
-                        Instantiate(cactus3, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
-                        cellState[i, j].state = 24;
+                        Instantiate(tile27, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 27;//number in tileset folder
                     }
-                    else if (tempValue < 1)
+                    else if (tempValue < 0.875)
                     {
-                        Instantiate(cactus4, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
-                        cellState[i, j].state = 25;
+                        Instantiate(tile28, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 28;//number in tileset folder
+                    }
+                    else if (tempValue < 0.1)
+                    {
+                        Instantiate(tile29, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 29;//number in tileset folder
                     }
                 }
             }
@@ -1549,9 +1583,9 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
         {
             for (int j = 0; j < levelHeight; j++)
             {
-                if (cellState[i, j].state == 5 || (cellState[i, j].state >= 18 && cellState[i, j].state <= 25))
+                if (cellState[i, j].state == 0)
                 {
-                    landArray[i, j] = 1;
+                    landArray[i, j] = 0;
                 }
                 else
                 {
@@ -1567,65 +1601,14 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
 
     void DrawGrass()
     {
-        GameObject grass1 = gameManager.GetTile("Grass_1");
-        GameObject grass2 = gameManager.GetTile("Grass_2");
+        GameObject tile30 = gameManager.GetTile2("Tile_30");
+        GameObject tile31 = gameManager.GetTile2("Tile_31");
+        GameObject tile32 = gameManager.GetTile2("Tile_32");
+        GameObject tile33 = gameManager.GetTile2("Tile_33");
 
         for (int i = 0; i < levelWidth; i++)
         {
-            for (int j = 0; j < levelHeight; j++)
-            {
-                if (landArray[i, j] == 1)
-                {
-
-                    float tempValue = Random.value;
-                    if (tempValue < 0.5)
-                    {
-                        Instantiate(grass1, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
-                        cellState[i, j].state = 26;//number in tileset folder
-                    }
-                    else if (tempValue < 1)
-                    {
-                        Instantiate(grass2, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
-                        cellState[i, j].state = 27;
-                    }
-                }
-            }
-        }
-    }
-
-    void GenerateShrub()
-    {
-        //initialize
-        for (int i = 0; i < levelWidth; i++)
-        {
-            for (int j = 0; j < levelHeight; j++)
-            {
-                if (cellState[i, j].state == 5 || (cellState[i, j].state >= 18 && cellState[i, j].state <= 27))
-                {
-                    landArray[i, j] = 1;
-                }
-                else
-                {
-                    landArray[i, j] = -1;
-                }
-
-            }
-        }
-
-        //CA(0.5f, 1, 8, 1, true, 0);
-        CA(0.5f, 1, 8, 1, false, 0);
-    }
-
-    void DrawShrub()
-    {
-        GameObject shrub1 = gameManager.GetTile("Shrub_1");
-        GameObject shrub2 = gameManager.GetTile("Shrub_2");
-        GameObject shrub3 = gameManager.GetTile("Shrub_3");
-        GameObject shrub4 = gameManager.GetTile("Shrub_4");
-
-        for (int i = 0; i < levelWidth; i++)
-        {
-            for (int j = 0; j < levelHeight; j++)
+            for (int j = levelHeight-1; j > -1; j--)
             {
                 if (landArray[i, j] == 1)
                 {
@@ -1633,23 +1616,23 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
                     float tempValue = Random.value;
                     if (tempValue < 0.25)
                     {
-                        Instantiate(shrub1, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
-                        cellState[i, j].state = 28;//number in tileset folder
+                        Instantiate(tile30, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 30;//number in tileset folder
                     }
                     else if (tempValue < 0.5)
                     {
-                        Instantiate(shrub2, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
-                        cellState[i, j].state = 29;
+                        Instantiate(tile31, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 31;//number in tileset folder
                     }
                     else if (tempValue < 0.75)
                     {
-                        Instantiate(shrub3, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
-                        cellState[i, j].state = 30;
+                        Instantiate(tile32, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 32;//number in tileset folder
                     }
                     else if (tempValue < 1)
                     {
-                        Instantiate(shrub4, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
-                        cellState[i, j].state = 31;
+                        Instantiate(tile33, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 33;//number in tileset folder
                     }
                 }
             }
@@ -1663,7 +1646,7 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
         {
             for (int j = 0; j < levelHeight; j++)
             {
-                if (cellState[i, j].state == 5 || (cellState[i, j].state >= 18 && cellState[i, j].state <= 31))
+                if (cellState[i, j].state == 0)
                 {
                     landArray[i, j] = 1;
                 }
@@ -1681,15 +1664,15 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
 
     void DrawRock()
     {
-        GameObject rock1 = gameManager.GetTile("Rock_1");
-        GameObject rock2 = gameManager.GetTile("Rock_2");
-        GameObject rock3 = gameManager.GetTile("Rock_3");
-        GameObject rock4 = gameManager.GetTile("Rock_4");
-        GameObject prop2 = gameManager.GetTile("Prop_2");// add the plate here
+        GameObject tile34 = gameManager.GetTile2("Tile_34");
+        GameObject tile35 = gameManager.GetTile2("Tile_35");
+        GameObject tile36 = gameManager.GetTile2("Tile_36");
+        GameObject tile37 = gameManager.GetTile2("Tile_37");
+        GameObject tile38 = gameManager.GetTile2("Tile_38");
 
         for (int i = 0; i < levelWidth; i++)
         {
-            for (int j = 0; j < levelHeight; j++)
+            for (int j = levelHeight-1; j > -1; j--)
             {
                 if (landArray[i, j] == 1)
                 {
@@ -1697,33 +1680,85 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
                     float tempValue = Random.value;
                     if (tempValue < 0.20)
                     {
-                        Instantiate(rock1, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
+                        Instantiate(tile34, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
                         cellState[i, j].state = 34;//number in tileset folder
                     }
                     else if (tempValue < 0.4)
                     {
-                        Instantiate(rock2, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
-                        cellState[i, j].state = 35;
+                        Instantiate(tile35, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 35;//number in tileset folder
                     }
                     else if (tempValue < 0.6)
                     {
-                        Instantiate(rock3, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
-                        cellState[i, j].state = 36;
+                        Instantiate(tile36, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 36;//number in tileset folder
                     }
                     else if (tempValue < 0.8)
                     {
-                        Instantiate(rock4, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
-                        cellState[i, j].state = 37;
+                        Instantiate(tile37, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 37;//number in tileset folder
                     }
                     else if (tempValue < 1)
                     {
-                        Instantiate(prop2, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
-                        cellState[i, j].state = 33;
+                        Instantiate(tile38, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 38;//number in tileset folder
                     }
                 }
             }
         }
     }
+
+    void GenerateBone()
+    {
+        //initialize
+        for (int i = 0; i < levelWidth; i++)
+        {
+            for (int j = 0; j < levelHeight; j++)
+            {
+                if (cellState[i, j].state == 0)
+                {
+                    landArray[i, j] = 0;
+                }
+                else
+                {
+                    landArray[i, j] = -1;
+                }
+
+            }
+        }
+
+        //CA(0.5f, 1, 8, 1, true, 0);
+        CA(0.5f, 1, 8, 1, true, 0);
+    }
+
+    void DrawBone()
+    {
+        GameObject tile39 = gameManager.GetTile2("Tile_39");
+        GameObject tile40 = gameManager.GetTile2("Tile_40");
+
+        for (int i = 0; i < levelWidth; i++)
+        {
+            for (int j = levelHeight-1; j > -1; j--)
+            {
+                if (landArray[i, j] == 1)
+                {
+
+                    float tempValue = Random.value;
+                    if (tempValue < 0.5)
+                    {
+                        Instantiate(tile39, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 39;//number in tileset folder
+                    }
+                    else if (tempValue < 1)
+                    {
+                        Instantiate(tile40, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 40;//number in tileset folder
+                    }
+                }
+            }
+        }
+    }
+
 
     void GenerateLoot()
     {

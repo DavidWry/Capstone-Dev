@@ -2078,46 +2078,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Desert_123
-      rect:
-        serializedVersion: 2
-        x: 120
-        y: 600
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ab76a6fee88f47242980e247218f9412
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Desert_124
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 600
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fdd1f051577710247b2ae57e77cc6247
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Desert_125
       rect:
         serializedVersion: 2
@@ -2293,46 +2253,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: b0adf35e62f1b454792f03747bece768
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Desert_134
-      rect:
-        serializedVersion: 2
-        x: 120
-        y: 576
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 649e9bebab7735e4f8c9f75d9afb71f5
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Desert_135
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 576
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7019849e6199b3b4cbf7305b97ab0da6
       vertices: []
       indices: 
       edges: []
@@ -2583,36 +2503,16 @@ TextureImporter:
         serializedVersion: 2
         x: 120
         y: 552
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 48
+        height: 96
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: 388c850b90e1a264587edc4c63fc6e14
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Desert_149
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 552
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a95e087b119fe3d43b8958c2c4bd605b
       vertices: []
       indices: 
       edges: []
