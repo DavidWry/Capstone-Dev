@@ -881,7 +881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19852942, g: 1, b: 0.23722099, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -962,7 +962,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19852942, g: 1, b: 0.23722099, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1108,7 +1108,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d1ede0c324a814f8deec1e3c828fff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   possibleIds: []
+  allNpcs:
+  - {fileID: 1311322453054844, guid: 793e48a6317c1b54b844192bc8640b5c, type: 2}
+  - {fileID: 1349417014972788, guid: 1081c3dc1d39106439c8d16a273ee5ba, type: 2}
+  - {fileID: 1109720924762110, guid: ffa231341556b5740b4d0e802dba73b5, type: 2}
+  - {fileID: 1040401145359804, guid: c2dddb2e38ebb4644abc5c35f346ae23, type: 2}
+  - {fileID: 1266691570192244, guid: 22b8e401a360dc647bb97ea79c413c94, type: 2}
+  - {fileID: 1488265565899600, guid: 495509ee31545e3499aac3dd9b1cd827, type: 2}
 --- !u!114 &114847235768859032
 MonoBehaviour:
   m_ObjectHideFlags: 1
