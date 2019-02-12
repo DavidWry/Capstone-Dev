@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114763059951849758}
   - component: {fileID: 114140875625829788}
   m_Layer: 0
-  m_Name: Prop_1
+  m_Name: Tile_41
   m_TagString: Chest
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1008682546140488}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.313692, y: -9.0911665, z: 32.438282}
+  m_LocalPosition: {x: 458, y: 268.6, z: 32.438282}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -145,10 +145,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5552902
-  m_Height: 1.5249104
+  m_Radius: 8.651962
+  m_Height: 22.205658
   m_Direction: 1
-  m_Center: {x: 1.33, y: 1.25, z: 0}
+  m_Center: {x: 26.984756, y: 25.636734, z: 0}
 --- !u!212 &212627275908898606
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -182,7 +182,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2114101981
-  m_SortingLayer: 6
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: aa39b036491b65a4789e01d9924f818b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

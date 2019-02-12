@@ -58,9 +58,6 @@ TagManager:
   - name: Platform
     uniqueID: 2154182831
     locked: 0
-  - name: Tree
-    uniqueID: 1833277
-    locked: 0
   - name: HugeItem
     uniqueID: 1051040845
     locked: 0
@@ -72,4 +69,7 @@ TagManager:
     locked: 0
   - name: SmallItem
     uniqueID: 589507203
+    locked: 0
+  - name: Tree
+    uniqueID: 1833277
     locked: 0

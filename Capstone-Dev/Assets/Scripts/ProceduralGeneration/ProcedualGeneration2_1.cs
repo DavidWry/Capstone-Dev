@@ -33,7 +33,7 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
         levelHeight = (int)Random.Range(40, 60);
         tileSize = 24;
 
-        cameraControl.border2 = new Vector2((float)(levelWidth+1) * tileSize / 100, (float)(levelHeight+1) * tileSize / 100);
+        cameraControl.border2 = new Vector2((float)(levelWidth+1) * tileSize, (float)(levelHeight+1) * tileSize);
         //cameraControl.border2 = new Vector2(levelWidth + 1, levelHeight + 1);
         
         landArray = new int[levelWidth, levelHeight];
@@ -88,17 +88,16 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
         GenerateRock();
         DrawRock();
         
-       
-
         GenerateBone();
         DrawBone();
-
-        /*
 
         GenerateLoot();
         DrawLoot();
 
         DrawPlayer();
+
+        /*
+        
 
         GenerateEnemy();
         DrawEnemy();
@@ -1767,9 +1766,9 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
         {
             for (int j = 0; j < levelHeight; j++)
             {
-                if (cellState[i, j].state == 5 || (cellState[i, j].state >= 18 && cellState[i, j].state <= 37))
+                if (cellState[i, j].state == 0)
                 {
-                    landArray[i, j] = 1;
+                    landArray[i, j] = 0;
                 }
                 else
                 {
@@ -1784,17 +1783,17 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
 
     void DrawLoot()
     {
-        GameObject prop1 = gameManager.GetTile("Prop_1");
+        GameObject tile41 = gameManager.GetTile2("Tile_41");
        
 
         for (int i = 0; i < levelWidth; i++)
         {
-            for (int j = 0; j < levelHeight; j++)
+            for (int j = levelHeight-1; j > -1; j--)
             {
                 if (landArray[i, j] == 1)
                 {
-                    Instantiate(prop1, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
-                    cellState[i, j].state = 32;//number in tileset folder            
+                    Instantiate(tile41, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                    cellState[i, j].state = 41;//number in tileset folder           
                 }
             }
         }
@@ -1878,14 +1877,14 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
         {
             for (int j = levelHeight-1; j > -1; j--)
             {
-                if (cellState[i, j].state == 5)
+                if (cellState[i, j].state == 0)
                 {
                     if (Random.Range(1, 1000) < 5)
                     {
                         if (!isCreated)
                         {
-                            player1=Instantiate(player1, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, 0), transform.rotation);
-                            //player1.transform.localScale = new Vector3(2.0f,2.0f,2.0f);
+                            player1=Instantiate(player1, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                            player1.transform.localScale = new Vector3(15.0f,15.0f,15.0f);
                             player1.GetComponent<Movement_New>().WalkSpeed = 5;
                             isCreated = true;
                         }
