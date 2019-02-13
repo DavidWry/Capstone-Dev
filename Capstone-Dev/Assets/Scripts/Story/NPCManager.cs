@@ -15,6 +15,11 @@ public class NPCManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        Inite();
+    }
+
+    public void Inite()
+    {
         characterNodeContainer = CharacterNodeContainer.Load(path);
         PlayerObj = GameObject.FindWithTag("Player");
         player = PlayerObj.GetComponent<Player_New>();

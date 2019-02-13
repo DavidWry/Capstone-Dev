@@ -1910,9 +1910,11 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
     void DrawNPC()
     {
         GameObject textManager2 = GameObject.Find("TextManager");
-        textManager2.GetComponent<NPCManager>().FindAllPossibleId();
+        //textManager2.GetComponent<NPCManager>().FindAllPossibleId();
         //textManager2.GetComponent<NPCManager>().GenerateNPC();
-        // GameObject NPCObject = textManager.GetComponent<NPCManager>().GenerateNPC();
+        textManager.GetComponent<NPCManager>().Inite();
+        GameObject NPCObject = textManager.GetComponent<NPCManager>().GenerateNPC();
+        Instantiate(NPCObject);
         bool isCreated = false;
 
         for (int i = levelWidth - 1; i > -1; i--)
