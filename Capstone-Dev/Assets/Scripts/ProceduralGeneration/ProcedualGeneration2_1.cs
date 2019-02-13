@@ -20,7 +20,7 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
     private int iteration;
     private bool isEdgeReady;
     public GameObject theCanvas;
-    public GameObject textManager;
+    //public GameObject textManager;
 
     private CameraControl cameraControl;
 
@@ -1909,12 +1909,12 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
 
     void DrawNPC()
     {
-        GameObject textManager2 = GameObject.Find("TextManager");
+        GameObject textManager = GameObject.Find("TextManager");
         //textManager2.GetComponent<NPCManager>().FindAllPossibleId();
         //textManager2.GetComponent<NPCManager>().GenerateNPC();
         textManager.GetComponent<NPCManager>().Inite();
         GameObject NPCObject = textManager.GetComponent<NPCManager>().GenerateNPC();
-        Instantiate(NPCObject);
+       // Instantiate(NPCObject);
         bool isCreated = false;
 
         for (int i = levelWidth - 1; i > -1; i--)
@@ -1923,12 +1923,12 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
             {
                 if (cellState[i, j].state == 0)
                 {
-                    if (Random.Range(1, 1000) < 5)
+                    if (Random.Range(1, 1000) < 2)
                     {
                         if (!isCreated)
                         {
-                           //if(!NPCObject)
-                           //Instantiate(NPCObject, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                           
+                           Instantiate(NPCObject, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
                            // player1.transform.localScale = new Vector3(15.0f, 15.0f, 15.0f);
                            // player1.GetComponent<Movement_New>().WalkSpeed = 5;
                            isCreated = true;

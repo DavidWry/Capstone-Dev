@@ -369,7 +369,6 @@ MonoBehaviour:
   levelWidth: 0
   levelHeight: 0
   theCanvas: {fileID: 1343160432}
-  textManager: {fileID: 1680343185}
 --- !u!114 &746326792 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114704720808873404, guid: 5459165c1a6a0d8459bae141378f4087,
@@ -519,11 +518,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 222822858}
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
---- !u!1 &1680343185 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1537729035055996, guid: 5459165c1a6a0d8459bae141378f4087,
-    type: 2}
-  m_PrefabInternal: {fileID: 222822858}
 --- !u!224 &1810271443 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224761853006370614, guid: 5459165c1a6a0d8459bae141378f4087,
