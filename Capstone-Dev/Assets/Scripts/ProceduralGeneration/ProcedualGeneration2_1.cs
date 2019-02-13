@@ -19,6 +19,8 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
     private float treeRatio;
     private int iteration;
     private bool isEdgeReady;
+    public GameObject theCanvas;
+    public GameObject textManager;
 
     private CameraControl cameraControl;
 
@@ -96,18 +98,16 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
 
         DrawPlayer();
 
-        /*
-        
-
         GenerateEnemy();
         DrawEnemy();
 
         DrawPortal();
-
-        
-
+     
         DrawBoss();
-        */
+
+        FinishGeneration();
+
+        DrawNPC();
     }
 
     void CA(float ratio, int iteration,int threshold,int neighborSize, bool isSimultaneous, int targetNum) {
@@ -195,7 +195,7 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
                 if (i < 0 || i > levelWidth - 1 || j < 0 || j > levelHeight - 1)
                     continue;
                 if (Random.value < ratio) {
-                    if (cellState[i, j].state == 5)
+                    if (cellState[i, j].state == 0)
                     {
                         if (isReady) {
                             cellState[i, j].state = DetermineEnemyType();
@@ -1824,19 +1824,19 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
             {
                 if (cellState[i, j].state == 100)
                 {
-                    Instantiate(enemy1, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);          
+                    Instantiate(enemy1, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize, 0), transform.rotation);          
                 }
                 else if (cellState[i, j].state == 101)
                 {
-                    Instantiate(enemy2, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
+                    Instantiate(enemy2, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize, 0), transform.rotation);
                 }
                 else if (cellState[i, j].state == 102)
                 {
-                    Instantiate(enemy3, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
+                    Instantiate(enemy3, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize, 0), transform.rotation);
                 }
                 else if (cellState[i, j].state == 103)
                 {
-                    Instantiate(enemy4, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize / 100, 0), transform.rotation);
+                    Instantiate(enemy4, new Vector3((i + Random.Range(-0.5f, 0.5f)) * (float)tileSize, (j + Random.Range(-0.5f, 0.5f)) * (float)tileSize, 0), transform.rotation);
                 }
             }
         }
@@ -1844,7 +1844,7 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
 
     void DrawPortal()
     {
-        GameObject portal1 = gameManager.GetPortal("Portal_1");
+        GameObject portal1 = gameManager.GetPortal("Portal_2");
         bool isCreated = false;
         int xPos = Random.Range(0, levelWidth);
         int yPos = Random.Range(0, levelHeight);
@@ -1852,11 +1852,11 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
         {
             for (int j = 0; j < levelHeight; j++)
             {
-                if (cellState[i, j].state == 5)
+                if (cellState[i, j].state == 0)
                 {
-                    if (Random.Range(1, 1000) < 5) {
+                    if (Random.Range(1, 1000) < 2) {
                         if (!isCreated) {
-                            Instantiate(portal1, new Vector3(i * (float)tileSize / 100, j * (float)tileSize / 100, 0), transform.rotation);
+                            Instantiate(portal1, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
                             isCreated = true;
                         }
                     }
@@ -1905,6 +1905,41 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
         GameObject boss = gameManager.GetBoss("FairBoss");
        
         Instantiate(boss, new Vector3(xPos, yPos, 0), boss.transform.rotation);
+    }
+
+    void DrawNPC()
+    {
+        GameObject textManager2 = GameObject.Find("TextManager");
+        textManager2.GetComponent<NPCManager>().FindAllPossibleId();
+        //textManager2.GetComponent<NPCManager>().GenerateNPC();
+        // GameObject NPCObject = textManager.GetComponent<NPCManager>().GenerateNPC();
+        bool isCreated = false;
+
+        for (int i = levelWidth - 1; i > -1; i--)
+        {
+            for (int j = levelHeight - 1; j > -1; j--)
+            {
+                if (cellState[i, j].state == 0)
+                {
+                    if (Random.Range(1, 1000) < 5)
+                    {
+                        if (!isCreated)
+                        {
+                           //if(!NPCObject)
+                           //Instantiate(NPCObject, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                           // player1.transform.localScale = new Vector3(15.0f, 15.0f, 15.0f);
+                           // player1.GetComponent<Movement_New>().WalkSpeed = 5;
+                           isCreated = true;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
+    void FinishGeneration() {
+        theCanvas.SetActive(true);
     }
 
 }

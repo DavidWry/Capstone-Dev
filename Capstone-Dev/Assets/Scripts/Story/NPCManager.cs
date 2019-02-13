@@ -149,4 +149,5 @@ public class NPCManager : MonoBehaviour {
     {
         possibleIds.Remove(Id);
     }
+
 }

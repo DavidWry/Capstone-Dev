@@ -17,14 +17,14 @@ public class FadeOut : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        
+            Color newcolor = Color.white;
+            newcolor.a = alpha;
+            alpha -= 0.01f;
 
-        Color newcolor = Color.white;
-        newcolor.a = alpha;
-        alpha -= 0.01f;
-
-        myImage.color = newcolor;
-        myText.color = newcolor;
-
+            myImage.color = newcolor;
+            myText.color = newcolor;
+        
         if (alpha < 0)
             myImage.gameObject.SetActive(false);
 	}
