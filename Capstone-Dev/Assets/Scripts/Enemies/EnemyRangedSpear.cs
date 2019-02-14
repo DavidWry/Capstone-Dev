@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class EnemyRangedSpear : MonoBehaviour
 {
-    private float rangeForAttack; //Within what range the enemy will start and continue attacking the player
-    private float chaseRange;
+    public float rangeForAttack; //Within what range the enemy will start and continue attacking the player
+    public float chaseRange;
 
     public float speed;
     private float timeBetweenShots; 
@@ -28,9 +28,9 @@ public class EnemyRangedSpear : MonoBehaviour
     {
 
         health = 70;
-        rangeForAttack = 5;
+      //  rangeForAttack = 5;
         speed = 2.3f;
-        chaseRange = 6;
+       // chaseRange = 6;
     
         player = GameObject.FindGameObjectWithTag("Player").transform;
         timeBetweenShots = 1.2f;

@@ -130,7 +130,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3940b7dd58315148a6401e40ba83a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashSpeed: 10
+  dashSpeed: 35
+  rangeForAttack: 70
 --- !u!212 &212375340527722112
 SpriteRenderer:
   m_ObjectHideFlags: 1

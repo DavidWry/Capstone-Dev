@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 65718209883401348}
   - component: {fileID: 114203904570293912}
   - component: {fileID: 114660153150795732}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: SpearThrower
   m_TagString: Minion
   m_Icon: {fileID: 0}
@@ -67,8 +67,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1866432659326030}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.463522, y: -23.16196, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 401.4, y: 29.8, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 4141204538669010}
@@ -88,7 +88,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!65 &65718209883401348
 BoxCollider:
@@ -131,7 +131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 077abf50e97a3cc45ad6e25a2acb8b04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2.3
+  rangeForAttack: 60
+  chaseRange: 70
+  speed: 22
   projectile: {fileID: 1703279415655862, guid: 2988a8320a4f0864caf9262881400612, type: 2}
   crystal: {fileID: 1141863764639654, guid: e71aca9953d2e5d4380aedac964a59d5, type: 2}
 --- !u!114 &114660153150795732
@@ -155,7 +157,7 @@ MonoBehaviour:
     AmmoType: 0
     WeaponName: 0
     itemObj: {fileID: 1141863764639654, guid: e71aca9953d2e5d4380aedac964a59d5, type: 2}
-    Probability: 100
+    Probability: 90
 --- !u!212 &212475134808915996
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -236,7 +238,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2140784465
   m_SortingLayer: 2
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9238c5e2e15a45e48860ea6ff347794d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
