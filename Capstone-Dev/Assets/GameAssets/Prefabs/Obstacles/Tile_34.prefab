@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4538549137508064}
   - component: {fileID: 212170913057621794}
   - component: {fileID: 65042589288364918}
+  - component: {fileID: 65091641815520882}
+  - component: {fileID: 65941618407263916}
   m_Layer: 0
   m_Name: Tile_34
   m_TagString: Obstacle
@@ -51,8 +53,32 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.35752487, y: 0.43673515, z: 0.3}
-  m_Center: {x: 0.061606884, y: -0.03080368, z: 0}
+  m_Size: {x: 0.33347702, y: 0.17450666, z: 1}
+  m_Center: {x: 0.06332493, y: 0.085424185, z: 0}
+--- !u!65 &65091641815520882
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1478147865327438}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.07743263, y: 0.23293543, z: 1}
+  m_Center: {x: -0.023521423, y: -0.1182611, z: 0}
+--- !u!65 &65941618407263916
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1478147865327438}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.11272907, y: 0.10714245, z: 1}
+  m_Center: {x: 0.071454525, y: -0.05536461, z: 0}
 --- !u!212 &212170913057621794
 SpriteRenderer:
   m_ObjectHideFlags: 1

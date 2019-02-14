@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4906943438003996}
   - component: {fileID: 212816845236790588}
   - component: {fileID: 65969360598958146}
+  - component: {fileID: 65536047488353732}
   m_Layer: 0
   m_Name: Tile_12
   m_TagString: Obstacle
@@ -35,12 +36,24 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1324494148486992}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.69, y: 7.17, z: 0}
+  m_LocalPosition: {x: 95.31, y: 34.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &65536047488353732
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1324494148486992}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.4672165, y: 0.2903633, z: 1}
+  m_Center: {x: 0.26639175, y: 0.15595055, z: 0}
 --- !u!65 &65969360598958146
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -51,8 +64,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5750637, y: 0.48884392, z: 1}
-  m_Center: {x: 0.21246815, y: 0.25557804, z: 0}
+  m_Size: {x: 0.08383942, y: 0.48884392, z: 1}
+  m_Center: {x: -0.009349823, y: 0.25557804, z: 0}
 --- !u!212 &212816845236790588
 SpriteRenderer:
   m_ObjectHideFlags: 1
