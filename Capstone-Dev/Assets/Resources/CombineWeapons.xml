@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Dialogue>
+  <Lines>
+    <Line>
+      <Name>TIP</Name>
+      <Content>
+        IN COSMIC ATLAS, WEAPONS ARE MODULAR AND CAN BE COMBINED TO GET MORE POWERFUL COMBINATIONs TO DEAL WITH ENEMIES GROUPS.
+        THIS ULTRON SKILL CAN ONLY BE ACTIVATED WHEN YOU HAVE ENOUGH CRYSTALS.
+      </Content>
+      <Emoji>Null</Emoji>
+    </Line>
+
+    <Line>
+      <Name>TIP</Name>
+      <Content>
+        HOLD DOWN 'Y' TO ACTIVATE IT and PRESS 'RT' TO USE IT.
+      </Content>
+      <Emoji>Null</Emoji>
+    </Line>
+
+
+
+  </Lines>
+</Dialogue>
