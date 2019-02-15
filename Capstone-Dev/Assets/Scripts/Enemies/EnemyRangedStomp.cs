@@ -14,8 +14,8 @@ public class EnemyRangedStomp : MonoBehaviour
     private const float radius = 1F;            // Help us find the move direction.
 
     private int health;
-    public float attackRange;
-    public float chaseRange;
+    private float attackRange;
+    private float chaseRange;
     public float speed;
     private Transform target;
 
@@ -32,8 +32,8 @@ public class EnemyRangedStomp : MonoBehaviour
     private void Start()
     {
         health = 80;
-       // attackRange = 4f;
-       // chaseRange = 6;
+        attackRange = 4f;
+        chaseRange = 6;
         
         timeBetweenShots = 1.2f;
         target = GameObject.FindGameObjectWithTag("Player").transform;

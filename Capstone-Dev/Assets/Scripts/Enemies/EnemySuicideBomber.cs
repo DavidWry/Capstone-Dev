@@ -13,7 +13,7 @@ public class EnemySuicideBomber : MonoBehaviour
     private int damage;
      //Within what range the enemy will start and continue attacking the player
     private Transform target;
-    public float rangeForAttack;
+    private float rangeForAttack;
 
     private DropProbability probability = null;
     private GameManager gameManager = null;
@@ -31,10 +31,10 @@ public class EnemySuicideBomber : MonoBehaviour
     void Start()
     {
         //Set player as the target
-       health = 51;
+        health = 51;
         speed = 2.0f;
         player2 = GetComponent<Player_New>();
-      //  rangeForAttack = 6;
+        rangeForAttack = 6;
         damage = 5;
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         probability = gameObject.GetComponent<DropProbability>();

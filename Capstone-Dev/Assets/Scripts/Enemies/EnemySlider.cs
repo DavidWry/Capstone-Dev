@@ -17,7 +17,7 @@ public class EnemySlider : MonoBehaviour
 
 
     private int health;
-    public float rangeForAttack;
+    private float rangeForAttack;
     private int damage;
     private Vector3 dir;
 
@@ -35,7 +35,7 @@ public class EnemySlider : MonoBehaviour
         dashSpeed = 7f;
         canDash = true;
         dashTime = 1.3f;
-      //  rangeForAttack = 6f;
+        rangeForAttack = 6f;
         damage = 7;
         health = 130;
 
