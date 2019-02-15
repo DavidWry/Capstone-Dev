@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using AssemblyCSharp;
 
 
@@ -9,6 +10,7 @@ using AssemblyCSharp;
 public class EnemySuicideBomber : MonoBehaviour
 {
     private int health;
+    private float currentHealth;
     private float speed;
     private Player_New player2;
     //private Player player2;
@@ -31,6 +33,8 @@ public class EnemySuicideBomber : MonoBehaviour
 
     private Scene scene;
 
+    public Image healthBar;
+
 
     void Start()
     {
@@ -51,6 +55,7 @@ public class EnemySuicideBomber : MonoBehaviour
         }
 
         health = 51;
+        currentHealth = health;
         player2 = GetComponent<Player_New>();
         
         damage = 5;
@@ -101,7 +106,7 @@ public class EnemySuicideBomber : MonoBehaviour
                 myRenderer.material.color = defaultColor;
             }
 
-            if (health <= 0)
+            if (currentHealth <= 0)
             {
                 //drop item
                 if (probability)
@@ -139,8 +144,9 @@ public class EnemySuicideBomber : MonoBehaviour
     //Handle damage taken
     public void TakeDamage(int damage)
     {
-        health -= damage;
+        currentHealth -= damage;
 
+        healthBar.fillAmount = currentHealth / health;
     }
 
 }
