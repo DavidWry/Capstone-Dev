@@ -2,21 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 using AssemblyCSharp;
+using UnityEngine.SceneManagement;
 
 // Spears used by the Type 2 Minions
 public class SpearProjectile : MonoBehaviour
 {
 
-    public float speed;
+    private float speed;
     private Player_New player2;
     //private Player player2;
     private Transform player;
     private Vector3 target;
     private int damage;
-  
+    private Scene scene;
     
     void Start()
     {
+        scene = SceneManager.GetActiveScene();
+        if (scene.name == "2_1")
+        {
+            speed = 27.5f;
+        }
+        else
+        {
+            speed = 2.75f;
+        }
         damage = 8;
         player2 = GetComponent<Player_New>();
         player = GameObject.FindGameObjectWithTag("Player").transform;

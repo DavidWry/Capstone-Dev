@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 
@@ -27,13 +28,24 @@ public class EnemyRangedStomp : MonoBehaviour
     private GameManager gameManager = null;
 
     private Animator anim;
+    private Scene scene;
 
 
     private void Start()
     {
+        scene = SceneManager.GetActiveScene();
+        if (scene.name == "2_1")
+        {
+            attackRange = 40f;
+            chaseRange = 60f;
+        }
+        else
+        {
+            attackRange = 4f;
+            chaseRange = 6;
+        }
         health = 80;
-        attackRange = 4f;
-        chaseRange = 6;
+       
         
         timeBetweenShots = 1.2f;
         target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -42,7 +54,7 @@ public class EnemyRangedStomp : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         anim = GetComponent<Animator>();
-
+       
 
     }
 

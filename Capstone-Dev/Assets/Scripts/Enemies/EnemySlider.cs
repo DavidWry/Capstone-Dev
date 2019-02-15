@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using AssemblyCSharp;
+using UnityEngine.SceneManagement;
 
 public class EnemySlider : MonoBehaviour
 {
@@ -27,15 +28,28 @@ public class EnemySlider : MonoBehaviour
 
     private DropProbability probability = null;
     private GameManager gameManager = null;
+    private Scene scene;
 
 
     void Start ()
     {
+        scene = SceneManager.GetActiveScene();
+
+        if (scene.name == "2_1")
+        {
+            dashSpeed = 10f;
+            rangeForAttack = 60f;
+        }
+        else
+        {
+            dashSpeed = 7f;
+            rangeForAttack = 6f;
+        }
         rb = GetComponent<Rigidbody>();
-        dashSpeed = 7f;
+       
         canDash = true;
         dashTime = 1.3f;
-        rangeForAttack = 6f;
+        
         damage = 7;
         health = 130;
 

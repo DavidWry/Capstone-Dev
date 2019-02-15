@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class EnemyRangedSpear : MonoBehaviour
@@ -22,15 +23,26 @@ public class EnemyRangedSpear : MonoBehaviour
     private GameManager gameManager = null;
 
     private Animator anim;
+    private Scene scene;
 
 
     void Start ()
     {
-
+        scene = SceneManager.GetActiveScene();
+        if (scene.name == "2_1")
+        {
+            rangeForAttack = 50;
+            speed = 15f;
+            chaseRange = 60;
+        }
+        else
+        {
+            rangeForAttack = 5;
+            speed = 2.3f;
+            chaseRange = 6;
+        }
         health = 70;
-        rangeForAttack = 5;
-        speed = 2.3f;
-        chaseRange = 6;
+        
     
         player = GameObject.FindGameObjectWithTag("Player").transform;
         timeBetweenShots = 1.2f;

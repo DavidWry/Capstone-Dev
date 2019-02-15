@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NewEnemyJumper : MonoBehaviour
 {
@@ -35,10 +36,21 @@ public class NewEnemyJumper : MonoBehaviour
     private Vector3 offset;
     private Rigidbody rb;
 
+    private Scene scene;
     void Start()
     {
+        scene = SceneManager.GetActiveScene();
+
+        if(scene.name == "2_1")
+        {
+            rangeForAttack = 70f;
+        }
+        else
+        {
+            rangeForAttack = 7f;
+        }
         health = 100;
-        rangeForAttack = 7;
+       
 
         
         waitTime = 0f;

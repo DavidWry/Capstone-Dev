@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using AssemblyCSharp;
+using UnityEngine.SceneManagement;
 
 public class StompwaveProjectile : MonoBehaviour {
 
@@ -13,15 +14,27 @@ public class StompwaveProjectile : MonoBehaviour {
     private Vector3 initialPos;
     private float travelDistance;
     private int damage;
+    private Scene scene;
 
 
     void Start()
     {
+        scene = SceneManager.GetActiveScene();
+
+        if (scene.name == "2_1")
+        {
+            travelDistance = 28f;
+
+        }
+        else
+        {
+            travelDistance = 2.8f;
+        }
         damage = 8;
         player2 = GetComponent<Player_New>();
        // player = GameObject.FindGameObjectWithTag("Player").transform;
        // target = new Vector3(player.position.x, player.position.y, player.position.z);
-        travelDistance = 2.8f;
+       
         initialPos = transform.position;
         //transform.rotation = Quaternion.LookRotation(target);
         // transform.LookAt(player.position);

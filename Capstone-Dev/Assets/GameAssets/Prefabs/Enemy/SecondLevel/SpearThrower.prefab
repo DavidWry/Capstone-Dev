@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 65718209883401348}
   - component: {fileID: 114203904570293912}
   - component: {fileID: 114660153150795732}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: SpearThrower
   m_TagString: Minion
   m_Icon: {fileID: 0}
@@ -68,8 +68,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1866432659326030}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.463522, y: -23.16196, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalPosition: {x: -6.7, y: 218.8, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children:
   - {fileID: 4141204538669010}
   m_Father: {fileID: 0}
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2.3
-  projectile: {fileID: 1703279415655862, guid: 2988a8320a4f0864caf9262881400612, type: 2}
+  projectile: {fileID: 1703279415655862, guid: 576a1b3025b66d5499dea7713ef1455d, type: 2}
   crystal: {fileID: 1141863764639654, guid: e71aca9953d2e5d4380aedac964a59d5, type: 2}
 --- !u!114 &114660153150795732
 MonoBehaviour:

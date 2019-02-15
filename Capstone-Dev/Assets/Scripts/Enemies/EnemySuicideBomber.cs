@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using AssemblyCSharp;
+
 
 // Follow the player everywhere
 public class EnemySuicideBomber : MonoBehaviour
@@ -27,14 +29,30 @@ public class EnemySuicideBomber : MonoBehaviour
     private Color defaultColor;
     private SpriteRenderer myRenderer;
 
+    private Scene scene;
+
 
     void Start()
     {
         //Set player as the target
+        scene = SceneManager.GetActiveScene();
+
+        if (scene.name == "2_1")
+        {
+            
+            speed = 15.0f;
+            rangeForAttack = 60;
+        }
+        else
+        {
+            speed = 2.0f;
+            rangeForAttack = 6;
+
+        }
+
         health = 51;
-        speed = 2.0f;
         player2 = GetComponent<Player_New>();
-        rangeForAttack = 6;
+        
         damage = 5;
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         probability = gameObject.GetComponent<DropProbability>();
@@ -44,7 +62,10 @@ public class EnemySuicideBomber : MonoBehaviour
         defaultColor = myRenderer.material.color;
 
     }
+    private void Awake()
+    {
 
+    }
     void Update()
     {
 
