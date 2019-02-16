@@ -3942,6 +3942,32 @@ MonoBehaviour:
     IsThrust: 0
     IsLazer: 0
     IsShortRange: 0
+  thirdWeapon:
+    Name: 
+    WeaponName: 0
+    WeaponType: 1
+    WeaponIcon: {fileID: 0}
+    WeaponObj: {fileID: 0}
+    AimObj: {fileID: 0}
+    Projectile: {fileID: 0}
+    IsMultiBullets: 0
+    BulletAngleList: []
+    TimeBetweenShot: 0.5
+    TimeWaited: 0
+    ImpactFX: {fileID: 0}
+    ShotFX: {fileID: 0}
+    Damage: 1
+    Rebounce: 0
+    AmmoSize: 5
+    CurrentAmmos: 0
+    ClipObj: {fileID: 0}
+    AttackAnimationUsed: 
+    ReloadTime: 3
+    Duration: 3
+    ProjectileSpeed: 5
+    IsThrust: 0
+    IsLazer: 0
+    IsShortRange: 0
   LeftTarget: {fileID: 1011836339694946, guid: 11057a4919a604d4eac617386bcf1494, type: 2}
   RightTarget: {fileID: 1011836339694946, guid: 070212531c3eb2b47b35d1d9daf0811e,
     type: 2}
@@ -3955,6 +3981,7 @@ MonoBehaviour:
   Head: {fileID: 4397608821431086}
   HitPoint: 0
   Power: 0
+  Slots: 1
   Recoil: {x: 0, y: 0, z: 0}
   SpriteCollection: {fileID: 114486850419000508}
   Character: {fileID: 0}
@@ -4237,7 +4264,7 @@ MonoBehaviour:
   TimeTopCombine: 6
   CombineTag: 0
   SkillReady: 0
-  GoldenFinger: 0
+  GoldenFinger: 1
   CombineAmmos: 0
   CombineOn: 0
   CombineBulPos: {fileID: 4283415803691152}
@@ -6554,66 +6581,6 @@ MonoBehaviour:
     - {fileID: 21300000, guid: b750da62b260543418f36e391c9ebc33, type: 3}
     Multiple: 1
     Hash: 826083711f7bfe84bf2aa2317e0518fa
-    Config: 
-  - Name: Santa1
-    Collection: Christmas
-    Sprite: {fileID: 21300004, guid: 6721f0deee6e85e49a450ae5b9a6654e, type: 3}
-    LinkedSprite: {fileID: 0}
-    Sprites:
-    - {fileID: 21300004, guid: 6721f0deee6e85e49a450ae5b9a6654e, type: 3}
-    - {fileID: 21300002, guid: 6721f0deee6e85e49a450ae5b9a6654e, type: 3}
-    - {fileID: 21300022, guid: 6721f0deee6e85e49a450ae5b9a6654e, type: 3}
-    - {fileID: 21300010, guid: 6721f0deee6e85e49a450ae5b9a6654e, type: 3}
-    - {fileID: 21300008, guid: 6721f0deee6e85e49a450ae5b9a6654e, type: 3}
-    - {fileID: 21300016, guid: 6721f0deee6e85e49a450ae5b9a6654e, type: 3}
-    - {fileID: 21300018, guid: 6721f0deee6e85e49a450ae5b9a6654e, type: 3}
-    - {fileID: 21300012, guid: 6721f0deee6e85e49a450ae5b9a6654e, type: 3}
-    - {fileID: 21300006, guid: 6721f0deee6e85e49a450ae5b9a6654e, type: 3}
-    - {fileID: 21300014, guid: 6721f0deee6e85e49a450ae5b9a6654e, type: 3}
-    - {fileID: 21300020, guid: 6721f0deee6e85e49a450ae5b9a6654e, type: 3}
-    - {fileID: 21300000, guid: 6721f0deee6e85e49a450ae5b9a6654e, type: 3}
-    Multiple: 1
-    Hash: e720f745fb55210a3dba7bad23b25b98
-    Config: 
-  - Name: Santa2
-    Collection: Christmas
-    Sprite: {fileID: 21300004, guid: 3ca1cc449517ba9499d8b72d44246570, type: 3}
-    LinkedSprite: {fileID: 0}
-    Sprites:
-    - {fileID: 21300004, guid: 3ca1cc449517ba9499d8b72d44246570, type: 3}
-    - {fileID: 21300002, guid: 3ca1cc449517ba9499d8b72d44246570, type: 3}
-    - {fileID: 21300022, guid: 3ca1cc449517ba9499d8b72d44246570, type: 3}
-    - {fileID: 21300010, guid: 3ca1cc449517ba9499d8b72d44246570, type: 3}
-    - {fileID: 21300008, guid: 3ca1cc449517ba9499d8b72d44246570, type: 3}
-    - {fileID: 21300016, guid: 3ca1cc449517ba9499d8b72d44246570, type: 3}
-    - {fileID: 21300018, guid: 3ca1cc449517ba9499d8b72d44246570, type: 3}
-    - {fileID: 21300012, guid: 3ca1cc449517ba9499d8b72d44246570, type: 3}
-    - {fileID: 21300006, guid: 3ca1cc449517ba9499d8b72d44246570, type: 3}
-    - {fileID: 21300014, guid: 3ca1cc449517ba9499d8b72d44246570, type: 3}
-    - {fileID: 21300020, guid: 3ca1cc449517ba9499d8b72d44246570, type: 3}
-    - {fileID: 21300000, guid: 3ca1cc449517ba9499d8b72d44246570, type: 3}
-    Multiple: 1
-    Hash: 76e4d2d2717aca7b811c92d65bffa8bb
-    Config: 
-  - Name: SantaHelper
-    Collection: Christmas
-    Sprite: {fileID: 21300004, guid: 69698227d16d2064bb47daa4f517b451, type: 3}
-    LinkedSprite: {fileID: 0}
-    Sprites:
-    - {fileID: 21300004, guid: 69698227d16d2064bb47daa4f517b451, type: 3}
-    - {fileID: 21300002, guid: 69698227d16d2064bb47daa4f517b451, type: 3}
-    - {fileID: 21300022, guid: 69698227d16d2064bb47daa4f517b451, type: 3}
-    - {fileID: 21300010, guid: 69698227d16d2064bb47daa4f517b451, type: 3}
-    - {fileID: 21300008, guid: 69698227d16d2064bb47daa4f517b451, type: 3}
-    - {fileID: 21300016, guid: 69698227d16d2064bb47daa4f517b451, type: 3}
-    - {fileID: 21300018, guid: 69698227d16d2064bb47daa4f517b451, type: 3}
-    - {fileID: 21300012, guid: 69698227d16d2064bb47daa4f517b451, type: 3}
-    - {fileID: 21300006, guid: 69698227d16d2064bb47daa4f517b451, type: 3}
-    - {fileID: 21300014, guid: 69698227d16d2064bb47daa4f517b451, type: 3}
-    - {fileID: 21300020, guid: 69698227d16d2064bb47daa4f517b451, type: 3}
-    - {fileID: 21300000, guid: 69698227d16d2064bb47daa4f517b451, type: 3}
-    Multiple: 1
-    Hash: 027ff3c0976a46ae0262c7c2c245aee2
     Config: 
   Cape:
   - Name: Cape1

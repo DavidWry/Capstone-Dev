@@ -23,6 +23,7 @@ TextureImporter:
     21300036: Xbox UI Buttons_18
     21300038: Xbox UI Buttons_19
     21300040: Xbox UI Buttons_20
+    21300042: Xbox UI Buttons_21
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -520,6 +521,26 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 4dd60913561609046bf63a50fa174f6d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Xbox UI Buttons_21
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 492
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd0bb15661e5acd4386b2cbd54a0e410
       vertices: []
       indices: 
       edges: []

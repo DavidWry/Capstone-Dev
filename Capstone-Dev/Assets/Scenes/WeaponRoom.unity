@@ -706,11 +706,6 @@ Prefab:
       propertyPath: m_Name
       value: New_character
       objectReference: {fileID: 0}
-    - target: {fileID: 114412990771979018, guid: c2e5f753fcf49c64d87884c1108debe8,
-        type: 2}
-      propertyPath: GoldenFinger
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2e5f753fcf49c64d87884c1108debe8, type: 2}
   m_IsPrefabAsset: 0
@@ -9466,6 +9461,36 @@ Prefab:
       propertyPath: rightWeaponMenu.ReloadImg
       value: 
       objectReference: {fileID: 1361833057}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: WeaponList.Array.data[0].WeaponIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 949685af023260b49a9b19623cba94d6,
+        type: 3}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: WeaponList.Array.data[1].WeaponIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 100588c0d40ba1141b12440dcdb19807,
+        type: 3}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: WeaponList.Array.data[2].WeaponIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 2ea73904072e28244957c39846d73d2e,
+        type: 3}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: WeaponList.Array.data[3].WeaponIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: e3d67995cf340dd4a8534efbb913c792,
+        type: 3}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: WeaponList.Array.data[4].WeaponIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 861629b76a161854b94d1c059c28299c,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7430308c60b9dc74396db2694886222b, type: 2}
   m_IsPrefabAsset: 0

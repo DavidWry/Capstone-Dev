@@ -11,6 +11,7 @@ namespace AssemblyCSharp
     {
         public Weapon leftWeapon;
         public Weapon rightWeapon;
+        public Weapon thirdWeapon;
         public GameObject LeftTarget;
         public GameObject RightTarget;
         public int CombineType;
@@ -26,6 +27,7 @@ namespace AssemblyCSharp
 
         public float HitPoint;
         public int Power;
+        public int Slots = 0;
         public Vector3 Recoil = new Vector3(0, 0, 0);
 
         public SpriteCollection SpriteCollection;
