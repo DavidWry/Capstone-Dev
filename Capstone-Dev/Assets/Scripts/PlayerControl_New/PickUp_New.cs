@@ -40,6 +40,7 @@ public class PickUp_New : MonoBehaviour
             handToPick = 2;
         }
         //get the weapon
+        /*
         if (isLootNearby && (handToPick > 0) && currentLoot != null)
         {
             //check if we already have the weapon and show it
@@ -112,9 +113,58 @@ public class PickUp_New : MonoBehaviour
                 //clear loot
                 currentLoot = null;
             }
+        }*/
+
+        //switch weapon
+        if (handToPick > 0)
+        {
+            if (player.Slots == 0)
+            {
+                SwichHand();
+            }
+            else if (player.Slots > 0)
+            {
+                if (handToPick == 1 && player.thirdWeapon.Name != "") //Left
+                {
+                    Weapon temp = player.leftWeapon;
+                    //get a copy of this weapon 
+                    Weapon newWeapon = CopyWeapon(player.thirdWeapon);
+
+                    //new weapon is already recharge
+                    newWeapon.CurrentAmmos = newWeapon.AmmoSize;
+
+                    //found the weapon, add it for the player
+                    player.leftWeapon = newWeapon;
+                    RefreshWeaponUI(1);
+                    ChangeWeapon(1, player.thirdWeapon.WeaponName);
+
+                    player.thirdWeapon = temp;
+                }
+                else if (handToPick == 2 && player.thirdWeapon.Name != "") //Right
+                {
+                    Weapon temp = player.rightWeapon;
+                    //get a copy of this weapon 
+                    Weapon newWeapon = CopyWeapon(player.thirdWeapon);
+
+                    //new weapon is already recharge
+                    newWeapon.CurrentAmmos = newWeapon.AmmoSize;
+
+                    //found the weapon, add it for the player
+                    player.rightWeapon = newWeapon;
+                    RefreshWeaponUI(2);
+                    ChangeWeapon(2, player.thirdWeapon.WeaponName);
+
+                    player.thirdWeapon = temp;
+                }
+                else if (player.thirdWeapon.Name == "")
+                {
+                    SwichHand();
+                }
+            }
         }
 
-        //get the item
+
+        //get the item or weapon.
         if (isLootNearby && Input.GetKeyDown(KeyCode.Joystick1Button1) && currentLoot != null)//button B on controller
         {
             if (!currentLoot.Item.GiveWeapon)
@@ -132,7 +182,108 @@ public class PickUp_New : MonoBehaviour
                 //clear loot
                 currentLoot = null;
             }
+            else
+            {
+                if (player.leftWeapon.Name == "")
+                {
+                    foreach (Weapon weaponInManager in gameManager.WeaponList)
+                        if (currentLoot.Item.WeaponName.ToString() == weaponInManager.WeaponName.ToString())
+                        {
+                            //get a copy of this weapon 
+                            Weapon newWeapon = CopyWeapon(weaponInManager);
 
+                            //new weapon is already recharge
+                            newWeapon.CurrentAmmos = newWeapon.AmmoSize;
+
+                            //found the weapon, add it for the player
+                            player.leftWeapon = newWeapon;
+                            RefreshWeaponUI(1);
+                            ChangeWeapon(1, currentLoot.Item.WeaponName);
+                        }
+                }
+                else if (player.rightWeapon.Name == "")
+                {
+                    foreach (Weapon weaponInManager in gameManager.WeaponList)
+                        if (currentLoot.Item.WeaponName.ToString() == weaponInManager.WeaponName.ToString())
+                        {
+                            //get a copy of this weapon 
+                            Weapon newWeapon = CopyWeapon(weaponInManager);
+
+                            //new weapon is already recharge
+                            newWeapon.CurrentAmmos = newWeapon.AmmoSize;
+
+                            //found the weapon, add it for the player
+                            player.rightWeapon = newWeapon;
+                            RefreshWeaponUI(2);
+                            ChangeWeapon(2, currentLoot.Item.WeaponName);
+                        }
+                }
+                else if (player.thirdWeapon.Name == "" && player.Slots > 0)
+                {
+                    foreach (Weapon weaponInManager in gameManager.WeaponList)
+                        if (currentLoot.Item.WeaponName.ToString() == weaponInManager.WeaponName.ToString())
+                        {
+                            //get a copy of this weapon 
+                            Weapon newWeapon = CopyWeapon(weaponInManager);
+
+                            //new weapon is already recharge
+                            newWeapon.CurrentAmmos = newWeapon.AmmoSize;
+
+                            //found the weapon, add it for the player
+                            player.thirdWeapon = newWeapon;
+                        }
+                }
+                else if (player.thirdWeapon.Name != "" && player.Slots == 1)
+                {
+                    string tempName = player.thirdWeapon.WeaponName.ToString();
+                    GameObject itemObj = Instantiate(gameManager.GetItemObj(tempName), transform.position, Quaternion.Euler(0, 0, 0));
+                    itemObj.transform.localScale = WeaponSizeUp * itemObj.transform.localScale;
+                    if (NextScene.nowName == "2_1")
+                        itemObj.transform.localScale = new Vector3(4, 4, 4);
+                    var worldCanvas = GameObject.Find("worldCanvas").transform;
+                    itemObj.transform.parent = worldCanvas;
+                    foreach (Weapon weaponInManager in gameManager.WeaponList)
+                        if (currentLoot.Item.WeaponName.ToString() == weaponInManager.WeaponName.ToString())
+                        {
+                            //get a copy of this weapon 
+                            Weapon newWeapon = CopyWeapon(weaponInManager);
+
+                            //new weapon is already recharge
+                            newWeapon.CurrentAmmos = newWeapon.AmmoSize;
+
+                            //found the weapon, add it for the player
+                            player.thirdWeapon = newWeapon;
+                        }
+                }
+                else if (player.Slots == 0)
+                {
+                    string tempName = player.rightWeapon.WeaponName.ToString();
+                    GameObject itemObj = Instantiate(gameManager.GetItemObj(tempName), transform.position, Quaternion.Euler(0, 0, 0));
+                    itemObj.transform.localScale = WeaponSizeUp * itemObj.transform.localScale;
+                    if (NextScene.nowName == "2_1")
+                        itemObj.transform.localScale = new Vector3(4, 4, 4);
+                    var worldCanvas = GameObject.Find("worldCanvas").transform;
+                    itemObj.transform.parent = worldCanvas;
+                    foreach (Weapon weaponInManager in gameManager.WeaponList)
+                        if (currentLoot.Item.WeaponName.ToString() == weaponInManager.WeaponName.ToString())
+                        {
+                            //get a copy of this weapon 
+                            Weapon newWeapon = CopyWeapon(weaponInManager);
+
+                            //new weapon is already recharge
+                            newWeapon.CurrentAmmos = newWeapon.AmmoSize;
+
+                            //found the weapon, add it for the player
+                            player.rightWeapon = newWeapon;
+                            RefreshWeaponUI(2);
+                            ChangeWeapon(2, currentLoot.Item.WeaponName);
+                        }
+                }
+                //destroy loot
+                GameObject.Destroy(currentLoot.gameObject);
+                //clear loot
+                currentLoot = null;
+            }
         }
 
     }
@@ -265,6 +416,31 @@ public class PickUp_New : MonoBehaviour
         newWeapon.IsLazer = oldWeapon.IsLazer;
 
         return newWeapon;
+    }
+
+    private void SwichHand()
+    {
+        Weapon temp = player.rightWeapon;
+
+        Weapon newWeapon = CopyWeapon(player.leftWeapon);
+
+        //new weapon is already recharge
+        newWeapon.CurrentAmmos = player.leftWeapon.CurrentAmmos;
+
+        //found the weapon, add it for the player
+        player.rightWeapon = newWeapon;
+        RefreshWeaponUI(2);
+        ChangeWeapon(2, player.leftWeapon.WeaponName);
+
+        Weapon newWeapon02 = CopyWeapon(temp);
+
+        //new weapon is already recharge
+        newWeapon.CurrentAmmos = temp.CurrentAmmos;
+
+        //found the weapon, add it for the player
+        player.leftWeapon = newWeapon02;
+        RefreshWeaponUI(1);
+        ChangeWeapon(1, temp.WeaponName);
     }
 
     void OnTriggerEnter(Collider col)
