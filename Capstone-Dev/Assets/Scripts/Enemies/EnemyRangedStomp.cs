@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 
@@ -15,6 +16,8 @@ public class EnemyRangedStomp : MonoBehaviour
     private const float radius = 1F;            // Help us find the move direction.
 
     private int health;
+    private float currentHealth;
+
     private float attackRange;
     private float chaseRange;
     public float speed;
@@ -30,22 +33,27 @@ public class EnemyRangedStomp : MonoBehaviour
     private Animator anim;
     private Scene scene;
 
+    public Image healthBar;
+
 
     private void Start()
     {
         scene = SceneManager.GetActiveScene();
         if (scene.name == "2_1")
         {
+            transform.localScale = new Vector3(5f, 5f, 1f);
             attackRange = 40f;
             chaseRange = 60f;
         }
-        else
+        else if (scene.name == "First Level")
         {
+            transform.localScale = new Vector3(0.25f, 0.25f, 1f);
             attackRange = 4f;
             chaseRange = 6;
         }
+
         health = 80;
-       
+        currentHealth = health;
         
         timeBetweenShots = 1.2f;
         target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -108,7 +116,7 @@ public class EnemyRangedStomp : MonoBehaviour
                   anim.SetBool("isRunning", false);
             }
 
-            if (health <= 0)
+            if (currentHealth <= 0)
             {
                 if (probability)
                 {
@@ -159,6 +167,8 @@ public class EnemyRangedStomp : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
+        currentHealth -= damage;
+
+        healthBar.fillAmount = currentHealth / health;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 
@@ -12,6 +13,8 @@ public class EnemyRangedSpear : MonoBehaviour
     public float speed;
     private float timeBetweenShots; 
     private float startTimeBetweenShots;
+
+    private float currentHealth;
     private float health;
     public GameObject projectile;
     
@@ -25,24 +28,28 @@ public class EnemyRangedSpear : MonoBehaviour
     private Animator anim;
     private Scene scene;
 
+    public Image healthBar;
 
     void Start ()
     {
         scene = SceneManager.GetActiveScene();
         if (scene.name == "2_1")
         {
+            transform.localScale = new Vector3(5f, 5f, 1f);
             rangeForAttack = 50;
             speed = 15f;
             chaseRange = 60;
         }
-        else
+        else if (scene.name == "First Level")
         {
+            transform.localScale = new Vector3(0.23f, 0.23f, 1f);
             rangeForAttack = 5;
             speed = 2.3f;
             chaseRange = 6;
         }
+
         health = 70;
-        
+        currentHealth = health;
     
         player = GameObject.FindGameObjectWithTag("Player").transform;
         timeBetweenShots = 1.2f;
@@ -100,7 +107,7 @@ public class EnemyRangedSpear : MonoBehaviour
                 anim.SetBool("isRunning", false);
             }
 
-            if (health <= 0)
+            if (currentHealth <= 0)
             {
                 if (probability)
                 {
@@ -125,7 +132,9 @@ public class EnemyRangedSpear : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
+        currentHealth -= damage;
+
+        healthBar.fillAmount = currentHealth / health;
 
     }
 

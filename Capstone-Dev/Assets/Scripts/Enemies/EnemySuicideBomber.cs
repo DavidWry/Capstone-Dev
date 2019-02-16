@@ -34,21 +34,25 @@ public class EnemySuicideBomber : MonoBehaviour
     private Scene scene;
 
     public Image healthBar;
+ 
 
 
     void Start()
     {
         //Set player as the target
         scene = SceneManager.GetActiveScene();
-
+    
         if (scene.name == "2_1")
         {
-            
+
+
+            transform.localScale = new Vector3(5f, 5f, 1f);
             speed = 15.0f;
             rangeForAttack = 60;
         }
-        else
+        else if (scene.name == "First Level")
         {
+            transform.localScale = new Vector3(0.25f, 0.25f, 1f);
             speed = 2.0f;
             rangeForAttack = 6;
 

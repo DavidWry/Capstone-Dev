@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class NewEnemyJumper : MonoBehaviour
@@ -11,6 +12,7 @@ public class NewEnemyJumper : MonoBehaviour
     //private float startWaitTime;
 
     private float health;
+    private float currentHealth;
 
     private DropProbability probability = null;
     private GameManager gameManager = null;
@@ -37,20 +39,26 @@ public class NewEnemyJumper : MonoBehaviour
     private Rigidbody rb;
 
     private Scene scene;
+
+    public Image healthBar;
     void Start()
     {
         scene = SceneManager.GetActiveScene();
 
         if(scene.name == "2_1")
         {
+            transform.localScale = new Vector3(6f, 6f, 1f);
             rangeForAttack = 70f;
         }
-        else
+        else if (scene.name == "First Level")
         {
+            transform.localScale = new Vector3(0.3f, 0.3f, 1f);
             rangeForAttack = 7f;
         }
+
+
         health = 100;
-       
+        currentHealth = health;
 
         
         waitTime = 0f;
@@ -206,7 +214,7 @@ public class NewEnemyJumper : MonoBehaviour
 
         }
 
-            if (health <= 0)
+            if (currentHealth <= 0)
             {
                 if (probability)
                 {
@@ -225,7 +233,9 @@ public class NewEnemyJumper : MonoBehaviour
      }
     public void TakeDamage(int damage)
     {
-        health -= damage;
+        currentHealth -= damage;
+
+        healthBar.fillAmount = currentHealth / health; 
 
     }
     static Quaternion LookAt2D(Vector2 forward)

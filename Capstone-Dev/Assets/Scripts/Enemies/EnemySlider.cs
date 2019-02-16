@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using AssemblyCSharp;
 using UnityEngine.SceneManagement;
 
@@ -18,6 +19,7 @@ public class EnemySlider : MonoBehaviour
 
 
     private int health;
+    private float currentHealth;
     private float rangeForAttack;
     private int damage;
     private Vector3 dir;
@@ -30,6 +32,7 @@ public class EnemySlider : MonoBehaviour
     private GameManager gameManager = null;
     private Scene scene;
 
+    public Image healthBar;
 
     void Start ()
     {
@@ -37,11 +40,13 @@ public class EnemySlider : MonoBehaviour
 
         if (scene.name == "2_1")
         {
+            transform.localScale = new Vector3(6f, 6f, 1f);
             dashSpeed = 10f;
             rangeForAttack = 60f;
         }
-        else
+        else if(scene.name =="First Level")
         {
+            transform.localScale = new Vector3(0.3f, 0.3f, 1f);
             dashSpeed = 7f;
             rangeForAttack = 6f;
         }
@@ -52,6 +57,7 @@ public class EnemySlider : MonoBehaviour
         
         damage = 7;
         health = 130;
+        currentHealth = health;
 
         player = GetComponent<Player_New>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -111,7 +117,7 @@ public class EnemySlider : MonoBehaviour
                 target = GameObject.FindGameObjectWithTag("Player").transform; 
             }
 
-            if (health <= 0)
+            if (currentHealth <= 0)
             {
                 //drop item
                 if (probability)
@@ -170,7 +176,9 @@ public class EnemySlider : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
-        health -= damage;
+        currentHealth -= damage;
+
+        healthBar.fillAmount = currentHealth / health;
     }
 
     IEnumerator IfCollidedWithPlayer(float newWaitTime)
