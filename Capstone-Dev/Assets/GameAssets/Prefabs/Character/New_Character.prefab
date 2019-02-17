@@ -3892,7 +3892,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftWeapon:
     Name: 
-    WeaponName: 0
+    WeaponName: 1
     WeaponType: 1
     WeaponIcon: {fileID: 0}
     WeaponObj: {fileID: 0}
@@ -3918,9 +3918,9 @@ MonoBehaviour:
     IsShortRange: 0
   rightWeapon:
     Name: 
-    WeaponName: 0
+    WeaponName: 1
     WeaponType: 1
-    WeaponIcon: {fileID: 0}
+    WeaponIcon: {fileID: 21300042, guid: 6a0ed52ad3d5ae84aa2b263f695538b9, type: 3}
     WeaponObj: {fileID: 0}
     AimObj: {fileID: 0}
     Projectile: {fileID: 0}
@@ -3932,7 +3932,7 @@ MonoBehaviour:
     ShotFX: {fileID: 0}
     Damage: 1
     Rebounce: 0
-    AmmoSize: 5
+    AmmoSize: 0
     CurrentAmmos: 0
     ClipObj: {fileID: 0}
     AttackAnimationUsed: 

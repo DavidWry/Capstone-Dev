@@ -436,7 +436,7 @@ public class PickUp_New : MonoBehaviour
         Weapon newWeapon02 = CopyWeapon(temp);
 
         //new weapon is already recharge
-        newWeapon.CurrentAmmos = temp.CurrentAmmos;
+        newWeapon02.CurrentAmmos = temp.CurrentAmmos;
 
         //found the weapon, add it for the player
         player.leftWeapon = newWeapon02;
