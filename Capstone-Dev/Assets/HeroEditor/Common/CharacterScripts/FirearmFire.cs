@@ -57,8 +57,9 @@ namespace Assets.HeroEditor.Common.CharacterScripts
 		    Slide.GetComponent<SpriteRenderer>().color = color;
 		}
 
-        private IEnumerator Fire()
+        public IEnumerator Fire()
         {
+            print("paoleyibaibian");
             if (_fire || Time.time - _fireTime < 60f / Character.Firearm.Params.FireRateInMinute || Character.Firearm.Reload.Reloading) yield break;
 
             if (Character.Firearm.AmmoShooted == Character.Firearm.Params.MagazineCapacity)

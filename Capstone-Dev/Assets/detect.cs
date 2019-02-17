@@ -16,11 +16,11 @@ public class detect : MonoBehaviour {
     bool wander=true;
     float idleTime = 2;
     float timeCount = 0;
-    Vector3 newvec = new Vector3(Random.Range(-15,15),Random.Range(-15,15),0);
+    Vector3 newvec;
     // Use this for initialization
     void Start () {
         Original = gameObject.transform.position;
-        
+        newvec = new Vector3(Random.Range(-15, 15), Random.Range(-15, 15), 0);
         anim = gameObject.GetComponentInChildren<Animator>();
 	}
 	
@@ -33,13 +33,13 @@ public class detect : MonoBehaviour {
         
         if (wander)
         {
-          
-                if (Vector3.Distance(gameObject.transform.position, Original) < minDistance)
+            
+            if (Vector3.Distance(gameObject.transform.position, Original) > minDistance)
                 {
-                    Vector3 thisvec = (player.transform.position - gameObject.transform.position).normalized;
+                    Vector3 thisvec = (Original - gameObject.transform.position).normalized;
                     gameObject.GetComponent<Rigidbody>().MovePosition(gameObject.transform.position + thisvec * Time.deltaTime * coefficient);
-               
-                }
+              
+            }
                 else
             {
                  
@@ -66,6 +66,7 @@ public class detect : MonoBehaviour {
 
             if (Vector3.Distance(player.transform.position, this.gameObject.transform.position) < distance && Vector3.Distance(gameObject.transform.position, Original) < distance)
             {
+               
                 wander = false;
                 timeCount = 0;
                 if (!directionFlag)
@@ -91,6 +92,7 @@ public class detect : MonoBehaviour {
 
             else
             {
+              
                 returnOriginal = true;
 
             }
@@ -99,16 +101,20 @@ public class detect : MonoBehaviour {
         else
         {
             Vector3 unitvec = (Original - gameObject.transform.position).normalized;
-           
-            
+          
+
             if (Vector3.Distance(gameObject.transform.position, Original) < minDistance)
             {
+                 
                 directionFlag = false;
                 anim.SetBool("Run", false);
                 returnOriginal = false;
+
+                
                 wander = true;
             }
             else{
+               
                 if (!directionFlag)
                 {
                     var scale = transform.localScale;
@@ -122,8 +128,13 @@ public class detect : MonoBehaviour {
                     transform.localScale = scale;
                     directionFlag = true;
                 }
-                    gameObject.GetComponent<Rigidbody>().MovePosition(gameObject.transform.position + unitvec * Time.deltaTime* coefficient);
-                    
+                anim.SetBool("Run", true);
+                if (!wander)
+                {
+
+      
+                    gameObject.GetComponent<Rigidbody>().MovePosition(gameObject.transform.position + unitvec * Time.deltaTime * coefficient);
+                }
                 
                 }
 

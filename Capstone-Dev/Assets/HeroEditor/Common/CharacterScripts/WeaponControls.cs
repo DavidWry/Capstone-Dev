@@ -23,9 +23,9 @@ namespace Assets.HeroEditor.Common.CharacterScripts
             _locked = !Character.Animator.GetBool("Ready") || Character.Animator.GetInteger("Dead") > 0;
 
             if (_locked) return;
-
+            
             switch (Character.WeaponType)
-            {
+            {  
                 case WeaponType.Melee1H:
                 case WeaponType.Melee2H:
                 case WeaponType.MeleePaired:
