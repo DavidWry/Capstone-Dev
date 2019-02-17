@@ -4003,6 +4003,7 @@ MonoBehaviour:
   RightHand: {fileID: 4807189491682010}
   WeaponSizeUp: 1
   currentLoot: {fileID: 0}
+  ItemSizeUp: 1
 --- !u!114 &114121965860296762
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -1885,7 +1885,10 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
                         {
                             player1=Instantiate(player1, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
                             player1.transform.localScale = new Vector3(15.0f,15.0f,15.0f);
-                            player1.GetComponent<Movement_New>().WalkSpeed = 75;
+                            player1.GetComponent<Movement_New>().WalkSpeed = 150;
+                            player1.GetComponent<Shoot_New>().BulletSizeUp = 15;
+                            player1.GetComponentInChildren<PickUp_New>().WeaponSizeUp = 15;
+                            player1.GetComponentInChildren<PickUp_New>().ItemSizeUp = 15;
                             isCreated = true;
                         }
                     }

@@ -100,12 +100,12 @@ namespace AssemblyCSharp
             {
                 if (LeftTarget != null && RightTarget != null)
                 {
-                    Vector3 lookDirection = RightTarget.transform.position - LeftHand.transform.position;
+                    Vector3 lookDirection = LeftTarget.transform.position - LeftHand.transform.position;
                     float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
                     Quaternion lookRotation = Quaternion.AngleAxis(angle, Vector3.forward);
                     LeftHand.transform.eulerAngles = new Vector3(0, 0, angle + fixLeftAngle);
 
-                    lookDirection = LeftTarget.transform.position - RightHand.transform.position;
+                    lookDirection = RightTarget.transform.position - RightHand.transform.position;
                     angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
                     lookRotation = Quaternion.AngleAxis(angle, Vector3.forward);
                     RightHand.transform.rotation = Quaternion.Slerp(RightHand.transform.rotation, lookRotation, rotateSpeed * Time.deltaTime);
