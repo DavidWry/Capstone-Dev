@@ -48,12 +48,16 @@ public class NewEnemyJumper : MonoBehaviour
         if(scene.name == "2_1")
         {
             transform.localScale = new Vector3(6f, 6f, 1f);
-            rangeForAttack = 70f;
+            rangeForAttack = 140f;
+            landing.transform.localScale = new Vector3(50f,20f,1f);
+            impact.transform.localScale = new Vector3(3f, 3f, 1f);
         }
         else if (scene.name == "First Level")
         {
             transform.localScale = new Vector3(0.3f, 0.3f, 1f);
             rangeForAttack = 7f;
+            landing.transform.localScale = new Vector3(2.5f, 1f, 1f);
+            impact.transform.localScale = new Vector3(0.15f, 0.15f, 1f);
         }
 
 
@@ -91,6 +95,11 @@ public class NewEnemyJumper : MonoBehaviour
             if (player.position.x < transform.position.x)
             {
                 scale.x *= -1;
+                healthBar.GetComponent<Image>().fillOrigin = (int)Image.OriginHorizontal.Right;
+            }
+            else
+            {
+                healthBar.GetComponent<Image>().fillOrigin = (int)Image.OriginHorizontal.Left;
             }
             transform.localScale = scale;
 

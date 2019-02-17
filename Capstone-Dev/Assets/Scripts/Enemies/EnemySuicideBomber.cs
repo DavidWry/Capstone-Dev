@@ -45,22 +45,24 @@ public class EnemySuicideBomber : MonoBehaviour
         if (scene.name == "2_1")
         {
 
-
             transform.localScale = new Vector3(5f, 5f, 1f);
-            speed = 15.0f;
-            rangeForAttack = 60;
+            speed = 40.0f;
+            rangeForAttack = 120;
+            explosion.transform.localScale = new Vector3(40f, 40f, 1f);
         }
         else if (scene.name == "First Level")
         {
             transform.localScale = new Vector3(0.25f, 0.25f, 1f);
             speed = 2.0f;
             rangeForAttack = 6;
-
+            explosion.transform.localScale = new Vector3(2f, 2f, 1f);
         }
 
         health = 51;
         currentHealth = health;
         player2 = GetComponent<Player_New>();
+
+        
         
         damage = 5;
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -85,12 +87,22 @@ public class EnemySuicideBomber : MonoBehaviour
         {
             //face the player
             var scale = transform.localScale;
+           // var hBarScale = healthBar.transform.localScale;
+
             scale.x = Mathf.Abs(scale.x);
+            //   hBarScale.x = Mathf.Abs(hBarScale.x);
             if (target.position.x < transform.position.x)
             {
                 scale.x *= -1;
+                healthBar.GetComponent<Image>().fillOrigin = (int)Image.OriginHorizontal.Right;
+
+            }
+            else
+            {
+                healthBar.GetComponent<Image>().fillOrigin = (int)Image.OriginHorizontal.Left;
             }
             transform.localScale = scale;
+         //   healthBar.transform.localScale = hBarScale;
 
 
             distanceForColor = Vector2.Distance(target.position, transform.position);

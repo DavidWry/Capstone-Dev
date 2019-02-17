@@ -41,8 +41,8 @@ public class EnemySlider : MonoBehaviour
         if (scene.name == "2_1")
         {
             transform.localScale = new Vector3(6f, 6f, 1f);
-            dashSpeed = 10f;
-            rangeForAttack = 60f;
+            dashSpeed = 140f;
+            rangeForAttack = 120f;
         }
         else if(scene.name =="First Level")
         {
@@ -81,6 +81,11 @@ public class EnemySlider : MonoBehaviour
             if (target.position.x < transform.position.x)
             {
                 scale.x *= -1;
+                healthBar.GetComponent<Image>().fillOrigin = (int)Image.OriginHorizontal.Right;
+            }
+            else
+            {
+                healthBar.GetComponent<Image>().fillOrigin = (int)Image.OriginHorizontal.Left;
             }
             transform.localScale = scale;
             

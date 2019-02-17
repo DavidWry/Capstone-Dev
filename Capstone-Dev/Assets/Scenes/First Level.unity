@@ -1644,11 +1644,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4058421112480074, guid: 71ebf779ccb577241b731e9eb8ad3983, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -38.06594
+      value: -39.73
       objectReference: {fileID: 0}
     - target: {fileID: 4058421112480074, guid: 71ebf779ccb577241b731e9eb8ad3983, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.8000765
+      value: 1.66
       objectReference: {fileID: 0}
     - target: {fileID: 4058421112480074, guid: 71ebf779ccb577241b731e9eb8ad3983, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1673,14 +1673,6 @@ Prefab:
     - target: {fileID: 4058421112480074, guid: 71ebf779ccb577241b731e9eb8ad3983, type: 2}
       propertyPath: m_RootOrder
       value: 56
-      objectReference: {fileID: 0}
-    - target: {fileID: 4058421112480074, guid: 71ebf779ccb577241b731e9eb8ad3983, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4058421112480074, guid: 71ebf779ccb577241b731e9eb8ad3983, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 1235819296174034, guid: 71ebf779ccb577241b731e9eb8ad3983, type: 2}
       propertyPath: m_Name
@@ -2076,7 +2068,7 @@ MonoBehaviour:
   theTextBox: {fileID: 0}
   NPCText: CombineWeapons
   NPCName: CombineWeapons
-  NpcID: CombineWeaponswww1w23
+  NpcID: CombineWeapons
   NpcParents: []
   NonRelatedNpc: 1
   DirectToDialogue: 1
@@ -47334,11 +47326,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4811806397850738, guid: 6e750c0bcc993fc4593669dc6c8c00f3, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 64.81349
+      value: 59
       objectReference: {fileID: 0}
     - target: {fileID: 4811806397850738, guid: 6e750c0bcc993fc4593669dc6c8c00f3, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -18.649698
+      value: -10.5
       objectReference: {fileID: 0}
     - target: {fileID: 4811806397850738, guid: 6e750c0bcc993fc4593669dc6c8c00f3, type: 2}
       propertyPath: m_LocalPosition.z
@@ -63769,11 +63761,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4527442569376206, guid: c2e5f753fcf49c64d87884c1108debe8, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 5.58
+      value: 5.4
       objectReference: {fileID: 0}
     - target: {fileID: 4527442569376206, guid: c2e5f753fcf49c64d87884c1108debe8, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.35
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4527442569376206, guid: c2e5f753fcf49c64d87884c1108debe8, type: 2}
       propertyPath: m_LocalPosition.z
@@ -66197,7 +66189,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2064527771
 Transform:
   m_ObjectHideFlags: 0

@@ -299,7 +299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfProjectiles: 12
   projectileSpeed: 2
-  ProjectilePrefab: {fileID: 1879253388266996, guid: 091540548d3ce1941b9c369cf92ea2dc,
+  projectilePrefab: {fileID: 1879253388266996, guid: 091540548d3ce1941b9c369cf92ea2dc,
     type: 2}
   speed: 2.5
   healthBar: {fileID: 114907955608895052}

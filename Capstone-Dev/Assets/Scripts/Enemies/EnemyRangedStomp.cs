@@ -3,13 +3,12 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 
-
 public class EnemyRangedStomp : MonoBehaviour
 {
 
     public int numberOfProjectiles;             // Number of projectiles to shoot.
     public float projectileSpeed;               // Speed of the projectile.
-    public GameObject ProjectilePrefab;         // Prefab to spawn.
+    public GameObject projectilePrefab;         // Prefab to spawn.
 
 
     private Vector3 startPoint;                 // Starting position of the stomp.
@@ -42,14 +41,18 @@ public class EnemyRangedStomp : MonoBehaviour
         if (scene.name == "2_1")
         {
             transform.localScale = new Vector3(5f, 5f, 1f);
-            attackRange = 40f;
-            chaseRange = 60f;
+            attackRange = 80f;
+            chaseRange = 120f;
+            projectilePrefab.transform.localScale = new Vector3(20f, 20f, 1f);
+            projectileSpeed = 40f;
         }
         else if (scene.name == "First Level")
         {
             transform.localScale = new Vector3(0.25f, 0.25f, 1f);
             attackRange = 4f;
             chaseRange = 6;
+            projectilePrefab.transform.localScale = new Vector3(1f, 1f, 1f);
+            projectileSpeed = 2f;
         }
 
         health = 80;
@@ -82,6 +85,11 @@ public class EnemyRangedStomp : MonoBehaviour
             if (target.position.x < transform.position.x)
             {
                 scale.x *= -1;
+                healthBar.GetComponent<Image>().fillOrigin = (int)Image.OriginHorizontal.Right;
+            }
+            else
+            {
+                healthBar.GetComponent<Image>().fillOrigin = (int)Image.OriginHorizontal.Left;
             }
             transform.localScale = scale;
 
@@ -155,7 +163,7 @@ public class EnemyRangedStomp : MonoBehaviour
             Vector3 projectileMoveDirection = (projectileVector - startPoint).normalized * projectileSpeed;
 
             // Create game objects.
-            GameObject tmpObj = Instantiate(ProjectilePrefab, startPoint, Quaternion.identity);
+            GameObject tmpObj = Instantiate(projectilePrefab, startPoint, Quaternion.identity);
             tmpObj.GetComponent<Rigidbody>().velocity = new Vector3(projectileMoveDirection.x, projectileMoveDirection.y, 0);
 
             // Destory the gameobject after 10 seconds.

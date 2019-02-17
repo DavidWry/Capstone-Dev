@@ -36,9 +36,10 @@ public class EnemyRangedSpear : MonoBehaviour
         if (scene.name == "2_1")
         {
             transform.localScale = new Vector3(5f, 5f, 1f);
-            rangeForAttack = 50;
-            speed = 15f;
-            chaseRange = 60;
+            rangeForAttack = 110;
+            speed = 50.6f;
+            chaseRange = 132;
+            projectile.transform.localScale = new Vector3(5f, 5f, 1f);
         }
         else if (scene.name == "First Level")
         {
@@ -46,6 +47,7 @@ public class EnemyRangedSpear : MonoBehaviour
             rangeForAttack = 5;
             speed = 2.3f;
             chaseRange = 6;
+            projectile.transform.localScale = new Vector3(0.23f, 0.23f, 1f);
         }
 
         health = 70;
@@ -76,6 +78,11 @@ public class EnemyRangedSpear : MonoBehaviour
             if (player.position.x < transform.position.x)
             {
                 scale.x *= -1;
+                healthBar.GetComponent<Image>().fillOrigin = (int)Image.OriginHorizontal.Right;
+            }
+            else
+            {
+                healthBar.GetComponent<Image>().fillOrigin = (int)Image.OriginHorizontal.Left;
             }
             transform.localScale = scale;
 
