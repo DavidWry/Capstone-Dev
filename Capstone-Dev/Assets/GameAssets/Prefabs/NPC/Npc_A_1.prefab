@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 136731121956555994}
   - component: {fileID: 114227029517364304}
   - component: {fileID: 114667073673850930}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Npc_A_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,6 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 693412428ed354e4c985e39c6d463e8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  op: 1
 --- !u!136 &136595908118347320
 CapsuleCollider:
   m_ObjectHideFlags: 1

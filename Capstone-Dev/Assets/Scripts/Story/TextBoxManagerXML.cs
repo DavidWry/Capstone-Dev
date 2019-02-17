@@ -66,7 +66,12 @@ public class TextBoxManagerXML : MonoBehaviour {
                     cancelTyping = true;
                 }
             }
+            if (Input.GetButtonDown("BButton"))
+            {
+                DisableTextBox();
+            }
         }
+
     }
 
     private IEnumerator TextScroll(string lineOfText)

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LookAtPlayer : MonoBehaviour {
 
+    public bool op = true;
     GameObject player;
 
 	// Use this for initialization
@@ -15,8 +16,10 @@ public class LookAtPlayer : MonoBehaviour {
 	void LateUpdate () {
         var scale = transform.localScale;
         scale.x = Mathf.Abs(scale.x);
-        if (player.transform.position.x < transform.position.x)
+        if (player.transform.position.x < transform.position.x && op)
             scale.x *= -1;
+        else if (player.transform.position.x > transform.position.x && !op)
+                scale.x *= -1;
         transform.localScale = scale;
     }
 }

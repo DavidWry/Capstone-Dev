@@ -82,6 +82,8 @@ public class NPC : MonoBehaviour {
                     other.gameObject.GetComponent<Player_New>().NPCIDs = other.gameObject.GetComponent<Player_New>().NPCIDs.Distinct().ToList();
                     npcManager.FindAllPossibleId();
                     npcManager.DeletUsedID(NpcID);
+                    npcManager.CurrentPosNPC = gameObject;
+                    npcManager.UINPCGen();
                 }
             }
         }

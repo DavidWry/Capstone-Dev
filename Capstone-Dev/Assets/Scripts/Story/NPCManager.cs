@@ -12,6 +12,9 @@ public class NPCManager : MonoBehaviour {
     public Player_New player;
     public List<string> possibleIds;
     public List<GameObject> allNpcs;
+    public GameObject Pos;
+    public GameObject CurrentPosNPC;
+    public GameObject canvas;
 
     // Use this for initialization
     void Start () {
@@ -155,4 +158,23 @@ public class NPCManager : MonoBehaviour {
         possibleIds.Remove(Id);
     }
 
+    public void UINPCGen()
+    {
+        if (CurrentPosNPC != null)
+        {
+            if (Pos.transform.childCount > 0)
+            {
+                Destroy(Pos.transform.GetChild(0).gameObject);
+            }
+            GameObject newUINPC = Instantiate(CurrentPosNPC, Pos.transform);
+            newUINPC.transform.position = Pos.transform.position;
+            Vector3 scale = newUINPC.transform.lossyScale;
+            Vector3 scales = canvas.transform.lossyScale;
+            newUINPC.transform.localScale = newUINPC.transform.localScale / scale.y * scales.x * 2;
+            if (newUINPC.GetComponent<LookAtPlayer>())
+            {
+                newUINPC.GetComponent<LookAtPlayer>().op = false;
+            }
+        }
+    }
 }
