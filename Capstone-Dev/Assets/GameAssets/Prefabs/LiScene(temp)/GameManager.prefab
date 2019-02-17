@@ -73,7 +73,7 @@ MonoBehaviour:
   - Name: Pistol
     WeaponName: 0
     WeaponType: 1
-    WeaponIcon: {fileID: 21300000, guid: 379676913003f4b4fb67ca9e26fbeb97, type: 3}
+    WeaponIcon: {fileID: 21300000, guid: 949685af023260b49a9b19623cba94d6, type: 3}
     WeaponObj: {fileID: 1031040304690994, guid: 06723e9a6ee9b7044b2613638ac2d4f8,
       type: 2}
     AimObj: {fileID: 1266085690551780, guid: 06723e9a6ee9b7044b2613638ac2d4f8, type: 2}
@@ -101,7 +101,7 @@ MonoBehaviour:
   - Name: Ak47
     WeaponName: 3
     WeaponType: 1
-    WeaponIcon: {fileID: 21300012, guid: 379676913003f4b4fb67ca9e26fbeb97, type: 3}
+    WeaponIcon: {fileID: 21300000, guid: 100588c0d40ba1141b12440dcdb19807, type: 3}
     WeaponObj: {fileID: 1031040304690994, guid: 547f7afa1dc54ce43aa7c9b6b4ee9500,
       type: 2}
     AimObj: {fileID: 1266085690551780, guid: 547f7afa1dc54ce43aa7c9b6b4ee9500, type: 2}
@@ -129,7 +129,7 @@ MonoBehaviour:
   - Name: Lazer
     WeaponName: 6
     WeaponType: 1
-    WeaponIcon: {fileID: 21300010, guid: 379676913003f4b4fb67ca9e26fbeb97, type: 3}
+    WeaponIcon: {fileID: 21300000, guid: 2ea73904072e28244957c39846d73d2e, type: 3}
     WeaponObj: {fileID: 1031040304690994, guid: 858c0a7e8afeff947aac67d3b0474392,
       type: 2}
     AimObj: {fileID: 1266085690551780, guid: 858c0a7e8afeff947aac67d3b0474392, type: 2}
@@ -157,7 +157,7 @@ MonoBehaviour:
   - Name: Sword
     WeaponName: 7
     WeaponType: 0
-    WeaponIcon: {fileID: 21300000, guid: 1ded39d8126baa1459a4f1657e83b630, type: 3}
+    WeaponIcon: {fileID: 21300000, guid: e3d67995cf340dd4a8534efbb913c792, type: 3}
     WeaponObj: {fileID: 1358715624640800, guid: 312ac8fecd912884fa8b161ea20b22f4,
       type: 2}
     AimObj: {fileID: 1803898552282656, guid: 312ac8fecd912884fa8b161ea20b22f4, type: 2}
@@ -185,7 +185,7 @@ MonoBehaviour:
   - Name: Shotgun
     WeaponName: 4
     WeaponType: 0
-    WeaponIcon: {fileID: 21300014, guid: 379676913003f4b4fb67ca9e26fbeb97, type: 3}
+    WeaponIcon: {fileID: 21300000, guid: 861629b76a161854b94d1c059c28299c, type: 3}
     WeaponObj: {fileID: 1328907374582074, guid: f2cbd30f70b6f46499c4578e693661f9,
       type: 2}
     AimObj: {fileID: 1213304965054408, guid: f2cbd30f70b6f46499c4578e693661f9, type: 2}
@@ -347,12 +347,12 @@ MonoBehaviour:
   - {fileID: 1008682546140488, guid: 07884be851adda24596d183388b8ec87, type: 2}
   Tiles2: []
   EnemyList:
-  - {fileID: 1489556863665108, guid: 0033028c61be62246a5bb7499249fa01, type: 2}
-  - {fileID: 1330782127039832, guid: 74ddbb7d70505884e882c9dc8ffb2c03, type: 2}
-  - {fileID: 1100377277429338, guid: e93b26714d3cde04899da730e14310af, type: 2}
-  - {fileID: 1489556863665108, guid: e1ac0005b05d6fe418e81b57aab0e4e9, type: 2}
-  - {fileID: 1100377277429338, guid: 29afc769a7c70f64fb2282c2f3471eb0, type: 2}
-  - {fileID: 1330782127039832, guid: bf9c4842646df394d9c9cf71dd22bd1f, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   BossList: []
   PortalList:
   - {fileID: 1367659576493558, guid: babca655dd8db00428ac6738dc7f3c0e, type: 2}
