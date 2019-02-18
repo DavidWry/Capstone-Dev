@@ -1,22 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Chest : MonoBehaviour {
 
     private int health;
+    public int currentHealth;
     private DropProbability probability = null;
     private GameManager gameManager = null;
+    public Image healthBar;
     // Use this for initialization
     void Start () {
         health = 10;
+        currentHealth = 10;
+        healthBar.GetComponent<Image>().fillOrigin = (int)Image.OriginHorizontal.Left;
         probability = gameObject.GetComponent<DropProbability>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (health < 0)
+        if (currentHealth < 0)
         {
             string tempName = probability.DetermineDrop();
             GameObject itemObj = gameManager.GetItemObj(tempName);
@@ -26,10 +31,11 @@ public class Chest : MonoBehaviour {
             itemObj.transform.parent = worldCanvas;
             Destroy(gameObject);
         }
-	}
+        healthBar.fillAmount = currentHealth / health;
+    }
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
+        currentHealth -= damage;
     }
 }
