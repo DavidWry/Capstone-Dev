@@ -365,6 +365,10 @@ public class PickUp_New : MonoBehaviour
             weaponObj.transform.parent = LeftHand;
             weaponObj.transform.localPosition = tempPosition;
             weaponObj.transform.eulerAngles = LeftHand.eulerAngles + new Vector3(0, 0, -player.fixLeftAngle);
+            if (weaponObj.GetComponent<WeaponColor>())
+            {
+                weaponObj.GetComponent<WeaponColor>().leftorright = 1;
+            }
             player.CombineWeapon();
         }
         else if (leftOrRight == 2)
@@ -379,6 +383,10 @@ public class PickUp_New : MonoBehaviour
             weaponObj.transform.parent = RightHand;
             weaponObj.transform.localPosition = tempPosition;
             weaponObj.transform.eulerAngles = RightHand.eulerAngles + new Vector3(0, 0, -player.fixRightAngle);
+            if (weaponObj.GetComponent<WeaponColor>())
+            {
+                weaponObj.GetComponent<WeaponColor>().leftorright = 2;
+            }
             player.CombineWeapon();
         }
     }

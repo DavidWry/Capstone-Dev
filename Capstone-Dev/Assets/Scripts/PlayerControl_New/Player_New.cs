@@ -40,9 +40,9 @@ namespace AssemblyCSharp
         private float rotateSpeed;
         private Movement_New playerMovement;
         private Shoot_New playerShoot;
-        private bool isLeftInHand = true;
-        private bool isRightInHand = false;
-        private bool isCombine = false;
+        public bool isLeftInHand = true;
+        public bool isRightInHand = false;
+        public bool isCombine = false;
 
         // Use this for initialization
         void Start()

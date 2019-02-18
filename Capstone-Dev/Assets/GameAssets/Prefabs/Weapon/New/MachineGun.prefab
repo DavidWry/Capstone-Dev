@@ -260,6 +260,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4497355327686140}
+  - component: {fileID: 114334302345420384}
   m_Layer: 0
   m_Name: MachineGun
   m_TagString: Untagged
@@ -600,6 +601,18 @@ MonoBehaviour:
   Speed: {x: -2, y: -3, z: 0}
   RotationSpeed: 720
   Lifetime: 0.5
+--- !u!114 &114334302345420384
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1978408523781704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47c1bba6e9695ca4293261498ddb47d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftorright: 0
 --- !u!198 &198178893138144906
 ParticleSystem:
   m_ObjectHideFlags: 1

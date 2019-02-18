@@ -3988,6 +3988,9 @@ MonoBehaviour:
   firearmCollection: {fileID: 114652892613210630}
   BackPack: {fileID: 21300000, guid: 6511aac6e59a4eaf833874728059c3d2, type: 3}
   Back: {fileID: 212150053041565294}
+  isLeftInHand: 1
+  isRightInHand: 0
+  isCombine: 0
 --- !u!114 &114090638817769560
 MonoBehaviour:
   m_ObjectHideFlags: 1
