@@ -34,6 +34,9 @@ public class EnemySlider : MonoBehaviour
 
     public Image healthBar;
 
+
+    private bool isStunned;
+
     void Start ()
     {
         scene = SceneManager.GetActiveScene();
@@ -67,6 +70,7 @@ public class EnemySlider : MonoBehaviour
 
         probability = gameObject.GetComponent<DropProbability>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        isStunned = false;
     }
 
     // Update is called once per frame
@@ -88,39 +92,45 @@ public class EnemySlider : MonoBehaviour
                 healthBar.GetComponent<Image>().fillOrigin = (int)Image.OriginHorizontal.Left;
             }
             transform.localScale = scale;
-            
+
+
+            if(!isStunned)
+            {
+                if ((Vector3.Distance(transform.position, target.position) <= rangeForAttack) && (canDash == true))
+                {
+                    targetPos = new Vector3(target.position.x, target.position.y, target.position.z);
+                    anim.SetTrigger("Sliding");
+                    dir = (targetPos - transform.position).normalized * dashSpeed;
+                    rb.velocity = dir;
+                    canDash = false;
+                    hasReached = false;
+                }
+
+                //has the enemy reached the target position
+                if (Vector2.Distance(transform.position, targetPos) <= 0.1f)
+                {
+                    hasReached = true;
+
+                }
+
+                if (hasReached == true)
+                {
+                    canDash = false;
+                    anim.SetBool("isRunning", false);
+                    rb.velocity = Vector3.zero;
+                    dashTime -= Time.deltaTime;
+                }
+
+                //if the countdown for the next dash becomes zero
+                if (dashTime <= 0)
+                {
+                    canDash = true;
+                    dashTime = 1.6f;
+                    target = GameObject.FindGameObjectWithTag("Player").transform;
+                }
+            }
             //check if under range and if he can dash
-            if( (Vector3.Distance(transform.position, target.position) <= rangeForAttack) && (canDash == true))
-            {
-                targetPos = new Vector3(target.position.x, target.position.y,target.position.z);
-                anim.SetTrigger("Sliding");
-                dir = (targetPos - transform.position).normalized * dashSpeed;
-                rb.velocity = dir;
-                canDash = false;
-                hasReached = false;
-            }
-
-            //has the enemy reached the target position
-            if (Vector2.Distance(transform.position, targetPos) <= 0.1f)
-            {
-                hasReached = true;
-              
-            }
-            if (hasReached == true)
-            {
-                canDash = false;
-                anim.SetBool("isRunning", false);
-                rb.velocity = Vector3.zero;
-                dashTime -= Time.deltaTime;
-            }
-
-            //if the countdown for the next dash becomes zero
-            if (dashTime <= 0)
-            {
-               canDash = true;
-                dashTime = 1.6f;
-                target = GameObject.FindGameObjectWithTag("Player").transform; 
-            }
+          
 
             if (currentHealth <= 0)
             {
@@ -143,7 +153,6 @@ public class EnemySlider : MonoBehaviour
     
     private void OnCollisionEnter(Collision other)
     {
-        
         
         if (other.gameObject.tag == "Player")
          {
@@ -186,10 +195,28 @@ public class EnemySlider : MonoBehaviour
         healthBar.fillAmount = currentHealth / health;
     }
 
-    IEnumerator IfCollidedWithPlayer(float newWaitTime)
+    public void Stun()
     {
-        yield return new WaitForSeconds(newWaitTime);
+
+        isStunned = true;
+        rb.velocity = Vector3.zero;
+        anim.SetBool("isRunning", false);
+        WaitAfterStun();
+        dashTime = 1.3f;
+        isStunned = false;
+        canDash = true;
+        hasCollided = false;
+        hasReached = false;
+
+
     }
+    private IEnumerator WaitAfterStun()
+    {
+
+        yield return new WaitForSeconds(2f);
+    }
+
+
 
 
 }

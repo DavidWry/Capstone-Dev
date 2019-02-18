@@ -30,6 +30,9 @@ public class EnemyRangedSpear : MonoBehaviour
 
     public Image healthBar;
 
+    private Rigidbody rb;
+    private bool isStunned;
+
     void Start ()
     {
         scene = SceneManager.GetActiveScene();
@@ -61,7 +64,9 @@ public class EnemyRangedSpear : MonoBehaviour
 
         anim = GetComponent<Animator>();
 
-        //projectileArray = new GameObject[numProjectiles];
+        rb = gameObject.GetComponent<Rigidbody>();
+        isStunned = false;
+       
     }
 	
 	
@@ -86,33 +91,36 @@ public class EnemyRangedSpear : MonoBehaviour
             }
             transform.localScale = scale;
 
-
-            if (Vector2.Distance(transform.position, player.position) <= rangeForAttack)
+            if (!isStunned)
             {
-                if (timeBetweenShots <= 0)
+                if (Vector2.Distance(transform.position, player.position) <= rangeForAttack)
                 {
-                    anim.SetTrigger("Attack");
-                    Instantiate(projectile, transform.position, Quaternion.identity);
+                    if (timeBetweenShots <= 0)
+                    {
+                        anim.SetTrigger("Attack");
+                        Instantiate(projectile, transform.position, Quaternion.identity);
 
 
-                    timeBetweenShots = 1.5f;
+                        timeBetweenShots = 1.5f;
+                    }
+                    else
+                    {
+                        anim.SetBool("isRunning", false);
+                        timeBetweenShots -= Time.deltaTime;
+                    }
+                }
+                else if (Vector2.Distance(transform.position, player.position) <= chaseRange && Vector2.Distance(transform.position, player.position) > rangeForAttack)
+                {
+                    anim.SetBool("isRunning", true);
+                    transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+
                 }
                 else
                 {
                     anim.SetBool("isRunning", false);
-                    timeBetweenShots -= Time.deltaTime;
                 }
             }
-            else if (Vector2.Distance(transform.position, player.position) <= chaseRange && Vector2.Distance(transform.position, player.position) > rangeForAttack)
-            {
-                anim.SetBool("isRunning", true);
-                transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
-               
-            }
-            else
-            {
-                anim.SetBool("isRunning", false);
-            }
+            
 
             if (currentHealth <= 0)
             {
@@ -143,6 +151,23 @@ public class EnemyRangedSpear : MonoBehaviour
 
         healthBar.fillAmount = currentHealth / health;
 
+    }
+
+    public void Stun()
+    {
+
+        isStunned = true;
+        rb.velocity = Vector3.zero;
+        anim.SetBool("isRunning", false);
+        timeBetweenShots = 0;
+        WaitAfterStun();
+        isStunned = false;
+
+    }
+    private IEnumerator WaitAfterStun()
+    {
+
+        yield return new WaitForSeconds(2f);
     }
 
 }

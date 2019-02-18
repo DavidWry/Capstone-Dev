@@ -34,8 +34,12 @@ public class EnemySuicideBomber : MonoBehaviour
     private Scene scene;
 
     public Image healthBar;
- 
 
+    //private int thrust;
+    private Rigidbody rb;
+
+    private bool isStunned;
+    
 
     void Start()
     {
@@ -62,7 +66,8 @@ public class EnemySuicideBomber : MonoBehaviour
         currentHealth = health;
         player2 = GetComponent<Player_New>();
 
-        
+        rb = gameObject.GetComponent<Rigidbody>();
+        isStunned = false;
         
         damage = 5;
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -78,19 +83,16 @@ public class EnemySuicideBomber : MonoBehaviour
 
     }
     void Update()
-    {
-
-       
-
+    { 
         // Attack player if its under the range
         if (target != null)
         {
             //face the player
             var scale = transform.localScale;
-           // var hBarScale = healthBar.transform.localScale;
+          
 
             scale.x = Mathf.Abs(scale.x);
-            //   hBarScale.x = Mathf.Abs(hBarScale.x);
+      
             if (target.position.x < transform.position.x)
             {
                 scale.x *= -1;
@@ -102,25 +104,27 @@ public class EnemySuicideBomber : MonoBehaviour
                 healthBar.GetComponent<Image>().fillOrigin = (int)Image.OriginHorizontal.Left;
             }
             transform.localScale = scale;
-         //   healthBar.transform.localScale = hBarScale;
 
-
-            distanceForColor = Vector2.Distance(target.position, transform.position);
-            
-            if (Vector2.Distance(transform.position, target.position) <= rangeForAttack && Vector2.Distance(transform.position, target.position) > 0.5)
+            if (!isStunned)
             {
-                //move enemy to the player's position
-                anim.SetBool("isRunning", true);
-                transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-                myRenderer.material.color = Color.Lerp(startColor, endColor, distanceForColor/rangeForAttack );
-                
 
+                distanceForColor = Vector2.Distance(target.position, transform.position);
+
+                if (Vector2.Distance(transform.position, target.position) <= rangeForAttack && Vector2.Distance(transform.position, target.position) > 0.5)
+                {
+                    //move enemy to the player's position
+                    anim.SetBool("isRunning", true);
+                    transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+                    myRenderer.material.color = Color.Lerp(startColor, endColor, distanceForColor / rangeForAttack);
+
+                }
+                else
+                {
+                    anim.SetBool("isRunning", false);
+                    myRenderer.material.color = defaultColor;
+                }
             }
-            else
-            {
-                anim.SetBool("isRunning", false);
-                myRenderer.material.color = defaultColor;
-            }
+
 
             if (currentHealth <= 0)
             {
@@ -137,6 +141,7 @@ public class EnemySuicideBomber : MonoBehaviour
                 }
                 Destroy(gameObject);
             }
+
         }
 
 
@@ -154,6 +159,16 @@ public class EnemySuicideBomber : MonoBehaviour
             Destroy(expl, 3);
 
         }
+      /*  if (other.gameObject.tag=="Obstacle")
+        {
+            Vector3 difference = transform.position - other.transform.position;
+            difference = difference.normalized * thrust;
+            rb.AddForce(difference, ForceMode.Impulse);
+            //transform.Translate(difference);
+            
+
+
+        }*/
     }
 
 
@@ -164,5 +179,21 @@ public class EnemySuicideBomber : MonoBehaviour
 
         healthBar.fillAmount = currentHealth / health;
     }
+    public void Stun()
+    {
+        
+        isStunned = true;
+        rb.velocity = Vector3.zero;
+        anim.SetBool("isRunning", false);
+        WaitAfterStun();
+        isStunned = false;
+
+    }
+    private IEnumerator WaitAfterStun()
+    {
+
+        yield return new WaitForSeconds(2f);
+    }
+
 
 }

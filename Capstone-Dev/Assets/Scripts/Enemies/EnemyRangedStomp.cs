@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -34,6 +36,8 @@ public class EnemyRangedStomp : MonoBehaviour
 
     public Image healthBar;
 
+    private Rigidbody rb;
+    private bool isStunned;
 
     private void Start()
     {
@@ -65,16 +69,16 @@ public class EnemyRangedStomp : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         anim = GetComponent<Animator>();
-       
+
+        rb = gameObject.GetComponent<Rigidbody>();
+        isStunned = false;
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        
-
         //behavior here
         if (target != null)
         {
@@ -93,36 +97,39 @@ public class EnemyRangedStomp : MonoBehaviour
             }
             transform.localScale = scale;
 
-
-            startPoint = transform.position;
-
-            if (Vector3.Distance(startPoint, target.position) <= attackRange)
+            if (!isStunned)
             {
-                if (timeBetweenShots <= 0)
-                {
-                    anim.SetTrigger("Attack");
-                    
-                    SpawnProjectile(numberOfProjectiles);
-                    timeBetweenShots = 1.6f;
+                startPoint = transform.position;
 
+                if (Vector3.Distance(startPoint, target.position) <= attackRange)
+                {
+                    if (timeBetweenShots <= 0)
+                    {
+                        anim.SetTrigger("Attack");
+
+                        SpawnProjectile(numberOfProjectiles);
+                        timeBetweenShots = 1.6f;
+
+                    }
+                    else
+                    {
+                        anim.SetBool("isRunning", false);
+                        timeBetweenShots -= Time.deltaTime;
+                    }
+
+                }
+                else if (Vector2.Distance(transform.position, target.position) <= chaseRange && Vector2.Distance(transform.position, target.position) > attackRange)
+                {
+                    anim.SetBool("isRunning", true);
+
+                    transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
                 }
                 else
                 {
                     anim.SetBool("isRunning", false);
-                    timeBetweenShots -= Time.deltaTime;
                 }
-
             }
-            else if (Vector2.Distance(transform.position, target.position) <= chaseRange && Vector2.Distance(transform.position, target.position) > attackRange)
-            {
-                anim.SetBool("isRunning", true);
-
-                transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-            }
-            else
-            {
-                  anim.SetBool("isRunning", false);
-            }
+            
 
             if (currentHealth <= 0)
             {
@@ -178,5 +185,22 @@ public class EnemyRangedStomp : MonoBehaviour
         currentHealth -= damage;
 
         healthBar.fillAmount = currentHealth / health;
+    }
+
+    public void Stun()
+    {
+
+        isStunned = true;
+        rb.velocity = Vector3.zero;
+        anim.SetBool("isRunning", false);
+        timeBetweenShots = 0f;
+        WaitAfterStun();
+        isStunned = false;
+
+    }
+    private IEnumerator WaitAfterStun()
+    {
+
+        yield return new WaitForSeconds(2f);
     }
 }

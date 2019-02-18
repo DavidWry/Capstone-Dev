@@ -28,9 +28,9 @@ public class Explosion : MonoBehaviour {
     {
         if (other.gameObject.tag == "Minion")
         {
-            if (other.gameObject.GetComponent<EnemyFollow>())
+            if (other.gameObject.GetComponent<EnemySuicideBomber>())
             {
-                other.gameObject.GetComponent<EnemyFollow>().TakeDamage(Damage);
+                other.gameObject.GetComponent<EnemySuicideBomber>().TakeDamage(Damage);
             }
         }
     }

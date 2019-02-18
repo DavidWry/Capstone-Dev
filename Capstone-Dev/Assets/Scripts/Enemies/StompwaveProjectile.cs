@@ -23,8 +23,7 @@ public class StompwaveProjectile : MonoBehaviour {
 
         if (scene.name == "2_1")
         {
-            travelDistance = 56f;
-
+           travelDistance = 56f;
         }
         else
         {
@@ -80,6 +79,7 @@ public class StompwaveProjectile : MonoBehaviour {
             other.gameObject.GetComponent<Player_New>().TakeDamage(damage);
 
         }
+       
 
 
 

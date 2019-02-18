@@ -249,6 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 1873022225680536, guid: 331432d36bfbc124ab5fc1349bea9ab0, type: 2}
   healthBar: {fileID: 114519725208145954}
+  thrust: 5
 --- !u!114 &114997125114100562
 MonoBehaviour:
   m_ObjectHideFlags: 1
