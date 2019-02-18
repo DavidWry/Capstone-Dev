@@ -153,21 +153,21 @@ public class EnemyRangedSpear : MonoBehaviour
 
     }
 
-    public void Stun()
+    public void Stun(float stuntime)
     {
 
         isStunned = true;
         rb.velocity = Vector3.zero;
         anim.SetBool("isRunning", false);
         timeBetweenShots = 0;
-        WaitAfterStun();
+        WaitAfterStun(stuntime);
         isStunned = false;
 
     }
-    private IEnumerator WaitAfterStun()
+    private IEnumerator WaitAfterStun(float time)
     {
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(time);
     }
 
 }

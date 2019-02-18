@@ -179,20 +179,20 @@ public class EnemySuicideBomber : MonoBehaviour
 
         healthBar.fillAmount = currentHealth / health;
     }
-    public void Stun()
+    public void Stun(float stunTime)
     {
         
         isStunned = true;
         rb.velocity = Vector3.zero;
         anim.SetBool("isRunning", false);
-        WaitAfterStun();
+        WaitAfterStun(stunTime);
         isStunned = false;
 
     }
-    private IEnumerator WaitAfterStun()
+    private IEnumerator WaitAfterStun(float time)
     {
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(time);
     }
 
 

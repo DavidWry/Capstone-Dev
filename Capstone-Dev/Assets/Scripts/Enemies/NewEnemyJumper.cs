@@ -272,23 +272,23 @@ public class NewEnemyJumper : MonoBehaviour
         }
     }
 
-    public void Stun()
+    public void Stun(float stunTime)
     {
 
         isStunned = true;
         rb.velocity = Vector3.zero;
         anim.SetBool("isJumping", false);
-        WaitAfterStun();
+        WaitAfterStun(stunTime);
         waitTime = 0f;
         canJump = true;
         isStunned = false;
 
 
     }
-    private IEnumerator WaitAfterStun()
+    private IEnumerator WaitAfterStun(float time)
     {
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(time);
     }
 
 
