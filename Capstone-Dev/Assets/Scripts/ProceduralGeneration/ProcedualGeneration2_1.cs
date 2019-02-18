@@ -32,7 +32,15 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         
         levelWidth=(int)Random.Range(40, 60);
+        if (levelWidth % 2 == 1) {
+            levelWidth++;
+        }
         levelHeight = (int)Random.Range(40, 60);
+        if (levelHeight % 2 == 1)
+        {
+            levelHeight++;
+        }
+        Debug.Log(levelWidth + "bibi" + levelHeight);
         tileSize = 24;
 
         cameraControl.border2 = new Vector2((float)(levelWidth+1) * tileSize, (float)(levelHeight+1) * tileSize);
@@ -62,7 +70,7 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
   
         //initial terrain
         Draw();
-
+        AddWalls();
         //generate up to 2 level platforms
         //for (int i = 0; i < 3; i++)
         //{
@@ -388,7 +396,34 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
         }
   
     }
+    void AddWalls() {
+        GameObject tile100 = gameManager.GetTile2("Tile_100");
+        for (int i = 0; i < levelWidth; i++)
+        {
+            for (int j = 0; j < levelHeight; j++)
+            {
+                if (i == 0 || j == 0)
+                {
+                    Instantiate(tile100, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                   
+                }
+                if(i == levelWidth - 1 )
+                {
+                    Instantiate(tile100, new Vector3((i+1) * tileSize, j * tileSize, 0), transform.rotation);
 
+                }
+                if (j == levelHeight - 1)
+                {
+                    Instantiate(tile100, new Vector3(i * tileSize, (j+1) * tileSize, 0), transform.rotation);
+
+                }
+                if (j == levelHeight - 1 && i == levelWidth - 1)
+                {
+                    Instantiate(tile100, new Vector3((i+1) * tileSize, (j + 1) * tileSize, 0), transform.rotation);
+                }
+            }
+        }
+    }
     void ChangeEdge() {
         for (int i = 0; i < levelWidth; i++)
         {
