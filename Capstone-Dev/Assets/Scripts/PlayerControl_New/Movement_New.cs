@@ -26,12 +26,13 @@ public class Movement_New : MonoBehaviour {
     void Start()
     {
         playerShoot = GetComponent<Shoot_New>();
-
+        aimDistance = 5f;
         Recoil = Vector3.zero;
 
         RightAimIcon = Instantiate(RightAimIcon, transform);
         RightAimIcon.transform.position = transform.position;
         RightAimIcon.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f) * aimScale;
+        RightAimIcon.transform.localPosition = new Vector3(1, 0, 0) * aimDistance;
 
         LeftAimIcon = Instantiate(LeftAimIcon, transform);
         LeftAimIcon.transform.position = transform.position;
@@ -45,7 +46,6 @@ public class Movement_New : MonoBehaviour {
         player.LeftTarget = LeftAimIcon;
         player.RightTarget = RightAimIcon;
 
-        aimDistance = 5f;
 
         character = GetComponent<Character>();
     }
@@ -85,12 +85,12 @@ public class Movement_New : MonoBehaviour {
             }
             else
             {
-                float tempx = 1;
-                float tempy = 0;
+                //float tempx = 1;
+                //float tempy = 0;
 
                 //Debug.Log(tempx);
-                Vector3 tempvector = new Vector3(tempx, tempy, 0);
-                RightAimIcon.transform.localPosition = tempvector * aimDistance;
+                //Vector3 tempvector = new Vector3(tempx, tempy, 0);
+                //RightAimIcon.transform.localPosition = tempvector * aimDistance;
             }
         }
 

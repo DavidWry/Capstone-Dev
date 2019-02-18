@@ -166,7 +166,7 @@ public class PickUp_New : MonoBehaviour
 
 
         //get the item or weapon.
-        if (isLootNearby && Input.GetKeyDown(KeyCode.Joystick1Button1) && currentLoot != null)//button B on controller
+        if (isLootNearby && Input.GetButtonDown("BButton") && currentLoot != null  || Input.GetKeyDown(KeyCode.B))//button B on controller
         {
             if (!currentLoot.Item.GiveWeapon)
             {
