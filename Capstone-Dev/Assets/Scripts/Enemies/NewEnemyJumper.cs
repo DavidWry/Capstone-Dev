@@ -43,15 +43,16 @@ public class NewEnemyJumper : MonoBehaviour
     public Image healthBar;
 
     private bool isStunned;
-    void Start()
+
+    private void Awake()
     {
         scene = SceneManager.GetActiveScene();
 
-        if(scene.name == "2_1")
+        if (scene.name == "2_1")
         {
             transform.localScale = new Vector3(6f, 6f, 1f);
             rangeForAttack = 140f;
-            landing.transform.localScale = new Vector3(50f,20f,1f);
+            landing.transform.localScale = new Vector3(50f, 20f, 1f);
             impact.transform.localScale = new Vector3(3f, 3f, 1f);
         }
         else if (scene.name == "First Level")
@@ -62,6 +63,10 @@ public class NewEnemyJumper : MonoBehaviour
             impact.transform.localScale = new Vector3(0.15f, 0.15f, 1f);
         }
 
+    }
+    void Start()
+    {
+       
 
         health = 100;
         currentHealth = health;
@@ -226,8 +231,6 @@ public class NewEnemyJumper : MonoBehaviour
                 }
             }
            
-
-
         }
 
             if (currentHealth <= 0)
@@ -263,7 +266,11 @@ public class NewEnemyJumper : MonoBehaviour
     {
         if (collision.gameObject.tag == "Minion" || collision.gameObject.tag == "Player")
         {
+            isStunned = true;
             rb.velocity = Vector3.zero;
+            anim.SetBool("isJumping", false);
+            StartCoroutine(WaitAfterStun(3f));
+
         }
 
         if (collision.gameObject.tag == "Obstacle")
@@ -278,10 +285,8 @@ public class NewEnemyJumper : MonoBehaviour
         isStunned = true;
         rb.velocity = Vector3.zero;
         anim.SetBool("isJumping", false);
-        WaitAfterStun(stunTime);
-        waitTime = 0f;
-        canJump = true;
-        isStunned = false;
+        StartCoroutine(WaitAfterStun(stunTime));
+       
 
 
     }
@@ -289,6 +294,9 @@ public class NewEnemyJumper : MonoBehaviour
     {
 
         yield return new WaitForSeconds(time);
+        waitTime = 0f;
+        canJump = true;
+        isStunned = false;
     }
 
 

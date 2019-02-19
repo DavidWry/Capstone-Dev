@@ -37,8 +37,9 @@ public class EnemySlider : MonoBehaviour
 
     private bool isStunned;
 
-    void Start ()
+    private void Awake()
     {
+
         scene = SceneManager.GetActiveScene();
 
         if (scene.name == "2_1")
@@ -47,16 +48,19 @@ public class EnemySlider : MonoBehaviour
             dashSpeed = 140f;
             rangeForAttack = 120f;
         }
-        else if(scene.name =="First Level")
+        else if (scene.name == "First Level")
         {
             transform.localScale = new Vector3(0.3f, 0.3f, 1f);
             dashSpeed = 7f;
             rangeForAttack = 6f;
         }
+    }
+    void Start ()
+    {
         rb = GetComponent<Rigidbody>();
        
         canDash = true;
-        dashTime = 1.3f;
+        dashTime = 1.6f;
         
         damage = 7;
         health = 130;
@@ -94,7 +98,7 @@ public class EnemySlider : MonoBehaviour
             transform.localScale = scale;
 
 
-            if(!isStunned)
+            if(isStunned == false)
             {
                 if ((Vector3.Distance(transform.position, target.position) <= rangeForAttack) && (canDash == true))
                 {
@@ -176,7 +180,7 @@ public class EnemySlider : MonoBehaviour
     
        
 
-        if(other.gameObject.tag == "Obstacle")
+       /* if(other.gameObject.tag == "Obstacle")
         {
             anim.SetBool("isRunning", false);
             rb.velocity = Vector3.zero;
@@ -185,8 +189,21 @@ public class EnemySlider : MonoBehaviour
           // canDash = true;
         
 
+        }*/
+
+
+        if ((other.gameObject.tag == "Minion") || (other.gameObject.tag == "Obstacle"))
+        {
+           
+            isStunned = true;
+            anim.SetBool("isRunning", false);
+            rb.velocity = Vector3.zero;
+            hasReached = true;
+            StartCoroutine(WaitAfterStun(3f));
+
+
         }
-       
+
     }
     public void TakeDamage(int damage)
     {
@@ -201,19 +218,19 @@ public class EnemySlider : MonoBehaviour
         isStunned = true;
         rb.velocity = Vector3.zero;
         anim.SetBool("isRunning", false);
-        WaitAfterStun(stunTime);
-        dashTime = 1.3f;
-        isStunned = false;
-        canDash = true;
-        hasCollided = false;
-        hasReached = false;
-
+        hasReached = true;
+        StartCoroutine(WaitAfterStun(stunTime));
 
     }
     private IEnumerator WaitAfterStun(float time)
     {
 
         yield return new WaitForSeconds(time);
+        dashTime = 1.6f;
+        isStunned = false;
+        canDash = true;
+        hasCollided = false;
+        hasReached = false;
     }
 
 

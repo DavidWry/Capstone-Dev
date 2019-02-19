@@ -119,8 +119,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1444116714279436}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.711263, y: -15.28802, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -42.74, y: -12.65, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children:
   - {fileID: 4582538533756592}
@@ -141,7 +141,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!65 &65897066014021440
 BoxCollider:
@@ -195,6 +195,8 @@ MonoBehaviour:
     WeaponName: 0
     itemObj: {fileID: 1876295848165562, guid: 4cb0c877680f8dc429745e95ede68fb5, type: 2}
     Probability: 100
+  ItemListFor2_1: []
+  sceneName: 
 --- !u!114 &114412459874061828
 MonoBehaviour:
   m_ObjectHideFlags: 1

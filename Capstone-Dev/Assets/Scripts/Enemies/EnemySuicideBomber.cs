@@ -39,13 +39,11 @@ public class EnemySuicideBomber : MonoBehaviour
     private Rigidbody rb;
 
     private bool isStunned;
-    
 
-    void Start()
+    private void Awake()
     {
-        //Set player as the target
         scene = SceneManager.GetActiveScene();
-    
+
         if (scene.name == "2_1")
         {
 
@@ -61,6 +59,11 @@ public class EnemySuicideBomber : MonoBehaviour
             rangeForAttack = 6;
             explosion.transform.localScale = new Vector3(2f, 2f, 1f);
         }
+    }
+    void Start()
+    {
+        //Set player as the target
+        
 
         health = 51;
         currentHealth = health;
@@ -78,10 +81,7 @@ public class EnemySuicideBomber : MonoBehaviour
         defaultColor = myRenderer.material.color;
 
     }
-    private void Awake()
-    {
-
-    }
+   
     void Update()
     { 
         // Attack player if its under the range
@@ -159,16 +159,16 @@ public class EnemySuicideBomber : MonoBehaviour
             Destroy(expl, 3);
 
         }
-      /*  if (other.gameObject.tag=="Obstacle")
+        if( (other.gameObject.tag == "Minion") || (other.gameObject.tag == "Obstacle"))
         {
-            Vector3 difference = transform.position - other.transform.position;
-            difference = difference.normalized * thrust;
-            rb.AddForce(difference, ForceMode.Impulse);
-            //transform.Translate(difference);
+            isStunned = true;
+            rb.velocity = Vector3.zero;
+            anim.SetBool("isRunning", false);
+            StartCoroutine(WaitAfterStun(3f));
+            myRenderer.material.color = defaultColor;
             
 
-
-        }*/
+        }
     }
 
 
@@ -185,14 +185,17 @@ public class EnemySuicideBomber : MonoBehaviour
         isStunned = true;
         rb.velocity = Vector3.zero;
         anim.SetBool("isRunning", false);
-        WaitAfterStun(stunTime);
-        isStunned = false;
+        StartCoroutine(WaitAfterStun(stunTime));
+        
+
+
 
     }
     private IEnumerator WaitAfterStun(float time)
     {
 
         yield return new WaitForSeconds(time);
+        isStunned = false;
     }
 
 

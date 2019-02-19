@@ -32,8 +32,10 @@ public class EnemyRangedSpear : MonoBehaviour
 
     private Rigidbody rb;
     private bool isStunned;
+    private SpriteRenderer myRenderer;
+    private Color color;
 
-    void Start ()
+    private void Awake()
     {
         scene = SceneManager.GetActiveScene();
         if (scene.name == "2_1")
@@ -52,6 +54,10 @@ public class EnemyRangedSpear : MonoBehaviour
             chaseRange = 6;
             projectile.transform.localScale = new Vector3(0.23f, 0.23f, 1f);
         }
+    }
+    void Start ()
+    {
+        
 
         health = 70;
         currentHealth = health;
@@ -66,7 +72,9 @@ public class EnemyRangedSpear : MonoBehaviour
 
         rb = gameObject.GetComponent<Rigidbody>();
         isStunned = false;
-       
+        myRenderer = GetComponent<SpriteRenderer>();
+        color = myRenderer.color;
+
     }
 	
 	
@@ -91,7 +99,7 @@ public class EnemyRangedSpear : MonoBehaviour
             }
             transform.localScale = scale;
 
-            if (!isStunned)
+            if (isStunned == false)
             {
                 if (Vector2.Distance(transform.position, player.position) <= rangeForAttack)
                 {
@@ -143,6 +151,22 @@ public class EnemyRangedSpear : MonoBehaviour
 
     }
 
+    private void OnCollisionEnter(Collision other)
+    {
+  
+        if ((other.gameObject.tag == "Minion") || (other.gameObject.tag == "Obstacle"))
+        {
+            myRenderer.color = Color.red;
+            rb.velocity = Vector3.zero;
+            isStunned = true;
+            anim.SetBool("isRunning", false);
+            timeBetweenShots = 1.5f;
+            StartCoroutine(WaitAfterStun(3f));
+           
+
+        }
+    }
+
 
 
     public void TakeDamage(int damage)
@@ -153,21 +177,25 @@ public class EnemyRangedSpear : MonoBehaviour
 
     }
 
-    public void Stun(float stuntime)
+    public void Stun(float stunTime)
     {
 
-        isStunned = true;
+       
         rb.velocity = Vector3.zero;
+        isStunned = true;
         anim.SetBool("isRunning", false);
-        timeBetweenShots = 0;
-        WaitAfterStun(stuntime);
-        isStunned = false;
+        timeBetweenShots = 1.5f;
+        StartCoroutine(WaitAfterStun(stunTime));
+       
 
     }
     private IEnumerator WaitAfterStun(float time)
     {
 
         yield return new WaitForSeconds(time);
+        isStunned = false;
+        timeBetweenShots = 0f;
+        myRenderer.color = color;
     }
 
 }

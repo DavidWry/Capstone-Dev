@@ -38,13 +38,16 @@ public class EnemyRangedStomp : MonoBehaviour
 
     private Rigidbody rb;
     private bool isStunned;
+    private SpriteRenderer myRenderer;
+    private Color color;
 
-    private void Start()
+    private void Awake()
     {
         scene = SceneManager.GetActiveScene();
         if (scene.name == "2_1")
         {
             transform.localScale = new Vector3(5f, 5f, 1f);
+
             attackRange = 80f;
             chaseRange = 120f;
             projectilePrefab.transform.localScale = new Vector3(20f, 20f, 1f);
@@ -58,7 +61,11 @@ public class EnemyRangedStomp : MonoBehaviour
             projectilePrefab.transform.localScale = new Vector3(1f, 1f, 1f);
             projectileSpeed = 2f;
         }
-
+    }
+    private void Start()
+    {
+      
+      
         health = 80;
         currentHealth = health;
         
@@ -72,7 +79,8 @@ public class EnemyRangedStomp : MonoBehaviour
 
         rb = gameObject.GetComponent<Rigidbody>();
         isStunned = false;
-
+        myRenderer = GetComponent<SpriteRenderer>();
+        color = myRenderer.color;
 
     }
 
@@ -97,10 +105,11 @@ public class EnemyRangedStomp : MonoBehaviour
             }
             transform.localScale = scale;
 
-            if (!isStunned)
+           
+            if (isStunned == false)
             {
-                startPoint = transform.position;
 
+                startPoint = transform.position;
                 if (Vector3.Distance(startPoint, target.position) <= attackRange)
                 {
                     if (timeBetweenShots <= 0)
@@ -180,6 +189,22 @@ public class EnemyRangedStomp : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision other)
+    {
+
+        if ((other.gameObject.tag == "Minion") || (other.gameObject.tag == "Obstacle"))
+        {
+            myRenderer.color = Color.blue;
+            isStunned = true;
+            rb.velocity = Vector3.zero;
+            anim.SetBool("isRunning", false);
+            timeBetweenShots = 1.6f;
+            StartCoroutine(WaitAfterStun(3f));
+          
+
+        }
+    }
+
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
@@ -189,18 +214,21 @@ public class EnemyRangedStomp : MonoBehaviour
 
     public void Stun(float stunTime)
     {
-
+       
         isStunned = true;
         rb.velocity = Vector3.zero;
         anim.SetBool("isRunning", false);
-        timeBetweenShots = 0f;
-        WaitAfterStun(stunTime);
-        isStunned = false;
-
+        timeBetweenShots = 1.6f;
+        StartCoroutine(WaitAfterStun(stunTime));
+  
+      
     }
     private IEnumerator WaitAfterStun(float time)
     {
 
         yield return new WaitForSeconds(time);
+        isStunned = false;
+        timeBetweenShots = 0f;
+        myRenderer.color = color;
     }
 }

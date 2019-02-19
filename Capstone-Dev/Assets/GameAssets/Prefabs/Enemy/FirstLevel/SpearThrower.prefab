@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 224524403944874308}
   - component: {fileID: 222894384102448046}
   - component: {fileID: 114242620602546268}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: HealthBarBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 223034737760919012}
   - component: {fileID: 114780490760066186}
   - component: {fileID: 114514244492712150}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: HCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 224762862701709732}
   - component: {fileID: 222605685546087548}
   - component: {fileID: 114863465515715956}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 65814978971746796}
   - component: {fileID: 114533587646694160}
   - component: {fileID: 114472122833499192}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: SpearThrower
   m_TagString: Minion
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1903549743834008}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.01, y: -12.07, z: 0}
+  m_LocalPosition: {x: 67.12, y: -19.15, z: 0}
   m_LocalScale: {x: 0.23, y: 0.23, z: 1}
   m_Children:
   - {fileID: 4674604928113040}
@@ -222,6 +222,8 @@ MonoBehaviour:
     WeaponName: 0
     itemObj: {fileID: 1141863764639654, guid: e71aca9953d2e5d4380aedac964a59d5, type: 2}
     Probability: 90
+  ItemListFor2_1: []
+  sceneName: 
 --- !u!114 &114514244492712150
 MonoBehaviour:
   m_ObjectHideFlags: 1
