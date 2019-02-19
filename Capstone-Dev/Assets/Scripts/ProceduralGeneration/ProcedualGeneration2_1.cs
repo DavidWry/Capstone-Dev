@@ -1948,18 +1948,18 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
         bool isCreated = false;
         int xPos = Random.Range(0, levelWidth);
         int yPos = Random.Range(0, levelHeight);
-        for (int i = levelWidth-1; i > -1; i--)
-        {
-            for (int j = levelHeight-1; j > -1; j--)
+        for (int m = -5; m < 6; m++) {
+            for (int n = -5; n < 6; n++)
             {
-                if (cellState[i, j].state == 0)
+                if (cellState[levelWidth/2+m, levelHeight/2+n].state == 0)
                 {
-                    if (Random.Range(1, 1000) < 5)
+                    if (Random.Range(1, 100) < 5)
                     {
                         if (!isCreated)
                         {
-                            player1=Instantiate(player1, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
-                            player1.transform.localScale = new Vector3(15.0f,15.0f,15.0f);
+                            player1 = Instantiate(player1, new Vector3((levelWidth / 2 + m) * tileSize, (levelHeight / 2 + n) * tileSize, 0), transform.rotation);
+
+                            player1.transform.localScale = new Vector3(15.0f, 15.0f, 15.0f);
                             player1.GetComponent<Movement_New>().WalkSpeed = 150;
                             player1.GetComponent<Shoot_New>().BulletSizeUp = 15;
                             player1.GetComponentInChildren<PickUp_New>().WeaponSizeUp = 15;
@@ -1969,6 +1969,13 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
                     }
 
                 }
+            }
+        }
+        for (int i = levelWidth-1; i > -1; i--)
+        {
+            for (int j = levelHeight-1; j > -1; j--)
+            {
+                
             }
         }
 

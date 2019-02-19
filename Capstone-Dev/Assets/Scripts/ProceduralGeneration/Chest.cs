@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Chest : MonoBehaviour {
 
@@ -10,13 +11,16 @@ public class Chest : MonoBehaviour {
     private DropProbability probability = null;
     private GameManager gameManager = null;
     public Image healthBar;
+    public string sceneName;
     // Use this for initialization
     void Start () {
         health = 10;
         currentHealth = 10;
-        healthBar.GetComponent<Image>().fillOrigin = (int)Image.OriginHorizontal.Left;
+        if (sceneName == "2_1")
+            healthBar.GetComponent<Image>().fillOrigin = (int)Image.OriginHorizontal.Left;
         probability = gameObject.GetComponent<DropProbability>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        sceneName = SceneManager.GetActiveScene().name;
     }
 	
 	// Update is called once per frame
@@ -26,12 +30,14 @@ public class Chest : MonoBehaviour {
             string tempName = probability.DetermineDrop();
             GameObject itemObj = gameManager.GetItemObj(tempName);
             itemObj = Instantiate(gameManager.GetItemObj(tempName), transform.position, Quaternion.Euler(0, 0, 0));
-            itemObj.transform.localScale = new Vector3(30, 30, 30);
+            if (sceneName == "2_1")
+                itemObj.transform.localScale = new Vector3(30, 30, 30);
             var worldCanvas = GameObject.Find("worldCanvas").transform;
             itemObj.transform.parent = worldCanvas;
             Destroy(gameObject);
         }
-        healthBar.fillAmount = currentHealth / health;
+        if(sceneName=="2_1")
+            healthBar.fillAmount = currentHealth / health;
     }
 
     public void TakeDamage(int damage)
