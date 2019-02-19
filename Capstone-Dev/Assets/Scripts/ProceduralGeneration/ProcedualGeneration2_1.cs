@@ -177,20 +177,24 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
 
     int DetermineEnemyType() {
         int enemyNum = 0;
-        if (Random.value < 0.4f)
+        if (Random.value < 0.15f)
         {
-            enemyNum = 100;
+            enemyNum = 100;//jumper
         }
-        else if (Random.value < 0.6f) {
-            enemyNum = 101;//This type will always drop ultimate resources
+        else if (Random.value < 0.3f) {
+            enemyNum = 101;//slider
         }
-        else if (Random.value < 0.8f)
+        else if (Random.value < 0.5f)
         {
-            enemyNum = 102;//This type will always drop ultimate resources
+            enemyNum = 102;//spearThrower
+        }
+        else if (Random.value < 0.7f)
+        {
+            enemyNum = 103;//stomper
         }
         else if (Random.value < 1.0f)
         {
-            enemyNum = 103;
+            enemyNum = 104;//suicider
         }
         return enemyNum;
     }
@@ -1888,10 +1892,11 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
 
     void DrawEnemy()
     {
-        GameObject enemy1 = gameManager.GetEnemy("Slider");
-        GameObject enemy2 = gameManager.GetEnemy("SpearThrower");
-        GameObject enemy3 = gameManager.GetEnemy("Stomper");
-        GameObject enemy4 = gameManager.GetEnemy("SuicideBomber");
+        GameObject enemy1 = gameManager.GetEnemy("Jumper");
+        GameObject enemy2 = gameManager.GetEnemy("Slider");
+        GameObject enemy3 = gameManager.GetEnemy("SpearThrower");
+        GameObject enemy4 = gameManager.GetEnemy("Stomper");
+        GameObject enemy5 = gameManager.GetEnemy("SuicideBomber");
 
         for (int i = 0; i < levelWidth; i++)
         {
@@ -1912,6 +1917,10 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
                 else if (cellState[i, j].state == 103)
                 {
                     Instantiate(enemy4, new Vector3(i*(float)tileSize, j*(float)tileSize, 0), transform.rotation);
+                }
+                else if (cellState[i, j].state == 104)
+                {
+                    Instantiate(enemy5, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                 }
             }
         }

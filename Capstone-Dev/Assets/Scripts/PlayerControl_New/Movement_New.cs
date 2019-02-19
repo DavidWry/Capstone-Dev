@@ -124,10 +124,10 @@ public class Movement_New : MonoBehaviour {
                     tempvector = tempvector.normalized;
                     LeftAimIcon.transform.localPosition = tempvector * aimDistance;
                     //Ignore if not want to move.
-                    //transform.rotation = Quaternion.Euler(0, yRotate, 0);
-                    //Vector3 rigimove = new Vector3(Input.GetAxis("Left X") * WalkSpeed * Time.deltaTime, Input.GetAxis("Left Y") * WalkSpeed * Time.deltaTime, 0) + Recoil * Time.deltaTime;
-                    //playerBody.MovePosition(transform.position + rigimove);
-                    //character.Animator.SetBool("Walk", true);
+                    transform.rotation = Quaternion.Euler(0, yRotate, 0);
+                    Vector3 rigimove = new Vector3(Input.GetAxis("Left X") * WalkSpeed * Time.deltaTime, Input.GetAxis("Left Y") * WalkSpeed * Time.deltaTime, 0) + Recoil * Time.deltaTime;
+                    playerBody.MovePosition(transform.position + rigimove);
+                    character.Animator.SetBool("Walk", true);
                 }
                 else
                 {

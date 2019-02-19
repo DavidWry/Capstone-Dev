@@ -60,7 +60,7 @@ public class EnemySlider : MonoBehaviour
         rb = GetComponent<Rigidbody>();
        
         canDash = true;
-        dashTime = 1.6f;
+        dashTime = 0.5f;
         
         damage = 7;
         health = 130;

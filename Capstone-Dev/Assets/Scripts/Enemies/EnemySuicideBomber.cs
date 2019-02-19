@@ -159,6 +159,7 @@ public class EnemySuicideBomber : MonoBehaviour
             Destroy(expl, 3);
 
         }
+        /*
         if( (other.gameObject.tag == "Minion") || (other.gameObject.tag == "Obstacle"))
         {
             isStunned = true;
@@ -168,7 +169,7 @@ public class EnemySuicideBomber : MonoBehaviour
             myRenderer.material.color = defaultColor;
             
 
-        }
+        }*/
     }
 
 

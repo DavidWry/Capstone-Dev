@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 65244180535979788}
   - component: {fileID: 114632133071120196}
   - component: {fileID: 95883815930694562}
+  - component: {fileID: 136361615572307764}
   m_Layer: 0
   m_Name: Slider
   m_TagString: Minion
@@ -150,7 +151,7 @@ BoxCollider:
   m_GameObject: {fileID: 1833249985577980}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 3.7280526, y: 5.4969363, z: 1}
   m_Center: {x: -0.19076028, y: -0.26012608, z: 0}
@@ -276,6 +277,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 1
+--- !u!136 &136361615572307764
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1833249985577980}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 6
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &212375340527722112
 SpriteRenderer:
   m_ObjectHideFlags: 1

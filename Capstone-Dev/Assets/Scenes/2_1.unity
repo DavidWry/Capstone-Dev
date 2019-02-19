@@ -756,7 +756,7 @@ Prefab:
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
       propertyPath: EnemyList.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4390172704827272, guid: 7430308c60b9dc74396db2694886222b, type: 2}
       propertyPath: m_LocalPosition.x
@@ -867,7 +867,7 @@ Prefab:
         type: 2}
       propertyPath: EnemyList.Array.data[4]
       value: 
-      objectReference: {fileID: 1100377277429338, guid: 29afc769a7c70f64fb2282c2f3471eb0,
+      objectReference: {fileID: 1073454198471354, guid: f1806ce460ec6a14490b0460fae93b7e,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
