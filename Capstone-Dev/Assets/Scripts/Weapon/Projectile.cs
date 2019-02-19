@@ -13,7 +13,7 @@ namespace AssemblyCSharp
         public int Rebounce = 0;
         public float Speed = 1f;
         public bool Thrust;
-        public int SlowDown = 0;
+        public float SlowDown = 0;
         public bool Pierce = false;
         public bool Sheild = false;
         public bool Scale = false;
@@ -23,6 +23,7 @@ namespace AssemblyCSharp
         public GameManager GameManage;
         public float Duration = 1;
         private float LifeTime;
+        public float stun = 0;
 
         private Rigidbody RBody;
         private CapsuleCollider Collider;
@@ -42,7 +43,10 @@ namespace AssemblyCSharp
             if (IsReady)
             {
                 IsReady = false;
-                RBody.velocity = transform.right * Speed;
+                if (NextScene.nowName == "2_1")
+                    RBody.velocity = transform.right * Speed * 20;
+                else
+                    RBody.velocity = transform.right * Speed;
             }
             if (SlowDown > 0)
             {
@@ -74,22 +78,42 @@ namespace AssemblyCSharp
                 if (collision.gameObject.GetComponent<EnemySuicideBomber>())
                 {
                     collision.gameObject.GetComponent<EnemySuicideBomber>().TakeDamage(Damage);
+                    if (stun > 0)
+                    {
+                        collision.gameObject.GetComponent<EnemySuicideBomber>().Stun(stun);
+                    }
                 }
                 else if (collision.gameObject.GetComponent<EnemyRangedSpear>())
                 {
                     collision.gameObject.GetComponent<EnemyRangedSpear>().TakeDamage(Damage);
+                    if (stun > 0)
+                    {
+                        collision.gameObject.GetComponent<EnemyRangedSpear>().Stun(stun);
+                    }
                 }
                 else if (collision.gameObject.GetComponent<EnemyRangedStomp>())
                 {
                     collision.gameObject.GetComponent<EnemyRangedStomp>().TakeDamage(Damage);
+                    if (stun > 0)
+                    {
+                        collision.gameObject.GetComponent<EnemyRangedStomp>().Stun(stun);
+                    }
                 }
                 else if (collision.gameObject.GetComponent<NewEnemyJumper>())
                 {
                     collision.gameObject.GetComponent<NewEnemyJumper>().TakeDamage(Damage);
+                    if (stun > 0)
+                    {
+                        collision.gameObject.GetComponent<NewEnemyJumper>().Stun(stun);
+                    }
                 }
                 else if(collision.gameObject.GetComponent<EnemySlider>())
                 {
                     collision.gameObject.GetComponent<EnemySlider>().TakeDamage(Damage);
+                    if (stun > 0)
+                    {
+                        collision.gameObject.GetComponent<EnemySlider>().Stun(stun);
+                    }
 
                 }
                 else if(Thrust)
@@ -135,6 +159,8 @@ namespace AssemblyCSharp
                 if (!OnTarget)
                 {
                     GameObject ImpactObject = Instantiate(Impact, transform.position, transform.rotation);
+                    if (NextScene.nowName == "2_1")
+                        ImpactObject.transform.localScale = ImpactObject.transform.localScale * 16;
                 }
                 else
                 {

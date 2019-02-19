@@ -10,6 +10,7 @@ public class Shoot_New : MonoBehaviour
     private GameManager gameManager = null;
     private Movement_New movement;
     public float BulletSizeUp = 1;
+    public float SpeedUp = 1;
 
     public Lazer LeftLazer;
     public Lazer RightLazer;
@@ -53,30 +54,40 @@ public class Shoot_New : MonoBehaviour
     public bool CombineOn = false;
     public Transform CombineBulPos;
     public int currentAmmo = 0;
+    //11-11
+    private float CombineBtw_11 = 1f;
+    private float CombineSpeed_11 = 15f;
+    private float CombineDuration_11 = 2f;
+    private int CombineDamage_11 = 50;
     //12-1
-    private float CombineBtw_12 = 1f;
+    private float CombineBtw_12 = 0.2f;
     private float CombineSpeed_12 = 10f;
     private float CombineDuration_12 = 2f;
-    private int CombineDamage_12 = 50;
+    private int CombineDamage_12 = 20;
     //13-2
     private float CombineBtw_13 = 0.8f;
     private float CombineSpeed_13 = 20f;
     private float CombineDuration_13 = 5f;
     private int CombineDamage_13 = 50;
     //14-3
-    private float CombineBtw_14 = 0.2f;
-    private float CombineSpeed_14 = 0f;
-    private float CombineDuration_14 = 15f;
-    private int CombineDamage_14 = 50;
+    private float CombineBtw_14 = 1f;
+    private float CombineSpeed_14 = 10f;
+    private float CombineDuration_14 = 2f;
+    private int CombineDamage_14 = 80;
     //15-4
     private float CombineBtw_15 = 0.2f;
     private float CombineSpeed_15 = 0f;
     private float CombineDuration_15 = 15f;
     private int CombineDamage_15 = 5;
+    //22-12
+    private float CombineBtw_22 = 0.2f;
+    private float CombineSpeed_22 = 50f;
+    private float CombineDuration_22 = 2f;
+    private int CombineDamage_22 = 5;
     //23-5
     private float CombineBtw_23 = 0.2f;
     //24-6
-    private float CombineBtw_24 = 1f;
+    private float CombineBtw_24 = 0.5f;
     private float CombineSpeed_24 = 10f;
     private float CombineDuration_24 = 2f;
     private int CombineDamage_24 = 20;
@@ -395,6 +406,7 @@ public class Shoot_New : MonoBehaviour
                     Laz.IsReady = true;
                     Laz.LazeDuration = player.leftWeapon.Duration;
                     Laz.Damage = player.leftWeapon.Damage;
+                    Laz.transform.localScale = BulletSizeUp * Laz.transform.localScale;
 
                     LeftLazer = Laz;
                 }
@@ -498,6 +510,7 @@ public class Shoot_New : MonoBehaviour
                     Laz.IsReady = true;
                     Laz.LazeDuration = player.rightWeapon.Duration;
                     Laz.Damage = player.rightWeapon.Damage;
+                    Laz.transform.localScale = BulletSizeUp * Laz.transform.localScale;
 
                     RightLazer = Laz;
                 }
@@ -562,14 +575,18 @@ public class Shoot_New : MonoBehaviour
         {
             case 0:
                 return null;
+            case 11:
+                return "HB-2000";
             case 12:
                 return "RL-800";
             case 13:
                 return "SR-MDK";
             case 14:
-                return null;
+                return "RL-DIY200";
             case 15:
                 return null;
+            case 22:
+                return "PR-5000";
             case 23:
                 return "LR-100";
             case 24:
@@ -615,6 +632,10 @@ public class Shoot_New : MonoBehaviour
                     CombineShoot_15();
                     CombineBtw = CombineBtw_14;
                     break;
+                case 22:
+                    CombineShoot_22();
+                    CombineBtw = CombineBtw_22;
+                    break;
                 case 23:
                     CombineShoot_23();
                     CombineBtw = CombineBtw_23;
@@ -650,13 +671,24 @@ public class Shoot_New : MonoBehaviour
     private void CombineShoot_11()
     {
         GameObject NewProj = Instantiate(gameManager.CombineProjectile[11]);
-        NewProj.transform.position = Center.position;
+        NewProj.transform.position = CombineBulPos.position;
+        NewProj.transform.rotation = CombineBulPos.rotation;
+        NewProj.transform.localScale *= BulletSizeUp;
+        //Change state according to the weapon
+        Projectile Proj = NewProj.GetComponent<Projectile>();
+        Proj.IsReady = true;
+        Proj.Speed = CombineSpeed_11;
+        Proj.Duration = CombineDuration_11;
+        Proj.Damage = CombineDamage_11;
+        Proj.Pierce = true;
     }
     private void CombineShoot_12()
     {
         GameObject NewProj = Instantiate(gameManager.CombineProjectile[1]);
         NewProj.transform.position = CombineBulPos.position;
-        NewProj.transform.rotation = CombineBulPos.rotation;
+        float random = Random.Range(-15, 15);
+        NewProj.transform.eulerAngles = new Vector3(CombineBulPos.eulerAngles.x, CombineBulPos.eulerAngles.y, CombineBulPos.eulerAngles.z + random);
+        NewProj.transform.localScale *= BulletSizeUp;
         //Change state according to the weapon
         Projectile Proj = NewProj.GetComponent<Projectile>();
         Proj.IsReady = true;
@@ -670,6 +702,7 @@ public class Shoot_New : MonoBehaviour
         GameObject NewProj = Instantiate(gameManager.CombineProjectile[2]);
         NewProj.transform.position = CombineBulPos.position;
         NewProj.transform.rotation = CombineBulPos.rotation;
+        NewProj.transform.localScale *= BulletSizeUp;
         //Change state according to the weapon
         Projectile Proj = NewProj.GetComponent<Projectile>();
         Proj.IsReady = true;
@@ -680,15 +713,15 @@ public class Shoot_New : MonoBehaviour
     private void CombineShoot_14()
     {
         GameObject NewProj = Instantiate(gameManager.CombineProjectile[3]);
-        NewProj.transform.position = Center.position;
-        NewProj.transform.eulerAngles = new Vector3(0, 0, - 90);
+        NewProj.transform.position = CombineBulPos.position;
+        NewProj.transform.rotation = CombineBulPos.rotation;
         //Change state according to the weapon
         Projectile Proj = NewProj.GetComponent<Projectile>();
         Proj.IsReady = true;
         Proj.Speed = CombineSpeed_14;
         Proj.Duration = CombineDuration_14;
         Proj.Damage = CombineDamage_14;
-        Proj.Boom = true;
+        Proj.stun = 1;
     }
     private void CombineShoot_15()
     {
@@ -701,6 +734,20 @@ public class Shoot_New : MonoBehaviour
         Proj.Speed = CombineSpeed_15;
         Proj.Duration = CombineDuration_15;
         Proj.Damage = CombineDamage_15;
+    }
+    private void CombineShoot_22()
+    {
+        GameObject NewProj = Instantiate(gameManager.CombineProjectile[12]);
+        NewProj.transform.position = CombineBulPos.position;
+        NewProj.transform.rotation = CombineBulPos.rotation;
+        NewProj.transform.localScale *= BulletSizeUp;
+        //Change state according to the weapon
+        Projectile Proj = NewProj.GetComponent<Projectile>();
+        Proj.IsReady = true;
+        Proj.Speed = CombineSpeed_22;
+        Proj.Duration = CombineDuration_22;
+        Proj.Damage = CombineDamage_22;
+        Proj.Pierce = true;
     }
     private void CombineShoot_23()
     {
@@ -715,12 +762,14 @@ public class Shoot_New : MonoBehaviour
         GameObject NewProj = Instantiate(gameManager.CombineProjectile[6]);
         NewProj.transform.position = CombineBulPos.position;
         NewProj.transform.rotation = CombineBulPos.rotation;
+        NewProj.transform.localScale *= BulletSizeUp;
         //Change state according to the weapon
         Projectile Proj = NewProj.GetComponent<Projectile>();
         Proj.IsReady = true;
         Proj.Speed = CombineSpeed_24;
         Proj.Duration = CombineDuration_24;
         Proj.Damage = CombineDamage_24;
+        Proj.SlowDown = 2 * BulletSizeUp;
     }
     private void CombineShoot_25()
     {

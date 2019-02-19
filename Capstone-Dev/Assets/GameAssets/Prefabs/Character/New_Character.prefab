@@ -4254,6 +4254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletSizeUp: 1
+  SpeedUp: 1
   LeftLazer: {fileID: 0}
   RightLazer: {fileID: 0}
   Left: {fileID: 4615078453058510}

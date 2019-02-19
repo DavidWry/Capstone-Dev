@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dialogue>
+  <Lines>
+    <Line>
+      <Name>Needle</Name>
+      <Content>Hi.</Content>
+      <Emoji>LOL</Emoji>
+    </Line>
+    <Line>
+      <Name>Player</Name>
+      <Content>Dear General. I got a scepter for you.</Content>
+      <Emoji>Sad</Emoji>
+    </Line>
+  </Lines>
+</Dialogue>

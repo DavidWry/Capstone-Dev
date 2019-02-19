@@ -182,8 +182,14 @@ namespace AssemblyCSharp
                 if (leftWeapon.WeaponName == WeaponName.Pistol)
                 {
                     CombineType = 11;
-                    playerShoot.CombineTag = false;
-                    playerShoot.CombineAmmos = 1;
+                    playerShoot.CombineTag = true;
+                    playerShoot.CombineAmmos = 30;
+                }
+                else if (leftWeapon.WeaponName == WeaponName.Ak47)
+                {
+                    CombineType = 22;
+                    playerShoot.CombineTag = true;
+                    playerShoot.CombineAmmos = 80;
                 }
             }
             else
@@ -194,7 +200,7 @@ namespace AssemblyCSharp
                     {
                         CombineType = 12;
                         playerShoot.CombineTag = true;
-                        playerShoot.CombineAmmos = 20;
+                        playerShoot.CombineAmmos = 50;
                     }
                     else if (leftWeapon.WeaponName == WeaponName.Lazer || rightWeapon.WeaponName == WeaponName.Lazer)
                     {
@@ -205,7 +211,7 @@ namespace AssemblyCSharp
                     else if (leftWeapon.WeaponName == WeaponName.Shotgun || rightWeapon.WeaponName == WeaponName.Shotgun)
                     {
                         CombineType = 14;
-                        playerShoot.CombineTag = false;
+                        playerShoot.CombineTag = true;
                         playerShoot.CombineAmmos = 20;
                     }
                     else if (leftWeapon.WeaponName == WeaponName.Sword || rightWeapon.WeaponName == WeaponName.Sword)
@@ -227,7 +233,7 @@ namespace AssemblyCSharp
                     {
                         CombineType = 24;
                         playerShoot.CombineTag = true;
-                        playerShoot.CombineAmmos = 15;
+                        playerShoot.CombineAmmos = 30;
                     }
                     else if (leftWeapon.WeaponName == WeaponName.Sword || rightWeapon.WeaponName == WeaponName.Sword)
                     {

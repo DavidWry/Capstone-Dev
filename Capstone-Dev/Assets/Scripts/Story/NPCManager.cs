@@ -170,7 +170,7 @@ public class NPCManager : MonoBehaviour {
             newUINPC.transform.position = Pos.transform.position;
             Vector3 scale = newUINPC.transform.lossyScale;
             Vector3 scales = canvas.transform.lossyScale;
-            newUINPC.transform.localScale = newUINPC.transform.localScale / scale.y * scales.x * 2;
+            newUINPC.transform.localScale = newUINPC.transform.localScale / scale.y * scales.x * 1;
             if (newUINPC.GetComponent<LookAtPlayer>())
             {
                 newUINPC.GetComponent<LookAtPlayer>().op = false;

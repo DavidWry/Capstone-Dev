@@ -120,7 +120,7 @@ MonoBehaviour:
     CurrentAmmos: 0
     ClipObj: {fileID: 1766454748759930, guid: e74b0e6acc86e7542b2a19038b4464a6, type: 2}
     AttackAnimationUsed: 
-    ReloadTime: 1
+    ReloadTime: 3
     Duration: 1
     ProjectileSpeed: 25
     IsThrust: 0
@@ -166,7 +166,7 @@ MonoBehaviour:
     IsMultiBullets: 0
     BulletAngleList:
     - 0
-    TimeBetweenShot: 1
+    TimeBetweenShot: 0.8
     TimeWaited: 0
     ImpactFX: {fileID: 1882777859570806, guid: 26b9baa734847f140803e4e033a9212a, type: 2}
     ShotFX: {fileID: 1186793302542922, guid: 17fc967a340b0634abd7311dd8cc54b0, type: 2}
@@ -176,7 +176,7 @@ MonoBehaviour:
     CurrentAmmos: 0
     ClipObj: {fileID: 1766454748759930, guid: e74b0e6acc86e7542b2a19038b4464a6, type: 2}
     AttackAnimationUsed: 
-    ReloadTime: 1
+    ReloadTime: 0.8
     Duration: 0.3
     ProjectileSpeed: 10
     IsThrust: 0
@@ -198,7 +198,7 @@ MonoBehaviour:
     - -15
     - 30
     - -30
-    TimeBetweenShot: 0.8
+    TimeBetweenShot: 1
     TimeWaited: 0
     ImpactFX: {fileID: 1882777859570806, guid: 26b9baa734847f140803e4e033a9212a, type: 2}
     ShotFX: {fileID: 1919837370558522, guid: f8c71a952a175b64c89240acf3fc8bbe, type: 2}
@@ -358,16 +358,19 @@ MonoBehaviour:
   - {fileID: 1367659576493558, guid: babca655dd8db00428ac6738dc7f3c0e, type: 2}
   CombineProjectile:
   - {fileID: 1400804421902210, guid: 687347364fd274a46af20839d40d75f0, type: 2}
-  - {fileID: 1429720330512874, guid: b2d7723cc30d4064392519711cb723c8, type: 2}
+  - {fileID: 1049849552311466, guid: e143eff14643ad944a69562e3dc8d13c, type: 2}
   - {fileID: 1052645419911094, guid: dcb05ffbeede6a541beae74126120013, type: 2}
-  - {fileID: 1718711784783534, guid: 90f7d46ec778fdf44a1d0d269f4130a8, type: 2}
+  - {fileID: 1429720330512874, guid: b2d7723cc30d4064392519711cb723c8, type: 2}
   - {fileID: 1777722769396900, guid: 3a80a728bf6f1e941bca2deb84eff8ea, type: 2}
   - {fileID: 0}
-  - {fileID: 1974920550631064, guid: a7c05b14b35a2844bb679a5628ea42de, type: 2}
+  - {fileID: 1812672145770356, guid: d99052768fa190d46834471f6cf5f7e2, type: 2}
   - {fileID: 1530939543040866, guid: ce52afbac42e1f84da524ae52a381e7b, type: 2}
   - {fileID: 1899085504715622, guid: e34f2f32bc6359a4089fecc8be006325, type: 2}
   - {fileID: 1471961655910682, guid: c70b2144956daf440a25cde7f712e39a, type: 2}
   - {fileID: 1159396787669600, guid: 7c5f768e8f251be4d876a942dcea72ae, type: 2}
+  - {fileID: 1974920550631064, guid: a7c05b14b35a2844bb679a5628ea42de, type: 2}
+  - {fileID: 1522874224976980, guid: 0748fd3736aae1542a9dfadbf447da9a, type: 2}
+  - {fileID: 1378971161083444, guid: 8a6797675ec4b8f45ab3602f5389c195, type: 2}
   - {fileID: 1378971161083444, guid: 8a6797675ec4b8f45ab3602f5389c195, type: 2}
   leftWeaponMenu:
     Weapons:

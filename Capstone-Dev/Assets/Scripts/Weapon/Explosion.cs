@@ -24,14 +24,43 @@ public class Explosion : MonoBehaviour {
         }
 	}
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider collision)
     {
-        if (other.gameObject.tag == "Minion")
+        if (collision.gameObject.tag == "Minion")
         {
-            if (other.gameObject.GetComponent<EnemySuicideBomber>())
+            if (collision.gameObject.GetComponent<EnemySuicideBomber>())
             {
-                other.gameObject.GetComponent<EnemySuicideBomber>().TakeDamage(Damage);
+                collision.gameObject.GetComponent<EnemySuicideBomber>().TakeDamage(Damage);
             }
+            else if (collision.gameObject.GetComponent<EnemyRangedSpear>())
+            {
+                collision.gameObject.GetComponent<EnemyRangedSpear>().TakeDamage(Damage);
+            }
+            else if (collision.gameObject.GetComponent<EnemyRangedStomp>())
+            {
+                collision.gameObject.GetComponent<EnemyRangedStomp>().TakeDamage(Damage);
+            }
+            else if (collision.gameObject.GetComponent<NewEnemyJumper>())
+            {
+                collision.gameObject.GetComponent<NewEnemyJumper>().TakeDamage(Damage);
+            }
+            else if (collision.gameObject.GetComponent<EnemySlider>())
+            {
+                collision.gameObject.GetComponent<EnemySlider>().TakeDamage(Damage);
+
+            }
+        }
+        else if (collision.gameObject.tag == "Chest")
+        {
+            collision.GetComponent<Chest>().TakeDamage(Damage);
+        }
+        else if (collision.gameObject.tag == "Dummy")
+        {
+            collision.GetComponent<Dummy>().TakeDamage(Damage);
+        }
+        else if (collision.gameObject.tag == "Boss")
+        {
+            collision.GetComponent<Fsmandhp>().takedamage(Damage);
         }
     }
 

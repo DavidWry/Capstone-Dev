@@ -20,8 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4799809644983056}
   - component: {fileID: 212746351494463720}
-  - component: {fileID: 70048935681418986}
   - component: {fileID: 114032077586708578}
+  - component: {fileID: 136270238976194978}
+  - component: {fileID: 54090803438537090}
   m_Layer: 0
   m_Name: Combine_1_Impact
   m_TagString: Untagged
@@ -36,27 +37,27 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1732462228905540}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.651, y: -1.7622561, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalPosition: {x: 8.27, y: 6.91, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &70048935681418986
-CapsuleCollider2D:
+--- !u!54 &54090803438537090
+Rigidbody:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1732462228905540}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 5, y: 1}
-  m_Direction: 0
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &114032077586708578
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -68,9 +69,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0816337be8f3f5343a0773dfc1044fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 1
-  speed: 0.1
+  Damage: 10
+  speed: 1
   Life: 0.5
+--- !u!136 &136270238976194978
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1732462228905540}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 3.57
+  m_Height: 6.45
+  m_Direction: 0
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &212746351494463720
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -104,7 +118,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1051040845
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d208cd82bb517d645802e24152b88352, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

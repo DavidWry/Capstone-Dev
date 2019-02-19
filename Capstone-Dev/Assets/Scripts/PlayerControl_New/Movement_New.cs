@@ -111,7 +111,7 @@ public class Movement_New : MonoBehaviour {
             {
                 LeftAimIcon.SetActive(true);
                 player.LeftTarget = LeftAimIcon;
-                if (Mathf.Abs(Input.GetAxis("Left X")) > 0.05 || Mathf.Abs(Input.GetAxis("Left Y")) > 0.05)
+                if (Mathf.Abs(Input.GetAxis("Left X")) > 0.55 || Mathf.Abs(Input.GetAxis("Left Y")) > 0.55)
                 {
                     float tempx;
                     if (IsFaceRight)
@@ -131,11 +131,11 @@ public class Movement_New : MonoBehaviour {
                 }
                 else
                 {
-                    float tempx = 1;
-                    float tempy = 0;
+                    //float tempx = 1;
+                    //float tempy = 0;
 
-                    Vector3 tempvector = new Vector3(tempx, tempy, 0);
-                    LeftAimIcon.transform.localPosition = tempvector * aimDistance;
+                    //Vector3 tempvector = new Vector3(tempx, tempy, 0);
+                    //LeftAimIcon.transform.localPosition = tempvector * aimDistance;
                 }
             }
             if (Recoil != Vector3.zero)
@@ -160,7 +160,7 @@ public class Movement_New : MonoBehaviour {
             {
                 character.Animator.SetBool("Walk", false);
             }
-            if (Input.GetAxis("Right X") > 0.1)
+            if (Input.GetAxis("Right X") > 0.2)
             {
                 if (!isBulletTime)
                     IsFaceRight = true;
