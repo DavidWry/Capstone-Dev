@@ -20,7 +20,6 @@ public class AimTarget : MonoBehaviour {
         player = playerObj.GetComponent<Player_New>();
         sprite = GetComponent<SpriteRenderer>();
         movement = playerObj.GetComponent<Movement_New>();
-        transform.localScale *= shoot.BulletSizeUp;
     }
 	
 	// Update is called once per frame
