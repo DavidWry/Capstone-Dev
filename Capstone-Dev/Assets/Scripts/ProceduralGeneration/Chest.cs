@@ -30,8 +30,14 @@ public class Chest : MonoBehaviour {
             string tempName = probability.DetermineDrop();
             GameObject itemObj = gameManager.GetItemObj(tempName);
             itemObj = Instantiate(gameManager.GetItemObj(tempName), transform.position, Quaternion.Euler(0, 0, 0));
-            if (sceneName == "2_1")
-                itemObj.transform.localScale = new Vector3(30, 30, 30);
+            if (sceneName == "2_1") {
+                if (itemObj.transform.localScale.x == 2) {//is gun
+                    itemObj.transform.localScale = new Vector3(30, 30, 30);
+                }
+                else
+                    itemObj.transform.localScale = new Vector3(60, 60, 60);
+            }
+            
             var worldCanvas = GameObject.Find("worldCanvas").transform;
             itemObj.transform.parent = worldCanvas;
             Destroy(gameObject);
