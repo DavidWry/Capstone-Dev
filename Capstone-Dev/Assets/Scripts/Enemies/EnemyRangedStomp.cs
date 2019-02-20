@@ -106,7 +106,7 @@ public class EnemyRangedStomp : MonoBehaviour
             transform.localScale = scale;
 
            
-            if (isStunned == false)
+            if (isStunned == false && currentHealth >=0)
             {
 
                 startPoint = transform.position;
@@ -142,6 +142,8 @@ public class EnemyRangedStomp : MonoBehaviour
 
             if (currentHealth <= 0)
             {
+                anim.SetTrigger("hasDied");
+                Destroy(gameObject, 0.75f);
                 if (probability)
                 {
                     //drop item
@@ -153,7 +155,7 @@ public class EnemyRangedStomp : MonoBehaviour
                     var worldCanvas = GameObject.Find("worldCanvas").transform;
                     itemObj.transform.parent = worldCanvas;
                 }
-                Destroy(gameObject);
+                
                 //Instantiate(crystal, transform.position,Quaternion.identity);
             }
 

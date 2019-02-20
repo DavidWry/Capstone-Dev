@@ -132,6 +132,9 @@ public class EnemyRangedSpear : MonoBehaviour
 
             if (currentHealth <= 0)
             {
+                anim.SetTrigger("hasDied");
+                Destroy(gameObject, 0.75f);
+
                 if (probability)
                 {
                     //drop item
@@ -143,7 +146,7 @@ public class EnemyRangedSpear : MonoBehaviour
                     var worldCanvas = GameObject.Find("worldCanvas").transform;
                     itemObj.transform.parent = worldCanvas;
                 }
-                Destroy(gameObject);
+                
                 //Instantiate(crystal, transform.position,Quaternion.identity);
             }
 

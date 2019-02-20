@@ -37,6 +37,8 @@ public class EnemySlider : MonoBehaviour
 
     private bool isStunned;
 
+   // public AnimationClip death;
+
     private void Awake()
     {
 
@@ -75,12 +77,16 @@ public class EnemySlider : MonoBehaviour
         probability = gameObject.GetComponent<DropProbability>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         isStunned = false;
+
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-       //if player isnt dead
+       // Debug.Log("Length is: " + death.length);
+        //if player isnt dead
         if (target != null)
         {
             //Make the enemy face the player
@@ -139,6 +145,9 @@ public class EnemySlider : MonoBehaviour
             if (currentHealth <= 0)
             {
                 //drop item
+                
+                anim.SetTrigger("hasDied");
+                Destroy(gameObject, 0.75f);
                 if (probability)
                 {
                     string tempName = probability.DetermineDrop();
@@ -149,7 +158,7 @@ public class EnemySlider : MonoBehaviour
                     var worldCanvas = GameObject.Find("worldCanvas").transform;
                     itemObj.transform.parent = worldCanvas;
                 }
-                Destroy(gameObject);
+               
             }
 
         }

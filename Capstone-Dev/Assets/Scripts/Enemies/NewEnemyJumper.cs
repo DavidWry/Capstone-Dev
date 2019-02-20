@@ -44,6 +44,8 @@ public class NewEnemyJumper : MonoBehaviour
 
     private bool isStunned;
 
+   // public AnimationClip death;
+
     private void Awake()
     {
         scene = SceneManager.GetActiveScene();
@@ -95,6 +97,7 @@ public class NewEnemyJumper : MonoBehaviour
 
     void Update()
     {
+        // Debug.Log("Length is: " + death.length);
 
         if (player !=null)
         {
@@ -233,9 +236,11 @@ public class NewEnemyJumper : MonoBehaviour
            
         }
 
-            if (currentHealth <= 0)
-            {
-                if (probability)
+        if (currentHealth <= 0)
+         {
+             anim.SetTrigger("hasDied");
+              Destroy(gameObject, 0.75f);
+            if(probability)
                 {
                     //drop item
                     string tempName = probability.DetermineDrop();
@@ -246,7 +251,7 @@ public class NewEnemyJumper : MonoBehaviour
                     var worldCanvas = GameObject.Find("worldCanvas").transform;
                     itemObj.transform.parent = worldCanvas;
                 }
-                Destroy(gameObject);
+                
                 //Instantiate(crystal, transform.position,Quaternion.identity);
             }
      }

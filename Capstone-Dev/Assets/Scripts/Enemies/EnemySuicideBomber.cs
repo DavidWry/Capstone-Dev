@@ -128,6 +128,7 @@ public class EnemySuicideBomber : MonoBehaviour
 
             if (currentHealth <= 0)
             {
+                
                 //drop item
                 if (probability)
                 {
