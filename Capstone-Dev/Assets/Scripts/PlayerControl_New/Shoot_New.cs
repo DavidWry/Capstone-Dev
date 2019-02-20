@@ -94,10 +94,10 @@ public class Shoot_New : MonoBehaviour
     private float CombineDuration_24 = 2f;
     private int CombineDamage_24 = 20;
     //25-7
-    private float CombineBtw_25 = 0.15f;
+    private float CombineBtw_25 = 0.3f;
     private float CombineSpeed_25 = 15f;
-    private float CombineDuration_25 = 0.5f;
-    private int CombineDamage_25 = 5;
+    private float CombineDuration_25 = 1f;
+    private int CombineDamage_25 = 35;
     //34-8
     private float CombineBtw_34 = 1.5f;
     private float CombineSpeed_34 = 0f;
@@ -600,7 +600,7 @@ public class Shoot_New : MonoBehaviour
             case 24:
                 return "OblivionPlasmaGun";
             case 25:
-                return "LR-500";
+                return "DragonTooth";
             case 34:
                 return null;
             case 35:
@@ -795,12 +795,14 @@ public class Shoot_New : MonoBehaviour
         GameObject NewProj = Instantiate(gameManager.CombineProjectile[7]);
         NewProj.transform.position = CombineBulPos.position;
         NewProj.transform.rotation = CombineBulPos.rotation;
+        NewProj.transform.localScale *= BulletSizeUp;
         //Change state according to the weapon
         Projectile Proj = NewProj.GetComponent<Projectile>();
         Proj.IsReady = true;
         Proj.Speed = CombineSpeed_25;
         Proj.Duration = CombineDuration_25;
         Proj.Damage = CombineDamage_25;
+        player.Jab();
     }
     private void CombineShoot_34()
     {

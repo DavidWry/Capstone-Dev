@@ -314,7 +314,30 @@ namespace AssemblyCSharp
                     Character.EquipFirearm(weaponSprites, firearmCollection.Firearms[0], false);
                 }
                 else
-                    EmptyWeapon();
+                {
+                    Sprite weaponSprites02 = null;
+                    Sprite weaponSprites03 = null;
+                    foreach (SpriteGroupEntry spriteGroupEntry in SpriteCollection.MeleeWeapon1H)
+                    {
+                        if (spriteGroupEntry.Name == weaponName)
+                        {
+                            weaponSprites02 = spriteGroupEntry.Sprite;
+                        }
+                    }
+                    foreach (SpriteGroupEntry spriteGroupEntry in SpriteCollection.MeleeWeaponTrail1H)
+                    {
+                        if (spriteGroupEntry.Name == weaponName)
+                        {
+                            weaponSprites03 = spriteGroupEntry.Sprite;
+                        }
+                    }
+                    if (weaponSprites02 != null && weaponSprites03 != null)
+                    {
+                        Character.EquipMeleeWeapon(weaponSprites02, weaponSprites03, false);
+                    }
+                    else
+                        EmptyWeapon();
+                }
             }
         }
 
@@ -327,11 +350,17 @@ namespace AssemblyCSharp
                 Emptys.Add(empty);
             }
             Character.EquipFirearm(Emptys, firearmCollection.Firearms[0], false);
+            Character.EquipMeleeWeapon(empty, empty, false);
         }
 
         public void Throw()
         {
             Character.Animator.Play("ThrowSupply");
+        }
+
+        public void Jab()
+        {
+            Character.Animator.Play("JabMelee1H");
         }
 
         public void ChangeBackPack()
