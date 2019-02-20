@@ -75,13 +75,15 @@ public class Shoot_New : MonoBehaviour
     private float CombineDuration_14 = 2f;
     private int CombineDamage_14 = 2;
     //15-4
-    private float CombineBtw_15 = 0.2f;
-    private float CombineSpeed_15 = 0f;
-    private float CombineDuration_15 = 15f;
-    private int CombineDamage_15 = 5;
+    private float CombineBtw_15 = 0.5f;
+    private float CombineSpeed_15 = 15f;
+    private float CombineDuration_15 = 50000f;
+    private int CombineDamage_15 = 45;
+    public bool CombineTag_15 = true;
+    public GameObject combine_15;
     //22-12
     private float CombineBtw_22 = 0.2f;
-    private float CombineSpeed_22 = 50f;
+    private float CombineSpeed_22 = 30f;
     private float CombineDuration_22 = 2f;
     private int CombineDamage_22 = 5;
     //23-5
@@ -204,6 +206,10 @@ public class Shoot_New : MonoBehaviour
                     RightWeaponObj.SetActive(false);
                     string weaponName = FindWeaponName();
                     player.ChangeWeapon(weaponName);
+                    if (player.CombineType == 15 && CombineTag_15)
+                    {
+                        combine_15.SetActive(true);
+                    }
                 }
                 if (Mathf.Round(Input.GetAxisRaw("RightTrigger")) > 0 || Mathf.Round(Input.GetAxisRaw("LeftTrigger")) > 0)
                 {
@@ -248,6 +254,8 @@ public class Shoot_New : MonoBehaviour
             CombineWaitedime = 0f;
             IsCombineShooting = false;
             zoomOn = false;
+            if (player.CombineType == 15)
+                combine_15.SetActive(false);
             if (player.Power < 100 && SkillReady)
             {
                 SkillReady = false;
@@ -584,7 +592,7 @@ public class Shoot_New : MonoBehaviour
             case 14:
                 return "RL-DIY200";
             case 15:
-                return null;
+                return "";
             case 22:
                 return "PR-5000";
             case 23:
@@ -630,7 +638,7 @@ public class Shoot_New : MonoBehaviour
                     break;
                 case 15:
                     CombineShoot_15();
-                    CombineBtw = CombineBtw_14;
+                    CombineBtw = CombineBtw_15;
                     break;
                 case 22:
                     CombineShoot_22();
@@ -725,15 +733,26 @@ public class Shoot_New : MonoBehaviour
     }
     private void CombineShoot_15()
     {
-        GameObject NewProj = Instantiate(gameManager.CombineProjectile[4]);
-        NewProj.transform.position = Center.position;
-        NewProj.transform.rotation = Right.rotation;
-        //Change state according to the weapon
-        Projectile Proj = NewProj.GetComponent<Projectile>();
-        Proj.IsReady = true;
-        Proj.Speed = CombineSpeed_15;
-        Proj.Duration = CombineDuration_15;
-        Proj.Damage = CombineDamage_15;
+        if (CombineTag_15)
+        {
+            GameObject NewProj = Instantiate(gameManager.CombineProjectile[4]);
+            NewProj.transform.position = CombineBulPos.position;
+            NewProj.transform.rotation = CombineBulPos.rotation;
+            //Change state according to the weapon
+            Projectile Proj = NewProj.GetComponent<Projectile>();
+            Proj.IsReady = true;
+            Proj.Speed = CombineSpeed_15;
+            Proj.Duration = CombineDuration_15;
+            Proj.Damage = CombineDamage_15;
+            Proj.Pierce = true;
+            CombineTag_15 = false;
+            combine_15.SetActive(false);
+            player.Throw();
+        }
+        else
+        {
+            currentAmmo++;
+        }
     }
     private void CombineShoot_22()
     {

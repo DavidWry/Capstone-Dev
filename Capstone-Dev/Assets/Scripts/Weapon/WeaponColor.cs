@@ -25,7 +25,7 @@ public class WeaponColor : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (slide != null)
+        if (slide != null && player)
         {
             if (leftorright == 1)
             {

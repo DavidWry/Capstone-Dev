@@ -218,7 +218,7 @@ namespace AssemblyCSharp
                     {
                         CombineType = 15;
                         playerShoot.CombineAmmos = 20;
-                        playerShoot.CombineTag = false;
+                        playerShoot.CombineTag = true;
                     }
                 }
                 else if (leftWeapon.WeaponName == WeaponName.Ak47 || rightWeapon.WeaponName == WeaponName.Ak47)
@@ -302,7 +302,19 @@ namespace AssemblyCSharp
             }
             else
             {
-                Debug.LogError("Wrong combine weapon sprite name.");
+                foreach (SpriteGroupEntry spriteGroupEntry in SpriteCollection.Firearms1H)
+                {
+                    if (spriteGroupEntry.Name == weaponName)
+                    {
+                        weaponSprites = spriteGroupEntry.Sprites;
+                    }
+                }
+                if (weaponSprites.Count > 0)
+                {
+                    Character.EquipFirearm(weaponSprites, firearmCollection.Firearms[0], false);
+                }
+                else
+                    EmptyWeapon();
             }
         }
 
@@ -315,6 +327,11 @@ namespace AssemblyCSharp
                 Emptys.Add(empty);
             }
             Character.EquipFirearm(Emptys, firearmCollection.Firearms[0], false);
+        }
+
+        public void Throw()
+        {
+            Character.Animator.Play("ThrowSupply");
         }
 
         public void ChangeBackPack()

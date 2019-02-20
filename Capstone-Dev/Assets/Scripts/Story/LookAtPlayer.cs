@@ -16,8 +16,9 @@ public class LookAtPlayer : MonoBehaviour {
 	void LateUpdate () {
         var scale = transform.localScale;
         scale.x = Mathf.Abs(scale.x);
-        if (player.transform.position.x < transform.position.x && op)
-            scale.x *= -1;
+        if (player)
+            if (player.transform.position.x < transform.position.x && op)
+                scale.x *= -1;
         else if (player.transform.position.x > transform.position.x && !op)
                 scale.x *= -1;
         transform.localScale = scale;
