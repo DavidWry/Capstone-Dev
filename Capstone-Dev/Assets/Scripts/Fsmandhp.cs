@@ -34,24 +34,7 @@ public class Fsmandhp : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
        
-        if (hp <= 150 && yuancount == 1)
-        {
-           
-            yuancount++;
-            supposetomove = true;
-            remainingtime = Random.Range(3.0f, 5.0f);
-            walk = false;
-        }
-       else if (hp <= 250 && yuancount == 0)
-        {
-            
-            yuancount++;
-            supposetomove = true;
-            remainingtime = Random.Range(3.0f, 5.0f);
-            walk = false;
 
-
-        }
 
 
 
@@ -67,7 +50,7 @@ public class Fsmandhp : MonoBehaviour {
             DistanceBO = Vector3.Distance(gameObject.transform.parent.transform.position, originalpos);
  
          
-            if (DistanceBP < range && DistanceBO < range&&!notyet)
+            if (DistanceBP < range*3 && DistanceBO < range*3&&!notyet)
             {
                  
                 
@@ -110,7 +93,7 @@ public class Fsmandhp : MonoBehaviour {
                     {
 
                         
-                        nexspot = new Vector3(player.transform.position.x + Random.Range(-100.0f, 100.0f), player.transform.position.y + Random.Range(-100.0f, 100.0f), 0);
+                        nexspot = new Vector3(player.transform.position.x + Random.Range(-400.0f, 400.0f), player.transform.position.y + Random.Range(-400.0f, 400.0f), 0);
                       
                     }
 
