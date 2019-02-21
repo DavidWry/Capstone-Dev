@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class NewEnemyJumper : MonoBehaviour
 {
-   
+
     private float rangeForAttack;
     private float waitTime;
     //private float startWaitTime;
@@ -22,13 +22,13 @@ public class NewEnemyJumper : MonoBehaviour
     Vector3 nextPos;
     private Transform player;
     private Vector3 targetPos;
-    private float speed = 10;
-    private float arcHeight = 1;
+    public float speed = 10;
+    public float arcHeight = 1;
 
     public GameObject landing;
     public GameObject impact;
     private bool canJump;
-   
+
 
     private Animator anim;
 
@@ -44,28 +44,34 @@ public class NewEnemyJumper : MonoBehaviour
 
     private bool isStunned;
 
-   // public AnimationClip death;
+    private CapsuleCollider capsule;
+
+    // public AnimationClip death;
 
     private void Awake()
     {
+
         //change size according to the scene
+        capsule = gameObject.GetComponent<CapsuleCollider>();
+
+
         scene = SceneManager.GetActiveScene();
 
         if (scene.name == "2_1")
         {
             transform.localScale = new Vector3(6f, 6f, 1f);
-            speed = 80f;
-            arcHeight = 40f;
             rangeForAttack = 140f;
+            capsule.radius = 1.83f;
+            capsule.height = 5.73f;
             landing.transform.localScale = new Vector3(50f, 20f, 1f);
             impact.transform.localScale = new Vector3(3f, 3f, 1f);
         }
         else if (scene.name == "First Level")
         {
             transform.localScale = new Vector3(0.3f, 0.3f, 1f);
-            speed = 4f;
-            arcHeight = 2f;
             rangeForAttack = 7f;
+            capsule.radius = 0.55f;
+            capsule.height = 5.46f;
             landing.transform.localScale = new Vector3(2.5f, 1f, 1f);
             impact.transform.localScale = new Vector3(0.15f, 0.15f, 1f);
         }
@@ -73,11 +79,12 @@ public class NewEnemyJumper : MonoBehaviour
     }
     void Start()
     {
-    
+
+
         health = 100;
         currentHealth = health;
 
-        
+
         waitTime = 0f;
         canJump = true;
 
@@ -103,7 +110,7 @@ public class NewEnemyJumper : MonoBehaviour
     {
         // Debug.Log("Length is: " + death.length);
 
-        if (player !=null)
+        if (player != null)
         {
             //face the player
             var scale = transform.localScale;
@@ -180,7 +187,7 @@ public class NewEnemyJumper : MonoBehaviour
                   targetPos = new Vector3(player.position.x, player.position.y, player.position.z);
                   waitTime = 3.0f;
               }*/
-            if(isStunned ==false && currentHealth > 0 )
+            if (!isStunned)
             {
                 if (waitTime <= 0f)
                 {
@@ -237,33 +244,33 @@ public class NewEnemyJumper : MonoBehaviour
 
                 }
             }
-           
+
         }
 
         if (currentHealth <= 0)
-         {
-             anim.SetTrigger("hasDied");
-              Destroy(gameObject, 0.75f);
-            if(probability)
-                {
-                    //drop item
-                    string tempName = probability.DetermineDrop();
-                    GameObject itemObj = gameManager.GetItemObj(tempName);
-                    itemObj = Instantiate(gameManager.GetItemObj(tempName), transform.position, Quaternion.Euler(0, 0, 0));
-                    if (NextScene.nowName == "2_1")
-                        itemObj.transform.localScale = new Vector3(4, 4, 4);
-                    var worldCanvas = GameObject.Find("worldCanvas").transform;
-                    itemObj.transform.parent = worldCanvas;
-                }
-                
-                //Instantiate(crystal, transform.position,Quaternion.identity);
+        {
+            anim.SetTrigger("hasDied");
+            Destroy(gameObject, 0.75f);
+            if (probability)
+            {
+                //drop item
+                string tempName = probability.DetermineDrop();
+                GameObject itemObj = gameManager.GetItemObj(tempName);
+                itemObj = Instantiate(gameManager.GetItemObj(tempName), transform.position, Quaternion.Euler(0, 0, 0));
+                if (NextScene.nowName == "2_1")
+                    itemObj.transform.localScale = new Vector3(4, 4, 4);
+                var worldCanvas = GameObject.Find("worldCanvas").transform;
+                itemObj.transform.parent = worldCanvas;
             }
-     }
+
+            //Instantiate(crystal, transform.position,Quaternion.identity);
+        }
+    }
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
 
-        healthBar.fillAmount = currentHealth / health; 
+        healthBar.fillAmount = currentHealth / health;
 
     }
     static Quaternion LookAt2D(Vector2 forward)
@@ -273,7 +280,7 @@ public class NewEnemyJumper : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-      /*  if (collision.gameObject.tag == "Minion" || collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Minion" || collision.gameObject.tag == "Player")
         {
             isStunned = true;
             rb.velocity = Vector3.zero;
@@ -285,7 +292,7 @@ public class NewEnemyJumper : MonoBehaviour
         if (collision.gameObject.tag == "Obstacle")
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
-        }*/
+        }
     }
 
     public void Stun(float stunTime)
@@ -295,7 +302,7 @@ public class NewEnemyJumper : MonoBehaviour
         rb.velocity = Vector3.zero;
         anim.SetBool("isJumping", false);
         StartCoroutine(WaitAfterStun(stunTime));
-       
+
 
 
     }
@@ -312,6 +319,14 @@ public class NewEnemyJumper : MonoBehaviour
 
 }
 
+
+
+/// 
+/// This is a 2D version of Quaternion.LookAt; it returns a quaternion
+/// that makes the local +X axis point in the given forward direction.
+/// 
+/// forward direction
+/// Quaternion that rotates +X to align with forward
 
 
 

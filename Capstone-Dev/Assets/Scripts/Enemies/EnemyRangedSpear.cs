@@ -11,14 +11,14 @@ public class EnemyRangedSpear : MonoBehaviour
     private float chaseRange;
 
     public float speed;
-    private float timeBetweenShots; 
+    private float timeBetweenShots;
     private float startTimeBetweenShots;
 
     private float currentHealth;
     private float health;
     public GameObject projectile;
-    
-   
+
+
     public GameObject crystal;
     private Transform player;
 
@@ -35,33 +35,47 @@ public class EnemyRangedSpear : MonoBehaviour
     private SpriteRenderer myRenderer;
     private Color color;
 
+    private CapsuleCollider capsule;
+    private float addTime;
     private void Awake()
     {
+
         scene = SceneManager.GetActiveScene();
+        capsule = gameObject.GetComponent<CapsuleCollider>();
         if (scene.name == "2_1")
         {
             transform.localScale = new Vector3(5f, 5f, 1f);
-            rangeForAttack = 132;
+            rangeForAttack = 110;
             speed = 50.6f;
             chaseRange = 176;
+            capsule.radius = 1.88f;
+            capsule.height = 5.73f;
+            chaseRange = 132;
+            addTime = 0.4f;
+
             projectile.transform.localScale = new Vector3(5f, 5f, 1f);
         }
         else if (scene.name == "First Level")
         {
             transform.localScale = new Vector3(0.23f, 0.23f, 1f);
-            rangeForAttack = 6;
+            rangeForAttack = 5;
             speed = 2.3f;
             chaseRange = 8;
+            capsule.radius = 0.45f;
+            capsule.height = 5.73f;
+            chaseRange = 6;
+            addTime = 0.0f;
             projectile.transform.localScale = new Vector3(0.23f, 0.23f, 1f);
+
         }
     }
-    void Start ()
+    void Start()
     {
-        
+
 
         health = 70;
         currentHealth = health;
-    
+
         player = GameObject.FindGameObjectWithTag("Player").transform;
         timeBetweenShots = 1.2f;
 
@@ -76,11 +90,11 @@ public class EnemyRangedSpear : MonoBehaviour
         color = myRenderer.color;
 
     }
-	
-	
-	void Update ()
+
+
+    void Update()
     {
-        
+
         //Attack if under the range
         if (player != null)
         {
@@ -99,7 +113,7 @@ public class EnemyRangedSpear : MonoBehaviour
             }
             transform.localScale = scale;
 
-            if (isStunned == false && currentHealth >0)
+            if (isStunned == false)
             {
                 if (Vector2.Distance(transform.position, player.position) <= rangeForAttack)
                 {
@@ -109,7 +123,7 @@ public class EnemyRangedSpear : MonoBehaviour
                         Instantiate(projectile, transform.position, Quaternion.identity);
 
 
-                        timeBetweenShots = 1.3f;
+                        timeBetweenShots = 1.5f + addTime;
                     }
                     else
                     {
@@ -128,7 +142,7 @@ public class EnemyRangedSpear : MonoBehaviour
                     anim.SetBool("isRunning", false);
                 }
             }
-            
+
 
             if (currentHealth <= 0)
             {
@@ -146,18 +160,18 @@ public class EnemyRangedSpear : MonoBehaviour
                     var worldCanvas = GameObject.Find("worldCanvas").transform;
                     itemObj.transform.parent = worldCanvas;
                 }
-                
+
                 //Instantiate(crystal, transform.position,Quaternion.identity);
             }
 
-        }  
+        }
 
     }
 
-    private void OnCollisionEnter(Collision other)
+   /* private void OnCollisionEnter(Collision other)
     {
-  
-        /*if ((other.gameObject.tag == "Minion") || (other.gameObject.tag == "Obstacle"))
+
+        if ((other.gameObject.tag == "Minion") || (other.gameObject.tag == "Obstacle"))
         {
             myRenderer.color = Color.red;
             rb.velocity = Vector3.zero;
@@ -165,10 +179,10 @@ public class EnemyRangedSpear : MonoBehaviour
             anim.SetBool("isRunning", false);
             timeBetweenShots = 1.5f;
             StartCoroutine(WaitAfterStun(3f));
-           
 
-        }*/
-    }
+
+        }
+    }*/
 
 
 
@@ -183,13 +197,13 @@ public class EnemyRangedSpear : MonoBehaviour
     public void Stun(float stunTime)
     {
 
-       
+
         rb.velocity = Vector3.zero;
         isStunned = true;
         anim.SetBool("isRunning", false);
-        timeBetweenShots = 1.3f;
+        timeBetweenShots = 1.5f + addTime;
         StartCoroutine(WaitAfterStun(stunTime));
-       
+
 
     }
     private IEnumerator WaitAfterStun(float time)

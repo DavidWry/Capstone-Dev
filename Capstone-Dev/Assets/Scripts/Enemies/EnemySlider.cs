@@ -25,7 +25,7 @@ public class EnemySlider : MonoBehaviour
     private Vector3 dir;
 
     private Animator anim;
-    private bool hasCollided ;
+    private bool hasCollided;
     private bool hasReached;
 
     private DropProbability probability = null;
@@ -34,36 +34,45 @@ public class EnemySlider : MonoBehaviour
 
     public Image healthBar;
 
-
+    private CapsuleCollider capsule;
     private bool isStunned;
 
-   // public AnimationClip death;
+    // public AnimationClip death;
 
     private void Awake()
     {
 
+
+    }
+    void Start()
+    {
         scene = SceneManager.GetActiveScene();
+        capsule = gameObject.GetComponent<CapsuleCollider>();
 
         if (scene.name == "2_1")
         {
             transform.localScale = new Vector3(6f, 6f, 1f);
+
             dashSpeed = 100f;
             rangeForAttack = 100f;
+            capsule.radius = 1.84f;
+            capsule.height = 5.51f;
+            rangeForAttack = 120f;
+
         }
         else if (scene.name == "First Level")
         {
             transform.localScale = new Vector3(0.3f, 0.3f, 1f);
             dashSpeed = 7f;
             rangeForAttack = 6f;
+            capsule.radius = 0.55f;
+            capsule.height = 5.51f;
         }
-    }
-    void Start ()
-    {
         rb = GetComponent<Rigidbody>();
-       
+
         canDash = true;
         dashTime = 0.5f;
-        
+
         damage = 7;
         health = 130;
         currentHealth = health;
@@ -79,13 +88,13 @@ public class EnemySlider : MonoBehaviour
         isStunned = false;
 
 
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-       // Debug.Log("Length is: " + death.length);
+        // Debug.Log("Length is: " + death.length);
         //if player isnt dead
         if (target != null)
         {
@@ -104,7 +113,7 @@ public class EnemySlider : MonoBehaviour
             transform.localScale = scale;
 
 
-            if(isStunned == false)
+            if (isStunned == false)
             {
                 if ((Vector3.Distance(transform.position, target.position) <= rangeForAttack) && (canDash == true))
                 {
@@ -140,12 +149,12 @@ public class EnemySlider : MonoBehaviour
                 }
             }
             //check if under range and if he can dash
-          
+
 
             if (currentHealth <= 0)
             {
                 //drop item
-                
+
                 anim.SetTrigger("hasDied");
                 Destroy(gameObject, 0.75f);
                 if (probability)
@@ -158,17 +167,17 @@ public class EnemySlider : MonoBehaviour
                     var worldCanvas = GameObject.Find("worldCanvas").transform;
                     itemObj.transform.parent = worldCanvas;
                 }
-               
+
             }
 
         }
-	}
-    
+    }
+
     private void OnCollisionEnter(Collision other)
     {
-        
+
         if (other.gameObject.tag == "Player")
-         {
+        {
             if (hasCollided == false && dashTime == 1.6f)
             {
                 hasCollided = true;
@@ -178,37 +187,37 @@ public class EnemySlider : MonoBehaviour
                 // StartCoroutine(IfCollidedWithPlayer(2f));
                 hasReached = true;
                 hasCollided = false;
-               // canDash = true;
+                // canDash = true;
 
-               // dashTime = 2f;
-            //    target = GameObject.FindGameObjectWithTag("Player").transform;
+                // dashTime = 2f;
+                //    target = GameObject.FindGameObjectWithTag("Player").transform;
             }
-         
+
 
         }
-    
-       
 
-       /* if(other.gameObject.tag == "Obstacle")
-        {
-            anim.SetBool("isRunning", false);
-            rb.velocity = Vector3.zero;
-            hasReached = true;
-           // StartCoroutine(IfCollidedWithPlayer(2f));
-          // canDash = true;
-        
 
-        }*/
+
+        /* if(other.gameObject.tag == "Obstacle")
+         {
+             anim.SetBool("isRunning", false);
+             rb.velocity = Vector3.zero;
+             hasReached = true;
+            // StartCoroutine(IfCollidedWithPlayer(2f));
+           // canDash = true;
+
+
+         }*/
 
 
         if ((other.gameObject.tag == "Minion") || (other.gameObject.tag == "Obstacle"))
         {
-           
+
             isStunned = true;
             anim.SetBool("isRunning", false);
             rb.velocity = Vector3.zero;
             hasReached = true;
-            StartCoroutine(WaitAfterStun(3f));
+            StartCoroutine(WaitAfterStun(2f));
 
 
         }
