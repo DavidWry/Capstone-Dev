@@ -1814,7 +1814,7 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
             }
         }
 
-        CA(0.65f, 1, 8, 1, false, 0);
+        CA(0.55f, 1, 8, 1, false, 0);
     }
 
     void DrawLoot()
