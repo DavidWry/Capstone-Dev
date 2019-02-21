@@ -28,31 +28,32 @@ public class CameraControl : MonoBehaviour {
         if (PlayerPos)
         {
             Debug.Log(PlayerPos.position.x);
-            if (PlayerPos.position.x > border.x + 17 && PlayerPos.position.x < border2.x - 17)
+            if (PlayerPos.position.x > border.x + 190 && PlayerPos.position.x < border2.x - 219)
             {
                 pos.x = PlayerPos.position.x;
             }
-            else if (PlayerPos.position.x < border.x + 17)
+            else if (PlayerPos.position.x < border.x + 190)
             {
-                pos.x = border.x + 17;
+                pos.x = border.x + 190;
             }
-            else if (PlayerPos.position.x > border2.x - 17)
+            else if (PlayerPos.position.x > border2.x - 219)
             {
-                pos.x = border2.x - 17;
+                pos.x = border2.x - 219;
             }
-            if (PlayerPos.position.y > border.y + 9.56f && PlayerPos.position.y < border2.y - 9.56f)
+            if (PlayerPos.position.y > border.y + 102 && PlayerPos.position.y < border2.y - 129)
             {
                 pos.y = PlayerPos.position.y;
             }
-            else if (PlayerPos.position.y < border.y + 9.56f)
+            else if (PlayerPos.position.y < border.y + 102)
             {
-                pos.y = border.y + 9.56f;
+                pos.y = border.y + 102;
             }
-            else if (PlayerPos.position.y > border2.y - 9.56f)
+            else if (PlayerPos.position.y > border2.y - 129)
             {
-                pos.y = border2.y - 9.56f;
+                pos.y = border2.y - 129;
             }
         }
         transform.position = pos;
+        Debug.Log(transform.position.x+"camera");
     }
 }
