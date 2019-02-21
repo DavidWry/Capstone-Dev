@@ -6,8 +6,8 @@ public class Rotateprojectile : MonoBehaviour {
     Vector3 rotateVector;
     public GameObject bianda;
     int rotateFreq = 5;
-    int upMin = 60;
-    int upMax = 100;
+    int upMin = 300;
+    int upMax = 500;
 	// Use this for initialization
 	void Start () {
         rotateVector = new Vector3(Random.Range(-5, 5), Random.Range(-5, 5), Random.Range(-5, 5));

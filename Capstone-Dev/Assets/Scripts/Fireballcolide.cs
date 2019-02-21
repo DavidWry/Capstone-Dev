@@ -20,7 +20,7 @@ namespace AssemblyCSharp
             {
 
                 Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
-                if (Vector3.Distance(player1.transform.position, gameObject.transform.parent.transform.position) < 5)
+                if (Vector3.Distance(player1.transform.position, gameObject.transform.parent.transform.position) < 75)
                 {
                     player1.GetComponent<Player>().TakeDamage(15);
 

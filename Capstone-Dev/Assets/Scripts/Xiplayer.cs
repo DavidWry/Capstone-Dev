@@ -36,7 +36,7 @@ namespace AssemblyCSharp
 
                 newvec = newvec.normalized;
 
-                playerbody.AddForce(newvec * 5.5f * Mathf.Sqrt(2)*3);
+                playerbody.AddForce(newvec * 5.5f * Mathf.Sqrt(2)*30);
 
             }
             if (hitflash)
