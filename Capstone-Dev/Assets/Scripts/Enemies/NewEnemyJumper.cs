@@ -22,8 +22,8 @@ public class NewEnemyJumper : MonoBehaviour
     Vector3 nextPos;
     private Transform player;
     private Vector3 targetPos;
-    private float speed = 10;
-    private float arcHeight = 1;
+    public float speed = 10;
+    public float arcHeight = 1;
 
     public GameObject landing;
     public GameObject impact;
@@ -48,14 +48,11 @@ public class NewEnemyJumper : MonoBehaviour
 
     private void Awake()
     {
-        //change size according to the scene
         scene = SceneManager.GetActiveScene();
 
         if (scene.name == "2_1")
         {
             transform.localScale = new Vector3(6f, 6f, 1f);
-            speed = 80f;
-            arcHeight = 40f;
             rangeForAttack = 140f;
             landing.transform.localScale = new Vector3(50f, 20f, 1f);
             impact.transform.localScale = new Vector3(3f, 3f, 1f);
@@ -63,8 +60,6 @@ public class NewEnemyJumper : MonoBehaviour
         else if (scene.name == "First Level")
         {
             transform.localScale = new Vector3(0.3f, 0.3f, 1f);
-            speed = 4f;
-            arcHeight = 2f;
             rangeForAttack = 7f;
             landing.transform.localScale = new Vector3(2.5f, 1f, 1f);
             impact.transform.localScale = new Vector3(0.15f, 0.15f, 1f);
@@ -73,7 +68,8 @@ public class NewEnemyJumper : MonoBehaviour
     }
     void Start()
     {
-    
+       
+
         health = 100;
         currentHealth = health;
 
@@ -180,7 +176,7 @@ public class NewEnemyJumper : MonoBehaviour
                   targetPos = new Vector3(player.position.x, player.position.y, player.position.z);
                   waitTime = 3.0f;
               }*/
-            if(isStunned ==false && currentHealth > 0 )
+            if (!isStunned)
             {
                 if (waitTime <= 0f)
                 {
@@ -273,7 +269,7 @@ public class NewEnemyJumper : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-      /*  if (collision.gameObject.tag == "Minion" || collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Minion" || collision.gameObject.tag == "Player")
         {
             isStunned = true;
             rb.velocity = Vector3.zero;
@@ -285,7 +281,7 @@ public class NewEnemyJumper : MonoBehaviour
         if (collision.gameObject.tag == "Obstacle")
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
-        }*/
+        }
     }
 
     public void Stun(float stunTime)
@@ -312,6 +308,14 @@ public class NewEnemyJumper : MonoBehaviour
 
 }
 
+
+
+/// 
+/// This is a 2D version of Quaternion.LookAt; it returns a quaternion
+/// that makes the local +X axis point in the given forward direction.
+/// 
+/// forward direction
+/// Quaternion that rotates +X to align with forward
 
 
 

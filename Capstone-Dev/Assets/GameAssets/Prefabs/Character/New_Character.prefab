@@ -2534,11 +2534,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1857381926554184}
-  m_LocalRotation: {x: -0, y: -0, z: -0.4226182, w: 0.9063079}
-  m_LocalPosition: {x: -0.06999308, y: 0.07242841, z: 0}
-  m_LocalScale: {x: 1.4999995, y: 1.4999995, z: 1.5}
+  m_LocalRotation: {x: -0, y: -0, z: -0.57357645, w: 0.81915206}
+  m_LocalPosition: {x: -0.026, y: -0.108, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
-  m_Father: {fileID: 4653620320784666}
+  m_Father: {fileID: 4615078453058510}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4369290218582458
@@ -2979,7 +2979,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1368066934807222}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.37, y: 11.97, z: 0}
+  m_LocalPosition: {x: -12.31, y: 12.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4930176636263306}
@@ -3094,6 +3094,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4094218964632286}
+  - {fileID: 4361503279884022}
   m_Father: {fileID: 4967361276516994}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3151,7 +3152,6 @@ Transform:
   m_LocalScale: {x: 1.0000005, y: 1.0000005, z: 1}
   m_Children:
   - {fileID: 4477192428184626}
-  - {fileID: 4361503279884022}
   m_Father: {fileID: 4967361276516994}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -20}
@@ -4306,7 +4306,6 @@ MonoBehaviour:
   currentAmmo: 0
   CombineTag_15: 1
   combine_15: {fileID: 1857381926554184}
-  CombineTag_35: 0
   CameraObj: {fileID: 0}
   LeftWeaponObj: {fileID: 0}
   RightWeaponObj: {fileID: 0}

@@ -35,36 +35,36 @@ public class EnemySuicideBomber : MonoBehaviour
 
     public Image healthBar;
 
-    
+    //private int thrust;
     private Rigidbody rb;
 
     private bool isStunned;
 
     private void Awake()
     {
-        //Handle size for 2 different levels
         scene = SceneManager.GetActiveScene();
 
         if (scene.name == "2_1")
         {
 
             transform.localScale = new Vector3(5f, 5f, 1f);
-            speed = 41.0f;
-            rangeForAttack = 140;
+            speed = 40.0f;
+            rangeForAttack = 120;
             explosion.transform.localScale = new Vector3(40f, 40f, 1f);
         }
         else if (scene.name == "First Level")
         {
             transform.localScale = new Vector3(0.25f, 0.25f, 1f);
-            speed = 2.1f;
-            rangeForAttack = 7;
+            speed = 2.0f;
+            rangeForAttack = 6;
             explosion.transform.localScale = new Vector3(2f, 2f, 1f);
         }
     }
     void Start()
     {
         //Set player as the target
-       
+        
+
         health = 51;
         currentHealth = health;
         player2 = GetComponent<Player_New>();
@@ -74,12 +74,9 @@ public class EnemySuicideBomber : MonoBehaviour
         
         damage = 5;
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-
         probability = gameObject.GetComponent<DropProbability>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-
         anim = GetComponent<Animator>();
-
         myRenderer = GetComponent<SpriteRenderer>();
         defaultColor = myRenderer.material.color;
 
@@ -108,7 +105,7 @@ public class EnemySuicideBomber : MonoBehaviour
             }
             transform.localScale = scale;
 
-            if (!isStunned && currentHealth > 0)
+            if (!isStunned)
             {
 
                 distanceForColor = Vector2.Distance(target.position, transform.position);
@@ -132,7 +129,7 @@ public class EnemySuicideBomber : MonoBehaviour
             if (currentHealth <= 0)
             {
                 
-                //drop crystl
+                //drop item
                 if (probability)
                 {
                     string tempName = probability.DetermineDrop();
@@ -163,8 +160,6 @@ public class EnemySuicideBomber : MonoBehaviour
             Destroy(expl, 3);
 
         }
-
-        //handle collision with other enemies or obstacles
         /*
         if( (other.gameObject.tag == "Minion") || (other.gameObject.tag == "Obstacle"))
         {
@@ -186,8 +181,6 @@ public class EnemySuicideBomber : MonoBehaviour
 
         healthBar.fillAmount = currentHealth / health;
     }
-
-    //stun the enemy
     public void Stun(float stunTime)
     {
         
@@ -195,7 +188,10 @@ public class EnemySuicideBomber : MonoBehaviour
         rb.velocity = Vector3.zero;
         anim.SetBool("isRunning", false);
         StartCoroutine(WaitAfterStun(stunTime));
-      
+        
+
+
+
     }
     private IEnumerator WaitAfterStun(float time)
     {

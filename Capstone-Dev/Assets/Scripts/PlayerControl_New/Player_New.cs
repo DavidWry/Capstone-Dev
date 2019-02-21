@@ -191,18 +191,6 @@ namespace AssemblyCSharp
                     playerShoot.CombineTag = true;
                     playerShoot.CombineAmmos = 80;
                 }
-                else if (leftWeapon.WeaponName == WeaponName.Lazer)
-                {
-                    CombineType = 33;
-                    playerShoot.CombineTag = false;
-                    playerShoot.CombineAmmos = 1;
-                }
-                else if (leftWeapon.WeaponName == WeaponName.Shotgun)
-                {
-                    CombineType = 44;
-                    playerShoot.CombineTag = false;
-                    playerShoot.CombineAmmos = 50;
-                }
             }
             else
             {
@@ -239,7 +227,7 @@ namespace AssemblyCSharp
                     {
                         CombineType = 23;
                         playerShoot.CombineTag = true;
-                        playerShoot.CombineAmmos = 500;
+                        playerShoot.CombineAmmos = 20;
                     }
                     else if (leftWeapon.WeaponName == WeaponName.Shotgun || rightWeapon.WeaponName == WeaponName.Shotgun)
                     {
@@ -267,7 +255,6 @@ namespace AssemblyCSharp
                         CombineType = 35;
                         playerShoot.CombineTag = true;
                         playerShoot.CombineAmmos = 20;
-                        playerShoot.CombineTag_35 = true;
                     }
                 }
                 else if (leftWeapon.WeaponName == WeaponName.Shotgun || rightWeapon.WeaponName == WeaponName.Shotgun)
@@ -364,7 +351,6 @@ namespace AssemblyCSharp
             }
             Character.EquipFirearm(Emptys, firearmCollection.Firearms[0], false);
             Character.EquipMeleeWeapon(empty, empty, false);
-            AnimeBack();
         }
 
         public void Throw()
@@ -375,11 +361,6 @@ namespace AssemblyCSharp
         public void Jab()
         {
             Character.Animator.Play("JabMelee1H");
-        }
-
-        public void AnimeBack()
-        {
-            Character.Animator.Play("ReadyRightHandOnly");
         }
 
         public void ChangeBackPack()

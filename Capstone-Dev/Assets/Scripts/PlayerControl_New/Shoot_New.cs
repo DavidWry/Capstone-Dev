@@ -87,10 +87,7 @@ public class Shoot_New : MonoBehaviour
     private float CombineDuration_22 = 2f;
     private int CombineDamage_22 = 5;
     //23-5
-    private float CombineBtw_23 = 0.01f;
-    private float CombineSpeed_23 = 8f;
-    private float CombineDuration_23 = 2f;
-    private int CombineDamage_23 = 2;
+    private float CombineBtw_23 = 0.2f;
     //24-6
     private float CombineBtw_24 = 0.5f;
     private float CombineSpeed_24 = 10f;
@@ -102,31 +99,20 @@ public class Shoot_New : MonoBehaviour
     private float CombineDuration_25 = 1f;
     private int CombineDamage_25 = 35;
     //34-8
-    private float CombineBtw_34 = 0.8f;
-    private float CombineSpeed_34 = 25f;
-    private float CombineDuration_34 = 3f;
-    private int CombineDamage_34 = 20;
+    private float CombineBtw_34 = 1.5f;
+    private float CombineSpeed_34 = 0f;
+    private float CombineDuration_34 = 5f;
+    private int CombineDamage_34 = 10;
     //35-9
-    private float CombineBtw_35 = 1f;
-    private float CombineSpeed_35 = 15f;
+    private float CombineBtw_35 = 1.5f;
+    private float CombineSpeed_35 = 5f;
     private float CombineDuration_35 = 2f;
-    private int CombineDamage_35 = 20;
-    public bool CombineTag_35 = false;
+    private int CombineDamage_35 = 10;
     //45-10
-    private float CombineBtw_45 = 0.5f;
-    private float CombineSpeed_45 = 10f;
-    private float CombineDuration_45 = 3f;
-    private int CombineDamage_45 = 50;
-    //44-14
-    private float CombineBtw_44 = 0.2f;
-    private float CombineSpeed_44 = 8f;
-    private float CombineDuration_44 = 3f;
-    private int CombineDamage_44 = 20;
-    //33-13
-    private float CombineBtw_33 = 0.8f;
-    private float CombineSpeed_33 = 15f;
-    private float CombineDuration_33 = 3f;
-    private int CombineDamage_33 = 20;
+    private float CombineBtw_45 = 10f;
+    private float CombineSpeed_45 = 1f;
+    private float CombineDuration_45 = 10f;
+    private int CombineDamage_45 = 5;
 
     //Camera zoom;
     public GameObject CameraObj;
@@ -224,13 +210,6 @@ public class Shoot_New : MonoBehaviour
                     {
                         combine_15.SetActive(true);
                     }
-                    if (player.CombineType == 35 && CombineTag_35)
-                    {
-                        GameObject NewProj = Instantiate(gameManager.CombineProjectile[17], transform);
-                        NewProj.transform.position = Center.position;
-                        NewProj.transform.rotation = Center.rotation;
-                        CombineTag_35 = false;
-                    }
                 }
                 if (Mathf.Round(Input.GetAxisRaw("RightTrigger")) > 0 || Mathf.Round(Input.GetAxisRaw("LeftTrigger")) > 0)
                 {
@@ -249,30 +228,14 @@ public class Shoot_New : MonoBehaviour
             }
             else
             {
-                if (LeftWeaponObj != null && RightWeaponObj != null)
-                {
-                    LeftWeaponObj.SetActive(false);
-                    RightWeaponObj.SetActive(false);
-                    string weaponName = FindWeaponName();
-                    player.ChangeWeapon(weaponName);
-                }
-                if (Mathf.Round(Input.GetAxisRaw("RightTrigger")) > 0 || Mathf.Round(Input.GetAxisRaw("LeftTrigger")) > 0)
+                player.ChangeBackPack();
+                if (Input.GetButtonDown("XButton"))
                 {
                     IsCombineShooting = true;
                 }
                 else
                 {
                     IsCombineShooting = false;
-                }
-                IsLeftShooting = false;
-                IsRightShooting = false;
-                if (Input.GetButtonDown("XButton"))
-                {
-
-                }
-                else
-                {
-                    
                 }
             }
 
@@ -639,16 +602,10 @@ public class Shoot_New : MonoBehaviour
             case 25:
                 return "DragonTooth";
             case 34:
-                return "LR-100";
+                return null;
             case 35:
-                return "RRII";
+                return "RL-DIY200";
             case 45:
-                return "EnergyKnife";
-            case 33:
-                return "LR-100";
-            case 44:
-                return "LR-100";
-            case 55:
                 return null;
         }
         return null;
@@ -711,22 +668,11 @@ public class Shoot_New : MonoBehaviour
                     CombineShoot_45();
                     CombineBtw = CombineBtw_45;
                     break;
-                case 33:
-                    CombineShoot_33();
-                    CombineBtw = CombineBtw_33;
-                    break;
-                case 44:
-                    CombineShoot_44();
-                    CombineBtw = CombineBtw_44;
-                    break;
             }
             CanCombineShoot = false;
             currentAmmo--;
-            if (player.CombineType != 23)
-            {
-                var offset = -0.25f * player.LeftHand.parent.InverseTransformDirection(player.Character.Firearm.FireTransform.right);
-                StartCoroutine(AnimateOffset(player.LeftHand, offset, player.LeftHand.localPosition, spring: true));
-            }
+            var offset = -0.25f * player.LeftHand.parent.InverseTransformDirection(player.Character.Firearm.FireTransform.right);
+            StartCoroutine(AnimateOffset(player.LeftHand, offset, player.LeftHand.localPosition, spring: true));
         }
     }
 
@@ -824,16 +770,11 @@ public class Shoot_New : MonoBehaviour
     }
     private void CombineShoot_23()
     {
-        GameObject NewProj = Instantiate(gameManager.CombineProjectile[5]);
-        NewProj.transform.position = CombineBulPos.position;
-        NewProj.transform.rotation = CombineBulPos.rotation;
-        NewProj.transform.localScale *= BulletSizeUp;
-        //Change state according to the weapon
-        Projectile Proj = NewProj.GetComponent<Projectile>();
-        Proj.IsReady = true;
-        Proj.Speed = CombineSpeed_23;
-        Proj.Duration = CombineDuration_23;
-        Proj.Damage = CombineDamage_23;
+        if (movement.Recoil == Vector3.zero)
+        {
+            sheildUp();
+        }
+        movement.Recoil = Left.transform.right * 3;
     }
     private void CombineShoot_24()
     {
@@ -866,103 +807,57 @@ public class Shoot_New : MonoBehaviour
     private void CombineShoot_34()
     {
         GameObject NewProj = Instantiate(gameManager.CombineProjectile[8]);
-        NewProj.transform.position = CombineBulPos.position;
-        NewProj.transform.rotation = CombineBulPos.rotation;
-        NewProj.transform.localScale *= BulletSizeUp;
-        GameObject NewProj02 = Instantiate(gameManager.CombineProjectile[8]);
-        NewProj02.transform.position = CombineBulPos.position;
-        NewProj02.transform.eulerAngles = new Vector3(CombineBulPos.eulerAngles.x, CombineBulPos.eulerAngles.y, CombineBulPos.eulerAngles.z - 15);
-        NewProj02.transform.localScale *= BulletSizeUp;
-        GameObject NewProj03 = Instantiate(gameManager.CombineProjectile[8]);
-        NewProj03.transform.position = CombineBulPos.position;
-        NewProj03.transform.eulerAngles = new Vector3(CombineBulPos.eulerAngles.x, CombineBulPos.eulerAngles.y, CombineBulPos.eulerAngles.z + 15);
-        NewProj03.transform.localScale *= BulletSizeUp;
+        NewProj.transform.position = Center.position;
+        NewProj.transform.rotation = Right.rotation;
         //Change state according to the weapon
         Projectile Proj = NewProj.GetComponent<Projectile>();
         Proj.IsReady = true;
         Proj.Speed = CombineSpeed_34;
         Proj.Duration = CombineDuration_34;
         Proj.Damage = CombineDamage_34;
-        Projectile Proj02 = NewProj02.GetComponent<Projectile>();
-        Proj02.IsReady = true;
-        Proj02.Speed = CombineSpeed_34;
-        Proj02.Duration = CombineDuration_34;
-        Proj02.Damage = CombineDamage_34;
-        Projectile Proj03 = NewProj03.GetComponent<Projectile>();
-        Proj03.IsReady = true;
-        Proj03.Speed = CombineSpeed_34;
-        Proj03.Duration = CombineDuration_34;
-        Proj03.Damage = CombineDamage_34;
+        Proj.Scale = true;
+        Proj.OnTarget = true;
+        Proj.Pierce = true;
     }
     private void CombineShoot_35()
     {
         GameObject NewProj = Instantiate(gameManager.CombineProjectile[9]);
         NewProj.transform.position = CombineBulPos.position;
         NewProj.transform.rotation = CombineBulPos.rotation;
-        NewProj.transform.localScale *= BulletSizeUp;
         //Change state according to the weapon
         Projectile Proj = NewProj.GetComponent<Projectile>();
         Proj.IsReady = true;
         Proj.Speed = CombineSpeed_35;
         Proj.Duration = CombineDuration_35;
         Proj.Damage = CombineDamage_35;
+        Proj.Sheild = true;
+        Proj.Scale = true;
     }
     private void CombineShoot_45()
     {
         GameObject NewProj = Instantiate(gameManager.CombineProjectile[10]);
-        NewProj.transform.position = CombineBulPos.position;
-        NewProj.transform.eulerAngles = new Vector3(CombineBulPos.eulerAngles.x, CombineBulPos.eulerAngles.y, CombineBulPos.eulerAngles.z);
-        NewProj.transform.localScale *= BulletSizeUp;
-        GameObject NewProj02 = Instantiate(gameManager.CombineProjectile[10]);
-        NewProj02.transform.position = CombineBulPos.position;
-        NewProj02.transform.eulerAngles = new Vector3(CombineBulPos.eulerAngles.x, CombineBulPos.eulerAngles.y, CombineBulPos.eulerAngles.z - 20);
-        NewProj02.transform.localScale *= BulletSizeUp;
-        GameObject NewProj03 = Instantiate(gameManager.CombineProjectile[10]);
-        NewProj03.transform.position = CombineBulPos.position;
-        NewProj03.transform.eulerAngles = new Vector3(CombineBulPos.eulerAngles.x, CombineBulPos.eulerAngles.y, CombineBulPos.eulerAngles.z + 20);
-        NewProj03.transform.localScale *= BulletSizeUp;
+        NewProj.transform.position = Center.position;
+        NewProj.transform.rotation = CombineBulPos.rotation;
         //Change state according to the weapon
         Projectile Proj = NewProj.GetComponent<Projectile>();
         Proj.IsReady = true;
         Proj.Speed = CombineSpeed_45;
         Proj.Duration = CombineDuration_45;
         Proj.Damage = CombineDamage_45;
-        Projectile Proj02 = NewProj02.GetComponent<Projectile>();
-        Proj02.IsReady = true;
-        Proj02.Speed = CombineSpeed_45;
-        Proj02.Duration = CombineDuration_45;
-        Proj02.Damage = CombineDamage_45;
-        Projectile Proj03 = NewProj03.GetComponent<Projectile>();
-        Proj03.IsReady = true;
-        Proj03.Speed = CombineSpeed_45;
-        Proj03.Duration = CombineDuration_45;
-        Proj03.Damage = CombineDamage_45;
-        player.Jab();
+        Proj.Sheild = true;
     }
-
-    private void CombineShoot_44()
+    private void sheildUp()
     {
-        GameObject NewProj = Instantiate(gameManager.CombineProjectile[14]);
-        NewProj.transform.position = CombineBulPos.position;
-        NewProj.transform.rotation = CombineBulPos.rotation;
-        NewProj.transform.localScale *= BulletSizeUp;
+        GameObject NewProj = Instantiate(gameManager.CombineProjectile[0], transform);
+        NewProj.transform.position = Center.position;
+        NewProj.transform.rotation = Right.rotation;
         //Change state according to the weapon
         Projectile Proj = NewProj.GetComponent<Projectile>();
         Proj.IsReady = true;
-        Proj.Speed = CombineSpeed_44;
-        Proj.Duration = CombineDuration_44;
-        Proj.Damage = CombineDamage_44;
-        Proj.round = true;
-        Proj.Pierce = true;
-    }
-
-    private void CombineShoot_33()
-    {
-        GameObject NewProj = Instantiate(gameManager.CombineProjectile[13]);
-        NewProj.transform.position = CombineBulPos.position;
-        NewProj.transform.rotation = CombineBulPos.rotation;
-        NewProj.transform.localScale *= BulletSizeUp;
-        //Change state according to the weapon
+        Proj.Speed = 0;
+        Proj.Duration = 5f;
+        Proj.Damage = 1000;
+        Proj.Sheild = true;
     }
 
     private void useSkill()

@@ -148,7 +148,7 @@ MonoBehaviour:
     CurrentAmmos: 0
     ClipObj: {fileID: 1766454748759930, guid: e74b0e6acc86e7542b2a19038b4464a6, type: 2}
     AttackAnimationUsed: 
-    ReloadTime: 2
+    ReloadTime: 1
     Duration: 1
     ProjectileSpeed: 26
     IsThrust: 0
@@ -208,7 +208,7 @@ MonoBehaviour:
     CurrentAmmos: 0
     ClipObj: {fileID: 1766454748759930, guid: e74b0e6acc86e7542b2a19038b4464a6, type: 2}
     AttackAnimationUsed: 
-    ReloadTime: 3
+    ReloadTime: 1
     Duration: 0.2
     ProjectileSpeed: 15
     IsThrust: 1
@@ -362,19 +362,16 @@ MonoBehaviour:
   - {fileID: 1052645419911094, guid: dcb05ffbeede6a541beae74126120013, type: 2}
   - {fileID: 1429720330512874, guid: b2d7723cc30d4064392519711cb723c8, type: 2}
   - {fileID: 1185485147950752, guid: 2a0b59373348c5c42a28430419375643, type: 2}
-  - {fileID: 1126541221402610, guid: ed67b28814dbb8f42b2b99c7f5735b47, type: 2}
+  - {fileID: 0}
   - {fileID: 1812672145770356, guid: d99052768fa190d46834471f6cf5f7e2, type: 2}
   - {fileID: 1530939543040866, guid: ce52afbac42e1f84da524ae52a381e7b, type: 2}
-  - {fileID: 1544638171478634, guid: ce24f7c3af3cb124db1df146e0c0d7ac, type: 2}
-  - {fileID: 1510721114285530, guid: 7efbfd8a572d0cd40ad8fa908318a6c4, type: 2}
-  - {fileID: 1501857364730594, guid: 2b3d2c06a74287341b2cd8db84702985, type: 2}
+  - {fileID: 1899085504715622, guid: e34f2f32bc6359a4089fecc8be006325, type: 2}
+  - {fileID: 1471961655910682, guid: c70b2144956daf440a25cde7f712e39a, type: 2}
+  - {fileID: 1159396787669600, guid: 7c5f768e8f251be4d876a942dcea72ae, type: 2}
   - {fileID: 1974920550631064, guid: a7c05b14b35a2844bb679a5628ea42de, type: 2}
   - {fileID: 1522874224976980, guid: 0748fd3736aae1542a9dfadbf447da9a, type: 2}
   - {fileID: 1378971161083444, guid: 8a6797675ec4b8f45ab3602f5389c195, type: 2}
-  - {fileID: 1922771192611398, guid: 07fdc3b00504670479b2492aeb51e847, type: 2}
   - {fileID: 1378971161083444, guid: 8a6797675ec4b8f45ab3602f5389c195, type: 2}
-  - {fileID: 1378971161083444, guid: 8a6797675ec4b8f45ab3602f5389c195, type: 2}
-  - {fileID: 1192729253390894, guid: 74663da6dfd26dc4ba9a462d8ea60bbf, type: 2}
   leftWeaponMenu:
     Weapons:
       Name: 

@@ -4189,7 +4189,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 48386f0d8f5a1de48a9eb83a0dce54f2, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -4948,21 +4948,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icons:
   - {fileID: 21300042, guid: 6a0ed52ad3d5ae84aa2b263f695538b9, type: 3}
-  - {fileID: 21300000, guid: cb8898d36ff74f64f892ca4ace8d5b8b, type: 3}
-  - {fileID: 21300000, guid: 8a20e7d1d6ffa664a81a2e305412d62a, type: 3}
-  - {fileID: 21300000, guid: 72e97871a21b1904caec0032fe0919e3, type: 3}
-  - {fileID: 21300000, guid: 0ad8a8e51736b3845a6c4da30a82a55f, type: 3}
-  - {fileID: 21300000, guid: 8966f99cb49e25042b7371b0b54d091f, type: 3}
-  - {fileID: 21300000, guid: 549e66b761b3b624dad4c9a2821180c8, type: 3}
-  - {fileID: 21300000, guid: d923b2bd7a175f545bc651f9b2a03e8f, type: 3}
-  - {fileID: 21300000, guid: 8c031ea2bf451ea489e0ec595b582500, type: 3}
-  - {fileID: 21300000, guid: cf92ba1efaeda5a428b66e23c6a87be3, type: 3}
-  - {fileID: 21300000, guid: e6f59475040e62b4eaf24e12e318a9eb, type: 3}
-  - {fileID: 21300000, guid: 59c001a64a5be9e47a10abb336ff341d, type: 3}
-  - {fileID: 21300000, guid: 78a41949c3e84004ebe74a43b1de97ee, type: 3}
-  - {fileID: 21300000, guid: 9301f4b297303194b8edc60978cb5ff0, type: 3}
-  - {fileID: 21300000, guid: 89244614140913245b27ec3c66970a91, type: 3}
-  - {fileID: 21300000, guid: 2a96051534fadba42b4154c51280a1b9, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 0d85d218c3fbfd446a1ca90ebd04723e, type: 3}
+  - {fileID: 21300000, guid: 8893cb940590ba74d9dbb610ba2ab819, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &114527052820281232
 MonoBehaviour:
   m_ObjectHideFlags: 1

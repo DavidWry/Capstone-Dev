@@ -24,8 +24,6 @@ namespace AssemblyCSharp
         public float Duration = 1;
         private float LifeTime;
         public float stun = 0;
-        public bool round = false;
-        private float dam = 0;
 
         private Rigidbody RBody;
         private CapsuleCollider Collider;
@@ -42,15 +40,6 @@ namespace AssemblyCSharp
         void FixedUpdate()
         {
             LifeTime += Time.deltaTime;
-            if (round)
-            {
-                dam = 270 * Time.deltaTime;
-                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z + dam);
-                if (NextScene.nowName == "2_1")
-                    RBody.velocity = transform.right * Speed * 20;
-                else
-                    RBody.velocity = transform.right * Speed;
-            }
             if (IsReady)
             {
                 IsReady = false;

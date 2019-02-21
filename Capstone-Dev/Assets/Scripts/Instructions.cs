@@ -29,7 +29,7 @@ public class Instructions : MonoBehaviour {
         if (activate == true)
         {
             color = sprite.color;
-            color.a += (Time.deltaTime / 1.5f);
+            color.a += (Time.deltaTime / 2);
             
             // showTime -= Time.deltaTime;
             sprite.color = color;
@@ -53,7 +53,7 @@ public class Instructions : MonoBehaviour {
         if (hasLeft == true)
         {
             color = sprite.color;
-            color.a -= (Time.deltaTime / 2.5f);
+            color.a -= (Time.deltaTime / 2);
             showTime -= Time.deltaTime;
             sprite.color = color;
         }

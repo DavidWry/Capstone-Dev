@@ -20,10 +20,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LoadingScene.unity
     guid: c60033fdd72cc6a4cb3fc6b0820dc7a8
-  - enabled: 1
-    path: Assets/Scenes/WeaponRoom.unity
-    guid: f2b414b4f26aaad4e8c0be1efccb3293
-  - enabled: 1
-    path: Assets/Scenes/MainRoom.unity
-    guid: 01b702af9e599c34994032e7e9576e27
   m_configObjects: {}
