@@ -23,7 +23,7 @@ public class StompwaveProjectile : MonoBehaviour {
 
         if (scene.name == "2_1")
         {
-           travelDistance = 56f;
+           travelDistance = 90f;
         }
         else
         {

@@ -325,7 +325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bar: {fileID: 114619034465371934}
-  FullTime: 10
+  FullTime: 25
   AddTime: 2
   coefficient: 0.05
 --- !u!114 &114840931782513986
