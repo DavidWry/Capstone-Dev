@@ -37,7 +37,7 @@ public class Shoot_New : MonoBehaviour
     private float CombinedTime;         //How long has been pulled two triggers.
 
     [SerializeField]
-    private float TimeBeforeCombine = 0.5f;    //Don't combine if player is not keeping it.
+    private float TimeBeforeCombine = 2.6f;    //Don't combine if player is not keeping it.
     [SerializeField]
     private float TimePrepareCombine = 1.0f;   //Preparing time.
     [SerializeField]
@@ -204,9 +204,7 @@ public class Shoot_New : MonoBehaviour
             {
                 if (CombinedTime > 0)
                 {
-                    CombinedTime -= Time.deltaTime;
-                    if (CombinedTime < 0)
-                        CombinedTime = 0;
+                    CombinedTime = 0;
                 }
             }
         }
