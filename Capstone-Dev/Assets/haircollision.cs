@@ -20,10 +20,11 @@ public class haircollision : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
+            
         if (other.gameObject.tag == "Player")
         {
-
-            other.gameObject.GetComponent<Player_New>().TakeDamage(20);//should be stay, something*time.deltatime
+                 
+                other.gameObject.GetComponent<Player_New>().TakeDamage(20); 
 
         }
 

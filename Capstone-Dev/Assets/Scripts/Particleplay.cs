@@ -19,13 +19,13 @@ namespace AssemblyCSharp
         void Update()
         {
 
-            print(Player1.GetComponent<Movement_New>().WalkSpeed);
+          
             float distanceabc = Vector3.Distance(Player1.transform.position, gameObject.transform.position);
-
-            if (distanceabc < 20&&!currentactive)
+         
+            if (distanceabc < 45&&!currentactive)
             {
                 currentactive = true;
-                Player1.GetComponent<Movement_New>().WalkSpeed-=40;
+                Player1.GetComponent<Movement_New>().WalkSpeed-=60;
               
             }
             if (currentactive)
@@ -34,18 +34,18 @@ namespace AssemblyCSharp
                 
               
                     Player1.GetComponent<Player_New>().TakeDamage(5.0f*Time.deltaTime);
-             
+              
 
-                if (distanceabc > 20)
+                if (distanceabc > 45)
                 {
                     currentactive = false;
-                    Player1.GetComponent<Movement_New>().WalkSpeed += 40;
+                    Player1.GetComponent<Movement_New>().WalkSpeed += 60;
                 }
             
             else if (this.gameObject.GetComponent<ParticleSystem>().isStopped)
             {
                 p = 0;
-                Player1.GetComponent<Movement_New>().WalkSpeed += 40;
+                Player1.GetComponent<Movement_New>().WalkSpeed += 60;
                 Destroy(this.gameObject);
 
             }

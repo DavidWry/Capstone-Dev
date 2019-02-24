@@ -27,7 +27,7 @@ public class CameraControl : MonoBehaviour {
         Vector3 pos = transform.position;
         if (PlayerPos)
         {
-            Debug.Log(PlayerPos.position.x);
+ 
             if (PlayerPos.position.x > border.x + 190 && PlayerPos.position.x < border2.x - 219)
             {
                 pos.x = PlayerPos.position.x;
@@ -54,6 +54,6 @@ public class CameraControl : MonoBehaviour {
             }
         }
         transform.position = pos;
-        Debug.Log(transform.position.x+"camera");
+  
     }
 }

@@ -22,7 +22,7 @@ namespace AssemblyCSharp
                 Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
                 if (Vector3.Distance(player1.transform.position, gameObject.transform.parent.transform.position) < 75)
                 {
-                    player1.GetComponent<Player>().TakeDamage(15);
+                    player1.GetComponent<Player_New>().TakeDamage(15);
 
 
                 }
@@ -39,7 +39,7 @@ namespace AssemblyCSharp
                 Instantiate(explosion, other.transform.position, Quaternion.identity);
                 Destroy(gameObject.transform.parent.gameObject);
 
-                player1.GetComponent<Player>().TakeDamage(15);
+                player1.GetComponent<Player_New>().TakeDamage(15);
             }
         }
     }

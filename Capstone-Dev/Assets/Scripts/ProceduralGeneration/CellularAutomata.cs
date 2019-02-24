@@ -1096,13 +1096,7 @@ public class CellularAutomata : MonoBehaviour {
 
     void DrawBoss()
     {
-        float xPos = Random.Range(2.5f, cameraControl.border2.x-2.5f);
-        float yPos = Random.Range(2.5f, cameraControl.border2.y-2.5f);
-            
-        
-        GameObject boss = gameManager.GetBoss("FairBoss");
-       
-        Instantiate(boss, new Vector3(xPos, yPos, 0), boss.transform.rotation);
+      
     }
 
 }

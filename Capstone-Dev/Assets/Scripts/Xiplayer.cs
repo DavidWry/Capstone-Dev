@@ -36,7 +36,7 @@ namespace AssemblyCSharp
 
                 newvec = newvec.normalized;
 
-                playerbody.AddForce(newvec * 5.5f * Mathf.Sqrt(2)*30);
+                playerbody.AddForce(newvec * 5.5f * Mathf.Sqrt(2)*120);
 
             }
             if (hitflash)
@@ -80,7 +80,7 @@ namespace AssemblyCSharp
                 {
 
                     player1.GetComponent<Player_New>().TakeDamage(5);
-                    playerbody.AddForce(newvec * xishu);
+                    playerbody.AddForce(newvec * xishu*40);
                     invin = true;
                 }
                 if (other.gameObject.tag == "Projectile")
@@ -100,7 +100,7 @@ namespace AssemblyCSharp
                 {
 
 
-                    playerbody.AddForce(newvec * xishu);
+                    playerbody.AddForce(newvec * xishu*40);
                     invin = true;
                 }
 

@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Fsmandhp : MonoBehaviour {
 
-    public float hp = 100;
+    public float hp = 500;
     public GameObject jiguang;
     public GameObject toufazuo;
     public GameObject toufayou;
@@ -33,24 +33,8 @@ public class Fsmandhp : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-       
-
-
-
-
-
-
-
-
-
-        if (!supposetomove)
-        {
-            
-            DistanceBP = Vector3.Distance(gameObject.transform.parent.transform.position, player.transform.position);
-            DistanceBO = Vector3.Distance(gameObject.transform.parent.transform.position, originalpos);
  
-         
-            if (DistanceBP < range*3 && DistanceBO < range*3&&!notyet)
+         if (!notyet)
             {
                  
                 
@@ -70,7 +54,7 @@ public class Fsmandhp : MonoBehaviour {
                     
                     
 
-                    if (distancebtemp>2) {
+                    if (distancebtemp>20) {
                         gameObject.transform.parent.GetComponent<Rigidbody>().MovePosition(gameObject.transform.parent.transform.position+(nexspot - gameObject.transform.parent.transform.position).normalized*Time.deltaTime*10);
                    
                     }
@@ -89,11 +73,11 @@ public class Fsmandhp : MonoBehaviour {
                     walk = true;
                  
                     nexspot = new Vector3(player.transform.position.x + Random.Range(-40.0f, 40.0f), player.transform.position.y + Random.Range(-40.0f, 40.0f), 0);
-                    while (Vector3.Distance(nexspot,originalpos)>range||nexspot.x>1150||nexspot.y>1150||nexspot.x<50||nexspot.y<50)
+                    while (nexspot.x>990||nexspot.y<280||nexspot.x<200||nexspot.y>590)
                     {
 
                         
-                        nexspot = new Vector3(player.transform.position.x + Random.Range(-400.0f, 400.0f), player.transform.position.y + Random.Range(-400.0f, 400.0f), 0);
+                        nexspot = new Vector3(player.transform.position.x + Random.Range(-100.0f, 100.0f), player.transform.position.y + Random.Range(-100.0f, 100.0f), 0);
                       
                     }
 
@@ -125,29 +109,11 @@ public class Fsmandhp : MonoBehaviour {
             }
 
 
-            else
-            {   
-                anim.SetInteger("stage", -1);
-                if (!notyet)
-                {
-                    notyet = true;
-
-                }
-                if (DistanceBO > 2&&notyet)
-                {
-                    
-                    Vector3 backvec=originalpos - this.transform.parent.transform.position;
-                    backvec = backvec.normalized;
-                    gameObject.transform.parent.GetComponent<Rigidbody>().MovePosition(gameObject.transform.parent.transform.position+backvec);
-
-                }
-                else { notyet = false; }
-
-            }
+        
 
 
 
-        }
+        
         
 
 	}
@@ -169,10 +135,10 @@ public class Fsmandhp : MonoBehaviour {
                     
                     
                     }
-            if (randoma == 1) {
+           else if (randoma == 1) {
                 toufayou.SetActive(true);
             }
-            if (randoma == 2)
+            else if (randoma == 2)
             {
                 toufazuo.SetActive(true);
                 toufayou.SetActive(true);

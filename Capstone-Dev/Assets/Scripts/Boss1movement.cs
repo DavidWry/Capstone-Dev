@@ -18,8 +18,7 @@ public class Boss1movement : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        boss = gameObject;
-        range = gameObject.GetComponent<Fsmandhp>().range;
+       
 
     }
 
