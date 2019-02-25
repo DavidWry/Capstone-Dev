@@ -111,7 +111,7 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
 
         DrawPortal();
      
-        DrawBoss();
+        //DrawBoss();
 
         FinishGeneration();
 
