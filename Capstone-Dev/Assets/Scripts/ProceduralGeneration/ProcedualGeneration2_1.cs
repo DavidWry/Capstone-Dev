@@ -1878,6 +1878,14 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
                                     isClose = true;
                             }
                         }
+                        for (int m = -5; m < 6; m++)
+                        {
+                            for (int n = -5; n < 6; n++)
+                            {
+                                if (cellState[i + m, j + n].state==200)
+                                    isClose = true;
+                            }
+                        }
                         if (!isClose) {
                             landArray[i, j] = -1;
                             cellState[i, j].state = DetermineEnemyType();
@@ -1932,9 +1940,9 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
         bool isCreated = false;
         int xPos = Random.Range(0, levelWidth);
         int yPos = Random.Range(0, levelHeight);
-        for (int i = 0; i < levelWidth; i++)
+        for (int i =4; i < levelWidth-4; i++)
         {
-            for (int j = 0; j < levelHeight; j++)
+            for (int j = 4; j < levelHeight-4; j++)
             {
                 if (cellState[i, j].state == 0)
                 {
@@ -1967,7 +1975,7 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
                         if (!isCreated)
                         {
                             player1 = Instantiate(player1, new Vector3((levelWidth / 2 + m) * tileSize, (levelHeight / 2 + n) * tileSize, 0), transform.rotation);
-
+                            cellState[levelWidth / 2 + m, levelHeight / 2 + n].state = 200;
                             player1.transform.localScale = new Vector3(15.0f, 15.0f, 15.0f);
                             player1.GetComponent<Movement_New>().WalkSpeed = 150;
                             player1.GetComponent<Shoot_New>().BulletSizeUp = 15;
