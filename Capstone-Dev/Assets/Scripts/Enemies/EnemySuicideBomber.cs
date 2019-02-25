@@ -35,17 +35,29 @@ public class EnemySuicideBomber : MonoBehaviour
 
     public Image healthBar;
 
-    //private int thrust;
+    //Patrol
+    private Vector3 moveSpot;
+    private float patrolTime;
+
+    //max movement on the axes;
+    private float minX;
+    private float maxX;
+    private float minY;
+    private float maxY;
+
+    private bool isChasing;
+    private bool canPatrol;
+    private bool reachedPatrolPoint;
+
     private Rigidbody rb;
-
     private bool isStunned;
-
     private CapsuleCollider capsule;
 
     private void Awake()
     {
         scene = SceneManager.GetActiveScene();
         capsule = gameObject.GetComponent<CapsuleCollider>();
+        
 
         if (scene.name == "2_1")
         {
@@ -78,6 +90,7 @@ public class EnemySuicideBomber : MonoBehaviour
 
         rb = gameObject.GetComponent<Rigidbody>();
         isStunned = false;
+       
 
         damage = 5;
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -86,7 +99,17 @@ public class EnemySuicideBomber : MonoBehaviour
         anim = GetComponent<Animator>();
         myRenderer = GetComponent<SpriteRenderer>();
         defaultColor = myRenderer.material.color;
+        
+        patrolTime = 1.5f;
+        canPatrol = true;
+        isChasing = false;
 
+        minX = transform.position.x - 3;
+        maxX = transform.position.x + 3;
+        minY = transform.position.y + 3;
+        maxY = transform.position.y - 3;
+        moveSpot = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY),0);
+        reachedPatrolPoint = false;
     }
 
     void Update()
@@ -96,21 +119,38 @@ public class EnemySuicideBomber : MonoBehaviour
         {
             //face the player
             var scale = transform.localScale;
-
-
             scale.x = Mathf.Abs(scale.x);
 
-            if (target.position.x < transform.position.x)
+            if (canPatrol == false)      //face the new waypoint you are headed
             {
-                scale.x *= -1;
-                healthBar.GetComponent<Image>().fillOrigin = (int)Image.OriginHorizontal.Right;
+               
+                if (moveSpot.x < transform.position.x)
+                {
+                    scale.x *= -1;
+                    healthBar.GetComponent<Image>().fillOrigin = (int)Image.OriginHorizontal.Right;
 
+                }
+                else
+                {
+                    healthBar.GetComponent<Image>().fillOrigin = (int)Image.OriginHorizontal.Left;
+                }
+                transform.localScale = scale;
             }
             else
             {
-                healthBar.GetComponent<Image>().fillOrigin = (int)Image.OriginHorizontal.Left;
+                if (moveSpot.x < transform.position.x)
+                {
+                    scale.x *= -1;
+                    healthBar.GetComponent<Image>().fillOrigin = (int)Image.OriginHorizontal.Right;
+                }
+                else
+                {
+                    healthBar.GetComponent<Image>().fillOrigin = (int)Image.OriginHorizontal.Left;
+                }
+                transform.localScale = scale;
             }
-            transform.localScale = scale;
+            
+
 
             if (!isStunned)
             {
@@ -121,14 +161,33 @@ public class EnemySuicideBomber : MonoBehaviour
                 {
                     //move enemy to the player's position
                     anim.SetBool("isRunning", true);
+
                     transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
                     myRenderer.material.color = Color.Lerp(startColor, endColor, distanceForColor / rangeForAttack);
-
+                    isChasing = true;
+                    //  canPatrol = false;
+                     reachedPatrolPoint = true;
                 }
                 else
                 {
-                    anim.SetBool("isRunning", false);
-                    myRenderer.material.color = defaultColor;
+                    
+                    if (canPatrol == true)
+                    {
+                    
+                        transform.position = Vector3.MoveTowards(transform.position, moveSpot, speed * Time.deltaTime);
+                        // moveSpot = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY),0);
+
+                        anim.SetBool("isRunning", true);
+                        myRenderer.material.color = defaultColor;
+                        reachedPatrolPoint = false;
+                       
+                    }
+                    else
+                    {
+                        anim.SetBool("isRunning", false);
+                        isChasing = false;
+                    }
+
                 }
             }
 
@@ -150,6 +209,25 @@ public class EnemySuicideBomber : MonoBehaviour
                 Destroy(gameObject);
             }
 
+         
+            if (Vector2.Distance(transform.position, moveSpot) <= 0.1f)
+            {
+                reachedPatrolPoint = true;
+               
+            }
+
+            if (reachedPatrolPoint == true)
+            {
+                canPatrol = false;
+                patrolTime -= Time.deltaTime;
+            }
+
+            if (patrolTime < 0f)
+            {
+                canPatrol = true;
+                patrolTime = 1.5f;
+                moveSpot = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), 0);
+            }
         }
 
 
@@ -160,24 +238,25 @@ public class EnemySuicideBomber : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
 
-
             GameObject expl = Instantiate(explosion, transform.position, Quaternion.identity) as GameObject;
             Destroy(gameObject);
             other.gameObject.GetComponent<Player_New>().TakeDamage(damage);
             Destroy(expl, 3);
 
         }
-        /*
+        
         if( (other.gameObject.tag == "Minion") || (other.gameObject.tag == "Obstacle"))
         {
-            isStunned = true;
-            rb.velocity = Vector3.zero;
-            anim.SetBool("isRunning", false);
-            StartCoroutine(WaitAfterStun(3f));
-            myRenderer.material.color = defaultColor;
-            
-
-        }*/
+            /* isStunned = true;
+             rb.velocity = Vector3.zero;
+             anim.SetBool("isRunning", false);
+             StartCoroutine(WaitAfterStun(3f));
+             myRenderer.material.color = defaultColor;
+             */
+            canPatrol = false;  
+            patrolTime = 1.5f;
+            reachedPatrolPoint = true;
+        }
     }
 
 
