@@ -7,10 +7,9 @@ using AssemblyCSharp;
 public class ProcedualGeneration2_2 : MonoBehaviour {
 
     private GameManager gameManager;
-    //public int levelWidth=64;
-    //public int levelHeight=48;
-    public int levelWidth=16;
-    public int levelHeight=12;
+    public int levelWidth=64;
+    public int levelHeight=48;
+
     private float tileSize;
     private int[,] landArray;
     private int[,] newLandArray;
@@ -24,9 +23,8 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
     public GameObject theCanvas;
     //public GameObject textManager;
     private CameraControl cameraControl;
-
-    //private int MIN_TILES=750;
-    private int MIN_TILES = 120;
+    private int MIN_TILES=750;
+ 
     private int tilesPlaced;
 	private int tilesToProcess;
 	private int adjacentCells;
@@ -41,17 +39,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
         NextScene.nowName = "2_1";
         cameraControl = GameObject.Find("CameraFollowing").GetComponent<CameraControl>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        /*
-        levelWidth=(int)Random.Range(40, 60);
-        if (levelWidth % 2 == 1) {
-            levelWidth++;
-        }
-        levelHeight = (int)Random.Range(40, 60);
-        if (levelHeight % 2 == 1)
-        {
-            levelHeight++;
-        }
-        */
+
         tileSize = 24;
 
         cameraControl.border2 = new Vector2((float)(levelWidth+1) * tileSize, (float)(levelHeight+1) * tileSize);
@@ -82,17 +70,11 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
         //initial terrain
         Terrain();
         Draw();
-        //AddWalls();
-        //generate up to 2 level platforms
-        //for (int i = 0; i < 3; i++)
-        //{
-        //}
-        //Generate(0);
-            
-        //ChangeEdge();
+        //AddWalls();          
+        ChangeEdge();
         for(int i=0;i<10;i++)
         {
-           //DrawEdge();
+           DrawEdge();
         }
         
         
@@ -140,23 +122,19 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
         tilesPlaced=1;
 		startX=Mathf.RoundToInt(levelWidth/2);
 		startY=Mathf.RoundToInt(levelHeight/2);
-		//while (tilesPlaced<MIN_TILES) {
-            for (int i = 0; i < 120; i++)
+		while (tilesPlaced<MIN_TILES) {  
+            tilesToProcess = 1;
+            DrawCave();
+            do
             {
-                tilesToProcess = 1;
-                //DrawCave();
-                do
-                {
-                    startX = Mathf.FloorToInt(Random.value * (levelWidth - 1));
-                    startY = Mathf.FloorToInt(Random.value * (levelHeight - 1));
-                } while (!HasFreeAdjacents());
-            }
-		//}
+                startX = Mathf.FloorToInt(Random.value * (levelWidth - 1));
+                startY = Mathf.FloorToInt(Random.value * (levelHeight - 1));
+            } while (!HasFreeAdjacents());  
+		}
 	}
     void DrawCave(){
         //drawTile(startX, startY);
-        GameObject tile29 = gameManager.GetTile2("Tile_29");
-        Instantiate(tile29, new Vector3(startX * tileSize, startY * tileSize, 0), transform.rotation);
+
         landArray[startX, startY] = 1;
         ArrayList xCoordsArray = new ArrayList
         {
@@ -189,7 +167,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
 						yCoordsArray.Add(adjacentY);
 						tilesPlaced++;
                         //DrawTile(adjacentX, adjacentY);
-                        Instantiate(tile29, new Vector3(adjacentX * tileSize, adjacentY * tileSize, 0), transform.rotation);
+                        
                         landArray[adjacentX, adjacentY] = 1;
                         //Debug.Log(landArray[adjacentX, adjacentY]);
                         tilesToProcess++;
@@ -217,6 +195,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
             int temp = startArray[i];
             int randomIndex = Random.Range(0, startArray.Length);
             startArray[i] = startArray[randomIndex];
+            startArray[randomIndex] = temp;
         }
 		return startArray;
 	}
@@ -500,12 +479,12 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
 
         GameObject tile0 = gameManager.GetTile2("Tile_0");
         GameObject tile10 = gameManager.GetTile2("Tile_10");
-        GameObject tile29 = gameManager.GetTile2("Tile_29");
+       
         for (int i = 0; i < levelWidth; i++)
         {
             for (int j = 0; j < levelHeight; j++)
             {
-                /*
+                
                 if (i % 2==0 && j % 2==0)
                 {
                     Instantiate(tile0, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
@@ -517,16 +496,12 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                         cellState[i + 1, j + 1].state = 0;
                     }
                 }
-                */
+                
                 if (landArray[i, j] == 0)
                 {
                     Instantiate(tile10, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
                 }
-                else {
-                    //Debug.Log("1");
-                   
-                    Instantiate(tile29, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
-                }
+
             }
         }
   
@@ -564,61 +539,61 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
         {
             for (int j = 0; j < levelHeight; j++)
             {
-                if (landArray[i, j] == 1)
+                if (landArray[i, j] == 0)
                 {
                     if (i < levelWidth - 1 && i > 0
                    && j < levelHeight - 1 && j > 0
-                   && landArray[i, j + 1] == 1 && landArray[i, j] == 1
-                   && landArray[i, j - 1] == 0 && landArray[i - 1, j - 1] == 0 && landArray[i + 1, j - 1] == 0)
+                   && landArray[i, j + 1] == 0 && landArray[i, j] == 0
+                   && landArray[i, j - 1] == 1 && landArray[i - 1, j - 1] == 1 && landArray[i + 1, j - 1] == 1)
                     {
                         edgeArray[i, j] = 1;//下底边
                     }
                     else if (i < levelWidth - 1 && i > 0
                     && j < levelHeight && j > 0
-                    && landArray[i, j - 1] == 0 && landArray[i + 1, j - 1] == 1
-                    && landArray[i - 1, j - 1] == 0 && landArray[i, j] == 1)
+                    && landArray[i, j - 1] == 1 && landArray[i + 1, j - 1] == 0
+                    && landArray[i - 1, j - 1] == 1 && landArray[i, j] == 0)
                     {
                         edgeArray[i, j] = 3;//左下角
                     }
                     else if (i < levelWidth - 1 && i > 0
                     && j < levelHeight && j > 0
-                    && landArray[i, j - 1] == 0 && landArray[i - 1, j - 1] == 1
-                    && landArray[i + 1, j - 1] == 0 && landArray[i, j] == 1)
+                    && landArray[i, j - 1] == 1 && landArray[i - 1, j - 1] == 0
+                    && landArray[i + 1, j - 1] == 1 && landArray[i, j] == 0)
                     {
                         edgeArray[i, j] = 2;//右下角
                     }
                     else if (i < levelWidth - 1 && i > 0
                    && j < levelHeight - 1 && j > 0
-                   && landArray[i, j - 1] == 1 && landArray[i, j] == 1
-                   && landArray[i, j + 1] == 0 && landArray[i - 1, j + 1] == 0 && landArray[i + 1, j + 1] == 0)
+                   && landArray[i, j - 1] == 0 && landArray[i, j] == 0
+                   && landArray[i, j + 1] == 1 && landArray[i - 1, j + 1] == 1 && landArray[i + 1, j + 1] == 1)
                     {
                         edgeArray[i, j] = 7;//上底边
                     }
                     else if (i < levelWidth - 1 && i > 0
                     && j < levelHeight - 1 && j > -1
-                    && landArray[i, j + 1] == 0 && landArray[i + 1, j + 1] == 1
-                    && landArray[i - 1, j + 1] == 0 && landArray[i, j] == 1)
+                    && landArray[i, j + 1] == 1 && landArray[i + 1, j + 1] == 0
+                    && landArray[i - 1, j + 1] == 1 && landArray[i, j] == 0)
                     {
                         edgeArray[i, j] = 8;//左上角
                     }
                     else if (i < levelWidth - 1 && i > 0
                     && j < levelHeight - 1 && j > -1
-                    && landArray[i, j + 1] == 0 && landArray[i - 1, j + 1] == 1
-                    && landArray[i + 1, j + 1] == 0 && landArray[i, j] == 1)
+                    && landArray[i, j + 1] == 1 && landArray[i - 1, j + 1] == 0
+                    && landArray[i + 1, j + 1] == 1 && landArray[i, j] == 0)
                     {
                         edgeArray[i, j] = 6;//右上角
                     }
                     else if (i < levelWidth - 1 && i > 0
                     && j < levelHeight - 1 && j > 0
-                    && (landArray[i, j + 1] == 1 || landArray[i, j - 1] == 1 )&& landArray[i - 1, j] == 0
-                    && landArray[i + 1, j] == 1 && landArray[i, j] == 1)
+                    && (landArray[i, j + 1] == 0 || landArray[i, j - 1] == 0 )&& landArray[i - 1, j] == 1
+                    && landArray[i + 1, j] == 0 && landArray[i, j] == 0)
                     {
                         edgeArray[i, j] = 4;//左边
                     }
                     else if (i < levelWidth - 1 && i > 0
                     && j < levelHeight - 1 && j > 0
-                    && (landArray[i, j + 1] == 1 || landArray[i, j - 1] == 1) && landArray[i + 1, j] == 0
-                    && landArray[i - 1, j] == 1 && landArray[i, j] == 1)
+                    && (landArray[i, j + 1] == 0 || landArray[i, j - 1] == 0) && landArray[i + 1, j] == 1
+                    && landArray[i - 1, j] == 0 && landArray[i, j] == 0)
                     {
                         edgeArray[i, j] = 5;//右边
                     }
