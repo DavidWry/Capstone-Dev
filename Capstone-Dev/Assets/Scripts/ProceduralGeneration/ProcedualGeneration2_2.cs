@@ -7,8 +7,10 @@ using AssemblyCSharp;
 public class ProcedualGeneration2_2 : MonoBehaviour {
 
     private GameManager gameManager;
-    public int levelWidth=64;
-    public int levelHeight=48;
+    //public int levelWidth=64;
+    //public int levelHeight=48;
+    public int levelWidth=16;
+    public int levelHeight=12;
     private float tileSize;
     private int[,] landArray;
     private int[,] newLandArray;
@@ -23,8 +25,9 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
     //public GameObject textManager;
     private CameraControl cameraControl;
 
-    private int MIN_TILES=750;
-	private int tilesPlaced;
+    //private int MIN_TILES=750;
+    private int MIN_TILES = 120;
+    private int tilesPlaced;
 	private int tilesToProcess;
 	private int adjacentCells;
 	private int startX;
@@ -137,14 +140,18 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
         tilesPlaced=1;
 		startX=Mathf.RoundToInt(levelWidth/2);
 		startY=Mathf.RoundToInt(levelHeight/2);
-		while (tilesPlaced<MIN_TILES) {
-		    tilesToProcess=1;
-			DrawCave();
-			do {
-			    startX=Mathf.FloorToInt(Random.value * (levelWidth-1));
-                startY=Mathf.FloorToInt(Random.value * (levelHeight-1));
-            } while (!HasFreeAdjacents());
-		}
+		//while (tilesPlaced<MIN_TILES) {
+            for (int i = 0; i < 120; i++)
+            {
+                tilesToProcess = 1;
+                //DrawCave();
+                do
+                {
+                    startX = Mathf.FloorToInt(Random.value * (levelWidth - 1));
+                    startY = Mathf.FloorToInt(Random.value * (levelHeight - 1));
+                } while (!HasFreeAdjacents());
+            }
+		//}
 	}
     void DrawCave(){
         //drawTile(startX, startY);
@@ -184,7 +191,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                         //DrawTile(adjacentX, adjacentY);
                         Instantiate(tile29, new Vector3(adjacentX * tileSize, adjacentY * tileSize, 0), transform.rotation);
                         landArray[adjacentX, adjacentY] = 1;
-                        Debug.Log(landArray[adjacentX, adjacentY]);
+                        //Debug.Log(landArray[adjacentX, adjacentY]);
                         tilesToProcess++;
 						adjacentCells--;
 						if (adjacentCells==0) {
@@ -220,13 +227,13 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
 			if (startY+1<levelHeight && landArray[startX, startY+1] == 0) {
 				return true;
 			}
-			if (startY - 1 > 0 && landArray[startX, startY-1] == 0) {
+			if (startY - 1 >= 0 && landArray[startX, startY-1] == 0) {
 				return true;
 			}
 			if (startX + 1 < levelWidth && landArray[startX + 1,startY]==0) {
 				return true;
 			}
-			if (startX - 1 > 0 && landArray[startX - 1,startY]==0) {
+			if (startX - 1 >= 0 && landArray[startX - 1,startY]==0) {
 				return true;
 			}
 			return false;
