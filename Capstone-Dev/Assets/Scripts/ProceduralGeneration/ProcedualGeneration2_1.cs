@@ -1862,9 +1862,9 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
 
             }
         }
-        for (int i = 2; i < levelWidth-2; i++)
+        for (int i = 5; i < levelWidth-5; i++)
         {
-            for (int j = 2; j< levelHeight-2; j++)
+            for (int j = 5; j< levelHeight-5; j++)
             {
                 if (landArray[i, j] == 0)
                 {
