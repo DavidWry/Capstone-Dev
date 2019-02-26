@@ -121,10 +121,10 @@ public class EnemySuicideBomber : MonoBehaviour
             var scale = transform.localScale;
             scale.x = Mathf.Abs(scale.x);
 
-            if (canPatrol == false)      //face the new waypoint you are headed
+            if (isChasing == true)      //face the new waypoint you are headed
             {
                
-                if (moveSpot.x < transform.position.x)
+                if (target.position.x < transform.position.x)
                 {
                     scale.x *= -1;
                     healthBar.GetComponent<Image>().fillOrigin = (int)Image.OriginHorizontal.Right;
@@ -180,6 +180,7 @@ public class EnemySuicideBomber : MonoBehaviour
                         anim.SetBool("isRunning", true);
                         myRenderer.material.color = defaultColor;
                         reachedPatrolPoint = false;
+                        isChasing = false;
                        
                     }
                     else

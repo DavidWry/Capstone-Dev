@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using AssemblyCSharp;
 using UnityEngine.SceneManagement;
 
+
 public class EnemySlider : MonoBehaviour
 {
     private Rigidbody rb;
@@ -36,6 +37,8 @@ public class EnemySlider : MonoBehaviour
 
     private CapsuleCollider capsule;
     private bool isStunned;
+
+    public CamerShake cameraShake; 
 
     // public AnimationClip death;
 
@@ -123,6 +126,8 @@ public class EnemySlider : MonoBehaviour
                     rb.velocity = dir;
                     canDash = false;
                     hasReached = false;
+                    StartCoroutine(cameraShake.Shake(.15f, 0.005f));
+
                 }
 
                 //has the enemy reached the target position

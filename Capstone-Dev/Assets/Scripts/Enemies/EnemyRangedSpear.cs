@@ -37,6 +37,8 @@ public class EnemyRangedSpear : MonoBehaviour
 
     private CapsuleCollider capsule;
     private float addTime;
+
+    
     private void Awake()
     {
 
