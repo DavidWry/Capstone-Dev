@@ -75,20 +75,21 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
         landRatio = 0.5f;
         treeRatio = 0.5f;
         iteration = 8;
-  
+
         //initial terrain
+        Terrain();
         Draw();
-        AddWalls();
+        //AddWalls();
         //generate up to 2 level platforms
         //for (int i = 0; i < 3; i++)
         //{
         //}
-        Generate(0);
+        //Generate(0);
             
-        ChangeEdge();
+        //ChangeEdge();
         for(int i=0;i<10;i++)
         {
-            DrawEdge();
+           //DrawEdge();
         }
         
         
@@ -127,7 +128,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
         */
     }
 
-    void terrain()
+    void Terrain()
     {
         GenerateCave();
     }
@@ -140,13 +141,15 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
 		    tilesToProcess=1;
 			DrawCave();
 			do {
-			    startX=Mathf.FloorToInt(Random.value * levelWidth);
-                startY=Mathf.FloorToInt(Random.value * levelHeight);
+			    startX=Mathf.FloorToInt(Random.value * (levelWidth-1));
+                startY=Mathf.FloorToInt(Random.value * (levelHeight-1));
             } while (!HasFreeAdjacents());
 		}
 	}
     void DrawCave(){
         //drawTile(startX, startY);
+        GameObject tile29 = gameManager.GetTile2("Tile_29");
+        Instantiate(tile29, new Vector3(startX * tileSize, startY * tileSize, 0), transform.rotation);
         landArray[startX, startY] = 1;
         ArrayList xCoordsArray = new ArrayList
         {
@@ -179,7 +182,9 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
 						yCoordsArray.Add(adjacentY);
 						tilesPlaced++;
                         //DrawTile(adjacentX, adjacentY);
-                        landArray[startX, startY] = 1;
+                        Instantiate(tile29, new Vector3(adjacentX * tileSize, adjacentY * tileSize, 0), transform.rotation);
+                        landArray[adjacentX, adjacentY] = 1;
+                        Debug.Log(landArray[adjacentX, adjacentY]);
                         tilesToProcess++;
 						adjacentCells--;
 						if (adjacentCells==0) {
@@ -487,11 +492,13 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
     void Draw() {
 
         GameObject tile0 = gameManager.GetTile2("Tile_0");
-
+        GameObject tile10 = gameManager.GetTile2("Tile_10");
+        GameObject tile29 = gameManager.GetTile2("Tile_29");
         for (int i = 0; i < levelWidth; i++)
         {
             for (int j = 0; j < levelHeight; j++)
             {
+                /*
                 if (i % 2==0 && j % 2==0)
                 {
                     Instantiate(tile0, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
@@ -503,7 +510,16 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                         cellState[i + 1, j + 1].state = 0;
                     }
                 }
-
+                */
+                if (landArray[i, j] == 0)
+                {
+                    Instantiate(tile10, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                }
+                else {
+                    //Debug.Log("1");
+                   
+                    Instantiate(tile29, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                }
             }
         }
   
