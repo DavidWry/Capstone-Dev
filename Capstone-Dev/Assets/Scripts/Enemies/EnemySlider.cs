@@ -126,7 +126,7 @@ public class EnemySlider : MonoBehaviour
                     rb.velocity = dir;
                     canDash = false;
                     hasReached = false;
-                    StartCoroutine(cameraShake.Shake(.15f, 0.005f));
+                    StartCoroutine(cameraShake.Shake(0.2f, 0.15f));
 
                 }
 

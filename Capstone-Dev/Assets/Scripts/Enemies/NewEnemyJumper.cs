@@ -46,6 +46,9 @@ public class NewEnemyJumper : MonoBehaviour
 
     private CapsuleCollider capsule;
 
+    private float ratio;
+
+
     // public AnimationClip death;
 
     private void Awake()
@@ -201,7 +204,7 @@ public class NewEnemyJumper : MonoBehaviour
                 if ((Vector3.Distance(startPos, targetPos) <= rangeForAttack) && (canJump == true))
                 {
                     //targetPos = new Vector3(player.position.x, player.position.y, player.position.z);
-
+                    ratio = Vector3.Distance(startPos, targetPos) / rangeForAttack;
                     anim.SetBool("isJumping", true);
 
                     if (hasInstantiatedLanding == false)
@@ -213,7 +216,7 @@ public class NewEnemyJumper : MonoBehaviour
                     float x0 = startPos.x;
                     float x1 = targetPos.x;
                     float dist = x1 - x0;
-                    float nextX = Mathf.MoveTowards(transform.position.x, x1, speed * Time.deltaTime);
+                    float nextX = Mathf.MoveTowards(transform.position.x, x1, speed *ratio * Time.deltaTime);
                     float baseY = Mathf.Lerp(startPos.y, targetPos.y, (nextX - x0) / dist);
                     float baseZ = Mathf.Lerp(startPos.z, targetPos.z, (nextX - x0) / dist);
                     float arc = arcHeight * (nextX - x0) * (nextX - x1) / (-0.25f * dist * dist);
