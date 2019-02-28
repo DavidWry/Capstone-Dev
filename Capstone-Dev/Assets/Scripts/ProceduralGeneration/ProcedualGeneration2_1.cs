@@ -177,22 +177,23 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
 
     int DetermineEnemyType() {
         int enemyNum = 0;
-        if (Random.value < 0.15f)
+        float ratio = Random.value;
+        if (ratio < 0.15f)
         {
             enemyNum = 100;//jumper
         }
-        else if (Random.value < 0.3f) {
+        else if (ratio < 0.3f) {
             enemyNum = 101;//slider
         }
-        else if (Random.value < 0.5f)
+        else if (ratio < 0.5f)
         {
             enemyNum = 102;//spearThrower
         }
-        else if (Random.value < 0.7f)
+        else if (ratio < 0.7f)
         {
             enemyNum = 103;//stomper
         }
-        else if (Random.value < 1.0f)
+        else if (ratio < 1.0f)
         {
             enemyNum = 104;//suicider
         }
