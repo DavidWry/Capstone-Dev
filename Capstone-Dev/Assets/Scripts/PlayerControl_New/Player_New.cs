@@ -33,6 +33,7 @@ namespace AssemblyCSharp
         public SpriteCollection SpriteCollection;
         public Character Character;
         public FirearmCollection firearmCollection;
+        public GameObject FailUI;
 
         public Sprite BackPack;
         public SpriteRenderer Back;
@@ -55,13 +56,17 @@ namespace AssemblyCSharp
         }
 
         private void Update()
-        {
- 
-
+        { 
             if (HitPoint <= 0)
             {
                 Destroy(gameObject);
+                Instantiate(FailUI);
                 Debug.Log("Dead");
+            }
+            else
+            {
+                if (HitPoint > 100)
+                    HitPoint = 100;
             }
             if (Power > 100)
             {

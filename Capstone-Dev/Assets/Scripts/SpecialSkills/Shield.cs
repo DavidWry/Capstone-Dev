@@ -80,5 +80,9 @@ public class Shield : MonoBehaviour {
         {
             collision.GetComponent<Fsmandhp>().takedamage(Damage);
         }
+        else if (collision.gameObject.tag == "EnemyProjectile")
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }

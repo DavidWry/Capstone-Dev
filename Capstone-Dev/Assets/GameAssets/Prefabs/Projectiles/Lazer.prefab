@@ -67,6 +67,8 @@ MonoBehaviour:
   Impact: {fileID: 0}
   GameManage: {fileID: 0}
   Duration: 1
+  stun: 0
+  round: 0
   LazerHit: {fileID: 0}
   IsReloading: 0
   LazeDuration: 5
@@ -107,7 +109,7 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
+  - {x: 0, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 1
@@ -115,8 +117,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.004989624
-        value: 0.79999924
+        time: 0
+        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0

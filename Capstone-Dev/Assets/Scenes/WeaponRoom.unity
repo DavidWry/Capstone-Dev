@@ -1793,15 +1793,12 @@ Prefab:
       propertyPath: m_Name
       value: New_character
       objectReference: {fileID: 0}
-    - target: {fileID: 114412990771979018, guid: c2e5f753fcf49c64d87884c1108debe8,
+    - target: {fileID: 114039260084271232, guid: c2e5f753fcf49c64d87884c1108debe8,
         type: 2}
-      propertyPath: GoldenFinger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1368066934807222, guid: c2e5f753fcf49c64d87884c1108debe8, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: FailUI
+      value: 
+      objectReference: {fileID: 1742270095628166, guid: b0aa292185d20764fbf3e28ff2f6c59f,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2e5f753fcf49c64d87884c1108debe8, type: 2}
   m_IsPrefabAsset: 0
@@ -38878,6 +38875,10 @@ Prefab:
         type: 2}
       propertyPath: GoldenFinger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1368066934807222, guid: c2e5f753fcf49c64d87884c1108debe8, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2e5f753fcf49c64d87884c1108debe8, type: 2}

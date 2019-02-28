@@ -450,6 +450,7 @@ public class Shoot_New : MonoBehaviour
                     Laz.LazeDuration = player.leftWeapon.Duration;
                     Laz.Damage = player.leftWeapon.Damage;
                     Laz.transform.localScale = BulletSizeUp * Laz.transform.localScale;
+                    NewLazer.GetComponent<LineRenderer>().widthMultiplier = BulletSizeUp;
 
                     LeftLazer = Laz;
                 }
@@ -554,6 +555,7 @@ public class Shoot_New : MonoBehaviour
                     Laz.LazeDuration = player.rightWeapon.Duration;
                     Laz.Damage = player.rightWeapon.Damage;
                     Laz.transform.localScale = BulletSizeUp * Laz.transform.localScale;
+                    NewLazer.GetComponent<LineRenderer>().widthMultiplier = BulletSizeUp;
 
                     RightLazer = Laz;
                 }
