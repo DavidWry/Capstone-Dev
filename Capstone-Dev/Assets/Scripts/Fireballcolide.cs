@@ -38,7 +38,7 @@ namespace AssemblyCSharp
 
                 Instantiate(explosion, other.transform.position, Quaternion.identity);
                 Destroy(gameObject.transform.parent.gameObject);
-
+                 
                 player1.GetComponent<Player_New>().TakeDamage(15);
             }
         }

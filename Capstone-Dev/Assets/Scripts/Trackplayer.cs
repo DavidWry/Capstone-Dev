@@ -36,7 +36,7 @@ public class Trackplayer : MonoBehaviour {
             }
             else
             {
-                m_speed += 15 * Time.deltaTime;
+                m_speed += 45 * Time.deltaTime;
                 transform.forward = Vector3.Slerp(transform.forward, target, 1).normalized;
             }
            
