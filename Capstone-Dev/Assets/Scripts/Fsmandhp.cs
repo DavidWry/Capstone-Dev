@@ -35,7 +35,7 @@ public class Fsmandhp : MonoBehaviour {
 	void Update () {
         if (hp <= 0)
         {
-            Destroy(gameObject.transform.parent);
+            Destroy(gameObject.transform.parent.gameObject);
         }
          if (!notyet)
             {
