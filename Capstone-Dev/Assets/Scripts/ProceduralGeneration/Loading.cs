@@ -20,7 +20,11 @@ public class Loading : MonoBehaviour
   
     AsyncOperation async;
 
-   
+    public GameObject BG2_1;
+    public GameObject BGFirstLevel;
+    public GameObject BG2_3;
+    public GameObject BGMainRoom;
+
     int progress = 0;
 
     void Start()
@@ -37,6 +41,23 @@ public class Loading : MonoBehaviour
             alignment = TextAnchor.MiddleCenter,
             
         };
+
+        if (NextScene.loadName == "First Level")
+        {
+            BGFirstLevel.SetActive(true);
+        }
+        else if (NextScene.loadName == "2_1")
+        {
+            BG2_1.SetActive(true);
+        }
+        else if (NextScene.loadName == "2_3")
+        {
+            BG2_3.SetActive(true);
+        }
+        else if (NextScene.loadName == "MainRoom")
+        {
+            BGMainRoom.SetActive(true);
+        }
 
     }
 
@@ -90,10 +111,25 @@ public class Loading : MonoBehaviour
             progress = (int)((5 - waitTime) / 5 * 100 / 100 * 99);
             
         }
-        myText.text = "LOADING......"+progress;
+        if (NextScene.loadName == "First Level") {
+            myText.text = "Heading to the Tutorial Level..." + progress;
+        }
+        else if (NextScene.loadName == "2_1")
+        {
+            myText.text = "Welcome to Mercury..." + progress;
+        }
+        else if (NextScene.loadName == "2_3")
+        {
+            myText.text = "Get ready for the battle..." + progress;
+        }
+        else if (NextScene.loadName == "MainRoom")
+        {
+            myText.text = "Heading to the Headquarters..." + progress;
+        }
+
         //Debug.Log("xuanyusong" + progress);
     }
-    
+    /*
     void DrawAnimation(Texture2D[] tex)
     {
 
@@ -117,4 +153,5 @@ public class Loading : MonoBehaviour
         GUI.Label(new Rect(700, 800, 300, 100),"<color=FFFFFFFF>" + "LOADING......" + progress+ "</color>", labelStyle);
 
     }
+    */
 }

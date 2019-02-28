@@ -34,7 +34,11 @@ public class Chest : MonoBehaviour {
                 if (itemObj.transform.localScale.x == 2) {//is gun
                     itemObj.transform.localScale = new Vector3(30, 30, 30);
                 }
-                else
+                else if (itemObj.transform.localScale.x == 25)
+                {
+                    itemObj.transform.localScale = new Vector3(25, 25, 25);
+                }
+                else//crystal
                     itemObj.transform.localScale = new Vector3(60, 60, 60);
             }
             

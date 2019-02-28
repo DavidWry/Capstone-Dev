@@ -333,6 +333,16 @@ MonoBehaviour:
     WeaponName: 4
     itemObj: {fileID: 1095468374369076, guid: 80deb0b7296f24c41b68055399e8982a, type: 2}
     Probability: 100
+  - Name: LargeHealing
+    ItemName: 9
+    ItemIcon: {fileID: 21300000, guid: 6dbf1c3f496553b4aa368aba128a02da, type: 3}
+    GiveWeapon: 0
+    Usable: 0
+    DamageType: 0
+    AmmoType: 0
+    WeaponName: 0
+    itemObj: {fileID: 1324665960220418, guid: 9b28b6aa9d2b34943b951286f9b4aee2, type: 2}
+    Probability: 500
   sceneName: 2_1
 --- !u!114 &114908523893588844
 MonoBehaviour:

@@ -5902,6 +5902,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114386589368478372, guid: babca655dd8db00428ac6738dc7f3c0e,
+        type: 2}
+      propertyPath: nextSceneName
+      value: MainRoom
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: babca655dd8db00428ac6738dc7f3c0e, type: 2}
   m_IsPrefabAsset: 0

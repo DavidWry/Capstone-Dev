@@ -33,7 +33,10 @@ public class Fsmandhp : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
- 
+        if (hp <= 0)
+        {
+            Destroy(gameObject.transform.parent);
+        }
          if (!notyet)
             {
                  
@@ -77,7 +80,7 @@ public class Fsmandhp : MonoBehaviour {
                     {
 
                         
-                        nexspot = new Vector3(player.transform.position.x + Random.Range(-100.0f, 100.0f), player.transform.position.y + Random.Range(-100.0f, 100.0f), 0);
+                        nexspot = new Vector3(player.transform.position.x + Random.Range(-200.0f, 200.0f), player.transform.position.y + Random.Range(-200.0f, 200.0f), 0);
                       
                     }
 
