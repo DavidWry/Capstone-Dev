@@ -24,6 +24,7 @@ public class Loading : MonoBehaviour
     public GameObject BGFirstLevel;
     public GameObject BG2_3;
     public GameObject BGMainRoom;
+    public GameObject BGWeaponRoom;
 
     int progress = 0;
 
@@ -57,6 +58,10 @@ public class Loading : MonoBehaviour
         else if (NextScene.loadName == "MainRoom")
         {
             BGMainRoom.SetActive(true);
+        }
+        else if (NextScene.loadName == "WeaponRoom")
+        {
+            BGWeaponRoom.SetActive(true);
         }
 
     }
@@ -125,6 +130,10 @@ public class Loading : MonoBehaviour
         else if (NextScene.loadName == "MainRoom")
         {
             myText.text = "Heading to the Headquarters..." + progress;
+        }
+        else if (NextScene.loadName == "WeaponRoom")
+        {
+            myText.text = "Welcome to the Training grounds..." + progress;
         }
 
         //Debug.Log("xuanyusong" + progress);
