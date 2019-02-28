@@ -5,10 +5,8 @@ using UnityEngine.UI;
 
 public class ParallaxEffect : MonoBehaviour {
 
-    public GameObject front_1;
-    public GameObject front_2;
-    public GameObject back_1;
-    public GameObject back_2;
+    public GameObject front;
+    public GameObject back;
 
     private float speedBack;
     private float speedFront;
@@ -18,18 +16,30 @@ public class ParallaxEffect : MonoBehaviour {
         speedBack = 0.2f;
         speedFront = 1.5f;
 
-
-        //back_1.transform.position.y += 2;
-        //back_2.transform.position.y += 2;
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        back_1.transform.position += new Vector3(0, Time.deltaTime * speedBack, 0);
-        back_2.transform.position += new Vector3(0, Time.deltaTime * speedBack, 0);
+        //move in respective directions
+        front.transform.position -= new Vector3(0, Time.deltaTime * speedFront, 0);
+        back.transform.position += new Vector3(0, Time.deltaTime * speedBack, 0);
 
-        front_1.transform.position -= new Vector3(0, Time.deltaTime * speedFront, 0);
-        front_2.transform.position -= new Vector3(0, Time.deltaTime * speedFront, 0);
+
+
+
+
+
+        //if reached the end
+
+        if (front.transform.position.y <= 398)
+        {
+            front.transform.position += new Vector3(0, 40, 0);
+        }
+
+        if (back.transform.position.y >= 438)
+        {
+            back.transform.position -= new Vector3(0, 40, 0);
+        }
     }
 }
