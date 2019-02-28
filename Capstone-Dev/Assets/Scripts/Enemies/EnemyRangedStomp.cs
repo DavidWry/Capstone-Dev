@@ -57,17 +57,13 @@ public class EnemyRangedStomp : MonoBehaviour
         {
             transform.localScale = new Vector3(5f, 5f, 1f);
 
-            speed = 50f;
-            attackRange = 110f;
-            chaseRange = 140f;
+            speed = 43f;
+            attackRange = 125;
+            chaseRange = 145f;
             capsule.radius = 1.82f;
             capsule.height = 5.23f;
 
-
-            attackRange = 80f;
-            chaseRange = 120f;
-
-            addTime = 0.5f;
+            addTime = 0.7f;
 
             projectilePrefab.transform.localScale = new Vector3(20f, 20f, 1f);
             projectileSpeed = 40f;
@@ -81,8 +77,6 @@ public class EnemyRangedStomp : MonoBehaviour
             chaseRange = 7f;
             capsule.radius = 0.47f;
             capsule.height = 5.23f;
-            attackRange = 4f;
-            chaseRange = 6;
 
             addTime = 0.0f;
 

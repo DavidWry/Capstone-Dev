@@ -64,10 +64,14 @@ public class EnemySuicideBomber : MonoBehaviour
 
             transform.localScale = new Vector3(5f, 5f, 1f);
             speed = 40.0f;
-            rangeForAttack = 120;
+            rangeForAttack = 100;
             explosion.transform.localScale = new Vector3(40f, 40f, 1f);
             capsule.radius = 1.88f;
             capsule.height = 5.73f;
+            minX = transform.position.x - 60;
+            maxX = transform.position.x + 60;
+            minY = transform.position.y + 60;
+            maxY = transform.position.y - 60;
         }
         else if (scene.name == "First Level")
         {
@@ -77,6 +81,10 @@ public class EnemySuicideBomber : MonoBehaviour
             explosion.transform.localScale = new Vector3(2f, 2f, 1f);
             capsule.radius = 0.45f;
             capsule.height = 5.73f;
+            minX = transform.position.x - 3;
+            maxX = transform.position.x + 3;
+            minY = transform.position.y + 3;
+            maxY = transform.position.y - 3;
         }
     }
     void Start()
@@ -104,10 +112,7 @@ public class EnemySuicideBomber : MonoBehaviour
         canPatrol = true;
         isChasing = false;
 
-        minX = transform.position.x - 3;
-        maxX = transform.position.x + 3;
-        minY = transform.position.y + 3;
-        maxY = transform.position.y - 3;
+      
         moveSpot = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY),0);
         reachedPatrolPoint = false;
     }

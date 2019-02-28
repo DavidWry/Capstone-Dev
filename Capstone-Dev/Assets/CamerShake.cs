@@ -37,7 +37,7 @@ public class CamerShake : MonoBehaviour
              yield return null;
 
          }
-         transform.position = new Vector3(ori.position.x, ori.position.y, transform.position.z);
+         transform.position = new Vector3(ori.position.x, ori.position.y, ori.position.z);
      }
 
 

@@ -22,8 +22,8 @@ public class NewEnemyJumper : MonoBehaviour
     Vector3 nextPos;
     private Transform player;
     private Vector3 targetPos;
-    public float speed = 10;
-    public float arcHeight = 1;
+    private float speed;
+    private float arcHeight;
 
     public GameObject landing;
     public GameObject impact;
@@ -47,6 +47,7 @@ public class NewEnemyJumper : MonoBehaviour
     private CapsuleCollider capsule;
 
     private float ratio;
+    private float reachedDistance;
 
 
     // public AnimationClip death;
@@ -68,6 +69,9 @@ public class NewEnemyJumper : MonoBehaviour
             capsule.height = 5.73f;
             landing.transform.localScale = new Vector3(50f, 20f, 1f);
             impact.transform.localScale = new Vector3(3f, 3f, 1f);
+            speed = 70f;
+            arcHeight =20f;
+            reachedDistance = 2.0f;
         }
         else if (scene.name == "First Level")
         {
@@ -77,6 +81,9 @@ public class NewEnemyJumper : MonoBehaviour
             capsule.height = 5.46f;
             landing.transform.localScale = new Vector3(2.5f, 1f, 1f);
             impact.transform.localScale = new Vector3(0.15f, 0.15f, 1f);
+            speed = 10f;
+            arcHeight = 1f;
+            reachedDistance = 0.1f;
         }
 
     }
@@ -204,7 +211,9 @@ public class NewEnemyJumper : MonoBehaviour
                 if ((Vector3.Distance(startPos, targetPos) <= rangeForAttack) && (canJump == true))
                 {
                     //targetPos = new Vector3(player.position.x, player.position.y, player.position.z);
-                    ratio = Vector3.Distance(startPos, targetPos) / rangeForAttack;
+             
+                    ratio = Mathf.Abs( startPos.x - targetPos.x) / rangeForAttack;
+                    
                     anim.SetBool("isJumping", true);
 
                     if (hasInstantiatedLanding == false)
@@ -216,10 +225,11 @@ public class NewEnemyJumper : MonoBehaviour
                     float x0 = startPos.x;
                     float x1 = targetPos.x;
                     float dist = x1 - x0;
-                    float nextX = Mathf.MoveTowards(transform.position.x, x1, speed *ratio * Time.deltaTime);
-                    float baseY = Mathf.Lerp(startPos.y, targetPos.y, (nextX - x0) / dist);
-                    float baseZ = Mathf.Lerp(startPos.z, targetPos.z, (nextX - x0) / dist);
+                    float nextX = Mathf.MoveTowards(transform.position.x, x1, speed * ratio * Time.deltaTime);
+                    float baseY = Mathf.Lerp(startPos.y, targetPos.y, (nextX - x0) / dist ) ;
+                    float baseZ = Mathf.Lerp(startPos.z, targetPos.z, (nextX - x0) / dist ) ;
                     float arc = arcHeight * (nextX - x0) * (nextX - x1) / (-0.25f * dist * dist);
+                  
                     nextPos = new Vector3(nextX, baseY + arc, baseZ - arc);
                     //baseZ - arc
                     // Rotate to face the next position, and then move there
@@ -233,7 +243,7 @@ public class NewEnemyJumper : MonoBehaviour
                     anim.SetBool("isJumping", false);
                 }
 
-                if (Vector3.Distance(nextPos, targetPos) <= 0.1f)
+                if (Vector3.Distance(nextPos, targetPos) <= reachedDistance)
                 {
                     anim.SetBool("isJumping", false);
                     if (hasInstantiatedImpact == false)
@@ -288,13 +298,17 @@ public class NewEnemyJumper : MonoBehaviour
             isStunned = true;
             rb.velocity = Vector3.zero;
             anim.SetBool("isJumping", false);
-            StartCoroutine(WaitAfterStun(3f));
+            StartCoroutine(WaitAfterStun(2f));
 
         }
 
         if (collision.gameObject.tag == "Obstacle")
         {
+            isStunned = true;
+            rb.velocity = Vector3.zero;
+            anim.SetBool("isJumping", false);
             transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
+            StartCoroutine(WaitAfterStun(2f));
         }
     }
 

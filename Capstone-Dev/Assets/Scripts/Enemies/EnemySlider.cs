@@ -28,6 +28,7 @@ public class EnemySlider : MonoBehaviour
     private Animator anim;
     private bool hasCollided;
     private bool hasReached;
+    private float reachedDistance;
 
     private DropProbability probability = null;
     private GameManager gameManager = null;
@@ -56,12 +57,12 @@ public class EnemySlider : MonoBehaviour
         {
             transform.localScale = new Vector3(6f, 6f, 1f);
 
-            dashSpeed = 100f;
+            dashSpeed = 80f;
             rangeForAttack = 100f;
             capsule.radius = 1.84f;
             capsule.height = 5.51f;
             rangeForAttack = 120f;
-
+            reachedDistance = 2f;
         }
         else if (scene.name == "First Level")
         {
@@ -70,6 +71,7 @@ public class EnemySlider : MonoBehaviour
             rangeForAttack = 6f;
             capsule.radius = 0.55f;
             capsule.height = 5.51f;
+            reachedDistance = 0.1f;
         }
         rb = GetComponent<Rigidbody>();
 
@@ -126,12 +128,12 @@ public class EnemySlider : MonoBehaviour
                     rb.velocity = dir;
                     canDash = false;
                     hasReached = false;
-                    StartCoroutine(cameraShake.Shake(0.2f, 0.15f));
+                   // StartCoroutine(cameraShake.Shake(0.2f, 0.15f));
 
                 }
 
                 //has the enemy reached the target position
-                if (Vector2.Distance(transform.position, targetPos) <= 0.1f)
+                if (Vector2.Distance(transform.position, targetPos) <= reachedDistance)
                 {
                     hasReached = true;
 
@@ -197,6 +199,7 @@ public class EnemySlider : MonoBehaviour
                 // dashTime = 2f;
                 //    target = GameObject.FindGameObjectWithTag("Player").transform;
             }
+           
 
 
         }
@@ -215,13 +218,13 @@ public class EnemySlider : MonoBehaviour
          }*/
 
 
-        if ((other.gameObject.tag == "Minion") || (other.gameObject.tag == "Obstacle"))
+        if ((other.gameObject.tag == "Minion") || (other.gameObject.tag == "Obstacle") || (other.gameObject.tag == "Chest"))
         {
 
-            isStunned = true;
+          //  isStunned = true;
             anim.SetBool("isRunning", false);
             rb.velocity = Vector3.zero;
-            hasReached = true;
+        //    hasReached = true;
             StartCoroutine(WaitAfterStun(2f));
 
 
