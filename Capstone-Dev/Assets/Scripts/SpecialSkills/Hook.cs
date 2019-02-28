@@ -31,7 +31,7 @@ public class Hook : MonoBehaviour {
         {
             line.SetPosition(0, transform.position);
             line.SetPosition(1, Player.transform.position);
-            if (NextScene.nowName == "2_1")
+            if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2")
                 RBody.velocity = transform.right * speed * 20;
             else
                 RBody.velocity = transform.right * speed;
