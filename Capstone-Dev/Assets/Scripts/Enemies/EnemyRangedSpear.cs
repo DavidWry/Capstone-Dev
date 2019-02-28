@@ -47,12 +47,13 @@ public class EnemyRangedSpear : MonoBehaviour
         if (scene.name == "2_1")
         {
             transform.localScale = new Vector3(5f, 5f, 1f);
-            rangeForAttack = 110;
+            rangeForAttack = 125;
+            chaseRange = 132;
             speed = 50.6f;
             chaseRange = 176;
             capsule.radius = 1.88f;
             capsule.height = 5.73f;
-            chaseRange = 132;
+            
             addTime = 0.4f;
 
             projectile.transform.localScale = new Vector3(5f, 5f, 1f);
@@ -75,7 +76,7 @@ public class EnemyRangedSpear : MonoBehaviour
     {
 
 
-        health = 70;
+        health = 65;
         currentHealth = health;
 
         player = GameObject.FindGameObjectWithTag("Player").transform;

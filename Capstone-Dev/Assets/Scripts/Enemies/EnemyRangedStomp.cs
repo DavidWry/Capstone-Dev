@@ -88,7 +88,7 @@ public class EnemyRangedStomp : MonoBehaviour
     {
 
 
-        health = 80;
+        health = 70;
         currentHealth = health;
 
         timeBetweenShots = 1.2f;

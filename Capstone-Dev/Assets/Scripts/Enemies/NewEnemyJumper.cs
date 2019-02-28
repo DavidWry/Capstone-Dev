@@ -70,7 +70,7 @@ public class NewEnemyJumper : MonoBehaviour
             landing.transform.localScale = new Vector3(50f, 20f, 1f);
             impact.transform.localScale = new Vector3(3f, 3f, 1f);
             speed = 70f;
-            arcHeight =20f;
+            arcHeight =17f;
             reachedDistance = 2.0f;
         }
         else if (scene.name == "First Level")
@@ -81,7 +81,7 @@ public class NewEnemyJumper : MonoBehaviour
             capsule.height = 5.46f;
             landing.transform.localScale = new Vector3(2.5f, 1f, 1f);
             impact.transform.localScale = new Vector3(0.15f, 0.15f, 1f);
-            speed = 10f;
+            speed = 8f;
             arcHeight = 1f;
             reachedDistance = 0.1f;
         }
@@ -91,7 +91,7 @@ public class NewEnemyJumper : MonoBehaviour
     {
 
 
-        health = 100;
+        health = 90;
         currentHealth = health;
 
 
@@ -293,10 +293,10 @@ public class NewEnemyJumper : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Minion" || collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Minion" || collision.gameObject.tag == "Player" || collision.gameObject.tag == "Chest")
         {
-            isStunned = true;
-            rb.velocity = Vector3.zero;
+            //isStunned = true;
+          //  rb.velocity = Vector3.zero;
             anim.SetBool("isJumping", false);
             StartCoroutine(WaitAfterStun(2f));
 
