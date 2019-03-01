@@ -24,6 +24,7 @@ namespace Assets.HeroEditor.Common.CharacterScripts
             Original = gameObject.transform.position; //初始原点
             newvec = new Vector3(Random.Range(-15, 15), Random.Range(-15, 15), 0);
             anim = gameObject.GetComponentInChildren<Animator>();
+            characterRanged = gameObject.GetComponent<Character>();
         }
 
         // Update is called once per frame

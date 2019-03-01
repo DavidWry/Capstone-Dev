@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class rotatearm : MonoBehaviour {
-    int t = 1;
+   
     public GameObject player1;
     public GameObject thisParent;
 	// Use this for initialization
 	void Start () {
-		
-	}
+       
+    }
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        player1 = GameObject.FindGameObjectWithTag("Player");
+        thisParent = gameObject.transform.parent.transform.parent.gameObject;
+    }
 
 
     void LateUpdate() {
