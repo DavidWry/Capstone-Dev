@@ -574,15 +574,15 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                     }
                     else if (i < levelWidth - 1 && i > 0
                    && j < levelHeight - 1 && j > 0
-                    && landArray[i, j - 1] == 1 && landArray[i + 1, j - 1] == 0
-                    )
+                    && landArray[i, j - 1] == 1 && landArray[i, j + 1] == 0 
+                    && landArray[i + 1, j + 1] == 0 && landArray[i - 1, j - 1] == 1)
                     {
                         edgeArray[i, j] = 3;//左下角
                     }
                     else if (i < levelWidth - 1 && i > 0
                    && j < levelHeight - 1 && j > 0
-                    && landArray[i, j - 1] == 1 && landArray[i - 1, j - 1] == 0
-                    && landArray[i + 1, j - 1] == 1)
+                    && landArray[i, j - 1] == 1 && landArray[i, j + 1] == 0
+                    && landArray[i + 1, j - 1] == 1 && landArray[i - 1, j + 1] == 0)
                     {
                         edgeArray[i, j] = 2;//右下角
                     }
@@ -595,29 +595,34 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                     }
                     else if (i < levelWidth - 1 && i > 0
                    && j < levelHeight - 1 && j > 0
-                    && landArray[i, j + 1] == 1 && landArray[i + 1, j + 1] == 0
-                    && landArray[i - 1, j + 1] == 1)
+                    && landArray[i, j + 1] == 1 && landArray[i, j - 1] == 0 
+                    && 
+                    (
+                    (landArray[i + 1, j - 1] == 0 && landArray[i - 1, j + 1] == 1)
+                    ||
+                    (landArray[i + 1, j + 1] == 0 && landArray[i - 1, j + 1] == 0 && landArray[i - 1, j] == 0)
+                    )
+                    )
                     {
                         edgeArray[i, j] = 8;//左上角
                     }
+
                     else if (i < levelWidth - 1 && i > 0
                    && j < levelHeight - 1 && j > 0
-                    && landArray[i, j + 1] == 1 && landArray[i - 1, j + 1] == 0
-                    && landArray[i + 1, j + 1] == 1)
+                    && landArray[i, j + 1] == 1 && landArray[i, j - 1] == 0 
+                    && landArray[i - 1, j - 1] == 0 && landArray[i + 1, j + 1] == 1)
                     {
                         edgeArray[i, j] = 6;//右上角
                     }
                     else if (i < levelWidth - 1 && i > 0
                    && j < levelHeight - 1 && j > 0
-                    && (landArray[i, j + 1] == 0 || landArray[i, j - 1] == 0 )&& landArray[i - 1, j] == 1
-                    && landArray[i + 1, j] == 0)
+                    && landArray[i - 1, j] == 1 && landArray[i + 1, j] == 0)
                     {
                         edgeArray[i, j] = 4;//右边
                     }
                     else if (i < levelWidth - 1 && i > 0
                    && j < levelHeight - 1 && j > 0
-                    && (landArray[i, j + 1] == 0 || landArray[i, j - 1] == 0) && landArray[i + 1, j] == 1
-                    && landArray[i - 1, j] == 0)
+                    && landArray[i + 1, j] == 1 && landArray[i - 1, j] == 0)
                     {
                         edgeArray[i, j] = 5;//左边
                     }
@@ -733,32 +738,43 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                 {
     
                     Vector2 position = new Vector2(-100, -100);
-                    //如果左上角还是自己，则使用两个格子的tile
-                    if (edgeArray[i - 1, j + 1] == 3 && cellState[i, j].state != 3) {
-                        if (edgeArray[i + 1, j - 1] == 1)//右下角是底边
+                    //如果右下角还是自己，则使用两个格子的tile
+                    if (edgeArray[i + 1, j - 1] == 3 && cellState[i, j].state != 3) {
+                        if (cellState[i - 1, j].state == 9)//左边是单下底边
                         {
-                            position = cellState[i + 1, j - 1].position;
-                            position.x = position.x - 48;
+                            position = cellState[i - 1, j].position;
+                            position.x = position.x + 24;
+                            position.y = position.y - 24;
                         }
-                        else if (edgeArray[i + 1, j - 1] == 3)//右下角是自己类型
+                        else if (cellState[i - 1, j].state == 1)//左边是双下底边
                         {
-                            position = cellState[i + 1, j - 1].position;
-                            position.x = position.x - 48;
-                            position.y = position.y + 24;
+                            position = cellState[i - 1, j].position;
+                            position.x = position.x + 48;
+                            position.y = position.y - 24;
                         }
+                        else if (cellState[i - 1, j + 1].state == 3)//左上角是自己类型
+                        {
+                            position = cellState[i - 1, j + 1].position;
+                            position.x = position.x + 48;
+                            position.y = position.y - 24;
+                        }
+                        /*
+
+                       
                         else if (edgeArray[i + 1, j - 1] == 4)//右下角是左边
                         {
                             position = cellState[i + 1, j - 1].position;
                             position.x = position.x - 48;
                             position.y = position.y - 40;
                         }
+                        */
                         if (position.x > 0 && position.y > 0)
                         {
                             Instantiate(tile3, new Vector3(position.x, position.y, 0), transform.rotation);
                             cellState[i, j].state = 3;
                             cellState[i, j].position = position;
-                            cellState[i - 1, j + 1].state = 3;
-                            cellState[i - 1, j + 1].position = position;
+                            cellState[i + 1, j - 1].state = 3;
+                            cellState[i + 1, j - 1].position = position;
                         }
                         else
                         {
@@ -769,14 +785,26 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                     }
                     else if (cellState[i, j].state != 3)
                     {
-                        //如果右下角已经有合成的斜边了
-                        if (cellState[i + 1, j - 1].state == 3)
+                        if (cellState[i - 1, j].state == 9)//左边是单下底边
                         {
-                            position = cellState[i + 1, j - 1].position;
-                            position.x = position.x - 24;
-                            position.y = position.y + 24;
-
+                            position = cellState[i - 1, j].position;
+                            position.x = position.x + 24;
+                            position.y = position.y - 15;
                         }
+                        else if (cellState[i - 1, j].state == 1)//左边是双下底边
+                        {
+                            position = cellState[i - 1, j].position;
+                            position.x = position.x + 48;
+                            position.y = position.y - 12;
+                        }
+                        else if (cellState[i - 1, j + 1].state == 3)//左上角是自己类型
+                        {
+                            position = cellState[i - 1, j + 1].position;
+                            position.x = position.x + 48;
+                            position.y = position.y - 12;
+                        }
+                        /*
+                        
                         //如果右下角是左边
                         else if (edgeArray[i + 1, j - 1] == 4)
                         {
@@ -785,14 +813,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                             position.y = position.y - 40;
 
                         }
-
-                        //右下角是底边
-                        else if (edgeArray[i + 1, j - 1] == 1)
-                        {
-                            position = cellState[i + 1, j - 1].position;
-                            position.x = position.x - 24;
-
-                        }
+                        */
                         if (position.x > 0 && position.y > 0)
                         {
                             Instantiate(tile11, new Vector3(position.x, position.y, 0), transform.rotation);
@@ -1278,6 +1299,12 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                         if (cellState[i - 1, j+1].state == 16)//左上边是单上边
                         {
                             position = cellState[i - 1, j+1].position;
+                            position.x = position.x + 24;
+                            position.y = position.y - 30;
+                        }
+                        else if (cellState[i + 1, j - 1].state == 12)//右下边是单右下边
+                        {
+                            position = cellState[i + 1, j - 1].position;
                             position.x = position.x + 24;
                             position.y = position.y - 30;
                         }
