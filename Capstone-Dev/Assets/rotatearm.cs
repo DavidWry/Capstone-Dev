@@ -8,19 +8,21 @@ public class rotatearm : MonoBehaviour {
     public GameObject thisParent;
 	// Use this for initialization
 	void Start () {
-       
+        player1 = GameObject.FindGameObjectWithTag("Player");
+        thisParent = gameObject.transform.parent.transform.parent.gameObject;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        player1 = GameObject.FindGameObjectWithTag("Player");
-        thisParent = gameObject.transform.parent.transform.parent.gameObject;
+
+        
     }
 
 
     void LateUpdate() {
 
-
+        if(player1)
+        {
         ///shooting angle calculations
         var targetPos = player1.transform.position;
         var thisPos = thisParent.transform.position;
@@ -39,13 +41,8 @@ public class rotatearm : MonoBehaviour {
             transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 240 - angle));
             
         }
- 
 
-
-
-
-
-
+        }
 
     }
 }

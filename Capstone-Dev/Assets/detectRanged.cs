@@ -6,18 +6,34 @@ namespace Assets.HeroEditor.Common.CharacterScripts
     public class detectRanged : MonoBehaviour
     {  //ranged movement
         public Character characterRanged;
-        float distance = 50;                 //range for detection
+        [SerializeField]
+        float distance = 15;                 //range for detection        
+        [SerializeField]
+        float minDistance = 1.5f;            // 常数一枚,检查这个怪是否到既定的点   
+        [SerializeField]
+        float idleTime = 2;                  // wander既定点后停留时间
+        [SerializeField]
+        float Speed = 5;               //系数
+
         GameObject player;                          
         Vector3 Original;                    //original( 出范围回这个点周围的一个点，wander会变)
         Animator anim;
         bool returnOriginal = false;         //是否在返回原点路上
         bool directionFlag = false;          //角色朝向(scale正负)
-        float minDistance = 1.5f;            // 常数一枚,检查这个怪是否到既定的点
-        float coefficient = 5;               //系数
+
         bool wander = true;                  //wander flag
-        float idleTime = 2;                  // wander既定点后停留时间
         float timeCount = 0;                 //计时
         Vector3 newvec;                      //随机向量，用于wander找下一个点
+        public rotatearm Rotatearm;
+
+        //Related to shooting.
+        bool shooting = true;
+        float shootingTime = 0;
+        [SerializeField]
+        float shootLenth = 0.5f;
+        [SerializeField]
+        float shootBtw = 1f;
+
         // Use this for initialization
         void Start()
         {
@@ -25,23 +41,21 @@ namespace Assets.HeroEditor.Common.CharacterScripts
             newvec = new Vector3(Random.Range(-15, 15), Random.Range(-15, 15), 0);
             anim = gameObject.GetComponentInChildren<Animator>();
             characterRanged = gameObject.GetComponent<Character>();
+            player = GameObject.FindGameObjectWithTag("Player");
         }
 
         // Update is called once per frame
         void Update()
         {
-            if (!player)
+            if (player)
             {
-                player = GameObject.FindGameObjectWithTag("Player");
-            }
-
             if (wander)
             {
-
+                    Rotatearm.enabled = false;
                 if (Vector3.Distance(gameObject.transform.position, Original) > minDistance)
                 {  //wander时如果离原点过远(原点变化过后)，像原点前进。
                     Vector3 thisvec = (Original - gameObject.transform.position).normalized;
-                    gameObject.GetComponent<Rigidbody>().MovePosition(gameObject.transform.position + thisvec * Time.deltaTime * coefficient);
+                    gameObject.GetComponent<Rigidbody>().MovePosition(gameObject.transform.position + thisvec * Time.deltaTime * Speed);
 
                 }
                 else
@@ -58,11 +72,7 @@ namespace Assets.HeroEditor.Common.CharacterScripts
                         Original += newvec;
                     }
                 }
-
-
             }
-
-
 
             if (!returnOriginal)
 
@@ -85,33 +95,43 @@ namespace Assets.HeroEditor.Common.CharacterScripts
                     }
                     Vector3 unitvec = (player.transform.position - gameObject.transform.position).normalized;//玩家到怪之间的单位向量
                     if (Vector3.Distance(player.transform.position, this.gameObject.transform.position) > minDistance)
-                    { 
-                        anim.SetBool("Run", true);
-                    //在怪到玩家边上之前， ，移动，打（这个是枪，因为设定的条件 所以走到玩家边上的时候也就不打了 懒得改了）
-                        gameObject.GetComponent<Rigidbody>().MovePosition(gameObject.transform.position + unitvec * Time.deltaTime * coefficient);
-                    StartCoroutine(characterRanged.Firearm.Fire.Fire());
-
-
-
+                    {
+                            Rotatearm.enabled = true;
+                        //anim.SetBool("Run", true);
+                        //在怪到玩家边上之前， ，移动，打（这个是枪，因为设定的条件 所以走到玩家边上的时候也就不打了 懒得改了）
+                        //gameObject.GetComponent<Rigidbody>().MovePosition(gameObject.transform.position + unitvec * Time.deltaTime * Speed);
+                        if (shooting)
+                        {
+                                anim.SetBool("Run", false);
+                                StartCoroutine(characterRanged.Firearm.Fire.Fire());
+                                shootingTime += Time.deltaTime;
+                        }
+                            else
+                            {
+                                anim.SetBool("Run", true);
+                                gameObject.GetComponent<Rigidbody>().MovePosition(gameObject.transform.position + unitvec * Time.deltaTime * Speed);
+                                shootingTime += Time.deltaTime;
+                            }
+                        if (shootingTime > shootLenth && shooting)
+                            {
+                                shooting = false;
+                                shootingTime = 0;
+                            }
+                        else if (shootingTime > shootBtw && !shooting)
+                            {
+                                shooting = true;
+                                shootingTime = 0;
+                            }
                     }
-
-
-
                 }
-
                 else
                 {
-
                     returnOriginal = true; //距离果园返回远点flag更改
-
                 }
-
             }
             else
             {  //returnoriginal flag是true,返回远点
                 Vector3 unitvec = (Original - gameObject.transform.position).normalized;
-
-
                 if (Vector3.Distance(gameObject.transform.position, Original) < minDistance)
                 {
                     //到远点了 重置变量
@@ -141,14 +161,13 @@ namespace Assets.HeroEditor.Common.CharacterScripts
                     anim.SetBool("Run", true);
                     if (!wander)
                     {
-
-
-                        gameObject.GetComponent<Rigidbody>().MovePosition(gameObject.transform.position + unitvec * Time.deltaTime * coefficient);
+                        gameObject.GetComponent<Rigidbody>().MovePosition(gameObject.transform.position + unitvec * Time.deltaTime * Speed);
                     }
-
                 }
+            }
 
             }
+
         }
 
         void knockback(Vector3 dirVec)
@@ -160,13 +179,11 @@ namespace Assets.HeroEditor.Common.CharacterScripts
 
         private void OnTriggerEnter(Collider other)
         {  //被打叫上边击退的function
+            /*
             if (other.tag == "Projectile")
             {
-
                 knockback((other.transform.position - gameObject.transform.position).normalized);
-            }
+            }*/
         }
-
-
     }
 }

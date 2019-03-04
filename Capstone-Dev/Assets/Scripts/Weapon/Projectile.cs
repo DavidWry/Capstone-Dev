@@ -127,6 +127,15 @@ namespace AssemblyCSharp
                     }
 
                 }
+                else if (collision.gameObject.GetComponent<MiniBoss>())
+                {
+                    collision.gameObject.GetComponent<MiniBoss>().TakeDamage(Damage);
+                    if (stun > 0)
+                    {
+                        collision.gameObject.GetComponent<MiniBoss>().Stun(stun);
+                    }
+
+                }
                 else if(Thrust)
                 {
                     //collision.gameObject.GetComponent<Rigidbody>().velocity *= -1;
