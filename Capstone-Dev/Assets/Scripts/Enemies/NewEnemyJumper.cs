@@ -48,7 +48,7 @@ public class NewEnemyJumper : MonoBehaviour
 
     private float ratio;
     private float reachedDistance;
-
+    private bool isDrop;
 
     // public AnimationClip death;
 
@@ -90,7 +90,7 @@ public class NewEnemyJumper : MonoBehaviour
     void Start()
     {
 
-
+        isDrop = false;
         health = 90;
         currentHealth = health;
 
@@ -264,7 +264,7 @@ public class NewEnemyJumper : MonoBehaviour
         {
             anim.SetTrigger("hasDied");
             Destroy(gameObject, 0.75f);
-            if (probability)
+            if (probability && !isDrop)
             {
                 //drop item
                 string tempName = probability.DetermineDrop();
@@ -274,6 +274,7 @@ public class NewEnemyJumper : MonoBehaviour
                     itemObj.transform.localScale = new Vector3(4, 4, 4);
                 var worldCanvas = GameObject.Find("worldCanvas").transform;
                 itemObj.transform.parent = worldCanvas;
+                isDrop = true;
             }
 
             //Instantiate(crystal, transform.position,Quaternion.identity);

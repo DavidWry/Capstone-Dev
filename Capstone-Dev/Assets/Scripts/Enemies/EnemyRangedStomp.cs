@@ -47,7 +47,7 @@ public class EnemyRangedStomp : MonoBehaviour
     private Color color;
 
     private float addTime;
-
+    private bool isDrop;
 
     private void Awake()
     {
@@ -87,6 +87,7 @@ public class EnemyRangedStomp : MonoBehaviour
     private void Start()
     {
 
+        isDrop = false;
 
         health = 70;
         currentHealth = health;
@@ -166,7 +167,7 @@ public class EnemyRangedStomp : MonoBehaviour
             {
                 anim.SetTrigger("hasDied");
                 Destroy(gameObject, 0.75f);
-                if (probability)
+                if (probability &&!isDrop)
                 {
                     //drop item
                     string tempName = probability.DetermineDrop();
@@ -176,6 +177,7 @@ public class EnemyRangedStomp : MonoBehaviour
                         itemObj.transform.localScale = new Vector3(4, 4, 4);
                     var worldCanvas = GameObject.Find("worldCanvas").transform;
                     itemObj.transform.parent = worldCanvas;
+                    isDrop = true;
                 }
 
                 //Instantiate(crystal, transform.position,Quaternion.identity);

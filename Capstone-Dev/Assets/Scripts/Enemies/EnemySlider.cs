@@ -39,8 +39,9 @@ public class EnemySlider : MonoBehaviour
     private CapsuleCollider capsule;
     private bool isStunned;
 
-    public CamerShake cameraShake; 
+    public CamerShake cameraShake;
 
+    private bool isDrop;
     // public AnimationClip death;
 
     private void Awake()
@@ -50,6 +51,7 @@ public class EnemySlider : MonoBehaviour
     }
     void Start()
     {
+        isDrop = false;
         scene = SceneManager.GetActiveScene();
         capsule = gameObject.GetComponent<CapsuleCollider>();
 
@@ -164,7 +166,7 @@ public class EnemySlider : MonoBehaviour
 
                 anim.SetTrigger("hasDied");
                 Destroy(gameObject, 0.75f);
-                if (probability)
+                if (probability && !isDrop)
                 {
                     string tempName = probability.DetermineDrop();
                     GameObject itemObj = gameManager.GetItemObj(tempName);
@@ -173,6 +175,7 @@ public class EnemySlider : MonoBehaviour
                         itemObj.transform.localScale = new Vector3(4, 4, 4);
                     var worldCanvas = GameObject.Find("worldCanvas").transform;
                     itemObj.transform.parent = worldCanvas;
+                    isDrop = true;
                 }
 
             }
