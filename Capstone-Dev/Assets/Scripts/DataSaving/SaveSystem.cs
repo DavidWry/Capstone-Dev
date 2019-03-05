@@ -5,7 +5,7 @@ using AssemblyCSharp;
 
 public static class SaveSystem {
 
-    public static void SavePlayer (Player player)
+    public static void SavePlayer (Player_New player)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/player.tbd";

@@ -7,14 +7,16 @@ using AssemblyCSharp;
 public class PlayerData {
     public Weapon LeftWeapon;
     public Weapon RightWeapon;
+    public Weapon ThirdWeapon;
     public List<string> NpcIDs;            //Npc player met.
-    public int Hp;
+    public float Hp;
     public int Ap;
 
-    public PlayerData (Player player)
+    public PlayerData (Player_New player)
     {
         LeftWeapon = player.leftWeapon;
         RightWeapon = player.rightWeapon;
+        ThirdWeapon = player.thirdWeapon;
         NpcIDs = player.NPCIDs;
         Hp = player.HitPoint;
         Ap = player.Power;

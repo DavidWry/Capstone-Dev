@@ -320,7 +320,7 @@ public class PickUp_New : MonoBehaviour
 
     //refresh all the weapon on top
     //1=left;2=right
-    void RefreshWeaponUI(int leftOrRight)
+    public void RefreshWeaponUI(int leftOrRight)
     {
         //clear everything
         //gameManager.leftWeaponMenu.UpdateWeaponMenu(null);
@@ -338,7 +338,7 @@ public class PickUp_New : MonoBehaviour
 
     //change the weapon on hand
     //1=left;2=right
-    void ChangeWeapon(int leftOrRight, WeaponName weaponName)
+    public void ChangeWeapon(int leftOrRight, WeaponName weaponName)
     {
         //Find face right or left
         Movement_New playerMovement = gameObject.GetComponent<Movement_New>();

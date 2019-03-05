@@ -41,6 +41,7 @@ namespace AssemblyCSharp
         private float rotateSpeed;
         private Movement_New playerMovement;
         private Shoot_New playerShoot;
+        private PickUp_New playerPick;
         public bool isLeftInHand = true;
         public bool isRightInHand = false;
         public bool isCombine = false;
@@ -52,6 +53,7 @@ namespace AssemblyCSharp
             rotateSpeed = 100f;
             playerMovement = GetComponent<Movement_New>();
             playerShoot = GetComponent<Shoot_New>();
+            playerPick = GetComponent<PickUp_New>();
             Character = GetComponent<Character>();
         }
 
@@ -294,13 +296,25 @@ namespace AssemblyCSharp
 
         public void SavePlayerData()
         {
-            //SaveSystem.SavePlayer(this);
+            SaveSystem.SavePlayer(this);
         }
 
         public void LoadPlayerData()
         {
             PlayerData data = SaveSystem.LoadPlayer();
 
+            leftWeapon = data.LeftWeapon;
+            rightWeapon = data.RightWeapon;
+            thirdWeapon = data.ThirdWeapon;
+            HitPoint = data.Hp;
+            Power = data.Ap;
+            NPCIDs = data.NpcIDs;
+
+            playerPick.ChangeWeapon(1, leftWeapon.WeaponName);
+            playerPick.ChangeWeapon(2, rightWeapon.WeaponName);
+
+            playerPick.RefreshWeaponUI(1);
+            playerPick.RefreshWeaponUI(2);
             //Loading process will depend on what kind of situation.
         }
 

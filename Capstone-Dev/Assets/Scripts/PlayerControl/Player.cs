@@ -217,7 +217,7 @@ using AssemblyCSharp;
 
         public void SavePlayerData()
         {
-            SaveSystem.SavePlayer(this);
+            //SaveSystem.SavePlayer(this);
         }
 
         public void LoadPlayerData()
