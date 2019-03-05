@@ -10,6 +10,7 @@ public class MiniBoss : MonoBehaviour {
     Character character;
     detectRanged detecter;
     public bool isalive = true;
+    float stunTime = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -44,6 +45,17 @@ public class MiniBoss : MonoBehaviour {
 
     public void Stun(float time)
     {
+        detecter.Rotatearm.enabled = false;
+        detecter.enabled = false;
+        character.Animator.SetBool("Idel", true);
+        StartCoroutine(WaitAfterStun(time));
+    }
 
+    private IEnumerator WaitAfterStun(float time)
+    {
+        yield return new WaitForSeconds(time);
+        detecter.Rotatearm.enabled = true;
+        detecter.enabled = true;
+        character.Animator.SetBool("Idel", false);
     }
 }

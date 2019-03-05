@@ -151,9 +151,9 @@ namespace Assets.HeroEditor.Common.CharacterScripts
                         scale.x = Mathf.Abs(scale.x);
 
                         if (gameObject.transform.position.x > Original.x)
-                            scale.x = 1;
+                            scale.x *= 1;
                         else
-                            scale.x = -1;
+                            scale.x *= -1;
 
                         transform.localScale = scale;
                         directionFlag = true;

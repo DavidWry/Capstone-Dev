@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using AssemblyCSharp;
 
 namespace Assets.HeroEditor.Common.CharacterScripts
 {
@@ -12,6 +13,7 @@ namespace Assets.HeroEditor.Common.CharacterScripts
         public GameObject Trail;
         public GameObject Impact;
 	    public Rigidbody Rigidbody;
+        public float Damage;
 
 		public void Start()
         {
@@ -28,7 +30,13 @@ namespace Assets.HeroEditor.Common.CharacterScripts
 
         public void OnTriggerEnter(Collider other)
         {
-            Bang(other.gameObject);
+            if (other.tag == "Player")
+            {
+                other.gameObject.GetComponent<Player_New>().TakeDamage(Damage);
+                Bang(other.gameObject);
+            }
+            else if (other.tag == "Obstacle")
+                Bang(other.gameObject);
         }
 
         public void OnCollisionEnter(Collision other)
