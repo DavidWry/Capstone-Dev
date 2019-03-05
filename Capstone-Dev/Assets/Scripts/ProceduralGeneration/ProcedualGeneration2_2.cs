@@ -774,8 +774,8 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
 
                         //else
                         //{
-                        //如果左边是单边右下角
-                        if (cellState[i - 1, j].state == 12)
+                        
+                        if (cellState[i - 1, j].state == 12)//左边是单边右下角
                         {
                             position = cellState[i - 1, j].position;
                             position.x = position.x + 24;
@@ -789,6 +789,17 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                             position.x = position.x + 48;
                             position.y = position.y + 20;
 
+                        }
+                        else if (cellState[i - 1, j+1].state == 11)//左上角是单边左下角
+                        {
+                            position = cellState[i - 1, j+1].position;
+                            position.x = position.x + 24;
+                        }
+
+                        else if (cellState[i - 1, j+1].state == 3)//左上角是双边左下角
+                        {
+                            position = cellState[i - 1, j+1].position;
+                            position.x = position.x + 48;
                         }
                         if (position.x > 0 && position.y > 0)
                         {
@@ -822,6 +833,17 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                             position.x = position.x + 48;
                             position.y = position.y + 20;
 
+                        }
+                        else if (cellState[i - 1, j + 1].state == 11)//左上角是单边左下角
+                        {
+                            position = cellState[i - 1, j + 1].position;
+                            position.x = position.x + 24;
+                        }
+
+                        else if (cellState[i - 1, j + 1].state == 3)//左上角是双边左下角
+                        {
+                            position = cellState[i - 1, j + 1].position;
+                            position.x = position.x + 48;
                         }
                         //如果左边是自己
                         else if (cellState[i - 1, j].state == 1)
@@ -866,11 +888,24 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                             position.x = position.x + 48;
                             position.y = position.y - 24;
                         }
+
                         else if (cellState[i - 1, j + 1].state == 3)//左上角是自己类型
                         {
                             position = cellState[i - 1, j + 1].position;
                             position.x = position.x + 48;
                             position.y = position.y - 24;
+                        }
+                        else if (cellState[i - 1, j].state == 12)//左边是单右下边
+                        {
+                            position = cellState[i - 1, j].position;
+                            position.x = position.x + 24;
+                          
+                        }
+                        else if (cellState[i - 1, j].state == 2)//左边是双右下边
+                        {
+                            position = cellState[i - 1, j].position;
+                            position.x = position.x + 48;
+                            position.y = position.y + 10;
                         }
                         /*
 
@@ -1068,13 +1103,28 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                     {
                         position = cellState[i, j - 1].position;  
                         position.y = position.y + 86;
-                       
                     }
                     else if (cellState[i, j + 1].state == 16)//上边是单上边
                     {
                         position = cellState[i, j + 1].position;
                         position.y = position.y - 9;
-
+                    }
+                    else if (edgeArray[i, j + 1] == 4)//上边是自己类型的
+                    {
+                        position = cellState[i, j + 1].position;
+                        position.y = position.y - 24;
+                    }
+                    else if (cellState[i, j + 1].state == 8)//上边是双边左上角
+                    {
+                        position = cellState[i, j + 1].position;
+                        
+                        position.y = position.y -5;
+                    }
+                    else if (cellState[i, j + 1].state == 15)//上边是单边左上角
+                    {
+                        position = cellState[i, j + 1].position;
+                      
+                        position.y = position.y - 5;
                     }
                     else if (edgeArray[i, j-1] == 4)//下边是自己类型的
                     {
@@ -1083,20 +1133,16 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                        
                     }
                     else if (cellState[i-1, j - 1].state == 8)//左下边是双边左上角
-                    {
-                        
+                    {     
                         position = cellState[i-1, j - 1].position;
                         position.x = position.x + 48;
                         position.y = position.y + 65;
-                        
-                        
                     }
                     else if (cellState[i - 1, j - 1].state == 15)//左下边是单边左上角
                     {
                         position = cellState[i - 1, j - 1].position;
                         position.x = position.x + 24;
-                        position.y = position.y + 41;
-                        
+                        position.y = position.y + 41;  
                     }
                     else if (cellState[i - 1, j + 1].state == 11)//左上边是单边左下角
                     {
@@ -1196,6 +1242,12 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                         position.y = position.y + 24;
 
                     }
+                    else if (cellState[i + 1, j - 1].state == 13)//右下边是左边
+                    {
+                        position = cellState[i + 1, j - 1].position;
+                        position.y = position.y + 24;
+
+                    }
                     if (position.x > 0 && position.y > 0)
                     {
                         Instantiate(tile13, new Vector3(position.x, position.y, 0), transform.rotation);
@@ -1215,11 +1267,22 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                 {
      
                     Vector2 position = new Vector2(-100, -100);
-                    //如果右上角还是自己，则使用两个格子的tile
-                    if (edgeArray[i + 1, j + 1] == 8 && cellState[i, j].state != 8)
+                    //如果左下角还是自己，则使用两个格子的tile
+                    if (edgeArray[i - 1, j - 1] == 8 && cellState[i, j].state != 8)
                     {
-                       
-                        if (cellState[i, j - 1].state == 3)//下角是双边左下边
+                        if (cellState[i + 1, j + 1].state == 16)//右上角是上边
+                        {
+                            position = cellState[i + 1, j + 1].position;
+                            position.x = position.x - 48;
+                            position.y = position.y - 55;
+                        }
+                        else if (cellState[i + 1, j + 1].state == 8)//右上角是双左上边
+                        {
+                            position = cellState[i + 1, j + 1].position;
+                            position.x = position.x - 48;
+                            position.y = position.y - 48;
+                        }
+                        else if (cellState[i, j - 1].state == 3)//下角是双边左下边
                         {
                             position = cellState[i, j - 1].position;
                             position.y = position.y + 67;
@@ -1246,16 +1309,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                             position = cellState[i, j - 1].position;
                             position.y = position.y + 7;
                         }
-                        else if (cellState[i - 1, j - 1].state == 16)//左下角是单上边
-                        {
-                            position = cellState[i-1, j - 1].position;
-                            position.x = position.x + 24;
-                        }
-                        else if (cellState[i - 1, j - 1].state == 7)//左下角是双上边
-                        {
-                            position = cellState[i-1, j - 1].position;
-                            position.x = position.x + 48;
-                        }
+
                         else if (cellState[i - 1, j].state == 16)//左边是单上边
                         {
                             position = cellState[i - 1, j].position;
@@ -1300,6 +1354,12 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                             position = cellState[i + 1, j + 1].position;
                             position.x = position.x - 24;
                             position.y = position.y - 52;
+                        }
+                        else if (cellState[i + 1, j + 1].state == 8)//右上角是双左上边
+                        {
+                            position = cellState[i + 1, j + 1].position;
+                            position.x = position.x - 24;
+                            position.y = position.y - 24;
                         }
                         else if (cellState[i, j - 1].state == 3)//下角是双边左下边
                         {
@@ -1600,6 +1660,11 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                     {
                         position = cellState[i, j-1].position;
                         position.y = position.y +7;
+                    }
+                    else if (edgeArray[i+1, j - 1] == 5)//右下边是左边
+                    {
+                        position = cellState[i+1, j - 1].position;
+                        position.y = position.y + 7;
                     }
                     else if (edgeArray[i+1, j] == 7)//右边是自己
                     {
