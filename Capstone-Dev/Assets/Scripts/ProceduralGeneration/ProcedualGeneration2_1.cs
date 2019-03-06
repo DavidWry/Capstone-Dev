@@ -110,7 +110,8 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
         DrawEnemy();
 
         DrawPortal();
-     
+        Vector2 temp = new Vector2(100, 100);
+        //IsPortalTooClose(temp);
         //DrawBoss();
 
         FinishGeneration();
@@ -1945,9 +1946,10 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
         {
             for (int j = 4; j < levelHeight-4; j++)
             {
-                if (cellState[i, j].state == 0)
+                Vector2 portalPosition = new Vector2(i * tileSize, j * tileSize);
+                if (cellState[i, j].state == 0 && !IsPortalTooClose(portalPosition))
                 {
-                    if (Random.Range(1, 1000) < 2) {
+                    if (Random.Range(1, 100) < 2) {
                         if (!isCreated) {
                             Instantiate(portal1, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
                             isCreated = true;
@@ -1958,6 +1960,32 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
             }
         }
 
+    }
+
+    bool IsPortalTooClose(Vector2 portalPosition) {
+        bool isTooClose = false;
+        for (int i = 0; i < levelWidth; i++) {
+            for (int j = 0; j < levelHeight; j++) {
+              
+                
+                if (cellState[i, j].state != 0) {
+                    Vector2 objPosition = cellState[i, j].position;
+                    
+                    if (Mathf.Abs(objPosition.x - portalPosition.x) < 1 * tileSize &&
+                        Mathf.Abs(objPosition.y - portalPosition.y) < 1 * tileSize)
+                        {
+                            isTooClose = true;
+                           // Debug.Log(Mathf.Abs(objPosition.x - portalPosition.x)+"y:"+ Mathf.Abs(objPosition.y - portalPosition.y));
+                        }
+                        
+                        
+                    
+                }
+                
+            }
+        }
+        Debug.Log(isTooClose);
+        return isTooClose;
     }
 
     void DrawPlayer()
