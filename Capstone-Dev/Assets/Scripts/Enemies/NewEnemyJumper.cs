@@ -50,6 +50,8 @@ public class NewEnemyJumper : MonoBehaviour
     private float reachedDistance;
     private bool isDrop;
 
+    private bool hasReached;
+    private bool hasCollidedWithObjects;
     // public AnimationClip death;
 
     private void Awake()
@@ -68,10 +70,11 @@ public class NewEnemyJumper : MonoBehaviour
             capsule.radius = 1.83f;
             capsule.height = 5.73f;
             landing.transform.localScale = new Vector3(50f, 20f, 1f);
-            impact.transform.localScale = new Vector3(3f, 3f, 1f);
+            impact.transform.localScale = new Vector3(9f, 9f, 9f);
             speed = 70f;
             arcHeight =17f;
             reachedDistance = 2.0f;
+            offset = new Vector3(0, 9f, 0);
         }
         else if (scene.name == "First Level")
         {
@@ -80,10 +83,11 @@ public class NewEnemyJumper : MonoBehaviour
             capsule.radius = 0.55f;
             capsule.height = 5.46f;
             landing.transform.localScale = new Vector3(2.5f, 1f, 1f);
-            impact.transform.localScale = new Vector3(0.15f, 0.15f, 1f);
+            impact.transform.localScale = new Vector3(0.45f, 0.45f, 4f);
             speed = 8f;
             arcHeight = 1f;
             reachedDistance = 0.1f;
+            offset = new Vector3(0, 0.5f, 0);
         }
 
     }
@@ -110,10 +114,13 @@ public class NewEnemyJumper : MonoBehaviour
         hasInstantiatedLanding = false;
         hasInstantiatedImpact = false;
 
-        offset = new Vector3(0, 0.5f, 0);
+        
         rb = GetComponent<Rigidbody>();
 
         isStunned = false;
+
+        hasReached = false;
+        hasCollidedWithObjects = false;
     }
 
     void Update()
@@ -197,7 +204,7 @@ public class NewEnemyJumper : MonoBehaviour
                   targetPos = new Vector3(player.position.x, player.position.y, player.position.z);
                   waitTime = 3.0f;
               }*/
-            if (!isStunned)
+            if (isStunned ==false)
             {
                 if (waitTime <= 0f)
                 {
@@ -207,8 +214,10 @@ public class NewEnemyJumper : MonoBehaviour
                     canJump = true;
                     hasInstantiatedLanding = false;
                     hasInstantiatedImpact = false;
+                    hasReached = false;
+                    hasCollidedWithObjects = false;
                 }
-                if ((Vector3.Distance(startPos, targetPos) <= rangeForAttack) && (canJump == true))
+                if ((Vector3.Distance(startPos, targetPos) <= rangeForAttack) && (canJump == true) &&(hasCollidedWithObjects == false))
                 {
                     //targetPos = new Vector3(player.position.x, player.position.y, player.position.z);
              
@@ -245,15 +254,22 @@ public class NewEnemyJumper : MonoBehaviour
 
                 if (Vector3.Distance(nextPos, targetPos) <= reachedDistance)
                 {
+                    hasReached = true;
+                }
+
+                if(hasReached == true)
+                {
                     anim.SetBool("isJumping", false);
-                    if (hasInstantiatedImpact == false)
+                    if (hasCollidedWithObjects == false)
                     {
-                        Instantiate(impact, targetPos - offset, Quaternion.identity);
-                        hasInstantiatedImpact = true;
+                        if (hasInstantiatedImpact == false)
+                        {
+                            Instantiate(impact, targetPos - offset, Quaternion.identity);
+                            hasInstantiatedImpact = true;
+                        }
                     }
                     canJump = false;
                     waitTime -= Time.deltaTime;
-
 
                 }
             }
@@ -294,16 +310,19 @@ public class NewEnemyJumper : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Minion" || collision.gameObject.tag == "Player" || collision.gameObject.tag == "Chest")
+        if (collision.gameObject.tag == "Minion" || collision.gameObject.tag == "Obstacle" || collision.gameObject.tag == "Chest")
         {
             //isStunned = true;
-          //  rb.velocity = Vector3.zero;
-            anim.SetBool("isJumping", false);
-            StartCoroutine(WaitAfterStun(2f));
+            //  rb.velocity = Vector3.zero;
+            // anim.SetBool("isJumping", false);
+            // StartCoroutine(WaitAfterStun(2f));
+            hasReached = true;
+            hasCollidedWithObjects = true;
+
 
         }
 
-        if (collision.gameObject.tag == "Obstacle")
+        if (collision.gameObject.tag == "Player")
         {
             isStunned = true;
             rb.velocity = Vector3.zero;
@@ -326,11 +345,11 @@ public class NewEnemyJumper : MonoBehaviour
     }
     private IEnumerator WaitAfterStun(float time)
     {
-
-        yield return new WaitForSeconds(time);
         waitTime = 0f;
         canJump = true;
         isStunned = false;
+        yield return new WaitForSeconds(time);
+       
     }
 
 

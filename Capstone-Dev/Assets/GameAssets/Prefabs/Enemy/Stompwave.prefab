@@ -20,12 +20,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4747356482744026}
   - component: {fileID: 212831701144049818}
-  - component: {fileID: 114997483304686176}
   - component: {fileID: 65779520857147616}
   - component: {fileID: 114302295294413312}
-  - component: {fileID: 54579878163643098}
   - component: {fileID: 198333187270919876}
   - component: {fileID: 199460197865806442}
+  - component: {fileID: 54168523952604808}
   m_Layer: 0
   m_Name: Stompwave
   m_TagString: EnemyProjectile
@@ -40,13 +39,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1879253388266996}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 210.91, y: -30.06, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 754.61285, y: 657.87744, z: 0}
+  m_LocalScale: {x: 20, y: 20, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &54579878163643098
+--- !u!54 &54168523952604808
 Rigidbody:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -56,7 +55,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -84,19 +83,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cbd824a23537f348a4702784d731236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114997483304686176
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1879253388266996}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d238331cea99f247b6a5dde27d798a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startTimeBtwSpawns: 0.05
-  trail: {fileID: 1093889041572342, guid: 2b40ebf4fced92a488e8227c07ed542a, type: 2}
 --- !u!198 &198333187270919876
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -168,7 +154,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 1
+  scalingMode: 0
   randomSeed: 0
   InitialModule:
     serializedVersion: 3
@@ -229,7 +215,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 0.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -870,7 +856,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 50
+      scalar: 200
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -1308,9 +1294,9 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.46226418, g: 0.09748425, b: 0.09376113, a: 1}
-        key1: {r: 1, g: 0, b: 0, a: 1}
-        key2: {r: 1, g: 0.29065636, b: 0, a: 0}
+        key0: {r: 0.745283, g: 0.12966157, b: 0.12304199, a: 1}
+        key1: {r: 1, g: 0.26011056, b: 0, a: 1}
+        key2: {r: 1, g: 0.78495365, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -4723,7 +4709,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 695723ae75cfa664faa541265fa77dc5, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6415094, g: 0.55663043, b: 0.54165184, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
