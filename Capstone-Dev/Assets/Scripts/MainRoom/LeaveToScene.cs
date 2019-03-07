@@ -20,7 +20,11 @@ public class LeaveToScene : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-
+        if (other.tag == "Player" && nextSceneName != "")
+        {
+            NextScene.loadName = nextSceneName;
+            SceneManager.LoadScene("LoadingScene");
+        }
     }
 
     public void loadS()
