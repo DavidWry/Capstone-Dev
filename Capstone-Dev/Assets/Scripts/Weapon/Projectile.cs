@@ -66,7 +66,10 @@ namespace AssemblyCSharp
                 {
                     Speed = 0;
                 }
-                RBody.velocity = transform.right * Speed;
+                if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2")
+                    RBody.velocity = transform.right * Speed * 20;
+                else
+                    RBody.velocity = transform.right * Speed;
             }
             if (Scale)
             {
@@ -78,6 +81,8 @@ namespace AssemblyCSharp
                 if (SlowDown > 0)
                 {
                     GameObject ImpactObject = Instantiate(Impact, transform.position, transform.rotation);
+                    if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2")
+                        ImpactObject.transform.localScale *= 20;
                 }
             }
         }

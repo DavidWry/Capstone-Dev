@@ -6,7 +6,6 @@ using UnityEngine;
 
 namespace AssemblyCSharp
 {
-
     public class Player_New : MonoBehaviour
     {
         public Weapon leftWeapon;

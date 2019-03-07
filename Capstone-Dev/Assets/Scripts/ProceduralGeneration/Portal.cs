@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using AssemblyCSharp;
 
 public class Portal : MonoBehaviour {
 
     public string nextSceneName;
     private bool isPlayerNearby;
+    private GameObject player;
 	// Use this for initialization
 	void Start () {
         isPlayerNearby = false;
-	}
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -18,7 +21,7 @@ public class Portal : MonoBehaviour {
         {
             if (Input.GetKeyDown(KeyCode.Joystick1Button1))//button B in joystick
             {
-
+                SaveSystem.SavePlayer(player.GetComponent<Player_New>());
                 NextScene.loadName = nextSceneName;
                 SceneManager.LoadScene("LoadingScene");
             }

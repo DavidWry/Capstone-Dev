@@ -792,6 +792,7 @@ public class Shoot_New : MonoBehaviour
             GameObject NewProj = Instantiate(gameManager.CombineProjectile[4]);
             NewProj.transform.position = CombineBulPos.position;
             NewProj.transform.rotation = CombineBulPos.rotation;
+            NewProj.transform.localScale *= BulletSizeUp;
             //Change state according to the weapon
             Projectile Proj = NewProj.GetComponent<Projectile>();
             Proj.IsReady = true;
