@@ -482,6 +482,7 @@ MonoBehaviour:
   BGFirstLevel: {fileID: 1818123707}
   BG2_3: {fileID: 1732595865}
   BGMainRoom: {fileID: 1810792178}
+  BGWeaponRoom: {fileID: 400230262}
 --- !u!1 &663567919
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class GameStartManu : MonoBehaviour {
 
@@ -31,12 +33,12 @@ public class GameStartManu : MonoBehaviour {
                 if (Input.GetButtonDown("AButton"))
                 {
                     Player.GetComponent<Movement_New>().enabled = false;
-                    manager.startAppear(true);
+                    Menu.SetActive(true);
                 }
                 else if (Input.GetButtonDown("BButton"))
                 {
                     Player.GetComponent<Movement_New>().enabled = true;
-                    manager.startDisappear(true);
+                    Menu.SetActive(false);
                 }
             }
         }

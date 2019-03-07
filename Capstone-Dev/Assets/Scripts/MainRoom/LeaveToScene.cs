@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class LeaveToScene : MonoBehaviour {
@@ -9,22 +11,16 @@ public class LeaveToScene : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player" && nextSceneName != "")
-        {
 
-            NextScene.loadName = nextSceneName;
-            SceneManager.LoadScene("LoadingScene");
-        }
     }
 
     public void loadS()
