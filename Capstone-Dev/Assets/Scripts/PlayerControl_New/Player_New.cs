@@ -56,6 +56,16 @@ namespace AssemblyCSharp
             Character = GetComponent<Character>();
         }
 
+        void Initalize()
+        {
+            HitPoint = 100;
+            rotateSpeed = 100f;
+            playerMovement = GetComponent<Movement_New>();
+            playerShoot = GetComponent<Shoot_New>();
+            playerPick = GetComponent<PickUp_New>();
+            Character = GetComponent<Character>();
+        }
+
         private void Update()
         { 
             if (HitPoint <= 0)
@@ -301,10 +311,27 @@ namespace AssemblyCSharp
         public void LoadPlayerData()
         {
             PlayerData data = SaveSystem.LoadPlayer();
+            GameManager gameManager;
+            gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
-            leftWeapon = data.LeftWeapon;
-            rightWeapon = data.RightWeapon;
-            thirdWeapon = data.ThirdWeapon;
+            foreach (Weapon currentWeapon in gameManager.WeaponList)
+            {
+                if (currentWeapon.Name == data.LeftWeapon)
+                {
+                    leftWeapon = currentWeapon;
+                    leftWeapon.CurrentAmmos = leftWeapon.AmmoSize;
+                }
+                if (currentWeapon.Name == data.RightWeapon)
+                {
+                    rightWeapon = currentWeapon;
+                    rightWeapon.CurrentAmmos = rightWeapon.AmmoSize;
+                }
+                if (currentWeapon.Name == data.ThirdWeapon)
+                {
+                    thirdWeapon = currentWeapon;
+                }
+            }
+
             HitPoint = data.Hp;
             Power = data.Ap;
             NPCIDs = data.NpcIDs;
