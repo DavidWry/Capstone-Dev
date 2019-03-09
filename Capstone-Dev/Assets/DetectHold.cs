@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class detect : MonoBehaviour {
+public class DetectHold : MonoBehaviour
+{
 
     [SerializeField]
     float distance = 50;
@@ -26,28 +27,30 @@ public class detect : MonoBehaviour {
     float timeCount = 0;
     Vector3 newvec;
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         Original = gameObject.transform.position;
         newvec = new Vector3(Random.Range(-15, 15), Random.Range(-15, 15), 0);
         anim = gameObject.GetComponentInChildren<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         print(returnOriginal);
         if (player)
         {
             if (wander)
-            {            
+            {
                 if (Vector3.Distance(gameObject.transform.position, Original) > minDistance)
                 {
                     Vector3 thisvec = (Original - gameObject.transform.position).normalized;
                     gameObject.GetComponent<Rigidbody>().MovePosition(gameObject.transform.position + thisvec * Time.deltaTime * coefficient);
-              
+
                 }
                 else
-                {                 
+                {
                     if (timeCount < idleTime)
                     {
                         timeCount += Time.deltaTime;
@@ -59,14 +62,14 @@ public class detect : MonoBehaviour {
                         Original += newvec;
                     }
                 }
-           
+
 
             }
-            if (!returnOriginal)        
+            if (!returnOriginal)
             {
                 if (Vector3.Distance(player.transform.position, this.gameObject.transform.position) < distance && Vector3.Distance(gameObject.transform.position, Original) < distance)
                 {
-                   
+
                     wander = false;
                     timeCount = 0;
                     if (!directionFlag)
@@ -78,69 +81,87 @@ public class detect : MonoBehaviour {
                         transform.localScale = scale;
                     }
                     Vector3 unitvec = (player.transform.position - gameObject.transform.position).normalized;
-                    if (Vector3.Distance(player.transform.position, gameObject.transform.position) > minDistance)
+                    if (Vector3.Distance(player.transform.position, this.gameObject.transform.position) > minDistance)
                     {
+                        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("SlashMeleePairedMod"))
+                        {
+
+                         
+                            // Avoid any reload.
+                       
                         anim.SetBool("Run", true);
-                        print(Vector3.Distance(player.transform.position, gameObject.transform.position));
-                        gameObject.GetComponent<Rigidbody>().MovePosition(gameObject.transform.position + unitvec * Time.deltaTime * coefficient);
+                             
+                            gameObject.GetComponent<Rigidbody>().MovePosition(gameObject.transform.position + unitvec * Time.deltaTime * coefficient);
+                           
+                        }
+                        else
+                        {
+                            anim.ResetTrigger("Slashmod");
+                        }
                     }
                     else
                     {
                         anim.SetBool("Run", false);
-                        anim.SetTrigger("Slash");
+                        anim.SetTrigger("Slashmod");
+
+                        
                     }
-                }   
+                }
                 else
-                {              
+                {
                     returnOriginal = true;
                 }
 
             }
-        else
-        {
-            Vector3 unitvec = (Original - gameObject.transform.position).normalized;         
-            if (Vector3.Distance(gameObject.transform.position, Original) < minDistance)
-            {                 
-                directionFlag = false;
-                anim.SetBool("Run", false);
-                returnOriginal = false;                
-                wander = true;
+            else
+            {
+                Vector3 unitvec = (Original - gameObject.transform.position).normalized;
+                if (Vector3.Distance(gameObject.transform.position, Original) < minDistance)
+                {
+                    directionFlag = false;
+                    anim.SetBool("Run", false);
+                    returnOriginal = false;
+                    wander = true;
+                }
+                else
+                {
+                    if (!anim.GetCurrentAnimatorStateInfo(0).IsName("SlashMeleePairedMod"))
+                    {
+                        if (!directionFlag)
+                        {
+                            var scale = transform.localScale;
+                            scale.x = Mathf.Abs(scale.x);
+
+                            if (gameObject.transform.position.x > Original.x)
+                                scale.x *= 1;
+                            else
+                                scale.x *= -1;
+
+                            transform.localScale = scale;
+                            directionFlag = true;
+                        }
+
+                        anim.SetBool("Run", true);
+
+                        if (!wander)
+                        {
+
+
+                            gameObject.GetComponent<Rigidbody>().MovePosition(gameObject.transform.position + unitvec * Time.deltaTime * coefficient);
+                        }
+
+                    }
+                }
             }
-            else{
-               
-                if (!directionFlag)
-                {
-                    var scale = transform.localScale;
-                    scale.x = Mathf.Abs(scale.x);
-
-                    if (gameObject.transform.position.x > Original.x)
-                        scale.x *= 1;
-                    else
-                        scale.x *= -1;
-                   
-                    transform.localScale = scale;
-                    directionFlag = true;
-                }
-                anim.SetBool("Run", true);
-                if (!wander)
-                {
-
-      
-                    gameObject.GetComponent<Rigidbody>().MovePosition(gameObject.transform.position + unitvec * Time.deltaTime * coefficient);
-                }
-                
-                }
 
         }
 
-        }
-        
     }
 
-  void knockback(Vector3 dirVec)
+    void knockback(Vector3 dirVec)
     {
         print(dirVec);
-        gameObject.GetComponent<Rigidbody>().AddForce(-dirVec*10000);
+        gameObject.GetComponent<Rigidbody>().AddForce(-dirVec * 10000);
 
     }
 
@@ -148,7 +169,7 @@ public class detect : MonoBehaviour {
     {
         if (other.tag == "Projectile")
         {
-           
+
             knockback((other.transform.position - gameObject.transform.position).normalized);
         }
     }
