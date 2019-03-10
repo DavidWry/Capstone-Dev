@@ -22,7 +22,7 @@ public class JumpImpact : MonoBehaviour {
 	void Update ()
     {
         
-        Destroy(gameObject, 0.2f);
+        Destroy(gameObject, 0.5f);
 
     }
 

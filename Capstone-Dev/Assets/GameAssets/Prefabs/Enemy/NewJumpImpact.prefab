@@ -22,8 +22,10 @@ GameObject:
   - component: {fileID: 212114976190633798}
   - component: {fileID: 114262559569703436}
   - component: {fileID: 65146054416425754}
+  - component: {fileID: 95845684487655108}
+  - component: {fileID: 65011770477317962}
   m_Layer: 0
-  m_Name: crack-2
+  m_Name: NewJumpImpact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,12 +38,24 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1393680872821408}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1419.2, y: 157.1, z: 0}
+  m_LocalPosition: {x: -0.47, y: -9.06, z: 0}
   m_LocalScale: {x: 0.45, y: 0.45, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &65011770477317962
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1393680872821408}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.6784363, y: 3.815885, z: 0.2}
+  m_Center: {x: 0.4882777, y: -1.0775656, z: 0}
 --- !u!65 &65146054416425754
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -52,8 +66,26 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 15.408569, y: 6.5487423, z: 0.2}
-  m_Center: {x: -0.08831787, y: 0.48562908, z: 0}
+  m_Size: {x: 15.408569, y: 2.9456415, z: 0.2}
+  m_Center: {x: -0.08831766, y: 2.2871802, z: 0}
+--- !u!95 &95845684487655108
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1393680872821408}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 15f34a05053f2fd4b829d606ddea0a55, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114262559569703436
 MonoBehaviour:
   m_ObjectHideFlags: 1

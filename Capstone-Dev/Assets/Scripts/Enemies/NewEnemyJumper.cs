@@ -52,6 +52,8 @@ public class NewEnemyJumper : MonoBehaviour
 
     private bool hasReached;
     private bool hasCollidedWithObjects;
+
+    private CapsuleCollider cc;
     // public AnimationClip death;
 
     private void Awake()
@@ -82,9 +84,9 @@ public class NewEnemyJumper : MonoBehaviour
             rangeForAttack = 7f;
             capsule.radius = 0.55f;
             capsule.height = 5.46f;
-            landing.transform.localScale = new Vector3(2.5f, 1f, 1f);
+            landing.transform.localScale = new Vector3(0.8f, 0.7f, 1f);
             impact.transform.localScale = new Vector3(0.45f, 0.45f, 4f);
-            speed = 8f;
+            speed = 4f;
             arcHeight = 1f;
             reachedDistance = 0.1f;
             offset = new Vector3(0, 0.5f, 0);
@@ -121,6 +123,8 @@ public class NewEnemyJumper : MonoBehaviour
 
         hasReached = false;
         hasCollidedWithObjects = false;
+
+        cc = GetComponent<CapsuleCollider>();
     }
 
     void Update()
@@ -243,6 +247,8 @@ public class NewEnemyJumper : MonoBehaviour
                     //baseZ - arc
                     // Rotate to face the next position, and then move there
                     // transform.rotation = LookAt2D(nextPos - transform.position);
+
+                    cc.isTrigger = true;
                     transform.position = nextPos;
 
                     waitTime = 2f;
@@ -250,6 +256,7 @@ public class NewEnemyJumper : MonoBehaviour
                 else
                 {
                     anim.SetBool("isJumping", false);
+                    cc.isTrigger = false;
                 }
 
                 if (Vector3.Distance(nextPos, targetPos) <= reachedDistance)
@@ -260,6 +267,7 @@ public class NewEnemyJumper : MonoBehaviour
                 if(hasReached == true)
                 {
                     anim.SetBool("isJumping", false);
+                    
                     if (hasCollidedWithObjects == false)
                     {
                         if (hasInstantiatedImpact == false)
@@ -270,6 +278,7 @@ public class NewEnemyJumper : MonoBehaviour
                     }
                     canJump = false;
                     waitTime -= Time.deltaTime;
+                   
 
                 }
             }
@@ -308,7 +317,7 @@ public class NewEnemyJumper : MonoBehaviour
         return Quaternion.Euler(0, 0, Mathf.Atan2(forward.y, forward.x) * Mathf.Rad2Deg);
     }
 
-    private void OnCollisionEnter(Collision collision)
+   /* private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Minion" || collision.gameObject.tag == "Obstacle" || collision.gameObject.tag == "Chest")
         {
@@ -330,7 +339,7 @@ public class NewEnemyJumper : MonoBehaviour
             transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
             StartCoroutine(WaitAfterStun(2f));
         }
-    }
+    }*/
 
     public void Stun(float stunTime)
     {
