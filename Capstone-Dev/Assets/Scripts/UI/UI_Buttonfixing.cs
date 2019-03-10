@@ -25,20 +25,26 @@ public class UI_Buttonfixing : MonoBehaviour {
     void Update()
     {
         EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(buttons[currentButton].gameObject);
-        InputCheck();
+        timer += Time.deltaTime;
+        if (timer > 0.3f)
+        {
+            InputCheck();
+        }
     }
 
     void InputCheck()
     {
-        if (Input.GetAxis("Left Y") < -0.2)
+        if (Input.GetAxis("Left X") > 0.5)
         {
             if (currentButton < top - 1)
                 currentButton++;
+            timer = 0;
         }
-        else if (Input.GetAxis("Left Y") > 0.2)
+        else if (Input.GetAxis("Left X") < -0.5)
         {
             if (currentButton > 0)
                 currentButton--;
+            timer = 0;
         }
     }
 
