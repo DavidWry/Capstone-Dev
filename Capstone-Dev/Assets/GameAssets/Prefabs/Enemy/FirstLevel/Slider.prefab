@@ -107,7 +107,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1833249985577980}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -50.31, y: -0.39, z: 0}
+  m_LocalPosition: {x: -49.26, y: -0.47, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children:
   - {fileID: 4966434530361284}
@@ -233,8 +233,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dashSpeed: 7
+  hasReached: 0
   healthBar: {fileID: 114970328812044914}
   cameraShake: {fileID: 0}
+  slide: {fileID: 1230012007418544, guid: dd99df70f774652448fc8b36065a48c8, type: 2}
 --- !u!114 &114933114416713924
 MonoBehaviour:
   m_ObjectHideFlags: 1

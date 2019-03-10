@@ -10,8 +10,8 @@ public class EnemySlider : MonoBehaviour
 {
     private Rigidbody rb;
     public float dashSpeed;
-    private float dashTime;
-    private bool canDash;
+    public float dashTime;
+    public bool canDash;
     private int direction;
 
     private Player_New player;
@@ -27,7 +27,7 @@ public class EnemySlider : MonoBehaviour
 
     private Animator anim;
     private bool hasCollided;
-    private bool hasReached;
+    public bool hasReached;
     private float reachedDistance;
 
     private DropProbability probability = null;
@@ -42,6 +42,8 @@ public class EnemySlider : MonoBehaviour
     public CamerShake cameraShake;
 
     private bool isDrop;
+
+    public GameObject slide;
     // public AnimationClip death;
 
     private void Awake()
@@ -69,7 +71,7 @@ public class EnemySlider : MonoBehaviour
         else if (scene.name == "First Level")
         {
             transform.localScale = new Vector3(0.3f, 0.3f, 1f);
-            dashSpeed = 7f;
+            dashSpeed = 6.5f;
             rangeForAttack = 6f;
             capsule.radius = 0.55f;
             capsule.height = 5.51f;
@@ -78,7 +80,7 @@ public class EnemySlider : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         canDash = true;
-        dashTime = 0.5f;
+        dashTime = 0.8f;
 
         damage = 7;
         health = 130;
@@ -127,6 +129,34 @@ public class EnemySlider : MonoBehaviour
                     targetPos = new Vector3(target.position.x, target.position.y, target.position.z);
                     anim.SetTrigger("Sliding");
                     dir = (targetPos - transform.position).normalized * dashSpeed;
+
+                    var dirSlide = (targetPos - transform.position);
+                    var angle = Mathf.Atan2(dirSlide.y, dirSlide.x) * Mathf.Rad2Deg;
+                    var offset = new Vector3(0f, -0.8f,0f);
+                    Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+                   // var rotSlide = new Vector3(0, 0, angle);
+                    Instantiate(slide, transform.position + offset , q);
+
+
+
+                    /*var slideScale = slide.transform.localScale;
+                    slideScale.x = Mathf.Abs(slideScale.x);
+                    
+                    if (targetPos.x < transform.position.x)
+                    {
+                        slideScale.x *= -1;
+                        //slide.transform.localScale = new Vector3(-1, 1, 1);
+                    }
+
+                    else
+                    {
+                        slideScale.x *= 1;
+                        //  slide.transform.localScale = new Vector3(1, 1, 1);
+                    }
+                    slide.transform.localScale = slideScale;*/
+                    //flip slide
+
+
                     rb.velocity = dir;
                     canDash = false;
                     hasReached = false;
@@ -143,6 +173,7 @@ public class EnemySlider : MonoBehaviour
 
                 if (hasReached == true)
                 {
+                   
                     canDash = false;
                     anim.SetBool("isRunning", false);
                     rb.velocity = Vector3.zero;
