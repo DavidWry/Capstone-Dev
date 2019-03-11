@@ -6,15 +6,23 @@ using AssemblyCSharp;
 
 public class UIYbuton : MonoBehaviour {
 
-    public Sprite empty;
-    public Player_New player;
+    public GameObject empty;
+    private GameObject player;
 
 	// Use this for initialization
 	void Start () {
-        player = GameObject.FindWithTag("Player").GetComponent<Player_New>();
+        player = GameObject.FindWithTag("Player");
     }
 	
 	// Update is called once per frame
 	void Update () {
+        if (player.GetComponent<Shoot_New>().SkillReady)
+        {
+            empty.SetActive(true);
+        }
+        else
+        {
+            empty.SetActive(false);
+        }
 	}
 }
