@@ -29,7 +29,7 @@ public class ThrowingStarBack : MonoBehaviour {
         }
         if (back && PlayerObj != null)
         {
-            if (NextScene.nowName == "2_1" || NextScene.nowName == "2_1" || NextScene.nowName == "2_2")
+            if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3")
                 transform.position = Vector3.MoveTowards(transform.position, PlayerObj.transform.position, speed * 50 * Time.deltaTime);
             else
             {
