@@ -452,5 +452,10 @@ namespace AssemblyCSharp
                 Head.transform.eulerAngles = new Vector3(0, 0, angle / 3);
             }
         }
+
+        public void Emoji(string face)
+        {
+            Character.SetExpression(face);
+        }
     }
 }

@@ -174,6 +174,7 @@ public class Shoot_New : MonoBehaviour
         if (Mathf.Round(Input.GetAxisRaw("LeftTrigger")) > 0 && player.leftWeapon.Name != "")            //Push left trigger to shoot on left.
         {
             IsLeftShooting = true;
+            player.Emoji("Angry");
         }
         else
         {
@@ -182,6 +183,7 @@ public class Shoot_New : MonoBehaviour
         if (Mathf.Round(Input.GetAxisRaw("RightTrigger")) > 0 && player.rightWeapon.Name != "")          //Push right trigger to shoot on right.
         {
             IsRightShooting = true;
+            player.Emoji("Angry");
         }
         else
         {

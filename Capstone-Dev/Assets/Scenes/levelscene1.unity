@@ -10574,15 +10574,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4817257258728860, guid: ffa231341556b5740b4d0e802dba73b5, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4817257258728860, guid: ffa231341556b5740b4d0e802dba73b5, type: 2}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4817257258728860, guid: ffa231341556b5740b4d0e802dba73b5, type: 2}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1109720924762110, guid: ffa231341556b5740b4d0e802dba73b5, type: 2}
       propertyPath: m_IsActive
@@ -10703,11 +10703,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4527442569376206, guid: c2e5f753fcf49c64d87884c1108debe8, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 458.86
+      value: 395.5
       objectReference: {fileID: 0}
     - target: {fileID: 4527442569376206, guid: c2e5f753fcf49c64d87884c1108debe8, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -5.2
+      value: -36.6
       objectReference: {fileID: 0}
     - target: {fileID: 4527442569376206, guid: c2e5f753fcf49c64d87884c1108debe8, type: 2}
       propertyPath: m_LocalPosition.z
@@ -10735,15 +10735,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4527442569376206, guid: c2e5f753fcf49c64d87884c1108debe8, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4527442569376206, guid: c2e5f753fcf49c64d87884c1108debe8, type: 2}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4527442569376206, guid: c2e5f753fcf49c64d87884c1108debe8, type: 2}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 114847533338129964, guid: c2e5f753fcf49c64d87884c1108debe8,
         type: 2}
@@ -17262,9 +17262,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eb2a5aa12898e54fa29e8ef623bc11d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 15
-  minDistance: 1.5
-  coefficient: 5
+  distance: 150
+  minDistance: 15
+  coefficient: 50
   idleTime: 2
 --- !u!54 &2025329532
 Rigidbody:
