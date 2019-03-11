@@ -58,7 +58,7 @@ public class Shoot_New : MonoBehaviour
     private float CombineBtw_11 = 1f;
     private float CombineSpeed_11 = 15f;
     private float CombineDuration_11 = 2f;
-    private int CombineDamage_11 = 50;
+    private int CombineDamage_11 = 80;
     //12-1
     private float CombineBtw_12 = 0.2f;
     private float CombineSpeed_12 = 10f;
@@ -68,29 +68,29 @@ public class Shoot_New : MonoBehaviour
     private float CombineBtw_13 = 0.8f;
     private float CombineSpeed_13 = 20f;
     private float CombineDuration_13 = 5f;
-    private int CombineDamage_13 = 50;
+    private int CombineDamage_13 = 80;
     //14-3
     private float CombineBtw_14 = 1f;
     private float CombineSpeed_14 = 10f;
     private float CombineDuration_14 = 2f;
-    private int CombineDamage_14 = 2;
+    private int CombineDamage_14 = 100;
     //15-4
     private float CombineBtw_15 = 0.5f;
     private float CombineSpeed_15 = 15f;
     private float CombineDuration_15 = 50000f;
-    private int CombineDamage_15 = 45;
+    private int CombineDamage_15 = 65;
     public bool CombineTag_15 = true;
     public GameObject combine_15;
     //22-12
     private float CombineBtw_22 = 0.2f;
     private float CombineSpeed_22 = 30f;
     private float CombineDuration_22 = 2f;
-    private int CombineDamage_22 = 5;
+    private int CombineDamage_22 = 10;
     //23-5
     private float CombineBtw_23 = 0.01f;
     private float CombineSpeed_23 = 8f;
     private float CombineDuration_23 = 2f;
-    private int CombineDamage_23 = 2;
+    private int CombineDamage_23 = 10;
     //24-6
     private float CombineBtw_24 = 0.5f;
     private float CombineSpeed_24 = 10f;
@@ -100,33 +100,33 @@ public class Shoot_New : MonoBehaviour
     private float CombineBtw_25 = 0.3f;
     private float CombineSpeed_25 = 15f;
     private float CombineDuration_25 = 1f;
-    private int CombineDamage_25 = 35;
+    private int CombineDamage_25 = 65;
     //34-8
     private float CombineBtw_34 = 0.8f;
     private float CombineSpeed_34 = 25f;
     private float CombineDuration_34 = 3f;
-    private int CombineDamage_34 = 20;
+    private int CombineDamage_34 = 30;
     //35-9
     private float CombineBtw_35 = 1f;
     private float CombineSpeed_35 = 15f;
     private float CombineDuration_35 = 2f;
-    private int CombineDamage_35 = 20;
+    private int CombineDamage_35 = 30;
     public bool CombineTag_35 = false;
     //45-10
     private float CombineBtw_45 = 0.5f;
     private float CombineSpeed_45 = 10f;
     private float CombineDuration_45 = 3f;
-    private int CombineDamage_45 = 50;
+    private int CombineDamage_45 = 80;
     //44-14
     private float CombineBtw_44 = 0.2f;
     private float CombineSpeed_44 = 8f;
     private float CombineDuration_44 = 3f;
-    private int CombineDamage_44 = 20;
+    private int CombineDamage_44 = 30;
     //33-13
     private float CombineBtw_33 = 0.8f;
     private float CombineSpeed_33 = 15f;
     private float CombineDuration_33 = 3f;
-    private int CombineDamage_33 = 20;
+    private int CombineDamage_33 = 30;
 
     //Camera zoom;
     public GameObject CameraObj;
@@ -779,6 +779,7 @@ public class Shoot_New : MonoBehaviour
         GameObject NewProj = Instantiate(gameManager.CombineProjectile[3]);
         NewProj.transform.position = CombineBulPos.position;
         NewProj.transform.rotation = CombineBulPos.rotation;
+        NewProj.transform.localScale *= BulletSizeUp;
         //Change state according to the weapon
         Projectile Proj = NewProj.GetComponent<Projectile>();
         Proj.IsReady = true;

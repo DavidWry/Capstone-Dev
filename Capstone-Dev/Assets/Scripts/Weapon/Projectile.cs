@@ -46,7 +46,7 @@ namespace AssemblyCSharp
             {
                 dam = 270 * Time.deltaTime;
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z + dam);
-                if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2")
+                if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3")
                     RBody.velocity = transform.right * Speed * 20;
                 else
                     RBody.velocity = transform.right * Speed;
@@ -54,7 +54,7 @@ namespace AssemblyCSharp
             if (IsReady)
             {
                 IsReady = false;
-                if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2")
+                if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3")
                     RBody.velocity = transform.right * Speed * 20;
                 else
                     RBody.velocity = transform.right * Speed;
@@ -66,7 +66,7 @@ namespace AssemblyCSharp
                 {
                     Speed = 0;
                 }
-                if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2")
+                if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3")
                     RBody.velocity = transform.right * Speed * 20;
                 else
                     RBody.velocity = transform.right * Speed;
@@ -81,7 +81,7 @@ namespace AssemblyCSharp
                 if (SlowDown > 0)
                 {
                     GameObject ImpactObject = Instantiate(Impact, transform.position, transform.rotation);
-                    if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2")
+                    if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3")
                         ImpactObject.transform.localScale *= 20;
                 }
             }
@@ -184,7 +184,7 @@ namespace AssemblyCSharp
                 if (!OnTarget)
                 {
                     GameObject ImpactObject = Instantiate(Impact, transform.position, transform.rotation);
-                    if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2")
+                    if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3")
                         ImpactObject.transform.localScale = ImpactObject.transform.localScale * 16;
                 }
                 else
