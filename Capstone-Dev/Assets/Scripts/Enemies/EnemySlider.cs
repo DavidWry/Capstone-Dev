@@ -67,6 +67,7 @@ public class EnemySlider : MonoBehaviour
             capsule.height = 5.51f;
             rangeForAttack = 120f;
             reachedDistance = 2f;
+            slide.transform.localScale = new Vector3(14f, 14f, 1f);
         }
         else if (scene.name == "First Level")
         {
@@ -76,6 +77,7 @@ public class EnemySlider : MonoBehaviour
             capsule.radius = 0.55f;
             capsule.height = 5.51f;
             reachedDistance = 0.1f;
+            slide.transform.localScale = new Vector3(0.7f, 0.7f, 1f);
         }
         rb = GetComponent<Rigidbody>();
 
