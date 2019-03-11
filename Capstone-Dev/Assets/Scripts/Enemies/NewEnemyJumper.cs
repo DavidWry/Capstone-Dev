@@ -71,8 +71,8 @@ public class NewEnemyJumper : MonoBehaviour
             rangeForAttack = 140f;
             capsule.radius = 1.83f;
             capsule.height = 5.73f;
-            landing.transform.localScale = new Vector3(50f, 20f, 1f);
-            impact.transform.localScale = new Vector3(9f, 9f, 9f);
+            landing.transform.localScale = new Vector3(16f, 14f, 1f);
+            impact.transform.localScale = new Vector3(9f, 9f, 1f);
             speed = 70f;
             arcHeight =17f;
             reachedDistance = 2.0f;
@@ -85,7 +85,7 @@ public class NewEnemyJumper : MonoBehaviour
             capsule.radius = 0.55f;
             capsule.height = 5.46f;
             landing.transform.localScale = new Vector3(0.8f, 0.7f, 1f);
-            impact.transform.localScale = new Vector3(0.45f, 0.45f, 4f);
+            impact.transform.localScale = new Vector3(0.45f, 0.45f, 1f);
             speed = 4f;
             arcHeight = 1f;
             reachedDistance = 0.1f;

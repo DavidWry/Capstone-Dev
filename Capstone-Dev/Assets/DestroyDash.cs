@@ -5,27 +5,49 @@ using UnityEngine;
 public class DestroyDash : MonoBehaviour {
 
     
-   // public GameObject enemy;
+    public GameObject enemy;
     private EnemySlider es;
     private bool canDash;
     
 	void Start ()
     {
+        // es = GameObject.Find("EnemySlider").GetComponent<EnemySlider>();
+        // es = GetComponent<EnemySlider>();
 
-        
+
+        //   es = enemy.GetComponent<EnemySlider>();
+        // canDash = es.hasReached;
+       // enemy = GameObject.Find("Slider");
+       
+
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        canDash = GameObject.Find("Slider").GetComponent<EnemySlider>().hasReached;
+        //  if (enemy != null)
+        // {
 
-        if (canDash == true)
+        es = enemy.GetComponent<EnemySlider>();
+
+        //canDash = GameObject.Find("Slider").GetComponent<EnemySlider>().hasReached;
+
+        /* if (canDash == true)
+         {
+             Destroy(gameObject, 0.5f);
+         }*/
+        /*if(enemy.GetComponent<EnemySlider>().hasReached == true)
         {
-
             Destroy(gameObject, 0.5f);
+        }*/
 
+        if (es.canDash == true)
+        {
+            Destroy(gameObject, 0.5f);
         }
+            
+       // }
+        
         
 	}
 }
