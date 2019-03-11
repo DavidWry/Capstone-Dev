@@ -13,6 +13,9 @@ public class bosshp : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         healthBar.fillAmount = (fsm.GetComponent<Fsmandhp>().hp / 500.0f);
-		
+        if (healthBar.fillAmount <= 0)
+        {
+            Destroy(healthBar);
+        }
 	}
 }

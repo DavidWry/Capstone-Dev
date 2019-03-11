@@ -5,7 +5,7 @@ using UnityEngine;
 public class Instlightbeam : MonoBehaviour {
     float jiange=0.8f;
     float timing = 0;
-    float angle = 0;
+    public float angle = 0;
     public GameObject lightbeam;
 	// Use this for initialization
 	void Start () {

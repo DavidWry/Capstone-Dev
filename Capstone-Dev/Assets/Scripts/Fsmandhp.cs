@@ -8,6 +8,14 @@ public class Fsmandhp : MonoBehaviour {
     public GameObject jiguang;
     public GameObject toufazuo;
     public GameObject toufayou;
+    public GameObject portal;
+    public ParticleSystem zhaptc;
+    public ParticleSystem ptc1;
+    public ParticleSystem ptc2;
+    public ParticleSystem ptc3;
+    public ParticleSystem ptc4;
+    public ParticleSystem ptc5;
+    public Material mat1;
     private GameObject a;
     public float DistanceBP;
     public float DistanceBO;
@@ -20,6 +28,7 @@ public class Fsmandhp : MonoBehaviour {
    private Animator anim;
     private bool walk = false;
     bool notyet = false;
+    float cs = 3;
     private Vector3 nexspot;
 	// Use this for initialization
 	void Start () {
@@ -35,8 +44,37 @@ public class Fsmandhp : MonoBehaviour {
 	void Update () {
         if (hp <= 0)
         {
-            Destroy(gameObject.transform.parent.gameObject);
-        }
+            ptc1.Clear();
+            ptc2.Clear();
+            ptc3.Clear();
+            ptc4.Clear();
+            ptc5.Clear();
+            ptc1.Stop();
+            ptc2.Stop();
+            ptc3.Stop();
+            ptc4.Stop();
+            ptc5.Stop();
+            jiguang.GetComponent<Instlightbeam>().angle = 361;
+            
+            gameObject.GetComponent<SpriteRenderer>().material = mat1;
+            anim.speed = 0;
+            zhaptc.transform.position = gameObject.transform.position;
+            zhaptc.Play();
+            if (cs > 0)
+            {
+                cs -= 3*Time.deltaTime;
+                gameObject.transform.parent.transform.localScale = new Vector3(cs, cs, cs);
+            }
+            else
+            {  
+                Destroy(gameObject.transform.parent.gameObject);
+                portal.transform.position = gameObject.transform.position;
+                portal.SetActive(true);
+              
+                
+            }
+
+            }
          if (!notyet)
             {
                  

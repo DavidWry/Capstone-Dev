@@ -25,17 +25,52 @@ public class detect : MonoBehaviour {
 
     float timeCount = 0;
     Vector3 newvec;
+    public bool ishit = false;
+    float flashtime = 0;
+    public Component[] SpriteRenderers;
+    public Material mat1;
+    public Material mat2;
     // Use this for initialization
     void Start () {
         Original = gameObject.transform.position;
         newvec = new Vector3(Random.Range(-15, 15), Random.Range(-15, 15), 0);
         anim = gameObject.GetComponentInChildren<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
-	}
+        SpriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+        foreach (SpriteRenderer spt in SpriteRenderers)
+            spt.color = Color.white;
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        print(returnOriginal);
+        if (ishit)
+        {
+            flashtime += Time.deltaTime;
+
+
+
+            if (flashtime < 0.2f)
+            {
+                foreach (SpriteRenderer spt in SpriteRenderers)
+                {
+                    spt.material = mat1;
+                }
+            }
+
+            else
+            {
+
+                foreach (SpriteRenderer spt in SpriteRenderers)
+                {
+                    spt.material = mat2;
+                }
+
+                flashtime = 0;
+                ishit = false;
+
+            }
+
+        }
         if (player)
         {
             if (wander)
@@ -139,7 +174,7 @@ public class detect : MonoBehaviour {
 
   void knockback(Vector3 dirVec)
     {
-        print(dirVec);
+      
         gameObject.GetComponent<Rigidbody>().AddForce(-dirVec*10000);
 
     }
@@ -148,8 +183,11 @@ public class detect : MonoBehaviour {
     {
         if (other.tag == "Projectile")
         {
-           
+
             knockback((other.transform.position - gameObject.transform.position).normalized);
+            ishit = true;
+
+
         }
     }
 }

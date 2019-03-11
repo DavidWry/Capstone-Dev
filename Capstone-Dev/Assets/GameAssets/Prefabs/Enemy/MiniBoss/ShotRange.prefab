@@ -3476,6 +3476,10 @@ MonoBehaviour:
   Rotatearm: {fileID: 114674845079753160}
   shootLenth: 0.5
   shootBtw: 2
+  ishit: 0
+  SpriteRenderers: []
+  mat1: {fileID: 0}
+  mat2: {fileID: 0}
 --- !u!114 &114672138210907738
 MonoBehaviour:
   m_ObjectHideFlags: 1

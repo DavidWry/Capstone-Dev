@@ -10261,6 +10261,10 @@ MonoBehaviour:
   Rotatearm: {fileID: 0}
   shootLenth: 0.3
   shootBtw: 1
+  ishit: 0
+  SpriteRenderers: []
+  mat1: {fileID: 0}
+  mat2: {fileID: 0}
 --- !u!54 &685459944
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10607,6 +10611,51 @@ Prefab:
     - target: {fileID: 4921739181454518, guid: ffa231341556b5740b4d0e802dba73b5, type: 2}
       propertyPath: m_LocalScale.z
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 212011012489932760, guid: ffa231341556b5740b4d0e802dba73b5,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212011012489932760, guid: ffa231341556b5740b4d0e802dba73b5,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212011012489932760, guid: ffa231341556b5740b4d0e802dba73b5,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212013219290574418, guid: ffa231341556b5740b4d0e802dba73b5,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212013219290574418, guid: ffa231341556b5740b4d0e802dba73b5,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212013219290574418, guid: ffa231341556b5740b4d0e802dba73b5,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212260900983569488, guid: ffa231341556b5740b4d0e802dba73b5,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212260900983569488, guid: ffa231341556b5740b4d0e802dba73b5,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212260900983569488, guid: ffa231341556b5740b4d0e802dba73b5,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114018877293297076, guid: ffa231341556b5740b4d0e802dba73b5, type: 2}
@@ -11815,6 +11864,16 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114126760705490996, guid: 5868501d9b8ded94aa5c706e5fdc4e8d,
+        type: 2}
+      propertyPath: mat1
+      value: 
+      objectReference: {fileID: 2100000, guid: 06c6b5ea54c44a82841c784fc6314e23, type: 3}
+    - target: {fileID: 114126760705490996, guid: 5868501d9b8ded94aa5c706e5fdc4e8d,
+        type: 2}
+      propertyPath: mat2
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5868501d9b8ded94aa5c706e5fdc4e8d, type: 2}
   m_IsPrefabAsset: 0
@@ -16885,6 +16944,16 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114603278702540010, guid: 4e87b2b640139904b870c5d2778bc50e,
+        type: 2}
+      propertyPath: mat1
+      value: 
+      objectReference: {fileID: 2100000, guid: 06c6b5ea54c44a82841c784fc6314e23, type: 3}
+    - target: {fileID: 114603278702540010, guid: 4e87b2b640139904b870c5d2778bc50e,
+        type: 2}
+      propertyPath: mat2
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e87b2b640139904b870c5d2778bc50e, type: 2}
   m_IsPrefabAsset: 0
@@ -16986,6 +17055,10 @@ MonoBehaviour:
   Rotatearm: {fileID: 0}
   shootLenth: 0.3
   shootBtw: 1
+  ishit: 0
+  SpriteRenderers: []
+  mat1: {fileID: 0}
+  mat2: {fileID: 0}
 --- !u!54 &1890598986
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -17238,6 +17311,10 @@ MonoBehaviour:
   minDistance: 1.5
   coefficient: 5
   idleTime: 2
+  ishit: 0
+  SpriteRenderers: []
+  mat1: {fileID: 2100000, guid: 06c6b5ea54c44a82841c784fc6314e23, type: 3}
+  mat2: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!136 &2025329527
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -17266,6 +17343,10 @@ MonoBehaviour:
   minDistance: 15
   coefficient: 50
   idleTime: 2
+  SpriteRenderers: []
+  mat1: {fileID: 2100000, guid: 06c6b5ea54c44a82841c784fc6314e23, type: 3}
+  mat2: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  ishit: 0
 --- !u!54 &2025329532
 Rigidbody:
   m_ObjectHideFlags: 0

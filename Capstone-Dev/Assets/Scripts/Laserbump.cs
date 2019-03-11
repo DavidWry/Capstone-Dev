@@ -57,7 +57,7 @@ namespace AssemblyCSharp
         {
             if (other.gameObject.tag == "Player")
             {
-                other.GetComponent<Player_New>().TakeDamage(15);//same
+                other.GetComponent<Player_New>().TakeDamage(15+3*Time.deltaTime);//same
 
             }
 

@@ -33,7 +33,11 @@ namespace Assets.HeroEditor.Common.CharacterScripts
         float shootLenth = 0.5f;
         [SerializeField]
         float shootBtw = 1f;
-
+        public bool ishit = false;
+        float flashtime = 0;
+        public Component[] SpriteRenderers;
+        public Material mat1;
+        public Material mat2;
         // Use this for initialization
         void Start()
         {
@@ -42,11 +46,43 @@ namespace Assets.HeroEditor.Common.CharacterScripts
             anim = gameObject.GetComponentInChildren<Animator>();
             characterRanged = gameObject.GetComponent<Character>();
             player = GameObject.FindGameObjectWithTag("Player");
+            SpriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+            foreach (SpriteRenderer spt in SpriteRenderers)
+                spt.color = Color.white;
         }
 
         // Update is called once per frame
         void Update()
         {
+
+            if (ishit)
+            {
+                flashtime += Time.deltaTime;
+
+
+
+                if (flashtime < 0.2f)
+                {
+                    foreach (SpriteRenderer spt in SpriteRenderers)
+                    {
+                        spt.material = mat1;
+                    }
+                }
+
+                else
+                {
+
+                    foreach (SpriteRenderer spt in SpriteRenderers)
+                    {
+                        spt.material = mat2;
+                    }
+
+                    flashtime = 0;
+                    ishit = false;
+
+                }
+
+            }
             if (player)
             {
             if (wander)
@@ -183,6 +219,7 @@ namespace Assets.HeroEditor.Common.CharacterScripts
             if (other.tag == "Projectile")
             {
                 knockback((other.transform.position - gameObject.transform.position).normalized);
+                ishit = true;
             }*/
         }
     }
