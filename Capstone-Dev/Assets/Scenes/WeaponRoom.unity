@@ -1793,12 +1793,6 @@ Prefab:
       propertyPath: m_Name
       value: New_character
       objectReference: {fileID: 0}
-    - target: {fileID: 114039260084271232, guid: c2e5f753fcf49c64d87884c1108debe8,
-        type: 2}
-      propertyPath: FailUI
-      value: 
-      objectReference: {fileID: 1742270095628166, guid: b0aa292185d20764fbf3e28ff2f6c59f,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2e5f753fcf49c64d87884c1108debe8, type: 2}
   m_IsPrefabAsset: 0

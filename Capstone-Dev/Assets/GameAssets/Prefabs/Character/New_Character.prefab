@@ -3014,9 +3014,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1368066934807222}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 395.5, y: -36.6, z: 0}
-  m_LocalScale: {x: 15, y: 15, z: 15}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.37, y: 11.97, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4930176636263306}
   - {fileID: 4178139138151934}
@@ -4411,8 +4411,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 167cb74a8f6a20b469c0b7c00c263a80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletSizeUp: 15
-  SpeedUp: 15
+  BulletSizeUp: 1
+  SpeedUp: 1
   LeftLazer: {fileID: 0}
   RightLazer: {fileID: 0}
   Left: {fileID: 4615078453058510}
@@ -8377,7 +8377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f3dc66da7ac479438c50f3e76829303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WalkSpeed: 120
+  WalkSpeed: 8
   IsFaceRight: 1
   RightAimIcon: {fileID: 1011836339694946, guid: 070212531c3eb2b47b35d1d9daf0811e,
     type: 2}
@@ -8490,7 +8490,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1368066934807222}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.57
   m_Height: 2
