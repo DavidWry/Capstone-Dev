@@ -24,6 +24,15 @@ namespace AssemblyCSharp
         public Transform RightHand;
         public Transform Head;
 
+        private Component[] SpriteRenderers;
+        private bool IsHit = false;
+        private float FlashTime = 0;
+        private float WillFlashTime = 0.08f;
+        public Material mat1;
+        public Material mat2;
+        public Material mat3;
+        public SpriteRenderer eyes;
+
         public float HitPoint;
         public int Power;
         public int Slots = 0;
@@ -54,6 +63,7 @@ namespace AssemblyCSharp
             playerShoot = GetComponent<Shoot_New>();
             playerPick = GetComponent<PickUp_New>();
             Character = GetComponent<Character>();
+            SpriteRenderers = GetComponentsInChildren<SpriteRenderer>();
         }
 
         void Initalize()
@@ -64,10 +74,32 @@ namespace AssemblyCSharp
             playerShoot = GetComponent<Shoot_New>();
             playerPick = GetComponent<PickUp_New>();
             Character = GetComponent<Character>();
+            SpriteRenderers = GetComponentsInChildren<SpriteRenderer>();
         }
 
         private void Update()
         { 
+            if (IsHit)
+            {
+                FlashTime += Time.deltaTime;
+                if (FlashTime < WillFlashTime)
+                {
+                    foreach (SpriteRenderer spt in SpriteRenderers)
+                    {
+                        spt.material = mat1;
+                    }
+                }
+                else
+                {
+                    foreach (SpriteRenderer spt in SpriteRenderers)
+                    {
+                        spt.material = mat2;
+                    }
+                    FlashTime = 0;
+                    IsHit = false;
+                    eyes.material = mat3;
+                }
+            }
             if (HitPoint <= 0)
             {
                 Destroy(gameObject);
@@ -301,6 +333,8 @@ namespace AssemblyCSharp
         public void TakeDamage(float Damage)
         {
             HitPoint -= Damage;
+            SpriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+            IsHit = true;
         }
 
         public void SavePlayerData()
