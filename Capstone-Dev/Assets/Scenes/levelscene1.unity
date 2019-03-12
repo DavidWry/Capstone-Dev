@@ -10590,7 +10590,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1109720924762110, guid: ffa231341556b5740b4d0e802dba73b5, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4336534761315812, guid: ffa231341556b5740b4d0e802dba73b5, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -10781,46 +10781,6 @@ Prefab:
     - target: {fileID: 4527442569376206, guid: c2e5f753fcf49c64d87884c1108debe8, type: 2}
       propertyPath: m_RootOrder
       value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4527442569376206, guid: c2e5f753fcf49c64d87884c1108debe8, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4527442569376206, guid: c2e5f753fcf49c64d87884c1108debe8, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4527442569376206, guid: c2e5f753fcf49c64d87884c1108debe8, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 114847533338129964, guid: c2e5f753fcf49c64d87884c1108debe8,
-        type: 2}
-      propertyPath: WalkSpeed
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 114412990771979018, guid: c2e5f753fcf49c64d87884c1108debe8,
-        type: 2}
-      propertyPath: BulletSizeUp
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 114412990771979018, guid: c2e5f753fcf49c64d87884c1108debe8,
-        type: 2}
-      propertyPath: SpeedUp
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 136341454227683258, guid: c2e5f753fcf49c64d87884c1108debe8,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4892194566540712, guid: c2e5f753fcf49c64d87884c1108debe8, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4479632864305158, guid: c2e5f753fcf49c64d87884c1108debe8, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2e5f753fcf49c64d87884c1108debe8, type: 2}
@@ -11862,7 +11822,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1448291497953222, guid: 5868501d9b8ded94aa5c706e5fdc4e8d, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114126760705490996, guid: 5868501d9b8ded94aa5c706e5fdc4e8d,
         type: 2}

@@ -3015,8 +3015,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1368066934807222}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 432.6, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 395.5, y: -36.6, z: 0}
+  m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children:
   - {fileID: 4930176636263306}
   - {fileID: 4178139138151934}
@@ -3485,7 +3485,7 @@ Transform:
   - {fileID: 4145926725788608}
   m_Father: {fileID: 4479632864305158}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -30}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -15}
 --- !u!4 &4899022458591688
 Transform:
   m_ObjectHideFlags: 1
@@ -4109,6 +4109,10 @@ MonoBehaviour:
   LeftHand: {fileID: 4899022458591688}
   RightHand: {fileID: 4892194566540712}
   Head: {fileID: 4397608821431086}
+  mat1: {fileID: 2100000, guid: 06c6b5ea54c44a82841c784fc6314e23, type: 3}
+  mat2: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  mat3: {fileID: 2100000, guid: 3e78a9b3616c45e5a6cbd9fca765b55f, type: 2}
+  eyes: {fileID: 212835750063875868}
   HitPoint: 0
   Power: 0
   Slots: 1
@@ -4407,8 +4411,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 167cb74a8f6a20b469c0b7c00c263a80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletSizeUp: 1
-  SpeedUp: 1
+  BulletSizeUp: 15
+  SpeedUp: 15
   LeftLazer: {fileID: 0}
   RightLazer: {fileID: 0}
   Left: {fileID: 4615078453058510}
@@ -4423,7 +4427,7 @@ MonoBehaviour:
   TimeTopCombine: 6
   CombineTag: 0
   SkillReady: 0
-  GoldenFinger: 1
+  GoldenFinger: 0
   CombineAmmos: 0
   CombineOn: 0
   CombineBulPos: {fileID: 4283415803691152}
@@ -8373,7 +8377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f3dc66da7ac479438c50f3e76829303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WalkSpeed: 8
+  WalkSpeed: 120
   IsFaceRight: 1
   RightAimIcon: {fileID: 1011836339694946, guid: 070212531c3eb2b47b35d1d9daf0811e,
     type: 2}
@@ -8486,7 +8490,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1368066934807222}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.57
   m_Height: 2
