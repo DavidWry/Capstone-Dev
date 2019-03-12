@@ -10,6 +10,7 @@ namespace AssemblyCSharp
     {
         public int state;
         public Vector2 position;
+        public bool isFirstTop = false;
         // Use this for initialization
         void Start()
         {
