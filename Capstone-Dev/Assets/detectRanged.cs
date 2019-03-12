@@ -38,6 +38,9 @@ namespace Assets.HeroEditor.Common.CharacterScripts
         public Component[] SpriteRenderers;
         public Material mat1;
         public Material mat2;
+        public Material mat3;
+        public List<Color> colorlist;
+        int colorcount = 0;
         // Use this for initialization
         void Start()
         {
@@ -47,8 +50,10 @@ namespace Assets.HeroEditor.Common.CharacterScripts
             characterRanged = gameObject.GetComponent<Character>();
             player = GameObject.FindGameObjectWithTag("Player");
             SpriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+
             foreach (SpriteRenderer spt in SpriteRenderers)
-                spt.color = Color.white;
+                colorlist.Add(spt.color);
+
         }
 
         // Update is called once per frame
@@ -65,6 +70,7 @@ namespace Assets.HeroEditor.Common.CharacterScripts
                 {
                     foreach (SpriteRenderer spt in SpriteRenderers)
                     {
+                        spt.color = Color.white;
                         spt.material = mat1;
                     }
                 }
@@ -74,9 +80,19 @@ namespace Assets.HeroEditor.Common.CharacterScripts
 
                     foreach (SpriteRenderer spt in SpriteRenderers)
                     {
-                        spt.material = mat2;
-                    }
+                        spt.color = colorlist[colorcount];
+                        colorcount++;
 
+                        if (spt.name != "Eyes")
+                        {
+                            spt.material = mat2;
+                        }
+                        else
+                        {
+                            spt.material = mat3;
+                        }
+                    }
+                    colorcount = 0;
                     flashtime = 0;
                     ishit = false;
 

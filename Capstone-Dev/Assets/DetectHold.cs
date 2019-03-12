@@ -13,7 +13,7 @@ public class DetectHold : MonoBehaviour
     float coefficient = 5;
     [SerializeField]
     float idleTime = 2;
-
+     
     GameObject player;
     bool attacking = false;
     Vector3 Original;
@@ -22,8 +22,11 @@ public class DetectHold : MonoBehaviour
     bool returnOriginal = false;
     bool directionFlag = false;
     public Component[] SpriteRenderers;
+    public List<Color> colorlist;
+    int colorcount=0;
     public Material mat1;
     public Material mat2;
+    public Material mat3;
     bool wander = true;
     float flashtime = 0;
     float timeCount = 0;
@@ -37,8 +40,9 @@ public class DetectHold : MonoBehaviour
         anim = gameObject.GetComponentInChildren<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         SpriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+
         foreach (SpriteRenderer spt in SpriteRenderers)
-            spt.color = Color.white;
+            colorlist.Add(spt.color);
         
     }
 
@@ -55,6 +59,7 @@ public class DetectHold : MonoBehaviour
                 {
                 foreach (SpriteRenderer spt in SpriteRenderers)
                 {
+                    spt.color = Color.white;
                     spt.material = mat1;
                 }
             }
@@ -64,9 +69,18 @@ public class DetectHold : MonoBehaviour
 
                 foreach (SpriteRenderer spt in SpriteRenderers)
                 {
-                    spt.material = mat2;
+                    spt.color = colorlist[colorcount];
+                    colorcount++;
+                    if (spt.name != "Eyes")
+                    {
+                        spt.material = mat2;
+                    }
+                    else
+                    {
+                        spt.material = mat3;
+                    }
                 }
-
+                colorcount = 0;
                 flashtime = 0;
                     ishit = false;
 
@@ -207,11 +221,15 @@ public class DetectHold : MonoBehaviour
 
             knockback((other.transform.position - gameObject.transform.position).normalized);
             ishit = true;
+            
            
 
         }
 
+   
+
         
 
     }
+  
 }

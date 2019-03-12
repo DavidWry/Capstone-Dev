@@ -29,6 +29,8 @@ public class MiniBoss : MonoBehaviour {
             {
                 detecter.Rotatearm.enabled = false;
                 detecter.enabled = false;
+
+                character.Animator.SetBool("Run", false);
                 character.Animator.SetBool("DieFront", true);
             }
             isalive = false;
@@ -47,7 +49,7 @@ public class MiniBoss : MonoBehaviour {
     {
         detecter.Rotatearm.enabled = false;
         detecter.enabled = false;
-        character.Animator.SetBool("Idel", true);
+        character.Animator.SetBool("Idle", true);
         StartCoroutine(WaitAfterStun(time));
     }
 
@@ -56,6 +58,6 @@ public class MiniBoss : MonoBehaviour {
         yield return new WaitForSeconds(time);
         detecter.Rotatearm.enabled = true;
         detecter.enabled = true;
-        character.Animator.SetBool("Idel", false);
+        character.Animator.SetBool("Idle", false);
     }
 }

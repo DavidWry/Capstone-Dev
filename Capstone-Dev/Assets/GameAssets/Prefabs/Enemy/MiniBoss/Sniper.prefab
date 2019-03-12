@@ -3364,6 +3364,8 @@ MonoBehaviour:
   SpriteRenderers: []
   mat1: {fileID: 0}
   mat2: {fileID: 0}
+  mat3: {fileID: 0}
+  colorlist: []
 --- !u!114 &114223154376528866
 MonoBehaviour:
   m_ObjectHideFlags: 1

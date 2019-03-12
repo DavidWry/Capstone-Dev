@@ -28,8 +28,12 @@ public class detect : MonoBehaviour {
     public bool ishit = false;
     float flashtime = 0;
     public Component[] SpriteRenderers;
+    public List<Color> colorlist;
+    int colorcount = 0;
     public Material mat1;
     public Material mat2;
+
+    public Material mat3;
     // Use this for initialization
     void Start () {
         Original = gameObject.transform.position;
@@ -38,7 +42,7 @@ public class detect : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player");
         SpriteRenderers = GetComponentsInChildren<SpriteRenderer>();
         foreach (SpriteRenderer spt in SpriteRenderers)
-            spt.color = Color.white;
+            colorlist.Add(spt.color);
     }
 	
 	// Update is called once per frame
@@ -53,6 +57,7 @@ public class detect : MonoBehaviour {
             {
                 foreach (SpriteRenderer spt in SpriteRenderers)
                 {
+                    spt.color = Color.white;
                     spt.material = mat1;
                 }
             }
@@ -62,9 +67,19 @@ public class detect : MonoBehaviour {
 
                 foreach (SpriteRenderer spt in SpriteRenderers)
                 {
-                    spt.material = mat2;
+                    spt.color = colorlist[colorcount];
+                    colorcount++;
+                    if (spt.name != "Eyes")
+                    {
+                        spt.material = mat2;
+                    }
+                    else
+                    {
+                        spt.material = mat3;
+                    }
                 }
 
+                colorcount = 0;
                 flashtime = 0;
                 ishit = false;
 
