@@ -44,13 +44,11 @@ public class EnemySlider : MonoBehaviour
     private bool isDrop;
 
     public GameObject slide;
+    GameObject tempSlide;
+    private bool shouldDestroyDash;
     // public AnimationClip death;
 
-    private void Awake()
-    {
-
-
-    }
+   
     void Start()
     {
         isDrop = false;
@@ -98,14 +96,14 @@ public class EnemySlider : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         isStunned = false;
 
-
+        shouldDestroyDash = false;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Debug.Log("Length is: " + death.length);
+       
         //if player isnt dead
         if (target != null)
         {
@@ -136,11 +134,11 @@ public class EnemySlider : MonoBehaviour
                     var angle = Mathf.Atan2(dirSlide.y, dirSlide.x) * Mathf.Rad2Deg;
                     var offset = new Vector3(0f, -0.8f,0f);
                     Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-                   // var rotSlide = new Vector3(0, 0, angle);
-                    Instantiate(slide, transform.position + offset , q);
-
-
-
+                    // var rotSlide = new Vector3(0, 0, angle);
+               
+                    tempSlide = (GameObject)Instantiate(slide, transform.position + offset, q);
+            
+                
                     /*var slideScale = slide.transform.localScale;
                     slideScale.x = Mathf.Abs(slideScale.x);
                     
@@ -170,7 +168,20 @@ public class EnemySlider : MonoBehaviour
                 if (Vector2.Distance(transform.position, targetPos) <= reachedDistance)
                 {
                     hasReached = true;
+                    /*  if (isDashDestroyed == false)
+                      {
+                              slide.GetComponent<DestroyDash>().DestroyD();
+                              isDashDestroyed = true;
+                      }
+                      */
+                    shouldDestroyDash = true;
+           
+                }
 
+                //Destroy the dash indicator
+                if (shouldDestroyDash == true)
+                {
+                    Destroy(tempSlide, 0.5f);
                 }
 
                 if (hasReached == true)
@@ -188,6 +199,7 @@ public class EnemySlider : MonoBehaviour
                     canDash = true;
                     dashTime = 1.6f;
                     target = GameObject.FindGameObjectWithTag("Player").transform;
+                    shouldDestroyDash = false;
                 }
             }
             //check if under range and if he can dash
@@ -223,6 +235,7 @@ public class EnemySlider : MonoBehaviour
         {
             if (hasCollided == false && dashTime == 1.6f)
             {
+                shouldDestroyDash = true;
                 hasCollided = true;
                 rb.velocity = Vector3.zero;
                 anim.SetBool("isRunning", false);
@@ -242,27 +255,16 @@ public class EnemySlider : MonoBehaviour
 
 
 
-        /* if(other.gameObject.tag == "Obstacle")
-         {
-             anim.SetBool("isRunning", false);
-             rb.velocity = Vector3.zero;
-             hasReached = true;
-            // StartCoroutine(IfCollidedWithPlayer(2f));
-           // canDash = true;
-
-
-         }*/
-
-
         if ((other.gameObject.tag == "Minion") || (other.gameObject.tag == "Obstacle") || (other.gameObject.tag == "Chest"))
         {
 
           //  isStunned = true;
             anim.SetBool("isRunning", false);
             rb.velocity = Vector3.zero;
-        //    hasReached = true;
-            StartCoroutine(WaitAfterStun(2f));
+          //  hasReached = true;
 
+            StartCoroutine(WaitAfterStun(2f));
+            shouldDestroyDash = true;
 
         }
 
