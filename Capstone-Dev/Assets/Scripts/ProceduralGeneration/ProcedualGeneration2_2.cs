@@ -7,8 +7,8 @@ using AssemblyCSharp;
 public class ProcedualGeneration2_2 : MonoBehaviour {
 
     private GameManager gameManager;
-    public int levelWidth=320;
-    public int levelHeight=180;
+    public int levelWidth=160;
+    public int levelHeight=160;
 
     private float tileSize;
     private int[,] landArray;
@@ -82,7 +82,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
            DrawEdge();
         }
         Connect();
-        
+        ChangeColor();
         
         /*
         GenerateTrees();
@@ -814,6 +814,147 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
         }
     }
 
+    public void ChangeColor() {
+        GameObject tile10 = gameManager.GetTile2("Tile_10");
+        GameObject tile42 = gameManager.GetTile2("Tile_42");
+        GameObject tile43 = gameManager.GetTile2("Tile_43");
+        bool hasWall = false;
+
+        Vector2 startPosition=new Vector2(0,0);
+        Vector2 endPosition = new Vector2(0, 0);
+        //粗上色
+        for (int i = 0; i < levelWidth; i++) {
+            for (int j = 0; j < levelHeight; j++) {
+                
+                if (j == 0)//初始化
+                {
+                    hasWall = false;
+                    startPosition = new Vector2(i*tileSize,0);
+                    endPosition = new Vector2(i * tileSize, levelHeight * tileSize);
+                }
+                if (cellState[i, j].state != 0 && landArray[i, j - 1] == 0) {
+                    hasWall = true; 
+                    endPosition = cellState[i, j].position;         
+                }
+                else if (cellState[i, j].state != 0 && landArray[i, j + 1] == 0)
+                {
+
+                    startPosition = cellState[i, j].position;
+                    startPosition.y += 24f;
+                 
+               
+                }
+                else {
+                    hasWall = false;
+                }
+                if (hasWall) {
+                  int tileNum = (int)(endPosition.y - startPosition.y) / (int)tileSize;
+                  for (int m = 0; m < tileNum; m++)
+                  {
+                    Instantiate(tile10, new Vector3(i * tileSize, m * tileSize+startPosition.y, 0), transform.rotation);
+                  }
+                    
+                }
+                if (j == levelHeight - 1) {
+                    endPosition = new Vector2(i * tileSize, levelHeight * tileSize);
+                    int tileNum = (int)(endPosition.y - startPosition.y) / (int)tileSize;
+                    for (int m = 0; m < tileNum; m++)
+                    {
+                        Instantiate(tile10, new Vector3(i * tileSize, m * tileSize + startPosition.y, 0), transform.rotation);
+                    }
+                }
+
+            }
+        }
+        for (int i = 0; i < levelWidth; i++)
+        {
+            for (int j = 0; j < levelHeight; j++)
+            {
+                Vector2 position = cellState[i, j].position;
+                if (cellState[i, j].state == 6)//双右上边
+                {
+                    for (int m = 0; m < 4; m++) {
+                        for (int n=-2; n < 2; n++){
+                            Instantiate(tile42, new Vector3(position.x+m*0.5f*tileSize, position.y + n * 0.5f * tileSize, 0), transform.rotation);
+                        }
+                    }
+                    Instantiate(tile42, new Vector3(position.x, position.y + tileSize, 0), transform.rotation);
+                    Instantiate(tile42, new Vector3(position.x+0.5f*tileSize, position.y + tileSize, 0), transform.rotation);
+                    Instantiate(tile42, new Vector3(position.x+tileSize, position.y + tileSize, 0), transform.rotation);
+
+                    Instantiate(tile42, new Vector3(position.x, position.y + 1.5f*tileSize, 0), transform.rotation);
+                    Instantiate(tile42, new Vector3(position.x + 0.5f * tileSize, position.y + 1.5f*tileSize, 0), transform.rotation);
+
+                    Instantiate(tile42, new Vector3(position.x, position.y + 2f * tileSize, 0), transform.rotation);
+
+                    Instantiate(tile43, new Vector3(position.x+tileSize, position.y + 1.5f * tileSize, 0), transform.rotation);
+                    Instantiate(tile43, new Vector3(position.x, position.y + 2.5f * tileSize, 0), transform.rotation);
+                }
+
+                else if (cellState[i, j].state == 17)//单右上边
+                {
+                    for (int m = 0; m < 2; m++)
+                    {
+                        for (int n = -2; n < 2; n++)
+                        {
+                            Instantiate(tile42, new Vector3(position.x + m * 0.5f * tileSize, position.y + n * 0.5f * tileSize, 0), transform.rotation);
+                        }
+                    }
+                    Instantiate(tile42, new Vector3(position.x, position.y + tileSize, 0), transform.rotation);
+
+                    Instantiate(tile43, new Vector3(position.x, position.y + 1.5f*tileSize, 0), transform.rotation);
+                }
+                else if (cellState[i, j].state == 8)//双左上边
+                {
+                    for (int m = 0; m < 4; m++)
+                    {
+                        for (int n = -2; n < 2; n++)
+                        {
+                            Instantiate(tile42, new Vector3(position.x + m * 0.5f * tileSize, position.y + n * 0.5f * tileSize, 0), transform.rotation);
+                        }
+                    }
+                    Instantiate(tile42, new Vector3(position.x + 1.5f * tileSize, position.y + tileSize, 0), transform.rotation);
+                    Instantiate(tile42, new Vector3(position.x + 0.5f * tileSize, position.y + tileSize, 0), transform.rotation);
+                    Instantiate(tile42, new Vector3(position.x + tileSize, position.y + tileSize, 0), transform.rotation);
+
+                    Instantiate(tile42, new Vector3(position.x + 1.5f * tileSize, position.y + 1.5f * tileSize, 0), transform.rotation);
+                    Instantiate(tile42, new Vector3(position.x + tileSize, position.y + 1.5f * tileSize, 0), transform.rotation);
+
+                    Instantiate(tile42, new Vector3(position.x + 1.5f * tileSize, position.y + 2f * tileSize, 0), transform.rotation);
+
+                    Instantiate(tile43, new Vector3(position.x + 0.75f*tileSize, position.y + 1.5f * tileSize, 0), transform.rotation);
+                    Instantiate(tile43, new Vector3(position.x + 1.75f*tileSize, position.y + 2.5f * tileSize, 0), transform.rotation);
+                }
+                else if (cellState[i, j].state == 15)//单左上边
+                {
+                    for (int m = 0; m < 2; m++)
+                    {
+                        for (int n = -2; n < 2; n++)
+                        {
+                            Instantiate(tile42, new Vector3(position.x + m * 0.5f * tileSize, position.y + n * 0.5f * tileSize, 0), transform.rotation);
+                        }
+                    }
+                    Instantiate(tile42, new Vector3(position.x + 0.5f * tileSize, position.y + tileSize, 0), transform.rotation);
+
+                    Instantiate(tile43, new Vector3(position.x + 0.75f * tileSize, position.y + 1.5f * tileSize, 0), transform.rotation);
+                }
+                else if (cellState[i, j].state == 16)//上边
+                {
+                    for (int m = 0; m < 2; m++)
+                    {
+                        for (int n = -2; n < 1; n++)
+                        {
+                            Instantiate(tile42, new Vector3(position.x + m * 0.5f * tileSize, position.y + n * 0.5f * tileSize, 0), transform.rotation);
+                        }
+                    }
+                    for (int m = 0; m < 4; m++)
+                    {
+                        Instantiate(tile43, new Vector3(position.x + m * 0.25f * tileSize, position.y + 0.5f * tileSize, 0), transform.rotation);
+                    }
+                }
+            }
+        }
+    }
     void DrawEdge()
     {
         isEdgeReady = true;
@@ -1166,7 +1307,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                         else
                         {
                             isEdgeReady = false;
-                            Instantiate(tile103, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                            //Instantiate(tile103, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         }
 
                     }
@@ -1260,7 +1401,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                         else
                         {
                             isEdgeReady = false;
-                            Instantiate(tile103, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                            //Instantiate(tile103, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         }
 
                     }
@@ -1313,7 +1454,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                         else
                         {
                             isEdgeReady = false;
-                            Instantiate(tile104, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                            //Instantiate(tile104, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         }
 
                     }
@@ -1372,7 +1513,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                         else
                         {
                             isEdgeReady = false;
-                            Instantiate(tile104, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                            //Instantiate(tile104, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         }
 
 
@@ -1504,7 +1645,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                     }
                     else {
                         isEdgeReady = false;
-                        Instantiate(tile105, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                       // Instantiate(tile105, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                     }
                         
 
@@ -1639,7 +1780,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                     }
                     else {
                         isEdgeReady = false;
-                        Instantiate(tile106, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                       // Instantiate(tile106, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                     }
 
 
@@ -1725,7 +1866,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                         }
                         else {
                             isEdgeReady = false;
-                            Instantiate(tile100, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                            //Instantiate(tile100, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         }
                             
                     }
@@ -1815,7 +1956,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                         }
                         else {
                             isEdgeReady = false;
-                            Instantiate(tile100, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                           // Instantiate(tile100, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         }                            
                     }
                 }
@@ -1956,7 +2097,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                         else
                         {
                             isEdgeReady = false;
-                            Instantiate(tile101, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                            //Instantiate(tile101, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         }
 
                     }
@@ -2111,7 +2252,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                         else
                         {
                             isEdgeReady = false;
-                            Instantiate(tile101, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                           // Instantiate(tile101, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         }
                     }
                 }
@@ -2212,7 +2353,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                     }
                     else {
                         isEdgeReady = false;
-                        Instantiate(tile102, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                       // Instantiate(tile102, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                     }
      
 
