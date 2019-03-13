@@ -47,7 +47,7 @@ public class Loading : MonoBehaviour
         {
             BGFirstLevel.SetActive(true);
         }
-        else if (NextScene.loadName == "2_1")
+        else if (NextScene.loadName == "2_1" || NextScene.loadName == "2_2")
         {
             BG2_1.SetActive(true);
         }
@@ -119,7 +119,7 @@ public class Loading : MonoBehaviour
         if (NextScene.loadName == "First Level") {
             myText.text = "Heading to the Tutorial Level..." + progress;
         }
-        else if (NextScene.loadName == "2_1")
+        else if (NextScene.loadName == "2_1"|| NextScene.loadName == "2_2")
         {
             myText.text = "Welcome to Mercury..." + progress;
         }

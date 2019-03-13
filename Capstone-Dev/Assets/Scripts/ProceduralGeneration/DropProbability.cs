@@ -45,7 +45,7 @@ public class DropProbability : MonoBehaviour {
             }
 
         }
-        else if (sceneName == "2_1")
+        else if (sceneName == "2_1"|| sceneName == "2_2")
         {
             foreach (Item item in ItemListFor2_1)
                 totalcount += item.Probability;

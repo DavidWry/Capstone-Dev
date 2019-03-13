@@ -21,7 +21,7 @@ public class StompwaveProjectile : MonoBehaviour {
     {
         scene = SceneManager.GetActiveScene();
 
-        if (scene.name == "2_1")
+        if (scene.name == "2_1"|| scene.name == "2_2")
         {
            travelDistance = 80f;
         }

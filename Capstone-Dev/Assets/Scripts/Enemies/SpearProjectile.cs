@@ -19,7 +19,7 @@ public class SpearProjectile : MonoBehaviour
     void Start()
     {
         scene = SceneManager.GetActiveScene();
-        if (scene.name == "2_1")
+        if (scene.name == "2_1"|| scene.name == "2_2")
         {
             speed = 60.5f;
         }

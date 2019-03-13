@@ -65,7 +65,7 @@ public class NewEnemyJumper : MonoBehaviour
 
         scene = SceneManager.GetActiveScene();
 
-        if (scene.name == "2_1")
+        if (scene.name == "2_1" || scene.name == "2_2")
         {
             transform.localScale = new Vector3(6f, 6f, 1f);
             rangeForAttack = 140f;
@@ -295,7 +295,7 @@ public class NewEnemyJumper : MonoBehaviour
                 string tempName = probability.DetermineDrop();
                 GameObject itemObj = gameManager.GetItemObj(tempName);
                 itemObj = Instantiate(gameManager.GetItemObj(tempName), transform.position, Quaternion.Euler(0, 0, 0));
-                if (NextScene.nowName == "2_1")
+                if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2")
                     itemObj.transform.localScale = new Vector3(4, 4, 4);
                 var worldCanvas = GameObject.Find("worldCanvas").transform;
                 itemObj.transform.parent = worldCanvas;
