@@ -506,7 +506,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelWidth: 160
   levelHeight: 160
-  theCanvas: {fileID: 0}
+  theCanvas: {fileID: 1106426438}
 --- !u!114 &746326792 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114704720808873404, guid: 5459165c1a6a0d8459bae141378f4087,
@@ -633,6 +633,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bee7bc086dd45445a73be91a1ea8485, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1106426438 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1396269728413068, guid: 5459165c1a6a0d8459bae141378f4087,
+    type: 2}
+  m_PrefabInternal: {fileID: 222822858}
 --- !u!114 &1265806290 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114218165441237098, guid: 5459165c1a6a0d8459bae141378f4087,
@@ -767,6 +772,11 @@ Prefab:
         type: 2}
       propertyPath: EnemyList.Array.size
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: PortalList.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4390172704827272, guid: 7430308c60b9dc74396db2694886222b, type: 2}
       propertyPath: m_LocalPosition.x
@@ -1207,7 +1217,7 @@ Prefab:
         type: 2}
       propertyPath: PortalList.Array.data[0]
       value: 
-      objectReference: {fileID: 1367659576493558, guid: 020ca2ab85777fb4886c584f8ef51d30,
+      objectReference: {fileID: 1367659576493558, guid: 79506ee8fad7d8242b478a9fbe1e95ab,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
@@ -1258,6 +1268,12 @@ Prefab:
       propertyPath: Tiles2.Array.data[54]
       value: 
       objectReference: {fileID: 1008682546140488, guid: d09a8a9351c8a3749990192e2c7d508f,
+        type: 2}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: PortalList.Array.data[1]
+      value: 
+      objectReference: {fileID: 1367659576493558, guid: 79506ee8fad7d8242b478a9fbe1e95ab,
         type: 2}
     m_RemovedComponents:
     - {fileID: 114744981980483458, guid: 7430308c60b9dc74396db2694886222b, type: 2}

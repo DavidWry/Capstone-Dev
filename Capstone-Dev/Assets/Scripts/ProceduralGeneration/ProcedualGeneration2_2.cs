@@ -34,10 +34,11 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
     private int[] direction;
 
     private Vector2 entrancePosition;
+    
     // Use this for initialization
     void Start () {
         isEdgeReady = false;    
-        NextScene.nowName = "2_1";
+        NextScene.nowName = "2_2";
         cameraControl = GameObject.Find("CameraFollowing").GetComponent<CameraControl>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
@@ -103,18 +104,12 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
 
         GenerateEnemy();
         DrawEnemy();
-        /*
-
-        
-
-        
-
         DrawPortal();
-
         FinishGeneration();
 
         DrawNPC();
-        */
+
+      
     }
 
     void Terrain()
@@ -1049,7 +1044,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                         else
                         {
                             isEdgeReady = false;
-                            // Instantiate(tile102, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                            //Instantiate(tile102, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         }
                             
                         //}
@@ -1397,7 +1392,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                         else
                         {
                             isEdgeReady = false;
-                            //Instantiate(tile104, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                            Instantiate(tile104, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         }
 
                     }
@@ -2582,16 +2577,16 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                 {
                     float ratio = (float)Random.Range(1, 50);
                     bool isClose = false;
-                    if (ratio < 15)
+                    if (ratio < 5)
                     {
-                        /*
+                        
                         for (int m = -2; m < 3; m++) {
                             for (int n = -2; n < 3; n++) {
-                                if (cellState[i, j].state != 200)
+                                if (cellState[i+m, j+n].state != 200)
                                     isClose = true;
                             }
                         }
-                        */
+                        
                         for (int m = -5; m < 6; m++)
                         {
                             for (int n = -5; n < 6; n++)
@@ -2626,23 +2621,23 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
             {
                 if (cellState[i, j].state == 100)
                 {
-                    Instantiate(enemy1, new Vector3(i*(float)tileSize, j*(float)tileSize, 0), transform.rotation);          
+                    Instantiate(enemy1, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);          
                 }
                 else if (cellState[i, j].state == 101)
                 {
-                    Instantiate(enemy2, new Vector3(i*(float)tileSize, j*(float)tileSize, 0), transform.rotation);
+                    Instantiate(enemy2, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
                 }
                 else if (cellState[i, j].state == 102)
                 {
-                    Instantiate(enemy3, new Vector3(i*(float)tileSize, j*(float)tileSize, 0), transform.rotation);
+                    Instantiate(enemy3, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
                 }
                 else if (cellState[i, j].state == 103)
                 {
-                    Instantiate(enemy4, new Vector3(i*(float)tileSize, j*(float)tileSize, 0), transform.rotation);
+                    Instantiate(enemy4, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
                 }
                 else if (cellState[i, j].state == 104)
                 {
-                    Instantiate(enemy5, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                    Instantiate(enemy5, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
                 }
             }
         }
@@ -2650,76 +2645,50 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
 
     void DrawPortal()
     {
-        GameObject portal1 = gameManager.GetPortal("Portal_2");
-        bool isCreated = false;
-        int xPos = Random.Range(0, levelWidth);
-        int yPos = Random.Range(0, levelHeight);
-        for (int i =4; i < levelWidth-4; i++)
+        GameObject portal1 = gameManager.GetPortal("Portal_3");
+        Vector2 maxPosition = new Vector2(0, 0);
+        float maxDistance = 0f;
+        bool isClose = false;
+        for (int i =0; i < levelWidth; i++)
         {
-            for (int j = 4; j < levelHeight-4; j++)
+            for (int j = 0; j < levelHeight; j++)
             {
-                if (cellState[i, j].state == 0)
+                if (cellState[i, j].state >=100 )
                 {
-                    if (Random.Range(1, 1000) < 2) {
-                        if (!isCreated) {
-                            Instantiate(portal1, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
-                            isCreated = true;
+                    isClose = false;
+                    for (int m = -2; m < 3; m++)
+                    {
+                        for (int n = -2; n < 3; n++)
+                        {
+                            if (cellState[i + m, j + n].state > 0 && cellState[i + m, j + n].state < 100)
+                                isClose = true;
                         }
                     }
-                           
+                    float tempDistance = Mathf.Abs(entrancePosition.x - i) + Mathf.Abs(entrancePosition.y - j);
+                    if (tempDistance > maxDistance && !isClose) {
+                        maxDistance = tempDistance;
+                        maxPosition = cellState[i, j].position;
+                    }
+            
                 }
             }
         }
+
+        Instantiate(portal1, new Vector3(maxPosition.x, maxPosition.y, 0), transform.rotation);
 
     }
 
     void DrawPlayer()
     {
         GameObject player1 = gameManager.Player;
-        bool isCreated = false;
-        for (int m = -5; m < 6; m++) {
-            for (int n = -5; n < 6; n++)
-            {
-                if (cellState[(int)entrancePosition.x+m, (int)entrancePosition.y+n].state == 200)
-                {
-                    if (Random.Range(1, 100) < 5)
-                    {
-                        if (!isCreated)
-                        {
-                            Vector2 position = cellState[(int)entrancePosition.x + m, (int)entrancePosition.y + n].position;
-                            player1 = Instantiate(player1, new Vector3(position.x, position.y, 0), transform.rotation);
-                            cellState[(int)entrancePosition.x + m, (int)entrancePosition.y + n].state=300;
-                            player1.transform.localScale = new Vector3(15.0f, 15.0f, 15.0f);
-                            player1.GetComponent<Movement_New>().WalkSpeed = 150;
-                            player1.GetComponent<Shoot_New>().BulletSizeUp = 15;
-                            player1.GetComponentInChildren<PickUp_New>().WeaponSizeUp = 15;
-                            player1.GetComponentInChildren<PickUp_New>().ItemSizeUp = 15;
-                            isCreated = true;
-                        }
-                    }
-
-                }
-            }
-        }
-        for (int i = levelWidth-1; i > -1; i--)
-        {
-            for (int j = levelHeight-1; j > -1; j--)
-            {
-                
-            }
-        }
-
-    }
-
-    void DrawBoss()
-    {
-        float xPos = Random.Range(2.5f, cameraControl.border2.x-2.5f);
-        float yPos = Random.Range(2.5f, cameraControl.border2.y-2.5f);
-            
-        
-        GameObject boss = gameManager.GetBoss("FairBoss");
-       
-        Instantiate(boss, new Vector3(xPos, yPos, 0), boss.transform.rotation);
+        Vector2 position = cellState[(int)entrancePosition.x, (int)entrancePosition.y - 1].position;
+        player1 = Instantiate(player1, new Vector3(position.x, position.y, 0), transform.rotation);
+        cellState[(int)entrancePosition.x, (int)entrancePosition.y - 1].state=300;
+        player1.transform.localScale = new Vector3(15.0f, 15.0f, 15.0f);
+        player1.GetComponent<Movement_New>().WalkSpeed = 150;
+        player1.GetComponent<Shoot_New>().BulletSizeUp = 15;
+        player1.GetComponentInChildren<PickUp_New>().WeaponSizeUp = 15;
+        player1.GetComponentInChildren<PickUp_New>().ItemSizeUp = 15;
     }
 
     void DrawNPC()
@@ -2732,27 +2701,33 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
        // Instantiate(NPCObject);
         bool isCreated = false;
 
-        for (int i = levelWidth - 1; i > -1; i--)
+        bool isClose = false;
+        for (int i = 0; i < levelWidth; i++)
         {
-            for (int j = levelHeight - 1; j > -1; j--)
+            for (int j = 0; j < levelHeight; j++)
             {
-                if (cellState[i, j].state == 0)
+                if (cellState[i, j].state >= 100)
                 {
-                    if (Random.Range(1, 1000) < 2)
+                    isClose = false;
+                    for (int m = -2; m < 3; m++)
                     {
-                        if (!isCreated)
+                        for (int n = -2; n < 3; n++)
                         {
-                           
-                           Instantiate(NPCObject, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
-                           // player1.transform.localScale = new Vector3(15.0f, 15.0f, 15.0f);
-                           // player1.GetComponent<Movement_New>().WalkSpeed = 5;
-                           isCreated = true;
+                            if (cellState[i + m, j + n].state > 0 && cellState[i + m, j + n].state < 100)
+                                isClose = true;
                         }
                     }
-
+                    if (Random.Range(1, 100) < 2 && !isClose && !isCreated)
+                    {
+                        Instantiate(NPCObject, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
+                        // player1.transform.localScale = new Vector3(15.0f, 15.0f, 15.0f);
+                        // player1.GetComponent<Movement_New>().WalkSpeed = 5;
+                        isCreated = true;
+                    }
                 }
             }
         }
+
     }
 
     void FinishGeneration() {

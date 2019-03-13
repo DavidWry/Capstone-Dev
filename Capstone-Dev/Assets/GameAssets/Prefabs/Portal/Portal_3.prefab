@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114386589368478372}
   - component: {fileID: 136665920818483968}
   m_Layer: 0
-  m_Name: Portal_2
+  m_Name: Portal_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8de4d0acdf36fe4aadd560adbc8bead, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: 2_2
+  nextSceneName: 2_3
 --- !u!136 &136665920818483968
 CapsuleCollider:
   m_ObjectHideFlags: 1
