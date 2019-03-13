@@ -51,6 +51,24 @@ public class Lazer : Projectile {
                             timeCounter = 0;
                         }
                     }
+                    else if (hit.transform.tag == "Boss")
+                    {
+                        if (timeCounter >= 0.3)
+                        {
+                            if (hit.transform.gameObject.GetComponent<Fsmandhp>())
+                                hit.transform.gameObject.GetComponent<Fsmandhp>().takedamage(Damage / 3);
+                            timeCounter = 0;
+                        }
+                    }
+                    else if (hit.transform.tag == "Chest")
+                    {
+                        if (timeCounter >= 0.3)
+                        {
+                            if(hit.transform.gameObject.GetComponent<Chest>())
+                                hit.transform.gameObject.GetComponent<Chest>().TakeDamage(Damage / 3);
+                            timeCounter = 0;
+                        }
+                    }
                 }
             }
             else
