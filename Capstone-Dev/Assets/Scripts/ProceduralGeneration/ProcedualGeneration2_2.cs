@@ -73,9 +73,10 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
             Smooth();
         }
        
-        Draw();
-        //AddWalls();          
+        Draw();      
         ChangeEdge();
+        //ReCaculateLandArray();
+
         FindTheDown();
         for(int i=0;i<180;i++)
         {
@@ -83,16 +84,12 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
         }
         Connect();
         ChangeColor();
-        
-        /*
-        GenerateTrees();
-        DrawTrees();
-        
-        GenerateCactus();
-        DrawCactus();
-
+        ChangeLandArrayPosition();
         GenerateGrass();
         DrawGrass();
+        /*
+
+       
 
         GenerateRock();
         DrawRock();
@@ -109,8 +106,6 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
         DrawEnemy();
 
         DrawPortal();
-     
-        //DrawBoss();
 
         FinishGeneration();
 
@@ -126,20 +121,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
     {
         for (int i = 1; i < levelWidth-1; i++) {
             for (int j = 1; j < levelHeight-1; j++){
-                
-                if (landArray[i, j] == 0) {
-                    int totalNum = 0;
-                    for (int m = -1; m < 2; m++) {
-                        for (int n = -1; n < 2; n++) {
-                            if (landArray[i + m, j + n] == 0)
-                                totalNum++;
-                        }
-                    }
-                    if (totalNum < 4) {
-                        landArray[i, j] = 1;
-                    }
-                }
-                
+
                 if (landArray[i, j] == 1)
                 {
                     int totalNum = 0;
@@ -156,6 +138,21 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                         landArray[i, j] = 0;
                     }
                 }
+
+                if (landArray[i, j] == 0) {
+                    int totalNum = 0;
+                    for (int m = -1; m < 2; m++) {
+                        for (int n = -1; n < 2; n++) {
+                            if (landArray[i + m, j + n] == 0)
+                                totalNum++;
+                        }
+                    }
+                    if (totalNum < 4) {
+                        landArray[i, j] = 1;
+                    }
+                }
+                
+                
                 if (landArray[i, j + 1] == 0 && landArray[i, j - 1] == 0 && landArray[i + 1, j] == 1 &&
                    landArray[i - 1, j] == 1 && landArray[i, j] == 0)
                     landArray[i, j] = 1;//111001011
@@ -167,47 +164,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                    landArray[i, j + 1] == 1 && landArray[i, j - 1] == 1 && landArray[i + 1, j + 1] == 0 &&
                    landArray[i + 1, j - 1] == 0)
                     landArray[i, j] = 1;//如果是突出去的右边，就消除那个格子
-                /*
-                if (landArray[i - 1, j + 1] == 1 && landArray[i, j + 1] == 1 && landArray[i + 1, j + 1] == 1 &&
-                   landArray[i - 1, j] == 0 && landArray[i, j] == 0 && landArray[i + 1, j] == 1 &&
-                   landArray[i - 1, j - 1] == 0 && landArray[i, j - 1] == 1 && landArray[i + 1, j - 1] == 1)
-                    landArray[i, j] = 1;//111001011
-                if (landArray[i - 1, j + 1] == 0 && landArray[i, j + 1] == 1 && landArray[i + 1, j + 1] == 1 &&
-                   landArray[i - 1, j] == 0 && landArray[i, j] == 0 && landArray[i + 1, j] == 1 &&
-                   landArray[i - 1, j - 1] == 0 && landArray[i, j - 1] == 1 && landArray[i + 1, j - 1] == 1)
-                    landArray[i, j] = 1;//011001011
-                if (landArray[i - 1, j + 1] == 0 && landArray[i, j + 1] == 0 && landArray[i + 1, j + 1] == 1 &&
-                   landArray[i - 1, j] == 0 && landArray[i, j] == 1 && landArray[i + 1, j] == 1 &&
-                   landArray[i - 1, j - 1] == 0 && landArray[i, j - 1] == 0 && landArray[i + 1, j - 1] == 1)
-                    landArray[i, j] = 0;//001011001
-                if (landArray[i - 1, j + 1] == 1 && landArray[i, j + 1] == 0 && landArray[i + 1, j + 1] == 0 &&
-                   landArray[i - 1, j] == 1 && landArray[i, j] == 1 && landArray[i + 1, j] == 0 &&
-                   landArray[i - 1, j - 1] == 1 && landArray[i, j - 1] == 0 && landArray[i + 1, j - 1] == 0)
-                    landArray[i, j] = 0;//101110100
-                if (landArray[i - 1, j + 1] == 0 && landArray[i, j + 1] == 0 && landArray[i + 1, j + 1] == 0 &&
-                   landArray[i - 1, j] == 0 && landArray[i, j] == 1 && landArray[i + 1, j] == 0 &&
-                   landArray[i - 1, j - 1] == 0 && landArray[i, j - 1] == 1 && landArray[i + 1, j - 1] == 1)
-                    landArray[i, j] = 0;//000010011
-                if (landArray[i - 1, j + 1] == 1 && landArray[i, j + 1] == 0 && landArray[i + 1, j + 1] == 0 &&
-                   landArray[i - 1, j] == 1 && landArray[i, j] == 1 && landArray[i + 1, j] == 0 &&
-                   landArray[i - 1, j - 1] == 0 && landArray[i, j - 1] == 0 && landArray[i + 1, j - 1] == 0)
-                    landArray[i, j] = 0;//100110000
-                if (landArray[i - 1, j + 1] == 0 && landArray[i, j + 1] == 0 && landArray[i + 1, j + 1] == 0 &&
-                   landArray[i - 1, j] == 0 && landArray[i, j] == 1 && landArray[i + 1, j] == 1 &&
-                   landArray[i - 1, j - 1] == 0 && landArray[i, j - 1] == 1 && landArray[i + 1, j - 1] == 1)
-                    landArray[i, j] = 0;//000011011
-                if (landArray[i - 1, j + 1] == 0 && landArray[i, j + 1] == 0 && landArray[i + 1, j + 1] == 1 &&
-                   landArray[i - 1, j] == 0 && landArray[i, j] == 1 && landArray[i + 1, j] == 1 &&
-                   landArray[i - 1, j - 1] == 0 && landArray[i, j - 1] == 1 && landArray[i + 1, j - 1] == 1)
-                    {
-                        landArray[i-1, j] = 0;//001011011
-                        landArray[i - 1, j-1] = 0;
-                    }
-                if (landArray[i - 1, j + 1] == 0 && landArray[i, j + 1] == 0 && landArray[i + 1, j + 1] == 0 &&
-                   landArray[i - 1, j] == 0 && landArray[i, j] == 1 && landArray[i + 1, j] == 1 &&
-                   landArray[i - 1, j - 1] == 0 && landArray[i, j - 1] == 1 && landArray[i + 1, j - 1] == 1)
-                    landArray[i, j] = 0;//000011011
-                    */
+               
             }
         }
     }
@@ -323,12 +280,16 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
         {
             for (int j = 0; j < levelHeight; j++)
             {
-                if (landArray[i, j] == 0)
+                if (landArray[i, j] == 2 && cellState[i,j].state==0)
                 {
-                    if (Random.value < ratio)
-                        landArray[i, j] = 1;
+
+                    if (Random.value < ratio) {
+                        Debug.Log("200");
+                        cellState[i, j].state = 201;
+                    }
+                        
                     else
-                        landArray[i, j] = 0;
+                        cellState[i, j].state = 200;
                 }
             }
         }
@@ -340,20 +301,23 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
             {
                 for (int h = 0; h < levelHeight; h++)
                 {
-                    if (w == 0 || h == 0 || w == levelWidth - 1 || h == levelHeight - 1)
+                    if (cellState[w, h].state == 200 || cellState[w, h].state == 201)
                     {
-                        landArray[w, h] = 0;
-
-                    }
-                    else
-                    {
-                        if (!isSimultaneous)
+                        if (w == 0 || h == 0 || w == levelWidth - 1 || h == levelHeight - 1)
                         {
-                            landArray[w, h] = DetermineCell(w, h, targetNum, threshold, neighborSize);
+                            cellState[w, h].state = 200;
+                            Debug.Log("边界了");
                         }
                         else
                         {
-                            newLandArray[w, h] = DetermineCell(w, h, targetNum, threshold, neighborSize);
+                            if (!isSimultaneous)
+                            {
+                                cellState[w, h].state = DetermineCell(w, h, targetNum, threshold, neighborSize);
+                            }
+                            else
+                            {
+                                newLandArray[w, h] = DetermineCell(w, h, targetNum, threshold, neighborSize);
+                            }
                         }
                     }
                 }
@@ -364,7 +328,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                 {
                     for (int h = 0; h < levelHeight; h++)
                     {
-                        landArray[w, h] = newLandArray[w, h];
+                        cellState[w, h].state = newLandArray[w, h];
                     }
                 }
             }
@@ -431,116 +395,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
     int DetermineCell(int row, int col, int targetCellNum, int threshold, int neighborSize) {
         int found = 0;
         int cellNum = 0;
-/*
-        //calculate four corners
-        if (row == 0 && col == 0)
-        {
-            for (int x = 0; x <= 1; x++)
-            {
-                for (int y = 0; y <= 1; y++)
-                {
-                    if (landArray[row + x, col + y] == targetCellNum)
-                        found++;
-                }
-            }
-            if (found > 2)
-                cellNum = 1;
-        }
-        else if (row == 0 && col == levelHeight - 1)
-        {
-            for (int x = 0; x <= 1; x++)
-            {
-                for (int y = -1; y <= 0; y++)
-                {
-                    if (landArray[row + x, col + y] == targetCellNum)
-                        found++;
-                }
-            }
-            if (found > 2)
-                cellNum = 1;
-        }
 
-        else if (row == levelWidth - 1 && col == 0)
-        {
-            for (int x = -1; x <= 0; x++)
-            {
-                for (int y = 0; y <= 1; y++)
-                {
-                    if (landArray[row + x, col + y] == targetCellNum)
-                        found++;
-                }
-            }
-            if (found > 2)
-                cellNum = 1;
-        }
-
-        else if (row == levelWidth - 1 && col == levelHeight - 1)
-        {
-            for (int x = -1; x <= 0; x++)
-            {
-                for (int y = -1; y <= 0; y++)
-                {
-                    if (landArray[row + x, col + y] == targetCellNum)
-                        found++;
-                }
-            }
-            if (found > 2)
-                cellNum = 1;
-        }
-        //calculate four edges
-        else if (row == 0 && col > 0 && col < levelHeight - 1)
-        {
-            for (int x = 0; x <= 1; x++)
-            {
-                for (int y = -1; y <= 1; y++)
-                {
-                    if (landArray[row + x, col + y] == targetCellNum)
-                        found++;
-                }
-            }
-            if (found > 3)
-                cellNum = 1;
-        }
-        else if (row == levelWidth - 1 && col > 0 && col < levelHeight - 1)
-        {
-            for (int x = -1; x <= 0; x++)
-            {
-                for (int y = -1; y <= 1; y++)
-                {
-                    if (landArray[row + x, col + y] == targetCellNum)
-                        found++;
-                }
-            }
-            if (found > 3)
-                cellNum = 1;
-        }
-        else if (row > 0 && row < levelWidth - 1 && col == 0)
-        {
-            for (int x = -1; x <= 1; x++)
-            {
-                for (int y = 0; y <= 1; y++)
-                {
-                    if (landArray[row + x, col + y] == targetCellNum)
-                        found++;
-                }
-            }
-            if (found > 3)
-                cellNum = 1;
-        }
-        else if (row > 0 && row < levelWidth - 1 && col == levelHeight - 1)
-        {
-            for (int x = -1; x <= 1; x++)
-            {
-                for (int y = -1; y <= 0; y++)
-                {
-                    if (landArray[row + x, col + y] == targetCellNum)
-                        found++;
-                }
-            }
-            if (found > 3)
-                cellNum = 1;
-        }
-        */
         //calculate main area
         int minX = row-neighborSize;
         int maxX = row+neighborSize;
@@ -559,14 +414,14 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
         {
             for (int y = minY; y <= maxY; y++)
             {
-                if (landArray[x, y] == targetCellNum)
+                if (cellState[x, y].state == targetCellNum)
                 found++;
             }
         }
             //Debug.Log("found"+found);
         if (found > threshold)
-            cellNum=1;
-            //Debug.Log(cellNum);
+            cellNum=201;
+            Debug.Log(cellNum);
         
         return cellNum;
         
@@ -866,6 +721,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
 
             }
         }
+        //细上色
         for (int i = 0; i < levelWidth; i++)
         {
             for (int j = 0; j < levelHeight; j++)
@@ -952,6 +808,84 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                         Instantiate(tile43, new Vector3(position.x + m * 0.25f * tileSize, position.y + 0.5f * tileSize, 0), transform.rotation);
                     }
                 }
+            }
+        }
+    }
+
+    public void ReCaculateLandArray() {
+        int areaNum=0;
+        bool hasEdge = false;
+        bool isScan = false;
+
+        for (int i = 0; i < levelWidth; i++) {
+            for (int j = 0; j < levelHeight; j++) {
+                if (j == 0) {
+                    hasEdge = false;
+                    
+                }
+                if (edgeArray[i, j] != 0 && !isScan) {
+                    areaNum += 1;
+                    isScan = true;
+                    hasEdge = true;
+                    Debug.Log("0");
+                    if (areaNum > 1) {
+                        Debug.Log("超过了");
+                    }
+                }
+                if (areaNum == 1 && isScan)
+                {
+                    if (edgeArray[i, j] !=0)
+                        hasEdge = true;
+                }
+                if (j == levelHeight - 1) {
+                    if (!hasEdge)
+                        isScan = false;
+                }
+               
+            }
+        }
+       
+    }
+    public void ChangeLandArrayPosition() {
+        GameObject tile43 = gameManager.GetTile2("Tile_22");
+        Vector2 startPosition = new Vector2(0, 0);
+        Vector2 endPosition = new Vector2(0, 0);
+        Vector2 start = new Vector2(0, 0);
+        Vector2 end = new Vector2(0, 0);
+        for (int i = 0; i < levelWidth; i++)
+        {
+            for (int j = 0; j < levelHeight; j++)
+            {
+
+                if (j == 0)//初始化
+                {
+
+                    startPosition = new Vector2(i * tileSize, 0);
+                    endPosition = new Vector2(i * tileSize, levelHeight * tileSize);
+                    start = new Vector2(i,0);
+                    end= new Vector2(i, levelHeight-1);
+                }
+                if (cellState[i, j].state != 0 && landArray[i, j + 1] == 1)
+                {
+            
+                    startPosition = cellState[i, j].position;
+                    startPosition.y += 24f;
+                    start = new Vector2(i, j);
+                }
+                else if (cellState[i, j].state != 0 && landArray[i, j - 1] == 1)
+                {
+                    endPosition = cellState[i, j].position;
+                    end = new Vector2(i, j);
+                    float yDistance = endPosition.y - startPosition.y-tileSize;
+                    int middleTiles = (int)end.y - (int)start.y-1;
+                    float middleTileSize = yDistance / middleTiles;
+                    for (int n = (int)start.y + 1; n < (int)end.y; n++) {
+                        landArray[i, n] = 2;
+                        cellState[i, n].position = new Vector2(i * tileSize,startPosition.y+24f+(n-start.y-1)*middleTileSize);
+                       // Instantiate(tile43, new Vector3(cellState[i, n].position.x, cellState[i, n].position.y, 0), transform.rotation);
+                    }
+                }
+
             }
         }
     }
@@ -1307,7 +1241,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                         else
                         {
                             isEdgeReady = false;
-                            //Instantiate(tile103, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                            Instantiate(tile103, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         }
 
                     }
@@ -2505,25 +2439,10 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
 
     void GenerateGrass()
     {
-        //initialize
-        for (int i = 0; i < levelWidth; i++)
-        {
-            for (int j = 0; j < levelHeight; j++)
-            {
-                if (cellState[i, j].state == 0)
-                {
-                    landArray[i, j] = 0;
-                }
-                else
-                {
-                    landArray[i, j] = -1;
-                }
-               
-            }
-        }
 
+        ChangeLandArrayPosition();
         //CA(0.5f, 1, 8, 1, true, 0);
-        CA(0.5f, 1, 8, 1, false, 0);
+        CA(0.5f, 1, 4, 1, false, 201);
     }
 
     void DrawGrass()
@@ -2537,28 +2456,28 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
         {
             for (int j = levelHeight-1; j > -1; j--)
             {
-                if (landArray[i, j] == 1)
+                if (cellState[i, j].state == 201)
                 {
-
+                    Debug.Log("a");
                     float tempValue = Random.value;
                     if (tempValue < 0.25)
                     {
-                        Instantiate(tile30, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                        Instantiate(tile30, new Vector3(cellState[i,j].position.x, cellState[i, j].position.y, 0), transform.rotation);
                         cellState[i, j].state = 30;//number in tileset folder
                     }
                     else if (tempValue < 0.5)
                     {
-                        Instantiate(tile31, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                        Instantiate(tile31, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
                         cellState[i, j].state = 31;//number in tileset folder
                     }
                     else if (tempValue < 0.75)
                     {
-                        Instantiate(tile32, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                        Instantiate(tile32, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
                         cellState[i, j].state = 32;//number in tileset folder
                     }
                     else if (tempValue < 1)
                     {
-                        Instantiate(tile33, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                        Instantiate(tile33, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
                         cellState[i, j].state = 33;//number in tileset folder
                     }
                 }
