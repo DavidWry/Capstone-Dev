@@ -33,6 +33,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
 	private float turnRatio=0.25f;
     private int[] direction;
 
+    private Vector2 entrancePosition;
     // Use this for initialization
     void Start () {
         isEdgeReady = false;    
@@ -87,23 +88,26 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
         ChangeLandArrayPosition();
         GenerateGrass();
         DrawGrass();
-        /*
-
-       
 
         GenerateRock();
         DrawRock();
-        
+
         GenerateBone();
         DrawBone();
 
         GenerateLoot();
         DrawLoot();
 
+        AddEntrance();
         DrawPlayer();
 
         GenerateEnemy();
         DrawEnemy();
+        /*
+
+        
+
+        
 
         DrawPortal();
 
@@ -418,9 +422,11 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                 found++;
             }
         }
-            //Debug.Log("found"+found);
+        //Debug.Log("found"+found);
         if (found > threshold)
-            cellNum=201;
+            cellNum = 201;
+        else
+            cellNum = 200;
             Debug.Log(cellNum);
         
         return cellNum;
@@ -608,7 +614,8 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
             for (int j = 0; j < levelHeight; j++) {
                 if (cellState[i, j].state == 16 && cellState[i, j].isFirstTop) {
                     firstTopPosition = cellState[i, j].position;
-                    if (cellState[i + 1, j - 1].state != 0) {
+                    if (cellState[i + 1, j - 1].state != 0)
+                    {
                         lastPosition = cellState[i + 1, j - 1].position;
                     }
                     else if (cellState[i + 1, j + 1].state != 0)
@@ -622,6 +629,20 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                     else if (cellState[i + 1, j].state != 0)
                     {
                         lastPosition = cellState[i + 1, j].position;
+                    }
+                    else//检测同列的
+                    {
+                        int n = j + 1;
+                        while (n < levelHeight) {
+                            if (cellState[i, n].state != 0)
+                            {
+                                lastPosition = cellState[i, n].position;
+                                break;
+                            }
+                            else {
+                                n++;
+                            }
+                        }
                     }
                 }
             }
@@ -932,19 +953,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                     //如果右边还是自己，则使用两个格子的tile
                     if (edgeArray[i + 1, j] == 1 && cellState[i, j].state != 1)
                     {
-                        /*
-                        //open the gate!
-                        if (Random.value < 0.1 && j != 0)
-                        {
-                            Instantiate(tile19, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                            cellState[i, j].state = 19;
-                            cellState[i, j].position = new Vector2(i * (float)tileSize, j * (float)tileSize);
-                            cellState[i + 1, j].state = 19;
-                            cellState[i + 1, j].position = new Vector2(i * (float)tileSize, j * (float)tileSize);
-
-                        }
-                        */
-
+                       
                         //else
                         //{
                         //如果左边是自己且都还没决定，就跳过这一此判定
@@ -2299,148 +2308,22 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
       
     }
 
-    void GenerateTrees() {
-        //initialize
-        for (int i = 0; i < levelWidth; i++) {
-            for (int j = 0; j < levelHeight; j++) {
-                if (cellState[i, j].state == 0)
-                {
-                    landArray[i, j] = 0;//draw trees on blank tiles
-                }
-                else {
-                    landArray[i, j] = -1;//do not generate trees on edge
-                }
-                //Debug.Log(landArray[i, j]);
-            }
-        }
+ 
 
-        CA(0.5f, 1, 7, 1,true,1);
-      
-
-    }
-
-    void DrawTrees()
-    {
-        GameObject tree1 = gameManager.GetTile2("Tile_20");
-        GameObject tree2 = gameManager.GetTile2("Tile_21");
-        
-
-        for (int i = 0; i < levelWidth; i++)
-        {
-            for (int j = levelHeight-1; j > -1; j--)
-            {
-                if (landArray[i, j] == 1)
-                {
-                    Debug.Log("shu");
-                    float tempValue = Random.value;
-                    if (tempValue < 0.5)
-                    {
-                        Instantiate(tree1, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
-                        cellState[i, j].state = 20;//number in tileset folder
-                    }
-                    else if (tempValue < 1)
-                    {
-                        Instantiate(tree2, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
-                        cellState[i, j].state = 21;
-                    }
-
-                }
-            }
-        }
-    }
-
-    void GenerateCactus()
+    void GenerateGrass()
     {
         //initialize
         for (int i = 0; i < levelWidth; i++)
         {
             for (int j = 0; j < levelHeight; j++)
             {
-                if (cellState[i, j].state == 0)
+                if (cellState[i, j].state == 200|| cellState[i, j].state == 201)
                 {
-                    landArray[i, j] = 0;
-                }
-                else
-                {
-                    landArray[i, j] = -1;
+                    cellState[i, j].state = 0;
                 }
 
             }
         }
-
-        //CA(0.5f, 1, 8, 1, true, 0);
-        CA(0.5f, 1, 8, 1, false, 0);
-    }
-
-    void DrawCactus()
-    {
-        GameObject tile22 = gameManager.GetTile2("Tile_22");
-        GameObject tile23 = gameManager.GetTile2("Tile_23");
-        GameObject tile24 = gameManager.GetTile2("Tile_24");
-        GameObject tile25 = gameManager.GetTile2("Tile_25");
-        GameObject tile26 = gameManager.GetTile2("Tile_26");
-        GameObject tile27 = gameManager.GetTile2("Tile_27");
-        GameObject tile28 = gameManager.GetTile2("Tile_28");
-        GameObject tile29 = gameManager.GetTile2("Tile_29");
-
-
-        for (int i = 0; i < levelWidth; i++)
-        {
-            for (int j = levelHeight-1; j > -1; j--)
-            {
-                if (landArray[i, j] == 1)
-                {
-                
-                    float tempValue = Random.value;
-                    if (tempValue < 0.125)
-                    {
-                        Instantiate(tile22, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
-                        cellState[i, j].state = 22;//number in tileset folder
-                    }
-                    else if (tempValue < 0.25)
-                    {
-                        Instantiate(tile23, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
-                        cellState[i, j].state = 23;//number in tileset folder
-                    }
-                    else if (tempValue < 0.375)
-                    {
-                        Instantiate(tile24, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
-                        cellState[i, j].state = 24;//number in tileset folder
-                    }
-                    else if (tempValue < 0.5)
-                    {
-                        Instantiate(tile25, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
-                        cellState[i, j].state = 25;//number in tileset folder
-                    }
-                    else if (tempValue < 0.625)
-                    {
-                        Instantiate(tile26, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
-                        cellState[i, j].state = 26;//number in tileset folder
-                    }
-                    else if (tempValue < 0.75)
-                    {
-                        Instantiate(tile27, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
-                        cellState[i, j].state = 27;//number in tileset folder
-                    }
-                    else if (tempValue < 0.875)
-                    {
-                        Instantiate(tile28, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
-                        cellState[i, j].state = 28;//number in tileset folder
-                    }
-                    else if (tempValue < 0.1)
-                    {
-                        Instantiate(tile29, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
-                        cellState[i, j].state = 29;//number in tileset folder
-                    }
-                }
-            }
-        }
-    }
-
-    void GenerateGrass()
-    {
-
-        ChangeLandArrayPosition();
         //CA(0.5f, 1, 8, 1, true, 0);
         CA(0.5f, 1, 4, 1, false, 201);
     }
@@ -2458,27 +2341,27 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
             {
                 if (cellState[i, j].state == 201)
                 {
-                    Debug.Log("a");
+                    //Debug.Log("a");
                     float tempValue = Random.value;
                     if (tempValue < 0.25)
                     {
                         Instantiate(tile30, new Vector3(cellState[i,j].position.x, cellState[i, j].position.y, 0), transform.rotation);
-                        cellState[i, j].state = 30;//number in tileset folder
+                        //cellState[i, j].state = 30;//number in tileset folder
                     }
                     else if (tempValue < 0.5)
                     {
                         Instantiate(tile31, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
-                        cellState[i, j].state = 31;//number in tileset folder
+                        //cellState[i, j].state = 31;//number in tileset folder
                     }
                     else if (tempValue < 0.75)
                     {
                         Instantiate(tile32, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
-                        cellState[i, j].state = 32;//number in tileset folder
+                        //cellState[i, j].state = 32;//number in tileset folder
                     }
                     else if (tempValue < 1)
                     {
                         Instantiate(tile33, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
-                        cellState[i, j].state = 33;//number in tileset folder
+                        //cellState[i, j].state = 33;//number in tileset folder
                     }
                 }
             }
@@ -2492,20 +2375,17 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
         {
             for (int j = 0; j < levelHeight; j++)
             {
-                if (cellState[i, j].state == 0)
+                if (cellState[i, j].state == 200 || cellState[i, j].state == 201)
                 {
-                    landArray[i, j] = 1;
-                }
-                else
-                {
-                    landArray[i, j] = -1;
+                    cellState[i, j].state = 0;
                 }
 
             }
         }
 
+
         // CA(0.5f, 1, 8, 1, true, 0);
-        CA(0.5f, 1, 8, 1, false, 0);
+        CA(0.6f, 1, 8, 1, false, 200);
     }
 
     void DrawRock()
@@ -2520,33 +2400,33 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
         {
             for (int j = levelHeight-1; j > -1; j--)
             {
-                if (landArray[i, j] == 1)
+                if (cellState[i, j].state == 201)
                 {
 
                     float tempValue = Random.value;
                     if (tempValue < 0.20)
                     {
-                        Instantiate(tile34, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                        Instantiate(tile34, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
                         cellState[i, j].state = 34;//number in tileset folder
                     }
                     else if (tempValue < 0.4)
                     {
-                        Instantiate(tile35, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                        Instantiate(tile35, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
                         cellState[i, j].state = 35;//number in tileset folder
                     }
                     else if (tempValue < 0.6)
                     {
-                        Instantiate(tile36, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                        Instantiate(tile36, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
                         cellState[i, j].state = 36;//number in tileset folder
                     }
                     else if (tempValue < 0.8)
                     {
-                        Instantiate(tile37, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                        Instantiate(tile37, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
                         cellState[i, j].state = 37;//number in tileset folder
                     }
                     else if (tempValue < 1)
                     {
-                        Instantiate(tile38, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                        Instantiate(tile38, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
                         cellState[i, j].state = 38;//number in tileset folder
                     }
                 }
@@ -2561,20 +2441,17 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
         {
             for (int j = 0; j < levelHeight; j++)
             {
-                if (cellState[i, j].state == 0)
+                if (cellState[i, j].state == 200 || cellState[i, j].state == 201)
                 {
-                    landArray[i, j] = 0;
-                }
-                else
-                {
-                    landArray[i, j] = -1;
+                    cellState[i, j].state = 0;
                 }
 
             }
         }
 
-        //CA(0.5f, 1, 8, 1, true, 0);
-        CA(0.5f, 1, 8, 1, true, 0);
+
+        // CA(0.5f, 1, 8, 1, true, 0);
+        CA(0.6f, 1, 8, 1, false, 200);
     }
 
     void DrawBone()
@@ -2586,18 +2463,18 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
         {
             for (int j = levelHeight-1; j > -1; j--)
             {
-                if (landArray[i, j] == 1)
+                if (cellState[i, j].state == 201)
                 {
 
                     float tempValue = Random.value;
                     if (tempValue < 0.5)
                     {
-                        Instantiate(tile39, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                        Instantiate(tile39, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
                         cellState[i, j].state = 39;//number in tileset folder
                     }
                     else if (tempValue < 1)
                     {
-                        Instantiate(tile40, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                        Instantiate(tile40, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
                         cellState[i, j].state = 40;//number in tileset folder
                     }
                 }
@@ -2613,19 +2490,18 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
         {
             for (int j = 0; j < levelHeight; j++)
             {
-                if (cellState[i, j].state == 0)
+                if (cellState[i, j].state == 200 || cellState[i, j].state == 201)
                 {
-                    landArray[i, j] = 0;
-                }
-                else
-                {
-                    landArray[i, j] = -1;
+                    cellState[i, j].state = 0;
                 }
 
             }
         }
 
-        CA(0.55f, 1, 8, 1, false, 0);
+
+        // CA(0.5f, 1, 8, 1, true, 0);
+        CA(0.6f, 1, 8, 1, false, 200);
+       
     }
 
     void DrawLoot()
@@ -2637,15 +2513,42 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
         {
             for (int j = levelHeight-1; j > -1; j--)
             {
-                if (landArray[i, j] == 1)
+                if (cellState[i, j].state == 201)
                 {
-                    Instantiate(tile41, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                    Instantiate(tile41, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
                     cellState[i, j].state = 41;//number in tileset folder           
                 }
             }
         }
     }
 
+    void AddEntrance() {
+        GameObject tile44 = gameManager.GetTile2("Tile_44");
+        GameObject tile45 = gameManager.GetTile2("Tile_45");
+        bool hasDoor = false;
+        for (int j = levelHeight - 1; j >= 0; j--)
+        {
+            for (int i = 0; i < levelWidth; i++)
+            {
+                if (cellState[i, j].state == 1 && !hasDoor)
+                {
+                    float tempValue = Random.value;
+                    if (tempValue < 0.5)
+                    {
+                        Instantiate(tile44, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
+                        cellState[i, j].state = 44;
+                    }
+                    else if (tempValue < 1)
+                    {
+                        Instantiate(tile45, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
+                        cellState[i, j].state = 45;
+                    }
+                    entrancePosition = new Vector2(i,j);
+                    hasDoor = true;
+                }
+            }
+        }                  
+    }
     void GenerateEnemy()
     {
         /*
@@ -2657,48 +2560,48 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
             Seed(xPos,yPos,size,ratio);
         }
         */
+        /*
         //initialize
         for (int i = 0; i < levelWidth; i++)
         {
             for (int j = 0; j < levelHeight; j++)
             {
-                if (cellState[i, j].state == 0)
+                if (cellState[i, j].state == 200 || cellState[i, j].state == 201)
                 {
-                    landArray[i, j] = 0;
-                }
-                else
-                {
-                    landArray[i, j] = -1;
+                    cellState[i, j].state = 0;
                 }
 
             }
         }
+        */
         for (int i = 2; i < levelWidth-2; i++)
         {
             for (int j = 2; j< levelHeight-2; j++)
             {
-                if (landArray[i, j] == 0)
+                if (cellState[i, j].state == 200)
                 {
                     float ratio = (float)Random.Range(1, 50);
                     bool isClose = false;
                     if (ratio < 15)
                     {
+                        /*
                         for (int m = -2; m < 3; m++) {
                             for (int n = -2; n < 3; n++) {
-                                if (landArray[i + m, j + n] != 0)
+                                if (cellState[i, j].state != 200)
                                     isClose = true;
                             }
                         }
+                        */
                         for (int m = -5; m < 6; m++)
                         {
                             for (int n = -5; n < 6; n++)
                             {
-                                if (cellState[i + m, j + n].state==200)
+                                if (cellState[i + m, j + n].state==300)
                                     isClose = true;
                             }
                         }
                         if (!isClose) {
-                            landArray[i, j] = -1;
+                           // landArray[i, j] = -1;
                             cellState[i, j].state = DetermineEnemyType();
                         }
 
@@ -2774,19 +2677,18 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
     {
         GameObject player1 = gameManager.Player;
         bool isCreated = false;
-        int xPos = Random.Range(0, levelWidth);
-        int yPos = Random.Range(0, levelHeight);
         for (int m = -5; m < 6; m++) {
             for (int n = -5; n < 6; n++)
             {
-                if (cellState[levelWidth/2+m, levelHeight/2+n].state == 0)
+                if (cellState[(int)entrancePosition.x+m, (int)entrancePosition.y+n].state == 200)
                 {
                     if (Random.Range(1, 100) < 5)
                     {
                         if (!isCreated)
                         {
-                            player1 = Instantiate(player1, new Vector3((levelWidth / 2 + m) * tileSize, (levelHeight / 2 + n) * tileSize, 0), transform.rotation);
-                            cellState[levelWidth / 2 + m, levelHeight / 2 + n].state = 200;
+                            Vector2 position = cellState[(int)entrancePosition.x + m, (int)entrancePosition.y + n].position;
+                            player1 = Instantiate(player1, new Vector3(position.x, position.y, 0), transform.rotation);
+                            cellState[(int)entrancePosition.x + m, (int)entrancePosition.y + n].state=300;
                             player1.transform.localScale = new Vector3(15.0f, 15.0f, 15.0f);
                             player1.GetComponent<Movement_New>().WalkSpeed = 150;
                             player1.GetComponent<Shoot_New>().BulletSizeUp = 15;

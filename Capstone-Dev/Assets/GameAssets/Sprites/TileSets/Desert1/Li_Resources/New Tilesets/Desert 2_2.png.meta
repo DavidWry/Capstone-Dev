@@ -781,12 +781,12 @@ TextureImporter:
       name: Desert_122
       rect:
         serializedVersion: 2
-        x: 96
+        x: 264
         y: 600
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 48
+        height: 72
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -881,10 +881,10 @@ TextureImporter:
       name: Desert_133
       rect:
         serializedVersion: 2
-        x: 96
-        y: 576
-        width: 24
-        height: 24
+        x: 312
+        y: 600
+        width: 48
+        height: 72
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
