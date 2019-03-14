@@ -313,7 +313,8 @@ public class Shoot_New : MonoBehaviour
         }
         else
         {
-            Time.timeScale = 1;
+            if(Time.timeScale != 0)
+                Time.timeScale = 1;
             movement.WalkSpeed = speed;
             player.Character.Animator.speed = 1;
             GetComponent<TrailRenderer>().enabled = false;

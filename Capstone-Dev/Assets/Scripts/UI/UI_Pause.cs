@@ -18,8 +18,10 @@ public class UI_Pause : MonoBehaviour {
         {
             pause.SetActive(true);
             Time.timeScale = 0;
+           
         }
-	}
+        
+    }
 
     public void Continue()
     {
