@@ -339,24 +339,32 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
 
     int DetermineEnemyType() {
         int enemyNum = 0;
-        if (Random.value < 0.15f)
+        if (Random.value < 0.135f)
         {
             enemyNum = 100;//jumper
         }
-        else if (Random.value < 0.3f) {
+        else if (Random.value < 0.27f) {
             enemyNum = 101;//slider
         }
-        else if (Random.value < 0.5f)
+        else if (Random.value < 0.45f)
         {
             enemyNum = 102;//spearThrower
         }
-        else if (Random.value < 0.7f)
+        else if (Random.value < 0.63f)
         {
             enemyNum = 103;//stomper
         }
-        else if (Random.value < 1.0f)
+        else if (Random.value < 0.9f)
         {
             enemyNum = 104;//suicider
+        }
+        else if (Random.value < 0.95f)
+        {
+            enemyNum = 105;//shotgunrange
+        }
+        else if (Random.value < 1.0f)
+        {
+            enemyNum = 106;//sniper
         }
         return enemyNum;
     }
@@ -2614,6 +2622,8 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
         GameObject enemy3 = gameManager.GetEnemy("SpearThrower");
         GameObject enemy4 = gameManager.GetEnemy("Stomper");
         GameObject enemy5 = gameManager.GetEnemy("SuicideBomber");
+        GameObject enemy6 = gameManager.GetEnemy("ShotRange");
+        GameObject enemy7 = gameManager.GetEnemy("Sniper");
 
         for (int i = 0; i < levelWidth; i++)
         {
@@ -2638,6 +2648,14 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                 else if (cellState[i, j].state == 104)
                 {
                     Instantiate(enemy5, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
+                }
+                else if (cellState[i, j].state == 105)
+                {
+                    Instantiate(enemy6, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
+                }
+                else if (cellState[i, j].state == 106)
+                {
+                    Instantiate(enemy7, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
                 }
             }
         }

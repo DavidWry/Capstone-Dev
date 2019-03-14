@@ -771,7 +771,7 @@ Prefab:
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
       propertyPath: EnemyList.Array.size
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
@@ -893,7 +893,7 @@ Prefab:
         type: 2}
       propertyPath: EnemyList.Array.data[5]
       value: 
-      objectReference: {fileID: 1330782127039832, guid: bf9c4842646df394d9c9cf71dd22bd1f,
+      objectReference: {fileID: 1761786597272098, guid: 4e87b2b640139904b870c5d2778bc50e,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
@@ -1274,6 +1274,12 @@ Prefab:
       propertyPath: PortalList.Array.data[1]
       value: 
       objectReference: {fileID: 1367659576493558, guid: 79506ee8fad7d8242b478a9fbe1e95ab,
+        type: 2}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: EnemyList.Array.data[6]
+      value: 
+      objectReference: {fileID: 1448291497953222, guid: 5868501d9b8ded94aa5c706e5fdc4e8d,
         type: 2}
     m_RemovedComponents:
     - {fileID: 114744981980483458, guid: 7430308c60b9dc74396db2694886222b, type: 2}

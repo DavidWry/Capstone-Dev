@@ -560,22 +560,21 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
 
                 //down
                 if (edgeArray[i,j]==1 && cellState[i, j].state == 0)
-                {
-                   
-
-                    
+                {                 
                     Vector2 position = new Vector2(-100, -100);
                     //如果右边还是自己，则使用两个格子的tile
                     if (edgeArray[i + 1, j] == 1 && cellState[i, j].state != 1)
                     {
+                        Instantiate(tile19, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 19;
+                        cellState[i, j].position = new Vector2(i * (float)tileSize, j * (float)tileSize);
+                        cellState[i + 1, j].state = 19;
+                        cellState[i + 1, j].position = new Vector2(i * (float)tileSize, j * (float)tileSize);
+                        /*
                         //open the gate!
                         if (Random.value < 0.1 && j != 0)
                         {
-                            Instantiate(tile19, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                            cellState[i, j].state = 19;
-                            cellState[i, j].position = new Vector2(i * (float)tileSize, j * (float)tileSize);
-                            cellState[i + 1, j].state = 19;
-                            cellState[i + 1, j].position = new Vector2(i * (float)tileSize, j * (float)tileSize);
+                           
 
                         }
                         else
@@ -586,6 +585,7 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
                             cellState[i + 1, j].state = 1;
                             cellState[i + 1, j].position = new Vector2(i * (float)tileSize, j * (float)tileSize);
                         }
+                        */
                     }
                     else if (cellState[i, j].state != 1) {
                         Instantiate(tile9, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
