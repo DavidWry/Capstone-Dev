@@ -14,12 +14,13 @@ namespace Assets.HeroEditor.Common.CharacterScripts
         float idleTime = 2;                  // wander既定点后停留时间
         [SerializeField]
         float Speed = 5;               //系数
-
+        [SerializeField]
+        public bool directionFlag = false;
         GameObject player;                          
         Vector3 Original;                    //original( 出范围回这个点周围的一个点，wander会变)
         Animator anim;
         bool returnOriginal = false;         //是否在返回原点路上
-        bool directionFlag = false;          //角色朝向(scale正负)
+               //角色朝向(scale正负)
 
         bool wander = true;                  //wander flag
         float timeCount = 0;                 //计时
@@ -139,7 +140,7 @@ namespace Assets.HeroEditor.Common.CharacterScripts
                     {
                         var scale = transform.localScale;
                         scale.x = Mathf.Abs(scale.x);
-                        if (player.transform.position.x > transform.position.x)
+                        if (player.transform.position.x < transform.position.x)
                             scale.x *= -1;
                         transform.localScale = scale;
 
@@ -203,9 +204,9 @@ namespace Assets.HeroEditor.Common.CharacterScripts
                         scale.x = Mathf.Abs(scale.x);
 
                         if (gameObject.transform.position.x > Original.x)
-                            scale.x *= 1;
-                        else
-                            scale.x *= -1;
+                                scale.x = -15;
+                            else
+                            scale.x = 15;
 
                         transform.localScale = scale;
                         directionFlag = true;

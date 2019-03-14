@@ -40,7 +40,7 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
         {
             levelHeight++;
         }
-        Debug.Log(levelWidth + "bibi" + levelHeight);
+ 
         tileSize = 24;
 
         cameraControl.border2 = new Vector2((float)(levelWidth+1) * tileSize, (float)(levelHeight+1) * tileSize);
@@ -1515,7 +1515,7 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
             {
                 if (landArray[i, j] == 1)
                 {
-                    Debug.Log("shu");
+                     
                     float tempValue = Random.value;
                     if (tempValue < 0.5)
                     {
@@ -2004,7 +2004,7 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
                 
             }
         }
-        Debug.Log(isTooClose);
+ 
         return isTooClose;
     }
 

@@ -10258,6 +10258,7 @@ MonoBehaviour:
   minDistance: 1.5
   idleTime: 2
   Speed: 5
+  directionFlag: 0
   Rotatearm: {fileID: 0}
   shootLenth: 0.3
   shootBtw: 1
@@ -10391,12 +10392,12 @@ Prefab:
     - target: {fileID: 224913571676288102, guid: 1113f015b8e23a3479087a820d677cf9,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 477.5
+      value: 508.1
       objectReference: {fileID: 0}
     - target: {fileID: 224913571676288102, guid: 1113f015b8e23a3479087a820d677cf9,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 268.5
+      value: 242.4
       objectReference: {fileID: 0}
     - target: {fileID: 224913571676288102, guid: 1113f015b8e23a3479087a820d677cf9,
         type: 2}
@@ -16941,6 +16942,7 @@ MonoBehaviour:
   minDistance: 1.5
   idleTime: 2
   Speed: 5
+  directionFlag: 0
   Rotatearm: {fileID: 0}
   shootLenth: 0.3
   shootBtw: 1

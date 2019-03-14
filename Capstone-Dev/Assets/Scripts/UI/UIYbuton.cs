@@ -13,16 +13,21 @@ public class UIYbuton : MonoBehaviour {
 	void Start () {
         player = GameObject.FindWithTag("Player");
     }
-	
-	// Update is called once per frame
-	void Update () {
-        if (player.GetComponent<Shoot_New>().SkillReady)
+
+    // Update is called once per frame
+    void Update()
+    {
+
+        if (player)
         {
-            empty.SetActive(true);
+            if (player.GetComponent<Shoot_New>().SkillReady)
+            {
+                empty.SetActive(true);
+            }
+            else
+            {
+                empty.SetActive(false);
+            }
         }
-        else
-        {
-            empty.SetActive(false);
-        }
-	}
+    }
 }

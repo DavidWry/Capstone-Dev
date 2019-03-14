@@ -3423,6 +3423,7 @@ MonoBehaviour:
   minDistance: 15
   idleTime: 2
   Speed: 30
+  directionFlag: 0
   Rotatearm: {fileID: 114865236138264754}
   shootLenth: 2
   shootBtw: 1

@@ -2311,7 +2311,7 @@ Transform:
   m_GameObject: {fileID: 1761786597272098}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 477, y: 60, z: 0}
-  m_LocalScale: {x: 15, y: 15, z: 15}
+  m_LocalScale: {x: -15, y: 15, z: 15}
   m_Children:
   - {fileID: 4435448877861544}
   - {fileID: 224315865624148742}
@@ -3564,6 +3564,7 @@ MonoBehaviour:
   minDistance: 15
   idleTime: 2
   Speed: 45
+  directionFlag: 0
   Rotatearm: {fileID: 114674845079753160}
   shootLenth: 0.5
   shootBtw: 2

@@ -104,7 +104,7 @@ namespace AssemblyCSharp
             {
                 Destroy(gameObject);
                 Instantiate(FailUI);
-                Debug.Log("Dead");
+ 
             }
             else
             {
