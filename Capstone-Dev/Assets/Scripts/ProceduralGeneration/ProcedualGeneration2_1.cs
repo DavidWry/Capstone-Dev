@@ -179,24 +179,32 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
     int DetermineEnemyType() {
         int enemyNum = 0;
         float ratio = Random.value;
-        if (ratio < 0.15f)
-        {
-            enemyNum = 100;//jumper
-        }
-        else if (ratio < 0.3f) {
+        //if (ratio < 0.15f)
+        //{
+         //   enemyNum = 100;//jumper
+        //}
+        if (ratio < 0.15f) {
             enemyNum = 101;//slider
         }
-        else if (ratio < 0.5f)
+        else if (ratio < 0.35f)
         {
             enemyNum = 102;//spearThrower
         }
-        else if (ratio < 0.7f)
+        else if (ratio < 0.55f)
         {
             enemyNum = 103;//stomper
         }
-        else if (ratio < 1.0f)
+        else if (ratio < 0.85f)
         {
             enemyNum = 104;//suicider
+        }
+        else if (ratio < 0.925f)
+        {
+            enemyNum = 105;//shotrange
+        }
+        else if (ratio < 1f)
+        {
+            enemyNum = 106;//sniper
         }
         return enemyNum;
     }
@@ -1907,16 +1915,20 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
         GameObject enemy3 = gameManager.GetEnemy("SpearThrower");
         GameObject enemy4 = gameManager.GetEnemy("Stomper");
         GameObject enemy5 = gameManager.GetEnemy("SuicideBomber");
+        GameObject enemy6 = gameManager.GetEnemy("ShotRange");
+        GameObject enemy7 = gameManager.GetEnemy("Sniper");
 
         for (int i = 0; i < levelWidth; i++)
         {
             for (int j = 0; j < levelHeight; j++)
             {
+                /*
                 if (cellState[i, j].state == 100)
                 {
                     Instantiate(enemy1, new Vector3(i*(float)tileSize, j*(float)tileSize, 0), transform.rotation);          
                 }
-                else if (cellState[i, j].state == 101)
+                */
+                if (cellState[i, j].state == 101)
                 {
                     Instantiate(enemy2, new Vector3(i*(float)tileSize, j*(float)tileSize, 0), transform.rotation);
                 }
@@ -1931,6 +1943,14 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
                 else if (cellState[i, j].state == 104)
                 {
                     Instantiate(enemy5, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                }
+                else if (cellState[i, j].state == 105)
+                {
+                    Instantiate(enemy6, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                }
+                else if (cellState[i, j].state == 106)
+                {
+                    Instantiate(enemy7, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                 }
             }
         }
