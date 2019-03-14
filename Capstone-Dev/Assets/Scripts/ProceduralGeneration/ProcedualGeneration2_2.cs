@@ -2722,6 +2722,12 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
         player1.GetComponent<Shoot_New>().BulletSizeUp = 15;
         player1.GetComponentInChildren<PickUp_New>().WeaponSizeUp = 15;
         player1.GetComponentInChildren<PickUp_New>().ItemSizeUp = 15;
+        LoadPlayerData(player1);
+    }
+
+    void LoadPlayerData(GameObject player)
+    {
+        player.AddComponent<LoadForPlayer>();
     }
 
     void DrawNPC()

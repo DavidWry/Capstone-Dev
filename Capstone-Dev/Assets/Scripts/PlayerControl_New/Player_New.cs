@@ -66,7 +66,7 @@ namespace AssemblyCSharp
             SpriteRenderers = GetComponentsInChildren<SpriteRenderer>();
         }
 
-        void Initalize()
+        public void Initalize()
         {
             HitPoint = 100;
             rotateSpeed = 100f;
