@@ -7,8 +7,8 @@ using AssemblyCSharp;
 public class ProcedualGeneration2_2 : MonoBehaviour {
 
     private GameManager gameManager;
-    public int levelWidth=160;
-    public int levelHeight=160;
+    public int levelWidth=200;
+    public int levelHeight=200;
 
     private float tileSize;
     private int[,] landArray;
@@ -23,7 +23,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
     public GameObject theCanvas;
     //public GameObject textManager;
     private CameraControl cameraControl;
-    private int MIN_TILES=750;
+    private int MIN_TILES=1000;
  
     private int tilesPlaced;
 	private int tilesToProcess;
@@ -80,13 +80,17 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
         //ReCaculateLandArray();
 
         FindTheDown();
-        for(int i=0;i<180;i++)
+        for(int i=0;i<360;i++)
         {
-           DrawEdge();
+        //while (!isEdgeReady) {
+            DrawEdge();
         }
+           
+        //}
         Connect();
         ChangeColor();
         ChangeLandArrayPosition();
+        
         GenerateGrass();
         DrawGrass();
 
@@ -108,7 +112,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
         FinishGeneration();
 
         DrawNPC();
-
+        
       
     }
 
@@ -120,7 +124,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
     {
         for (int i = 1; i < levelWidth-1; i++) {
             for (int j = 1; j < levelHeight-1; j++){
-
+                /*
                 if (landArray[i, j] == 1)
                 {
                     int totalNum = 0;
@@ -137,7 +141,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                         landArray[i, j] = 0;
                     }
                 }
-
+                */
                 if (landArray[i, j] == 0) {
                     int totalNum = 0;
                     for (int m = -1; m < 2; m++) {
@@ -283,7 +287,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                 {
 
                     if (Random.value < ratio) {
-                        Debug.Log("200");
+                        //Debug.Log("200");
                         cellState[i, j].state = 201;
                     }
                         
@@ -305,7 +309,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                         if (w == 0 || h == 0 || w == levelWidth - 1 || h == levelHeight - 1)
                         {
                             cellState[w, h].state = 200;
-                            Debug.Log("边界了");
+                           // Debug.Log("边界了");
                         }
                         else
                         {
@@ -430,7 +434,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
             cellNum = 201;
         else
             cellNum = 200;
-            Debug.Log(cellNum);
+           // Debug.Log(cellNum);
         
         return cellNum;
         
@@ -439,7 +443,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
     void Draw() {
 
         GameObject tile0 = gameManager.GetTile2("Tile_0");
-        GameObject tile10 = gameManager.GetTile2("Tile_10");
+        GameObject tile46 = gameManager.GetTile2("Tile_46");
        
         for (int i = 0; i < levelWidth; i++)
         {
@@ -457,12 +461,12 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                         cellState[i + 1, j + 1].state = 0;
                     }
                 }
-                /*
+                
                 if (landArray[i, j] == 0)
                 {
-                    Instantiate(tile10, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                    //Instantiate(tile46, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
                 }
-                */
+                
             }
         }
   
@@ -1048,11 +1052,12 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                             cellState[i, j].position = new Vector2(position.x, position.y);
                             cellState[i + 1, j].state = 1;
                             cellState[i + 1, j].position = new Vector2(position.x, position.y);
+                            //Instantiate(tile99, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         }
                         else
                         {
                             isEdgeReady = false;
-                            //Instantiate(tile102, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                            //Instantiate(tile99, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         }
                             
                         //}
@@ -1141,11 +1146,12 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                             Instantiate(tile9, new Vector3(position.x, position.y, 0), transform.rotation);
                             cellState[i, j].state = 9;
                             cellState[i, j].position = position;
+                            //Instantiate(tile99, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         }
                         else
                         {
                             isEdgeReady = false;
-                            //Instantiate(tile100, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                           // Instantiate(tile99, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         }
 
                     }
@@ -1249,6 +1255,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                             cellState[i, j].position = position;
                             cellState[i + 1, j - 1].state = 3;
                             cellState[i + 1, j - 1].position = position;
+                           // Instantiate(tile103, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         }
                         else
                         {
@@ -1343,11 +1350,12 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                             Instantiate(tile11, new Vector3(position.x, position.y, 0), transform.rotation);
                             cellState[i, j].state = 11;
                             cellState[i, j].position = position;
+                           // Instantiate(tile103, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         }
                         else
                         {
                             isEdgeReady = false;
-                            //Instantiate(tile103, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                            Instantiate(tile103, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         }
 
                     }
@@ -1396,6 +1404,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                             cellState[i, j].position = position;
                             cellState[i + 1, j + 1].state = 2;
                             cellState[i + 1, j + 1].position = position;
+                           // Instantiate(tile104, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         }
                         else
                         {
@@ -1455,11 +1464,12 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                             Instantiate(tile12, new Vector3(position.x, position.y, 0), transform.rotation);
                             cellState[i, j].state = 12;
                             cellState[i, j].position = position;
+                           // Instantiate(tile104, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         }
                         else
                         {
                             isEdgeReady = false;
-                            //Instantiate(tile104, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                            Instantiate(tile104, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         }
 
 
@@ -1588,10 +1598,11 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                         Instantiate(tile14, new Vector3(position.x, position.y, 0), transform.rotation);
                         cellState[i, j].state = 14;
                         cellState[i, j].position = position;
+                        //Instantiate(tile105, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                     }
                     else {
                         isEdgeReady = false;
-                       // Instantiate(tile105, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                       //Instantiate(tile105, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                     }
                         
 
@@ -1723,10 +1734,11 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                         Instantiate(tile13, new Vector3(position.x, position.y, 0), transform.rotation);
                         cellState[i, j].state = 13;
                         cellState[i, j].position = position;
+                       // Instantiate(tile106, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                     }
                     else {
                         isEdgeReady = false;
-                       // Instantiate(tile106, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                      // Instantiate(tile106, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                     }
 
 
@@ -1812,7 +1824,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                         }
                         else {
                             isEdgeReady = false;
-                            //Instantiate(tile100, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                         //   Instantiate(tile100, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         }
                             
                     }
@@ -1898,11 +1910,12 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                             Instantiate(tile15, new Vector3(position.x, position.y, 0), transform.rotation);
                             cellState[i, j].state = 15;
                             cellState[i, j].position = position;
+                           // Instantiate(tile100, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
 
                         }
                         else {
                             isEdgeReady = false;
-                           // Instantiate(tile100, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                        //  Instantiate(tile100, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         }                            
                     }
                 }
@@ -2039,11 +2052,12 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                             cellState[i, j].position = position;
                             cellState[i - 1, j + 1].state = 6;
                             cellState[i - 1, j + 1].position = position;
+                          //  Instantiate(tile101, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         }
                         else
                         {
                             isEdgeReady = false;
-                            //Instantiate(tile101, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                           // Instantiate(tile101, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         }
 
                     }
@@ -2193,12 +2207,12 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                             Instantiate(tile17, new Vector3(position.x, position.y, 0), transform.rotation);
                             cellState[i, j].state = 17;
                             cellState[i, j].position = position;
-
+                          //  Instantiate(tile101, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         }
                         else
                         {
                             isEdgeReady = false;
-                           // Instantiate(tile101, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                          // Instantiate(tile101, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         }
                     }
                 }
@@ -2296,10 +2310,11 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                         Instantiate(tile16, new Vector3(position.x, position.y, 0), transform.rotation);
                         cellState[i, j].state = 16;
                         cellState[i, j].position = position;
+                      //  Instantiate(tile102, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                     }
                     else {
                         isEdgeReady = false;
-                       // Instantiate(tile102, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                      // Instantiate(tile102, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                     }
      
 
@@ -2577,9 +2592,9 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
             }
         }
         */
-        for (int i = 2; i < levelWidth-2; i++)
+        for (int i = 5; i < levelWidth-5; i++)
         {
-            for (int j = 2; j< levelHeight-2; j++)
+            for (int j = 5; j< levelHeight-5; j++)
             {
                 if (cellState[i, j].state == 200)
                 {
@@ -2667,9 +2682,9 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
         Vector2 maxPosition = new Vector2(0, 0);
         float maxDistance = 0f;
         bool isClose = false;
-        for (int i =0; i < levelWidth; i++)
+        for (int i =2; i < levelWidth-2; i++)
         {
-            for (int j = 0; j < levelHeight; j++)
+            for (int j = 2; j < levelHeight-2; j++)
             {
                 if (cellState[i, j].state >=100 )
                 {
@@ -2720,9 +2735,9 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
         bool isCreated = false;
 
         bool isClose = false;
-        for (int i = 0; i < levelWidth; i++)
+        for (int i = 2; i < levelWidth-2; i++)
         {
-            for (int j = 0; j < levelHeight; j++)
+            for (int j = 2; j < levelHeight-2; j++)
             {
                 if (cellState[i, j].state >= 100)
                 {

@@ -504,8 +504,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a97e40e4a3071f498acc2c6e74df8d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelWidth: 160
-  levelHeight: 160
+  levelWidth: 200
+  levelHeight: 200
   theCanvas: {fileID: 1106426438}
 --- !u!114 &746326792 stripped
 MonoBehaviour:
@@ -761,7 +761,7 @@ Prefab:
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
       propertyPath: Tiles2.Array.size
-      value: 55
+      value: 56
       objectReference: {fileID: 0}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
@@ -1280,6 +1280,12 @@ Prefab:
       propertyPath: EnemyList.Array.data[6]
       value: 
       objectReference: {fileID: 1448291497953222, guid: 5868501d9b8ded94aa5c706e5fdc4e8d,
+        type: 2}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: Tiles2.Array.data[55]
+      value: 
+      objectReference: {fileID: 1008682546140488, guid: c577421467c29d14497b59e4d4e70209,
         type: 2}
     m_RemovedComponents:
     - {fileID: 114744981980483458, guid: 7430308c60b9dc74396db2694886222b, type: 2}
