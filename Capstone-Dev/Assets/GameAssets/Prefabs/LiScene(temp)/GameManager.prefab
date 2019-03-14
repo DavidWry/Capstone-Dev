@@ -372,7 +372,7 @@ MonoBehaviour:
   - {fileID: 1522874224976980, guid: 0748fd3736aae1542a9dfadbf447da9a, type: 2}
   - {fileID: 1378971161083444, guid: 8a6797675ec4b8f45ab3602f5389c195, type: 2}
   - {fileID: 1922771192611398, guid: 07fdc3b00504670479b2492aeb51e847, type: 2}
-  - {fileID: 1378971161083444, guid: 8a6797675ec4b8f45ab3602f5389c195, type: 2}
+  - {fileID: 1159396787669600, guid: 7c5f768e8f251be4d876a942dcea72ae, type: 2}
   - {fileID: 1378971161083444, guid: 8a6797675ec4b8f45ab3602f5389c195, type: 2}
   - {fileID: 1192729253390894, guid: 74663da6dfd26dc4ba9a462d8ea60bbf, type: 2}
   leftWeaponMenu:

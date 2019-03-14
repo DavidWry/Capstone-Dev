@@ -129,6 +129,10 @@ public class Shoot_New : MonoBehaviour
     private int CombineDamage_33 = 30;
     //55-15
     public bool CombineTag_55 = false;
+    private float CombineBtw_55 = 0.8f;
+    private float CombineSpeed_55 = 8f;
+    private float CombineDuration_55 = 1f;
+    private int CombineDamage_55 = 120;
 
     //Camera zoom;
     public GameObject CameraObj;
@@ -247,6 +251,8 @@ public class Shoot_New : MonoBehaviour
                         {
                             Time.timeScale = 1;
                             movement.WalkSpeed = speed;
+                            player.Character.Animator.speed = 1;
+                            GetComponent<TrailRenderer>().enabled = false;
                         }
                     }
                 }
@@ -302,10 +308,15 @@ public class Shoot_New : MonoBehaviour
             if (currentAmmo == 0)
             {
                 CombineOn = false;
+                CombineTag_55 = false;
             }
         }
         else
         {
+            Time.timeScale = 1;
+            movement.WalkSpeed = speed;
+            player.Character.Animator.speed = 1;
+            GetComponent<TrailRenderer>().enabled = false;
             CombineWaitedime = 0f;
             IsCombineShooting = false;
             zoomOn = false;
@@ -670,7 +681,7 @@ public class Shoot_New : MonoBehaviour
             case 44:
                 return "LR-100";
             case 55:
-                return null;
+                return "LightSword";
         }
         return null;
     }
@@ -741,13 +752,13 @@ public class Shoot_New : MonoBehaviour
                     CombineBtw = CombineBtw_44;
                     break;
                 case 55:
-                    //CombineShoot_55();
-                    CombineBtw = CombineBtw_44;
+                    CombineShoot_55();
+                    CombineBtw = CombineBtw_55;
                     break;
             }
             CanCombineShoot = false;
             currentAmmo--;
-            if (player.CombineType != 23 || player.CombineType != 55)
+            if (player.CombineType != 23 && player.CombineType != 55)
             {
                 var offset = -0.25f * player.LeftHand.parent.InverseTransformDirection(player.Character.Firearm.FireTransform.right);
                 StartCoroutine(AnimateOffset(player.LeftHand, offset, player.LeftHand.localPosition, spring: true));
@@ -994,17 +1005,31 @@ public class Shoot_New : MonoBehaviour
 
     private void CombineShoot_55()
     {
-        GameObject NewProj = Instantiate(gameManager.CombineProjectile[13]);
-        NewProj.transform.position = CombineBulPos.position;
-        NewProj.transform.rotation = CombineBulPos.rotation;
-        NewProj.transform.localScale *= BulletSizeUp;
-        //Change state according to the weapon
+        if (Mathf.Round(Input.GetAxisRaw("RightTrigger")) == 0 && Mathf.Round(Input.GetAxisRaw("LeftTrigger")) > 0)
+        {
+            GameObject NewProj = Instantiate(gameManager.CombineProjectile[15]);
+            NewProj.transform.position = CombineBulPos.position;
+            NewProj.transform.rotation = CombineBulPos.rotation;
+            NewProj.transform.localScale *= BulletSizeUp;
+            //Change state according to the weapon
+            Projectile Proj = NewProj.GetComponent<Projectile>();
+            Proj.IsReady = true;
+            Proj.Speed = CombineSpeed_55;
+            Proj.Duration = CombineDuration_55;
+            Proj.Damage = CombineDamage_55;
+            Proj.Pierce = true;
+            player.Jab();
+        }
     }
 
     private void CombineShoot_55_R()
     {
-        Time.timeScale = 0.1f;
-        movement.WalkSpeed = 10 * speed;
+        Time.timeScale = 0.2f;
+        movement.WalkSpeed = 4 * speed;
+        player.Character.Animator.speed = 5;
+        GetComponent<TrailRenderer>().enabled = true;
+        if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3")
+            GetComponent<TrailRenderer>().widthMultiplier = 20;
     }
 
     private void useSkill()
