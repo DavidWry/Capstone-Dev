@@ -25,9 +25,9 @@ namespace AssemblyCSharp
         public Transform Head;
 
         private Component[] SpriteRenderers;
-        private bool IsHit = false;
+        public bool IsHit = false;
         private float FlashTime = 0;
-        private float WillFlashTime = 0.08f;
+        private float WillFlashTime = 0.05f;
         public Material mat1;
         public Material mat2;
         public Material mat3;
@@ -248,7 +248,14 @@ namespace AssemblyCSharp
                 else if (leftWeapon.WeaponName == WeaponName.Shotgun)
                 {
                     CombineType = 44;
-                    playerShoot.CombineTag = false;
+                    playerShoot.CombineTag = true;
+                    playerShoot.CombineAmmos = 50;
+                }
+                else if (leftWeapon.WeaponName == WeaponName.Sword)
+                {
+                    CombineType = 55;
+                    playerShoot.CombineTag = true;
+                    playerShoot.CombineTag_55 = true;
                     playerShoot.CombineAmmos = 50;
                 }
             }

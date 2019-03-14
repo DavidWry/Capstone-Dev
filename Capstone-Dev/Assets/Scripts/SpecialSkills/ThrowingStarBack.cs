@@ -53,6 +53,8 @@ public class ThrowingStarBack : MonoBehaviour {
             GameObject text = Instantiate(Impact);
             text.transform.position = (transform.position + collision.transform.position) / 2;
             text.transform.rotation = transform.rotation;
+            if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3")
+                text.transform.localScale *= 16;
         }
     }
 

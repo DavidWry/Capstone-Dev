@@ -32,11 +32,11 @@ public class PickUp_New : MonoBehaviour
     {
 
         int handToPick = 0;//1=Left; 2=Right
-        if (Input.GetKeyDown(KeyCode.JoystickButton4))
+        if (Input.GetKeyDown(KeyCode.JoystickButton4) && !player.IsHit)
         {
             handToPick = 1;
         }
-        else if (Input.GetKeyDown(KeyCode.JoystickButton5))
+        else if (Input.GetKeyDown(KeyCode.JoystickButton5) && !player.IsHit)
         {
             handToPick = 2;
         }

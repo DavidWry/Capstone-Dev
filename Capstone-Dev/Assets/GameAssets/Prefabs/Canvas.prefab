@@ -967,7 +967,7 @@ GameObject:
   - component: {fileID: 224998427233818904}
   - component: {fileID: 222104506386601694}
   - component: {fileID: 114972094028395972}
-  - component: {fileID: 114249460073339812}
+  - component: {fileID: 114422037598365108}
   m_Layer: 5
   m_Name: Pause
   m_TagString: Untagged
@@ -4824,19 +4824,6 @@ MonoBehaviour:
   m_Text: '00
 
 '
---- !u!114 &114249460073339812
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1386904254419242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7978ebcc5add8d4187dc73eadeb6556, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buttons: []
-  content: {fileID: 224470095227945474}
 --- !u!114 &114267156441471956
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5175,6 +5162,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114422037598365108
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1386904254419242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20b763389b7ece846a30771208e53f3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttons: []
+  content: {fileID: 224470095227945474}
 --- !u!114 &114437138557701486
 MonoBehaviour:
   m_ObjectHideFlags: 1

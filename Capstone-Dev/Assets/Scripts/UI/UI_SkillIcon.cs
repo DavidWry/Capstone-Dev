@@ -65,6 +65,9 @@ public class UI_SkillIcon : MonoBehaviour {
             case 44:
                 image.sprite = Icons[14];
                 break;
+            case 55:
+                image.sprite = Icons[15];
+                break;
         }
     }
 }

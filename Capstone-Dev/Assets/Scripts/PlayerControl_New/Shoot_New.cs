@@ -127,6 +127,8 @@ public class Shoot_New : MonoBehaviour
     private float CombineSpeed_33 = 15f;
     private float CombineDuration_33 = 3f;
     private int CombineDamage_33 = 30;
+    //55-15
+    public bool CombineTag_55 = false;
 
     //Camera zoom;
     public GameObject CameraObj;
@@ -138,6 +140,9 @@ public class Shoot_New : MonoBehaviour
     public GameObject LeftWeaponObj;
     public GameObject RightWeaponObj;
 
+    //Other
+    private float speed;
+
     // Use this for initialization
     void Start()
     {
@@ -146,6 +151,7 @@ public class Shoot_New : MonoBehaviour
 
         player = gameObject.GetComponent<Player_New>();
         movement = gameObject.GetComponent<Movement_New>();
+        speed = movement.WalkSpeed;
 
         IsLeftShooting = false;
         IsRightShooting = false;
@@ -231,6 +237,18 @@ public class Shoot_New : MonoBehaviour
                         NewProj.transform.rotation = Center.rotation;
                         CombineTag_35 = false;
                     }
+                    if (player.CombineType == 55 && CombineTag_55)
+                    {
+                        if (Mathf.Round(Input.GetAxisRaw("RightTrigger")) > 0)
+                        {
+                            CombineShoot_55_R();
+                        }
+                        else
+                        {
+                            Time.timeScale = 1;
+                            movement.WalkSpeed = speed;
+                        }
+                    }
                 }
                 if (Mathf.Round(Input.GetAxisRaw("RightTrigger")) > 0 || Mathf.Round(Input.GetAxisRaw("LeftTrigger")) > 0)
                 {
@@ -305,6 +323,7 @@ public class Shoot_New : MonoBehaviour
                 player.EmptyBackPack();
             }
         }
+
 
     }
 
@@ -721,10 +740,14 @@ public class Shoot_New : MonoBehaviour
                     CombineShoot_44();
                     CombineBtw = CombineBtw_44;
                     break;
+                case 55:
+                    //CombineShoot_55();
+                    CombineBtw = CombineBtw_44;
+                    break;
             }
             CanCombineShoot = false;
             currentAmmo--;
-            if (player.CombineType != 23)
+            if (player.CombineType != 23 || player.CombineType != 55)
             {
                 var offset = -0.25f * player.LeftHand.parent.InverseTransformDirection(player.Character.Firearm.FireTransform.right);
                 StartCoroutine(AnimateOffset(player.LeftHand, offset, player.LeftHand.localPosition, spring: true));
@@ -967,6 +990,21 @@ public class Shoot_New : MonoBehaviour
         NewProj.transform.rotation = CombineBulPos.rotation;
         NewProj.transform.localScale *= BulletSizeUp;
         //Change state according to the weapon
+    }
+
+    private void CombineShoot_55()
+    {
+        GameObject NewProj = Instantiate(gameManager.CombineProjectile[13]);
+        NewProj.transform.position = CombineBulPos.position;
+        NewProj.transform.rotation = CombineBulPos.rotation;
+        NewProj.transform.localScale *= BulletSizeUp;
+        //Change state according to the weapon
+    }
+
+    private void CombineShoot_55_R()
+    {
+        Time.timeScale = 0.1f;
+        movement.WalkSpeed = 10 * speed;
     }
 
     private void useSkill()
