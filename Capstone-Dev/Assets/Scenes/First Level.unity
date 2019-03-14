@@ -5068,6 +5068,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1396269728413068, guid: 5459165c1a6a0d8459bae141378f4087, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5459165c1a6a0d8459bae141378f4087, type: 2}
   m_IsPrefabAsset: 0
@@ -37236,8 +37240,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 2.5
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 6.3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -49655,7 +49659,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4058421112480074, guid: 71ebf779ccb577241b731e9eb8ad3983, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 23.635586
+      value: 24.48
       objectReference: {fileID: 0}
     - target: {fileID: 4058421112480074, guid: 71ebf779ccb577241b731e9eb8ad3983, type: 2}
       propertyPath: m_LocalPosition.y
@@ -67337,7 +67341,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4811806397850738, guid: 6e750c0bcc993fc4593669dc6c8c00f3, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 28.073513
+      value: 28.94
       objectReference: {fileID: 0}
     - target: {fileID: 4811806397850738, guid: 6e750c0bcc993fc4593669dc6c8c00f3, type: 2}
       propertyPath: m_LocalPosition.y

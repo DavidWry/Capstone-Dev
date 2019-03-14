@@ -181,7 +181,7 @@ public class EnemySlider : MonoBehaviour
                 //Destroy the dash indicator
                 if (shouldDestroyDash == true)
                 {
-                    Destroy(tempSlide, 0.5f);
+                    Destroy(tempSlide, 0.45f);
                 }
 
                 if (hasReached == true)
@@ -211,6 +211,7 @@ public class EnemySlider : MonoBehaviour
 
                 anim.SetTrigger("hasDied");
                 Destroy(gameObject, 0.75f);
+                Destroy(tempSlide, 0.5f);
                 if (probability && !isDrop)
                 {
                     string tempName = probability.DetermineDrop();
@@ -243,6 +244,7 @@ public class EnemySlider : MonoBehaviour
                 // StartCoroutine(IfCollidedWithPlayer(2f));
                 hasReached = true;
                 hasCollided = false;
+                shouldDestroyDash = true;
                 // canDash = true;
 
                 // dashTime = 2f;
@@ -261,10 +263,10 @@ public class EnemySlider : MonoBehaviour
           //  isStunned = true;
             anim.SetBool("isRunning", false);
             rb.velocity = Vector3.zero;
-          //  hasReached = true;
-
-            StartCoroutine(WaitAfterStun(2f));
+            // hasReached = true;
             shouldDestroyDash = true;
+            StartCoroutine(WaitAfterStun(2f));
+          
 
         }
 

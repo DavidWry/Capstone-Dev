@@ -269,7 +269,7 @@ public class EnemySuicideBomber : MonoBehaviour
 
         }
 
-        if ((other.gameObject.tag == "Minion") || (other.gameObject.tag == "Obstacle"))
+        if ((other.gameObject.tag == "Minion") || (other.gameObject.tag == "Obstacle") || (other.gameObject.tag == "Chest"))
         {
             /* isStunned = true;
              rb.velocity = Vector3.zero;
