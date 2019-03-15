@@ -28,7 +28,7 @@ public class DestroyDash : MonoBehaviour {
         //  if (enemy != null)
         // {
 
-      //  es = enemy.GetComponent<EnemySlider>();
+        //  es = enemy.GetComponent<EnemySlider>();
 
         //canDash = GameObject.Find("Slider").GetComponent<EnemySlider>().hasReached;
 
@@ -41,15 +41,16 @@ public class DestroyDash : MonoBehaviour {
             Destroy(gameObject, 0.5f);
         }*/
 
-      /*  if (es.canDash == true)
-        {
-            Destroy(gameObject, 0.5f);
-        }*/
-            
-       // }
-        
-        
-	}
+        /*  if (es.canDash == true)
+          {
+              Destroy(gameObject, 0.5f);
+          }*/
+
+        // }
+        Destroy(gameObject, 0.8f);
+
+
+    }
 
     public void DestroyD()
     {

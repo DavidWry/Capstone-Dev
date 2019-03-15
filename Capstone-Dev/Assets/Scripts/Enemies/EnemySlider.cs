@@ -46,6 +46,9 @@ public class EnemySlider : MonoBehaviour
     public GameObject slide;
     GameObject tempSlide;
     private bool shouldDestroyDash;
+
+    private bool hasCollidedWithOthers;
+    private bool isDashing;
     // public AnimationClip death;
 
    
@@ -64,7 +67,7 @@ public class EnemySlider : MonoBehaviour
             capsule.radius = 1.84f;
             capsule.height = 5.51f;
             rangeForAttack = 120f;
-            reachedDistance = 2f;
+            reachedDistance = 3f;
             slide.transform.localScale = new Vector3(14f, 14f, 1f);
         }
         else if (scene.name == "First Level")
@@ -97,6 +100,9 @@ public class EnemySlider : MonoBehaviour
         isStunned = false;
 
         shouldDestroyDash = false;
+
+        hasCollidedWithOthers = false;
+        isDashing = false;
 
     }
 
@@ -137,30 +143,15 @@ public class EnemySlider : MonoBehaviour
                     // var rotSlide = new Vector3(0, 0, angle);
                
                     tempSlide = (GameObject)Instantiate(slide, transform.position + offset, q);
-            
-                
-                    /*var slideScale = slide.transform.localScale;
-                    slideScale.x = Mathf.Abs(slideScale.x);
-                    
-                    if (targetPos.x < transform.position.x)
-                    {
-                        slideScale.x *= -1;
-                        //slide.transform.localScale = new Vector3(-1, 1, 1);
-                    }
-
-                    else
-                    {
-                        slideScale.x *= 1;
-                        //  slide.transform.localScale = new Vector3(1, 1, 1);
-                    }
-                    slide.transform.localScale = slideScale;*/
-                    //flip slide
+        
 
 
                     rb.velocity = dir;
                     canDash = false;
+                    isDashing = true;
                     hasReached = false;
-                   // StartCoroutine(cameraShake.Shake(0.2f, 0.15f));
+                    shouldDestroyDash = false;
+                    // StartCoroutine(cameraShake.Shake(0.2f, 0.15f));
 
                 }
 
@@ -168,20 +159,14 @@ public class EnemySlider : MonoBehaviour
                 if (Vector2.Distance(transform.position, targetPos) <= reachedDistance)
                 {
                     hasReached = true;
-                    /*  if (isDashDestroyed == false)
-                      {
-                              slide.GetComponent<DestroyDash>().DestroyD();
-                              isDashDestroyed = true;
-                      }
-                      */
-                    shouldDestroyDash = true;
-           
+                    // shouldDestroyDash = true;
+                    Destroy(tempSlide, 0.45f);
                 }
 
                 //Destroy the dash indicator
                 if (shouldDestroyDash == true)
                 {
-                    Destroy(tempSlide, 0.45f);
+                 //   Destroy(tempSlide, 0.45f);
                 }
 
                 if (hasReached == true)
@@ -191,6 +176,9 @@ public class EnemySlider : MonoBehaviour
                     anim.SetBool("isRunning", false);
                     rb.velocity = Vector3.zero;
                     dashTime -= Time.deltaTime;
+                    isDashing = false;
+                  //  shouldDestroyDash = true;
+
                 }
 
                 //if the countdown for the next dash becomes zero
@@ -198,8 +186,13 @@ public class EnemySlider : MonoBehaviour
                 {
                     canDash = true;
                     dashTime = 1.6f;
+                    hasReached = false;
+                    hasCollidedWithOthers = false;
+                    //  rb.isKinematic = false;
+                    rb.WakeUp();
                     target = GameObject.FindGameObjectWithTag("Player").transform;
-                    shouldDestroyDash = false;
+                    
+
                 }
             }
             //check if under range and if he can dash
@@ -211,7 +204,7 @@ public class EnemySlider : MonoBehaviour
 
                 anim.SetTrigger("hasDied");
                 Destroy(gameObject, 0.75f);
-                Destroy(tempSlide, 0.5f);
+              //  Destroy(tempSlide, 0.5f);
                 if (probability && !isDrop)
                 {
                     string tempName = probability.DetermineDrop();
@@ -236,19 +229,16 @@ public class EnemySlider : MonoBehaviour
         {
             if (hasCollided == false && dashTime == 1.6f)
             {
-                shouldDestroyDash = true;
-                hasCollided = true;
+                //shouldDestroyDash = true;
+                Destroy(tempSlide, 0.5f);
+               // hasCollided = true;
                 rb.velocity = Vector3.zero;
                 anim.SetBool("isRunning", false);
                 other.gameObject.GetComponent<Player_New>().TakeDamage(damage);
                 // StartCoroutine(IfCollidedWithPlayer(2f));
                 hasReached = true;
                 hasCollided = false;
-                shouldDestroyDash = true;
-                // canDash = true;
-
-                // dashTime = 2f;
-                //    target = GameObject.FindGameObjectWithTag("Player").transform;
+            
             }
            
 
@@ -259,13 +249,30 @@ public class EnemySlider : MonoBehaviour
 
         if ((other.gameObject.tag == "Minion") || (other.gameObject.tag == "Obstacle") || (other.gameObject.tag == "Chest"))
         {
+           
+           if (hasCollidedWithOthers == false)
+            {
+                //Destroy(tempSlide, 0.5f);
+                anim.SetBool("isRunning", false);
+                rb.velocity = Vector3.zero;
+   
+               
+               // hasReached = true;
+               // hasCollidedWithOthers = true;
+                StartCoroutine(WaitAfterStun(1.6f));
+            }
 
+        
           //  isStunned = true;
-            anim.SetBool("isRunning", false);
+
+           /* anim.SetBool("isRunning", false);
             rb.velocity = Vector3.zero;
-            // hasReached = true;
-            shouldDestroyDash = true;
-            StartCoroutine(WaitAfterStun(2f));
+             hasReached = true;
+            canDash = false;
+            Destroy(tempSlide, 0.5f);*/
+
+            //shouldDestroyDash = true;
+            //StartCoroutine(WaitAfterStun(1.6f));
           
 
         }
@@ -290,13 +297,15 @@ public class EnemySlider : MonoBehaviour
     }
     private IEnumerator WaitAfterStun(float time)
     {
-
+        canDash = false;
         yield return new WaitForSeconds(time);
         dashTime = 1.6f;
-        isStunned = false;
+       
         canDash = true;
         hasCollided = false;
         hasReached = false;
+       // hasCollidedWithOthers = false;
+      
     }
 
 
