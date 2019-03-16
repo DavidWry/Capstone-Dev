@@ -85,7 +85,7 @@ MonoBehaviour:
     TimeBetweenShot: 0.8
     TimeWaited: 0
     ImpactFX: {fileID: 1501866481023270, guid: 658b9b1f4267b454c9c153d3961f4422, type: 2}
-    ShotFX: {fileID: 1000013086863710, guid: bfa2421e2a82beb4a9c7d7cdc2577f76, type: 2}
+    ShotFX: {fileID: 1142645326660304, guid: ead74bb5c5554ca4694860a2445b5fef, type: 2}
     Damage: 15
     Rebounce: 0
     AmmoSize: 7
@@ -141,7 +141,7 @@ MonoBehaviour:
     TimeBetweenShot: 0.1
     TimeWaited: 0
     ImpactFX: {fileID: 1882777859570806, guid: 26b9baa734847f140803e4e033a9212a, type: 2}
-    ShotFX: {fileID: 1000013086863710, guid: bfa2421e2a82beb4a9c7d7cdc2577f76, type: 2}
+    ShotFX: {fileID: 1517490986756932, guid: 68f895a26b669b64fb3391aab95003ea, type: 2}
     Damage: 20
     Rebounce: 0
     AmmoSize: 60

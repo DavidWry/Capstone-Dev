@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 136632339637932298}
   - component: {fileID: 114266541726379810}
   - component: {fileID: 54359166470192748}
+  - component: {fileID: 95494379662623218}
   m_Layer: 0
   m_Name: Combine_6
   m_TagString: Projectile
@@ -38,7 +39,7 @@ Transform:
   m_GameObject: {fileID: 1974920550631064}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.17, y: -1.7622561, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -58,6 +59,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!95 &95494379662623218
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1974920550631064}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4282db9cd187d154f97d4b3ae5be1708, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114266541726379810
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -83,6 +102,8 @@ MonoBehaviour:
   Impact: {fileID: 0}
   GameManage: {fileID: 0}
   Duration: 1
+  stun: 0
+  round: 0
 --- !u!136 &136632339637932298
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -130,8 +151,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2140784465
   m_SortingLayer: 2
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0d85d218c3fbfd446a1ca90ebd04723e, type: 3}
+  m_SortingOrder: 122
+  m_Sprite: {fileID: 21300000, guid: 665f4f431f12e3949b60eadddc2b5ca3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

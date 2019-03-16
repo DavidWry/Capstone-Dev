@@ -82,10 +82,10 @@ public class Shoot_New : MonoBehaviour
     public bool CombineTag_15 = true;
     public GameObject combine_15;
     //22-12
-    private float CombineBtw_22 = 0.2f;
+    private float CombineBtw_22 = 0.5f;
     private float CombineSpeed_22 = 30f;
     private float CombineDuration_22 = 2f;
-    private int CombineDamage_22 = 10;
+    private int CombineDamage_22 = 30;
     //23-5
     private float CombineBtw_23 = 0.01f;
     private float CombineSpeed_23 = 8f;
@@ -103,7 +103,7 @@ public class Shoot_New : MonoBehaviour
     private int CombineDamage_25 = 65;
     //34-8
     private float CombineBtw_34 = 0.8f;
-    private float CombineSpeed_34 = 25f;
+    private float CombineSpeed_34 = 15f;
     private float CombineDuration_34 = 3f;
     private int CombineDamage_34 = 30;
     //35-9
@@ -485,6 +485,8 @@ public class Shoot_New : MonoBehaviour
                     Laz.transform.localScale = BulletSizeUp * Laz.transform.localScale;
                     NewLazer.GetComponent<LineRenderer>().widthMultiplier = BulletSizeUp;
 
+                    GameObject Shot = Instantiate(player.leftWeapon.ShotFX, Left.GetChild(0).GetChild(0));
+                    Shot.transform.position = Left.GetChild(0).GetChild(0).position;
                     LeftLazer = Laz;
                 }
             }
@@ -591,6 +593,8 @@ public class Shoot_New : MonoBehaviour
                     NewLazer.GetComponent<LineRenderer>().widthMultiplier = BulletSizeUp;
 
                     RightLazer = Laz;
+                    GameObject Shot = Instantiate(player.rightWeapon.ShotFX, Right.GetChild(0).GetChild(0));
+                    Shot.transform.position = Right.GetChild(0).GetChild(0).position;
                 }
             }
             else if (player.rightWeapon.WeaponType == WeaponType.Melee)
@@ -1026,7 +1030,7 @@ public class Shoot_New : MonoBehaviour
     private void CombineShoot_55_R()
     {
         Time.timeScale = 0.2f;
-        movement.WalkSpeed = 4 * speed;
+        movement.WalkSpeed = 2 * speed;
         player.Character.Animator.speed = 5;
         GetComponent<TrailRenderer>().enabled = true;
         if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3")
