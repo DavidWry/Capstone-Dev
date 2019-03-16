@@ -48,7 +48,7 @@ public class EnemySlider : MonoBehaviour
     private bool shouldDestroyDash;
 
     private bool hasCollidedWithOthers;
-    private bool isDashing;
+    private CapsuleCollider cc;
     // public AnimationClip death;
 
    
@@ -83,7 +83,7 @@ public class EnemySlider : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         canDash = true;
-        dashTime = 0.8f;
+        dashTime = 1.6f;
 
         damage = 7;
         health = 130;
@@ -102,7 +102,8 @@ public class EnemySlider : MonoBehaviour
         shouldDestroyDash = false;
 
         hasCollidedWithOthers = false;
-        isDashing = false;
+
+        cc = GetComponent<CapsuleCollider>();
 
     }
 
@@ -148,9 +149,9 @@ public class EnemySlider : MonoBehaviour
 
                     rb.velocity = dir;
                     canDash = false;
-                    isDashing = true;
+                   
                     hasReached = false;
-                    shouldDestroyDash = false;
+                   // shouldDestroyDash = false;
                     // StartCoroutine(cameraShake.Shake(0.2f, 0.15f));
 
                 }
@@ -160,7 +161,7 @@ public class EnemySlider : MonoBehaviour
                 {
                     hasReached = true;
                     // shouldDestroyDash = true;
-                    Destroy(tempSlide, 0.45f);
+                   // Destroy(tempSlide, 0.45f);
                 }
 
                 //Destroy the dash indicator
@@ -172,11 +173,12 @@ public class EnemySlider : MonoBehaviour
                 if (hasReached == true)
                 {
                    
-                    canDash = false;
+                  //  canDash = false;
                     anim.SetBool("isRunning", false);
                     rb.velocity = Vector3.zero;
                     dashTime -= Time.deltaTime;
-                    isDashing = false;
+                    
+                   
                   //  shouldDestroyDash = true;
 
                 }
@@ -188,8 +190,9 @@ public class EnemySlider : MonoBehaviour
                     dashTime = 1.6f;
                     hasReached = false;
                     hasCollidedWithOthers = false;
-                    //  rb.isKinematic = false;
-                    rb.WakeUp();
+                    hasCollided = false;
+                    
+          
                     target = GameObject.FindGameObjectWithTag("Player").transform;
                     
 
@@ -225,19 +228,19 @@ public class EnemySlider : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
 
-        if (other.gameObject.tag == "Player")
+        if( (other.gameObject.tag == "Player") )
         {
             if (hasCollided == false && dashTime == 1.6f)
             {
                 //shouldDestroyDash = true;
-                Destroy(tempSlide, 0.5f);
+               // Destroy(tempSlide, 0.5f);
                // hasCollided = true;
                 rb.velocity = Vector3.zero;
                 anim.SetBool("isRunning", false);
                 other.gameObject.GetComponent<Player_New>().TakeDamage(damage);
                 // StartCoroutine(IfCollidedWithPlayer(2f));
                 hasReached = true;
-                hasCollided = false;
+                hasCollided = true;
             
             }
            
@@ -245,39 +248,61 @@ public class EnemySlider : MonoBehaviour
 
         }
 
-
-
-        if ((other.gameObject.tag == "Minion") || (other.gameObject.tag == "Obstacle") || (other.gameObject.tag == "Chest"))
+        if ((other.gameObject.tag == "Minion") || (other.gameObject.tag == "Chest") || (other.gameObject.tag == "Obstacle"))
         {
-           
-           if (hasCollidedWithOthers == false)
+            if (hasCollidedWithOthers == false)
             {
-                //Destroy(tempSlide, 0.5f);
-                anim.SetBool("isRunning", false);
-                rb.velocity = Vector3.zero;
-   
-               
-               // hasReached = true;
-               // hasCollidedWithOthers = true;
-                StartCoroutine(WaitAfterStun(1.6f));
+                Debug.Log("dont move");
+                hasReached = true;
+                Debug.Log("move");
+                hasCollidedWithOthers = true;
+
             }
+            //  Debug.Log("Collided");
+            // rb.velocity = Vector3.zero;
 
-        
-          //  isStunned = true;
+            // StartCoroutine(WaitAfterStun(1.6f));
 
-           /* anim.SetBool("isRunning", false);
-            rb.velocity = Vector3.zero;
-             hasReached = true;
-            canDash = false;
-            Destroy(tempSlide, 0.5f);*/
-
-            //shouldDestroyDash = true;
-            //StartCoroutine(WaitAfterStun(1.6f));
-          
+            // }
 
         }
 
     }
+
+    private void OnCollisionStay(Collision collision)
+    {
+
+        if ((collision.gameObject.tag == "Minion") || (collision.gameObject.tag == "Chest") || (collision.gameObject.tag == "Obstacle"))
+        {
+            if (hasCollidedWithOthers == false)
+            {
+                Debug.Log("dont move");
+                hasReached = true;
+                Debug.Log("move");
+               // hasCollidedWithOthers = true;
+
+            }
+            //  Debug.Log("Collided");
+            // rb.velocity = Vector3.zero;
+
+            // StartCoroutine(WaitAfterStun(1.6f));
+
+            // }
+
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+
+        if ((collision.gameObject.tag == "Minion") || (collision.gameObject.tag == "Chest") || (collision.gameObject.tag == "Obstacle"))
+        {
+
+            dashTime = 0.0f;
+        }
+    }
+
+
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
@@ -297,14 +322,15 @@ public class EnemySlider : MonoBehaviour
     }
     private IEnumerator WaitAfterStun(float time)
     {
-        canDash = false;
+        //canDash = false;
+        hasCollidedWithOthers = true;
         yield return new WaitForSeconds(time);
         dashTime = 1.6f;
-       
+    
         canDash = true;
         hasCollided = false;
         hasReached = false;
-       // hasCollidedWithOthers = false;
+        hasCollidedWithOthers = false;
       
     }
 
