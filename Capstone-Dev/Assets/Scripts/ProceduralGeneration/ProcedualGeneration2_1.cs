@@ -20,6 +20,8 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
     private int iteration;
     private bool isEdgeReady;
     public GameObject theCanvas;
+    private Transform player;
+    private GameObject portal;
     //public GameObject textManager;
 
     private CameraControl cameraControl;
@@ -119,6 +121,15 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
         DrawNPC();
     }
 
+    private void Update()
+    {  
+        //Debug.Log(portalPosition);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Vector3 portalPosition = portal.transform.position;
+            player.position = portalPosition;
+        }
+    }
     void CA(float ratio, int iteration,int threshold,int neighborSize, bool isSimultaneous, int targetNum) {
         //initialize
         for (int i = 0; i < levelWidth; i++)
@@ -183,22 +194,28 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
         //{
          //   enemyNum = 100;//jumper
         //}
-        if (ratio < 0.15f) {
+        //if (ratio < 0.15f)
+        if (ratio < 0.125f)
+        {
             enemyNum = 101;//slider
         }
-        else if (ratio < 0.35f)
+        //else if (ratio < 0.35f)
+        else if (ratio < 0.25f)
         {
             enemyNum = 102;//spearThrower
         }
-        else if (ratio < 0.55f)
+        else if (ratio < 0.375f)
+        //else if (ratio < 0.55f)
         {
             enemyNum = 103;//stomper
         }
-        else if (ratio < 0.85f)
+        //else if (ratio < 0.85f)
+        else if (ratio < 0.5f)
         {
             enemyNum = 104;//suicider
         }
-        else if (ratio < 0.925f)
+        //else if (ratio < 0.925f)
+        else if (ratio < 0.75f)
         {
             enemyNum = 105;//shotrange
         }
@@ -1958,7 +1975,7 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
 
     void DrawPortal()
     {
-        GameObject portal1 = gameManager.GetPortal("Portal_2");
+        portal = gameManager.GetPortal("Portal_2");
         bool isCreated = false;
         int xPos = Random.Range(0, levelWidth);
         int yPos = Random.Range(0, levelHeight);
@@ -1971,7 +1988,8 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
                 {
                     if (Random.Range(1, 100) < 2) {
                         if (!isCreated) {
-                            Instantiate(portal1, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                            portal=Instantiate(portal, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                            //Debug.Log(portal.transform.position+"bibi");
                             isCreated = true;
                         }
                     }
@@ -2031,20 +2049,14 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
                             player1.GetComponentInChildren<PickUp_New>().WeaponSizeUp = 15;
                             player1.GetComponentInChildren<PickUp_New>().ItemSizeUp = 15;
                             isCreated = true;
+                            player = player1.transform;
                         }
                     }
 
                 }
             }
         }
-        for (int i = levelWidth-1; i > -1; i--)
-        {
-            for (int j = levelHeight-1; j > -1; j--)
-            {
-                
-            }
-        }
-
+   
     }
 
     void DrawBoss()
