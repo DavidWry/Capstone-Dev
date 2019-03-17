@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4111891256167624}
   - component: {fileID: 212627275908898606}
   - component: {fileID: 136246372987899728}
+  - component: {fileID: 136830487690572084}
+  - component: {fileID: 136063538459512010}
   m_Layer: 0
   m_Name: Tile_17
   m_TagString: Obstacle
@@ -35,12 +37,25 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1008682546140488}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 152.4, y: 225.6, z: 0}
+  m_LocalPosition: {x: 2328.4614, y: 2593.6462, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &136063538459512010
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1008682546140488}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 7.175415
+  m_Height: 14.35083
+  m_Direction: 1
+  m_Center: {x: 12.7, y: 36.8, z: 0.10293388}
 --- !u!136 &136246372987899728
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -50,10 +65,23 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 12.522186
-  m_Height: 37.804657
+  m_Radius: 7.175415
+  m_Height: 14.35083
   m_Direction: 1
-  m_Center: {x: 12.017258, y: 35.38777, z: 0.10293388}
+  m_Center: {x: 17.032104, y: 25.472534, z: 0.10293388}
+--- !u!136 &136830487690572084
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1008682546140488}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 3.9295044
+  m_Height: 12.251709
+  m_Direction: 1
+  m_Center: {x: 3.965271, y: 44.519165, z: 0.10293579}
 --- !u!212 &212627275908898606
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -89,7 +117,7 @@ SpriteRenderer:
   m_SortingLayerID: -2140784465
   m_SortingLayer: 2
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300184, guid: 1135277e2ed43eb4d91603d1494906c0, type: 3}
+  m_Sprite: {fileID: 21300124, guid: 9896c14be3adee342b4bcbd7d7aff760, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
