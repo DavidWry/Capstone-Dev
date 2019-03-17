@@ -16844,6 +16844,40 @@ Prefab:
       propertyPath: m_Name
       value: ShotGun
       objectReference: {fileID: 0}
+    - target: {fileID: 136323636751775062, guid: 4e87b2b640139904b870c5d2778bc50e,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 136323636751775062, guid: 4e87b2b640139904b870c5d2778bc50e,
+        type: 2}
+      propertyPath: m_Radius
+      value: 1.0327708
+      objectReference: {fileID: 0}
+    - target: {fileID: 136323636751775062, guid: 4e87b2b640139904b870c5d2778bc50e,
+        type: 2}
+      propertyPath: m_Height
+      value: 2.931502
+      objectReference: {fileID: 0}
+    - target: {fileID: 136323636751775062, guid: 4e87b2b640139904b870c5d2778bc50e,
+        type: 2}
+      propertyPath: m_Center.y
+      value: 1.2793261
+      objectReference: {fileID: 0}
+    - target: {fileID: 136323636751775062, guid: 4e87b2b640139904b870c5d2778bc50e,
+        type: 2}
+      propertyPath: m_Center.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 136323636751775062, guid: 4e87b2b640139904b870c5d2778bc50e,
+        type: 2}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1761786597272098, guid: 4e87b2b640139904b870c5d2778bc50e, type: 2}
+      propertyPath: m_TagString
+      value: Minion
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e87b2b640139904b870c5d2778bc50e, type: 2}
   m_IsPrefabAsset: 0
