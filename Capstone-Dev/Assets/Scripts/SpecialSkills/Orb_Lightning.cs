@@ -19,27 +19,36 @@ public class Orb_Lightning : MonoBehaviour {
         timeBtw += Time.deltaTime;
 	}
 
-    void OnTriggerStay(Collider other)
+    void OnTriggerStay(Collider collision)
     {
-        if (other.gameObject.tag == "Minion" && timeBtw >= 0.5f)
+        if (collision.gameObject.tag == "Minion" && timeBtw >= 0.5f)
         {
-            if (other.gameObject.GetComponent<EnemySuicideBomber>())
+            if (collision.gameObject.GetComponent<EnemySuicideBomber>())
             {
-                other.gameObject.GetComponent<EnemySuicideBomber>().TakeDamage(Damage);
+                collision.gameObject.GetComponent<EnemySuicideBomber>().TakeDamage(Damage);
             }
-            else if (other.gameObject.GetComponent<EnemyRangedSpear>())
+            else if (collision.gameObject.GetComponent<EnemyRangedSpear>())
             {
-                other.gameObject.GetComponent<EnemyRangedSpear>().TakeDamage(Damage);
+                collision.gameObject.GetComponent<EnemyRangedSpear>().TakeDamage(Damage);
             }
-            else if (other.gameObject.GetComponent<EnemyRangedStomp>())
+            else if (collision.gameObject.GetComponent<EnemyRangedStomp>())
             {
-                other.gameObject.GetComponent<EnemyRangedStomp>().TakeDamage(Damage);
+                collision.gameObject.GetComponent<EnemyRangedStomp>().TakeDamage(Damage);
             }
-            else if (other.gameObject.GetComponent<NewEnemyJumper>())
+            else if (collision.gameObject.GetComponent<NewEnemyJumper>())
             {
-                other.gameObject.GetComponent<NewEnemyJumper>().TakeDamage(Damage);
+                collision.gameObject.GetComponent<NewEnemyJumper>().TakeDamage(Damage);
             }
-            DrawLightning(other);
+            else if (collision.gameObject.GetComponent<EnemySlider>())
+            {
+                collision.gameObject.GetComponent<EnemySlider>().TakeDamage(Damage);
+            }
+            else if (collision.gameObject.GetComponent<MiniBoss>())
+            {
+                collision.gameObject.GetComponent<MiniBoss>().TakeDamage(Damage);
+            }
+
+            DrawLightning(collision);
         }
     }
 

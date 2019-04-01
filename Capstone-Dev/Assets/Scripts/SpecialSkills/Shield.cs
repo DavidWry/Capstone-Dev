@@ -7,7 +7,7 @@ public class Shield : MonoBehaviour {
 
     public float lifeTime;
     private float currentTime = 0;
-    public int Damage = 5;
+    public int Damage = 15;
     float stun = 2;
 
 	// Use this for initialization

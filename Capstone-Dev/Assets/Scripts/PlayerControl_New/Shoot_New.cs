@@ -57,7 +57,7 @@ public class Shoot_New : MonoBehaviour
     //11-11
     private float CombineBtw_11 = 1f;
     private float CombineSpeed_11 = 15f;
-    private float CombineDuration_11 = 2f;
+    private float CombineDuration_11 = 1f;
     private int CombineDamage_11 = 80;
     //12-1
     private float CombineBtw_12 = 0.2f;
@@ -77,7 +77,7 @@ public class Shoot_New : MonoBehaviour
     //15-4
     private float CombineBtw_15 = 0.5f;
     private float CombineSpeed_15 = 15f;
-    private float CombineDuration_15 = 50000f;
+    private float CombineDuration_15 = 50f;
     private int CombineDamage_15 = 65;
     public bool CombineTag_15 = true;
     public GameObject combine_15;
@@ -130,8 +130,8 @@ public class Shoot_New : MonoBehaviour
     //55-15
     public bool CombineTag_55 = false;
     private float CombineBtw_55 = 0.8f;
-    private float CombineSpeed_55 = 8f;
-    private float CombineDuration_55 = 1f;
+    private float CombineSpeed_55 = 5f;
+    private float CombineDuration_55 = 0.5f;
     private int CombineDamage_55 = 120;
 
     //Camera zoom;
@@ -239,6 +239,8 @@ public class Shoot_New : MonoBehaviour
                         GameObject NewProj = Instantiate(gameManager.CombineProjectile[17], transform);
                         NewProj.transform.position = Center.position;
                         NewProj.transform.rotation = Center.rotation;
+                        if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3")
+                            NewProj.transform.localScale *= 15;
                         CombineTag_35 = false;
                     }
                     if (player.CombineType == 55 && CombineTag_55)

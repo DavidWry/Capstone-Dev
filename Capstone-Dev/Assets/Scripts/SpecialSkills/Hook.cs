@@ -32,7 +32,10 @@ public class Hook : MonoBehaviour {
             line.SetPosition(0, transform.position);
             line.SetPosition(1, Player.transform.position);
             if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2")
+            {
                 RBody.velocity = transform.right * speed * 20;
+                line.widthMultiplier = 15;
+            }
             else
                 RBody.velocity = transform.right * speed;
             if (start)
@@ -54,7 +57,7 @@ public class Hook : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Obstacle" && !drag)
             start = true;
-        if (collision.gameObject.tag == "Dummy" && !start)
+        if ((collision.gameObject.tag == "Minion" || collision.gameObject.tag == "Dummy") && !start)
         {
             drag = true;
             target = collision.gameObject;
@@ -75,6 +78,7 @@ public class Hook : MonoBehaviour {
         if (target)
         {
             target.transform.position = Vector3.MoveTowards(target.transform.position, Player.transform.position, speed * 1.5f * Time.deltaTime * multi);
+            this.GetComponent<CapsuleCollider>().isTrigger = true;
             transform.position = target.transform.position;
             if (Vector3.Distance(Player.transform.position, target.transform.position) < 1.5f * multi)
             {
