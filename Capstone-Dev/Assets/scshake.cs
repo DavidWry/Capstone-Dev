@@ -14,6 +14,7 @@ public class scshake : MonoBehaviour
     {
         time = 0;
         Posrecord = cam.transform.localPosition;
+        cam = Camera.main;
 
     }
 

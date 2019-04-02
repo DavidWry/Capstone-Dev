@@ -49,6 +49,9 @@ public class EnemySlider : MonoBehaviour
 
     private bool hasCollidedWithOthers;
     private CapsuleCollider cc;
+
+    public GameObject peffect;
+    
     // public AnimationClip death;
 
    
@@ -69,6 +72,7 @@ public class EnemySlider : MonoBehaviour
             rangeForAttack = 120f;
             reachedDistance = 3f;
             slide.transform.localScale = new Vector3(14f, 14f, 1f);
+            peffect.transform.localScale = new Vector3(2.6f, 2.6f, 2.6f);
         }
         else if (scene.name == "First Level")
         {
@@ -79,6 +83,7 @@ public class EnemySlider : MonoBehaviour
             capsule.height = 5.51f;
             reachedDistance = 0.1f;
             slide.transform.localScale = new Vector3(0.7f, 0.7f, 1f);
+            peffect.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
         }
         rb = GetComponent<Rigidbody>();
 
@@ -148,6 +153,7 @@ public class EnemySlider : MonoBehaviour
 
 
                     rb.velocity = dir;
+                   
                     canDash = false;
                    
                     hasReached = false;
@@ -161,9 +167,9 @@ public class EnemySlider : MonoBehaviour
                 {
                     hasReached = true;
                     // shouldDestroyDash = true;
-                   // Destroy(tempSlide, 0.45f);
+                    // Destroy(tempSlide, 0.45f);
                 }
-
+               
                 //Destroy the dash indicator
                 if (shouldDestroyDash == true)
                 {
@@ -233,8 +239,9 @@ public class EnemySlider : MonoBehaviour
             if (hasCollided == false && dashTime == 1.6f)
             {
                 //shouldDestroyDash = true;
-               // Destroy(tempSlide, 0.5f);
-               // hasCollided = true;
+                // Destroy(tempSlide, 0.5f);
+                // hasCollided = true;
+                Instantiate(peffect, other.transform.position, Quaternion.identity);
                 rb.velocity = Vector3.zero;
                 anim.SetBool("isRunning", false);
                 other.gameObject.GetComponent<Player_New>().TakeDamage(damage);

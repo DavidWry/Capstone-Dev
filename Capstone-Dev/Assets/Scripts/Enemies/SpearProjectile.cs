@@ -15,17 +15,19 @@ public class SpearProjectile : MonoBehaviour
     private Vector3 target;
     private int damage;
     private Scene scene;
-    
+    public GameObject particleffect;
     void Start()
     {
         scene = SceneManager.GetActiveScene();
         if (scene.name == "2_1"|| scene.name == "2_2")
         {
             speed = 60.5f;
+            particleffect.transform.localScale = new Vector3(2.6f,2.6f,2.6f);
         }
         else
         {
-            speed = 2.75f;
+            speed = 3.0f;
+            particleffect.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
         }
         damage = 8;
         player2 = GetComponent<Player_New>();
@@ -41,7 +43,7 @@ public class SpearProjectile : MonoBehaviour
         
         //Once instantiated, head to the player's position
         transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
-        transform.Rotate(Vector3.forward, Time.deltaTime * 270, Space.Self);
+        transform.Rotate(Vector3.forward, Time.deltaTime * 360, Space.Self);
         if (transform.position.x == target.x && transform.position.y == target.y)
         {
             DestroyProjectile();
@@ -77,6 +79,7 @@ public class SpearProjectile : MonoBehaviour
     // Destroy the projectile
     private void DestroyProjectile()
     {
+        Instantiate(particleffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }

@@ -239,6 +239,7 @@ MonoBehaviour:
   healthBar: {fileID: 114970328812044914}
   cameraShake: {fileID: 0}
   slide: {fileID: 1230012007418544, guid: dd99df70f774652448fc8b36065a48c8, type: 2}
+  peffect: {fileID: 1503775146355692, guid: 7be8e16e61202b24386560db0ba39a99, type: 2}
 --- !u!114 &114933114416713924
 MonoBehaviour:
   m_ObjectHideFlags: 1
