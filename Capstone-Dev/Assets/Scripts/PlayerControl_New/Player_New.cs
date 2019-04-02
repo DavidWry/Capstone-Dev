@@ -146,17 +146,34 @@ namespace AssemblyCSharp
             }
             if (playerMovement.isBulletTime)
             {
-                if (LeftTarget != null && RightTarget != null)
+                if (RightTarget != null)
                 {
-                    Vector3 lookDirection = LeftTarget.transform.position - LeftHand.transform.position;
-                    float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
-                    Quaternion lookRotation = Quaternion.AngleAxis(angle, Vector3.forward);
-                    LeftHand.transform.eulerAngles = new Vector3(0, 0, angle + fixLeftAngle);
+                    if (!playerMovement.IsFaceRight)
+                    {
+                        Vector3 lookDirection = RightTarget.transform.position - LeftHand.transform.position;
+                        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+                        Quaternion lookRotation = Quaternion.AngleAxis(angle, Vector3.forward);
+                        LeftHand.transform.eulerAngles = new Vector3(0, 0, angle - fixAngle);
 
-                    lookDirection = RightTarget.transform.position - RightHand.transform.position;
-                    angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
-                    lookRotation = Quaternion.AngleAxis(angle, Vector3.forward);
-                    RightHand.transform.rotation = Quaternion.Slerp(RightHand.transform.rotation, lookRotation, rotateSpeed * Time.deltaTime);
+                        lookDirection = RightTarget.transform.position - RightHand.transform.position;
+                        angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+                        lookRotation = Quaternion.AngleAxis(angle, Vector3.forward);
+                        RightHand.transform.eulerAngles = new Vector3(0, 0, angle);
+                        LeftHand.transform.Rotate(180, 0, 0);
+                        RightHand.transform.Rotate(180, 0, 0);
+                    }
+                    else
+                    {
+                        Vector3 lookDirection = RightTarget.transform.position - LeftHand.transform.position;
+                        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+                        Quaternion lookRotation = Quaternion.AngleAxis(angle, Vector3.forward);
+                        LeftHand.transform.eulerAngles = new Vector3(0, 0, angle + fixAngle);
+
+                        lookDirection = RightTarget.transform.position - RightHand.transform.position;
+                        angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+                        lookRotation = Quaternion.AngleAxis(angle, Vector3.forward);
+                        RightHand.transform.eulerAngles = new Vector3(0, 0, angle);
+                    }
                 }
             }
             else

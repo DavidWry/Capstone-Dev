@@ -72,7 +72,7 @@ MonoBehaviour:
   WeaponList:
   - Name: Pistol
     WeaponName: 0
-    WeaponType: 1
+    WeaponType: 3
     WeaponIcon: {fileID: 21300000, guid: 949685af023260b49a9b19623cba94d6, type: 3}
     WeaponObj: {fileID: 1031040304690994, guid: 06723e9a6ee9b7044b2613638ac2d4f8,
       type: 2}
@@ -82,7 +82,7 @@ MonoBehaviour:
     IsMultiBullets: 0
     BulletAngleList:
     - 0
-    TimeBetweenShot: 0.8
+    TimeBetweenShot: 5
     TimeWaited: 0
     ImpactFX: {fileID: 1501866481023270, guid: 658b9b1f4267b454c9c153d3961f4422, type: 2}
     ShotFX: {fileID: 1142645326660304, guid: ead74bb5c5554ca4694860a2445b5fef, type: 2}
@@ -92,7 +92,7 @@ MonoBehaviour:
     CurrentAmmos: 0
     ClipObj: {fileID: 1766454748759930, guid: e74b0e6acc86e7542b2a19038b4464a6, type: 2}
     AttackAnimationUsed: 
-    ReloadTime: 1
+    ReloadTime: 1.5
     Duration: 3
     ProjectileSpeed: 15
     IsThrust: 0

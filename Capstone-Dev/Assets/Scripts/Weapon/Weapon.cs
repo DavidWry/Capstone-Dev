@@ -7,7 +7,7 @@ namespace AssemblyCSharp
 {
     public enum WeaponName { Pistol, ZombieHand, EnergyRifle, Ak47, Shotgun, DemoGun1, Lazer, Sword};
 
-    public enum WeaponType { Melee, Ranged, ShortRange};
+    public enum WeaponType { Melee, Ranged, ShortRange, UnAuto};
 
     [System.Serializable]
     public class Weapon

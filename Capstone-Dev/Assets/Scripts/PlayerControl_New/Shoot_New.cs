@@ -189,6 +189,11 @@ public class Shoot_New : MonoBehaviour
         else
         {
             IsLeftShooting = false;
+            if (player.leftWeapon.WeaponType == WeaponType.UnAuto && player.leftWeapon.CurrentAmmos > 0)
+            {
+                CanLeftShoot = true;
+                LeftWaitedTime = 0f;
+            }
         }
         if (Mathf.Round(Input.GetAxisRaw("RightTrigger")) > 0 && player.rightWeapon.Name != "")          //Push right trigger to shoot on right.
         {
@@ -198,6 +203,11 @@ public class Shoot_New : MonoBehaviour
         else
         {
             IsRightShooting = false;
+            if (player.rightWeapon.WeaponType == WeaponType.UnAuto && player.rightWeapon.CurrentAmmos > 0)
+            {
+                CanRightShoot = true;
+                RightWaitedTime = 0f;
+            }
         }
         if (player.leftWeapon.Name != "" && player.rightWeapon.Name != "" && (SkillReady || GoldenFinger))  //Hold "Y" to combine.
         {
