@@ -40,7 +40,7 @@ public class scshake : MonoBehaviour
             cam.transform.localPosition += vecasdf;
             time = time - Time.deltaTime;
         }
-        if (time <= 0)
+        if (time <= 0&&gameObject.GetComponent<CameraSlidah>().offset==false)
         {
 
 
@@ -55,21 +55,21 @@ public class scshake : MonoBehaviour
     {
         if (cam.transform.localPosition.y > -.77f)
         {
-            cam.transform.localPosition -= Vector3.up * 0.01f;
+            cam.transform.localPosition -= Vector3.up * 0.01f* 1000;
 
         }
 
 
         if (cam.transform.localPosition.y < -.73f)
         {
-            cam.transform.localPosition += Vector3.up * 0.01f;
+            cam.transform.localPosition += Vector3.up * 0.01f * 1000;
 
         }
 
        
             if (cam.transform.localPosition.x < 2.10f)
             {
-                cam.transform.localPosition += Vector3.right * 0.01f;
+                cam.transform.localPosition += Vector3.right * 0.01f * 1000;
 
 
 
@@ -82,7 +82,7 @@ public class scshake : MonoBehaviour
    
             if (cam.transform.localPosition.x > 2.14f)
             {
-                cam.transform.localPosition += Vector3.left * 0.01f;
+                cam.transform.localPosition += Vector3.left * 0.01f * 1000;
 
 
 
