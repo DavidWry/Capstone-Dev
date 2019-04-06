@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Achievements>
+ <AC1>
+   <Name>Rage</Name>
+   <Completed>False</Completed>
+ </AC1>
+  
+  <AC2>
+    <Name>Slow and Steady</Name>
+    <Completed>False</Completed>
+  </AC2>
+  <AC3>
+    <Name>Melted</Name>
+    <Completed>False</Completed>
+  </AC3>
+  <AC4>
+    <Name>Practice Makes Perfect</Name>
+    <Completed>False</Completed>
+  </AC4>
+  <AC5>
+    <Name>Clean Sweep</Name>
+    <Completed>False</Completed>
+  </AC5>
+  <AC6>
+    <Name>It Lives</Name>
+    <Completed>False</Completed>
+  </AC6>
+  <AC7>
+    <Name>Pure and Simple</Name>
+    <Completed>False</Completed>
+  </AC7>
+  <AC8>
+    <Name>Beat It</Name>
+    <Completed>False</Completed>
+  </AC8>
+  <AC9>
+    <Name>Treasure Hunter</Name>
+    <Completed>False</Completed>
+  </AC9>
+  <AC10>
+    <Name>Say Hello to My Little Friend</Name>
+    <Completed>False</Completed>
+  </AC10>
+  <AC11>
+    <Name>Rush Hour</Name>
+    <Completed>False</Completed>
+  </AC11>
+  <AC12>
+    <Name>Glass Cutter</Name>
+    <Completed>False</Completed>
+  </AC12>
+  <AC13>
+    <Name>Too Blind To See</Name>
+    <Completed>False</Completed>
+  </AC13>
+  <AC14>
+    <Name>Addicted</Name>
+    <Completed>False</Completed>
+  </AC14>
+  <AC15>
+    <Name>Dazzled</Name>
+    <Completed>False</Completed>
+  </AC15>
+  <AC16>
+    <Name>Walking On Ice</Name>
+    <Completed>False</Completed>
+  </AC16>
+  <AC17>
+    <Name>Fresh Meat</Name>
+    <Completed>False</Completed>
+  </AC17>
+  <AC18>
+    <Name>Platnium</Name>
+    <Completed>False</Completed>
+  </AC18>
+  <AC19>
+    <Name>Secret Finder</Name>
+    <Completed>False</Completed>
+  </AC19>
+  <AC20>
+    <Name>Pistol Master</Name>
+    <Completed>False</Completed>
+  </AC20>
+
+
+
+
+
+
+
+
+
+</Achievements>
