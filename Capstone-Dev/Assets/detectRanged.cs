@@ -185,8 +185,9 @@ namespace Assets.HeroEditor.Common.CharacterScripts
             else
             {  //returnoriginal flag是true,返回远点
                 Vector3 unitvec = (Original - gameObject.transform.position).normalized;
-                if (Vector3.Distance(gameObject.transform.position, Original) < minDistance)
+                if (Vector3.Distance(gameObject.transform.position, Original) < 100000)
                 {
+                        Original = gameObject.transform.position;
                     //到远点了 重置变量
                     directionFlag = false;
                     anim.SetBool("Run", false);

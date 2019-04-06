@@ -149,9 +149,10 @@ public class detect : MonoBehaviour {
         else
         {
             Vector3 unitvec = (Original - gameObject.transform.position).normalized;         
-            if (Vector3.Distance(gameObject.transform.position, Original) < minDistance)
-            {                 
-                directionFlag = false;
+            if (Vector3.Distance(gameObject.transform.position, Original) < 100000)
+            {
+                    Original = gameObject.transform.position;
+                    directionFlag = false;
                 anim.SetBool("Run", false);
                 returnOriginal = false;                
                 wander = true;
