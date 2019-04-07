@@ -22,6 +22,9 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
     public GameObject theCanvas;
     private Transform player;
     private GameObject portal;
+    public int lootCount=0;
+    public int enemyCount = 0;
+    public float levelTime = 0;
     //public GameObject textManager;
 
     private CameraControl cameraControl;
@@ -122,7 +125,8 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
     }
 
     private void Update()
-    {  
+    {
+        levelTime += Time.deltaTime;
         //Debug.Log(portalPosition);
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -1855,6 +1859,7 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
             {
                 if (landArray[i, j] == 1)
                 {
+                    lootCount++;
                     Instantiate(tile41, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
                     cellState[i, j].state = 41;//number in tileset folder           
                 }
@@ -1939,6 +1944,7 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
         {
             for (int j = 0; j < levelHeight; j++)
             {
+                enemyCount++;
                 /*
                 if (cellState[i, j].state == 100)
                 {
@@ -2060,7 +2066,7 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
     }
 
     void DrawBoss()
-    {
+    {                                
         float xPos = Random.Range(2.5f, cameraControl.border2.x-2.5f);
         float yPos = Random.Range(2.5f, cameraControl.border2.y-2.5f);
             

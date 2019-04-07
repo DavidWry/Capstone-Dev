@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+using System.Xml;
 public class Chest : MonoBehaviour {
-
+    XmlDocument achievementDoc = new XmlDocument();
     private int health;
     public int currentHealth;
     private DropProbability probability = null;
@@ -41,7 +41,28 @@ public class Chest : MonoBehaviour {
                 else//crystal
                     itemObj.transform.localScale = new Vector3(60, 60, 60);
             }
-            
+            if (SceneManager.GetActiveScene().name == "2_1")
+            {
+                gameManager.GetComponent<ProcedualGeneration2_1>().lootCount--;
+                if (gameManager.GetComponent<ProcedualGeneration2_1>().lootCount == 0) {
+                    string achievementFilePath = Application.dataPath + "/Resources/Achievements.xml";
+                    achievementDoc.Load(achievementFilePath);
+                    achievementDoc.DocumentElement.SelectSingleNode("AC9/Completed").InnerText = "true";
+
+                    achievementDoc.Save(achievementFilePath);
+                }
+            }
+            else if(SceneManager.GetActiveScene().name == "2_2"){
+                gameManager.GetComponent<ProcedualGeneration2_2>().lootCount--;
+                if (gameManager.GetComponent<ProcedualGeneration2_1>().lootCount == 0)
+                {
+                    string achievementFilePath = Application.dataPath + "/Resources/Achievements.xml";
+                    achievementDoc.Load(achievementFilePath);
+                    achievementDoc.DocumentElement.SelectSingleNode("AC9/Completed").InnerText = "true";
+
+                    achievementDoc.Save(achievementFilePath);
+                }
+            }
             var worldCanvas = GameObject.Find("worldCanvas").transform;
             itemObj.transform.parent = worldCanvas;
             Destroy(gameObject);

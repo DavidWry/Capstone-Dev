@@ -36,6 +36,9 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
     private Vector2 entrancePosition;
     private Transform player;
     private GameObject portal;
+    public int lootCount = 0;
+    public int enemyCount = 0;
+    public float levelTime = 0;
     // Use this for initialization
     void Start () {
         isEdgeReady = false;    
@@ -120,6 +123,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
 
     private void Update()
     {
+        levelTime += Time.deltaTime;
         //Debug.Log(portalPosition);
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -2911,7 +2915,8 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
 
     void DrawLoot()
     {
-        GameObject tile41 = gameManager.GetTile2("Tile_41");
+        
+           GameObject tile41 = gameManager.GetTile2("Tile_41");
        
 
         for (int i = 0; i < levelWidth; i++)
@@ -2920,6 +2925,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
             {
                 if (cellState[i, j].state == 201)
                 {
+                    lootCount++;
                     Instantiate(tile41, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
                     cellState[i, j].state = 41;//number in tileset folder           
                 }
@@ -3044,6 +3050,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
         {
             for (int j = 0; j < levelHeight; j++)
             {
+                enemyCount++;
                 if (cellState[i, j].state == 100)
                 {
                     Instantiate(enemy1, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);          

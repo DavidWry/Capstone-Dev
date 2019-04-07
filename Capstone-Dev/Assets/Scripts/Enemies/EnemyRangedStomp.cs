@@ -165,6 +165,10 @@ public class EnemyRangedStomp : MonoBehaviour
 
             if (currentHealth <= 0)
             {
+                if (SceneManager.GetActiveScene().name == "2_1") 
+                    gameManager.GetComponent<ProcedualGeneration2_1>().enemyCount--;
+                if (SceneManager.GetActiveScene().name == "2_2")
+                    gameManager.GetComponent<ProcedualGeneration2_2>().enemyCount--;
                 anim.SetTrigger("hasDied");
                 Destroy(gameObject, 0.75f);
                 if (probability &&!isDrop)

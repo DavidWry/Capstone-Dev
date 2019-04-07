@@ -1,93 +1,88 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Achievements>
- <AC1>
-   <Name>Rage</Name>
-   <Completed>False</Completed>
- </AC1>
-  
+  <AC1>
+    <Name>Rage</Name>
+    <Completed>true</Completed>
+  </AC1>
   <AC2>
     <Name>Slow and Steady</Name>
-    <Completed>False</Completed>
+    <Completed>false</Completed>
+    <Count>false</Count>
   </AC2>
   <AC3>
     <Name>Melted</Name>
-    <Completed>False</Completed>
+    <Completed>false</Completed>
   </AC3>
   <AC4>
     <Name>Practice Makes Perfect</Name>
-    <Completed>False</Completed>
+    <Completed>false</Completed>
+    <Time>0</Time>
   </AC4>
   <AC5>
     <Name>Clean Sweep</Name>
-    <Completed>False</Completed>
+    <Completed>false</Completed>
+    <Remaining>0</Remaining>
   </AC5>
   <AC6>
     <Name>It Lives</Name>
-    <Completed>False</Completed>
+    <Completed>false</Completed>
   </AC6>
   <AC7>
     <Name>Pure and Simple</Name>
-    <Completed>False</Completed>
+    <Completed>false</Completed>
+    <Count>0</Count>
   </AC7>
   <AC8>
-    <Name>Beat It</Name>
-    <Completed>False</Completed>
+    <Name>Healthy as a horse</Name>
+    <Completed>false</Completed>
   </AC8>
   <AC9>
     <Name>Treasure Hunter</Name>
-    <Completed>False</Completed>
+    <Completed>false</Completed>
   </AC9>
   <AC10>
     <Name>Say Hello to My Little Friend</Name>
-    <Completed>False</Completed>
+    <Completed>false</Completed>
   </AC10>
   <AC11>
     <Name>Rush Hour</Name>
-    <Completed>False</Completed>
+    <Completed>false</Completed>
   </AC11>
   <AC12>
     <Name>Glass Cutter</Name>
-    <Completed>False</Completed>
+    <Completed>false</Completed>
   </AC12>
   <AC13>
-    <Name>Too Blind To See</Name>
-    <Completed>False</Completed>
+    <Name>Walking On Ice</Name>
+    <Completed>false</Completed>
   </AC13>
-  <AC14>
+  <AC17>
     <Name>Addicted</Name>
-    <Completed>False</Completed>
-  </AC14>
+    <Completed>false</Completed>
+  </AC17>
   <AC15>
     <Name>Dazzled</Name>
-    <Completed>False</Completed>
+    <Completed>false</Completed>
   </AC15>
   <AC16>
-    <Name>Walking On Ice</Name>
-    <Completed>False</Completed>
+    <Name>Too Blind To See</Name>
+    <Completed>false</Completed>
   </AC16>
-  <AC17>
+  <AC14>
     <Name>Fresh Meat</Name>
-    <Completed>False</Completed>
-  </AC17>
+    <Completed>false</Completed>
+    <Count>0</Count>
+  </AC14>
   <AC18>
     <Name>Platnium</Name>
-    <Completed>False</Completed>
+    <Completed>false</Completed>
   </AC18>
   <AC19>
     <Name>Secret Finder</Name>
-    <Completed>False</Completed>
+    <Completed>false</Completed>
   </AC19>
   <AC20>
     <Name>Pistol Master</Name>
-    <Completed>False</Completed>
+    <Completed>false</Completed>
   </AC20>
-
-
-
-
-
-
-
-
-
 </Achievements>
