@@ -26,7 +26,7 @@ public class LeaveToScene : MonoBehaviour {
         if (other.tag == "Player" && nextSceneName != "")
         {
             NextScene.loadName = nextSceneName;
-            if (SceneManager.GetActiveScene().name == "MainRoom")
+            if (SceneManager.GetActiveScene().name == "WeaponRoom")
             {
 
                 string achievementFilePath = Application.dataPath + "/Resources/Achievements.xml";
