@@ -75,8 +75,11 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
         //generate up to 2 level platforms
         Dig();
         DrawRoute();
-        //Generate(1);
-        //Draw();
+        Generate(1);
+        SmoothWater();
+        Draw();
+        
+        DrawWater();
         //ChangeEdge();
         //DrawEdge();
 
@@ -85,7 +88,7 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
         //initial terrain
         Terrain();
         for (int i = 0; i < 3; i++) {
-            Smooth();
+            
         }
        
         Draw();      
@@ -143,137 +146,46 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
     {
         GenerateCave();
     }
-    void Smooth()
+    void SmoothWater()
     {
         for (int i = 1; i < levelWidth-1; i++) {
             for (int j = 1; j < levelHeight-1; j++){
-                /*
-                if (landArray[i, j] == 1)
-                {
-                    int totalNum = 0;
-                    for (int m = -1; m < 2; m++)
-                    {
-                        for (int n = -1; n < 2; n++)
-                        {
-                            if (landArray[i + m, j + n] == 0)
-                                totalNum++;
-                        }
-                    }
-                    if (totalNum > 4)
+                if (landArray[i, j] == 1) {
+                    if (landArray[i, j + 1] != 1
+                        && landArray[i, j - 1] == 1
+                        && landArray[i - 1, j] != 1
+                        && landArray[i + 1, j] != 1)
                     {
                         landArray[i, j] = 0;
                     }
-                }
-                */
-                if (landArray[i, j] == 0) {
-                    int totalNum = 0;
-                    for (int m = -1; m < 2; m++) {
-                        for (int n = -1; n < 2; n++) {
-                            if (landArray[i + m, j + n] == 0)
-                                totalNum++;
-                        }
+                    else if (landArray[i, j + 1] == 1
+                        && landArray[i, j - 1] != 1
+                        && landArray[i - 1, j] != 1
+                        && landArray[i + 1, j] != 1)
+                    {
+                        landArray[i, j] = 0;
                     }
-                    if (totalNum < 4) {
-                        landArray[i, j] = 1;
+                    else if (landArray[i, j + 1] != 1
+                        && landArray[i, j - 1] != 1
+                        && landArray[i - 1, j] == 1
+                        && landArray[i + 1, j] != 1)
+                    {
+                        landArray[i, j] = 0;
                     }
-                }
-                
-                
-                if (landArray[i, j + 1] == 1 && landArray[i, j - 1] == 1 && landArray[i + 1, j] == 0 &&
-                   landArray[i - 1, j] == 0 && landArray[i, j] == 0 && landArray[i-1, j+1] == 0
-                   && landArray[i+1, j+1] == 1 && landArray[i-1, j-1] == 0 && landArray[i+1, j-1] == 0)
-                    landArray[i, j-1] = 0;//011000010 把缺少的一个横快补上
-                if (landArray[i, j + 1] == 0 && landArray[i, j - 1] == 0 && landArray[i + 1, j] == 1 &&
-                   landArray[i - 1, j] == 1 && landArray[i, j] == 0)
-                    landArray[i, j] = 1;//111001011
-                if (landArray[i, j] == 0 && landArray[i-1, j] == 0 && landArray[i + 1, j] == 1 &&
-                   landArray[i, j+1] == 1 && landArray[i, j-1] == 1 && landArray[i - 1, j+1] == 0 &&
-                   landArray[i - 1, j - 1] == 0)
-                    landArray[i, j] = 1;//如果是突出去的左边，就消除那个格子
-                if (landArray[i, j] == 0 && landArray[i - 1, j] == 1 && landArray[i + 1, j] == 0 &&
-                   landArray[i, j + 1] == 1 && landArray[i, j - 1] == 1 && landArray[i + 1, j + 1] == 0 &&
-                   landArray[i + 1, j - 1] == 0)
-                    landArray[i, j] = 1;//如果是突出去的右边，就消除那个格子
-                if (landArray[i-1, j+1] == 1 && landArray[i, j+1] == 0 && landArray[i + 1, j+1] == 0 &&
-                   landArray[i-1, j] == 1 && landArray[i, j] == 0 && landArray[i + 1, j] == 0 &&
-                   landArray[i - 1, j - 1] == 0 && landArray[i, j-1] == 1 && landArray[i + 1, j-1] == 1)
-                    landArray[i-1, j-1] = 1;//如果是突出去一块连接一个区域，去掉那个块
-                if (landArray[i - 1, j + 1] == 1 && landArray[i, j + 1] == 1 && landArray[i + 1, j + 1] == 1 &&
-                   landArray[i - 1, j] == 0 && landArray[i, j] == 0 && landArray[i + 1, j] == 0 &&
-                   landArray[i - 1, j - 1] == 0 && landArray[i, j - 1] == 0 && landArray[i + 1, j - 1] == 1)
-                    landArray[i + 1, j] = 1;//如果是突出去一块连接一个区域，去掉那个块
-                if (landArray[i - 1, j + 1] == 0 && landArray[i, j + 1] == 0 && landArray[i + 1, j + 1] == 1 &&
-                  landArray[i - 1, j] == 0 && landArray[i, j] == 0 && landArray[i + 1, j] == 1 &&
-                  landArray[i - 1, j - 1] == 1 && landArray[i, j - 1] == 0 && landArray[i + 1, j - 1] == 0)
-                {
-                    landArray[i, j] = 1;//如果是突出去一块连接一个区域，去掉那个区域
-                    landArray[i-1, j] = 1;
-                }
-                if (landArray[i - 1, j + 1] == 0 && landArray[i, j + 1] == 0 && landArray[i + 1, j + 1] == 1 &&
-                  landArray[i - 1, j] == 0 && landArray[i, j] == 0 && landArray[i + 1, j] == 1 &&
-                  landArray[i - 1, j - 1]>-1 && landArray[i, j - 1] == 1 && landArray[i + 1, j - 1] == 0)
-                {
-                    landArray[i, j] = 1;//如果是突出去一块连接一个区域，去掉一块
-      
-                }
-                if (landArray[i - 1, j + 1] == 0 && landArray[i, j + 1] == 0 && landArray[i + 1, j + 1] == 0 &&
-                  landArray[i - 1, j] == 0 && landArray[i, j] == 0 && landArray[i + 1, j] == 1 &&
-                  landArray[i - 1, j - 1] == 0 && landArray[i, j - 1] == 1 && landArray[i + 1, j - 1] == 0)
-                {
-                    landArray[i, j] = 1;//如果是突出去一块连接一个区域，去掉一块
-
-                }
-                if (landArray[i - 1, j + 1] == 0 && landArray[i, j + 1] == 0 && landArray[i + 1, j + 1] == 1 &&
-                 landArray[i - 1, j] == 0 && landArray[i, j] == 0 && landArray[i + 1, j] == 0 &&
-                 landArray[i - 1, j - 1] == 1 && landArray[i, j - 1] == 0 && landArray[i + 1, j - 1] == 0)
-                {
-                    landArray[i, j] = 1;//如果是突出去一块连接一个区域，去掉区域
-                    landArray[i-1, j] = 1;
-                    landArray[i, j+1] = 1;
-
-                }
-                if (landArray[i - 1, j + 1] == 0 && landArray[i, j + 1] == 1 && landArray[i + 1, j + 1] == 0 &&
-                  landArray[i - 1, j] == 0 && landArray[i, j] == 0 && landArray[i + 1, j] == 0 &&
-                  landArray[i - 1, j - 1] == 0 && landArray[i, j - 1] == 1)
-                {
-                    landArray[i, j] = 1;//如果是突出去一块连接一个区域，去掉一块
-
-                }
-                if (landArray[i - 1, j + 1] == 0 && landArray[i, j + 1] == 1 && landArray[i + 1, j + 1] == 0 &&
-                  landArray[i - 1, j] == 0 && landArray[i, j] == 0 && landArray[i + 1, j] == 1 &&
-                  landArray[i - 1, j - 1] == 0 && landArray[i, j - 1] == 0 && landArray[i+1, j - 1] == 1)
-                {
-                    landArray[i, j] = 1;//如果是突出去一块连接一个区域，去掉一块
-
-                }
-                if (landArray[i - 1, j + 1] == 0 && landArray[i, j + 1] == 1 && landArray[i + 1, j + 1] == 1 &&
-                 landArray[i - 1, j] == 0 && landArray[i, j] == 0 && landArray[i + 1, j] == 0 &&
-                 landArray[i - 1, j - 1] == 1 && landArray[i, j - 1] == 0 && landArray[i + 1, j - 1] == 0)
-                {
-                    landArray[i-1, j] = 1;//如果是突出去一块连接一个区域，去掉桥接部分
-                    landArray[i - 1, j+1] = 1;
-                }
-
-                if (landArray[i - 1, j + 1] == 0 && landArray[i, j + 1] == 1 && landArray[i + 1, j + 1] == 1 &&
-                 landArray[i - 1, j] == 1 && landArray[i, j] == 0 && landArray[i + 1, j] == 1 &&
-                 landArray[i - 1, j - 1] == 1 && landArray[i, j - 1] == 0 && landArray[i + 1, j - 1] == 0)
-                {
-                    landArray[i, j] = 1;//如果是突出去一块连接一个区域，去掉桥接部分
-                    
-                }
-                if (landArray[i - 1, j + 1] == 0 && landArray[i, j + 1] == 1 && landArray[i + 1, j + 1] == 1 &&
-                 landArray[i - 1, j] == 1 && landArray[i, j] == 0 && landArray[i + 1, j] == 0 &&
-                 landArray[i - 1, j - 1] == 0 && landArray[i, j - 1] == 0 && landArray[i + 1, j - 1] == 0)
-                {
-                    landArray[i-1, j+1] = 1;//如果是突出去一块连接一个区域，去掉桥接部分
-
-                }
-                if (landArray[i - 1, j + 1] == 0 && landArray[i, j + 1] == 1 && landArray[i + 1, j + 1] == 1 &&
-                 landArray[i - 1, j] == 0 && landArray[i, j] == 0 && landArray[i + 1, j] == 0 &&
-                 landArray[i - 1, j - 1] == 0 && landArray[i, j - 1] == 1 && landArray[i + 1, j - 1] == 1)
-                {
-                    landArray[i, j] = 1;//如果是突出去一块连接一个区域，去掉桥接部分
-
+                    else if (landArray[i, j + 1] != 1
+                        && landArray[i, j - 1] != 1
+                        && landArray[i - 1, j] != 1
+                        && landArray[i + 1, j] == 1)
+                    {
+                        landArray[i, j] = 0;
+                    }
+                    else if (landArray[i, j + 1] != 1
+                        && landArray[i, j - 1] != 1
+                        && landArray[i - 1, j] != 1
+                        && landArray[i + 1, j] != 1)
+                    {
+                        landArray[i, j] = 0;
+                    }
                 }
             }
         }
@@ -400,12 +312,14 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
             {
                 for (int h = 0; h < levelHeight; h++)
                 {
-                    if (w == 0 || h == 0 || w == levelWidth - 1 || h == levelHeight - 1)
+                    if (w < 5 || h < 5 || w > levelWidth - 6 || h > levelHeight - 6)
                     {
                         landArray[w, h] = 1;
-                        // Debug.Log("边界了");
+                        newLandArray[w, h] = 1;
+                        Debug.Log("边界了");
                     }
-                    else {
+                    
+                    else if(landArray[w,h]!=3){
                         if (!isSimultaneous)
                         {
                             landArray[w, h] = DetermineCell(w, h, targetNum, threshold, neighborSize);
@@ -415,9 +329,18 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
                             newLandArray[w, h] = DetermineCell(w, h, targetNum, threshold, neighborSize);
                         }
                     }
-                    
+                    else if (landArray[w, h] == 3)
+                    {
+                        if (isSimultaneous)
+                        {
+                            newLandArray[w, h] = 3;
+                        }
+
+                    }
+
                 }
             }
+            
             if (isSimultaneous)
             {
                 for (int w = 0; w < levelWidth; w++)
@@ -428,9 +351,25 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
                     }
                 }
             }
+            
 
         }
-        
+        /*
+        GameObject tile1 = gameManager.GetTile2("Tile_1");
+        for (int i = 0; i < levelWidth; i++)
+        {
+            for (int j = 0; j < levelHeight; j++)
+            {
+                if (landArray[i, j] == 1)
+                {
+                    Instantiate(tile1, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                    cellState[i, j].state = 1;
+                }
+            }
+
+        }
+        */
+      
     }
 
     int DetermineEnemyType() {
@@ -492,7 +431,7 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
         }
     }
     void Dig() {
-        Vector2 startPoint = new Vector2(Random.Range(1,levelWidth-2),Random.Range(1,levelHeight-2));
+        Vector2 startPoint = new Vector2(Random.Range(5,levelWidth-6),Random.Range(5,levelHeight-6));
         DigState dig1 = new DigState();
         dig1.position = startPoint;
         float tempDirection = Random.value;
@@ -549,9 +488,9 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
     bool ValidateTile(Vector2 targetPos)
     {
         bool hasMove = true;
-        if (targetPos.x == 0 || targetPos.x == levelWidth - 1 || targetPos.y == 0 || targetPos.y == levelHeight - 1)//到边界了
+        if (targetPos.x == 4 || targetPos.x == levelWidth - 5 || targetPos.y == 4 || targetPos.y == levelHeight - 5)//到边界了
         {
-            Vector2 startPoint = new Vector2(Random.Range(1, levelWidth - 2), Random.Range(1, levelHeight - 2));
+            Vector2 startPoint = new Vector2(Random.Range(5, levelWidth - 6), Random.Range(5, levelHeight - 6));
             DigState dig1 = new DigState();
             dig1.position = startPoint;
             float tempDirection = Random.value;
@@ -572,8 +511,9 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
                 dig1.direction = new Vector2(-1, 0);
             }
             endPoint = dig1;
+            landArray[(int)startPoint.x, (int)startPoint.y] = 3;
             hasMove = false;
-            Debug.Log("哲理");
+            //Debug.Log("哲理");
         }
         else if (landArray[(int)targetPos.x - 1, (int)targetPos.y] == 3
             && landArray[(int)targetPos.x + 1, (int)targetPos.y] == 3
@@ -712,7 +652,7 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
         }
         else//重新开始
         {
-            Vector2 startPoint = new Vector2(Random.Range(1, levelWidth - 2), Random.Range(1, levelHeight - 2));
+            Vector2 startPoint = new Vector2(Random.Range(5, levelWidth - 6), Random.Range(5, levelHeight - 6));
             DigState dig1 = new DigState();
             dig1.position = startPoint;
             float tempDirection = Random.value;
@@ -733,8 +673,9 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
                 dig1.direction = new Vector2(-1, 0);
             }
             endPoint = dig1;
+            landArray[(int)startPoint.x, (int)startPoint.y] = 3;
             hasMove = false;
-            Debug.Log("这里");
+           // Debug.Log("这里");
         }
 
         return hasMove;
@@ -1129,6 +1070,7 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
                        || cellState[i - 1, j].state == 23
                        || cellState[i - 1, j].state == 24
                        || cellState[i - 1, j].state == 29
+                       || cellState[i - 1, j].state == 31
                        || cellState[i - 1, j].state == 33)
                     {
                         landArray[i, j] = 1;
@@ -1149,6 +1091,7 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
                     if (cellState[i + 1, j].state == 21
                         || cellState[i + 1, j].state == 23
                         || cellState[i + 1, j].state == 24
+                        || cellState[i + 1, j].state == 28
                         || cellState[i + 1, j].state == 30
                         || cellState[i + 1, j].state == 35)
                     {
@@ -1288,12 +1231,266 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
         }
 
     }
+    void DrawWater()
+    {
+        GameObject tile1 = gameManager.GetTile2("Tile_1");
+        GameObject tile2 = gameManager.GetTile2("Tile_2");
+        GameObject tile3 = gameManager.GetTile2("Tile_3");
+        GameObject tile4 = gameManager.GetTile2("Tile_4");
+        GameObject tile5 = gameManager.GetTile2("Tile_5");
+        GameObject tile6 = gameManager.GetTile2("Tile_6");
+        GameObject tile7 = gameManager.GetTile2("Tile_7");
+        GameObject tile8 = gameManager.GetTile2("Tile_8");
+        GameObject tile9 = gameManager.GetTile2("Tile_9");
+        GameObject tile10 = gameManager.GetTile2("Tile_10");
+        GameObject tile11 = gameManager.GetTile2("Tile_11");
+        GameObject tile12 = gameManager.GetTile2("Tile_12");
+        GameObject tile13 = gameManager.GetTile2("Tile_13");
+        GameObject tile14 = gameManager.GetTile2("Tile_14");
+        GameObject tile15 = gameManager.GetTile2("Tile_15");
+        GameObject tile16 = gameManager.GetTile2("Tile_16");
+        GameObject tile17 = gameManager.GetTile2("Tile_17");
+        //先初始化cellstate
+        
+        for (int i = 1; i < levelWidth - 1; i++)
+        {
+            for (int j = 1; j < levelHeight - 1; j++)
+            {
+                if (landArray[i, j] == 1)
+                {
+                    if (landArray[i - 1, j] == 1
+                        && landArray[i + 1, j] == 1
+                        && landArray[i, j + 1] == 1
+                        && landArray[i, j - 1] != 1
+                        )
+                    {
+                        if (Random.value < 0.5)
+                        {
+                            cellState[i, j].state = 2;
+                        }
+                        else
+                        {
+                            cellState[i, j].state = 3;
+                        }
+
+                    }
+                    else if (landArray[i - 1, j] != 1
+                        && landArray[i + 1, j] == 1
+                        && landArray[i, j + 1] == 1
+                        && landArray[i, j - 1] == 1)
+                    {
+                        if (Random.value < 0.5)
+                        {
+                            cellState[i, j].state = 4;
+                        }
+                        else
+                        {
+                            cellState[i, j].state = 5;
+                        }
+
+                    }
+                    else if (landArray[i - 1, j] != 1
+                        && landArray[i + 1, j] == 1
+                        && landArray[i, j + 1] == 1
+                        && landArray[i, j - 1] != 1)
+                    {
+                        cellState[i, j].state = 6;
+                    }
+
+                    else if (landArray[i - 1, j] != 1
+                        && landArray[i + 1, j] == 1
+                        && landArray[i, j + 1] != 1
+                        && landArray[i, j - 1] == 1)
+                    {
+                        cellState[i, j].state = 8;
+                    }
+
+                    else if (landArray[i - 1, j] == 1
+                        && landArray[i + 1, j] != 1
+                        && landArray[i, j + 1] == 1
+                        && landArray[i, j - 1] == 1)
+                    {
+                        if (Random.value < 0.5)
+                        {
+                            cellState[i, j].state = 10;
+                        }
+                        else
+                        {
+                            cellState[i, j].state = 11;
+                        }
+
+                    }
+                    else if (landArray[i - 1, j] == 1
+                        && landArray[i + 1, j] != 1
+                        && landArray[i, j + 1] == 1
+                        && landArray[i, j - 1] != 1)
+                    {
+                        cellState[i, j].state = 12;
+                    }
+
+                    else if (landArray[i - 1, j] == 1
+                        && landArray[i + 1, j] != 1
+                        && landArray[i, j + 1] != 1
+                        && landArray[i, j - 1] == 1)
+                    {
+                        cellState[i, j].state = 14;
+                    }
+
+                    else if (landArray[i - 1, j] == 1
+                        && landArray[i + 1, j] == 1
+                        && landArray[i, j + 1] != 1
+                        && landArray[i, j - 1] == 1)
+                    {
+                        if (Random.value < 0.5)
+                        {
+                            cellState[i, j].state = 16;
+                        }
+                        else
+                        {
+                            cellState[i, j].state = 17;
+                        }
+
+                    }
+                   
+                }
+            }
+        }
+        
+        for (int i = 1; i < levelWidth - 1; i++)
+        {
+            for (int j = 1; j < levelHeight - 1; j++)
+            {
+                if (landArray[i, j] == 1)
+                {
+                    if (cellState[i, j].state == 2)
+                    {
+                        Instantiate(tile2, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                    }
+                    else if (cellState[i, j].state == 3)
+                    {
+                        Instantiate(tile3, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                    }
+                    else if (cellState[i, j].state == 4)
+                    {
+                        Instantiate(tile4, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                    }
+                    else if (cellState[i, j].state == 5)
+                    {
+                        Instantiate(tile5, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                    }
+                    else if (cellState[i, j].state == 6)
+                    {
+                        Instantiate(tile6, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                    }
+                    else if (
+                        (cellState[i - 1, j].state == 2
+                        || cellState[i - 1, j].state == 3
+                        || cellState[i - 1, j].state == 6
+                        )
+                        &&
+                        (cellState[i, j - 1].state == 4
+                        || cellState[i, j - 1].state == 5
+                        || cellState[i, j - 1].state == 6
+                        )
+                        && landArray[i + 1, j] == 1
+                        && landArray[i, j + 1] == 1
+                        )
+                    {
+                        Instantiate(tile7, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                    }
+                    else if (cellState[i, j].state == 8)
+                    {
+                        Instantiate(tile8, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                    }
+                    else if (
+                        (cellState[i - 1, j].state == 8
+                        || cellState[i - 1, j].state == 16
+                        || cellState[i - 1, j].state == 17
+                        )
+                        &&
+                        (cellState[i, j + 1].state == 4
+                        || cellState[i, j + 1].state == 5
+                        || cellState[i, j + 1].state == 8
+                        )
+                        && landArray[i + 1, j] == 1
+                        && landArray[i, j - 1] == 1
+                        )
+                    {
+                        Instantiate(tile9, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                    }
+                    else if (cellState[i, j].state == 10)
+                    {
+                        Instantiate(tile10, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                    }
+                    else if (cellState[i, j].state == 11)
+                    {
+                        Instantiate(tile11, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                    }
+                    else if (cellState[i, j].state == 12)
+                    {
+                        Instantiate(tile12, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                    }
+                    else if (
+                        (cellState[i + 1, j].state == 2
+                        || cellState[i + 1, j].state == 3
+                        || cellState[i + 1, j].state == 12
+                        )
+                        &&
+                        (cellState[i, j - 1].state == 10
+                        || cellState[i, j - 1].state == 11
+                        || cellState[i, j - 1].state == 12
+                        )
+                        && landArray[i - 1, j] == 1
+                        && landArray[i, j + 1] == 1
+                        )
+                    {
+                        Instantiate(tile13, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                    }
+                    else if (cellState[i, j].state == 14)
+                    {
+                        Instantiate(tile14, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                    }
+                    else if (
+                        (cellState[i + 1, j].state == 14
+                        || cellState[i + 1, j].state == 16
+                        || cellState[i + 1, j].state == 17
+                        )
+                        &&
+                        (cellState[i, j + 1].state == 10
+                        || cellState[i, j + 1].state == 11
+                        || cellState[i, j + 1].state == 14
+                        )
+                        && landArray[i - 1, j] == 1
+                        && landArray[i, j - 1] == 1
+                        )
+                    {
+                        Instantiate(tile15, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                    }
+                    else if (cellState[i, j].state == 16)
+                    {
+                        Instantiate(tile16, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                    }
+                    else if (cellState[i, j].state == 17)
+                    {
+                        Instantiate(tile17, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                    }
+                    
+                    else
+                    {
+                        Instantiate(tile1, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 1;
+                    }
+                    
+                }
+            }
+        }
+
+    }
     void Draw()
     {
 
         GameObject tile1 = gameManager.GetTile2("Tile_1");
         GameObject tile18 = gameManager.GetTile2("Tile_18");
-        GameObject tile19 = gameManager.GetTile2("Tile_19");
 
         for (int i = 0; i < levelWidth; i++)
         {
@@ -1304,16 +1501,13 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
                     Instantiate(tile18, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                     cellState[i, j].state = 18;
                 }
-                else if (landArray[i, j] == 3)
-                {
-                    Instantiate(tile18, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                    cellState[i, j].state = 19;
-                }
-                else
+                /*
+                else if(landArray[i, j] == 1)
                 {
                     Instantiate(tile1, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                     cellState[i, j].state = 1;
                 }
+                */
             }
         }   
     }
