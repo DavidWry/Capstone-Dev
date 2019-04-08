@@ -9,6 +9,7 @@ public class TextBoxManagerXML : MonoBehaviour {
 
     public GameObject TextBox;
     public GameObject Player;
+    public GameObject CurrentNPC;
     public Text TextContent;
     public Text NameBox;
 
@@ -54,6 +55,14 @@ public class TextBoxManagerXML : MonoBehaviour {
                     if (currentLine > endOfLine)
                     {
                         DisableTextBox();
+                        if (CurrentNPC.GetComponent<NPC>())
+                        {
+                            if (CurrentNPC.GetComponent<NPC>().PartnerPrefab != null)
+                            {
+                                Instantiate(CurrentNPC.GetComponent<NPC>().PartnerPrefab, CurrentNPC.transform.position, CurrentNPC.transform.rotation);
+                                Destroy(CurrentNPC);
+                            }
+                        }
                     }
                     else
                     {

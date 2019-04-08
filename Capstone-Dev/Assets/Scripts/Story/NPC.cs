@@ -18,6 +18,7 @@ public class NPC : MonoBehaviour {
     public bool DirectToDialogue = false;
 
     public NPCManager npcManager;
+    public GameObject PartnerPrefab;
 
     // Use this for initialization
     void Start () {
@@ -84,6 +85,7 @@ public class NPC : MonoBehaviour {
                     npcManager.DeletUsedID(NpcID);
                     npcManager.CurrentPosNPC = gameObject;
                     npcManager.UINPCGen();
+                    theTextBox.CurrentNPC = this.gameObject;
                 }
             }
         }

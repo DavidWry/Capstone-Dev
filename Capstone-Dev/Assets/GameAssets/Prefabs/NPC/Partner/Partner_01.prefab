@@ -1447,9 +1447,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4174261638325870}
   - component: {fileID: 114269483177855480}
-  - component: {fileID: 114450824870396120}
-  - component: {fileID: 114929583835616458}
   - component: {fileID: 114248665058276272}
+  - component: {fileID: 114792532006285056}
+  - component: {fileID: 114843632805391580}
   m_Layer: 0
   m_Name: Partner_01
   m_TagString: Untagged
@@ -1819,8 +1819,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1870364557563336}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.4, y: 0.6, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 294.5, y: 123.4, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 4131797019766412}
   m_Father: {fileID: 0}
@@ -3304,8 +3304,8 @@ MonoBehaviour:
   - {fileID: 212460291317014538}
   - {fileID: 212671251813145386}
   - {fileID: 212711444146253966}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 212777076961345778}
+  - {fileID: 212256508330432640}
   - {fileID: 212187750944618482}
   - {fileID: 212577363175060858}
   - {fileID: 212593703118445494}
@@ -3315,7 +3315,7 @@ MonoBehaviour:
   - {fileID: 212615665413734732}
   - {fileID: 212874371892692408}
   - {fileID: 212709283210277614}
-  - {fileID: 0}
+  - {fileID: 212549070883234912}
   - {fileID: 212639913707008282}
   - {fileID: 212872703372019906}
   - {fileID: 212093577613807532}
@@ -3602,17 +3602,6 @@ MonoBehaviour:
   FireButtonDown: 0
   FireButtonPressed: 0
   FireButtonUp: 0
---- !u!114 &114450824870396120
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1870364557563336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7655dbdbae96492abedad7bdc555301d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114554098068304930
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3631,6 +3620,37 @@ MonoBehaviour:
     type: 2}
   ChargeButtonDown: 0
   ChargeButtonUp: 0
+--- !u!114 &114792532006285056
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1870364557563336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc88dffbbc9ea049b1bc3ec4a74ee98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partner_Character: {fileID: 0}
+  sprites: []
+  player: {fileID: 0}
+  skillReady: 0
+--- !u!114 &114843632805391580
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1870364557563336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5761be793cd7b946b1a26f18c82aec1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ThrowingStar: {fileID: 1919422988001566, guid: 9b84a1150cc50b141a69ea5675f54e11,
+    type: 2}
+  speed: 10
+  Duration: 3
+  Damage: 20
 --- !u!114 &114860364726265194
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3678,23 +3698,6 @@ MonoBehaviour:
   Fire: {fileID: 114428248951539112}
   Reload: {fileID: 114404938644741462}
   AmmoShooted: 0
---- !u!114 &114929583835616458
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1870364557563336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cfe3e6f36484a49b6292e8d0b75f6c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Character: {fileID: 114269483177855480}
-  ArmL: {fileID: 4422124551062178}
-  ArmR: {fileID: 4719035617955596}
-  FireButton: 324
-  ReloadButton: 114
-  FixHorizontal: 0
 --- !u!198 &198196613986749634
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -22146,9 +22149,9 @@ SortingGroup:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1259893456661576}
   m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 200
+  m_SortingLayerID: -2140784465
+  m_SortingLayer: 2
+  m_SortingOrder: 150
 --- !u!212 &212000186117143174
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -22624,7 +22627,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 3e78a9b3616c45e5a6cbd9fca765b55f, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

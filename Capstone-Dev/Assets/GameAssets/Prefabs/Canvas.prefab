@@ -4892,6 +4892,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TextBox: {fileID: 1698082148370822}
   Player: {fileID: 0}
+  CurrentNPC: {fileID: 0}
   TextContent: {fileID: 114342515722840922}
   NameBox: {fileID: 114847235768859032}
   TextFile: {fileID: 0}

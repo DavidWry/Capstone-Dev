@@ -5,16 +5,17 @@ using Assets.HeroEditor.Common.CharacterScripts;
 
 public class Partner_Movement : MonoBehaviour {
 
-    Character partner_Character;
+    public Character partner_Character;
     public List<SpriteRenderer> sprites;
-    GameObject player;
+    public GameObject player;
 
-    float radius = 100;
+    float radius = 60;
     bool movingTo = true;
     float speed = 120;
     Vector3 target;
-    float waitTime = 3;
+    float waitTime = 5;
     float Timer = 0;
+    public bool skillReady = false;
 
 
 	// Use this for initialization
@@ -29,6 +30,7 @@ public class Partner_Movement : MonoBehaviour {
 	void Update () {
 		if (movingTo)
         {
+            skillReady = false;
             transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
             partner_Character.Animator.SetBool("Run", true);
             if (Vector3.Distance(transform.position, target) < 5)
@@ -55,7 +57,7 @@ public class Partner_Movement : MonoBehaviour {
             {
                 Timer += Time.deltaTime;
             }
-            if (Vector3.Distance(transform.position, player.transform.position) > radius)
+            if (Vector3.Distance(transform.position, player.transform.position) > radius * 3)
             {
                 Timer = 0;
                 movingTo = true;
@@ -89,16 +91,22 @@ public class Partner_Movement : MonoBehaviour {
 
     void FromTransform()
     {
+        float alpha = 0;
         foreach (SpriteRenderer sprite in sprites)
         {
             if (sprite != null)
             {
                 Color color = sprite.color;
                 color.a += Time.deltaTime * 3;
-                if (color.a > 1)
-                    color.a = 1;
+                if (color.a > 0.95)
+                    color.a = 0.95f;
+                alpha = color.a;
                 sprite.color = color;
             }
+        }
+        if (alpha > 0.8f)
+        {
+            skillReady = true;
         }
     }
 }
