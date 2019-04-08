@@ -504,8 +504,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae2f3fd1829f26419d5027f3f1ec234, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelWidth: 200
-  levelHeight: 200
+  levelWidth: 100
+  levelHeight: 100
   theCanvas: {fileID: 1106426438}
 --- !u!114 &746326792 stripped
 MonoBehaviour:
@@ -761,7 +761,7 @@ Prefab:
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
       propertyPath: Tiles2.Array.size
-      value: 19
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
@@ -1031,97 +1031,97 @@ Prefab:
         type: 2}
       propertyPath: Tiles2.Array.data[19]
       value: 
-      objectReference: {fileID: 1008682546140488, guid: c60d1a58a9318a247a0bf2874682660f,
+      objectReference: {fileID: 1008682546140488, guid: 187423a72bcf31a4db1ed708295ea9f5,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
       propertyPath: Tiles2.Array.data[20]
       value: 
-      objectReference: {fileID: 1008682546140488, guid: 41077ce42ea7d214a8340dac5c1c74fe,
+      objectReference: {fileID: 1008682546140488, guid: ebccaa6ab1adf374aaa8000428953974,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
       propertyPath: Tiles2.Array.data[21]
       value: 
-      objectReference: {fileID: 1008682546140488, guid: c6e09a5a300d19f4baabcc03d216fc2c,
+      objectReference: {fileID: 1008682546140488, guid: b42450212963dee4090582464c0bd988,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
       propertyPath: Tiles2.Array.data[22]
       value: 
-      objectReference: {fileID: 1008682546140488, guid: 25c54d699baad524a85ef3ef2fd6cacc,
+      objectReference: {fileID: 1008682546140488, guid: db0a99ce02e701845bf69819e5aa8669,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
       propertyPath: Tiles2.Array.data[23]
       value: 
-      objectReference: {fileID: 1008682546140488, guid: 7898c845a53e90643bd9a87287856a63,
+      objectReference: {fileID: 1008682546140488, guid: c6208ae827b6c04479f2298a22897305,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
       propertyPath: Tiles2.Array.data[24]
       value: 
-      objectReference: {fileID: 1008682546140488, guid: e096eedabe719794ab3c75c6f7a34d4f,
+      objectReference: {fileID: 1008682546140488, guid: fc41ba3fafec5ed41b8ca30d510d783e,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
       propertyPath: Tiles2.Array.data[25]
       value: 
-      objectReference: {fileID: 1008682546140488, guid: 54f1f6fda2a437649a0f79016b050ead,
+      objectReference: {fileID: 1008682546140488, guid: 942bd422bf7385e498253891d886f31d,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
       propertyPath: Tiles2.Array.data[26]
       value: 
-      objectReference: {fileID: 1008682546140488, guid: 5bb4949788d121b4bac6583ae449fef6,
+      objectReference: {fileID: 1008682546140488, guid: a38ea7e707202a54eaa07b9df39bf41d,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
       propertyPath: Tiles2.Array.data[27]
       value: 
-      objectReference: {fileID: 1008682546140488, guid: 4def574794cf4b540ad88aea8096e7b7,
+      objectReference: {fileID: 1008682546140488, guid: 7eeb04e1f0eff6944ba5c5207ccb8d3a,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
       propertyPath: Tiles2.Array.data[28]
       value: 
-      objectReference: {fileID: 1008682546140488, guid: 4322e28d7914cf8459e5dfd2c176ae2b,
+      objectReference: {fileID: 1008682546140488, guid: baae97a22b30968479d2d00127e5008f,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
       propertyPath: Tiles2.Array.data[29]
       value: 
-      objectReference: {fileID: 1008682546140488, guid: 0febd6455e7740c4ca9dc1dfdae12895,
+      objectReference: {fileID: 1008682546140488, guid: b99867f3c12a03a4c94659c7f6cd4aa8,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
       propertyPath: Tiles2.Array.data[30]
       value: 
-      objectReference: {fileID: 1008682546140488, guid: 96d48cb07bb88c541bb39b760159c867,
+      objectReference: {fileID: 1008682546140488, guid: 392753f1f0faf5543b3b9579d6ef3caf,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
       propertyPath: Tiles2.Array.data[31]
       value: 
-      objectReference: {fileID: 1008682546140488, guid: 12080a447951ddb47a4000b614ed60ea,
+      objectReference: {fileID: 1008682546140488, guid: cb8fccf42e50c324f9de92e41f069e87,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
       propertyPath: Tiles2.Array.data[32]
       value: 
-      objectReference: {fileID: 1008682546140488, guid: 06d9b4295fc5e7243a9af76810914447,
+      objectReference: {fileID: 1008682546140488, guid: d5b541aaf07525141b251c24abac6ca3,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
       propertyPath: Tiles2.Array.data[33]
       value: 
-      objectReference: {fileID: 1008682546140488, guid: f27dac4e989587c439bb07c057a3a1d4,
+      objectReference: {fileID: 1008682546140488, guid: 3bacc04f56b524a48be42c4fd0ca2db9,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
       propertyPath: Tiles2.Array.data[34]
       value: 
-      objectReference: {fileID: 1008682546140488, guid: f5b020139a0fd6648aa8bdc5d8c496a7,
+      objectReference: {fileID: 1008682546140488, guid: 20c15dbcc7e5b3d459d2519bc1ce74b7,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
