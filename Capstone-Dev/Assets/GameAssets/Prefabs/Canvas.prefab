@@ -5851,6 +5851,8 @@ MonoBehaviour:
   Pos: {fileID: 1352714779467458}
   CurrentPosNPC: {fileID: 0}
   canvas: {fileID: 1396269728413068}
+  NPCPortal: {fileID: 0}
+  PortalPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &114837513940967998
 MonoBehaviour:
   m_ObjectHideFlags: 1

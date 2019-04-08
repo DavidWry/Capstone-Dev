@@ -15,6 +15,8 @@ public class NPCManager : MonoBehaviour {
     public GameObject Pos;
     public GameObject CurrentPosNPC;
     public GameObject canvas;
+    public GameObject NPCPortal;
+    public Vector3 PortalPosition;
 
     // Use this for initialization
     void Start () {
