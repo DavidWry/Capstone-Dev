@@ -507,6 +507,34 @@ MonoBehaviour:
   levelWidth: 200
   levelHeight: 200
   theCanvas: {fileID: 1106426438}
+  lootCount: 0
+  enemyCount: 0
+  levelTime: 0
+--- !u!1 &660573609 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1398515908860020, guid: 7bee7bc086dd45445a73be91a1ea8485,
+    type: 2}
+  m_PrefabInternal: {fileID: 934505269}
+--- !u!114 &660573610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 660573609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f90cc25c4abf540b806fce20fb7904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 660573612}
+  offx: 0
+  offy: 0
+  time: 0
+--- !u!20 &660573612 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 20916295820276400, guid: 7bee7bc086dd45445a73be91a1ea8485,
+    type: 2}
+  m_PrefabInternal: {fileID: 934505269}
 --- !u!114 &746326792 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114704720808873404, guid: 5459165c1a6a0d8459bae141378f4087,

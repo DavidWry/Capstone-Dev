@@ -54,6 +54,11 @@ public class NewEnemyJumper : MonoBehaviour
     private bool hasCollidedWithObjects;
 
     private CapsuleCollider cc;
+
+    private float shakeTime;
+    private scshake shake;
+    private bool shouldShake;
+    private bool hasShaken;
     // public AnimationClip death;
 
     private void Awake()
@@ -125,6 +130,11 @@ public class NewEnemyJumper : MonoBehaviour
         hasCollidedWithObjects = false;
 
         cc = GetComponent<CapsuleCollider>();
+
+        shakeTime = 0.3f;
+        shake = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<scshake>();
+        shouldShake = false;
+        hasShaken = false;
     }
 
     void Update()
@@ -220,6 +230,8 @@ public class NewEnemyJumper : MonoBehaviour
                     hasInstantiatedImpact = false;
                     hasReached = false;
                     hasCollidedWithObjects = false;
+                    hasShaken = false;
+                    shouldShake = false;
                 }
                 if ((Vector3.Distance(startPos, targetPos) <= rangeForAttack) && (canJump == true) &&(hasCollidedWithObjects == false))
                 {
@@ -261,11 +273,20 @@ public class NewEnemyJumper : MonoBehaviour
 
                 if (Vector3.Distance(nextPos, targetPos) <= reachedDistance)
                 {
+                    
                     hasReached = true;
+                    shouldShake = true;
+                }
+
+                if(shouldShake == true && hasShaken == false)
+                {
+                    shake.time = shakeTime;
+                    hasShaken = true;
                 }
 
                 if(hasReached == true)
                 {
+                    
                     anim.SetBool("isJumping", false);
                     
                     if (hasCollidedWithObjects == false)

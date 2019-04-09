@@ -49,6 +49,9 @@ public class EnemyRangedStomp : MonoBehaviour
     private float addTime;
     private bool isDrop;
 
+    private float shakeTime;
+    private scshake shake;
+
     private void Awake()
     {
         scene = SceneManager.GetActiveScene();
@@ -105,6 +108,8 @@ public class EnemyRangedStomp : MonoBehaviour
         myRenderer = GetComponent<SpriteRenderer>();
         color = myRenderer.color;
 
+        shakeTime = 0.3f;
+        shake = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<scshake>();
     }
 
     // Update is called once per frame
@@ -138,6 +143,7 @@ public class EnemyRangedStomp : MonoBehaviour
                     if (timeBetweenShots <= 0)
                     {
                         anim.SetTrigger("Attack");
+                        shake.time = shakeTime;
 
                         SpawnProjectile(numberOfProjectiles);
                         timeBetweenShots = 1.6f + addTime;

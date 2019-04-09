@@ -51,7 +51,9 @@ public class EnemySlider : MonoBehaviour
     private CapsuleCollider cc;
 
     public GameObject peffect;
-    
+
+    private float shakeTime;
+    private scshake shake;
     // public AnimationClip death;
 
    
@@ -109,6 +111,9 @@ public class EnemySlider : MonoBehaviour
         hasCollidedWithOthers = false;
 
         cc = GetComponent<CapsuleCollider>();
+
+        shakeTime = 0.3f;
+        shake = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<scshake>();
 
     }
 
@@ -241,6 +246,7 @@ public class EnemySlider : MonoBehaviour
                 //shouldDestroyDash = true;
                 // Destroy(tempSlide, 0.5f);
                 // hasCollided = true;
+                shake.time = shakeTime;
                 Instantiate(peffect, other.transform.position, Quaternion.identity);
                 rb.velocity = Vector3.zero;
                 anim.SetBool("isRunning", false);
