@@ -53,7 +53,7 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
         landArray = new int[levelWidth, levelHeight];
         for (int i = 0; i < levelWidth; i++) {
             for (int j = 0; j < levelHeight; j++) {
-                landArray[i, j] = 1;//for generate
+                landArray[i, j] = 0;//for generate
             }
         }
         newLandArray = new int[levelWidth, levelHeight];
@@ -75,11 +75,14 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
         //generate up to 2 level platforms
         Dig();
         DrawRoute();
-        Generate(1);
-        SmoothWater();
-        Draw();
         
+        GenerateWater();
+        SmoothWater();
+        Draw();     
         DrawWater();
+
+        GenerateGrass();
+        DrawGrass();
         //ChangeEdge();
         //DrawEdge();
 
@@ -108,8 +111,7 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
         ChangeLandArrayPosition();
         */
         /*
-        GenerateGrass();
-        DrawGrass();
+        
 
         GenerateRock();
         DrawRock();
@@ -142,10 +144,7 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
             player.position = portalPosition;
         }
     }
-    void Terrain()
-    {
-        GenerateCave();
-    }
+
     void SmoothWater()
     {
         for (int i = 1; i < levelWidth-1; i++) {
@@ -190,112 +189,15 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
             }
         }
     }
-    void GenerateCave(){
-        direction = new int[4]{ 0, 1, 2, 3 };
-        tilesPlaced=1;
-		startX=Mathf.RoundToInt(levelWidth/2);
-		startY=Mathf.RoundToInt(levelHeight/2);
-		
-	}
-    void DrawCave(){
-        //drawTile(startX, startY);
-
-        landArray[startX, startY] = 1;
-        ArrayList xCoordsArray = new ArrayList
-        {
-            startX
-        };
-        ArrayList yCoordsArray = new ArrayList
-        {
-            startY
-        };
-        int[] xOffset =new int[4]{ -1, 0, 1, 0 };
-        int[] yOffset = new int[4] { 0, -1, 0, 1 };
-		while (tilesToProcess>0) {
-		    int currentX = (int)xCoordsArray[xCoordsArray.Count-1];
-            xCoordsArray.RemoveAt(xCoordsArray.Count - 1);
-            int currentY = (int)yCoordsArray[yCoordsArray.Count - 1];
-            yCoordsArray.RemoveAt(yCoordsArray.Count - 1);
-            adjacentCells=GetAdjacentCells(tilesToProcess);
-			if (adjacentCells>0) {
-			    if (Random.value<turnRatio) {
-				    direction=Shuffle(direction);
-                }
-				for (int j=0; j<4; j++) {
-				    int adjacentX=currentX+xOffset[direction[j]];
-					int adjacentY=currentY+yOffset[direction[j]];
-					if (adjacentX>=2 && adjacentX<levelWidth-2 && 
-                        adjacentY>=2 && adjacentY<levelHeight-2&&
-                        landArray[adjacentX,adjacentY]==0)
-                    {
-					    xCoordsArray.Add(adjacentX);
-						yCoordsArray.Add(adjacentY);
-						tilesPlaced++;
-                        //DrawTile(adjacentX, adjacentY);
-                        
-                        landArray[adjacentX, adjacentY] = 1;
-                        //Debug.Log(landArray[adjacentX, adjacentY]);
-                        tilesToProcess++;
-						adjacentCells--;
-						if (adjacentCells==0) {
-						    break;
-						}
-					}
-				}
-			}
-			tilesToProcess--;
-		}
-	}
-
-    int GetAdjacentCells(int num) {
-	    int wayOuts=Mathf.RoundToInt(Mathf.Floor(Random.Range(0,4))/2+0.1f);
-		if (num==1 && wayOuts==0) {
-		    wayOuts=1;
-		}
-        return wayOuts;
-	}
-    int[] Shuffle(int[] startArray){
-        //int[] suffledArray = new int[startArray.Length];
-        for (int i = 0; i < startArray.Length; i++) {
-            int temp = startArray[i];
-            int randomIndex = Random.Range(0, startArray.Length);
-            startArray[i] = startArray[randomIndex];
-            startArray[randomIndex] = temp;
-        }
-		return startArray;
-	}
-    bool HasFreeAdjacents(){
-		if (landArray[startX,startY]==0) {
-			return false;
-		}
-        if (startX < 2 || startX > levelWidth - 3 || startY < 2 || startY > levelHeight - 3) {
-            return false;
-        }
-		if (startY+1<levelHeight && landArray[startX, startY+1] == 0) {
-			return true;
-		}
-		if (startY - 1 >= 0 && landArray[startX, startY-1] == 0) {
-			return true;
-		}
-		if (startX + 1 < levelWidth && landArray[startX + 1,startY]==0) {
-			return true;
-		}
-		if (startX - 1 >= 0 && landArray[startX - 1,startY]==0) {
-			return true;
-		}
-		return false;
-	}
-
-
-
+   
     void CA(float ratio, int iteration,int threshold,int neighborSize, bool isSimultaneous, int targetNum) {
         
         //initialize
-        for (int i = 0; i < levelWidth; i++)
+        for (int i = 5; i < levelWidth-5; i++)
         {
-            for (int j = 0; j < levelHeight; j++)
+            for (int j = 5; j < levelHeight-5; j++)
             {
-                if (landArray[i, j] == 1)
+                if (landArray[i, j] == 0)
                 {
                     if (Random.value < ratio)
                         landArray[i, j] = 1;
@@ -308,18 +210,11 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
         //change value in landArray
         for (int i = 0; i < iteration; i++)
         {
-            for (int w = 0; w < levelWidth; w++)
+            for (int w = 5; w < levelWidth-5; w++)
             {
-                for (int h = 0; h < levelHeight; h++)
+                for (int h = 5; h < levelHeight-5; h++)
                 {
-                    if (w < 5 || h < 5 || w > levelWidth - 6 || h > levelHeight - 6)
-                    {
-                        landArray[w, h] = 1;
-                        newLandArray[w, h] = 1;
-                        Debug.Log("边界了");
-                    }
-                    
-                    else if(landArray[w,h]!=3){
+                    if(landArray[w,h]!=3){
                         if (!isSimultaneous)
                         {
                             landArray[w, h] = DetermineCell(w, h, targetNum, threshold, neighborSize);
@@ -518,14 +413,14 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
         else if (landArray[(int)targetPos.x - 1, (int)targetPos.y] == 3
             && landArray[(int)targetPos.x + 1, (int)targetPos.y] == 3
             && landArray[(int)targetPos.x, (int)targetPos.y - 1] == 3
-            && landArray[(int)targetPos.x, (int)targetPos.y + 1] == 1)
+            && landArray[(int)targetPos.x, (int)targetPos.y + 1] == 0)
         {
             endPoint.position = targetPos;
             landArray[(int)targetPos.x, (int)targetPos.y] = 3;
        
         }
         else if (landArray[(int)targetPos.x - 1, (int)targetPos.y] == 3
-            && landArray[(int)targetPos.x + 1, (int)targetPos.y] == 1
+            && landArray[(int)targetPos.x + 1, (int)targetPos.y] == 0
             && landArray[(int)targetPos.x, (int)targetPos.y + 1] == 3
             && landArray[(int)targetPos.x, (int)targetPos.y - 1] == 3)
         {
@@ -533,7 +428,7 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
             landArray[(int)targetPos.x, (int)targetPos.y] = 3;
     
         }
-        else if (landArray[(int)targetPos.x - 1, (int)targetPos.y] == 1
+        else if (landArray[(int)targetPos.x - 1, (int)targetPos.y] == 0
             && landArray[(int)targetPos.x + 1, (int)targetPos.y] == 3
             && landArray[(int)targetPos.x, (int)targetPos.y + 1] == 3
             && landArray[(int)targetPos.x, (int)targetPos.y - 1] == 3)
@@ -545,14 +440,14 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
         else if (landArray[(int)targetPos.x - 1, (int)targetPos.y] == 3
             && landArray[(int)targetPos.x + 1, (int)targetPos.y] == 3
             && landArray[(int)targetPos.x, (int)targetPos.y + 1] == 3
-            && landArray[(int)targetPos.x, (int)targetPos.y - 1] == 1)
+            && landArray[(int)targetPos.x, (int)targetPos.y - 1] == 0)
         {
             endPoint.position = targetPos;
             landArray[(int)targetPos.x, (int)targetPos.y] = 3;
         
         }
-        else if (landArray[(int)targetPos.x - 1, (int)targetPos.y] == 1
-            && landArray[(int)targetPos.x + 1, (int)targetPos.y] == 1
+        else if (landArray[(int)targetPos.x - 1, (int)targetPos.y] == 0
+            && landArray[(int)targetPos.x + 1, (int)targetPos.y] == 0
             && landArray[(int)targetPos.x, (int)targetPos.y + 1] == 3
             && landArray[(int)targetPos.x, (int)targetPos.y - 1] == 3)
         {
@@ -562,8 +457,8 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
         }
         else if (landArray[(int)targetPos.x - 1, (int)targetPos.y] == 3
             && landArray[(int)targetPos.x + 1, (int)targetPos.y] == 3
-            && landArray[(int)targetPos.x, (int)targetPos.y + 1] == 1
-            && landArray[(int)targetPos.x, (int)targetPos.y - 1] == 1)
+            && landArray[(int)targetPos.x, (int)targetPos.y + 1] == 0
+            && landArray[(int)targetPos.x, (int)targetPos.y - 1] == 0)
         {
             endPoint.position = targetPos;
             landArray[(int)targetPos.x, (int)targetPos.y] = 3;
@@ -578,9 +473,9 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
             landArray[(int)targetPos.x, (int)targetPos.y] = 3;
          
         }
-        else if (landArray[(int)targetPos.x - 1, (int)targetPos.y] == 1
+        else if (landArray[(int)targetPos.x - 1, (int)targetPos.y] == 0
             && landArray[(int)targetPos.x + 1, (int)targetPos.y] == 3
-            && landArray[(int)targetPos.x, (int)targetPos.y + 1] == 1
+            && landArray[(int)targetPos.x, (int)targetPos.y + 1] == 0
             && landArray[(int)targetPos.x, (int)targetPos.y - 1] == 3)
         {
             endPoint.position = targetPos;
@@ -588,62 +483,62 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
          
         }
         else if (landArray[(int)targetPos.x - 1, (int)targetPos.y] == 3
-            && landArray[(int)targetPos.x + 1, (int)targetPos.y] == 1
-            && landArray[(int)targetPos.x, (int)targetPos.y + 1] == 1
+            && landArray[(int)targetPos.x + 1, (int)targetPos.y] == 0
+            && landArray[(int)targetPos.x, (int)targetPos.y + 1] == 0
             && landArray[(int)targetPos.x, (int)targetPos.y - 1] == 3)
         {
             endPoint.position = targetPos;
             landArray[(int)targetPos.x, (int)targetPos.y] = 3;
           
         }
-        else if (landArray[(int)targetPos.x - 1, (int)targetPos.y] == 1
+        else if (landArray[(int)targetPos.x - 1, (int)targetPos.y] == 0
             && landArray[(int)targetPos.x + 1, (int)targetPos.y] == 3
             && landArray[(int)targetPos.x, (int)targetPos.y + 1] == 3
-            && landArray[(int)targetPos.x, (int)targetPos.y - 1] == 1)
+            && landArray[(int)targetPos.x, (int)targetPos.y - 1] == 0)
         {
             endPoint.position = targetPos;
             landArray[(int)targetPos.x, (int)targetPos.y] = 3;
          
         }
         else if (landArray[(int)targetPos.x - 1, (int)targetPos.y] == 3
-            && landArray[(int)targetPos.x + 1, (int)targetPos.y] == 1
+            && landArray[(int)targetPos.x + 1, (int)targetPos.y] == 0
             && landArray[(int)targetPos.x, (int)targetPos.y + 1] == 3
-            && landArray[(int)targetPos.x, (int)targetPos.y - 1] == 1)
+            && landArray[(int)targetPos.x, (int)targetPos.y - 1] == 0)
         {
             endPoint.position = targetPos;
             landArray[(int)targetPos.x, (int)targetPos.y] = 3;
            
         }
         else if (landArray[(int)targetPos.x - 1, (int)targetPos.y] == 3
-            && landArray[(int)targetPos.x + 1, (int)targetPos.y] == 1
-            && landArray[(int)targetPos.x, (int)targetPos.y + 1] == 1
-            && landArray[(int)targetPos.x, (int)targetPos.y - 1] == 1)
+            && landArray[(int)targetPos.x + 1, (int)targetPos.y] == 0
+            && landArray[(int)targetPos.x, (int)targetPos.y + 1] == 0
+            && landArray[(int)targetPos.x, (int)targetPos.y - 1] == 0)
         {
             endPoint.position = targetPos;
             landArray[(int)targetPos.x, (int)targetPos.y] = 3;
            
         }
-        else if (landArray[(int)targetPos.x - 1, (int)targetPos.y] == 1
+        else if (landArray[(int)targetPos.x - 1, (int)targetPos.y] == 0
             && landArray[(int)targetPos.x + 1, (int)targetPos.y] == 3
-            && landArray[(int)targetPos.x, (int)targetPos.y + 1] == 1
-            && landArray[(int)targetPos.x, (int)targetPos.y - 1] == 1)
+            && landArray[(int)targetPos.x, (int)targetPos.y + 1] == 0
+            && landArray[(int)targetPos.x, (int)targetPos.y - 1] == 0)
         {
             endPoint.position = targetPos;
             landArray[(int)targetPos.x, (int)targetPos.y] = 3;
         
         }
-        else if (landArray[(int)targetPos.x - 1, (int)targetPos.y] == 1
-            && landArray[(int)targetPos.x + 1, (int)targetPos.y] == 1
+        else if (landArray[(int)targetPos.x - 1, (int)targetPos.y] == 0
+            && landArray[(int)targetPos.x + 1, (int)targetPos.y] == 0
             && landArray[(int)targetPos.x, (int)targetPos.y + 1] == 3
-            && landArray[(int)targetPos.x, (int)targetPos.y - 1] == 1)
+            && landArray[(int)targetPos.x, (int)targetPos.y - 1] == 0)
         {
             endPoint.position = targetPos;
             landArray[(int)targetPos.x, (int)targetPos.y] = 3;
          
         }
-        else if (landArray[(int)targetPos.x - 1, (int)targetPos.y] == 1
-            && landArray[(int)targetPos.x + 1, (int)targetPos.y] == 1
-            && landArray[(int)targetPos.x, (int)targetPos.y + 1] == 1
+        else if (landArray[(int)targetPos.x - 1, (int)targetPos.y] == 0
+            && landArray[(int)targetPos.x + 1, (int)targetPos.y] == 0
+            && landArray[(int)targetPos.x, (int)targetPos.y + 1] == 0
             && landArray[(int)targetPos.x, (int)targetPos.y - 1] == 3)
         {
             endPoint.position = targetPos;
@@ -680,7 +575,19 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
 
         return hasMove;
     }
-    void Generate(int currentLevel) {
+    void GenerateWater() {
+        for (int w = 0; w < levelWidth; w++)
+        {
+            for (int h = 0; h < levelHeight; h++)
+            {
+                if (w < 5 || h < 5 || w > levelWidth - 6 || h > levelHeight - 6)
+                {
+                    landArray[w, h] = 1;
+                    newLandArray[w, h] = 1;
+                    Debug.Log("边界了");
+                }
+            }
+        }
         CA(0.5f, 4, 13, 2,true,1);
     }
 
@@ -747,18 +654,18 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
                 if (landArray[i - 1, j] == 3
                     && landArray[i + 1, j] == 3
                     && landArray[i, j - 1] == 3
-                    && landArray[i, j + 1] == 1)
+                    && landArray[i, j + 1] == 0)
                 {      
                     cellState[i, j].state = 19;
                 }
                 else if (landArray[i - 1, j] == 3
-                    && landArray[i + 1, j] == 1
+                    && landArray[i + 1, j] == 0
                     && landArray[i, j + 1] == 3
                     && landArray[i, j - 1] == 3)
                 {         
                     cellState[i, j].state = 20;
                 }
-                else if (landArray[i - 1, j] == 1
+                else if (landArray[i - 1, j] == 0
                     && landArray[i + 1, j] == 3
                     && landArray[i, j + 1] == 3
                     && landArray[i, j - 1] == 3)
@@ -768,12 +675,12 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
                 else if (landArray[i - 1, j] == 3
                     && landArray[i + 1, j] == 3
                     && landArray[i, j + 1] == 3
-                    && landArray[i, j - 1] == 1)
+                    && landArray[i, j - 1] == 0)
                 {         
                     cellState[i, j].state = 22;
                 }
-                else if (landArray[i - 1, j] == 1
-                    && landArray[i + 1, j] == 1
+                else if (landArray[i - 1, j] == 0
+                    && landArray[i + 1, j] == 0
                     && landArray[i, j + 1] == 3
                     && landArray[i, j - 1] == 3)
                 {
@@ -789,8 +696,8 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
                 }
                 else if (landArray[i - 1, j] == 3
                     && landArray[i + 1, j] == 3
-                    && landArray[i, j + 1] == 1
-                    && landArray[i, j - 1] == 1)
+                    && landArray[i, j + 1] == 0
+                    && landArray[i, j - 1] == 0)
                 {
                     if (Random.value < 0.5)
                     {                    
@@ -809,59 +716,59 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
                 {
                     cellState[i, j].state = 27;
                 }
-                else if (landArray[i - 1, j] == 1
+                else if (landArray[i - 1, j] == 0
                     && landArray[i + 1, j] == 3
-                    && landArray[i, j + 1] == 1
+                    && landArray[i, j + 1] == 0
                     && landArray[i, j - 1] == 3)
                 {
                     cellState[i, j].state = 28;
                 }
                 else if (landArray[i - 1, j] == 3
-                    && landArray[i + 1, j] == 1
-                    && landArray[i, j + 1] == 1
+                    && landArray[i + 1, j] == 0
+                    && landArray[i, j + 1] == 0
                     && landArray[i, j - 1] == 3)
                 {
                     cellState[i, j].state = 29;
                 }
-                else if (landArray[i - 1, j] == 1
+                else if (landArray[i - 1, j] == 0
                     && landArray[i + 1, j] == 3
                     && landArray[i, j + 1] == 3
-                    && landArray[i, j - 1] == 1)
+                    && landArray[i, j - 1] == 0)
                 { 
                     cellState[i, j].state = 30;
                 }
                 else if (landArray[i - 1, j] == 3
-                    && landArray[i + 1, j] == 1
+                    && landArray[i + 1, j] == 0
                     && landArray[i, j + 1] == 3
-                    && landArray[i, j - 1] == 1)
+                    && landArray[i, j - 1] == 0)
                 {
                     cellState[i, j].state = 31;
                 }
                 else if (landArray[i - 1, j] == 3
-                    && landArray[i + 1, j] == 1
-                    && landArray[i, j + 1] == 1
-                    && landArray[i, j - 1] == 1)
+                    && landArray[i + 1, j] == 0
+                    && landArray[i, j + 1] == 0
+                    && landArray[i, j - 1] == 0)
                 {
                     cellState[i, j].state = 32;
                 }
-                else if (landArray[i - 1, j] == 1
+                else if (landArray[i - 1, j] == 0
                     && landArray[i + 1, j] == 3
-                    && landArray[i, j + 1] == 1
-                    && landArray[i, j - 1] == 1)
+                    && landArray[i, j + 1] == 0
+                    && landArray[i, j - 1] == 0)
                 {
                      cellState[i, j].state = 34;
 
                 }
-                else if (landArray[i - 1, j] == 1
-                    && landArray[i + 1, j] == 1
+                else if (landArray[i - 1, j] == 0
+                    && landArray[i + 1, j] == 0
                     && landArray[i, j + 1] == 3
-                    && landArray[i, j - 1] == 1)
+                    && landArray[i, j - 1] == 0)
                 {
                     cellState[i, j].state = 35;
                 }
-                else if (landArray[i - 1, j] == 1
-                    && landArray[i + 1, j] == 1
-                    && landArray[i, j + 1] == 1
+                else if (landArray[i - 1, j] == 0
+                    && landArray[i + 1, j] == 0
+                    && landArray[i, j + 1] == 0
                     && landArray[i, j - 1] == 3)
                 {
                   
@@ -880,18 +787,19 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
                 if (landArray[i - 1, j] == 3
                     && landArray[i + 1, j] == 3
                     && landArray[i, j - 1] == 3
-                    && landArray[i, j + 1] == 1)
+                    && landArray[i, j + 1] == 0)
                 {
                     if (cellState[i, j - 1].state == 19
                  || cellState[i, j - 1].state == 25
                  || cellState[i, j - 1].state == 26)
 
                     {
-                        landArray[i, j] = 1;
+                        landArray[i, j] = 0;
                         cellState[i, j].state = 0;
                     }
                     else
                     {
+                        landArray[i, j] = 3;
                         Instantiate(tile19, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         cellState[i, j].state = 19;
                     }
@@ -899,7 +807,7 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
                     
                 }
                 else if (landArray[i - 1, j] == 3
-                    && landArray[i + 1, j] == 1
+                    && landArray[i + 1, j] == 0
                     && landArray[i, j + 1] == 3
                     && landArray[i, j - 1] == 3)
                 {
@@ -908,17 +816,18 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
                      || cellState[i - 1, j].state == 24
                      || cellState[i - 1, j].state == 28)
                     {
-                        landArray[i, j] = 1;
+                        landArray[i, j] = 0;
                         cellState[i, j].state = 0;
                     }
                     else
                     {
+                        landArray[i, j] = 3;
                         Instantiate(tile20, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         cellState[i, j].state = 20;
                     }
                    
                 }
-                else if (landArray[i - 1, j] == 1
+                else if (landArray[i - 1, j] == 0
                     && landArray[i + 1, j] == 3
                     && landArray[i, j + 1] == 3
                     && landArray[i, j - 1] == 3)
@@ -928,11 +837,12 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
                     || cellState[i + 1, j].state == 24)
                     
                     {
-                        landArray[i, j] = 1;
+                        landArray[i, j] = 0;
                         cellState[i, j].state = 0;
                     }
                     else
                     {
+                        landArray[i, j] = 3;
                         Instantiate(tile21, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         cellState[i, j].state = 21;
                     }
@@ -941,26 +851,27 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
                 else if (landArray[i - 1, j] == 3
                     && landArray[i + 1, j] == 3
                     && landArray[i, j + 1] == 3
-                    && landArray[i, j - 1] == 1)
+                    && landArray[i, j - 1] == 0)
                 {
                     if (cellState[i, j+1].state == 22
                    || cellState[i, j+1].state == 25
                    || cellState[i, j+1].state == 26)
 
                     {
-                        landArray[i, j] = 1;
+                        landArray[i, j] = 0;
                         cellState[i, j].state = 0;
                     }
                     else
                     {
+                        landArray[i, j] = 3;
                         Instantiate(tile22, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         cellState[i, j].state = 22;
                     }
 
                     
                 }
-                else if (landArray[i - 1, j] == 1
-                    && landArray[i + 1, j] == 1
+                else if (landArray[i - 1, j] == 0
+                    && landArray[i + 1, j] == 0
                     && landArray[i, j + 1] == 3
                     && landArray[i, j - 1] == 3)
                 {
@@ -971,11 +882,12 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
                         || cellState[i, j + 1].state == 31)
 
                     {
-                        landArray[i, j] = 1;
+                        landArray[i, j] = 0;
                         cellState[i, j].state = 0;
                     }
                     else
                     {
+                        landArray[i, j] = 3;
                         if (Random.value < 0.5)
                         {
                             Instantiate(tile23, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
@@ -990,8 +902,8 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
                 }
                 else if (landArray[i - 1, j] == 3
                     && landArray[i + 1, j] == 3
-                    && landArray[i, j + 1] == 1
-                    && landArray[i, j - 1] == 1)
+                    && landArray[i, j + 1] == 0
+                    && landArray[i, j - 1] == 0)
                 {
                     if (cellState[i+1, j].state == 21
                         || cellState[i+1, j].state == 23
@@ -1001,11 +913,12 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
                         || cellState[i+1, j].state == 35)
 
                     {
-                        landArray[i, j] = 1;
+                        landArray[i, j] = 0;
                         cellState[i, j].state = 0;
                     }
                     else
                     {
+                        landArray[i, j] = 3;
                         if (Random.value < 0.5)
                         {
                             Instantiate(tile25, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
@@ -1030,19 +943,20 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
                       || cellState[i + 1, j].state == 24
                       )
                     {
-                        landArray[i, j] = 1;
+                        landArray[i, j] = 0;
                         cellState[i, j].state = 0;
                     }
                     else
                     {
+                        landArray[i, j] = 3;
                         Instantiate(tile27, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         cellState[i, j].state = 27;
                     }
                     
                 }
-                else if (landArray[i - 1, j] == 1
+                else if (landArray[i - 1, j] == 0
                     && landArray[i + 1, j] == 3
-                    && landArray[i, j + 1] == 1
+                    && landArray[i, j + 1] == 0
                     && landArray[i, j - 1] == 3)
                 {
                     if (cellState[i + 1, j].state == 21
@@ -1051,19 +965,20 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
                       || cellState[i + 1, j].state == 28
                       || cellState[i + 1, j].state == 33)
                     {
-                        landArray[i, j] = 1;
+                        landArray[i, j] = 0;
                         cellState[i, j].state = 0;
                     }
                     else
                     {
+                        landArray[i, j] = 3;
                         Instantiate(tile28, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         cellState[i, j].state = 28;
                     }
                     
                 }
                 else if (landArray[i - 1, j] == 3
-                    && landArray[i + 1, j] == 1
-                    && landArray[i, j + 1] == 1
+                    && landArray[i + 1, j] == 0
+                    && landArray[i, j + 1] == 0
                     && landArray[i, j - 1] == 3)
                 {
                     if (cellState[i - 1, j].state == 20
@@ -1073,20 +988,21 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
                        || cellState[i - 1, j].state == 31
                        || cellState[i - 1, j].state == 33)
                     {
-                        landArray[i, j] = 1;
+                        landArray[i, j] = 0;
                         cellState[i, j].state = 0;
                     }
                     else
                     {
+                        landArray[i, j] = 3;
                         Instantiate(tile29, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         cellState[i, j].state = 29;
                     }
                    
                 }
-                else if (landArray[i - 1, j] == 1
+                else if (landArray[i - 1, j] == 0
                     && landArray[i + 1, j] == 3
                     && landArray[i, j + 1] == 3
-                    && landArray[i, j - 1] == 1)
+                    && landArray[i, j - 1] == 0)
                 {
                     if (cellState[i + 1, j].state == 21
                         || cellState[i + 1, j].state == 23
@@ -1095,21 +1011,21 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
                         || cellState[i + 1, j].state == 30
                         || cellState[i + 1, j].state == 35)
                     {
-                        landArray[i, j] = 1;
+                        landArray[i, j] = 0;
                         cellState[i, j].state = 0;
                     }
                     else
                     {
-
+                        landArray[i, j] = 3;
                         Instantiate(tile30, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         cellState[i, j].state = 30;
                     }
                    
                 }
                 else if (landArray[i - 1, j] == 3
-                    && landArray[i + 1, j] == 1
+                    && landArray[i + 1, j] == 0
                     && landArray[i, j + 1] == 3
-                    && landArray[i, j - 1] == 1)
+                    && landArray[i, j - 1] == 0)
                 {
                     if (cellState[i - 1, j].state == 20
                         || cellState[i - 1, j].state == 23
@@ -1117,21 +1033,21 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
                         || cellState[i - 1, j].state == 31
                         || cellState[i - 1, j].state == 35)
                     {
-                        landArray[i, j] = 1;
+                        landArray[i, j] = 0;
                         cellState[i, j].state = 0;
                     }
                     else
                     {
-
+                        landArray[i, j] = 3;
                         Instantiate(tile31, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         cellState[i, j].state = 31;
                     }
                     
                 }
                 else if (landArray[i - 1, j] == 3
-                    && landArray[i + 1, j] == 1
-                    && landArray[i, j + 1] == 1
-                    && landArray[i, j - 1] == 1)
+                    && landArray[i + 1, j] == 0
+                    && landArray[i, j + 1] == 0
+                    && landArray[i, j - 1] == 0)
                 {
                     if (cellState[i - 1, j].state == 20
                         || cellState[i - 1, j].state == 23
@@ -1142,21 +1058,21 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
                         || cellState[i - 1, j].state == 33
                         || cellState[i - 1, j].state == 35)
                     {
-                        landArray[i, j] = 1;
+                        landArray[i, j] = 0;
                         cellState[i, j].state = 0;
                     }
                     else
                     {
-                      
+                        landArray[i, j] = 3;
                         Instantiate(tile32, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         cellState[i, j].state = 32;
                     }
                     
                 }
-                else if (landArray[i - 1, j] == 1
+                else if (landArray[i - 1, j] == 0
                     && landArray[i + 1, j] == 3
-                    && landArray[i, j + 1] == 1
-                    && landArray[i, j - 1] == 1)
+                    && landArray[i, j + 1] == 0
+                    && landArray[i, j - 1] == 0)
                 {
                     if (cellState[i+1, j].state == 21
                         || cellState[i + 1, j].state == 23
@@ -1167,21 +1083,21 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
                         || cellState[i + 1, j].state == 34
                         || cellState[i + 1, j].state == 35)
                     {
-                        landArray[i, j] = 1;
+                        landArray[i, j] = 0;
                         cellState[i, j].state = 0;
                     }
                     else
                     {
-                    
+                        landArray[i, j] = 3;
                         Instantiate(tile34, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         cellState[i, j].state = 34;
                     }
                     
                 }
-                else if (landArray[i - 1, j] == 1
-                    && landArray[i + 1, j] == 1
+                else if (landArray[i - 1, j] == 0
+                    && landArray[i + 1, j] == 0
                     && landArray[i, j + 1] == 3
-                    && landArray[i, j - 1] == 1)
+                    && landArray[i, j - 1] == 0)
                 {
                     if (cellState[i, j + 1].state == 22
                        || cellState[i, j + 1].state == 25
@@ -1192,19 +1108,20 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
                        || cellState[i, j + 1].state == 34
                        || cellState[i, j + 1].state == 35)
                     {
-                        landArray[i, j] = 1;
+                        landArray[i, j] = 0;
                         cellState[i, j].state = 0;
                     }
                     else
                     {
+                        landArray[i, j] = 3;
                         Instantiate(tile35, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         cellState[i, j].state = 35;
                     }
                    
                 }
-                else if (landArray[i - 1, j] == 1
-                    && landArray[i + 1, j] == 1
-                    && landArray[i, j + 1] == 1
+                else if (landArray[i - 1, j] == 0
+                    && landArray[i + 1, j] == 0
+                    && landArray[i, j + 1] == 0
                     && landArray[i, j - 1] == 3)
                 {
                     if (cellState[i, j - 1].state == 19
@@ -1216,11 +1133,12 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
                         || cellState[i, j - 1].state == 33
                         || cellState[i, j - 1].state == 34)
                     {
-                        landArray[i, j] = 1;
+                        landArray[i, j] = 0;
                         cellState[i, j].state = 0;
                     }
                     else
-                    { 
+                    {
+                        landArray[i, j] = 3;
                         Instantiate(tile33, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         cellState[i, j].state = 33;
                     }
@@ -3660,60 +3578,78 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
       
     }
 
- 
-
     void GenerateGrass()
     {
-        //initialize
-        for (int i = 0; i < levelWidth; i++)
-        {
-            for (int j = 0; j < levelHeight; j++)
-            {
-                if (cellState[i, j].state == 200|| cellState[i, j].state == 201)
-                {
-                    cellState[i, j].state = 0;
-                }
-
+        for (int i = 0; i < levelWidth; i++) {
+            for (int j = 0; j < levelHeight; j++) {
+                if (landArray[i, j] == 1 || landArray[i, j] == 3)
+                    landArray[i, j] = -1;
             }
         }
-        //CA(0.5f, 1, 8, 1, true, 0);
-        CA(0.5f, 1, 4, 1, false, 201);
+        CA(0.5f, 1, 4, 1, false, 1);
     }
 
     void DrawGrass()
     {
-        GameObject tile30 = gameManager.GetTile2("Tile_30");
-        GameObject tile31 = gameManager.GetTile2("Tile_31");
-        GameObject tile32 = gameManager.GetTile2("Tile_32");
-        GameObject tile33 = gameManager.GetTile2("Tile_33");
+       
+        GameObject tile36 = gameManager.GetTile2("Tile_36");
+        GameObject tile37 = gameManager.GetTile2("Tile_37");
+        GameObject tile38 = gameManager.GetTile2("Tile_38");
+        GameObject tile39 = gameManager.GetTile2("Tile_39");
+        GameObject tile40 = gameManager.GetTile2("Tile_40");
+        GameObject tile41 = gameManager.GetTile2("Tile_41");
+        GameObject tile42 = gameManager.GetTile2("Tile_42");
+        GameObject tile43 = gameManager.GetTile2("Tile_43");
+        GameObject tile44 = gameManager.GetTile2("Tile_44");
+        GameObject tile45 = gameManager.GetTile2("Tile_45");
 
-        for (int i = 0; i < levelWidth; i++)
+        for (int i = 5; i < levelWidth-5; i++)
         {
-            for (int j = levelHeight-1; j > -1; j--)
+            for (int j = 5; j < levelHeight-5; j++)
             {
-                if (cellState[i, j].state == 201)
+                if (landArray[i, j] == 1)
                 {
                     //Debug.Log("a");
                     float tempValue = Random.value;
-                    if (tempValue < 0.25)
+                    if (tempValue < 0.1)
                     {
-                        Instantiate(tile30, new Vector3(cellState[i,j].position.x, cellState[i, j].position.y, 0), transform.rotation);
-                        //cellState[i, j].state = 30;//number in tileset folder
+                        Instantiate(tile36, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                    }
+                    else if (tempValue < 0.2)
+                    {
+                        Instantiate(tile37, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                    }
+                    else if (tempValue < 0.3)
+                    {
+                        Instantiate(tile38, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                    }
+                    else if (tempValue < 0.4)
+                    {
+                        Instantiate(tile39, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                     }
                     else if (tempValue < 0.5)
                     {
-                        Instantiate(tile31, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
-                        //cellState[i, j].state = 31;//number in tileset folder
+                        Instantiate(tile40, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                     }
-                    else if (tempValue < 0.75)
+                    else if (tempValue < 0.6)
                     {
-                        Instantiate(tile32, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
-                        //cellState[i, j].state = 32;//number in tileset folder
+                        Instantiate(tile41, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                    }
+                    else if (tempValue < 0.7)
+                    {
+                        Instantiate(tile42, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                    }
+                    else if (tempValue < 0.8)
+                    {
+                        Instantiate(tile43, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                    }
+                    else if (tempValue < 0.9)
+                    {
+                        Instantiate(tile44, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                     }
                     else if (tempValue < 1)
                     {
-                        Instantiate(tile33, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
-                        //cellState[i, j].state = 33;//number in tileset folder
+                        Instantiate(tile45, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                     }
                 }
             }
