@@ -56,7 +56,7 @@ public class NewEnemyJumper : MonoBehaviour
     private CapsuleCollider cc;
 
     private float shakeTime;
-    private scshake shake;
+   
     private bool shouldShake;
     private bool hasShaken;
     // public AnimationClip death;
@@ -132,7 +132,7 @@ public class NewEnemyJumper : MonoBehaviour
         cc = GetComponent<CapsuleCollider>();
 
         shakeTime = 0.3f;
-        shake = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<scshake>();
+       
         shouldShake = false;
         hasShaken = false;
     }
@@ -280,7 +280,14 @@ public class NewEnemyJumper : MonoBehaviour
 
                 if(shouldShake == true && hasShaken == false)
                 {
-                    shake.time = shakeTime;
+                    if (scene.name == "First Level")
+                    {
+                        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<scshake1>().time = shakeTime;
+                    }
+                    else
+                    {
+                        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<scshake>().time = shakeTime;
+                    }
                     hasShaken = true;
                 }
 

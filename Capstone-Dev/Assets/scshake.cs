@@ -32,8 +32,8 @@ public class scshake : MonoBehaviour
 
     void shake()
     {
-        offx = Random.Range(-0.9f, 0.9f);
-        offy = Random.Range(-0.9f, 0.9f);
+        offx = Random.Range(-.9f, .9f);
+        offy = Random.Range(-.9f ,.9f);
         Vector3 vecasdf = new Vector3(offx, offy, 0);
         if (time > 0)
         {
