@@ -39232,6 +39232,7 @@ MonoBehaviour:
   NonRelatedNpc: 1
   DirectToDialogue: 0
   npcManager: {fileID: 0}
+  PartnerPrefab: {fileID: 0}
 --- !u!114 &1915156113
 MonoBehaviour:
   m_ObjectHideFlags: 0

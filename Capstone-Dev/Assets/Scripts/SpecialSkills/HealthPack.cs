@@ -27,7 +27,7 @@ public class HealthPack : MonoBehaviour {
                 other.gameObject.GetComponent<Player_New>().HitPoint += 20;
                 GameObject newImpact = Instantiate(Impact, other.transform);
                 newImpact.transform.position = other.transform.position;
-                newImpact.transform.localScale = transform.lossyScale / 1.5f;
+                newImpact.transform.localScale = transform.lossyScale / 15f;
                 Destroy(gameObject);
             }
             else
@@ -35,7 +35,7 @@ public class HealthPack : MonoBehaviour {
                 other.gameObject.GetComponent<Player_New>().HitPoint += 10;
                 GameObject newImpact = Instantiate(Impact, other.transform);
                 newImpact.transform.position = other.transform.position;
-                newImpact.transform.localScale = transform.lossyScale / 1.5f;
+                newImpact.transform.localScale = transform.lossyScale / 15f;
                 Destroy(gameObject);
             }
         }

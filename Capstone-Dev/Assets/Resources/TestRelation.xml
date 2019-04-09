@@ -41,10 +41,7 @@
       <ID>05</ID>
       <Childs>
       </Childs>
-      <Parents>
-        <Parent>03</Parent>
-      </Parents>
-      <State>End</State>
+      <State>Start</State>
     </CharacterNode>
     <CharacterNode name ="Bick">
       <ID>06</ID>

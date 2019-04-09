@@ -110,6 +110,8 @@ MonoBehaviour:
   NonRelatedNpc: 1
   DirectToDialogue: 0
   npcManager: {fileID: 0}
+  PartnerPrefab: {fileID: 1019902156373514, guid: 9aa707887d853cf4a8e19ccbb5203334,
+    type: 2}
 --- !u!136 &136195153460827548
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -34,7 +34,10 @@ public class Partner_Movement : MonoBehaviour {
             transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
             partner_Character.Animator.SetBool("Run", true);
             if (Vector3.Distance(transform.position, target) < 5)
+            {
                 movingTo = false;
+                speed = 120;
+            }
             if (Vector3.Distance(transform.position, target) < 15)
             {
                 FromTransform();
@@ -61,6 +64,10 @@ public class Partner_Movement : MonoBehaviour {
             {
                 Timer = 0;
                 movingTo = true;
+            }
+            if (Vector3.Distance(transform.position, player.transform.position) > radius * 5)
+            {
+                speed = 1200;
             }
             partner_Character.Animator.SetBool("Run", false);
         }

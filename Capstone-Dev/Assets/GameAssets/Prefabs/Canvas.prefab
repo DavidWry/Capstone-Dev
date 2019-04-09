@@ -2787,7 +2787,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1352714779467458}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.02, y: -0.45, z: 4.6936584}
+  m_LocalPosition: {x: 3.02, y: -1.35, z: 4.6936584}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4195706151264700}
@@ -5851,7 +5851,7 @@ MonoBehaviour:
   Pos: {fileID: 1352714779467458}
   CurrentPosNPC: {fileID: 0}
   canvas: {fileID: 1396269728413068}
-  NPCPortal: {fileID: 0}
+  NPCPortal: {fileID: 1058121402000646, guid: 1aa3ee529584cca4bad50a5ce07bff53, type: 2}
   PortalPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &114837513940967998
 MonoBehaviour:
