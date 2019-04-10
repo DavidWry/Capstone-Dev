@@ -71,22 +71,12 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
         landRatio = 0.5f;
         treeRatio = 0.5f;
         iteration = 8;
-        GameObject tile36 = gameManager.GetTile2("Tile_36");
+        
         //generate up to 2 level platforms
         Dig();
         DrawRoute();
-
-        for (int i = 1; i < levelWidth; i++) {
-            for (int j = 1; j < levelHeight; j++) {
-                if (cellState[i, j].state >= 19 && cellState[i, j].state <= 35) {
-                    //Instantiate(tile36, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation); ;
-                }
-                else {
-                    Instantiate(tile36, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                }
-            }
-        }
-        /*
+        
+        
         GenerateWater();
         SmoothWater();
         Draw();     
@@ -96,6 +86,27 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
         DrawGrass();
         GenerateHole();
         DrawHole();
+        /*
+        GameObject tile36 = gameManager.GetTile2("Tile_36");
+        for (int i = 1; i < levelWidth; i++)
+        {
+            for (int j = 1; j < levelHeight; j++)
+            {
+                //if (cellState[i, j].state >= 19 && cellState[i, j].state <= 35)
+                //{
+                //Instantiate(tile36, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation); ;
+                // }
+                if (landArray[i, j] == 1)
+                {
+                    Instantiate(tile36, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                }
+            }
+        }
+        */
+        
+        /*
+        
+        
         */
         //ChangeEdge();
         //DrawEdge();
@@ -228,7 +239,8 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
             {
                 for (int h = 5; h < levelHeight-5; h++)
                 {
-                    if(landArray[w,h]!=3){
+                    if(landArray[w,h]==0|| landArray[w, h] == 1)
+                    {
                         if (!isSimultaneous)
                         {
                             landArray[w, h] = DetermineCell(w, h, targetNum, threshold, neighborSize);
@@ -3723,7 +3735,7 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
                     if (isAble)
                     {
                         float tempValue = Random.value;
-                        if (tempValue < 0.1)//可以生成
+                        if (tempValue < 0.05)//可以生成
                         {
                             float tempStyle = Random.value;
                             if (tempStyle < 0.05)
