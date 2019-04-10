@@ -86,6 +86,9 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
 
         GenerateLoot();
         DrawLoot();
+
+        GenerateEnemy();
+        DrawEnemy();
         /*
        GameObject tile36 = gameManager.GetTile2("Tile_67");
         for (int i = 1; i < levelWidth; i++)
@@ -115,8 +118,7 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
 
         
 
-        GenerateEnemy();
-        DrawEnemy();
+        
         DrawPortal();
         FinishGeneration();
 
@@ -1834,17 +1836,17 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
 
     void DrawLoot()
     {
-        GameObject tile41 = gameManager.GetTile2("Tile_41");
+        GameObject tile77 = gameManager.GetTile2("Tile_77");
        
 
         for (int i = 0; i < levelWidth; i++)
         {
             for (int j = levelHeight-1; j > -1; j--)
             {
-                if (cellState[i, j].state == 201)
+                if (landArray[i,j] == 1)
                 {
-                    Instantiate(tile41, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
-                    cellState[i, j].state = 41;//number in tileset folder           
+                    Instantiate(tile77, new Vector3(i*tileSize,j*tileSize, 0), transform.rotation);
+                    cellState[i, j].state = 77;//number in tileset folder           
                 }
             }
         }
@@ -1852,34 +1854,12 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
 
     void GenerateEnemy()
     {
-        /*
-        for (int i = 0; i < 8; i++) {
-            int xPos = Random.Range(0, levelWidth);
-            int yPos = Random.Range(0, levelHeight);
-            int size = Random.Range(1, 4);
-            float ratio = (float)Random.Range(4,10)/(size*2+1)/ (size * 2 + 1);
-            Seed(xPos,yPos,size,ratio);
-        }
-        */
-        /*
-        //initialize
-        for (int i = 0; i < levelWidth; i++)
-        {
-            for (int j = 0; j < levelHeight; j++)
-            {
-                if (cellState[i, j].state == 200 || cellState[i, j].state == 201)
-                {
-                    cellState[i, j].state = 0;
-                }
 
-            }
-        }
-        */
         for (int i = 5; i < levelWidth-5; i++)
         {
             for (int j = 5; j< levelHeight-5; j++)
             {
-                if (cellState[i, j].state == 200)
+                if (landArray[i,j]==0||landArray[i,j]==1)
                 {
                     float ratio = (float)Random.Range(1, 50);
                     bool isClose = false;
@@ -1888,7 +1868,8 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
                         
                         for (int m = -2; m < 3; m++) {
                             for (int n = -2; n < 3; n++) {
-                                if (cellState[i+m, j+n].state != 200)
+                                if (cellState[i+m, j+n].state <= 17|| 
+                                    (cellState[i + m, j + n].state <= 77&& cellState[i + m, j + n].state >= 46))
                                     isClose = true;
                             }
                         }
@@ -1929,31 +1910,31 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
             {
                 if (cellState[i, j].state == 100)
                 {
-                    Instantiate(enemy1, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);          
+                    Instantiate(enemy1, new Vector3(i*tileSize, j*tileSize, 0), transform.rotation);          
                 }
                 else if (cellState[i, j].state == 101)
                 {
-                    Instantiate(enemy2, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
+                    Instantiate(enemy2, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
                 }
                 else if (cellState[i, j].state == 102)
                 {
-                    Instantiate(enemy3, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
+                    Instantiate(enemy3, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
                 }
                 else if (cellState[i, j].state == 103)
                 {
-                    Instantiate(enemy4, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
+                    Instantiate(enemy4, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
                 }
                 else if (cellState[i, j].state == 104)
                 {
-                    Instantiate(enemy5, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
+                    Instantiate(enemy5, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
                 }
                 else if (cellState[i, j].state == 105)
                 {
-                    Instantiate(enemy6, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
+                    Instantiate(enemy6, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
                 }
                 else if (cellState[i, j].state == 106)
                 {
-                    Instantiate(enemy7, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
+                    Instantiate(enemy7, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
                 }
             }
         }
