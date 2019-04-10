@@ -13,13 +13,13 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
     private float tileSize;
     private int[,] landArray;
     private int[,] newLandArray;
-    private int[,] edgeArray;
+
     private CellState[,] cellState;
     private bool isSimultaneous;
     private float landRatio;
     private float treeRatio;
     private int iteration;
-    private bool isEdgeReady;
+
     public GameObject theCanvas;
     //public GameObject textManager;
     private CameraControl cameraControl;
@@ -27,21 +27,12 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
     private float turnRatio = 0.05f;
     private DigState endPoint;
 
-    private int tilesPlaced;
-	private int tilesToProcess;
-	private int adjacentCells;
-	private int startX;
-	private int startY;
-	
-    private int[] direction;
-
     private Vector2 entrancePosition;
     private Transform player;
     private GameObject portal;
     // Use this for initialization
-    void Start () {
-        isEdgeReady = false;    
-        NextScene.nowName = "2_2";
+    void Start () {  
+        NextScene.nowName = "3_1";
         cameraControl = GameObject.Find("CameraFollowing").GetComponent<CameraControl>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
@@ -57,7 +48,7 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
             }
         }
         newLandArray = new int[levelWidth, levelHeight];
-        edgeArray = new int[levelWidth, levelHeight];
+
         cellState = new CellState[levelWidth, levelHeight];
         for (int i = 0; i < levelWidth; i++)
         {
@@ -84,10 +75,19 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
 
         GenerateGrass();
         DrawGrass();
+
         GenerateHole();
         DrawHole();
+
+        GenerateRock();
+        DrawRock();
+
+        DrawPlayer();
+
+        GenerateLoot();
+        DrawLoot();
         /*
-        GameObject tile36 = gameManager.GetTile2("Tile_36");
+       GameObject tile36 = gameManager.GetTile2("Tile_67");
         for (int i = 1; i < levelWidth; i++)
         {
             for (int j = 1; j < levelHeight; j++)
@@ -103,52 +103,17 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
             }
         }
         */
-        
-        /*
-        
-        
-        */
-        //ChangeEdge();
-        //DrawEdge();
 
-
-        /*
-        //initial terrain
-        Terrain();
-        for (int i = 0; i < 3; i++) {
-            
-        }
-       
-        Draw();      
-        ChangeEdge();
-        //ReCaculateLandArray();
-        
-        FindTheDown();
-        for(int i=0;i<360;i++)
-        {
-        //while (!isEdgeReady) {
-            DrawEdge();
-        }
-           
-        //}
-        Connect();
-        ChangeColor();
-        ChangeLandArrayPosition();
-        */
         /*
         
 
-        GenerateRock();
-        DrawRock();
 
         GenerateBone();
         DrawBone();
 
-        GenerateLoot();
-        DrawLoot();
+        
 
-        AddEntrance();
-        DrawPlayer();
+        
 
         GenerateEnemy();
         DrawEnemy();
@@ -1457,2153 +1422,6 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
     }
 
   
-    void AddWalls() {
-        GameObject tile100 = gameManager.GetTile2("Tile_100");
-        for (int i = 0; i < levelWidth; i++)
-        {
-            for (int j = 0; j < levelHeight; j++)
-            {
-                if (i == 0 || j == 0)
-                {
-                    Instantiate(tile100, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
-                   
-                }
-                if(i == levelWidth - 1 )
-                {
-                    Instantiate(tile100, new Vector3((i+1) * tileSize, j * tileSize, 0), transform.rotation);
-
-                }
-                if (j == levelHeight - 1)
-                {
-                    Instantiate(tile100, new Vector3(i * tileSize, (j+1) * tileSize, 0), transform.rotation);
-
-                }
-                if (j == levelHeight - 1 && i == levelWidth - 1)
-                {
-                    Instantiate(tile100, new Vector3((i+1) * tileSize, (j + 1) * tileSize, 0), transform.rotation);
-                }
-            }
-        }
-    }
-    void ChangeEdge() {
-        GameObject tile99 = gameManager.GetTile2("99");
-        GameObject tile100 = gameManager.GetTile2("100");
-        GameObject tile101 = gameManager.GetTile2("101");
-        GameObject tile102 = gameManager.GetTile2("102");
-        GameObject tile103 = gameManager.GetTile2("103");
-        GameObject tile104 = gameManager.GetTile2("104");
-        GameObject tile105 = gameManager.GetTile2("105");
-        GameObject tile106 = gameManager.GetTile2("106");
-        for (int i = 0; i < levelWidth; i++)
-        {
-            for (int j = 0; j < levelHeight; j++)
-            {
-                if (landArray[i, j] == 0)
-                {
-                    if (i < levelWidth - 1 && i > 0
-                   && j < levelHeight - 1 && j > 0
-                   && landArray[i, j + 1] == 0 && landArray[i, j - 1] == 1 && 
-                   landArray[i - 1, j - 1] == 1 && landArray[i + 1, j - 1] == 1)
-                    {
-                        edgeArray[i, j] = 1;//下底边
-                                            //Debug.Log("辖地变");
-                       // Instantiate(tile99, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                    }
-
-                    else if (i < levelWidth - 1 && i > 0
-                   && j < levelHeight - 1 && j > 0
-                    && landArray[i, j - 1] == 1 && landArray[i, j + 1] == 0 
-                    &&
-                    (
-                    (landArray[i + 1, j + 1] == 0 && landArray[i - 1, j - 1] == 1)
-                    ||
-                    (landArray[i + 1, j + 1] == 1 && landArray[i - 1, j - 1] == 1 && landArray[i - 1, j+1] == 0 && landArray[i + 1, j - 1] == 0)              
-                    )
-                    )
-                        
-                    {
-                        edgeArray[i, j] = 3;//左下角
-                      ///  Instantiate(tile100, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                    }
-                    else if (i < levelWidth - 1 && i > 0
-                   && j < levelHeight - 1 && j > 0
-                    && landArray[i, j - 1] == 1 && landArray[i, j + 1] == 0
-                    && 
-                    (
-                    (landArray[i + 1, j - 1] == 1 && landArray[i - 1, j + 1] == 0) 
-                    ||
-                    (landArray[i - 1, j - 1] == 0 && landArray[i + 1, j - 1] == 0 && landArray[i + 1, j] == 0)
-                    ||
-                    (landArray[i - 1, j - 1] == 0 && landArray[i + 1, j + 1] == 0 && landArray[i - 1, j+1] == 1 && landArray[i + 1, j - 1] == 1)
-                    )
-                    )
-                    {
-                        edgeArray[i, j] = 2;//右下角
-                        //Instantiate(tile101, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                    }
-                    else if (i < levelWidth - 1 && i > 0
-                   && j < levelHeight - 1 && j > 0
-                   && landArray[i, j - 1] == 0 && landArray[i, j + 1] == 1 && 
-                   landArray[i - 1, j + 1] == 1 && landArray[i + 1, j + 1] == 1)
-                    {
-                        edgeArray[i, j] = 7;//上底边
-                       // Instantiate(tile102, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                    }
-                    else if (i < levelWidth - 1 && i > 0
-                   && j < levelHeight - 1 && j > 0
-                    && landArray[i, j + 1] == 1 && landArray[i, j - 1] == 0 
-                    && 
-                    (
-                    (landArray[i + 1, j - 1] == 0 && landArray[i - 1, j + 1] == 1)
-                    ||
-                    (landArray[i + 1, j + 1] == 0 && landArray[i - 1, j + 1] == 0 && landArray[i - 1, j] == 0)
-                    ||
-                    (landArray[i + 1, j + 1] == 0 && landArray[i - 1, j - 1] == 0 && landArray[i - 1, j+1] == 1 && landArray[i + 1, j - 1] == 1)
-                    )
-                    )
-                    {
-                        edgeArray[i, j] = 8;//左上角
-                       // Instantiate(tile103, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                    }
-
-                    else if (i < levelWidth - 1 && i > 0
-                   && j < levelHeight - 1 && j > 0
-                    && landArray[i, j + 1] == 1 && landArray[i, j - 1] == 0 
-                    &&
-                    (
-                    (landArray[i - 1, j - 1] == 0 && landArray[i + 1, j + 1] == 1)
-                    ||
-                    (landArray[i + 1, j - 1] == 1 && landArray[i - 1, j + 1] == 0 && landArray[i - 1, j-1] == 1 && landArray[i + 1, j + 1] == 1)          
-                    )
-                    ) 
-                    {
-                        edgeArray[i, j] = 6;//右上角
-                       // Instantiate(tile104, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                    }
-                    else if (i < levelWidth - 1 && i > 0
-                   && j < levelHeight - 1 && j > 0
-                    && landArray[i - 1, j] == 1 && landArray[i + 1, j] == 0)
-                    {
-                        edgeArray[i, j] = 4;//右边
-                        //Instantiate(tile106, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                    }
-                    else if (i < levelWidth - 1 && i > 0
-                   && j < levelHeight - 1 && j > 0
-                    && landArray[i + 1, j] == 1 && landArray[i - 1, j] == 0)
-                    {
-                        edgeArray[i, j] = 5;//左边
-                       // Instantiate(tile105, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                    }
-                }
-                else
-                {
-                    edgeArray[i, j] = 0;
-                }
-            }//end for col
-        }//end for row
-    }//end Changeedge
-    void FindTheDown()
-    {
-        bool isFind = false;
-        bool isScan = false;
-        for (int j = 0; j < levelHeight; j++)
-        {
-            for (int i = levelWidth-1; i >= 0; i--)
-            {
-
-                if (edgeArray[i, j] == 7 && !isFind)//上底边
-                {
-                    isFind = true;
-                    isScan = true;
-                    cellState[i, j].state = -1;//最下底边
-                    cellState[i, j].isFirstTop = true;
-
-                }
-                else if (edgeArray[i, j] == 7 && isScan) {
-                    cellState[i, j].state = -1;
-                }
-                else if (edgeArray[i, j] != 7 && isScan)
-                {
-                    isScan = false;
-                }
-
-            }
-        }
-    }
-
-    public void Connect()
-    {
-        GameObject tile13 = gameManager.GetTile2("Tile_14");
-        GameObject tile16 = gameManager.GetTile2("Tile_16");
-        Vector2 firstTopPosition = new Vector2(-100, -100);
-        Vector2 lastPosition = new Vector2(-100, -100);
-        for (int i = 0; i < levelWidth; i++) {
-            for (int j = 0; j < levelHeight; j++) {
-                if (cellState[i, j].state == 16 && cellState[i, j].isFirstTop) {
-                    firstTopPosition = cellState[i, j].position;
-                    if (cellState[i + 1, j - 1].state != 0)//右下角
-                    {
-                        lastPosition = cellState[i + 1, j - 1].position;
-                    }
-                    else if (cellState[i + 1, j + 1].state != 0)//右上角
-                    {
-                        lastPosition = cellState[i + 1, j + 1].position;
-                    }
-                    else if (cellState[i + 1, j].state != 0)//右边
-                    {
-                        lastPosition = cellState[i + 1, j].position;
-                    }
-                    else if (cellState[i, j - 1].state != 0)//下边
-                    {
-                        lastPosition = cellState[i, j - 1].position;
-                    }
-                    
-                    else//检测同列的
-                    {
-                        int n = j + 1;
-                        while (n < levelHeight) {
-                            if (cellState[i, n].state != 0)
-                            {
-                                lastPosition = cellState[i, n].position;
-                                break;
-                            }
-                            else {
-                                n++;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        float xDistance = lastPosition.x - firstTopPosition.x;
-        float yDistance = lastPosition.y - firstTopPosition.y;
-        int rightTileNum = 0;
-        int topTileNum = 0;
-        //看横向差距
-        if (xDistance <= 24 && xDistance > 0)
-        {
-            topTileNum = 0;
-        }
-        else if (xDistance > 24)
-        {
-            xDistance = xDistance - 24;
-            topTileNum = (int)xDistance / 24 + 1;
-        }
- 
-        //看纵向差距
-        if (yDistance <= 29 && yDistance > 0)
-        {
-            rightTileNum = 1;
-        }
-        else if (yDistance > 29)
-        {
-            yDistance = yDistance - 29;
-            rightTileNum = (int)yDistance / 24 + 2;
-        }
-        else if (yDistance < 0 && yDistance >= -29)
-        {
-            rightTileNum = -1;
-        }
-        else if (yDistance < -29)
-        {
-            yDistance = yDistance + 29;
-            rightTileNum = (int)yDistance / 24 - 2;
-        }
-        //画横向
-        if (topTileNum > 0)
-        {
-            for (int i = 1; i <= topTileNum; i++)
-            {
-                Vector2 position = firstTopPosition;
-                position.x = position.x + 24*i;
-                
-                Instantiate(tile16, new Vector3(position.x, position.y, 0), transform.rotation);
-            }
-        }
-        //画纵向
-        if (rightTileNum > 0)
-        {
-            for (int i = 0; i < rightTileNum; i++)
-            {
-                Vector2 position = firstTopPosition;
-                position.x = position.x + 14+24*topTileNum;
-                position.y = position.y + 24 * (i+1);
-                Instantiate(tile13, new Vector3(position.x, position.y, 0), transform.rotation);
-            }
-        }
-        else if (rightTileNum < 0)
-        {
-            for (int i = 0; i > rightTileNum; i--)
-            {
-                Vector2 position = firstTopPosition;
-                position.x = position.x + 14 + 24 * topTileNum; ;
-                position.y = position.y - 7 + 24 * (i);
-                Instantiate(tile13, new Vector3(position.x, position.y, 0), transform.rotation);
-            }
-        }
-    }
-
-    public void ChangeColor() {
-        GameObject tile10 = gameManager.GetTile2("Tile_10");
-        GameObject tile42 = gameManager.GetTile2("Tile_42");
-        GameObject tile43 = gameManager.GetTile2("Tile_43");
-        bool hasWall = false;
-
-        Vector2 startPosition=new Vector2(0,0);
-        Vector2 endPosition = new Vector2(0, 0);
-        //粗上色
-        for (int i = 0; i < levelWidth; i++) {
-            for (int j = 0; j < levelHeight; j++) {
-                
-                if (j == 0)//初始化
-                {
-                    hasWall = false;
-                    startPosition = new Vector2(i*tileSize,0);
-                    endPosition = new Vector2(i * tileSize, levelHeight * tileSize);
-                }
-                if (cellState[i, j].state != 0 && landArray[i, j - 1] == 0) {
-                    hasWall = true; 
-                    endPosition = cellState[i, j].position;         
-                }
-                else if (cellState[i, j].state != 0 && landArray[i, j + 1] == 0)
-                {
-
-                    startPosition = cellState[i, j].position;
-                    startPosition.y += 24f;
-                 
-               
-                }
-                else {
-                    hasWall = false;
-                }
-                if (hasWall) {
-                  int tileNum = (int)(endPosition.y - startPosition.y) / (int)tileSize;
-                  for (int m = 0; m < tileNum; m++)
-                  {
-                    Instantiate(tile10, new Vector3(i * tileSize, m * tileSize+startPosition.y, 0), transform.rotation);
-                  }
-                    
-                }
-                if (j == levelHeight - 1) {
-                    endPosition = new Vector2(i * tileSize, levelHeight * tileSize);
-                    int tileNum = (int)(endPosition.y - startPosition.y) / (int)tileSize;
-                    for (int m = 0; m < tileNum; m++)
-                    {
-                        Instantiate(tile10, new Vector3(i * tileSize, m * tileSize + startPosition.y, 0), transform.rotation);
-                    }
-                }
-
-            }
-        }
-        //细上色
-        for (int i = 0; i < levelWidth; i++)
-        {
-            for (int j = 0; j < levelHeight; j++)
-            {
-                Vector2 position = cellState[i, j].position;
-                if (cellState[i, j].state == 6)//双右上边
-                {
-                    for (int m = 0; m < 4; m++) {
-                        for (int n=-2; n < 2; n++){
-                            Instantiate(tile42, new Vector3(position.x+m*0.5f*tileSize, position.y + n * 0.5f * tileSize, 0), transform.rotation);
-                        }
-                    }
-                    Instantiate(tile42, new Vector3(position.x, position.y + tileSize, 0), transform.rotation);
-                    Instantiate(tile42, new Vector3(position.x+0.5f*tileSize, position.y + tileSize, 0), transform.rotation);
-                    Instantiate(tile42, new Vector3(position.x+tileSize, position.y + tileSize, 0), transform.rotation);
-
-                    Instantiate(tile42, new Vector3(position.x, position.y + 1.5f*tileSize, 0), transform.rotation);
-                    Instantiate(tile42, new Vector3(position.x + 0.5f * tileSize, position.y + 1.5f*tileSize, 0), transform.rotation);
-
-                    Instantiate(tile42, new Vector3(position.x, position.y + 2f * tileSize, 0), transform.rotation);
-
-                    Instantiate(tile43, new Vector3(position.x+tileSize, position.y + 1.5f * tileSize, 0), transform.rotation);
-                    Instantiate(tile43, new Vector3(position.x, position.y + 2.5f * tileSize, 0), transform.rotation);
-                }
-
-                else if (cellState[i, j].state == 17)//单右上边
-                {
-                    for (int m = 0; m < 2; m++)
-                    {
-                        for (int n = -2; n < 2; n++)
-                        {
-                            Instantiate(tile42, new Vector3(position.x + m * 0.5f * tileSize, position.y + n * 0.5f * tileSize, 0), transform.rotation);
-                        }
-                    }
-                    Instantiate(tile42, new Vector3(position.x, position.y + tileSize, 0), transform.rotation);
-
-                    Instantiate(tile43, new Vector3(position.x, position.y + 1.5f*tileSize, 0), transform.rotation);
-                }
-                else if (cellState[i, j].state == 8)//双左上边
-                {
-                    for (int m = 0; m < 4; m++)
-                    {
-                        for (int n = -2; n < 2; n++)
-                        {
-                            Instantiate(tile42, new Vector3(position.x + m * 0.5f * tileSize, position.y + n * 0.5f * tileSize, 0), transform.rotation);
-                        }
-                    }
-                    Instantiate(tile42, new Vector3(position.x + 1.5f * tileSize, position.y + tileSize, 0), transform.rotation);
-                    Instantiate(tile42, new Vector3(position.x + 0.5f * tileSize, position.y + tileSize, 0), transform.rotation);
-                    Instantiate(tile42, new Vector3(position.x + tileSize, position.y + tileSize, 0), transform.rotation);
-
-                    Instantiate(tile42, new Vector3(position.x + 1.5f * tileSize, position.y + 1.5f * tileSize, 0), transform.rotation);
-                    Instantiate(tile42, new Vector3(position.x + tileSize, position.y + 1.5f * tileSize, 0), transform.rotation);
-
-                    Instantiate(tile42, new Vector3(position.x + 1.5f * tileSize, position.y + 2f * tileSize, 0), transform.rotation);
-
-                    Instantiate(tile43, new Vector3(position.x + 0.75f*tileSize, position.y + 1.5f * tileSize, 0), transform.rotation);
-                    Instantiate(tile43, new Vector3(position.x + 1.75f*tileSize, position.y + 2.5f * tileSize, 0), transform.rotation);
-                }
-                else if (cellState[i, j].state == 15)//单左上边
-                {
-                    for (int m = 0; m < 2; m++)
-                    {
-                        for (int n = -2; n < 2; n++)
-                        {
-                            Instantiate(tile42, new Vector3(position.x + m * 0.5f * tileSize, position.y + n * 0.5f * tileSize, 0), transform.rotation);
-                        }
-                    }
-                    Instantiate(tile42, new Vector3(position.x + 0.5f * tileSize, position.y + tileSize, 0), transform.rotation);
-
-                    Instantiate(tile43, new Vector3(position.x + 0.75f * tileSize, position.y + 1.5f * tileSize, 0), transform.rotation);
-                }
-                else if (cellState[i, j].state == 16)//上边
-                {
-                    for (int m = 0; m < 2; m++)
-                    {
-                        for (int n = -2; n < 1; n++)
-                        {
-                            Instantiate(tile42, new Vector3(position.x + m * 0.5f * tileSize, position.y + n * 0.5f * tileSize, 0), transform.rotation);
-                        }
-                    }
-                    for (int m = 0; m < 4; m++)
-                    {
-                        Instantiate(tile43, new Vector3(position.x + m * 0.25f * tileSize, position.y + 0.5f * tileSize, 0), transform.rotation);
-                    }
-                }
-            }
-        }
-    }
-
-    public void ReCaculateLandArray() {
-        int areaNum=0;
-        bool hasEdge = false;
-        bool isScan = false;
-
-        for (int i = 0; i < levelWidth; i++) {
-            for (int j = 0; j < levelHeight; j++) {
-                if (j == 0) {
-                    hasEdge = false;
-                    
-                }
-                if (edgeArray[i, j] != 0 && !isScan) {
-                    areaNum += 1;
-                    isScan = true;
-                    hasEdge = true;
-                    Debug.Log("0");
-                    if (areaNum > 1) {
-                        Debug.Log("超过了");
-                    }
-                }
-                if (areaNum == 1 && isScan)
-                {
-                    if (edgeArray[i, j] !=0)
-                        hasEdge = true;
-                }
-                if (j == levelHeight - 1) {
-                    if (!hasEdge)
-                        isScan = false;
-                }
-               
-            }
-        }
-       
-    }
-    public void ChangeLandArrayPosition() {
-        GameObject tile43 = gameManager.GetTile2("Tile_22");
-        Vector2 startPosition = new Vector2(0, 0);
-        Vector2 endPosition = new Vector2(0, 0);
-        Vector2 start = new Vector2(0, 0);
-        Vector2 end = new Vector2(0, 0);
-        for (int i = 0; i < levelWidth; i++)
-        {
-            for (int j = 0; j < levelHeight; j++)
-            {
-
-                if (j == 0)//初始化
-                {
-
-                    startPosition = new Vector2(i * tileSize, 0);
-                    endPosition = new Vector2(i * tileSize, levelHeight * tileSize);
-                    start = new Vector2(i,0);
-                    end= new Vector2(i, levelHeight-1);
-                }
-                if (cellState[i, j].state != 0 && landArray[i, j + 1] == 1)
-                {
-            
-                    startPosition = cellState[i, j].position;
-                    startPosition.y += 24f;
-                    start = new Vector2(i, j);
-                }
-                else if (cellState[i, j].state != 0 && landArray[i, j - 1] == 1)
-                {
-                    endPosition = cellState[i, j].position;
-                    end = new Vector2(i, j);
-                    float yDistance = endPosition.y - startPosition.y-tileSize;
-                    int middleTiles = (int)end.y - (int)start.y-1;
-                    float middleTileSize = yDistance / middleTiles;
-                    for (int n = (int)start.y + 1; n < (int)end.y; n++) {
-                        landArray[i, n] = 2;
-                        cellState[i, n].position = new Vector2(i * tileSize,startPosition.y+24f+(n-start.y-1)*middleTileSize);
-                       // Instantiate(tile43, new Vector3(cellState[i, n].position.x, cellState[i, n].position.y, 0), transform.rotation);
-                    }
-                }
-
-            }
-        }
-    }
-    void DrawEdge()
-    {
-        isEdgeReady = true;
-        GameObject tile1 = gameManager.GetTile2("Tile_1");
-        GameObject tile2 = gameManager.GetTile2("Tile_2");
-        GameObject tile3 = gameManager.GetTile2("Tile_3");
-
-        GameObject tile6 = gameManager.GetTile2("Tile_6");
-       
-        GameObject tile8 = gameManager.GetTile2("Tile_8");
-        GameObject tile9 = gameManager.GetTile2("Tile_9");
-        GameObject tile10 = gameManager.GetTile2("Tile_10");
-        GameObject tile11 = gameManager.GetTile2("Tile_11");
-        GameObject tile12 = gameManager.GetTile2("Tile_12");
-        GameObject tile13 = gameManager.GetTile2("Tile_13");
-        GameObject tile14 = gameManager.GetTile2("Tile_14");
-        GameObject tile15 = gameManager.GetTile2("Tile_15");
-        GameObject tile16 = gameManager.GetTile2("Tile_16");
-        GameObject tile17 = gameManager.GetTile2("Tile_17");
-        GameObject tile18 = gameManager.GetTile2("Tile_18");
-        GameObject tile19 = gameManager.GetTile2("Tile_19");
-        GameObject tile99 = gameManager.GetTile2("99");
-        GameObject tile100 = gameManager.GetTile2("100");
-        GameObject tile101 = gameManager.GetTile2("101");
-        GameObject tile102 = gameManager.GetTile2("102");
-        GameObject tile103 = gameManager.GetTile2("103");
-        GameObject tile104 = gameManager.GetTile2("104");
-        GameObject tile105 = gameManager.GetTile2("105");
-        GameObject tile106 = gameManager.GetTile2("106");
-
-        for (int j = 0; j <levelHeight; j++)
-        { 
-            for (int i = levelWidth-1; i >= 0; i--)
-            {
-
- 
-                //down
-                if (edgeArray[i,j]==1 && cellState[i, j].state == 0)
-                {    
-                    Vector2 position = new Vector2(-100, -100);
-                    //如果右边还是自己，则使用两个格子的tile
-                    if (edgeArray[i + 1, j] == 1 && cellState[i, j].state != 1)
-                    {
-
-                        //如果左边是自己且都还没决定，就跳过这一此判定
-                        if (edgeArray[i - 1, j] == 1 && cellState[i - 1, j].state == 0) {
-                            continue;
-
-                        }
-                        if (edgeArray[i - 1, j] == 2)//左边是右下角
-                        {
-                            if (cellState[i - 1, j].state == 12)//左边是单边右下角
-                            {
-                                position = cellState[i - 1, j].position;
-                                position.x = position.x + 24;
-                            }
-
-                            else if (cellState[i - 1, j].state == 2)//左边是双边右下角
-                            {
-                                position = cellState[i - 1, j].position;
-                                position.x = position.x + 48;
-                                position.y = position.y + 24;
-                            }
-                        }
-                        else if (edgeArray[i - 1, j] == 1)//左边是自己
-                        {
-                            if (cellState[i - 1, j].state == 1)//左边是自己
-                            {
-                                position = cellState[i - 1, j].position;
-                                position.x = position.x + 48;
-                            }
-                        }
-                        else if (edgeArray[i - 1, j + 1] == 3)//左上角是左下角
-                        {
-                            if (cellState[i - 1, j + 1].state == 11)//左上角是单边左下角
-                            {
-                                position = cellState[i - 1, j + 1].position;
-                                position.x = position.x + 24;
-                                position.y = position.y - 24;
-                            }
-
-                            else if (cellState[i - 1, j + 1].state == 3)//左上角是双边左下角
-                            {
-                                position = cellState[i - 1, j + 1].position;
-                                position.x = position.x + 48;
-                                position.y = position.y - 24;
-                            }
-                        }
-                        else if (edgeArray[i - 1, j + 1] == 2)//左上角是单边右下角
-                        {
-                            if (cellState[i - 1, j + 1].state == 12)//左上角是单边右下角
-                            {
-                                position = cellState[i - 1, j + 1].position;
-                                position.x = position.x + 24;
-                                position.y = position.y - 24;
-                            }
-                            else if (cellState[i - 1, j + 1].state == 2)//左上角是双边右下角
-                            {
-                                position = cellState[i - 1, j + 1].position;
-                                position.x = position.x + 48;
-
-                            }
-                        }
-
-                        else if (edgeArray[i - 1, j + 1] == 4)//左上角是右边
-                        {
-                            if (cellState[i - 1, j + 1].state == 14)//左上角是右边
-                            {
-
-                                position = cellState[i - 1, j + 1].position;
-
-                                position.y = position.y - 66;
-                            }
-                        }
-
-                        else if (edgeArray[i, j + 1] == 4)//上角是右边
-                        {
-                            if (cellState[i, j + 1].state == 14)//上角是右边
-                            {
-                                position = cellState[i, j + 1].position;
-                                position.y = position.y - 66;
-                            }
-                        }
-
-                        else if (edgeArray[i, j + 1] == 7)//上角是上边
-                        {
-                            if (cellState[i, j + 1].state == 16)//上角是上边
-                            {
-                                position = cellState[i, j + 1].position;
-
-                                position.y = position.y - 48;
-                            }
-                        }
-
-                        else if (edgeArray[i, j + 1] == 8)//上角是左上边
-                        {
-                            if (cellState[i, j + 1].state == 8)//上角是双左上边
-                            {
-                                position = cellState[i, j + 1].position;
-
-                                position.y = position.y - 47;
-                            }
-                            else if (cellState[i, j + 1].state == 15)//上角是单左上边
-                            {
-                                position = cellState[i, j + 1].position;
-
-                                position.y = position.y - 47;
-                            }
-                        }
-
-
-                        if (position.x > 0 && position.y > 0)
-                        {
-                            Instantiate(tile1, new Vector3(position.x, position.y, 0), transform.rotation);
-                            cellState[i, j].state = 1;
-                            cellState[i, j].position = new Vector2(position.x, position.y);
-                            cellState[i + 1, j].state = 1;
-                            cellState[i + 1, j].position = new Vector2(position.x, position.y);
-                            // Instantiate(tile99, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                        }
-                        else
-                        {
-                            isEdgeReady = false;
-                            // Instantiate(tile99, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                        }
-
-                        //}
-                    }
-                    else if (cellState[i, j].state != 1) {
-
-                        if (edgeArray[i - 1, j] == 2)//左边是右下角
-                        {
-                            if (cellState[i - 1, j].state == 12)//左边是单边右下角
-                            {
-                                position = cellState[i - 1, j].position;
-                                position.x = position.x + 24;
-                            }
-                            else if (cellState[i - 1, j].state == 2)//左边是双边右下角
-                            {
-                                position = cellState[i - 1, j].position;
-                                position.x = position.x + 48;
-                                position.y = position.y + 24;
-                            }
-                        }
-                        else if (edgeArray[i - 1, j] == 1)//左边是自己
-                        {
-                            if (cellState[i - 1, j].state == 1)//左边是自己
-                            {
-                                position = cellState[i - 1, j].position;
-                                position.x = position.x + 48;
-
-                            }
-                        }
-                        else if (edgeArray[i - 1, j + 1] == 3)//左上角是左下角
-                        {
-                            if (cellState[i - 1, j + 1].state == 11)//左上角是单边左下角
-                            {
-                                position = cellState[i - 1, j + 1].position;
-                                position.x = position.x + 24;
-                                position.y = position.y - 24;
-                            }
-
-                            else if (cellState[i - 1, j + 1].state == 3)//左上角是双边左下角
-                            {
-                                position = cellState[i - 1, j + 1].position;
-                                position.x = position.x + 48;
-                                position.y = position.y - 24;
-                            }
-                        }
-                        else if (edgeArray[i - 1, j + 1] == 2)//左上角是右下角
-                        {
-                            if (cellState[i - 1, j + 1].state == 12)//左上角是单边右下角
-                            {
-                                position = cellState[i - 1, j + 1].position;
-                                position.x = position.x + 24;
-                                position.y = position.y - 24;
-                            }
-
-                            else if (cellState[i - 1, j + 1].state == 2)//左上角是双边右下角
-                            {
-                                position = cellState[i - 1, j + 1].position;
-                                position.x = position.x + 48;
-                            }
-                        }
-
-                        else if (edgeArray[i - 1, j + 1] == 4)//左上角是右边
-                        {
-                            if (cellState[i - 1, j + 1].state == 14)//左上角是右边
-                            {
-                                position = cellState[i - 1, j + 1].position;
-
-                                position.y = position.y - 66;
-                            }
-                        }
-
-                        else if (edgeArray[i, j + 1] == 4)//上角是右边
-                        {
-                            if (cellState[i, j + 1].state == 14)//上角是右边
-                            {
-                                position = cellState[i, j + 1].position;
-
-                                position.y = position.y - 66;
-                            }
-                        }
-                        else if (edgeArray[i, j + 1] == 8)//上角是左上边
-                        {
-                            if (cellState[i, j + 1].state == 8)//上角是双左上边
-                            {
-                                position = cellState[i, j + 1].position;
-
-                                position.y = position.y - 47;
-                            }
-                            else if (cellState[i, j + 1].state == 15)//上角是单左上边
-                            {
-                                position = cellState[i, j + 1].position;
-
-                                position.y = position.y - 47;
-                            }
-                        }
-                        else if (edgeArray[i, j + 1]== 7)//上角是上边
-                        {
-                            if (cellState[i, j + 1].state == 16)//上角是上边
-                            {
-                                position = cellState[i, j + 1].position;
-
-                                position.y = position.y - 48;
-                            }
-                        }
-
-                        if (position.x > 0 && position.y > 0)
-                        {
-                            Instantiate(tile9, new Vector3(position.x, position.y, 0), transform.rotation);
-                            cellState[i, j].state = 9;
-                            cellState[i, j].position = position;
-                           // Instantiate(tile99, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                        }
-                        else
-                        {
-                            isEdgeReady = false;
-                          // Instantiate(tile99, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                        }
-
-                    }
-
-
-                }
-
-                //left-bot corner
-                else if (edgeArray[i, j] == 3 && cellState[i, j].state == 0)
-                {
-    
-                    Vector2 position = new Vector2(-100, -100);
-                    //如果右下角还是自己，则使用两个格子的tile
-                    if (edgeArray[i + 1, j - 1] == 3 && cellState[i, j].state != 3) {
-                        if (edgeArray[i - 1, j] == 1)//左边是下底边
-                        {
-                            if (cellState[i - 1, j].state == 9)//左边是单下底边
-                            {
-                                position = cellState[i - 1, j].position;
-                                position.x = position.x + 24;
-                                position.y = position.y - 24;
-                            }
-                            else if (cellState[i - 1, j].state == 1)//左边是双下底边
-                            {
-                                position = cellState[i - 1, j].position;
-                                position.x = position.x + 48;
-                                position.y = position.y - 24;
-                            }
-                        }
-                        else if (edgeArray[i - 1, j + 1] == 3)//左上角是自己类型
-                        {
-                            if (cellState[i - 1, j + 1].state == 3)//左上角是自己类型
-                            {
-                                position = cellState[i - 1, j + 1].position;
-                                position.x = position.x + 48;
-                                position.y = position.y - 48;
-                            }
-                        }
-                        else if (edgeArray[i, j + 1] == 7)//上角是上边
-                        {
-                            if (cellState[i, j + 1].state == 16)//上角是上边
-                            {
-                                position = cellState[i, j + 1].position;
-
-                                position.y = position.y - 70;
-                            }
-                        }
-                        else if (edgeArray[i, j + 1] == 4)//上角是右边
-                        {
-                            if (cellState[i, j + 1].state == 14)//上角是右边
-                            {
-                                position = cellState[i, j + 1].position;
-
-                                position.y = position.y - 84;
-                            }
-                        }
-                        else if (edgeArray[i - 1, j] == 2)//左边是右下边
-                        {
-                            if (cellState[i - 1, j].state == 12)//左边是单右下边
-                            {
-                                position = cellState[i - 1, j].position;
-                                position.x = position.x + 24;
-                                position.y = position.y - 24;
-
-                            }
-                            else if (cellState[i - 1, j].state == 2)//左边是双右下边
-                            {
-                                position = cellState[i - 1, j].position;
-                                position.x = position.x + 48;
-
-                            }
-                        }
-                        else if (edgeArray[i, j + 1] == 8)//上角是左上边
-                        {
-                            if (cellState[i, j + 1].state == 8)//上角是双边左上边
-                            {
-                                position = cellState[i, j + 1].position;
-
-                                position.y = position.y - 66;
-                            }
-                            else if (cellState[i, j + 1].state == 15)//上角是单边左上边
-                            {
-                                position = cellState[i, j + 1].position;
-
-                                position.y = position.y - 66;
-                            }
-                        }
-                        else if (edgeArray[i - 1, j + 1] == 2)//左上角是右下角
-                        {
-                            if (cellState[i - 1, j + 1].state == 12)//左上角是单边右下角
-                            {
-                                position = cellState[i - 1, j + 1].position;
-                                position.x = position.x + 24;
-                                position.y = position.y - 14;
-
-                            }
-                            else if (cellState[i - 1, j + 1].state == 2)//左上角是双边右下角
-                            {
-                                position = cellState[i - 1, j + 1].position;
-                                position.x = position.x + 48;
-
-                            }
-                        }
-                        else if (edgeArray[i - 1, j + 1] == 4)//左上角是右边
-                        {
-                            if (cellState[i - 1, j + 1].state == 14)//左上角是右边
-                            {
-                                if (edgeArray[i - 1, j] == 1)//如果左边是单下边，但是还没有被画出来
-                                {
-                                    continue;
-                                }
-                                else
-                                {
-                                    position = cellState[i - 1, j + 1].position;
-
-                                    position.y = position.y - 83;
-                                }
-                            }
-                        }
-                
-                        if (position.x > 0 && position.y > 0)
-                        {
-                            Instantiate(tile3, new Vector3(position.x, position.y, 0), transform.rotation);
-                            cellState[i, j].state = 3;
-                            cellState[i, j].position = position;
-                            cellState[i + 1, j - 1].state = 3;
-                            cellState[i + 1, j - 1].position = position;
-                          // Instantiate(tile103, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                        }
-                        else
-                        {
-                            isEdgeReady = false;
-                           // Instantiate(tile103, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                        }
-
-                    }
-                    else if (cellState[i, j].state != 3)
-                    {
-                        if (edgeArray[i - 1, j] == 1)//左边是下底边
-                        {
-                            if (cellState[i - 1, j].state == 9)//左边是单下底边
-                            {
-                                position = cellState[i - 1, j].position;
-                                position.x = position.x + 24;
-
-                            }
-                            else if (cellState[i - 1, j].state == 1)//左边是双下底边
-                            {
-                                position = cellState[i - 1, j].position;
-                                position.x = position.x + 48;
-
-                            }
-                        }
-                        else if (edgeArray[i - 1, j + 1] == 3)//左上角是自己类型
-                        {
-                            if (cellState[i - 1, j + 1].state == 3)//左上角是自己类型
-                            {
-                                position = cellState[i - 1, j + 1].position;
-                                position.x = position.x + 48;
-                                position.y = position.y - 24;
-                            }
-                        }
-                        else if (edgeArray[i, j + 1] == 7)//上角是上边
-                        {
-                            if (cellState[i, j + 1].state == 16)//上角是上边
-                            {
-                                position = cellState[i, j + 1].position;
-
-                                position.y = position.y - 56;
-                            }
-                        }
-                        else if (edgeArray[i, j + 1] == 4)//上角是右边
-                        {
-                            if (cellState[i, j + 1].state == 14)//上角是右边
-                            {
-                                position = cellState[i, j + 1].position;
-
-                                position.y = position.y - 72;
-                            }
-                        }
-                        else if (edgeArray[i - 1, j] == 2)//左边是右下边
-                        {
-                            if (cellState[i - 1, j].state == 12)//左边是单右下边
-                            {
-                                position = cellState[i - 1, j].position;
-                                position.x = position.x + 24;
-
-                            }
-                            else if (cellState[i - 1, j].state == 2)//左边是双右下边
-                            {
-                                position = cellState[i - 1, j].position;
-                                position.x = position.x + 48;
-                                position.y = position.y + 10;
-                            }
-                        }
-                        else if (edgeArray[i, j + 1] == 8)//上角是左上边
-                        {
-                            if (cellState[i, j + 1].state == 8)//上角是双边左上边
-                            {
-                                position = cellState[i, j + 1].position;
-
-                                position.y = position.y - 52;
-                            }
-                            else if (cellState[i, j + 1].state == 15)//上角是单边左上边
-                            {
-                                position = cellState[i, j + 1].position;
-
-                                position.y = position.y - 52;
-                            }
-                        }
-                        else if (edgeArray[i - 1, j + 1] == 2)//左上角是单边右下角
-                        {
-                            if (cellState[i - 1, j + 1].state == 12)//左上角是单边右下角
-                            {
-                                position = cellState[i - 1, j + 1].position;
-                                position.x = position.x + 24;
-                                position.y = position.y - 12;
-
-                            }
-                            else if (cellState[i - 1, j + 1].state == 2)//左上角是双边右下角
-                            {
-                                position = cellState[i - 1, j + 1].position;
-                                position.x = position.x + 48;
-
-                            }
-                        }
-                        else if (edgeArray[i - 1, j + 1] == 4)//左上角是右边
-                        {
-                            if (cellState[i - 1, j + 1].state == 14)//左上角是右边
-                            {
-                                if (edgeArray[i - 1, j] == 1)//如果左边是单下边，但是还没有画出来
-                                {
-                                    continue;
-                                }
-                                else
-                                {
-                                    position = cellState[i - 1, j + 1].position;
-
-                                    position.y = position.y - 72;
-                                }
-                            }
-                        }
-                        
-                        if (position.x > 0 && position.y > 0)
-                        {
-                            Instantiate(tile11, new Vector3(position.x, position.y, 0), transform.rotation);
-                            cellState[i, j].state = 11;
-                            cellState[i, j].position = position;
-                          // Instantiate(tile103, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                        }
-                        else
-                        {
-                            isEdgeReady = false;
-                          //  Instantiate(tile103, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                        }
-
-                    }
-
-
-                }
-
-                //right-bot corner
-                else if (edgeArray[i, j] == 2 && cellState[i, j].state == 0)
-                {
-                    //Instantiate(tile100, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-
-                    Vector2 position = new Vector2(-100, -100);
-                    //如果右上角还是自己，则使用两个格子的tile
-                    if (edgeArray[i + 1, j + 1] == 2 && cellState[i, j].state != 2)
-                    {
-                        if (edgeArray[i - 1, j - 1] == 1)//左下角是底边
-                        {
-                            if (cellState[i - 1, j - 1].state == 1)//左下角是双底边
-                            {
-                                position = cellState[i - 1, j - 1].position;
-                                position.x = position.x + 48;
-                                position.y = position.y + 24;
-                            }
-                            else if (cellState[i - 1, j - 1].state == 9)//左下角是单底边
-                            {
-                                position = cellState[i - 1, j - 1].position;
-                                position.x = position.x + 24;
-                                position.y = position.y + 24;
-                            }
-                        }
-
-                        else if (edgeArray[i - 1, j - 1] == 2)//左下角是自己类型
-                        {
-                            position = cellState[i - 1, j - 1].position;
-                            position.x = position.x + 48;
-                            position.y = position.y + 48;
-                        }
-                        else if (edgeArray[i - 1, j - 1] == 5)//左下角是左边
-                        {
-                            position = cellState[i - 1, j - 1].position;
-                            position.x = position.x + 24;
-                            position.y = position.y + 24;
-                        }
-                        if (position.x > 0 && position.y > 0)
-                        {
-                            Instantiate(tile2, new Vector3(position.x, position.y, 0), transform.rotation);
-                            cellState[i, j].state = 2;
-                            cellState[i, j].position = position;
-                            cellState[i + 1, j + 1].state = 2;
-                            cellState[i + 1, j + 1].position = position;
-                          // Instantiate(tile104, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                        }
-                        else
-                        {
-                            isEdgeReady = false;
-                           // Instantiate(tile104, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                        }
-
-                    }
-                    
-                    else if (cellState[i, j].state != 2) {
-
-
-                        //如果左下角已经有合成的斜边了
-                        if (edgeArray[i - 1, j - 1] == 2)
-                        {
-                            position = cellState[i - 1, j - 1].position;
-                            position.x = position.x + 48;
-                            position.y = position.y + 48;
-                        }
-                        //如果左下角是右边
-                        else if (edgeArray[i - 1, j - 1] == 4)
-                        {
-                            position = cellState[i - 1, j - 1].position;
-                            position.x = position.x + 24;
-                            position.y = position.y - 40;
-                        }
-                        //如果左下角是左边
-                        else if (edgeArray[i - 1, j - 1] == 5)
-                        {
-                            position = cellState[i - 1, j - 1].position;
-                            position.x = position.x + 24;
-                            position.y = position.y + 24;
-                        }
-                        
-                        else if (edgeArray[i - 1, j - 1]== 1)//左下角是底边
-                        {
-                            if (cellState[i - 1, j - 1].state == 1)//左下角是底边
-                            {
-                                position = cellState[i - 1, j - 1].position;
-                                position.x = position.x + 48;
-                                position.y = position.y + 24;
-                            }
-                            else if (cellState[i - 1, j - 1].state == 9) //左下角是单底边
-                            {
-                                position = cellState[i - 1, j - 1].position;
-                                position.x = position.x + 24;
-                                position.y = position.y + 24;
-                            }
-                        }
-                        
-                        else if (edgeArray[i + 1, j] == 1)//右边是单双底边
-                        {
-                            position = cellState[i + 1, j].position;
-                            position.x = position.x - 24;
-                            position.y = position.y - 10;
-                        }
-                        if (position.x > 0 && position.y > 0)
-                        {
-                            Instantiate(tile12, new Vector3(position.x, position.y, 0), transform.rotation);
-                            cellState[i, j].state = 12;
-                            cellState[i, j].position = position;
-                          // Instantiate(tile104, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                        }
-                        else
-                        {
-                            isEdgeReady = false;
-                           // Instantiate(tile104, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                        }
-
-
-                    }
-        
-                }
-                //right
-                else if (edgeArray[i, j] == 4 && cellState[i, j].state == 0)
-                {
-                    Vector2 position = new Vector2(-100, -100);
-                    if (edgeArray[i - 1, j + 1] == 2)//左上边是右下角
-                    {
-                        if (cellState[i - 1, j + 1].state == 12)//左上边是单边右下角
-                        {
-                            position = cellState[i - 1, j + 1].position;
-                            position.x = position.x + 24;
-                            position.y = position.y + 45;
-                        }
-                        else if (cellState[i - 1, j + 1].state == 2)//左上边是双边右下角
-                        {
-                            position = cellState[i - 1, j + 1].position;
-                            position.x = position.x + 48;
-                            position.y = position.y + 63;
-                        }
-                    }
-                    else if (edgeArray[i, j + 1] == 4)//上边是自己类型的//放在了左下边之前
-                    {
-                        position = cellState[i, j + 1].position;
-                        position.y = position.y - 24;
-                    }
-                   
-
-                    else if (edgeArray[i, j + 1] == 7)//上边是单上边
-                    {
-                        position = cellState[i, j + 1].position;
-                        position.y = position.y - 9;
-                    }
-                    else if (edgeArray[i - 1, j + 1] == 3)//左上边是左下角//放在了判断是否是自己之前
-                    {
-                        if (cellState[i - 1, j + 1].state == 11)//左上边是单边左下角
-                        {
-                            position = cellState[i - 1, j + 1].position;
-                            position.x = position.x + 24;
-                            position.y = position.y - 24;
-
-                        }
-                        else if (cellState[i - 1, j + 1].state == 3)//左上边是双边左下角
-                        {
-                            position = cellState[i - 1, j + 1].position;
-                            position.x = position.x + 48;
-                            position.y = position.y - 24;
-
-                        }
-                    }
-                    else if (edgeArray[i, j + 1] == 8)//上边是左上角//放在了下边是左下边之前
-                    {
-                        if (cellState[i, j + 1].state == 8)//上边是双边左上角
-                        {
-                            position = cellState[i, j + 1].position;
-
-                            position.y = position.y - 5;
-                        }
-                        else if (cellState[i, j + 1].state == 15)//上边是单边左上角
-                        {
-                            position = cellState[i, j + 1].position;
-
-                            position.y = position.y - 5;
-                        }
-                    }
-
-                    else if (edgeArray[i, j - 1] == 3)//下边是左下边//放在了左上边是左下角之后
-                    {
-                        if (cellState[i, j - 1].state == 11)//下边是单左下边
-                        {
-                            position = cellState[i, j - 1].position;
-
-                            position.y = position.y + 72;
-
-                        }
-                        else if (cellState[i, j - 1].state == 3)//下边是双左下边
-                        {
-                            position = cellState[i, j - 1].position;
-                            position.y = position.y + 86;
-                        }
-                    }
-
-                    else if (edgeArray[i - 1, j + 1] == 4)//左上边是自己类型的
-                    {
-                        position = cellState[i - 1, j + 1].position;
-                        position.y = position.y - 24;
-                    }
-                   
-                    else if (edgeArray[i, j - 1] == 4)//下边是自己类型的
-                    {
-                        position = cellState[i, j - 1].position;
-                        position.y = position.y + 24;
-
-                    }
-                    else if (edgeArray[i - 1, j - 1] == 8)//左下边是左上角
-                    {
-                        if (cellState[i - 1, j - 1].state == 8)//左下边是双边左上角
-                        {
-                            position = cellState[i - 1, j - 1].position;
-                            position.x = position.x + 48;
-                            position.y = position.y + 65;
-                        }
-                        else if (cellState[i - 1, j - 1].state == 15)//左下边是单边左上角
-                        {
-                            position = cellState[i - 1, j - 1].position;
-                            position.x = position.x + 24;
-                            position.y = position.y + 41;
-                        }
-                    }
-                    else if (edgeArray[i + 1, j + 1]== 8)//右上边是左上角
-                    {
-                        if (cellState[i + 1, j + 1].state == 15)//右上边是单边左上角
-                        {
-                            position = cellState[i + 1, j + 1].position;
-
-                            position.y = position.y - 5;
-                        }
-                        else if (cellState[i + 1, j + 1].state == 8)//右上边是双边左上角
-                        {
-                            if (edgeArray[i, j + 1] == 7)//如果上边是上边，但是还没有画出来
-                            {
-                                continue;
-                            }
-                            else
-                            {
-                                position = cellState[i + 1, j + 1].position;
-                                position.y = position.y - 5;
-                            }
-                        }
-                    }
-                    
-                    else if (edgeArray[i + 1, j + 1]== 7)//右上边是上边
-                    {
-                        position = cellState[i + 1, j + 1].position;
-
-                        position.y = position.y - 9;
-                    }
-                    else if (edgeArray[i + 1, j + 1]== 4)//右上边是自己
-                    {
-                        position = cellState[i + 1, j + 1].position;
-
-                        position.y = position.y - 24;
-                    }
-                    if (position.x > 0 && position.y > 0)
-                    {
-                        Instantiate(tile14, new Vector3(position.x, position.y, 0), transform.rotation);
-                        cellState[i, j].state = 14;
-                        cellState[i, j].position = position;
-                       // Instantiate(tile105, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                    }
-                    else {
-                        isEdgeReady = false;
-                      // Instantiate(tile105, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                    }
-                        
-
-                }
-
-                //left
-                else if (edgeArray[i, j] == 5 && cellState[i, j].state == 0)
-                {
-                    Vector2 position = new Vector2(-100, -100);
-                    if (edgeArray[i, j - 1] == 1)//下边是下边
-                    {
-                        if (cellState[i, j - 1].state == 9)//下边是单下边
-                        {
-                            position = cellState[i, j - 1].position;
-                            position.y = position.y + 68;
-                        }
-                        else if (cellState[i, j - 1].state == 1)//下边是双下边
-                        {
-                            position = cellState[i, j - 1].position;
-                            position.x = position.x + 24;
-                            position.y = position.y + 69;
-
-                        }
-
-                    }
-                    else if (edgeArray[i, j - 1] == 2)//下边是右下边
-                    {
-                        if (cellState[i, j - 1].state == 12)//下边是单右下边
-                        {
-                            position = cellState[i, j - 1].position;
-
-                            position.y = position.y + 72;
-
-                        }
-                        else if (cellState[i, j - 1].state == 2)//下边是双右下边
-                        {
-                            position = cellState[i, j - 1].position;
-                            position.x = position.x + 24;
-                            position.y = position.y + 83;
-
-                        }
-                    }
-
-                    else if (edgeArray[i, j - 1] == 5)//下边是自己类型的
-                    {
-                        position = cellState[i, j - 1].position;
-                        position.y = position.y + 24;
-
-                    }
-                    else if (edgeArray[i + 1, j - 1] == 6)//右下边是右上角
-                    {
-                        if (cellState[i + 1, j - 1].state == 6)//右下边是双边右上角
-                        {
-                            position = cellState[i + 1, j - 1].position;
-                            position.x = position.x - 24;
-                            position.y = position.y + 76;
-                        }
-                        else if (cellState[i + 1, j - 1].state == 17)//右下边是单边右上角
-                        {
-                            position = cellState[i + 1, j - 1].position;
-                            position.x = position.x - 24;
-                            position.y = position.y + 52;
-                        }
-                    }
-                    else if (edgeArray[i + 1, j - 1] == 8)//右下边是左上角
-                    {
-                        if (cellState[i + 1, j - 1].state == 8)//右下边是双边左上角
-                        {
-                            position = cellState[i + 1, j - 1].position;
-                            position.x = position.x - 24;
-                            position.y = position.y + 17;
-                        }
-                        else if (cellState[i + 1, j - 1].state == 15)//右下边是单边左上角
-                        {
-                            position = cellState[i + 1, j - 1].position;
-                            position.x = position.x - 24;
-                            position.y = position.y + 17;
-                        }
-                    }
-
-                    else if (edgeArray[i - 1, j - 1] == 5)//左下边是左边
-                    {
-                        position = cellState[i - 1, j - 1].position;
-                        position.y = position.y + 24;
-
-                    }
-                    else if (edgeArray[i - 1, j - 1] == 2)//左下边是单右下边
-                    {
-                        if (cellState[i - 1, j - 1].state == 12)//左下边是单右下边
-                        {
-                            if (edgeArray[i, j - 1] == 1)//如果自己下边是下边，但是还没有被画出来
-                            {
-                                continue;
-                            }
-                            else
-                            {
-                                position = cellState[i - 1, j - 1].position;
-                                position.x = position.x + 10;
-                                position.y = position.y + 72;
-                            }
-
-                        }
-                        else if (cellState[i - 1, j - 1].state == 2)//左下边是双右下边
-                        {
-                            position = cellState[i - 1, j - 1].position;
-                            position.x = position.x + 34;
-                            position.y = position.y + 83;
-
-                        }
-                    }
-                    else if (edgeArray[i - 1, j - 1]== 1)//左下边是下边
-                    {
-                        if (cellState[i - 1, j - 1].state == 9)//左下边是单下边
-                        {
-                            position = cellState[i - 1, j - 1].position;
-                            position.x = position.x + 10;
-                            position.y = position.y + 68;
-
-                        }
-                        else if (cellState[i - 1, j - 1].state == 1)//左下边是双下边
-                        {
-                            if (edgeArray[i, j - 1] == 1)//如果自己下边是下边，但是还没有被画出来
-                            {
-                                continue;
-                            }
-                            else
-                            {
-                                position = cellState[i - 1, j - 1].position;
-                                position.x = position.x + 34;
-                                position.y = position.y + 24;
-                            }
-                        }
-                    }
-                    
-                    else if (edgeArray[i + 1, j - 1]== 5)//右下边是左边
-                    {
-                        position = cellState[i + 1, j - 1].position;
-                        position.y = position.y + 24;
-
-                    }
-                    if (position.x > 0 && position.y > 0)
-                    {
-                        Instantiate(tile13, new Vector3(position.x, position.y, 0), transform.rotation);
-                        cellState[i, j].state = 13;
-                        cellState[i, j].position = position;
-                      // Instantiate(tile106, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                    }
-                    else {
-                        isEdgeReady = false;
-                     // Instantiate(tile106, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                    }
-
-
-                }
-
-                //left-top corner
-                else if (edgeArray[i, j] == 8 && cellState[i, j].state == 0)
-                {
-                
-                    Vector2 position = new Vector2(-100, -100);
-                    //如果左下角还是自己，则使用两个格子的tile
-                    if (edgeArray[i - 1, j - 1] == 8 && cellState[i, j].state != 8)
-                    {
-                        if (edgeArray[i + 1, j + 1] == 7)//右上角是上边
-                        {
-                            position = cellState[i + 1, j + 1].position;
-                            position.x = position.x - 48;
-                            position.y = position.y - 55;
-                        }
-                        else if (edgeArray[i + 1, j + 1] == 8)//右上角是左上边
-                        {
-                            if (cellState[i + 1, j + 1].state == 8)//右上角是双左上边
-                            {
-                                position = cellState[i + 1, j + 1].position;
-                                position.x = position.x - 48;
-                                position.y = position.y - 48;
-                            }
-                        }
-
-                        else if (edgeArray[i + 1, j + 1] == 4)//右上角是右边
-                        {
-                            position = cellState[i + 1, j + 1].position;
-                            position.x = position.x - 48;
-                            position.y = position.y - 76;
-                        }
-                        /*
-                        else if (cellState[i, j - 1].state == 3)//下角是双边左下边
-                        {
-                            position = cellState[i, j - 1].position;
-                            position.y = position.y + 67;
-                        }
-                        else if (cellState[i, j - 1].state == 11)//下角是单边左下边
-                        {
-                            position = cellState[i, j - 1].position;
-                            position.y = position.y + 53;
-                        }
-                        else if (edgeArray[i, j-1] == 1)//下角是单双下边
-                        {
-                            position = cellState[i, j - 1].position;
-                            position.y = position.y + 48;
-                        }
-                        */
-                        else if (edgeArray[i - 1, j - 1] == 8)//左下角是自己类型
-                        {
-                            position = cellState[i - 1, j - 1].position;
-                            position.x = position.x + 48;
-                            position.y = position.y + 48;
-                        }
-                        else if (edgeArray[i, j - 1] == 5)//下角是左边
-                        {
-                            position = cellState[i, j - 1].position;
-                            position.y = position.y + 7;
-                        }
-
-                        else if (edgeArray[i - 1, j] == 7)//左边是单上边
-                        {
-                            position = cellState[i - 1, j].position;
-                            position.x = position.x + 24;
-                        }
-                        else if (edgeArray[i - 1, j] == 6)//左边是右上边
-                        {
-                            if (cellState[i - 1, j].state == 17)//左边是单右上边
-                            {
-                                position = cellState[i - 1, j].position;
-                                position.x = position.x + 24;
-                            }
-                            else if (cellState[i - 1, j].state == 6)//左边是双右上边
-                            {
-                                position = cellState[i - 1, j].position;
-                                position.x = position.x + 48;
-                            }
-                        }
-                        
-                        if (position.x > 0 && position.y > 0)
-                        {
-                            Instantiate(tile8, new Vector3(position.x, position.y, 0), transform.rotation);
-                            cellState[i, j].state = 8;
-                            cellState[i, j].position = position;
-                            cellState[i - 1, j - 1].state = 8;
-                            cellState[i - 1, j - 1].position = position;
-                        }
-                        else {
-                            isEdgeReady = false;
-                         Instantiate(tile100, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                        }
-                            
-                    }
-
-                    //其他情况贴单个斜边
-                    else if (cellState[i, j].state != 8)
-                    {
-                        if (edgeArray[i + 1, j + 1] == 7)//右上角是上边
-                        {
-                            position = cellState[i + 1, j + 1].position;
-                            position.x = position.x - 24;
-                            position.y = position.y - 30;
-                        }
-                        else if (edgeArray[i + 1, j + 1] == 4)//右上角是右边
-                        {
-                            position = cellState[i + 1, j + 1].position;
-                            position.x = position.x - 24;
-                            position.y = position.y - 52;
-                        }
-                        else if (edgeArray[i + 1, j + 1] == 8)//右上角是左上边
-                        {
-                            if (cellState[i + 1, j + 1].state == 8)//右上角是双左上边
-                            {
-                                position = cellState[i + 1, j + 1].position;
-                                position.x = position.x - 24;
-                                position.y = position.y - 24;
-                            }
-                        }
-
-                        /*
-                        else if (cellState[i, j - 1].state == 3)//下角是双边左下边
-                        {
-                            position = cellState[i, j - 1].position;
-                            position.y = position.y + 67;
-                        }
-                        else if (cellState[i, j - 1].state == 11)//下角是单边左下边
-                        {
-                            position = cellState[i, j - 1].position;
-                            position.y = position.y + 53;
-                        }
-                        else if (edgeArray[i, j - 1] == 1)//下角是单双下边
-                        {
-                            position = cellState[i, j - 1].position;
-                            position.y = position.y + 48;
-                        }
-                        */
-                        else if (edgeArray[i - 1, j - 1] == 8)//左下角是自己类型
-                        {
-                            position = cellState[i - 1, j - 1].position;
-                            position.x = position.x + 48;
-                            position.y = position.y + 48;
-                        }
-                        else if (edgeArray[i, j - 1] == 5)//下角是左边
-                        {
-                            if (edgeArray[i + 1, j + 1] == 7)//如果右上角是上边，但是还没有被画出来
-                            {
-                                continue;
-                            }
-                            else
-                            {
-                                position = cellState[i, j - 1].position;
-                                position.y = position.y + 7;
-                            }
-
-
-                        }
-                        else if (edgeArray[i - 1, j - 1] == 7)//左下角是单上边
-                        {
-                            position = cellState[i - 1, j - 1].position;
-                            position.x = position.x + 24;
-
-                        }
-
-                        /*
-                        else if (cellState[i - 1, j].state == 16)//左边是单上边
-                        {
-                            position = cellState[i - 1, j].position;
-                            position.x = position.x + 24;
-                        }
-                        */
-                        else if (edgeArray[i - 1, j]== 6)//左边是右上边
-                        {
-                            if (cellState[i - 1, j].state == 17)//左边是单右上边
-                            {
-                                position = cellState[i - 1, j].position;
-                                position.x = position.x + 24;
-                            }
-                            else if (cellState[i - 1, j].state == 6)//左边是双右上边
-                            {
-                                position = cellState[i - 1, j].position;
-                                position.x = position.x + 48;
-                            }
-                        }
-                        
-                        if (position.x > 0 && position.y > 0)
-                        {
-                            Instantiate(tile15, new Vector3(position.x, position.y, 0), transform.rotation);
-                            cellState[i, j].state = 15;
-                            cellState[i, j].position = position;
-                          // Instantiate(tile100, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-
-                        }
-                        else {
-                            isEdgeReady = false;
-                       // Instantiate(tile100, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                        }                            
-                    }
-                }
-
-                //right-top corner
-                else if (edgeArray[i, j] == 6 && cellState[i, j].state == 0)
-                {           
-                    Vector2 position = new Vector2(-100, -100);
-                    //如果左上角还是自己，则使用两个格子的tile
-                    if (edgeArray[i - 1, j + 1] == 6 && cellState[i, j].state != 6)
-                    {
-
-                        if (edgeArray[i + 1, j] == 7)//右边是单上边
-                        {
-                            position = cellState[i + 1, j].position;
-                            position.x = position.x - 48;
-                        }
-                        else if (edgeArray[i + 1, j] == 8)//右边是左上边
-                        {
-                            if (cellState[i + 1, j].state == 15)//右边是单左上边
-                            {
-                                position = cellState[i + 1, j].position;
-                                position.x = position.x - 48;
-                            }
-                            else if (cellState[i + 1, j].state == 8)//右边是双左上边
-                            {
-                                position = cellState[i + 1, j].position;
-                                position.x = position.x - 48;
-                            }
-                        }
-
-                        else if (edgeArray[i, j - 1] == 5)//下角是左边
-                        {
-                            position = cellState[i, j - 1].position;
-                            position.x = position.x - 24;
-                            position.y = position.y + 5;
-                        }
-                        else if (edgeArray[i + 1, j - 1] == 5)//右下角是左边
-                        {
-                            if (cellState[i, j - 2].state == 13)//如果下两格也是左边。
-                            {
-                                position = cellState[i + 1, j - 1].position;
-                                position.x = position.x - 24;
-                                position.y = position.y + 5;
-                            }
-                            else
-                            {
-                                position = cellState[i + 1, j - 1].position;
-                                position.x = position.x - 35;
-                            }
-
-                        }
-                        else if (edgeArray[i, j - 1] == 2)//下角是右下边
-                        {
-                            if (cellState[i, j - 1].state == 2)//下角是双边右下边
-                            {
-                                position = cellState[i, j - 1].position;
-
-                                position.y = position.y + 64;
-                            }
-                            else if (cellState[i, j - 1].state == 12)//下角是单边右下边
-                            {
-                                position = cellState[i, j - 1].position;
-                                position.x = position.x - 24;
-                                position.y = position.y + 52;
-                            }
-                        }
-                        else if (edgeArray[i, j - 1] == 1)//下角是下边
-                        {
-                            if (cellState[i, j - 1].state == 1)//下角是双下边
-                            {
-                                position = cellState[i, j - 1].position;
-                                position.y = position.y + 48;
-                            }
-                            else if (cellState[i, j - 1].state == 9)//下角是单下边
-                            {
-                                position = cellState[i, j - 1].position;
-                                position.x = position.x - 24;
-                                position.y = position.y + 48;
-                            }
-                        }
-
-                        /*
-                        else if (cellState[i, j - 1].state == 3)//下角是双边左下边
-                        {
-                            position = cellState[i, j - 1].position;
-                            position.y = position.y + 67;
-                        }
-                        else if (cellState[i, j - 1].state == 11)//下角是单边左下边
-                        {
-                            position = cellState[i, j - 1].position;
-                            position.y = position.y + 53;
-                        }
-                       
-                        
-                        */
-                        else if (edgeArray[i + 1, j - 1] == 6)//右下角是自己类型
-                        {
-                            if (cellState[i + 1, j - 1].state == 6)//右下角是自己类型
-                            {
-                                position = cellState[i + 1, j - 1].position;
-                                position.x = position.x - 48;
-                                position.y = position.y + 48;
-                            }
-                        }
-                        else if (edgeArray[i + 1, j - 1] == 8)//右下边是左上边
-                        {
-                            if (cellState[i + 1, j - 1].state == 15)//右下边是单左上边
-                            {
-                                position = cellState[i + 1, j - 1].position;
-                                position.x = position.x - 48;
-                            }
-                            else if (cellState[i + 1, j - 1].state == 8)//右下边是双左上边
-                            {
-                                position = cellState[i + 1, j - 1].position;
-                                position.x = position.x - 48;
-                            }
-                        }
-                        else if (edgeArray[i - 1, j - 1] == 7)//左下角是单上边
-                        {
-                            if (cellState[i - 1, j - 1].state == 16)//左下角是单上边
-                            {
-                                position = cellState[i - 1, j - 1].position;
-                                position.x = position.x + 24;
-                            }
-                        }
-
-
-                        else if (edgeArray[i - 1, j] == 7)//左边是单上边
-                        {
-                            position = cellState[i - 1, j].position;
-                            position.x = position.x + 24;
-                        }
-                        else if (edgeArray[i - 1, j] == 6)//左边是右上边
-                        {
-                            if (cellState[i - 1, j].state == 17)//左边是单右上边
-                            {
-                                position = cellState[i - 1, j].position;
-                                position.x = position.x + 24;
-                            }
-                            else if (cellState[i - 1, j].state == 6)//左边是双右上边
-                            {
-                                position = cellState[i - 1, j].position;
-                                position.x = position.x + 48;
-                            }
-                        }
-                        
-                        if (position.x > 0 && position.y > 0)
-                        {
-                            Instantiate(tile6, new Vector3(position.x, position.y, 0), transform.rotation);
-                            cellState[i, j].state = 6;
-                            cellState[i, j].position = position;
-                            cellState[i - 1, j + 1].state = 6;
-                            cellState[i - 1, j + 1].position = position;
-                        //  Instantiate(tile101, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                        }
-                        else
-                        {
-                            isEdgeReady = false;
-                          // Instantiate(tile101, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                        }
-
-                    }
-
-                    //其他情况贴单个斜边
-                    else if (cellState[i, j].state != 6)
-                    {
-                        if (edgeArray[i + 1, j] == 8)//右边是左上边
-                        {
-                            if (cellState[i + 1, j].state == 15)//右边是单左上边
-                            {
-                                position = cellState[i + 1, j].position;
-                                position.x = position.x - 24;
-
-                            }
-                            else if (cellState[i + 1, j].state == 8)//右边是双左上边
-                            {
-                                position = cellState[i + 1, j].position;
-                                position.x = position.x - 24;
-                            }
-                        }
-
-                        else if (edgeArray[i + 1, j] == 7)//右边是单上边
-                        {
-                            position = cellState[i + 1, j].position;
-                            position.x = position.x - 24;
-                        }
-                        else if (edgeArray[i + 1, j - 1] == 8)//右下边是左上边
-                        {
-                            if (cellState[i + 1, j - 1].state == 15)//右下边是单左上边
-                            {
-                                position = cellState[i + 1, j - 1].position;
-                                position.x = position.x - 24;
-
-                            }
-                            else if (cellState[i + 1, j - 1].state == 8)//右下边是双左上边
-                            {
-                                position = cellState[i + 1, j - 1].position;
-                                position.x = position.x - 24;
-
-                            }
-                        }
-
-                        /*
-                        else if (cellState[i - 1, j+1].state == 16)//左上边是单上边
-                        {
-                            position = cellState[i - 1, j+1].position;
-                            position.x = position.x + 24;
-                            position.y = position.y - 30;
-                        }
-                        */
-                        else if (edgeArray[i + 1, j - 1] == 2)//右下边是右下边
-                        {
-                            if (cellState[i + 1, j - 1].state == 12)//右下边是单右下边
-                            {
-                                if (edgeArray[i + 1, j] == 8)//如果右边是单左上边，但是还没画
-                                {
-                                    continue;
-                                }
-                                else
-                                {
-                                    position = cellState[i + 1, j - 1].position;
-                                    position.x = position.x + 24;
-                                    position.y = position.y - 30;
-                                }
-                            }
-                        }
-                        else if (edgeArray[i + 1, j - 1] == 6)//右下边是自己
-                        {
-                            if (cellState[i + 1, j - 1].state == 6)//右下边是自己
-                            {
-                                position = cellState[i + 1, j - 1].position;
-                                position.x = position.x - 24;
-                                position.y = position.y + 48;
-                            }
-                        }
-
-
-                        else if (edgeArray[i + 1, j - 1] == 5)//右下边是左边
-                        {
-                            if (cellState[i, j - 2].state == 13)//如果下两格也是左边
-                            {
-                                position = cellState[i + 1, j - 1].position;
-                                position.y = position.y + 5;
-                            }
-                            else
-                            {
-                                position = cellState[i + 1, j - 1].position;
-                                position.x = position.x - 9;
-                            }
-                        }
-                        else if (edgeArray[i, j - 1] == 2)//下角是右下边
-                        {
-                            if (cellState[i, j - 1].state == 2)//下角是双边右下边
-                            {
-                                position = cellState[i, j - 1].position;
-                                position.x = position.x + 24;
-                                position.y = position.y + 64;
-                            }
-                            else if (cellState[i, j - 1].state == 12)//下角是单边右下边
-                            {
-                                position = cellState[i, j - 1].position;
-                                position.y = position.y + 52;
-                            }
-                        }
-                        else if (edgeArray[i, j - 1] == 1)//下角是下边
-                        {
-                            if (cellState[i, j - 1].state == 9)//下角是单下边
-                            {
-                                position = cellState[i, j - 1].position;
-                                position.y = position.y + 48;
-                            }
-                            else if (cellState[i, j - 1].state == 1)//下角是双下边
-                            {
-                                position = cellState[i, j - 1].position;
-                                position.x = position.x + 24;
-                                position.y = position.y + 48;
-                            }
-                        }
-
-                        /*
-                        else if (cellState[i, j - 1].state == 3)//下角是双边左下边
-                        {
-                            position = cellState[i, j - 1].position;
-                            position.y = position.y + 67;
-                        }
-                        else if (cellState[i, j - 1].state == 11)//下角是单边左下边
-                        {
-                            position = cellState[i, j - 1].position;
-                            position.y = position.y + 53;
-                        }
-                       
-                        
-                       
-                        */
-                        else if (edgeArray[i - 1, j - 1] == 8)//左下角是双左上边
-                        {
-                            position = cellState[i - 1, j - 1].position;
-                            position.x = position.x + 48;
-                            position.y = position.y + 48;
-                        }
-                        else if (edgeArray[i, j - 1] == 5)//下角是左边
-                        {
-                            position = cellState[i, j - 1].position;
-                            position.y = position.y + 5;
-                        }
-                        else if (edgeArray[i, j - 1] == 4)//下角是右边
-                        {
-                            position = cellState[i, j - 1].position;
-                            position.y = position.y + 7;
-                        }
-                        else if (edgeArray[i - 1, j - 1] == 7)//左下角是单上边
-                        {
-                            position = cellState[i - 1, j - 1].position;
-                            position.x = position.x + 24;
-                        }
-
-                        else if (edgeArray[i - 1, j] == 7)//左边是单上边
-                        {
-                            position = cellState[i - 1, j].position;
-                            position.x = position.x + 24;
-                        }
-                        else if (edgeArray[i - 1, j] == 6)//左边是右上边
-                        {
-                            if (cellState[i - 1, j].state == 17)//左边是单右上边
-                            {
-                                position = cellState[i - 1, j].position;
-                                position.x = position.x + 24;
-                            }
-                            else if (cellState[i - 1, j].state == 6)//左边是双右上边
-                            {
-                                position = cellState[i - 1, j].position;
-                                position.x = position.x + 48;
-                            }
-                        }
-                        
-                        if (position.x > 0 && position.y > 0)
-                        {
-                            Instantiate(tile17, new Vector3(position.x, position.y, 0), transform.rotation);
-                            cellState[i, j].state = 17;
-                            cellState[i, j].position = position;
-                         // Instantiate(tile101, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                        }
-                        else
-                        {
-                            isEdgeReady = false;
-                        //  Instantiate(tile101, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                        }
-                    }
-                }
-
-                //top
-                else if (edgeArray[i, j] == 7 && (cellState[i, j].state == 0|| cellState[i, j].state == -1))
-
-                {
-            
-                    Vector2 position = new Vector2(-100, -100);
-                    if (cellState[i, j].state == -1)//最下面的
-                    {
-                        position = new Vector2(i * tileSize, j * tileSize);
-
-                    }
-                    else if (edgeArray[i, j - 1] == 5)//下边是左边
-                    {
-                        position = cellState[i, j - 1].position;
-                        position.y = position.y + 7;
-                    }
-                    else if (edgeArray[i + 1, j] == 7)//右边是自己//先判定右边，再判定右下边
-                    {
-                        position = cellState[i + 1, j].position;
-                        position.x = position.x - 24;
-                    }
-                    else if (edgeArray[i + 1, j - 1] == 5)//右下边是左边
-                    {
-                        position = cellState[i + 1, j - 1].position;
-                        position.y = position.y + 7;
-                    }
-                    else if (edgeArray[i + 1, j] == 8)//右边是左上边
-                    {
-                        if (cellState[i + 1, j].state == 15)//右边是单左上边
-                        {
-                            position = cellState[i + 1, j].position;
-                            position.x = position.x - 24;
-                        }
-                        else if (cellState[i + 1, j].state == 8)//右边是双左上边
-                        {
-                            position = cellState[i + 1, j].position;
-                            position.x = position.x - 24;
-
-                        }
-                    }
-                    else if (edgeArray[i + 1, j - 1] == 8)//右下边是左上边
-                    {
-                        if (cellState[i + 1, j - 1].state == 15)//右下边是单左上边
-                        {
-                            position = cellState[i + 1, j - 1].position;
-                            position.x = position.x - 24;
-                        }
-                        else if (cellState[i + 1, j - 1].state == 8)//右下边是双左上边
-                        {
-                            position = cellState[i + 1, j - 1].position;
-                            position.x = position.x - 24;
-                            //position.y = position.y + 58;
-                        }
-                    }
-                    else if (edgeArray[i + 1, j - 1] == 6)//右下边是右上边
-                    {
-                        if (cellState[i + 1, j - 1].state == 17)//右下边是单右上边
-                        {
-                            position = cellState[i + 1, j - 1].position;
-                            position.x = position.x - 24;
-                            position.y = position.y + 30;
-                        }
-                        else if (cellState[i + 1, j - 1].state == 6)//右下边是双右上边
-                        {
-                            position = cellState[i + 1, j - 1].position;
-                            position.x = position.x - 24;
-                            position.y = position.y + 51;
-                        }
-                    }
-                    else if (edgeArray[i, j - 1] == 2)//下边是右下边
-                    {
-                        if (cellState[i, j - 1].state == 12)//下边是单右下边
-                        {
-                            position = cellState[i, j - 1].position;
-
-                            position.y = position.y + 55;
-                        }
-                        else if (cellState[i, j - 1].state == 2)//下边是双右下边
-                        {
-                            position = cellState[i, j - 1].position;
-                            position.x = position.x + 24;
-                            position.y = position.y + 66;
-                        }
-                    }
-                    
-                    else if (edgeArray[i, j - 1] == 1)//下边是下底边
-                    {
-                        if (edgeArray[i + 1, j] == 8)//如果右边是单上左边，但是还没有被画出来
-                        {
-                            continue;
-                        }
-                        else
-                        {
-                            if (cellState[i, j - 1].state == 1)
-                            {//双下底边
-                                position = cellState[i, j - 1].position;
-                                position.x = position.x + 24;
-                                position.y = position.y + 51;
-                            }
-                            else if (cellState[i, j - 1].state == 9)//单下底边
-                            {
-                                position = cellState[i, j - 1].position;
-                                position.y = position.y + 51;
-                            }
-
-                        }
-
-
-                    }
-                    
-                    if (position.x > 0 && position.y > 0)
-                    {
-                        Instantiate(tile16, new Vector3(position.x, position.y, 0), transform.rotation);
-                        cellState[i, j].state = 16;
-                        cellState[i, j].position = position;
-                     // Instantiate(tile102, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                    }
-                    else {
-                        isEdgeReady = false;
-                     // Instantiate(tile102, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                    }
-     
-
-                }
-                
-            }
-        }
-
-      
-    }
-
     void GenerateGrass()
     {
         for (int i = 0; i < levelWidth; i++) {
@@ -3687,9 +1505,11 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
         {
             for (int j = 0; j < levelHeight; j++)
             {
-                if ((landArray[i, j] == 1 || landArray[i, j] == 0)&&
-                    (cellState[i,j].state==18||(cellState[i, j].state >= 36&& cellState[i, j].state <= 45)))
+                if ((landArray[i, j] == 1 || landArray[i, j] == 0) &&
+                    (cellState[i, j].state == 18 || (cellState[i, j].state >= 36 && cellState[i, j].state <= 45)))
                     landArray[i, j] = 1;
+                else
+                    landArray[i, j] = -1;
             }
         }
     }
@@ -3855,64 +1675,99 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
     }
     void GenerateRock()
     {
-        //initialize
         for (int i = 0; i < levelWidth; i++)
         {
             for (int j = 0; j < levelHeight; j++)
             {
-                if (cellState[i, j].state == 200 || cellState[i, j].state == 201)
+                if ((landArray[i, j] == 1 || landArray[i, j] == 0) &&
+                    ((cellState[i, j].state < 46 && cellState[i, j].state > 35) || cellState[i, j].state == 18))
                 {
-                    cellState[i, j].state = 0;
+                    landArray[i, j] = 0;
+                    newLandArray[i, j] = 0;
                 }
 
+                else
+                {
+                    landArray[i, j] = -1;
+                    newLandArray[i, j] = -1;
+                }
+                    
             }
         }
-
-
-        // CA(0.5f, 1, 8, 1, true, 0);
-        CA(0.6f, 1, 8, 1, false, 200);
+      
+        CA(0.5f, 1, 8, 1, false, 0);     
     }
 
     void DrawRock()
     {
-        GameObject tile34 = gameManager.GetTile2("Tile_34");
-        GameObject tile35 = gameManager.GetTile2("Tile_35");
-        GameObject tile36 = gameManager.GetTile2("Tile_36");
-        GameObject tile37 = gameManager.GetTile2("Tile_37");
-        GameObject tile38 = gameManager.GetTile2("Tile_38");
+        GameObject tile67 = gameManager.GetTile2("Tile_67");
+        GameObject tile68 = gameManager.GetTile2("Tile_68");
+        GameObject tile69 = gameManager.GetTile2("Tile_69");
+        GameObject tile70 = gameManager.GetTile2("Tile_70");
+        GameObject tile71 = gameManager.GetTile2("Tile_71");
+        GameObject tile72 = gameManager.GetTile2("Tile_72");
+        GameObject tile73 = gameManager.GetTile2("Tile_73");
+        GameObject tile74 = gameManager.GetTile2("Tile_74");
+        GameObject tile75 = gameManager.GetTile2("Tile_75");
+        GameObject tile76 = gameManager.GetTile2("Tile_76");
 
-        for (int i = 0; i < levelWidth; i++)
+        for (int i = 5; i < levelWidth - 5; i++)
         {
-            for (int j = levelHeight-1; j > -1; j--)
+            for (int j = 5; j < levelHeight - 5; j++)
             {
-                if (cellState[i, j].state == 201)
+                if (landArray[i,j]==1)
                 {
 
                     float tempValue = Random.value;
-                    if (tempValue < 0.20)
+                    if (tempValue < 0.1)
                     {
-                        Instantiate(tile34, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
-                        cellState[i, j].state = 34;//number in tileset folder
+                        Instantiate(tile67, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 67;
+                    }
+                    else if (tempValue < 0.2)
+                    {
+                        Instantiate(tile68, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 68;//number in tileset folder
+                    }
+                    else if (tempValue < 0.3)
+                    {
+                        Instantiate(tile69, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 69;//number in tileset folder
                     }
                     else if (tempValue < 0.4)
                     {
-                        Instantiate(tile35, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
-                        cellState[i, j].state = 35;//number in tileset folder
+                        Instantiate(tile70, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 70;//number in tileset folder
+                    }
+                    else if (tempValue < 0.5)
+                    {
+                        Instantiate(tile71, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 71;//number in tileset folder
                     }
                     else if (tempValue < 0.6)
                     {
-                        Instantiate(tile36, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
-                        cellState[i, j].state = 36;//number in tileset folder
+                        Instantiate(tile72, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 72;
+                    }
+                    else if (tempValue < 0.7)
+                    {
+                        Instantiate(tile73, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 73;//number in tileset folder
                     }
                     else if (tempValue < 0.8)
                     {
-                        Instantiate(tile37, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
-                        cellState[i, j].state = 37;//number in tileset folder
+                        Instantiate(tile74, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 74;//number in tileset folder
                     }
-                    else if (tempValue < 1)
+                    else if (tempValue < 0.9)
                     {
-                        Instantiate(tile38, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
-                        cellState[i, j].state = 38;//number in tileset folder
+                        Instantiate(tile75, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 75;//number in tileset folder
+                    }
+                    else
+                    {
+                        Instantiate(tile76, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 76;//number in tileset folder
                     }
                 }
             }
@@ -3970,22 +1825,10 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
 
     void GenerateLoot()
     {
-        //initialize
-        for (int i = 0; i < levelWidth; i++)
-        {
-            for (int j = 0; j < levelHeight; j++)
-            {
-                if (cellState[i, j].state == 200 || cellState[i, j].state == 201)
-                {
-                    cellState[i, j].state = 0;
-                }
-
-            }
-        }
 
 
         // CA(0.5f, 1, 8, 1, true, 0);
-        CA(0.6f, 1, 8, 1, false, 200);
+        CA(0.6f, 1, 8, 1, false, 0);
        
     }
 
@@ -4007,46 +1850,6 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
         }
     }
 
-    void AddEntrance() {
-        GameObject tile44 = gameManager.GetTile2("Tile_44");
-        GameObject tile45 = gameManager.GetTile2("Tile_45");
-        bool hasDoor = false;
-        bool isClose = false;
-        for (int j = levelHeight - 1; j >= 0; j--)
-        {
-            for (int i = 0; i < levelWidth; i++)
-            {
-                if (cellState[i, j].state == 1 && !hasDoor)
-                {
-                    isClose = false;
-                    for (int m = -3; m < 4; m++)
-                    {
-                        for (int n = -3; n < 0; n++)
-                        {
-                            if (cellState[i + m, j + n].state > 0 && cellState[i + m, j + n].state < 100)
-                                isClose = true;
-                        }
-                    }
-                    if (!isClose)
-                    {
-                        float tempValue = Random.value;
-                        if (tempValue < 0.5)
-                        {
-                            Instantiate(tile44, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
-                            cellState[i, j].state = 44;
-                        }
-                        else if (tempValue < 1)
-                        {
-                            Instantiate(tile45, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
-                            cellState[i, j].state = 45;
-                        }
-                        entrancePosition = new Vector2(i, j);
-                        hasDoor = true;
-                    }
-                }
-            }
-        }                  
-    }
     void GenerateEnemy()
     {
         /*
@@ -4193,10 +1996,51 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
 
     void DrawPlayer()
     {
+        for (int i = 0; i < levelWidth; i++)
+        {
+            for (int j = 0; j < levelHeight; j++)
+            {
+                if ((landArray[i, j] == 1 || landArray[i, j] == 0) &&
+                    ((cellState[i, j].state <= 45 && cellState[i, j].state >= 18)))
+                {
+                    landArray[i, j] = 0;
+                }
+
+                else
+                {
+                    landArray[i, j] = -1;
+                }
+
+            }
+        }
+
         GameObject player1 = gameManager.Player;
-        Vector2 position = cellState[(int)entrancePosition.x, (int)entrancePosition.y - 1].position;
-        player1 = Instantiate(player1, new Vector3(position.x, position.y, 0), transform.rotation);
-        cellState[(int)entrancePosition.x, (int)entrancePosition.y - 1].state=300;
+        Vector2 position = new Vector2(Random.Range(5,levelWidth-5),Random.Range(5,levelHeight-5));
+        bool isEmptySpace = false;
+        while (!isEmptySpace)
+        {
+            for (int m = -1; m < 2; m++)
+            {
+                for (int n = -1; n < 2; n++)
+                {
+                    if (landArray[(int)position.x + m, (int)position.y + n] == 0)
+                    {
+                        isEmptySpace = true;
+                        position.x = position.x + m;
+                        position.y = position.y + n;
+                        break;
+                    }
+
+                }
+            }
+            if (!isEmptySpace) {
+                position = new Vector2(Random.Range(5, levelWidth - 5), Random.Range(5, levelHeight - 5));
+            }
+        }
+
+
+        player1 = Instantiate(player1, new Vector3(position.x*tileSize, position.y*tileSize, 0), transform.rotation);
+        cellState[(int)position.x, (int)position.y].state=300;
         player1.transform.localScale = new Vector3(15.0f, 15.0f, 15.0f);
         player1.GetComponent<Movement_New>().WalkSpeed = 150;
         player1.GetComponent<Shoot_New>().BulletSizeUp = 15;
@@ -4204,6 +2048,7 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
         player1.GetComponentInChildren<PickUp_New>().ItemSizeUp = 15;
         player = player1.transform;
         LoadPlayerData(player1);
+        
     }
 
     void LoadPlayerData(GameObject player)

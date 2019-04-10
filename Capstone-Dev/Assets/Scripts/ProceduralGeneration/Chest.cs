@@ -16,7 +16,7 @@ public class Chest : MonoBehaviour {
     void Start () {
         health = 10;
         currentHealth = 10;
-        if (sceneName == "2_1"|| sceneName == "2_2")
+        if (sceneName == "2_1"|| sceneName == "2_2"|| sceneName == "3_1"|| sceneName == "3_2")
             healthBar.GetComponent<Image>().fillOrigin = (int)Image.OriginHorizontal.Left;
         probability = gameObject.GetComponent<DropProbability>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -30,7 +30,7 @@ public class Chest : MonoBehaviour {
             string tempName = probability.DetermineDrop();
             GameObject itemObj = gameManager.GetItemObj(tempName);
             itemObj = Instantiate(gameManager.GetItemObj(tempName), transform.position, Quaternion.Euler(0, 0, 0));
-            if (sceneName == "2_1"|| sceneName == "2_2") {
+            if (sceneName == "2_1"|| sceneName == "2_2" || sceneName == "3_1" || sceneName == "3_2") {
                 if (itemObj.transform.localScale.x == 2) {//is gun
                     itemObj.transform.localScale = new Vector3(30, 30, 30);
                 }
@@ -67,7 +67,7 @@ public class Chest : MonoBehaviour {
             itemObj.transform.parent = worldCanvas;
             Destroy(gameObject);
         }
-        if(sceneName=="2_1"|| sceneName == "2_2")
+        if(sceneName=="2_1"|| sceneName == "2_2" || sceneName == "3_1" || sceneName == "3_2")
             healthBar.fillAmount = currentHealth / health;
     }
 
