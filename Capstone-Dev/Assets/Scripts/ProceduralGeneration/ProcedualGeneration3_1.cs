@@ -71,11 +71,22 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
         landRatio = 0.5f;
         treeRatio = 0.5f;
         iteration = 8;
-
+        GameObject tile36 = gameManager.GetTile2("Tile_36");
         //generate up to 2 level platforms
         Dig();
         DrawRoute();
-        
+
+        for (int i = 1; i < levelWidth; i++) {
+            for (int j = 1; j < levelHeight; j++) {
+                if (cellState[i, j].state >= 19 && cellState[i, j].state <= 35) {
+                    //Instantiate(tile36, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation); ;
+                }
+                else {
+                    Instantiate(tile36, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                }
+            }
+        }
+        /*
         GenerateWater();
         SmoothWater();
         Draw();     
@@ -83,6 +94,9 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
 
         GenerateGrass();
         DrawGrass();
+        GenerateHole();
+        DrawHole();
+        */
         //ChangeEdge();
         //DrawEdge();
 
@@ -3655,7 +3669,178 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
             }
         }
     }
+    void GenerateHole()
+    {
+        for (int i = 0; i < levelWidth; i++)
+        {
+            for (int j = 0; j < levelHeight; j++)
+            {
+                if ((landArray[i, j] == 1 || landArray[i, j] == 0)&&
+                    (cellState[i,j].state==18||(cellState[i, j].state >= 36&& cellState[i, j].state <= 45)))
+                    landArray[i, j] = 1;
+            }
+        }
+    }
 
+    void DrawHole()
+    {
+        GameObject tile46 = gameManager.GetTile2("Tile_46");
+        GameObject tile47 = gameManager.GetTile2("Tile_47");
+        GameObject tile48 = gameManager.GetTile2("Tile_48");
+        GameObject tile49 = gameManager.GetTile2("Tile_49");
+        GameObject tile50 = gameManager.GetTile2("Tile_50");
+        GameObject tile51 = gameManager.GetTile2("Tile_51");
+        GameObject tile52 = gameManager.GetTile2("Tile_52");
+        GameObject tile53 = gameManager.GetTile2("Tile_53");
+        GameObject tile54 = gameManager.GetTile2("Tile_54");
+        GameObject tile55 = gameManager.GetTile2("Tile_55");
+        GameObject tile56 = gameManager.GetTile2("Tile_56");
+        GameObject tile57 = gameManager.GetTile2("Tile_57");
+        GameObject tile58 = gameManager.GetTile2("Tile_58");
+        GameObject tile59 = gameManager.GetTile2("Tile_59");
+        GameObject tile60 = gameManager.GetTile2("Tile_60");
+        GameObject tile61 = gameManager.GetTile2("Tile_61");
+        GameObject tile62 = gameManager.GetTile2("Tile_62");
+        GameObject tile63 = gameManager.GetTile2("Tile_63");
+        GameObject tile64 = gameManager.GetTile2("Tile_64");
+        GameObject tile65 = gameManager.GetTile2("Tile_65");
+        GameObject tile66 = gameManager.GetTile2("Tile_66");
+
+        for (int i = 5; i < levelWidth - 5; i++)
+        {
+            for (int j = 5; j < levelHeight - 5; j++)
+            {
+                bool isAble = false;
+                if (landArray[i, j] == 1)
+                {
+                    for (int m = -1; m < 2; m++) {
+                        for (int n = -1; n < 2; n++) {
+                            if (cellState[i + m, j + n].state>=19 && cellState[i + m, j + n].state <= 35) {
+                                isAble = true;
+                            }
+                        }
+                    }
+                    if (isAble)
+                    {
+                        float tempValue = Random.value;
+                        if (tempValue < 0.1)//可以生成
+                        {
+                            float tempStyle = Random.value;
+                            if (tempStyle < 0.05)
+                            {
+                                Instantiate(tile46, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                                cellState[i, j].state = 46;
+                            }
+                            else if (tempStyle < 0.1)
+                            {
+                                Instantiate(tile47, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                                cellState[i, j].state = 47;
+                            }
+                            else if (tempStyle < 0.15)
+                            {
+                                Instantiate(tile48, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                                cellState[i, j].state = 48;
+                            }
+                            else if (tempStyle < 0.2)
+                            {
+                                Instantiate(tile49, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                                cellState[i, j].state = 49;
+                            }
+                            else if (tempStyle < 0.25)
+                            {
+                                Instantiate(tile50, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                                cellState[i, j].state = 50;
+                            }
+                            else if (tempStyle < 0.3)
+                            {
+                                Instantiate(tile51, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                                cellState[i, j].state = 51;
+                            }
+                            else if (tempStyle < 0.35)
+                            {
+                                Instantiate(tile52, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                                cellState[i, j].state = 52;
+                            }
+                            else if (tempStyle < 0.4)
+                            {
+                                Instantiate(tile53, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                                cellState[i, j].state = 53;
+                            }
+                            else if (tempStyle < 0.45)
+                            {
+                                Instantiate(tile54, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                                cellState[i, j].state = 54;
+                            }
+                            else if (tempStyle < 0.5)
+                            {
+                                Instantiate(tile55, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                                cellState[i, j].state = 55;
+                            }
+                            else if (tempStyle < 0.55)
+                            {
+                                Instantiate(tile56, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                                cellState[i, j].state = 56;
+                            }
+                            else if (tempStyle < 0.6)
+                            {
+                                Instantiate(tile57, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                                cellState[i, j].state = 57;
+                            }
+                            else if (tempStyle < 0.65)
+                            {
+                                Instantiate(tile58, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                                cellState[i, j].state = 58;
+                            }
+                            else if (tempStyle < 0.7)
+                            {
+                                Instantiate(tile59, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                                cellState[i, j].state = 59;
+                            }
+                            else if (tempStyle < 0.75)
+                            {
+                                Instantiate(tile60, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                                cellState[i, j].state = 60;
+                            }
+                            else if (tempStyle < 0.8)
+                            {
+                                Instantiate(tile61, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                                cellState[i, j].state = 61;
+                            }
+                            else if (tempStyle < 0.85)
+                            {
+                                Instantiate(tile62, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                                cellState[i, j].state = 62;
+                            }
+                            else if (tempStyle < 0.9)
+                            {
+                                Instantiate(tile63, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                                cellState[i, j].state = 63;
+                            }
+                            else if (tempStyle < 0.95)
+                            {
+                                Instantiate(tile64, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                                cellState[i, j].state = 64;
+                            }
+                            else if (tempStyle < 1)
+                            {
+                                Instantiate(tile65, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                                cellState[i, j].state = 65;
+                            }
+                            else
+                            {
+                                Instantiate(tile66, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                                cellState[i, j].state = 66;
+                            }
+
+                        }
+                    }
+                    //Debug.Log("a");
+                    
+                    
+                }
+            }
+        }
+    }
     void GenerateRock()
     {
         //initialize
