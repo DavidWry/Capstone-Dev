@@ -31,7 +31,7 @@ public class Hook : MonoBehaviour {
         {
             line.SetPosition(0, transform.position);
             line.SetPosition(1, Player.transform.position);
-            if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2")
+            if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "3_1" || NextScene.nowName == "3_2")
             {
                 RBody.velocity = transform.right * speed * 20;
                 line.widthMultiplier = 15;

@@ -19,7 +19,7 @@ public class SpearProjectile : MonoBehaviour
     void Start()
     {
         scene = SceneManager.GetActiveScene();
-        if (scene.name == "2_1"|| scene.name == "2_2")
+        if (scene.name == "2_1"|| scene.name == "2_2" || scene.name == "3_1" || scene.name == "3_2")
         {
             speed = 60.5f;
             particleffect.transform.localScale = new Vector3(2.6f,2.6f,2.6f);

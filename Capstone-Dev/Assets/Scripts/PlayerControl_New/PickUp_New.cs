@@ -239,7 +239,7 @@ public class PickUp_New : MonoBehaviour
                     string tempName = player.thirdWeapon.WeaponName.ToString();
                     GameObject itemObj = Instantiate(gameManager.GetItemObj(tempName), transform.position, Quaternion.Euler(0, 0, 0));
                     itemObj.transform.localScale = WeaponSizeUp * itemObj.transform.localScale;
-                    if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2")
+                    if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "3_1" || NextScene.nowName == "3_2")
                         itemObj.transform.localScale = new Vector3(1, 1, 1) * ItemSizeUp * 1.5f;
                     var worldCanvas = GameObject.Find("worldCanvas").transform;
                     itemObj.transform.parent = worldCanvas;
@@ -261,7 +261,7 @@ public class PickUp_New : MonoBehaviour
                     string tempName = player.rightWeapon.WeaponName.ToString();
                     GameObject itemObj = Instantiate(gameManager.GetItemObj(tempName), transform.position, Quaternion.Euler(0, 0, 0));
                     itemObj.transform.localScale = WeaponSizeUp * itemObj.transform.localScale;
-                    if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2")
+                    if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "3_1" || NextScene.nowName == "3_2")
                         itemObj.transform.localScale = new Vector3(1, 1, 1) * ItemSizeUp * 1.5f;
                     var worldCanvas = GameObject.Find("worldCanvas").transform;
                     itemObj.transform.parent = worldCanvas;
