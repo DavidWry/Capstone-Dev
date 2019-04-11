@@ -121,7 +121,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1903549743834008}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 183.52599, y: 21.05837, z: 0}
+  m_LocalPosition: {x: -38.5, y: -64.6, z: 0}
   m_LocalScale: {x: 0.23, y: 0.23, z: 1}
   m_Children:
   - {fileID: 4674604928113040}
@@ -221,9 +221,32 @@ MonoBehaviour:
     DamageType: 0
     AmmoType: 0
     WeaponName: 0
-    itemObj: {fileID: 1141863764639654, guid: e71aca9953d2e5d4380aedac964a59d5, type: 2}
+    itemObj: {fileID: 1876295848165562, guid: fa456d51518b62b45aa38fb26fe23ad2, type: 2}
+    Probability: 100
+  ItemListFor2_1:
+  - Name: PurpleCrystal
+    ItemName: 7
+    ItemIcon: {fileID: 0}
+    GiveWeapon: 0
+    Usable: 0
+    DamageType: 0
+    AmmoType: 0
+    WeaponName: 0
+    itemObj: {fileID: 1876295848165562, guid: fa456d51518b62b45aa38fb26fe23ad2, type: 2}
     Probability: 90
-  ItemListFor2_1: []
+  ItemListFor2_2:
+  - Name: PurpleCrystal
+    ItemName: 7
+    ItemIcon: {fileID: 0}
+    GiveWeapon: 0
+    Usable: 0
+    DamageType: 0
+    AmmoType: 0
+    WeaponName: 0
+    itemObj: {fileID: 1876295848165562, guid: fa456d51518b62b45aa38fb26fe23ad2, type: 2}
+    Probability: 90
+  ItemListFor3_1: []
+  ItemListFor3_2: []
   sceneName: 
 --- !u!114 &114514244492712150
 MonoBehaviour:

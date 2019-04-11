@@ -53,6 +53,8 @@ public class EnemySlider : MonoBehaviour
     public GameObject peffect;
 
     private float shakeTime;
+
+    private bool producePeffect;
  
     // public AnimationClip death;
 
@@ -67,7 +69,7 @@ public class EnemySlider : MonoBehaviour
         {
             transform.localScale = new Vector3(6f, 6f, 1f);
 
-            dashSpeed = 80f;
+            dashSpeed = 100f;
             rangeForAttack = 100f;
             capsule.radius = 1.84f;
             capsule.height = 5.51f;
@@ -112,8 +114,9 @@ public class EnemySlider : MonoBehaviour
 
         cc = GetComponent<CapsuleCollider>();
 
-        shakeTime = 0.3f;
- 
+        shakeTime = 0.25f;
+
+        producePeffect = false;
 
     }
 
@@ -158,7 +161,12 @@ public class EnemySlider : MonoBehaviour
 
 
                     rb.velocity = dir;
-                   
+
+                   // Sliding effect
+                   // producePeffect = true;
+
+                    Instantiate(peffect, transform.position, Quaternion.identity);
+
                     canDash = false;
                    
                     hasReached = false;
@@ -167,12 +175,20 @@ public class EnemySlider : MonoBehaviour
 
                 }
 
+                /*
+                if (producePeffect == true)
+                {
+                    Instantiate(peffect, transform.position, Quaternion.identity);
+                }
+                */
+
                 //has the enemy reached the target position
                 if (Vector2.Distance(transform.position, targetPos) <= reachedDistance)
                 {
                     hasReached = true;
-                    // shouldDestroyDash = true;
-                    // Destroy(tempSlide, 0.45f);
+                 // producePeffect = false;
+                 // shouldDestroyDash = true;
+                 // Destroy(tempSlide, 0.45f);
                 }
                
                 //Destroy the dash indicator
@@ -184,13 +200,13 @@ public class EnemySlider : MonoBehaviour
                 if (hasReached == true)
                 {
                    
-                  //  canDash = false;
+                 // canDash = false;
                     anim.SetBool("isRunning", false);
                     rb.velocity = Vector3.zero;
                     dashTime -= Time.deltaTime;
-                    
-                   
-                  //  shouldDestroyDash = true;
+                 // producePeffect = false;
+
+                 // shouldDestroyDash = true;
 
                 }
 
@@ -254,7 +270,7 @@ public class EnemySlider : MonoBehaviour
                 {
                     GameObject.FindGameObjectWithTag("MainCamera").GetComponent<scshake>().time = shakeTime;
                 }
-                Instantiate(peffect, other.transform.position, Quaternion.identity);
+                //Instantiate(peffect, other.transform.position, Quaternion.identity);
                 rb.velocity = Vector3.zero;
                 anim.SetBool("isRunning", false);
                 other.gameObject.GetComponent<Player_New>().TakeDamage(damage);

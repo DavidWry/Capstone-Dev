@@ -48,6 +48,14 @@ public class Lazer : Projectile {
                             {
                                 hit.transform.gameObject.GetComponent<NewEnemyJumper>().TakeDamage(Damage/3);
                             }
+                            else if (hit.transform.gameObject.GetComponent<EnemySlider>())
+                            {
+                                hit.transform.gameObject.GetComponent<EnemySlider>().TakeDamage(Damage/3);
+                            }
+                            else if (hit.transform.gameObject.GetComponent<MiniBoss>())
+                            {
+                                hit.transform.gameObject.GetComponent<MiniBoss>().TakeDamage(Damage);
+                            }
                             timeCounter = 0;
                         }
                     }

@@ -121,7 +121,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1444116714279436}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 21.8, y: -20.8, z: 0}
+  m_LocalPosition: {x: -31.35755, y: -73.22285, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children:
   - {fileID: 4582538533756592}
@@ -195,8 +195,31 @@ MonoBehaviour:
     AmmoType: 0
     WeaponName: 0
     itemObj: {fileID: 1876295848165562, guid: 4cb0c877680f8dc429745e95ede68fb5, type: 2}
-    Probability: 100
-  ItemListFor2_1: []
+    Probability: 90
+  ItemListFor2_1:
+  - Name: RedCrystal
+    ItemName: 8
+    ItemIcon: {fileID: 0}
+    GiveWeapon: 0
+    Usable: 0
+    DamageType: 0
+    AmmoType: 0
+    WeaponName: 0
+    itemObj: {fileID: 1876295848165562, guid: 4cb0c877680f8dc429745e95ede68fb5, type: 2}
+    Probability: 90
+  ItemListFor2_2:
+  - Name: RedCrystal
+    ItemName: 8
+    ItemIcon: {fileID: 0}
+    GiveWeapon: 0
+    Usable: 0
+    DamageType: 0
+    AmmoType: 0
+    WeaponName: 0
+    itemObj: {fileID: 1876295848165562, guid: 4cb0c877680f8dc429745e95ede68fb5, type: 2}
+    Probability: 90
+  ItemListFor3_1: []
+  ItemListFor3_2: []
   sceneName: 
 --- !u!114 &114412459874061828
 MonoBehaviour:
