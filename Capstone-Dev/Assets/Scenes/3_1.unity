@@ -513,6 +513,31 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 222822858}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!1 &818420101 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1398515908860020, guid: 7bee7bc086dd45445a73be91a1ea8485,
+    type: 2}
+  m_PrefabInternal: {fileID: 934505269}
+--- !u!114 &818420102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 818420101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f90cc25c4abf540b806fce20fb7904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 818420104}
+  offx: 0
+  offy: 0
+  time: 0
+--- !u!20 &818420104 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 20916295820276400, guid: 7bee7bc086dd45445a73be91a1ea8485,
+    type: 2}
+  m_PrefabInternal: {fileID: 934505269}
 --- !u!1001 &846748183
 Prefab:
   m_ObjectHideFlags: 0

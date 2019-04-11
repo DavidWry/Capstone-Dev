@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4111891256167624}
   - component: {fileID: 212627275908898606}
-  - component: {fileID: 136246372987899728}
   m_Layer: 12
   m_Name: Tile_36
   m_TagString: Untagged
@@ -41,19 +40,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &136246372987899728
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1008682546140488}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.32320976
-  m_Height: 0.90350914
-  m_Direction: 0
-  m_Center: {x: 0.24, y: 0.40849876, z: 0.10293388}
 --- !u!212 &212627275908898606
 SpriteRenderer:
   m_ObjectHideFlags: 1
