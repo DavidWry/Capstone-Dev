@@ -7,7 +7,7 @@
   <AC2>
     <Name>Ready To Start</Name>
     <Completed>false</Completed>
-    <Count>false</Count>
+    <Count>true</Count>
   </AC2>
   <AC3>
     <Name>Melting</Name>
@@ -21,7 +21,7 @@
   <AC5>
     <Name>Clean Sweep</Name>
     <Completed>false</Completed>
-    <Remaining>0</Remaining>
+    <Remaining>42912</Remaining>
   </AC5>
   <AC6>
     <Name>BEAT IT</Name>
