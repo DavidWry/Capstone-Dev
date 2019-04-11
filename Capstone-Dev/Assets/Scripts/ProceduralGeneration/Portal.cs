@@ -22,7 +22,7 @@ public class Portal : MonoBehaviour {
 	void Update () {
         if (isPlayerNearby)
         {
-            print("dfkjshdss");
+          
             if (Input.GetKeyDown((KeyCode.Joystick1Button1)))//button B in joystick
             {
                 SaveSystem.SavePlayer(player.GetComponent<Player_New>());
@@ -70,7 +70,7 @@ public class Portal : MonoBehaviour {
         if (collision.gameObject.tag == "Player")
         {
             isPlayerNearby = true;
-            print("asdjilsfd");
+         
         }
 
     }

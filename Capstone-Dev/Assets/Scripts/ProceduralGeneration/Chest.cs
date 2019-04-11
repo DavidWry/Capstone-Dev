@@ -54,7 +54,7 @@ public class Chest : MonoBehaviour {
             }
             else if(SceneManager.GetActiveScene().name == "2_2"){
                 gameManager.GetComponent<ProcedualGeneration2_2>().lootCount--;
-                if (gameManager.GetComponent<ProcedualGeneration2_1>().lootCount == 0)
+                if (gameManager.GetComponent<ProcedualGeneration2_2>().lootCount == 0)
                 {
                     string achievementFilePath = Application.dataPath + "/Resources/Achievements.xml";
                     achievementDoc.Load(achievementFilePath);

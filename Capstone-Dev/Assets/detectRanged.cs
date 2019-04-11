@@ -139,13 +139,23 @@ namespace Assets.HeroEditor.Common.CharacterScripts
                     if (!directionFlag)
                     {
                         var scale = transform.localScale;
-                        scale.x = Mathf.Abs(scale.x);
-                        if (player.transform.position.x < transform.position.x)
-                            scale.x *= -1;
+                            var childscale = transform.Find("HCanvas").localScale;
+                            
+                            scale.x = Mathf.Abs(scale.x);
+                            if (player.transform.position.x < transform.position.x)
+                            {
+                                scale.x = -15;
+                                childscale.x =-0.0208f;
+                            }
+                            else
+                            {
+                                scale.x = 15;
+                                childscale.x = 0.0208f;
+                            }
                         transform.localScale = scale;
-
-                        //更改怪物朝向
-                    }
+                            transform.Find("HCanvas").localScale=childscale;
+                            //更改怪物朝向
+                        }
                     Vector3 unitvec = (player.transform.position - gameObject.transform.position).normalized;//玩家到怪之间的单位向量
                     if (Vector3.Distance(player.transform.position, this.gameObject.transform.position) > minDistance)
                     {

@@ -343,6 +343,89 @@ MonoBehaviour:
     WeaponName: 0
     itemObj: {fileID: 1324665960220418, guid: 9b28b6aa9d2b34943b951286f9b4aee2, type: 2}
     Probability: 500
+  ItemListFor2_2:
+  - Name: Pistol
+    ItemName: 1
+    ItemIcon: {fileID: 21300000, guid: 379676913003f4b4fb67ca9e26fbeb97, type: 3}
+    GiveWeapon: 1
+    Usable: 1
+    DamageType: 0
+    AmmoType: 1
+    WeaponName: 0
+    itemObj: {fileID: 1031040304690994, guid: 06723e9a6ee9b7044b2613638ac2d4f8, type: 2}
+    Probability: 100
+  - Name: Lazer
+    ItemName: 2
+    ItemIcon: {fileID: 21300010, guid: 379676913003f4b4fb67ca9e26fbeb97, type: 3}
+    GiveWeapon: 1
+    Usable: 1
+    DamageType: 0
+    AmmoType: 2
+    WeaponName: 6
+    itemObj: {fileID: 1876295848165562, guid: dbbd9055a5163f84ab3ff204a6c82c2f, type: 2}
+    Probability: 100
+  - Name: 
+    ItemName: 0
+    ItemIcon: {fileID: 0}
+    GiveWeapon: 0
+    Usable: 0
+    DamageType: 0
+    AmmoType: 0
+    WeaponName: 0
+    itemObj: {fileID: 0}
+    Probability: 100
+  - Name: 
+    ItemName: 0
+    ItemIcon: {fileID: 0}
+    GiveWeapon: 0
+    Usable: 0
+    DamageType: 0
+    AmmoType: 0
+    WeaponName: 0
+    itemObj: {fileID: 0}
+    Probability: 100
+  - Name: 
+    ItemName: 0
+    ItemIcon: {fileID: 0}
+    GiveWeapon: 0
+    Usable: 0
+    DamageType: 0
+    AmmoType: 0
+    WeaponName: 0
+    itemObj: {fileID: 0}
+    Probability: 0
+  - Name: 
+    ItemName: 0
+    ItemIcon: {fileID: 0}
+    GiveWeapon: 0
+    Usable: 0
+    DamageType: 0
+    AmmoType: 0
+    WeaponName: 0
+    itemObj: {fileID: 0}
+    Probability: 0
+  - Name: 
+    ItemName: 0
+    ItemIcon: {fileID: 0}
+    GiveWeapon: 0
+    Usable: 0
+    DamageType: 0
+    AmmoType: 0
+    WeaponName: 0
+    itemObj: {fileID: 0}
+    Probability: 0
+  - Name: 
+    ItemName: 0
+    ItemIcon: {fileID: 0}
+    GiveWeapon: 0
+    Usable: 0
+    DamageType: 0
+    AmmoType: 0
+    WeaponName: 0
+    itemObj: {fileID: 0}
+    Probability: 0
+  ItemListFor3_1: []
+  ItemListFor3_2: []
   sceneName: 2_1
 --- !u!114 &114908523893588844
 MonoBehaviour:

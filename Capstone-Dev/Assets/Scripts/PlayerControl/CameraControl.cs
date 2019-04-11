@@ -20,7 +20,7 @@ public class CameraControl : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
        
         if (!playerObject)
             playerObject = GameObject.FindGameObjectWithTag("Player");
@@ -58,6 +58,6 @@ public class CameraControl : MonoBehaviour {
         }
        
         transform.position = Vector3.SmoothDamp(transform.position, pos, ref velocity, .2f);
-        print(pos);
+         
     }
 }
