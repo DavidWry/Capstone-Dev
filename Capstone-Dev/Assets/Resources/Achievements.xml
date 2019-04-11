@@ -6,8 +6,8 @@
   </AC1>
   <AC2>
     <Name>Slow and Steady</Name>
-    <Completed>false</Completed>
-    <Count>false</Count>
+    <Completed>true</Completed>
+    <Count>true</Count>
   </AC2>
   <AC3>
     <Name>Melted</Name>
