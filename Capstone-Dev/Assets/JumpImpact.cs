@@ -17,7 +17,7 @@ public class JumpImpact : MonoBehaviour {
     void Start ()
     {
         scene = SceneManager.GetActiveScene();
-        if (scene.name == "2_1" || scene.name == "2_2")
+        if (scene.name == "2_1" || scene.name == "2_2" || scene.name == "3_1" || scene.name == "3_2")
         {
             effect.transform.localScale = new Vector3(2.9f,2.9f,2.9f);
             offset = new Vector3(0, -10.0f, 0);

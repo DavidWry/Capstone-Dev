@@ -32,7 +32,7 @@ public class CSkill01 : MonoBehaviour {
                 MultiNewProj.transform.eulerAngles = new Vector3(shoot.Right.eulerAngles.x, shoot.Right.eulerAngles.y, shoot.Right.eulerAngles.z - player.fixRightAngle);
             }
             CurrentHook = MultiNewProj;
-            if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2")
+            if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2"||NextScene.nowName == "3_1" || NextScene.nowName == "3_2")
                 MultiNewProj.transform.localScale *= 15;
         }
         if (CurrentHook != null)

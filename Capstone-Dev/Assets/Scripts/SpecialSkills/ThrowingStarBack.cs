@@ -29,7 +29,7 @@ public class ThrowingStarBack : MonoBehaviour {
         }
         if (back && PlayerObj != null)
         {
-            if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3")
+            if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3"||NextScene.nowName == "3_1" || NextScene.nowName == "3_2" || NextScene.nowName == "3_3")
                 transform.position = Vector3.MoveTowards(transform.position, PlayerObj.transform.position, speed * 50 * Time.deltaTime);
             else
             {
@@ -53,7 +53,7 @@ public class ThrowingStarBack : MonoBehaviour {
             GameObject text = Instantiate(Impact);
             text.transform.position = (transform.position + collision.transform.position) / 2;
             text.transform.rotation = transform.rotation;
-            if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3")
+            if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3"||NextScene.nowName == "3_1" || NextScene.nowName == "3_2" || NextScene.nowName == "3_3")
                 text.transform.localScale *= 16;
         }
     }

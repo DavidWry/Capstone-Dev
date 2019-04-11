@@ -45,7 +45,7 @@ public class EnemyRangedSpear : MonoBehaviour
 
         scene = SceneManager.GetActiveScene();
         capsule = gameObject.GetComponent<CapsuleCollider>();
-        if (scene.name == "2_1"|| scene.name == "2_2")
+        if (scene.name == "2_1"|| scene.name == "2_2" || scene.name == "3_1" || scene.name == "3_2")
         {
             transform.localScale = new Vector3(5f, 5f, 1f);
             rangeForAttack = 125;

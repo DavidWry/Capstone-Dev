@@ -81,7 +81,7 @@ namespace AssemblyCSharp
                 if (SlowDown > 0)
                 {
                     GameObject ImpactObject = Instantiate(Impact, transform.position, transform.rotation);
-                    if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3" || NextScene.nowName == "3_1")
+                    if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3" || NextScene.nowName == "3_1" || NextScene.nowName == "3_2")
                         ImpactObject.transform.localScale *= 20;
                 }
             }
@@ -184,7 +184,7 @@ namespace AssemblyCSharp
                 if (!OnTarget)
                 {
                     GameObject ImpactObject = Instantiate(Impact, transform.position, transform.rotation);
-                    if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3")
+                    if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3" || NextScene.nowName == "3_1" || NextScene.nowName == "3_2")
                         ImpactObject.transform.localScale = ImpactObject.transform.localScale * 16;
                 }
                 else

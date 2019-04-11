@@ -249,7 +249,7 @@ public class Shoot_New : MonoBehaviour
                         GameObject NewProj = Instantiate(gameManager.CombineProjectile[17], transform);
                         NewProj.transform.position = Center.position;
                         NewProj.transform.rotation = Center.rotation;
-                        if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3")
+                        if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3" || NextScene.nowName == "3_1" || NextScene.nowName == "3_2" || NextScene.nowName == "3_3")
                             NewProj.transform.localScale *= 15;
                         CombineTag_35 = false;
                     }
@@ -476,7 +476,7 @@ public class Shoot_New : MonoBehaviour
                     Proj.Duration = player.leftWeapon.Duration;
                     Proj.Thrust = player.leftWeapon.IsThrust;
                 }
-                if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3" || NextScene.nowName == "3_1")
+                if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3" || NextScene.nowName == "3_1" || NextScene.nowName == "3_2" || NextScene.nowName == "3_3")
                 {
                     GameObject.FindGameObjectWithTag("MainCamera").GetComponent<scshake>().time = 0.2f;
                 }
@@ -587,7 +587,7 @@ public class Shoot_New : MonoBehaviour
                     Proj.Duration = player.rightWeapon.Duration;
                     Proj.Thrust = player.rightWeapon.IsThrust;
                 }
-                if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3" || NextScene.nowName == "3_1")
+                if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3" || NextScene.nowName == "3_1" || NextScene.nowName == "3_2" || NextScene.nowName == "3_3")
                 {
                     GameObject.FindGameObjectWithTag("MainCamera").GetComponent<scshake>().time = 0.2f;
                 }
@@ -783,7 +783,7 @@ public class Shoot_New : MonoBehaviour
             }
             CanCombineShoot = false;
             currentAmmo--;
-            if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3" || NextScene.nowName == "3_1")
+            if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3" || NextScene.nowName == "3_1" || NextScene.nowName == "3_2" || NextScene.nowName == "3_3")
             {
                 GameObject.FindGameObjectWithTag("MainCamera").GetComponent<scshake>().time = 0.5f;
             }
@@ -1057,7 +1057,7 @@ public class Shoot_New : MonoBehaviour
         movement.WalkSpeed = 2 * speed;
         player.Character.Animator.speed = 5;
         GetComponent<TrailRenderer>().enabled = true;
-        if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3")
+        if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3" || NextScene.nowName == "3_1" || NextScene.nowName == "3_2" || NextScene.nowName == "3_3")
             GetComponent<TrailRenderer>().widthMultiplier = 20;
     }
 

@@ -8,7 +8,7 @@ public class RotatingStar : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3")
+        if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3"||NextScene.nowName == "3_1" || NextScene.nowName == "3_2" || NextScene.nowName == "3_3")
             trail.widthMultiplier = 16;
     }
 	

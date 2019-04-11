@@ -51,7 +51,11 @@ public class Loading : MonoBehaviour
         {
             BG2_1.SetActive(true);
         }
-        else if (NextScene.loadName == "2_3")
+        else if (NextScene.loadName == "3_1" || NextScene.loadName == "3_2")
+        {
+            BG2_1.SetActive(true);
+        }
+        else if (NextScene.loadName == "2_3"|| NextScene.loadName == "3_3")
         {
             BG2_3.SetActive(true);
         }
@@ -123,7 +127,11 @@ public class Loading : MonoBehaviour
         {
             myText.text = "Welcome to Mercury..." + progress;
         }
-        else if (NextScene.loadName == "2_3")
+        else if (NextScene.loadName == "3_1" || NextScene.loadName == "3_2")
+        {
+            myText.text = "Welcome to Mar..." + progress;
+        }
+        else if (NextScene.loadName == "2_3"|| NextScene.loadName == "3_3")
         {
             myText.text = "Get ready for the battle..." + progress;
         }
