@@ -4,14 +4,25 @@ using UnityEngine;
 using System.Xml;
 using AssemblyCSharp; 
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 public class achievementSet : MonoBehaviour {
     GameObject player;
     public bool ac1, ac2, ac3, ac4, ac5, ac6, ac7, ac8, ac9, ac10, ac11, ac12, ac13, ac14, ac15, ac16, ac17, ac18, ac19, ac20;
     XmlDocument achievementDoc = new XmlDocument();
+    public Image img1;
+    public Text txt1;
+    public Text txt2;
+    public float transp = 0;
+    public bool popping;
+    Color imgcolor;
+    Color txtcolor;
+    public float waittime=0;
     float levelTime = 0;
     // Use this for initialization
     void Start () {
-
+        imgcolor = img1.color;
+        txtcolor = txt1.color;
             string achievementFilePath = Application.dataPath + "/Resources/Achievements.xml";
         achievementDoc.Load(achievementFilePath);
         ac1 = bool.Parse(achievementDoc.DocumentElement.SelectSingleNode("AC1/Completed").InnerText);
@@ -38,6 +49,52 @@ public class achievementSet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        if (popping)
+        {
+            if (transp < 1&&waittime<2)
+            {
+                transp += 0.05f;
+                imgcolor = new Color(imgcolor.r, imgcolor.g, imgcolor.b, transp);
+                txtcolor = new Color(txtcolor.r, txtcolor.g, txtcolor.b, transp);
+                img1.color = imgcolor;
+                txt1.color = txtcolor;
+                txt2.color = txtcolor;
+            }
+            else
+            {
+
+                waittime += Time.deltaTime;
+                if(waittime>2)
+                {
+                    if (transp > 0)
+                    {
+                        transp -= 0.05f;
+                        imgcolor = new Color(imgcolor.r, imgcolor.g, imgcolor.b, transp);
+                        txtcolor = new Color(txtcolor.r, txtcolor.g, txtcolor.b, transp);
+                        img1.color = imgcolor;
+                        txt1.color = txtcolor;
+                        txt2.color = txtcolor;
+                    }
+                    else
+                    {
+
+
+                        popping = false;
+                        waittime = 0;
+                        transp = 0;
+
+                    }
+                }
+            
+            }
+
+        }
+
+
+
+
+
         if (SceneManager.GetActiveScene().name == "2_3")
         {
             levelTime += Time.deltaTime;
@@ -254,8 +311,93 @@ public class achievementSet : MonoBehaviour {
 
     void popup(int num)
     {
-
-
+        popping = true;
+        if (num == 1)
+        {
+            txt1.text = "RAGE";
+            txt2.text = "Killed 20 enemies within 20 seconds";
+                
+        }
+        else if (num ==2) {
+            txt1.text = "READY TO START";
+            txt2.text = "Got through the tutorial";
+        }
+        else if (num ==3) {
+            txt1.text = "MELTING";
+            txt2.text = "Reached the first level";
+        }
+        else if (num ==4) {
+            txt1.text = "PRACTICE MAKES PERFECT";
+            txt2.text = "Trained for more than 10 minutes";
+        }
+        else if (num ==5) {
+            txt1.text = "CLEAN SWEEP";
+            txt2.text = "Killed every single enemy in the level";
+        }
+        else if (num ==6) {
+            txt1.text = "BEAT IT";
+            txt2.text = "Completed a run";
+        }
+        else if (num ==7) {
+            txt1.text = "PURE AND SIMPLE";
+            txt2.text = "Completed a run without using ults";
+        }
+        else if (num ==8) {
+            txt1.text = "HEALTHY WEALTHY";
+            txt2.text = "Have more than 95% HP at the end of a run";
+        }
+        else if (num ==9) {
+            txt1.text = "TREASURE HUNTER";
+            txt2.text = "Opened up every chest in a floor";
+        }
+        else if (num ==10) {
+            txt1.text = "SAY HELLO TO MY LITTLE FRIEND";
+            txt2.text = "Unlocked the character";
+        }
+        else if (num ==11) {
+            txt1.text = "RUSH HOUR";
+            txt2.text = "Completed a level with less than 10 minutes";
+        }
+        else if (num ==12) {
+            txt1.text = "GLASS CUTTER";
+            txt2.text = "Equipped laser on both hands";
+        }
+        else if (num ==13) {
+            txt1.text = "SAILING CLOSE TO WIND";
+            txt2.text = "Having less than 5% HP at the end of a level";
+        }
+        else if (num ==14) {
+            txt1.text = "FRESH MEAT";
+            txt2.text = "Used hook for more than 100 times";
+        }
+        else if (num ==15) {
+            txt1.text = "DAZZLING";
+            txt2.text = "Picked up more than 5 different weapons in a single run";
+        }
+        else if (num ==16) {
+            txt1.text = "TOO BLIND TO SEE";
+            txt2.text = "Completed a floor without dealing any damage";
+        }
+        else if (num == 17)
+        {
+            txt1.text = "ADDICTED";
+            txt2.text = "Played for more than 5 hours";
+        }
+        else if (num == 18)
+        {
+            txt1.text = "PLATNIUM";
+            txt2.text = "Completed all other achievements";
+        }
+        else if (num == 19)
+        {
+            txt1.text = "LOOK WHAT I FOUND";
+            txt2.text = "Discovered a secret path";
+        }
+        else if (num == 20)
+        {
+            txt1.text = "PISTOL MASTER";
+            txt2.text = "Used only pistol in a single run";
+        }
 
     }
 }

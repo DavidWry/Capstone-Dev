@@ -307,12 +307,12 @@ Prefab:
     - target: {fileID: 224853291032269004, guid: 5459165c1a6a0d8459bae141378f4087,
         type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 224379930032276846, guid: 5459165c1a6a0d8459bae141378f4087,
         type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 224998427233818904, guid: 5459165c1a6a0d8459bae141378f4087,
         type: 2}
@@ -5665,18 +5665,6 @@ MonoBehaviour:
   offx: 0
   offy: 0
   time: 0
---- !u!114 &660573611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 660573609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5d005ad4296bdd4ebd18b1187e28b7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offset: 0
 --- !u!20 &660573612 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 20916295820276400, guid: 7bee7bc086dd45445a73be91a1ea8485,

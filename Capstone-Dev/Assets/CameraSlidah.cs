@@ -26,26 +26,26 @@ public class CameraSlidah : MonoBehaviour {
         else {
             offset = true;
         
-            if (gameObject.transform.localPosition.x< 50&& Input.GetAxis("Right X")>0.1f)
+            if (gameObject.transform.localPosition.x< 50)
             {
                  
                 gameObject.transform.localPosition += new Vector3(1, 0, 0)* 150*Time.deltaTime;
 
             }
-            else if(gameObject.transform.localPosition.x > -50 && Input.GetAxis("Right X") <- 0.1f)
+            else if(gameObject.transform.localPosition.x > -50)
             {
               
                     gameObject.transform.localPosition += new Vector3(-1, 0, 0) * 150 * Time.deltaTime;
 
             }
-            if (gameObject.transform.localPosition.y< 50 && Input.GetAxis("Right Y") > 0.1f)
+            if (gameObject.transform.localPosition.y< 50 )
             {
               
                     gameObject.transform.localPosition += new Vector3(0, 1, 0) * 150 * Time.deltaTime;
 
             }
 
-            else if(gameObject.transform.localPosition.y > -50 && Input.GetAxis("Right Y") < -0.1f)
+            else if(gameObject.transform.localPosition.y > -50)
             {
                 
                     gameObject.transform.localPosition += new Vector3(0, -1, 0) * 150 * Time.deltaTime;

@@ -5,12 +5,12 @@
     <Completed>true</Completed>
   </AC1>
   <AC2>
-    <Name>Slow and Steady</Name>
+    <Name>Ready To Start</Name>
     <Completed>false</Completed>
     <Count>false</Count>
   </AC2>
   <AC3>
-    <Name>Melted</Name>
+    <Name>Melting</Name>
     <Completed>false</Completed>
   </AC3>
   <AC4>
@@ -24,7 +24,7 @@
     <Remaining>0</Remaining>
   </AC5>
   <AC6>
-    <Name>It Lives</Name>
+    <Name>BEAT IT</Name>
     <Completed>false</Completed>
   </AC6>
   <AC7>
@@ -33,11 +33,11 @@
     <Count>0</Count>
   </AC7>
   <AC8>
-    <Name>Healthy as a horse</Name>
+    <Name>HEALTHY WEALTHY</Name>
     <Completed>false</Completed>
   </AC8>
   <AC9>
-    <Name>Treasure Hunter</Name>
+    <Name>TREASURE HUNTER</Name>
     <Completed>false</Completed>
   </AC9>
   <AC10>
@@ -53,7 +53,7 @@
     <Completed>false</Completed>
   </AC12>
   <AC13>
-    <Name>Walking On Ice</Name>
+    <Name>SAILING CLOSE TO WIND</Name>
     <Completed>false</Completed>
   </AC13>
   <AC17>

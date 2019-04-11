@@ -6,25 +6,27 @@ public class CameraControl : MonoBehaviour {
 
     public Transform PlayerPos;
     private GameObject playerObject;
-    private float speed;
+  
     [SerializeField]
     public Vector2 border;    //left bottom
     [SerializeField]
     public Vector2 border2;   //right top
-
+    Vector3 velocity;
+    Vector3 pos;
     // Use this for initialization
     void Start () {
-        speed = 1;
+         
         
     }
 	
 	// Update is called once per frame
 	void Update () {
+       
         if (!playerObject)
             playerObject = GameObject.FindGameObjectWithTag("Player");
         if (!PlayerPos && playerObject)
             PlayerPos = playerObject.GetComponent<Transform>();
-        Vector3 pos = transform.position;
+        
         if (PlayerPos)
         {
  
@@ -52,8 +54,10 @@ public class CameraControl : MonoBehaviour {
             {
                 pos.y = border2.y - 129;
             }
+
         }
-        transform.position = pos;
-  
+       
+        transform.position = Vector3.SmoothDamp(transform.position, pos, ref velocity, .2f);
+        print(pos);
     }
 }

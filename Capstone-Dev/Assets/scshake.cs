@@ -7,7 +7,8 @@ public class scshake : MonoBehaviour
     public Camera cam;
  
    public float offx, offy, time;
-    
+    bool shk = false;
+    bool shk2 = false;
     Vector3 Posrecord;
     // Use this for initialization
     void Start()
@@ -37,13 +38,15 @@ public class scshake : MonoBehaviour
         Vector3 vecasdf = new Vector3(offx, offy, 0);
         if (time > 0)
         {
+            shk = true;
+            shk2 = true;
             cam.transform.localPosition += vecasdf;
             time = time - Time.deltaTime;
         }
-        if (time <= 0&&gameObject.GetComponent<CameraSlidah>().offset==false)
+        if (time <= 0)
         {
 
-
+            if(shk==true||shk2==true)
             resume();
 
         }
@@ -53,23 +56,24 @@ public class scshake : MonoBehaviour
 
     void resume()
     {
-        if (cam.transform.localPosition.y > -.77f)
+        print("m,sal;dk");
+        if (cam.transform.localPosition.y > -.73f)
         {
-            cam.transform.localPosition -= Vector3.up * 0.01f* 1000;
+            cam.transform.localPosition -= Vector3.up * 0.01f* 1000*Time.deltaTime;
 
         }
 
 
-        if (cam.transform.localPosition.y < -.73f)
+       else if (cam.transform.localPosition.y < -.77f)
         {
-            cam.transform.localPosition += Vector3.up * 0.01f * 1000;
+            cam.transform.localPosition += Vector3.up * 0.01f * 1000 * Time.deltaTime;
 
         }
 
-       
+        else { shk = false; }
             if (cam.transform.localPosition.x < 2.10f)
             {
-                cam.transform.localPosition += Vector3.right * 0.01f * 1000;
+                cam.transform.localPosition += Vector3.right * 0.01f * 1000 * Time.deltaTime;
 
 
 
@@ -80,17 +84,20 @@ public class scshake : MonoBehaviour
 
 
    
-            if (cam.transform.localPosition.x > 2.14f)
+          else  if (cam.transform.localPosition.x > 2.14f)
             {
-                cam.transform.localPosition += Vector3.left * 0.01f * 1000;
+                cam.transform.localPosition += Vector3.left * 0.01f * 1000 * Time.deltaTime;
 
 
 
 
 
             }
-       
 
+        else
+        {
+            shk2 = false;
+        }
 
 
     }
