@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4111891256167624}
   - component: {fileID: 212627275908898606}
-  - component: {fileID: 136246372987899728}
+  - component: {fileID: 136524877511655938}
   m_Layer: 12
   m_Name: Tile_58
   m_TagString: Untagged
@@ -35,13 +35,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1008682546140488}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 120.595, y: 31.757, z: 0}
+  m_LocalPosition: {x: 157.93436, y: 961.7488, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &136246372987899728
+--- !u!136 &136524877511655938
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -50,10 +50,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.32320976
-  m_Height: 0.90350914
-  m_Direction: 0
-  m_Center: {x: 0.24, y: 0.40849876, z: 0.10293388}
+  m_Radius: 5.1920853
+  m_Height: 14.417294
+  m_Direction: 1
+  m_Center: {x: 14.151665, y: 10.050001, z: 0.10293388}
 --- !u!212 &212627275908898606
 SpriteRenderer:
   m_ObjectHideFlags: 1

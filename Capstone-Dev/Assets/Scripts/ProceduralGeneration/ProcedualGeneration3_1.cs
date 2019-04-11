@@ -1858,7 +1858,7 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
                 {
                     float ratio = (float)Random.Range(1, 50);
                     bool isClose = false;
-                    if (ratio < 5)
+                    if (ratio < 4)
                     {
                         
                         for (int m = -2; m < 3; m++) {
