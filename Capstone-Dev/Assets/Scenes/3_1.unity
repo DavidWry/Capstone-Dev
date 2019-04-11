@@ -1217,7 +1217,7 @@ Prefab:
         type: 2}
       propertyPath: PortalList.Array.data[0]
       value: 
-      objectReference: {fileID: 1367659576493558, guid: 79506ee8fad7d8242b478a9fbe1e95ab,
+      objectReference: {fileID: 1367659576493558, guid: 248ca8d80dce36846876058df6a42505,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}

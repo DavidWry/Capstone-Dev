@@ -89,6 +89,12 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
 
         GenerateEnemy();
         DrawEnemy();
+
+        DrawPortal();
+        DrawNPC();
+
+        FinishGeneration();
+        
         /*
        GameObject tile36 = gameManager.GetTile2("Tile_67");
         for (int i = 1; i < levelWidth; i++)
@@ -108,21 +114,11 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
         */
 
         /*
-        
-
 
         GenerateBone();
         DrawBone();
+  
 
-        
-
-        
-
-        
-        DrawPortal();
-        FinishGeneration();
-
-        DrawNPC();
         */
 
     }
@@ -1942,29 +1938,30 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
 
     void DrawPortal()
     {
-        portal = gameManager.GetPortal("Portal_3");
+        portal = gameManager.GetPortal("Portal_4");
         Vector2 maxPosition = new Vector2(0, 0);
         float maxDistance = 0f;
         bool isClose = false;
-        for (int i =2; i < levelWidth-2; i++)
+        for (int i =5; i < levelWidth-5; i++)
         {
-            for (int j = 2; j < levelHeight-2; j++)
+            for (int j = 5; j < levelHeight-5; j++)
             {
-                if (cellState[i, j].state >=100 )
+                if (landArray[i, j] == 0 || landArray[i, j] == 1)
                 {
                     isClose = false;
-                    for (int m = -3; m < 4; m++)
+                    for (int m = -2; m < 3; m++)
                     {
-                        for (int n = -3; n < 4; n++)
+                        for (int n = -2; n < 3; n++)
                         {
-                            if (cellState[i + m, j + n].state > 0 && cellState[i + m, j + n].state < 100)
+                            if (cellState[i + m, j + n].state <= 17 ||
+                                    (cellState[i + m, j + n].state <= 77 && cellState[i + m, j + n].state >= 46))
                                 isClose = true;
                         }
                     }
                     float tempDistance = Mathf.Abs(entrancePosition.x - i) + Mathf.Abs(entrancePosition.y - j);
                     if (tempDistance > maxDistance && !isClose) {
                         maxDistance = tempDistance;
-                        maxPosition = cellState[i, j].position;
+                        maxPosition = new Vector2(i*tileSize,j*tileSize);
                     }
             
                 }
@@ -2019,7 +2016,7 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
             }
         }
 
-
+        entrancePosition = position;
         player1 = Instantiate(player1, new Vector3(position.x*tileSize, position.y*tileSize, 0), transform.rotation);
         cellState[(int)position.x, (int)position.y].state=300;
         player1.transform.localScale = new Vector3(15.0f, 15.0f, 15.0f);
@@ -2048,24 +2045,25 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
         bool isCreated = false;
 
         bool isClose = false;
-        for (int i = 2; i < levelWidth-2; i++)
+        for (int i = 5; i < levelWidth-5; i++)
         {
-            for (int j = 2; j < levelHeight-2; j++)
+            for (int j = 5; j < levelHeight-5; j++)
             {
-                if (cellState[i, j].state >= 100)
+                if (landArray[i, j] == 0 || landArray[i, j] == 1)
                 {
                     isClose = false;
                     for (int m = -2; m < 3; m++)
                     {
                         for (int n = -2; n < 3; n++)
                         {
-                            if (cellState[i + m, j + n].state > 0 && cellState[i + m, j + n].state < 100)
+                            if (cellState[i + m, j + n].state <= 17 ||
+                                    (cellState[i + m, j + n].state <= 77 && cellState[i + m, j + n].state >= 46))
                                 isClose = true;
                         }
                     }
                     if (Random.Range(1, 100) < 2 && !isClose && !isCreated)
                     {
-                        Instantiate(NPCObject, new Vector3(cellState[i, j].position.x, cellState[i, j].position.y, 0), transform.rotation);
+                        Instantiate(NPCObject, new Vector3(i*tileSize, j*tileSize, 0), transform.rotation);
                         // player1.transform.localScale = new Vector3(15.0f, 15.0f, 15.0f);
                         // player1.GetComponent<Movement_New>().WalkSpeed = 5;
                         isCreated = true;
