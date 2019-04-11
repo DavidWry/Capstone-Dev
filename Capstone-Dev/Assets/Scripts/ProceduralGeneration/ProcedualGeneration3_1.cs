@@ -91,10 +91,9 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
         DrawEnemy();
 
         DrawPortal();
-        DrawNPC();
 
         FinishGeneration();
-        
+        DrawNPC(); 
         /*
        GameObject tile36 = gameManager.GetTile2("Tile_67");
         for (int i = 1; i < levelWidth; i++)

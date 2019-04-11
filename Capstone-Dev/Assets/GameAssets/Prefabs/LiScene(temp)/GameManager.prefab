@@ -82,11 +82,11 @@ MonoBehaviour:
     IsMultiBullets: 0
     BulletAngleList:
     - 0
-    TimeBetweenShot: 5
+    TimeBetweenShot: 0.8
     TimeWaited: 0
     ImpactFX: {fileID: 1501866481023270, guid: 658b9b1f4267b454c9c153d3961f4422, type: 2}
     ShotFX: {fileID: 1142645326660304, guid: ead74bb5c5554ca4694860a2445b5fef, type: 2}
-    Damage: 15
+    Damage: 25
     Rebounce: 0
     AmmoSize: 7
     CurrentAmmos: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
     TimeWaited: 0
     ImpactFX: {fileID: 1882777859570806, guid: 26b9baa734847f140803e4e033a9212a, type: 2}
     ShotFX: {fileID: 1527268017831476, guid: 1b6caa07492f1ba4d81381fb780847eb, type: 2}
-    Damage: 2
+    Damage: 10
     Rebounce: 0
     AmmoSize: 20
     CurrentAmmos: 0
@@ -142,7 +142,7 @@ MonoBehaviour:
     TimeWaited: 0
     ImpactFX: {fileID: 1882777859570806, guid: 26b9baa734847f140803e4e033a9212a, type: 2}
     ShotFX: {fileID: 1517490986756932, guid: 68f895a26b669b64fb3391aab95003ea, type: 2}
-    Damage: 20
+    Damage: 30
     Rebounce: 0
     AmmoSize: 60
     CurrentAmmos: 0
@@ -170,7 +170,7 @@ MonoBehaviour:
     TimeWaited: 0
     ImpactFX: {fileID: 1882777859570806, guid: 26b9baa734847f140803e4e033a9212a, type: 2}
     ShotFX: {fileID: 1186793302542922, guid: 17fc967a340b0634abd7311dd8cc54b0, type: 2}
-    Damage: 30
+    Damage: 40
     Rebounce: 0
     AmmoSize: 1
     CurrentAmmos: 0
@@ -202,7 +202,7 @@ MonoBehaviour:
     TimeWaited: 0
     ImpactFX: {fileID: 1882777859570806, guid: 26b9baa734847f140803e4e033a9212a, type: 2}
     ShotFX: {fileID: 1919837370558522, guid: f8c71a952a175b64c89240acf3fc8bbe, type: 2}
-    Damage: 8
+    Damage: 10
     Rebounce: 0
     AmmoSize: 10
     CurrentAmmos: 0

@@ -13,7 +13,7 @@ public class Dummy : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        NextScene.nowName = "WeaponRoom";
 	}
 	
 	// Update is called once per frame

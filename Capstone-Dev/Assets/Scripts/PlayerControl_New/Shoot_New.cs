@@ -476,6 +476,10 @@ public class Shoot_New : MonoBehaviour
                     Proj.Duration = player.leftWeapon.Duration;
                     Proj.Thrust = player.leftWeapon.IsThrust;
                 }
+                if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3" || NextScene.nowName == "3_1")
+                {
+                    GameObject.FindGameObjectWithTag("MainCamera").GetComponent<scshake>().time = 0.2f;
+                }
                 GameObject Shot = Instantiate(player.leftWeapon.ShotFX, Left.GetChild(0).GetChild(0));
                 Shot.transform.position = Left.GetChild(0).GetChild(0).position;
                 var offset = -0.1f * player.LeftHand.parent.InverseTransformDirection(player.Character.Firearm.FireTransform.right);
@@ -582,6 +586,10 @@ public class Shoot_New : MonoBehaviour
                     Proj.Speed = player.rightWeapon.ProjectileSpeed;
                     Proj.Duration = player.rightWeapon.Duration;
                     Proj.Thrust = player.rightWeapon.IsThrust;
+                }
+                if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3" || NextScene.nowName == "3_1")
+                {
+                    GameObject.FindGameObjectWithTag("MainCamera").GetComponent<scshake>().time = 0.2f;
                 }
                 //movement.Recoil = - Right.transform.right * 0.2f;
                 GameObject Shot = Instantiate(player.rightWeapon.ShotFX, Right.GetChild(0).GetChild(0));
@@ -775,6 +783,10 @@ public class Shoot_New : MonoBehaviour
             }
             CanCombineShoot = false;
             currentAmmo--;
+            if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3" || NextScene.nowName == "3_1")
+            {
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<scshake>().time = 0.5f;
+            }
             if (player.CombineType != 23 && player.CombineType != 55)
             {
                 var offset = -0.25f * player.LeftHand.parent.InverseTransformDirection(player.Character.Firearm.FireTransform.right);

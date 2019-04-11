@@ -25,7 +25,7 @@ public class ForPlaytest : MonoBehaviour {
 
     public void manusds()
     {
-        NextScene.loadName = "WeaponRoom";
+        NextScene.loadName = "3_1";
         SceneManager.LoadScene("LoadingScene");
     }
 }
