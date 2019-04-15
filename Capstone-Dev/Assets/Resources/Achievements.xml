@@ -6,22 +6,22 @@
   </AC1>
   <AC2>
     <Name>Ready To Start</Name>
-    <Completed>false</Completed>
+    <Completed>true</Completed>
     <Count>true</Count>
   </AC2>
   <AC3>
     <Name>Melting</Name>
-    <Completed>false</Completed>
+    <Completed>true</Completed>
   </AC3>
   <AC4>
     <Name>Practice Makes Perfect</Name>
     <Completed>false</Completed>
-    <Time>16.37267</Time>
+    <Time>0</Time>
   </AC4>
   <AC5>
     <Name>Clean Sweep</Name>
     <Completed>false</Completed>
-    <Remaining>42912</Remaining>
+    <Remaining>40017</Remaining>
   </AC5>
   <AC6>
     <Name>BEAT IT</Name>
@@ -47,6 +47,7 @@
   <AC11>
     <Name>Rush Hour</Name>
     <Completed>false</Completed>
+    <Time>78.23837</Time>
   </AC11>
   <AC12>
     <Name>Glass Cutter</Name>

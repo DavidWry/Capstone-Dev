@@ -38,6 +38,18 @@ public class LeaveToScene : MonoBehaviour {
 
 
             }
+            if (SceneManager.GetActiveScene().name == "2_1")
+            {
+
+                string achievementFilePath = Application.dataPath + "/Resources/Achievements.xml";
+                achievementDoc.Load(achievementFilePath);
+                float p = float.Parse(achievementDoc.DocumentElement.SelectSingleNode("AC4/Time").InnerText);
+                p += traintime;
+                achievementDoc.DocumentElement.SelectSingleNode("AC4/Time").InnerText = p.ToString();
+                achievementDoc.Save(achievementFilePath);
+
+
+            }
             SceneManager.LoadScene("LoadingScene");
         }
     }

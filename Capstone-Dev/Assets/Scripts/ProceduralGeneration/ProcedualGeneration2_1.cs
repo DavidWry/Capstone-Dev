@@ -1944,7 +1944,7 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
         {
             for (int j = 0; j < levelHeight; j++)
             {
-                enemyCount++;
+                
                 /*
                 if (cellState[i, j].state == 100)
                 {
@@ -1953,26 +1953,32 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
                 */
                 if (cellState[i, j].state == 101)
                 {
+                    enemyCount++;
                     Instantiate(enemy2, new Vector3(i*(float)tileSize, j*(float)tileSize, 0), transform.rotation);
                 }
                 else if (cellState[i, j].state == 102)
                 {
+                    enemyCount++;
                     Instantiate(enemy3, new Vector3(i*(float)tileSize, j*(float)tileSize, 0), transform.rotation);
                 }
                 else if (cellState[i, j].state == 103)
                 {
+                    enemyCount++;
                     Instantiate(enemy4, new Vector3(i*(float)tileSize, j*(float)tileSize, 0), transform.rotation);
                 }
                 else if (cellState[i, j].state == 104)
                 {
+                    enemyCount++;
                     Instantiate(enemy5, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                 }
                 else if (cellState[i, j].state == 105)
                 {
+                    enemyCount++;
                     Instantiate(enemy6, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                 }
                 else if (cellState[i, j].state == 106)
                 {
+                    enemyCount++;
                     Instantiate(enemy7, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                 }
             }

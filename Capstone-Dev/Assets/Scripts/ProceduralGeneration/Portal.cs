@@ -42,7 +42,7 @@ public class Portal : MonoBehaviour {
                     GameObject manager=GameObject.Find("GameManager");
                     
                     achievementDoc.DocumentElement.SelectSingleNode("AC5/Remaining").InnerText = manager.GetComponent<ProcedualGeneration2_1>().enemyCount.ToString();
-                    //achievementDoc.DocumentElement.SelectSingleNode("AC11/Time").InnerText = manager.GetComponent<ProcedualGeneration2_1>().levelTime.ToString();
+                    achievementDoc.DocumentElement.SelectSingleNode("AC11/Time").InnerText = manager.GetComponent<ProcedualGeneration2_1>().levelTime.ToString();
                     achievementDoc.Save(achievementFilePath);
 
                 }
@@ -53,14 +53,15 @@ public class Portal : MonoBehaviour {
 
                     GameObject manager = GameObject.Find("GameManager");
                     int p = int.Parse(achievementDoc.DocumentElement.SelectSingleNode("AC5/Remaining").InnerText) + manager.GetComponent<ProcedualGeneration2_2>().enemyCount;
-                    //float q= float.Parse(achievementDoc.DocumentElement.SelectSingleNode("AC11/Time").InnerText+ manager.GetComponent<ProcedualGeneration2_2>().levelTime.ToString());
+                    float q= (float.Parse(achievementDoc.DocumentElement.SelectSingleNode("AC11/Time").InnerText)+ manager.GetComponent<ProcedualGeneration2_2>().levelTime);
+
                     achievementDoc.DocumentElement.SelectSingleNode("AC5/Remaining").InnerText =p.ToString();
-                    //achievementDoc.DocumentElement.SelectSingleNode("AC11/Time").InnerText = q.ToString();
+                    achievementDoc.DocumentElement.SelectSingleNode("AC11/Time").InnerText = q.ToString();
                     achievementDoc.Save(achievementFilePath);
 
                 }
                 SceneManager.LoadScene("LoadingScene");
-                print("dfkjshds");
+               
             }
         }
 

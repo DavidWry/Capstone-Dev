@@ -36558,7 +36558,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1729662346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36590,6 +36590,12 @@ MonoBehaviour:
   ac18: 0
   ac19: 0
   ac20: 0
+  img1: {fileID: 0}
+  txt1: {fileID: 0}
+  txt2: {fileID: 0}
+  transp: 0
+  popping: 0
+  waittime: 0
 --- !u!4 &1729662347
 Transform:
   m_ObjectHideFlags: 0

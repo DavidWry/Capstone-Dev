@@ -115,7 +115,7 @@ public class achievementSet : MonoBehaviour {
                 string achievementFilePath = Application.dataPath + "/Resources/Achievements.xml";
                 achievementDoc.Load(achievementFilePath);
                 achievementDoc.DocumentElement.SelectSingleNode("AC2/Completed").InnerText = "true";
-                
+                ac2 = true;
                 achievementDoc.Save(achievementFilePath);
             }
         }
@@ -123,10 +123,11 @@ public class achievementSet : MonoBehaviour {
         {
             if (SceneManager.GetActiveScene().name == "2_1")
             {
+                print("nimasile");
                 string achievementFilePath = Application.dataPath + "/Resources/Achievements.xml";
                 achievementDoc.Load(achievementFilePath);
                 achievementDoc.DocumentElement.SelectSingleNode("AC3/Completed").InnerText = "true";
-
+                ac3 = true;
                 achievementDoc.Save(achievementFilePath);
                 popup(3);
             }
@@ -140,7 +141,7 @@ public class achievementSet : MonoBehaviour {
                 string achievementFilePath = Application.dataPath + "/Resources/Achievements.xml";
                 achievementDoc.Load(achievementFilePath);
                 achievementDoc.DocumentElement.SelectSingleNode("AC4/Completed").InnerText = "true";
-
+                ac4 = true;
                 achievementDoc.Save(achievementFilePath);
             }
 
@@ -155,11 +156,20 @@ public class achievementSet : MonoBehaviour {
                     string achievementFilePath = Application.dataPath + "/Resources/Achievements.xml";
                     achievementDoc.Load(achievementFilePath);
                     achievementDoc.DocumentElement.SelectSingleNode("AC5/Completed").InnerText = "true";
-
+                    ac5 = true;
                     achievementDoc.Save(achievementFilePath);
                     popup(5);
                     
                 }
+
+            }
+            if(SceneManager.GetActiveScene().name == "MainRoom")
+            {
+                string achievementFilePath = Application.dataPath + "/Resources/Achievements.xml";
+                achievementDoc.Load(achievementFilePath);
+                achievementDoc.DocumentElement.SelectSingleNode("AC5/Remaining").InnerText = "0";
+                   
+                achievementDoc.Save(achievementFilePath);
 
             }
 
@@ -177,7 +187,7 @@ public class achievementSet : MonoBehaviour {
                     string achievementFilePath = Application.dataPath + "/Resources/Achievements.xml";
                     achievementDoc.Load(achievementFilePath);
                     achievementDoc.DocumentElement.SelectSingleNode("AC7/Completed").InnerText = "true";
-
+                    ac7 = true;
                     achievementDoc.Save(achievementFilePath);
                 }
             }
@@ -195,7 +205,7 @@ public class achievementSet : MonoBehaviour {
                     string achievementFilePath = Application.dataPath + "/Resources/Achievements.xml";
                     achievementDoc.Load(achievementFilePath);
                     achievementDoc.DocumentElement.SelectSingleNode("AC8/Completed").InnerText = "true";
-
+                    ac8 = true;
                     achievementDoc.Save(achievementFilePath);
                 }
 
@@ -212,7 +222,7 @@ public class achievementSet : MonoBehaviour {
                 string achievementFilePath = Application.dataPath + "/Resources/Achievements.xml";
                 achievementDoc.Load(achievementFilePath);
                 achievementDoc.DocumentElement.SelectSingleNode("AC9/Completed").InnerText = "true";
-
+                ac9 = true;
                 achievementDoc.Save(achievementFilePath);
             }
 
@@ -231,9 +241,19 @@ public class achievementSet : MonoBehaviour {
                         string achievementFilePath = Application.dataPath + "/Resources/Achievements.xml";
                         achievementDoc.Load(achievementFilePath);
                         achievementDoc.DocumentElement.SelectSingleNode("AC11/Completed").InnerText = "true";
-
+                        ac11 = true;
                         achievementDoc.Save(achievementFilePath);
                         popup(11);
+
+                    }
+                    else
+                    {
+                        string achievementFilePath = Application.dataPath + "/Resources/Achievements.xml";
+                        achievementDoc.Load(achievementFilePath);
+                        achievementDoc.DocumentElement.SelectSingleNode("AC11/Time").InnerText = "0";
+                        achievementDoc.Save(achievementFilePath);
+                    
+
 
                     }
                 }
@@ -250,7 +270,7 @@ public class achievementSet : MonoBehaviour {
                 string achievementFilePath = Application.dataPath + "/Resources/Achievements.xml";
                 achievementDoc.Load(achievementFilePath);
                 achievementDoc.DocumentElement.SelectSingleNode("AC12/Completed").InnerText = "true";
-
+                ac12 = true;
                 achievementDoc.Save(achievementFilePath);
                 popup(12);
                
@@ -270,7 +290,7 @@ public class achievementSet : MonoBehaviour {
                     string achievementFilePath = Application.dataPath + "/Resources/Achievements.xml";
                     achievementDoc.Load(achievementFilePath);
                     achievementDoc.DocumentElement.SelectSingleNode("AC13/Completed").InnerText = "true";
-
+                    ac13 = true;
                     achievementDoc.Save(achievementFilePath);
                     popup(13);
                 }
@@ -285,7 +305,7 @@ public class achievementSet : MonoBehaviour {
                 string achievementFilePath = Application.dataPath + "/Resources/Achievements.xml";
                 achievementDoc.Load(achievementFilePath);
                 achievementDoc.DocumentElement.SelectSingleNode("AC14/Completed").InnerText = "true";
-
+                ac14 = true;
                 achievementDoc.Save(achievementFilePath);
                 popup(14);
             }

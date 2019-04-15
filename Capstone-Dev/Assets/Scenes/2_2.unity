@@ -5801,6 +5801,72 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bee7bc086dd45445a73be91a1ea8485, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &936853740
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 936853742}
+  - component: {fileID: 936853741}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &936853741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 936853740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e75d254f5e06e84e90a0c3b7a4922a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ac1: 0
+  ac2: 0
+  ac3: 0
+  ac4: 0
+  ac5: 0
+  ac6: 0
+  ac7: 0
+  ac8: 0
+  ac9: 0
+  ac10: 0
+  ac11: 0
+  ac12: 0
+  ac13: 0
+  ac14: 0
+  ac15: 0
+  ac16: 0
+  ac17: 0
+  ac18: 0
+  ac19: 0
+  ac20: 0
+  img1: {fileID: 0}
+  txt1: {fileID: 0}
+  txt2: {fileID: 0}
+  transp: 0
+  popping: 0
+  waittime: 0
+--- !u!4 &936853742
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 936853740}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 533.04535, y: 415.2239, z: 127.83594}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1106426438 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1396269728413068, guid: 5459165c1a6a0d8459bae141378f4087,
