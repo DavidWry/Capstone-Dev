@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using AssemblyCSharp;
 public class boss2stab : MonoBehaviour {
     public GameObject stabSprite;
     public bool stab1;
@@ -27,5 +27,14 @@ public class boss2stab : MonoBehaviour {
     {
         if (stab1) { stab1 = false; }
         if (!stab1) { stab1 = true; }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (stab1&&other.gameObject.tag=="Player")
+        {
+            other.GetComponent<Player_New>().HitPoint -= 10;
+        }
+        
     }
 }

@@ -8,7 +8,7 @@ public class boss2charge : MonoBehaviour {
     float chargetime = 0;
     public GameObject chargeSprite;
     Vector3 unitvec;
-    float distance = 15;
+    float distance = 45;
 	// Use this for initialization
 	void Start () {
         
@@ -30,13 +30,15 @@ public class boss2charge : MonoBehaviour {
 
             if (chargetime < 3  )
             {
-                gameObject.GetComponentInParent<Rigidbody2D>().MovePosition(gameObject.transform.parent.gameObject.transform.position + unitvec*Time.deltaTime*50);
+                gameObject.GetComponentInParent<Rigidbody2D>().MovePosition(gameObject.transform.parent.gameObject.transform.position + unitvec*Time.deltaTime*500);
                 chargetime += Time.deltaTime;
+                if(gameObject.GetComponentInParent<boss2behalf>().hp>0)
                 chargeSprite.SetActive(true);
                 gameObject.GetComponent<Animator>().SetBool("canCharge", false);
                 if (Vector3.Distance(GameObject.FindGameObjectWithTag("Player").gameObject.transform.position, gameObject.transform.parent.gameObject.transform.position) < distance) {
                         GameObject player = GameObject.FindGameObjectWithTag("Player");
-                        player.GetComponent<Rigidbody>().AddForce(unitvec * 15000);
+                        player.GetComponent<Rigidbody>().MovePosition(player.transform.position + unitvec * Time.deltaTime * 500);
+                        player.GetComponent<Player_New>().HitPoint -= Time.deltaTime * 10;
                        // player.GetComponent<Player_New>().TakeDamage(20);
                         
 

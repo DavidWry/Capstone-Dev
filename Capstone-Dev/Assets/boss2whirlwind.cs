@@ -25,42 +25,47 @@ namespace AssemblyCSharp
         // Update is called once per frame
         void Update()
         {
-            if (windParticleSystem.isPlaying)
+            if (player)
             {
-                if (Vector3.Distance(GameObject.FindGameObjectWithTag("Player").gameObject.transform.position, gameObject.transform.parent.gameObject.transform.position) < distance) {
+                if (gameObject.GetComponentInParent<boss2behalf>().hp > 0)
+                    if (windParticleSystem.isPlaying)
+                {
+                    if (Vector3.Distance(GameObject.FindGameObjectWithTag("Player").gameObject.transform.position, gameObject.transform.parent.gameObject.transform.position) < distance)
+                    {
 
-                  //  player.GetComponent<Player_New>().TakeDamage(40*Time.deltaTime);
+                        //  player.GetComponent<Player_New>().TakeDamage(40*Time.deltaTime);
+
+                    }
+                    if (timeCount == 0)
+                    {
+                        nextSpot = new Vector3(0, 0, 0);
+
+                        timeCount = 1;
+                    }
+
+                    else
+                    {
+                        Vector3 addition = new Vector3(Random.Range(-10.0f, 10.0f), Random.Range(-10.0f, 10.0f), 0) * Time.deltaTime;
+                        print(addition);
+                        nextSpot += addition;
+
+                        gameObject.transform.parent.GetComponent<Rigidbody2D>().MovePosition(gameObject.transform.position+nextSpot);
+
+                    }
+
+                    if (Vector3.Distance(gameObject.transform.parent.transform.position, player.transform.position) < distance)
+                    {
+                        player.GetComponent<Player_New>().TakeDamage(50 * Time.deltaTime);
+
+                    }
 
                 }
-                if (timeCount == 0)
+                else
                 {
                     nextSpot = new Vector3(0, 0, 0);
 
-                    timeCount = 1;
+                    timeCount = 0;
                 }
-
-                else
-                {
-                    Vector3 addition = new Vector3(Random.Range(-10.0f, 10.0f), Random.Range(-10.0f, 10.0f), 0) * Time.deltaTime;
-                    print(addition);
-                    nextSpot += addition;
-
-                    gameObject.transform.parent.transform.position += nextSpot;
-
-                }
-
-                if (Vector3.Distance(gameObject.transform.parent.transform.position, player.transform.position) < distance)
-                {
-                    player.GetComponent<Player_New>().TakeDamage(50 * Time.deltaTime) ;
-    
-            }
-
-            }
-            else
-            {
-                nextSpot = new Vector3(0, 0, 0);
-
-                timeCount = 0;
             }
         }
 
@@ -76,6 +81,22 @@ namespace AssemblyCSharp
 
         }
 
+        public void disableParticle()
+        {
+            GameObject[] respawns = GameObject.FindGameObjectsWithTag("Particle");
+            foreach(GameObject respawn in respawns)
+            {
+                print(respawn.name);
+                Destroy(respawn);
+            }
+
+                
+        }
+        public void destroyThis()
+        {
+            Destroy(gameObject.transform.parent.gameObject);
+
+        }
 
         void OnTriggerEnter(Collider other)
         {
@@ -83,7 +104,14 @@ namespace AssemblyCSharp
             {
                 nextSpot *= -1;
             }
-
+        
+        }
+        private void OnTriggerStay(Collider other)
+        {
+            if (windParticleSystem.isPlaying && other.tag== "Player")
+            {
+                player.GetComponent<Player_New>().TakeDamage(25 * Time.deltaTime);
+            }
         }
 
     }

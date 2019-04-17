@@ -13,7 +13,7 @@ namespace AssemblyCSharp
         // Use this for initialization
         void Start()
         {
-            anim = gameObject.GetComponent<Animator>();
+            anim = gameObject.transform.parent.GetComponent<Animator>();
             player = GameObject.FindGameObjectWithTag("Player");
         }
 

@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 1671417}
   m_Layer: 0
   m_Name: Particle System (2)
-  m_TagString: Untagged
+  m_TagString: Particle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,7 +138,7 @@ Transform:
   m_GameObject: {fileID: 1671415}
   m_LocalRotation: {x: -0.23956299, y: -0.9675562, z: -0.07405923, w: 0.030981671}
   m_LocalPosition: {x: -4.9, y: -1.34, z: 0}
-  m_LocalScale: {x: 2.8, y: 1.77, z: 1.36}
+  m_LocalScale: {x: 25, y: 15, z: 2.6}
   m_Children: []
   m_Father: {fileID: 1662470807}
   m_RootOrder: 5
@@ -279,7 +279,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 3
+      scalar: 1.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -333,7 +333,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 0.5
-      minScalar: 0
+      minScalar: -0.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -764,7 +764,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 5
+    maxNumParticles: 8
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -973,7 +973,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 35.3
+      scalar: 50.88
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -5029,7 +5029,7 @@ GameObject:
   - component: {fileID: 158399119}
   m_Layer: 0
   m_Name: Particle System
-  m_TagString: Untagged
+  m_TagString: Particle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5042,7 +5042,7 @@ Transform:
   m_GameObject: {fileID: 158399117}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0.7071068, w: 0}
   m_LocalPosition: {x: 26.6, y: -0.27, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 1514536720}
   m_Father: {fileID: 1662470807}
@@ -5113,7 +5113,7 @@ ParticleSystem:
   m_GameObject: {fileID: 158399117}
   serializedVersion: 5
   lengthInSec: 2
-  simulationSpeed: 1.4
+  simulationSpeed: 10
   stopAction: 0
   looping: 0
   prewarm: 0
@@ -5291,7 +5291,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.047169805, g: 0.046736218, b: 0.04605731, a: 1}
+      maxColor: {r: 0, g: 0, b: 0, a: 0}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5669,7 +5669,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 10
+    maxNumParticles: 20
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -8833,7 +8833,7 @@ ParticleSystem:
     lifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -8900,16 +8900,16 @@ ParticleSystem:
       maxColor: {r: 0, g: 0, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0, g: 0, b: 0, a: 1}
-        key1: {r: 0, g: 0, b: 0, a: 1}
-        key2: {r: 0, g: 0, b: 0, a: 0}
+        key0: {r: 1, g: 0.49574798, b: 0, a: 1}
+        key1: {r: 1, g: 0.49574798, b: 0, a: 0.53333336}
+        key2: {r: 1, g: 0.49574798, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
-        ctime1: 61295
+        ctime1: 54548
         ctime2: 65535
         ctime3: 0
         ctime4: 0
@@ -8917,7 +8917,7 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 61295
+        atime1: 54163
         atime2: 65535
         atime3: 0
         atime4: 0
@@ -8965,8 +8965,8 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
-          time: 0.012424469
-          value: 0.04166794
+          time: 0
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -8974,8 +8974,8 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 1
-          value: 1
+          time: 0.9672241
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -9016,33 +9016,33 @@ ParticleSystem:
       maxColor: {r: 0.764151, g: 0.14057496, b: 0.14057496, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0, g: 0, b: 0, a: 1}
-        key1: {r: 0, g: 0, b: 0, a: 1}
-        key2: {r: 0, g: 0, b: 0, a: 0}
+        key0: {r: 1, g: 0.49244177, b: 0, a: 1}
+        key1: {r: 1, g: 0.49244177, b: 0, a: 0.5803922}
+        key2: {r: 1, g: 0.49244177, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
-        ctime1: 65535
-        ctime2: 0
+        ctime1: 54934
+        ctime2: 65535
         ctime3: 0
         ctime4: 0
         ctime5: 0
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 65535
-        atime2: 0
+        atime1: 54741
+        atime2: 65535
         atime3: 0
         atime4: 0
         atime5: 0
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_NumColorKeys: 2
-        m_NumAlphaKeys: 2
+        m_NumColorKeys: 3
+        m_NumAlphaKeys: 3
       minGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -10035,7 +10035,7 @@ GameObject:
   - component: {fileID: 582417832}
   m_Layer: 0
   m_Name: Tornado_exe6_6
-  m_TagString: Untagged
+  m_TagString: Particle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10658,7 +10658,7 @@ GameObject:
   - component: {fileID: 707705572}
   m_Layer: 0
   m_Name: fireball-animation-sprite-sheet-for-game-vector-12682245_0
-  m_TagString: Untagged
+  m_TagString: Particle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12306,7 +12306,7 @@ GameObject:
   - component: {fileID: 1659638314}
   m_Layer: 0
   m_Name: Particle System (1)
-  m_TagString: Untagged
+  m_TagString: Particle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16931,7 +16931,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1662470806
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16986,7 +16986,7 @@ Transform:
   m_GameObject: {fileID: 1662470805}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 438.39, y: -3.5, z: -0.9324217}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children:
   - {fileID: 644983152}
   - {fileID: 158399118}
@@ -17008,6 +17008,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4035a206c5d1fdd4987eb9baa30f9c14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 500
 --- !u!50 &1662470809
 Rigidbody2D:
   serializedVersion: 4

@@ -15,6 +15,7 @@ TagManager:
   - EnemyProjectile
   - Boss
   - WithPopUp
+  - Particle
   layers:
   - Default
   - TransparentFX

@@ -7,7 +7,7 @@ public class boss2behalf : MonoBehaviour {
     Animator boss2Anim;
     int breathState = 0;
     float idleTime = 0;
-    int hp = 500;
+    public int hp = 500;
     // Use this for initialization
     void Start () {
         boss2Sprite = gameObject.transform.GetChild(0).gameObject;
@@ -38,7 +38,7 @@ public class boss2behalf : MonoBehaviour {
             {
 
                 idleTime += Time.deltaTime;
-                if (idleTime >= 2)
+                if (idleTime >= .5f)
                 {
                     boss2Anim.SetInteger("state", p);
                     idleTime = -1;
@@ -51,5 +51,8 @@ public class boss2behalf : MonoBehaviour {
         }
 
     }
+
+
+
 
 }
