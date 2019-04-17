@@ -5373,6 +5373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   empty: {fileID: 21300042, guid: 6a0ed52ad3d5ae84aa2b263f695538b9, type: 3}
+  Glowing: {fileID: 1812008293376574, guid: 83a9337a1ae52ac47b9ff019c3205b0c, type: 2}
 --- !u!114 &114586885257424438
 MonoBehaviour:
   m_ObjectHideFlags: 1

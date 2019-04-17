@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class ThirdSlot : MonoBehaviour {
 
     public Sprite empty;
+    public GameObject Glowing;
     private Player_New player;
     private GameObject PlayerObj;
     private Image weaponIcon;
@@ -39,6 +40,8 @@ public class ThirdSlot : MonoBehaviour {
             {
                 weaponIcon.sprite = player.thirdWeapon.WeaponIcon;
             }
+            if (transform.childCount == 0)
+                Instantiate(Glowing, transform);
         }
         currentName = player.thirdWeapon.Name;
     }
