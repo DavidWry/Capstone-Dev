@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class WindEffect : MonoBehaviour {
 
-    public float strength;
-    public Vector3 windDirection;
+    public float Strength;
+    public Vector3 WindDirection;
     public float speed;
     public GameObject effect;
 
@@ -20,7 +20,7 @@ public class WindEffect : MonoBehaviour {
         Rigidbody colRigidbody = col.GetComponent<Rigidbody>();
         if (colRigidbody != null)
         {
-            colRigidbody.AddForce(windDirection * strength);
+            colRigidbody.AddForce(WindDirection * Strength);
         }
     }
 
@@ -29,7 +29,7 @@ public class WindEffect : MonoBehaviour {
         Rigidbody colRigidbody = col.GetComponent<Rigidbody>();
         if (colRigidbody != null)
         {
-            colRigidbody.AddForce(windDirection * strength);
+            colRigidbody.AddForce(WindDirection * Strength);
         }
     }
 }

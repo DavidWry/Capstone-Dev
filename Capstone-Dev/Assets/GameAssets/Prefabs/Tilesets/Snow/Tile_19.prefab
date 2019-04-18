@@ -20,8 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4111891256167624}
   - component: {fileID: 212627275908898606}
-  - component: {fileID: 114167811188250600}
-  - component: {fileID: 65606783181820466}
   m_Layer: 12
   m_Name: Tile_19
   m_TagString: Untagged
@@ -36,38 +34,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1008682546140488}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.524239, y: -47.571243, z: 0}
+  m_LocalPosition: {x: 200.30057, y: 791.6064, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &65606783181820466
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1008682546140488}
-  m_Material: {fileID: 13400000, guid: 2a479ec334703d7448fd3eb7e4ac5000, type: 2}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 24, y: 24, z: 0.2}
-  m_Center: {x: 12, y: 12, z: 0}
---- !u!114 &114167811188250600
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1008682546140488}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad9fc0235ad6b8844beacf1bf6304385, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  strength: 30
-  windDirection: {x: 0, y: 0, z: 0}
 --- !u!212 &212627275908898606
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -100,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2140784465
-  m_SortingLayer: 2
+  m_SortingLayerID: -685266055
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: d3d20532285ee432fa6c9507ce0702a1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
