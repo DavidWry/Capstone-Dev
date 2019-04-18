@@ -26,7 +26,7 @@ public class Movement_New : MonoBehaviour {
     void Start()
     {
         playerShoot = GetComponent<Shoot_New>();
-        aimDistance = 5f;
+        aimDistance = 7f;
         Recoil = Vector3.zero;
 
         RightAimIcon = Instantiate(RightAimIcon, transform);

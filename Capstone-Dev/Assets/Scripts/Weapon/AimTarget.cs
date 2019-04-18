@@ -55,8 +55,8 @@ public class AimTarget : MonoBehaviour {
         }
         if (shoot.CombineOn)
         {
-            lineRenderer.SetPosition(0, transform.position);
-            sprite.color = Color.clear;
+            lineRenderer.SetPosition(0, shoot.CombineBulPos.position);
+            lineRenderer.SetPosition(1, shoot.CombineBulPos.position + shoot.CombineBulPos.right * 5);
         }
 
     }
