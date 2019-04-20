@@ -76,11 +76,17 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
         GenerateGrass();
         DrawGrass();
 
+        GenerateBuilding();
+        DrawBuilding();
+
         GenerateHole();
         DrawHole();
 
         GenerateRock();
         DrawRock();
+
+        GenerateTree();
+        DrawTree();
 
         DrawPlayer();
 
@@ -1496,6 +1502,83 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
             }
         }
     }
+    void GenerateBuilding()
+    {
+        for (int i = 0; i < levelWidth; i++)
+        {
+            for (int j = 0; j < levelHeight; j++)
+            {
+                if ((landArray[i, j] == 1 || landArray[i, j] == 0) &&
+                    (cellState[i, j].state == 18 || (cellState[i, j].state >= 36 && cellState[i, j].state <= 45)))
+                    landArray[i, j] = 1;
+                else
+                    landArray[i, j] = -1;
+            }
+        }
+    }
+
+    void DrawBuilding()
+    {
+        GameObject tile90 = gameManager.GetTile2("Tile_90");
+        GameObject tile91 = gameManager.GetTile2("Tile_91");
+        GameObject tile92 = gameManager.GetTile2("Tile_92");
+        GameObject tile93 = gameManager.GetTile2("Tile_93");
+
+
+        for (int i = 5; i < levelWidth - 5; i++)
+        {
+            for (int j = 5; j < levelHeight - 5; j++)
+            {
+                bool isAble = false;
+                if (landArray[i, j] == 1)
+                {
+                    for (int m = -1; m < 2; m++)
+                    {
+                        for (int n = -1; n < 2; n++)
+                        {
+                            if (cellState[i + m, j + n].state >= 19 && cellState[i + m, j + n].state <= 35)
+                            {
+                                isAble = true;
+                            }
+                        }
+                    }
+                    if (isAble)
+                    {
+                        float tempValue = Random.value;
+                        if (tempValue < 0.05)//可以生成
+                        {
+                            float tempStyle = Random.value;
+                            if (tempStyle < 0.05)
+                            {
+                                Instantiate(tile90, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                                cellState[i, j].state = 90;
+                            }
+                            else if (tempStyle < 0.1)
+                            {
+                                Instantiate(tile91, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                                cellState[i, j].state = 91;
+                            }
+                            else if (tempStyle < 0.15)
+                            {
+                                Instantiate(tile92, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                                cellState[i, j].state = 92;
+                            }
+                            else if (tempStyle < 0.2)
+                            {
+                                Instantiate(tile93, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                                cellState[i, j].state = 93;
+                            }
+  
+
+                        }
+                    }
+                    //Debug.Log("a");
+
+
+                }
+            }
+        }
+    }
     void GenerateHole()
     {
         for (int i = 0; i < levelWidth; i++)
@@ -1765,6 +1848,118 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
                     {
                         Instantiate(tile76, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                         cellState[i, j].state = 76;//number in tileset folder
+                    }
+                }
+            }
+        }
+    }
+    void GenerateTree()
+    {
+        for (int i = 0; i < levelWidth; i++)
+        {
+            for (int j = 0; j < levelHeight; j++)
+            {
+                if ((landArray[i, j] == 1 || landArray[i, j] == 0) &&
+                    ((cellState[i, j].state < 46 && cellState[i, j].state > 35) || cellState[i, j].state == 18))
+                {
+                    landArray[i, j] = 0;
+                    newLandArray[i, j] = 0;
+                }
+
+                else
+                {
+                    landArray[i, j] = -1;
+                    newLandArray[i, j] = -1;
+                }
+
+            }
+        }
+
+        CA(0.5f, 1, 8, 1, false, 0);
+    }
+
+    void DrawTree()
+    {
+        GameObject tile78 = gameManager.GetTile2("Tile_78");
+        GameObject tile79 = gameManager.GetTile2("Tile_79");
+        GameObject tile80 = gameManager.GetTile2("Tile_80");
+        GameObject tile81 = gameManager.GetTile2("Tile_81");
+        GameObject tile82 = gameManager.GetTile2("Tile_82");
+        GameObject tile83 = gameManager.GetTile2("Tile_83");
+        GameObject tile84 = gameManager.GetTile2("Tile_84");
+        GameObject tile85 = gameManager.GetTile2("Tile_85");
+        GameObject tile86 = gameManager.GetTile2("Tile_86");
+        GameObject tile87 = gameManager.GetTile2("Tile_87");
+        GameObject tile88 = gameManager.GetTile2("Tile_88");
+        GameObject tile89 = gameManager.GetTile2("Tile_89");
+
+        for (int i = 5; i < levelWidth - 5; i++)
+        {
+            for (int j = 5; j < levelHeight - 5; j++)
+            {
+                if (landArray[i, j] == 1)
+                {
+
+                    float tempValue = Random.value;
+                    if (tempValue < 0.083)
+                    {
+                        Instantiate(tile78, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 78;
+                    }
+                    else if (tempValue < 0.167)
+                    {
+                        Instantiate(tile79, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 79;//number in tileset folder
+                    }
+                    else if (tempValue < 0.250)
+                    {
+                        Instantiate(tile80, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 80;//number in tileset folder
+                    }
+                    else if (tempValue < 0.333)
+                    {
+                        Instantiate(tile81, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 81;//number in tileset folder
+                    }
+                    else if (tempValue < 0.416)
+                    {
+                        Instantiate(tile82, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 82;//number in tileset folder
+                    }
+                    else if (tempValue < 0.499)
+                    {
+                        Instantiate(tile83, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 83;
+                    }
+                    else if (tempValue < 0.582)
+                    {
+                        Instantiate(tile84, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 84;//number in tileset folder
+                    }
+                    else if (tempValue < 0.665)
+                    {
+                        Instantiate(tile85, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 85;//number in tileset folder
+                    }
+                    else if (tempValue < 0.748)
+                    {
+                        Instantiate(tile86, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 86;//number in tileset folder
+                    }
+                    else if (tempValue < 0.831)
+                    {
+                        Instantiate(tile87, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 87;//number in tileset folder
+                    }
+                     else if (tempValue < 0.914)
+                    {
+                        Instantiate(tile88, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 88;//number in tileset folder
+                    }
+                    else
+                    {
+                        Instantiate(tile89, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                        cellState[i, j].state = 89;//number in tileset folder
                     }
                 }
             }
