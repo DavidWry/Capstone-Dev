@@ -6524,6 +6524,37 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 146015121}
   m_CullTransparentMesh: 0
+--- !u!84 &159493579
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 857
+  m_Height: 482
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &190511911
 GameObject:
   m_ObjectHideFlags: 0
@@ -6877,6 +6908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   context: To the weapon room.
+  ASet: 0
 --- !u!114 &222273297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7253,6 +7285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   context: Cosmic atlas. Who I have met till now.
+  ASet: 0
 --- !u!65 &259055929
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7922,9 +7955,6 @@ GameObject:
   - component: {fileID: 282867157}
   - component: {fileID: 282867156}
   - component: {fileID: 282867158}
-  - component: {fileID: 282867160}
-  - component: {fileID: 282867159}
-  - component: {fileID: 282867161}
   m_Layer: 0
   m_Name: Tile_19
   m_TagString: WithPopUp
@@ -8003,42 +8033,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.47, y: 0.24, z: 0.2}
   m_Center: {x: 0, y: 0.03, z: 0}
---- !u!114 &282867159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 282867155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c265c20dc58ced48a0b25873a03b31f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  context: Choose my target planet.
---- !u!65 &282867160
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 282867155}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.6757815, y: 0.5919779, z: 0.19999988}
-  m_Center: {x: 0, y: 0.14737077, z: 0}
---- !u!114 &282867161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 282867155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f89dc227f1dee4545aecea7fbd4a3a1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Menu: {fileID: 267180103}
 --- !u!1 &305220104
 GameObject:
   m_ObjectHideFlags: 0
@@ -8428,37 +8422,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 318486733}
   m_CullTransparentMesh: 0
---- !u!84 &348824406
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 688
-  m_Height: 387
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &355420395
 GameObject:
   m_ObjectHideFlags: 0
@@ -9457,6 +9420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PopCanvas: {fileID: 1021691849}
   text: {fileID: 1138233238}
+  AButton: {fileID: 708483464}
 --- !u!4 &441442674 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4527442569376206, guid: c2e5f753fcf49c64d87884c1108debe8,
@@ -12137,6 +12101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   context: Go over the tutorial.
+  ASet: 0
 --- !u!1 &682463052
 GameObject:
   m_ObjectHideFlags: 0
@@ -12603,6 +12568,75 @@ CanvasRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 702810470}
+  m_CullTransparentMesh: 0
+--- !u!1 &708483464
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 708483465}
+  - component: {fileID: 708483467}
+  - component: {fileID: 708483466}
+  m_Layer: 0
+  m_Name: A
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &708483465
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 708483464}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.74657, y: 0.74657, z: 0.74657}
+  m_Children: []
+  m_Father: {fileID: 1021691850}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -429.75, y: -236.49}
+  m_SizeDelta: {x: 1, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &708483466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 708483464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300030, guid: 6a0ed52ad3d5ae84aa2b263f695538b9, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &708483467
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 708483464}
   m_CullTransparentMesh: 0
 --- !u!1 &727169903
 GameObject:
@@ -13730,6 +13764,37 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 820366576}
   m_CullTransparentMesh: 0
+--- !u!84 &822657204
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 857
+  m_Height: 482
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 0
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &830882509
 GameObject:
   m_ObjectHideFlags: 0
@@ -15924,6 +15989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   context: Teleporter. Let's go and finish the job.
+  ASet: 1
 --- !u!1 &980838240
 GameObject:
   m_ObjectHideFlags: 0
@@ -16148,7 +16214,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 0
   m_RenderingPath: 1
-  m_TargetTexture: {fileID: 1410964000}
+  m_TargetTexture: {fileID: 822657204}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -16595,6 +16661,7 @@ RectTransform:
   m_Children:
   - {fileID: 1279502778}
   - {fileID: 1138233237}
+  - {fileID: 708483465}
   m_Father: {fileID: 441442674}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -24258,37 +24325,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1410805329}
   m_CullTransparentMesh: 0
---- !u!84 &1410964000
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 688
-  m_Height: 387
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 0
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &1412975149
 GameObject:
   m_ObjectHideFlags: 0
@@ -26883,6 +26919,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   context: Needle can change my ultimate weapon for me.
+  ASet: 1
 --- !u!136 &1681848061
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -31996,5 +32033,5 @@ MonoBehaviour:
   sourceCamera: {fileID: 2144244037}
   outlineCamera: {fileID: 987493587}
   outlineShaderMaterial: {fileID: 0}
-  renderTexture: {fileID: 1410964000}
-  extraRenderTexture: {fileID: 348824406}
+  renderTexture: {fileID: 822657204}
+  extraRenderTexture: {fileID: 159493579}

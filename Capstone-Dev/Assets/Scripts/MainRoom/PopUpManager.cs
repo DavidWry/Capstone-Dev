@@ -7,6 +7,7 @@ public class PopUpManager : MonoBehaviour {
 
     public GameObject PopCanvas;
     public Text text;
+    public GameObject AButton;
 
 	// Use this for initialization
 	void Start () {
@@ -26,6 +27,14 @@ public class PopUpManager : MonoBehaviour {
             {
                 PopCanvas.SetActive(true);
                 text.text = other.gameObject.GetComponent<PopUp>().context;
+                if (!other.gameObject.GetComponent<PopUp>().ASet)
+                {
+                    AButton.SetActive(false);
+                }
+                else
+                {
+                    AButton.SetActive(true);
+                }
             }
         }
     }
