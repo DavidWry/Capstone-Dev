@@ -45,11 +45,11 @@ namespace AssemblyCSharp
 
                     else
                     {
-                        Vector3 addition = new Vector3(Random.Range(-10.0f, 10.0f), Random.Range(-10.0f, 10.0f), 0) * Time.deltaTime;
-                        print(addition);
+                        Vector3 addition = new Vector3(Random.Range(-5.0f, 5.0f), Random.Range(-5.0f, 5.0f), 0) * Time.deltaTime;
+                       
                         nextSpot += addition;
 
-                        gameObject.transform.parent.GetComponent<Rigidbody2D>().MovePosition(gameObject.transform.position+nextSpot);
+                        gameObject.transform.parent.GetComponent<Rigidbody>().MovePosition(gameObject.transform.position+nextSpot);
 
                     }
 
@@ -86,7 +86,7 @@ namespace AssemblyCSharp
             GameObject[] respawns = GameObject.FindGameObjectsWithTag("Particle");
             foreach(GameObject respawn in respawns)
             {
-                print(respawn.name);
+              
                 Destroy(respawn);
             }
 

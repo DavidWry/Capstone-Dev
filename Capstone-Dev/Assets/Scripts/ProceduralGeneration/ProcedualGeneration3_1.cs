@@ -88,7 +88,7 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
         DrawLoot();
 
         GenerateEnemy();
-        DrawEnemy();
+        //DrawEnemy();
 
         DrawPortal();
 
