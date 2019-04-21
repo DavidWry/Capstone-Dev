@@ -11,6 +11,7 @@ public class PlayerData {
     public List<string> NpcIDs;            //Npc player met.
     public float Hp;
     public int Ap;
+    public string Partner;
 
     public PlayerData (Player_New player)
     {
@@ -20,5 +21,6 @@ public class PlayerData {
         NpcIDs = player.NPCIDs;
         Hp = player.HitPoint;
         Ap = player.Power;
+        Partner = player.CurrentPartner;
     }
 }

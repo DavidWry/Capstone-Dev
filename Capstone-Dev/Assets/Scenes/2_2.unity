@@ -307,7 +307,7 @@ Prefab:
     - target: {fileID: 224853291032269004, guid: 5459165c1a6a0d8459bae141378f4087,
         type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 224379930032276846, guid: 5459165c1a6a0d8459bae141378f4087,
         type: 2}
@@ -327,7 +327,7 @@ Prefab:
     - target: {fileID: 224826622437140070, guid: 5459165c1a6a0d8459bae141378f4087,
         type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 224327507537223342, guid: 5459165c1a6a0d8459bae141378f4087,
         type: 2}
@@ -6041,7 +6041,7 @@ RectTransform:
   m_Children:
   - {fileID: 288123884}
   m_Father: {fileID: 1810271443}
-  m_RootOrder: 9
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -6169,6 +6169,11 @@ Prefab:
         type: 2}
       propertyPath: EnemyList.Array.size
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: ItemsList.Array.size
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
@@ -6608,7 +6613,7 @@ Prefab:
         type: 2}
       propertyPath: Tiles2.Array.data[49]
       value: 
-      objectReference: {fileID: 1008682546140488, guid: 04662781dc4f4744bb9b75ce7d02e25c,
+      objectReference: {fileID: 1008682546140488, guid: 5365c733f0f657f46af23cb3f7554e42,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
@@ -6683,6 +6688,28 @@ Prefab:
       propertyPath: Tiles2.Array.data[55]
       value: 
       objectReference: {fileID: 1008682546140488, guid: c577421467c29d14497b59e4d4e70209,
+        type: 2}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: ItemsList.Array.data[7].Name
+      value: LargeHealing
+      objectReference: {fileID: 0}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: ItemsList.Array.data[7].ItemName
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: ItemsList.Array.data[7].ItemIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 6dbf1c3f496553b4aa368aba128a02da,
+        type: 3}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: ItemsList.Array.data[7].itemObj
+      value: 
+      objectReference: {fileID: 1324665960220418, guid: 9b28b6aa9d2b34943b951286f9b4aee2,
         type: 2}
     m_RemovedComponents:
     - {fileID: 114744981980483458, guid: 7430308c60b9dc74396db2694886222b, type: 2}

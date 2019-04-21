@@ -39,6 +39,7 @@ public class Partner_Throw : MonoBehaviour {
                 Proj.Duration = Duration;
                 Proj.Damage = Damage;
                 Proj.Pierce = true;
+                partner.skillNum--;
             }
         }
 	}

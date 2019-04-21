@@ -179,4 +179,16 @@ public class NPCManager : MonoBehaviour {
             }
         }
     }
+
+    public void PartnerSetUp(string id)
+    {
+        foreach (GameObject npc in allNpcs)
+        {
+            if (npc.GetComponent<NPC>().NpcID == id)
+            {
+                GameObject partner = Instantiate(npc.GetComponent<NPC>().PartnerPrefab);
+                partner.transform.position = player.transform.position;
+            }
+        }
+    }
 }

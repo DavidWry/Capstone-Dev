@@ -1529,46 +1529,97 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
         {
             for (int j = 5; j < levelHeight - 5; j++)
             {
-                bool isAble = false;
+                bool isWidthAble = true;
+                bool isHeightAble = true;
                 if (landArray[i, j] == 1)
                 {
-                    for (int m = -1; m < 2; m++)
+                    for (int m = 0; m < 5; m++)
                     {
-                        for (int n = -1; n < 2; n++)
+                        for (int n = 0; n < 4; n++)
                         {
-                            if (cellState[i + m, j + n].state >= 19 && cellState[i + m, j + n].state <= 35)
+                            if (landArray[i+m,j+n]==-1 ||(cellState[i+m,j+n].state>=90 && cellState[i + m, j + n].state <= 93))
                             {
-                                isAble = true;
+                                isWidthAble = false;
                             }
                         }
                     }
-                    if (isAble)
+                    for (int m = 0; m < 3; m++)
+                    {
+                        for (int n = 0; n < 5; n++)
+                        {
+                            if (landArray[i + m, j + n] == -1 || (cellState[i + m, j + n].state >= 90 && cellState[i + m, j + n].state <= 93))
+                            {
+                                isHeightAble = false;
+                            }
+                        }
+                    }
+                    if (isWidthAble)
                     {
                         float tempValue = Random.value;
-                        if (tempValue < 0.05)//可以生成
+                        if (tempValue < 0.01)//可以生成
                         {
                             float tempStyle = Random.value;
-                            if (tempStyle < 0.05)
+                            if (tempStyle < 0.33)
                             {
                                 Instantiate(tile90, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                                cellState[i, j].state = 90;
+                                for (int m = 0; m < 5; m++)
+                                {
+                                    for (int n = 0; n < 4; n++)
+                                    {
+
+                                        cellState[i+m, j+n].state = 90;
+
+                                    }
+                                }
+                                
                             }
-                            else if (tempStyle < 0.1)
+                            else if (tempStyle < 0.66)
                             {
                                 Instantiate(tile91, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                                cellState[i, j].state = 91;
+                                for (int m = 0; m < 5; m++)
+                                {
+                                    for (int n = 0; n < 4; n++)
+                                    {
+
+                                        cellState[i + m, j + n].state = 91;
+
+                                    }
+                                }
                             }
-                            else if (tempStyle < 0.15)
+                            else if (tempStyle < 0.99)
                             {
                                 Instantiate(tile92, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                                cellState[i, j].state = 92;
+                                for (int m = 0; m < 5; m++)
+                                {
+                                    for (int n = 0; n < 4; n++)
+                                    {
+
+                                        cellState[i + m, j + n].state = 92;
+
+                                    }
+                                }
                             }
-                            else if (tempStyle < 0.2)
-                            {
-                                Instantiate(tile93, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
-                                cellState[i, j].state = 93;
-                            }
+
   
+
+                        }
+                    }
+                    else if (isHeightAble)
+                    {
+                        float tempValue = Random.value;
+                        if (tempValue < 0.01)//可以生成
+                        {
+                            
+                            Instantiate(tile93, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                            for (int m = 0; m < 3; m++)
+                            {
+                                for (int n = 0; n < 5; n++)
+                                {
+
+                                    cellState[i + m, j + n].state = 93;
+
+                                }
+                            }
 
                         }
                     }

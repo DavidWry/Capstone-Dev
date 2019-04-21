@@ -4284,6 +4284,7 @@ MonoBehaviour:
     type: 2}
   CombineType: 0
   NPCIDs: []
+  CurrentPartner: 
   fixRightAngle: 54
   fixLeftAngle: 103
   fixAngle: 110
