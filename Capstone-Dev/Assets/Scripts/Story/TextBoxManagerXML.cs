@@ -4,6 +4,7 @@ using System.IO;
 using System.Xml;
 using UnityEngine;
 using UnityEngine.UI;
+using AssemblyCSharp;
 
 public class TextBoxManagerXML : MonoBehaviour {
 
@@ -60,6 +61,7 @@ public class TextBoxManagerXML : MonoBehaviour {
                             if (CurrentNPC.GetComponent<NPC>().PartnerPrefab != null)
                             {
                                 Instantiate(CurrentNPC.GetComponent<NPC>().PartnerPrefab, CurrentNPC.transform.position, CurrentNPC.transform.rotation);
+                                Player.GetComponent<Player_New>().CurrentPartner = CurrentNPC.GetComponent<NPC>().NpcID;
                                 Destroy(CurrentNPC);
                             }
                         }

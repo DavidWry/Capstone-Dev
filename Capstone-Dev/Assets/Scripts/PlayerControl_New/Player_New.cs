@@ -15,6 +15,7 @@ namespace AssemblyCSharp
         public GameObject RightTarget;
         public int CombineType;
         public List<string> NPCIDs;          //NPCs player met.
+        public string CurrentPartner;
 
         public float fixRightAngle = 0;
         public float fixLeftAngle = 0;
@@ -400,6 +401,13 @@ namespace AssemblyCSharp
             playerPick.RefreshWeaponUI(1);
             playerPick.RefreshWeaponUI(2);
             //Loading process will depend on what kind of situation.
+
+            CurrentPartner = data.Partner;
+            if (CurrentPartner != "")
+            {
+                NPCManager npcManager = FindObjectOfType<NPCManager>();
+                npcManager.PartnerSetUp(CurrentPartner);
+            }
         }
 
         public void ChangeWeapon(string weaponName)

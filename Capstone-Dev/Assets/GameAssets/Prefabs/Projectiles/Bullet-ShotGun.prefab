@@ -38,7 +38,7 @@ Transform:
   m_GameObject: {fileID: 1761329038343370}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.884, y: -1.7452527, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.03}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -78,9 +78,13 @@ MonoBehaviour:
   Pierce: 0
   Sheild: 0
   Scale: 0
-  Impact: {fileID: 0}
+  OnTarget: 0
+  Boom: 0
+  Impact: {fileID: 1501866481023270, guid: 658b9b1f4267b454c9c153d3961f4422, type: 2}
   GameManage: {fileID: 0}
   Duration: 1
+  stun: 0
+  round: 0
 --- !u!136 &136877737163506192
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -129,7 +133,7 @@ SpriteRenderer:
   m_SortingLayerID: -2140784465
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8acac738f7328a34aa3674db8b52f4fd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0766e44f8f8e8154bb53b7a626951753, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

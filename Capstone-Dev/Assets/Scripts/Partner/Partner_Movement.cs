@@ -8,13 +8,18 @@ public class Partner_Movement : MonoBehaviour {
     public Character partner_Character;
     public List<SpriteRenderer> sprites;
     public GameObject player;
+    public int MaxSkillCount = 1;
+    public float CoolDownTime = 5;
+    public GameObject Pop;
 
+    public int skillNum;
     float radius = 60;
     bool movingTo = true;
     float speed = 120;
     Vector3 target;
-    float waitTime = 5;
+    float waitTime = 5f;
     float Timer = 0;
+    public float skillTimer = 0;
     public bool skillReady = false;
 
 
@@ -24,6 +29,7 @@ public class Partner_Movement : MonoBehaviour {
         sprites = partner_Character.LayerManager.Sprites;
         player = GameObject.FindWithTag("Player");
         target = RandomPosition();
+        skillNum = MaxSkillCount;
     }
 	
 	// Update is called once per frame
@@ -38,7 +44,7 @@ public class Partner_Movement : MonoBehaviour {
                 movingTo = false;
                 speed = 120;
             }
-            if (Vector3.Distance(transform.position, target) < 15)
+            if (Vector3.Distance(transform.position, target) < 15 && skillNum > 0)
             {
                 FromTransform();
             }
@@ -49,7 +55,10 @@ public class Partner_Movement : MonoBehaviour {
         }
         else
         {
-            FromTransform();
+            if (skillNum > 0)
+                FromTransform();
+            else if (skillNum == 0)
+                ToTransform();
             target = RandomPosition();
             if (Timer > waitTime)
             {
@@ -59,6 +68,14 @@ public class Partner_Movement : MonoBehaviour {
             else
             {
                 Timer += Time.deltaTime;
+                if (Timer < 1.0f && skillReady)
+                {
+                    Pop.SetActive(true);
+                }
+                else
+                {
+                    Pop.SetActive(false);
+                }
             }
             if (Vector3.Distance(transform.position, player.transform.position) > radius * 3)
             {
@@ -71,7 +88,21 @@ public class Partner_Movement : MonoBehaviour {
             }
             partner_Character.Animator.SetBool("Run", false);
         }
+        skillTimer += Time.deltaTime;
+        if (skillTimer > CoolDownTime)
+        {
+            if (skillNum < MaxSkillCount)
+            {
+                skillNum++;
+            }
+            skillTimer = 0;
+        }
+        if (skillNum == 0)
+        {
+            skillReady = false;
+        }
     }
+
 
     Vector3 RandomPosition()
     {
@@ -83,12 +114,13 @@ public class Partner_Movement : MonoBehaviour {
 
     void ToTransform()
     {
+        Pop.SetActive(false);
         foreach (SpriteRenderer sprite in sprites)
         {
             if (sprite != null)
             {
                 Color color = sprite.color;
-                color.a -= Time.deltaTime * 3;
+                color.a -= Time.deltaTime;
                 if (color.a < 0)
                     color.a = 0;
                 sprite.color = color;
@@ -109,11 +141,11 @@ public class Partner_Movement : MonoBehaviour {
                     color.a = 0.95f;
                 alpha = color.a;
                 sprite.color = color;
+                if (color.a > 0.9)
+                {
+                    skillReady = true;
+                }
             }
-        }
-        if (alpha > 0.8f)
-        {
-            skillReady = true;
         }
     }
 }

@@ -9,13 +9,35 @@ public class boss2charge : MonoBehaviour {
     public GameObject chargeSprite;
     Vector3 unitvec;
     float distance = 45;
+        float temppos;
+        bool nmh = false;
+        public int counta = 0;
 	// Use this for initialization
 	void Start () {
         
 	}
 
-    // Update is called once per frame
-    void Update() {
+        // Update is called once per frame
+        void Update() {
+
+            if (nmh)
+            {
+                float p = (GameObject.FindGameObjectWithTag("Player").gameObject.transform.position - gameObject.transform.parent.gameObject.transform.position).x;
+                if (p < 0)
+                {
+                    gameObject.transform.parent.transform.localScale = new Vector3(4, 4, 0);
+                    gameObject.transform.parent.position = new Vector3(temppos, gameObject.transform.parent.transform.position.y, gameObject.transform.parent.transform.position.z);
+                }
+                else
+                {
+                    print("asdkj");
+                    gameObject.transform.parent.transform.localScale = new Vector3(-4, 4, 0);
+                    gameObject.transform.parent.position = new Vector3(temppos+70, gameObject.transform.parent.transform.position.y, gameObject.transform.parent.transform.position.z);
+
+                }
+
+            }
+            
         if (waitcount > 3)
         {
             waitcount = 0;
@@ -33,14 +55,14 @@ public class boss2charge : MonoBehaviour {
             if (chargetime < 3  )
             {
                    
-                gameObject.GetComponentInParent<Rigidbody>().MovePosition(gameObject.transform.parent.gameObject.transform.position + unitvec*50);
+                gameObject.GetComponentInParent<Rigidbody>().AddForce(unitvec*1000, ForceMode.Acceleration);
                 chargetime += Time.deltaTime;
                 if(gameObject.GetComponentInParent<boss2behalf>().hp>0)
                 chargeSprite.SetActive(true);
                 gameObject.GetComponent<Animator>().SetBool("canCharge", false);
                 if (Vector3.Distance(GameObject.FindGameObjectWithTag("Player").gameObject.transform.position, gameObject.transform.parent.gameObject.transform.position) < distance) {
                         GameObject player = GameObject.FindGameObjectWithTag("Player");
-                        player.GetComponent<Rigidbody>().MovePosition(player.transform.position + unitvec*50);
+                        player.GetComponent<Rigidbody>().AddForce(unitvec/10,ForceMode.Acceleration);
                         player.GetComponent<Player_New>().HitPoint -= Time.deltaTime * 10;
                        // player.GetComponent<Player_New>().TakeDamage(20);
                         
@@ -61,7 +83,7 @@ public class boss2charge : MonoBehaviour {
         {
             chargeSprite.SetActive(false);
             gameObject.GetComponent<Animator>().SetBool("reach", false);
-                gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                gameObject.GetComponentInParent<Rigidbody>().velocity = Vector3.zero;
         }
 
 
@@ -74,43 +96,27 @@ public class boss2charge : MonoBehaviour {
 
     }
 
-    public void facedirection()
-    {
-        float p=(GameObject.FindGameObjectWithTag("Player").gameObject.transform.position - gameObject.transform.parent.gameObject.transform.position).x;
-        if (p < 0) {
-            gameObject.transform.parent.transform.rotation = Quaternion.Euler(0, 180, 0);
-                
-                }
-        else
-        {
-            gameObject.transform.parent.transform.rotation = Quaternion.Euler(0, 0, 0);
+        public void facedirection()
+        { if (counta == 0)
+            {
+                counta++;
+                nmh = true;
+                temppos = gameObject.transform.parent.transform.position.x - 35;
+               
+            }
+ 
 
-        }
     }
 
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (gameObject.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.name == "row2"&&other.gameObject.tag!="Player")
+        public void resetCounta()
         {
-                 
-            unitvec *= -1;
-            if (gameObject.transform.parent.transform.rotation.y == 180)
-            {
-                gameObject.transform.parent.transform.rotation = Quaternion.Euler(0, 0, 0);
-
-            }
-            else { gameObject.transform.parent.transform.rotation = Quaternion.Euler(0, 180, 0);
-
-                  
-                }
-
-
-            }
-            else
-            {
-                print("adg");
-            }
+            counta = 0;
+            nmh = false;
+        }
+        private void OnTriggerEnter(Collider other)
+    {
+       
 
 
     }
