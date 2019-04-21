@@ -11,7 +11,7 @@ public class NPC : MonoBehaviour {
     [SerializeField]
     private string NPCName = "NPC";
     [SerializeField]
-    private string NpcID = "02";
+    public string NpcID = "02";
     [SerializeField]
     private List<string> NpcParents = new List<string>();
     public bool NonRelatedNpc = true;
@@ -24,10 +24,6 @@ public class NPC : MonoBehaviour {
     void Start () {
         theTextBox = FindObjectOfType<TextBoxManagerXML>();
         npcManager = FindObjectOfType<NPCManager>();
-        /*if (NonRelatedNpc)
-        {
-            NPCText = NpcID;
-        }*/
     }
 	
 	// Update is called once per frame

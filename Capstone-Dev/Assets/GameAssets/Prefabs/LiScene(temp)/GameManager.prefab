@@ -198,7 +198,7 @@ MonoBehaviour:
     - -15
     - 30
     - -30
-    TimeBetweenShot: 1
+    TimeBetweenShot: 0.8
     TimeWaited: 0
     ImpactFX: {fileID: 1882777859570806, guid: 26b9baa734847f140803e4e033a9212a, type: 2}
     ShotFX: {fileID: 1919837370558522, guid: f8c71a952a175b64c89240acf3fc8bbe, type: 2}
@@ -209,7 +209,7 @@ MonoBehaviour:
     ClipObj: {fileID: 1766454748759930, guid: e74b0e6acc86e7542b2a19038b4464a6, type: 2}
     AttackAnimationUsed: 
     ReloadTime: 3
-    Duration: 0.2
+    Duration: 0.35
     ProjectileSpeed: 15
     IsThrust: 1
     IsLazer: 0

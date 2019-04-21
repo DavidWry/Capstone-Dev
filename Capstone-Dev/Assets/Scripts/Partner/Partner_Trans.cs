@@ -23,6 +23,7 @@ public class Partner_Trans : MonoBehaviour {
             if (Input.GetButtonDown("XButton"))
             {
                 StartCoroutine(Teleporter());
+                partner.skillNum--;
             }
         }
     }

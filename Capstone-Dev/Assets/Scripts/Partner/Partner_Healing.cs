@@ -23,6 +23,8 @@ public class Partner_Healing : MonoBehaviour {
                 Vector3 lookDirection = partner.player.transform.position - transform.position;
                 float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
                 NewProj.transform.eulerAngles = new Vector3(0, 0, angle);
+                partner.skillNum --;
+                partner.skillTimer = 0;
             }
         }
     }
