@@ -8,16 +8,27 @@ public class boss2behalf : MonoBehaviour {
     int breathState = 0;
     float idleTime = 0;
     public int hp = 500;
+    GameObject player;
+    int p;
     // Use this for initialization
     void Start () {
         boss2Sprite = gameObject.transform.GetChild(0).gameObject;
         boss2Anim = boss2Sprite.GetComponent<Animator>();
-        
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update() {
-        int p = (int)Random.Range(0, 6);
+        if (Vector3.Distance(player.transform.position, gameObject.transform.position) < 40)
+        {
+              p = (int)Random.Range(0, 6);
+        }
+        else
+        {
+          
+                  p = (int)Random.Range(2, 6);
+           
+        }
         if (hp <= 375 && breathState == 0&& boss2Anim.GetCurrentAnimatorClipInfo(0)[0].clip.name == "row1")
         {
             boss2Anim.SetInteger("state", 9);

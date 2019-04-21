@@ -45,11 +45,11 @@ namespace AssemblyCSharp
 
                     else
                     {
-                        Vector3 addition = new Vector3(Random.Range(-5.0f, 5.0f), Random.Range(-5.0f, 5.0f), 0) * Time.deltaTime;
+                        Vector3 addition = new Vector3(Random.Range(-10.0f, 10.0f), Random.Range(-10.0f, 10.0f), 0) * Time.deltaTime;
                        
                         nextSpot += addition;
 
-                        gameObject.transform.parent.GetComponent<Rigidbody>().MovePosition(gameObject.transform.position+nextSpot);
+                        gameObject.transform.parent.GetComponent<Rigidbody>().AddForce(nextSpot*2500,ForceMode.Acceleration);
 
                     }
 
@@ -102,10 +102,12 @@ namespace AssemblyCSharp
         {
             if (windParticleSystem.isPlaying && other.tag != "Player")
             {
+                print("saddgf");
                 nextSpot *= -1;
             }
         
         }
+ 
         private void OnTriggerStay(Collider other)
         {
             if (windParticleSystem.isPlaying && other.tag== "Player")

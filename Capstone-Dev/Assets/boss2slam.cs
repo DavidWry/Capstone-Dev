@@ -35,6 +35,22 @@ public class boss2slam : MonoBehaviour {
         if (slam1) { slam1 = false; }
         if (!slam1) { slam1 = true; }
     }
+    public void dir()
+    {
+        float p = (GameObject.FindGameObjectWithTag("Player").gameObject.transform.position - gameObject.transform.parent.gameObject.transform.position).x;
+        if (p < 0)
+        {
+            gameObject.transform.parent.transform.localScale = new Vector3(4, 4, 0);
+            gameObject.transform.parent.position = new Vector3(gameObject.transform.parent.transform.position.x - 35, gameObject.transform.parent.transform.position.y, gameObject.transform.parent.transform.position.z);
+        }
+        else
+        {
+            print("asdkj");
+            gameObject.transform.parent.transform.localScale = new Vector3(-4, 4, 0);
+            gameObject.transform.parent.position = new Vector3(gameObject.transform.parent.transform.position.x + 35, gameObject.transform.parent.transform.position.y, gameObject.transform.parent.transform.position.z);
+
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
