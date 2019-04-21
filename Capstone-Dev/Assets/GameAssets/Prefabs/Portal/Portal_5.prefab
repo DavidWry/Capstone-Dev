@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8de4d0acdf36fe4aadd560adbc8bead, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: 3_2
+  nextSceneName: 3_3
 --- !u!136 &136665920818483968
 CapsuleCollider:
   m_ObjectHideFlags: 1
