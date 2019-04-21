@@ -6172,6 +6172,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
+      propertyPath: ItemsList.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
       propertyPath: PortalList.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -6608,7 +6613,7 @@ Prefab:
         type: 2}
       propertyPath: Tiles2.Array.data[49]
       value: 
-      objectReference: {fileID: 1008682546140488, guid: 04662781dc4f4744bb9b75ce7d02e25c,
+      objectReference: {fileID: 1008682546140488, guid: 5365c733f0f657f46af23cb3f7554e42,
         type: 2}
     - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
         type: 2}
@@ -6683,6 +6688,28 @@ Prefab:
       propertyPath: Tiles2.Array.data[55]
       value: 
       objectReference: {fileID: 1008682546140488, guid: c577421467c29d14497b59e4d4e70209,
+        type: 2}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: ItemsList.Array.data[7].Name
+      value: LargeHealing
+      objectReference: {fileID: 0}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: ItemsList.Array.data[7].ItemName
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: ItemsList.Array.data[7].ItemIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 6dbf1c3f496553b4aa368aba128a02da,
+        type: 3}
+    - target: {fileID: 114798871894109676, guid: 7430308c60b9dc74396db2694886222b,
+        type: 2}
+      propertyPath: ItemsList.Array.data[7].itemObj
+      value: 
+      objectReference: {fileID: 1324665960220418, guid: 9b28b6aa9d2b34943b951286f9b4aee2,
         type: 2}
     m_RemovedComponents:
     - {fileID: 114744981980483458, guid: 7430308c60b9dc74396db2694886222b, type: 2}

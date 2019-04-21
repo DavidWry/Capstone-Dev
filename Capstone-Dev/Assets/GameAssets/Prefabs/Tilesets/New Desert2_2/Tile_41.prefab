@@ -109,7 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 10
   healthBar: {fileID: 114177757663921340}
-  sceneName: 2_1
+  sceneName: 2_2
 --- !u!114 &114177757663921340
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -333,7 +333,90 @@ MonoBehaviour:
     WeaponName: 4
     itemObj: {fileID: 1095468374369076, guid: 80deb0b7296f24c41b68055399e8982a, type: 2}
     Probability: 100
-  sceneName: 2_1
+  ItemListFor2_2:
+  - Name: Pistol
+    ItemName: 1
+    ItemIcon: {fileID: 21300000, guid: 379676913003f4b4fb67ca9e26fbeb97, type: 3}
+    GiveWeapon: 1
+    Usable: 1
+    DamageType: 0
+    AmmoType: 1
+    WeaponName: 0
+    itemObj: {fileID: 1652595029889896, guid: b8560118709f20d47a3cf1bc5356d6b3, type: 2}
+    Probability: 100
+  - Name: Lazer
+    ItemName: 2
+    ItemIcon: {fileID: 21300010, guid: 379676913003f4b4fb67ca9e26fbeb97, type: 3}
+    GiveWeapon: 1
+    Usable: 1
+    DamageType: 0
+    AmmoType: 2
+    WeaponName: 6
+    itemObj: {fileID: 1876295848165562, guid: dbbd9055a5163f84ab3ff204a6c82c2f, type: 2}
+    Probability: 100
+  - Name: Ak47
+    ItemName: 3
+    ItemIcon: {fileID: 21300012, guid: 379676913003f4b4fb67ca9e26fbeb97, type: 3}
+    GiveWeapon: 1
+    Usable: 1
+    DamageType: 1
+    AmmoType: 1
+    WeaponName: 3
+    itemObj: {fileID: 1876295848165562, guid: af0360be5601ac94f84067ffa511fc7d, type: 2}
+    Probability: 100
+  - Name: Sword
+    ItemName: 6
+    ItemIcon: {fileID: 21300000, guid: 1ded39d8126baa1459a4f1657e83b630, type: 3}
+    GiveWeapon: 1
+    Usable: 1
+    DamageType: 1
+    AmmoType: 1
+    WeaponName: 7
+    itemObj: {fileID: 1119368855546066, guid: 5a166331dfd6c1740b4fc7f55c7e5870, type: 2}
+    Probability: 100
+  - Name: PurpleCrystal
+    ItemName: 7
+    ItemIcon: {fileID: 21300000, guid: 46745a3a2cbf5804a9deaa241dc0a496, type: 3}
+    GiveWeapon: 0
+    Usable: 0
+    DamageType: 0
+    AmmoType: 0
+    WeaponName: 0
+    itemObj: {fileID: 1876295848165562, guid: a549ca5ee5e3397408e3e81a75629992, type: 2}
+    Probability: 500
+  - Name: RedCrystal
+    ItemName: 8
+    ItemIcon: {fileID: 21300000, guid: 5e8763ac03d7f674abfaeb63a3d8fa0a, type: 3}
+    GiveWeapon: 0
+    Usable: 0
+    DamageType: 0
+    AmmoType: 0
+    WeaponName: 0
+    itemObj: {fileID: 1876295848165562, guid: 642c6a0a6d2210549b5abcb64ae45731, type: 2}
+    Probability: 500
+  - Name: Shotgun
+    ItemName: 4
+    ItemIcon: {fileID: 21300014, guid: 379676913003f4b4fb67ca9e26fbeb97, type: 3}
+    GiveWeapon: 1
+    Usable: 1
+    DamageType: 2
+    AmmoType: 1
+    WeaponName: 4
+    itemObj: {fileID: 1095468374369076, guid: 80deb0b7296f24c41b68055399e8982a, type: 2}
+    Probability: 100
+  - Name: LargeHealing
+    ItemName: 9
+    ItemIcon: {fileID: 21300000, guid: 6dbf1c3f496553b4aa368aba128a02da, type: 3}
+    GiveWeapon: 0
+    Usable: 0
+    DamageType: 0
+    AmmoType: 0
+    WeaponName: 0
+    itemObj: {fileID: 1324665960220418, guid: 9b28b6aa9d2b34943b951286f9b4aee2, type: 2}
+    Probability: 500
+  ItemListFor3_1: []
+  ItemListFor3_2: []
+  sceneName: 2_2
 --- !u!114 &114908523893588844
 MonoBehaviour:
   m_ObjectHideFlags: 1
