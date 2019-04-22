@@ -81,7 +81,7 @@ public class EnemySuicideBomber : MonoBehaviour
         {
             transform.localScale = new Vector3(0.25f, 0.25f, 1f);
             speed = 2.0f;
-            rangeForAttack = 6;
+            rangeForAttack = 7.5f;
             explosion.transform.localScale = new Vector3(2f, 2f, 1f);
             capsule.radius = 0.45f;
             capsule.height = 5.73f;

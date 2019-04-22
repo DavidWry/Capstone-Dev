@@ -82,7 +82,7 @@ public class EnemySlider : MonoBehaviour
         {
             transform.localScale = new Vector3(0.3f, 0.3f, 1f);
             dashSpeed = 6.5f;
-            rangeForAttack = 6f;
+            rangeForAttack = 7f;
             capsule.radius = 0.55f;
             capsule.height = 5.51f;
             reachedDistance = 0.1f;

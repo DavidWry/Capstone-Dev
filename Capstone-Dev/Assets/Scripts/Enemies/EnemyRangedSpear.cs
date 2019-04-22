@@ -49,12 +49,10 @@ public class EnemyRangedSpear : MonoBehaviour
         {
             transform.localScale = new Vector3(5f, 5f, 1f);
             rangeForAttack = 125;
-            chaseRange = 132;
             speed = 50.6f;
             chaseRange = 176;
             capsule.radius = 1.88f;
-            capsule.height = 5.73f;
-            
+            capsule.height = 5.73f; 
             addTime = 0.4f;
 
             projectile.transform.localScale = new Vector3(5f, 5f, 1f);
@@ -62,12 +60,11 @@ public class EnemyRangedSpear : MonoBehaviour
         else if (scene.name == "First Level")
         {
             transform.localScale = new Vector3(0.23f, 0.23f, 1f);
-            rangeForAttack = 5;
-            speed = 2.3f;
-            chaseRange = 8;
+            rangeForAttack = 7.3f;
+            speed = 2.4f;
+            chaseRange = 9f;
             capsule.radius = 0.45f;
             capsule.height = 5.73f;
-            chaseRange = 6;
             addTime = 0.0f;
             projectile.transform.localScale = new Vector3(0.23f, 0.23f, 1f);
 
@@ -127,7 +124,7 @@ public class EnemyRangedSpear : MonoBehaviour
                         Instantiate(projectile, transform.position, Quaternion.identity);
 
 
-                        timeBetweenShots = 1.5f + addTime;
+                        timeBetweenShots = 1.0f + addTime;
                     }
                     else
                     {
