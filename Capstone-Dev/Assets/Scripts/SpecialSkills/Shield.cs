@@ -8,7 +8,7 @@ public class Shield : MonoBehaviour {
     public float lifeTime;
     private float currentTime = 0;
     public int Damage = 15;
-    float stun = 2;
+    float stun = 1;
 
 	// Use this for initialization
 	void Start () {
@@ -36,36 +36,26 @@ public class Shield : MonoBehaviour {
             {
                 collision.gameObject.GetComponent<EnemySuicideBomber>().TakeDamage(Damage);
                 collision.gameObject.GetComponent<EnemySuicideBomber>().Stun(stun);
-                Vector3 vector = collision.transform.position -transform.position;
-                collision.gameObject.GetComponent<Rigidbody>().AddForce(vector.normalized * 1000 * collision.transform.lossyScale.x);
             }
             else if (collision.gameObject.GetComponent<EnemyRangedSpear>())
             {
                 collision.gameObject.GetComponent<EnemyRangedSpear>().TakeDamage(Damage);
                 collision.gameObject.GetComponent<EnemyRangedSpear>().Stun(stun);
-                Vector3 vector = collision.transform.position - transform.position;
-                collision.gameObject.GetComponent<Rigidbody>().AddForce(vector.normalized * 1000 * collision.transform.lossyScale.x);
             }
             else if (collision.gameObject.GetComponent<EnemyRangedStomp>())
             {
                 collision.gameObject.GetComponent<EnemyRangedStomp>().TakeDamage(Damage);
                 collision.gameObject.GetComponent<EnemyRangedStomp>().Stun(stun);
-                Vector3 vector = collision.transform.position - transform.position;
-                collision.gameObject.GetComponent<Rigidbody>().AddForce(vector.normalized * 1000 * collision.transform.lossyScale.x);
             }
             else if (collision.gameObject.GetComponent<NewEnemyJumper>())
             {
                 collision.gameObject.GetComponent<NewEnemyJumper>().TakeDamage(Damage);
                 collision.gameObject.GetComponent<NewEnemyJumper>().Stun(stun);
-                Vector3 vector = collision.transform.position - transform.position;
-                collision.gameObject.GetComponent<Rigidbody>().AddForce(vector.normalized * 1000 * collision.transform.lossyScale.x);
             }
             else if (collision.gameObject.GetComponent<EnemySlider>())
             {
                 collision.gameObject.GetComponent<EnemySlider>().TakeDamage(Damage);
-                collision.gameObject.GetComponent<EnemySlider>().Stun(stun);
-                Vector3 vector = collision.transform.position - transform.position;
-                collision.gameObject.GetComponent<Rigidbody>().AddForce(vector.normalized * 1000 * collision.transform.lossyScale.x);
+                collision.gameObject.GetComponent<EnemySlider>().Stun(stun);              
             }
         }
         else if (collision.gameObject.tag == "Chest")
@@ -83,6 +73,19 @@ public class Shield : MonoBehaviour {
         else if (collision.gameObject.tag == "EnemyProjectile")
         {
             Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.tag == "Minion")
+        {
+            if (collision.gameObject.GetComponent<MiniBoss>())
+            {
+                Vector3 vector = collision.transform.position - transform.parent.position;
+                collision.gameObject.GetComponent<Rigidbody>().AddForce( vector.normalized * 300 * collision.transform.lossyScale.x);
+            }
+            else
+            { 
+                Vector3 vector = collision.transform.position - transform.parent.position;
+                collision.gameObject.GetComponent<Rigidbody>().AddForce(vector.normalized * 300 * collision.transform.lossyScale.x);     
+            }
         }
     }
 }

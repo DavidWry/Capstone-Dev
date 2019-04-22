@@ -14,11 +14,13 @@ public class Partner_Throw : MonoBehaviour {
     private float Duration = 3;
     [SerializeField]
     private int Damage = 20;
+    GameObject target;
 
 	// Use this for initialization
 	void Start () {
         partner = GetComponent<Partner_Movement>();
-	}
+        target = partner.player;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -29,7 +31,7 @@ public class Partner_Throw : MonoBehaviour {
                 partner.partner_Character.Animator.Play("ThrowSupply");
                 GameObject NewProj = Instantiate(ThrowingStar);
                 NewProj.transform.position = transform.position;
-                Vector3 lookDirection = partner.player.transform.position - transform.position;
+                Vector3 lookDirection = target.transform.position - transform.position;
                 float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
                 NewProj.transform.eulerAngles = new Vector3(0, 0, angle + Random.Range(-10, 10));
                 //Change state according to the weapon
@@ -42,5 +44,17 @@ public class Partner_Throw : MonoBehaviour {
                 partner.skillNum--;
             }
         }
+        if (target == null)
+        {
+            target = partner.player;
+        }
 	}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Minion")
+        {
+            target = other.gameObject;
+        }
+    }
 }

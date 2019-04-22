@@ -13,7 +13,7 @@ public class Partner_Movement : MonoBehaviour {
     public GameObject Pop;
 
     public int skillNum;
-    float radius = 60;
+    public float radius = 60;
     bool movingTo = true;
     float speed = 120;
     Vector3 target;
@@ -34,6 +34,8 @@ public class Partner_Movement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (player != null)
+        {
 		if (movingTo)
         {
             skillReady = false;
@@ -101,15 +103,24 @@ public class Partner_Movement : MonoBehaviour {
         {
             skillReady = false;
         }
+        }
+
     }
 
 
     Vector3 RandomPosition()
     {
-        Vector3 position = player.transform.position;
-        Vector3 randomWithinCircle = Random.insideUnitCircle * radius;
-        position += randomWithinCircle;
-        return position;
+        if (player != null)
+        {
+            Vector3 position = player.transform.position;
+            Vector3 randomWithinCircle = Random.insideUnitCircle * radius;
+            position += randomWithinCircle;
+            return position;
+        }
+        else
+        {
+            return transform.position;
+        }
     }
 
     void ToTransform()

@@ -7,7 +7,6 @@ namespace AssemblyCSharp
 {
     public class Projectile : MonoBehaviour
     {
-
         public bool IsReady = false;
         public int Damage = 1;
         public int Rebounce = 0;
@@ -144,6 +143,11 @@ namespace AssemblyCSharp
                 else if(Thrust)
                 {
                     //collision.gameObject.GetComponent<Rigidbody>().velocity *= -1;
+                }
+                if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3" || NextScene.nowName == "3_1" || NextScene.nowName == "3_2" || NextScene.nowName == "3_3")
+                {
+                    if (Damage >= 45)
+                        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<scshake>().time = ((float)Damage / 100f);
                 }
                 Dead(collision);
             }

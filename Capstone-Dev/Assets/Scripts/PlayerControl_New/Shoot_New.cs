@@ -783,10 +783,6 @@ public class Shoot_New : MonoBehaviour
             }
             CanCombineShoot = false;
             currentAmmo--;
-            if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3" || NextScene.nowName == "3_1" || NextScene.nowName == "3_2" || NextScene.nowName == "3_3")
-            {
-                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<scshake>().time = 0.5f;
-            }
             if (player.CombineType != 23 && player.CombineType != 55)
             {
                 var offset = -0.25f * player.LeftHand.parent.InverseTransformDirection(player.Character.Firearm.FireTransform.right);
