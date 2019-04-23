@@ -80,6 +80,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
         }
        
         Draw();      
+        
         ChangeEdge();
         //ReCaculateLandArray();
         
@@ -92,10 +93,10 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
            
         //}
         Connect();
-        ChangeColor();
-        ChangeLandArrayPosition();
+        //ChangeColor();
+        //ChangeLandArrayPosition();
         
-        
+        /*
         GenerateGrass();
         DrawGrass();
 
@@ -117,7 +118,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
         FinishGeneration();
 
         DrawNPC();
-        
+        */
       
     }
 
@@ -174,52 +175,52 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                 if (landArray[i, j + 1] == 1 && landArray[i, j - 1] == 1 && landArray[i + 1, j] == 0 &&
                    landArray[i - 1, j] == 0 && landArray[i, j] == 0 && landArray[i-1, j+1] == 0
                    && landArray[i+1, j+1] == 1 && landArray[i-1, j-1] == 0 && landArray[i+1, j-1] == 0)
-                    landArray[i, j-1] = 0;//011000010 把缺少的一个横快补上
+                    landArray[i, j-1] = 0;//011 000 010 把缺少的一个横快补上
                 if (landArray[i, j + 1] == 0 && landArray[i, j - 1] == 0 && landArray[i + 1, j] == 1 &&
                    landArray[i - 1, j] == 1 && landArray[i, j] == 0)
-                    landArray[i, j] = 1;//111001011
+                    landArray[i, j] = 1;//111 001 011
                 if (landArray[i, j] == 0 && landArray[i-1, j] == 0 && landArray[i + 1, j] == 1 &&
                    landArray[i, j+1] == 1 && landArray[i, j-1] == 1 && landArray[i - 1, j+1] == 0 &&
                    landArray[i - 1, j - 1] == 0)
-                    landArray[i, j] = 1;//如果是突出去的左边，就消除那个格子
+                    landArray[i, j] = 1;//01X 001 01X
                 if (landArray[i, j] == 0 && landArray[i - 1, j] == 1 && landArray[i + 1, j] == 0 &&
                    landArray[i, j + 1] == 1 && landArray[i, j - 1] == 1 && landArray[i + 1, j + 1] == 0 &&
                    landArray[i + 1, j - 1] == 0)
-                    landArray[i, j] = 1;//如果是突出去的右边，就消除那个格子
+                    landArray[i, j] = 1;//X10 100 X10
                 if (landArray[i-1, j+1] == 1 && landArray[i, j+1] == 0 && landArray[i + 1, j+1] == 0 &&
                    landArray[i-1, j] == 1 && landArray[i, j] == 0 && landArray[i + 1, j] == 0 &&
                    landArray[i - 1, j - 1] == 0 && landArray[i, j-1] == 1 && landArray[i + 1, j-1] == 1)
-                    landArray[i-1, j-1] = 1;//如果是突出去一块连接一个区域，去掉那个块
+                    landArray[i-1, j-1] = 1;//100 100 011
                 if (landArray[i - 1, j + 1] == 1 && landArray[i, j + 1] == 1 && landArray[i + 1, j + 1] == 1 &&
                    landArray[i - 1, j] == 0 && landArray[i, j] == 0 && landArray[i + 1, j] == 0 &&
                    landArray[i - 1, j - 1] == 0 && landArray[i, j - 1] == 0 && landArray[i + 1, j - 1] == 1)
-                    landArray[i + 1, j] = 1;//如果是突出去一块连接一个区域，去掉那个块
+                    landArray[i + 1, j] = 1;//111 000 001
                 if (landArray[i - 1, j + 1] == 0 && landArray[i, j + 1] == 0 && landArray[i + 1, j + 1] == 1 &&
                   landArray[i - 1, j] == 0 && landArray[i, j] == 0 && landArray[i + 1, j] == 1 &&
                   landArray[i - 1, j - 1] == 1 && landArray[i, j - 1] == 0 && landArray[i + 1, j - 1] == 0)
                 {
-                    landArray[i, j] = 1;//如果是突出去一块连接一个区域，去掉那个区域
+                    landArray[i, j] = 1;//001 001 100
                     landArray[i-1, j] = 1;
                 }
                 if (landArray[i - 1, j + 1] == 0 && landArray[i, j + 1] == 0 && landArray[i + 1, j + 1] == 1 &&
                   landArray[i - 1, j] == 0 && landArray[i, j] == 0 && landArray[i + 1, j] == 1 &&
                   landArray[i - 1, j - 1]>-1 && landArray[i, j - 1] == 1 && landArray[i + 1, j - 1] == 0)
                 {
-                    landArray[i, j] = 1;//如果是突出去一块连接一个区域，去掉一块
+                    landArray[i, j] = 1;//001 001 X10
       
                 }
                 if (landArray[i - 1, j + 1] == 0 && landArray[i, j + 1] == 0 && landArray[i + 1, j + 1] == 0 &&
                   landArray[i - 1, j] == 0 && landArray[i, j] == 0 && landArray[i + 1, j] == 1 &&
                   landArray[i - 1, j - 1] == 0 && landArray[i, j - 1] == 1 && landArray[i + 1, j - 1] == 0)
                 {
-                    landArray[i, j] = 1;//如果是突出去一块连接一个区域，去掉一块
+                    landArray[i, j] = 1;//000 001 010
 
                 }
                 if (landArray[i - 1, j + 1] == 0 && landArray[i, j + 1] == 0 && landArray[i + 1, j + 1] == 1 &&
                  landArray[i - 1, j] == 0 && landArray[i, j] == 0 && landArray[i + 1, j] == 0 &&
                  landArray[i - 1, j - 1] == 1 && landArray[i, j - 1] == 0 && landArray[i + 1, j - 1] == 0)
                 {
-                    landArray[i, j] = 1;//如果是突出去一块连接一个区域，去掉区域
+                    landArray[i, j] = 1;//001 000 100
                     landArray[i-1, j] = 1;
                     landArray[i, j+1] = 1;
 
@@ -228,21 +229,21 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                   landArray[i - 1, j] == 0 && landArray[i, j] == 0 && landArray[i + 1, j] == 0 &&
                   landArray[i - 1, j - 1] == 0 && landArray[i, j - 1] == 1)
                 {
-                    landArray[i, j] = 1;//如果是突出去一块连接一个区域，去掉一块
+                    landArray[i, j] = 1;//010 000 01X
 
                 }
                 if (landArray[i - 1, j + 1] == 0 && landArray[i, j + 1] == 1 && landArray[i + 1, j + 1] == 0 &&
                   landArray[i - 1, j] == 0 && landArray[i, j] == 0 && landArray[i + 1, j] == 1 &&
                   landArray[i - 1, j - 1] == 0 && landArray[i, j - 1] == 0 && landArray[i+1, j - 1] == 1)
                 {
-                    landArray[i, j] = 1;//如果是突出去一块连接一个区域，去掉一块
+                    landArray[i, j] = 1;//010 001 001
 
                 }
                 if (landArray[i - 1, j + 1] == 0 && landArray[i, j + 1] == 1 && landArray[i + 1, j + 1] == 1 &&
                  landArray[i - 1, j] == 0 && landArray[i, j] == 0 && landArray[i + 1, j] == 0 &&
                  landArray[i - 1, j - 1] == 1 && landArray[i, j - 1] == 0 && landArray[i + 1, j - 1] == 0)
                 {
-                    landArray[i-1, j] = 1;//如果是突出去一块连接一个区域，去掉桥接部分
+                    landArray[i-1, j] = 1;//011 000 100
                     landArray[i - 1, j+1] = 1;
                 }
 
@@ -250,21 +251,77 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                  landArray[i - 1, j] == 1 && landArray[i, j] == 0 && landArray[i + 1, j] == 1 &&
                  landArray[i - 1, j - 1] == 1 && landArray[i, j - 1] == 0 && landArray[i + 1, j - 1] == 0)
                 {
-                    landArray[i, j] = 1;//如果是突出去一块连接一个区域，去掉桥接部分
+                    landArray[i, j] = 1;//011 101 100
                     
                 }
                 if (landArray[i - 1, j + 1] == 0 && landArray[i, j + 1] == 1 && landArray[i + 1, j + 1] == 1 &&
                  landArray[i - 1, j] == 1 && landArray[i, j] == 0 && landArray[i + 1, j] == 0 &&
                  landArray[i - 1, j - 1] == 0 && landArray[i, j - 1] == 0 && landArray[i + 1, j - 1] == 0)
                 {
-                    landArray[i-1, j+1] = 1;//如果是突出去一块连接一个区域，去掉桥接部分
+                    landArray[i-1, j+1] = 1;//011 100 000
 
                 }
                 if (landArray[i - 1, j + 1] == 0 && landArray[i, j + 1] == 1 && landArray[i + 1, j + 1] == 1 &&
                  landArray[i - 1, j] == 0 && landArray[i, j] == 0 && landArray[i + 1, j] == 0 &&
                  landArray[i - 1, j - 1] == 0 && landArray[i, j - 1] == 1 && landArray[i + 1, j - 1] == 1)
                 {
-                    landArray[i, j] = 1;//如果是突出去一块连接一个区域，去掉桥接部分
+                    landArray[i, j] = 1;//011 000 011
+
+                }
+                if (landArray[i - 1, j + 1] == 0 && landArray[i, j + 1] == 1 && landArray[i + 1, j + 1] == 0 &&
+                 landArray[i - 1, j] == 0 && landArray[i, j] == 0 && landArray[i + 1, j] == 0 &&
+                 landArray[i - 1, j - 1] == 1 && landArray[i, j - 1] == 1 && landArray[i + 1, j - 1] == 0)
+                {
+                    landArray[i, j] = 1;//011 000 110
+
+                }
+                if (landArray[i - 1, j + 1] == 1 && landArray[i, j + 1] == 1 && landArray[i + 1, j + 1] == 0 &&
+                 landArray[i - 1, j] == 0 && landArray[i, j] == 0 && landArray[i + 1, j] < 2 &&
+                 landArray[i - 1, j - 1] == 0 && landArray[i, j - 1] == 0 && landArray[i + 1, j - 1] == 1)
+                {
+                    landArray[i, j] = 1;//110 00X 001
+
+                }
+                if (landArray[i - 1, j + 1] == 1 && landArray[i, j + 1] == 1 && landArray[i + 1, j + 1] == 0 &&
+                landArray[i - 1, j] == 1 && landArray[i, j] == 0 && landArray[i + 1, j] == 0 &&
+                landArray[i - 1, j - 1] == 0 && landArray[i, j - 1] == 1 && landArray[i + 1, j - 1] == 1)
+                {
+                    landArray[i, j] = 1;//110 100 011
+
+                }
+                if (landArray[i - 1, j + 1] == 1 && landArray[i, j + 1] == 0 && landArray[i + 1, j + 1] == 0 &&
+                landArray[i - 1, j] == 1 && landArray[i, j] == 0 && landArray[i + 1, j] == 1 &&
+                landArray[i - 1, j - 1] == 1 && landArray[i, j - 1] == 1 && landArray[i + 1, j - 1] == 0)
+                {
+                    landArray[i, j] = 1;//100 101 110
+
+                }
+                if (landArray[i - 1, j + 1] == 0 && landArray[i, j + 1] == 1 && landArray[i + 1, j + 1] == 1 &&
+                landArray[i - 1, j] < 2 && landArray[i, j] == 0 && landArray[i + 1, j] == 0 &&
+                landArray[i - 1, j - 1] == 1 && landArray[i, j - 1] == 0 && landArray[i + 1, j - 1] == 0)
+                {
+                    landArray[i, j] = 1;//011 X00 100
+
+                }
+                if (landArray[i - 1, j + 1] == 1 && landArray[i, j + 1] == 1 && landArray[i + 1, j + 1] == 0 &&
+                landArray[i - 1, j] == 1 && landArray[i, j] == 0 && landArray[i + 1, j] == 1 &&
+                landArray[i - 1, j - 1] == 0 && landArray[i, j - 1] == 0 && landArray[i + 1, j - 1] == 1)
+                {
+                    landArray[i, j] = 1;//110 101 001
+
+                }
+                if (landArray[i - 1, j + 1] == 1 && landArray[i, j + 1] == 1 && landArray[i + 1, j + 1] == 0 &&
+                landArray[i - 1, j] == 0 && landArray[i, j] == 0 && landArray[i + 1, j] == 0 &&
+                landArray[i - 1, j - 1] == 0 && landArray[i, j - 1] == 1 && landArray[i + 1, j - 1] == 0)
+                {
+                    landArray[i, j] = 1;//110 000 010
+
+                }
+                if (landArray[i - 1, j + 1] == 0 && landArray[i, j + 1] == 1 && landArray[i + 1, j + 1] == 1 &&
+                landArray[i - 1, j] == 0 && landArray[i, j] == 0 && landArray[i + 1, j] == 1 &&
+                landArray[i - 1, j - 1] == 1 && landArray[i, j - 1] == 1 && landArray[i + 1, j - 1] ==1)
+                {
+                    landArray[i, j] = 1;//011 001 111
 
                 }
             }
@@ -563,7 +620,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                 
                 if (landArray[i, j] == 0)
                 {
-                   // Instantiate(tile46, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                    Instantiate(tile46, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
                 }
                 
             }
@@ -620,7 +677,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                     {
                         edgeArray[i, j] = 1;//下底边
                                             //Debug.Log("辖地变");
-                       // Instantiate(tile99, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                        Instantiate(tile99, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                     }
 
                     else if (i < levelWidth - 1 && i > 0
@@ -636,7 +693,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                         
                     {
                         edgeArray[i, j] = 3;//左下角
-                      ///  Instantiate(tile100, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                        Instantiate(tile100, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                     }
                     else if (i < levelWidth - 1 && i > 0
                    && j < levelHeight - 1 && j > 0
@@ -652,7 +709,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                     )
                     {
                         edgeArray[i, j] = 2;//右下角
-                        //Instantiate(tile101, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                        Instantiate(tile101, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                     }
                     else if (i < levelWidth - 1 && i > 0
                    && j < levelHeight - 1 && j > 0
@@ -660,7 +717,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                    landArray[i - 1, j + 1] == 1 && landArray[i + 1, j + 1] == 1)
                     {
                         edgeArray[i, j] = 7;//上底边
-                       // Instantiate(tile102, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                        Instantiate(tile102, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                     }
                     else if (i < levelWidth - 1 && i > 0
                    && j < levelHeight - 1 && j > 0
@@ -676,7 +733,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                     )
                     {
                         edgeArray[i, j] = 8;//左上角
-                       // Instantiate(tile103, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                        Instantiate(tile103, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                     }
 
                     else if (i < levelWidth - 1 && i > 0
@@ -691,21 +748,21 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                     ) 
                     {
                         edgeArray[i, j] = 6;//右上角
-                       // Instantiate(tile104, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                        Instantiate(tile104, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                     }
                     else if (i < levelWidth - 1 && i > 0
                    && j < levelHeight - 1 && j > 0
                     && landArray[i - 1, j] == 1 && landArray[i + 1, j] == 0)
                     {
                         edgeArray[i, j] = 4;//右边
-                        //Instantiate(tile106, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                        Instantiate(tile106, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                     }
                     else if (i < levelWidth - 1 && i > 0
                    && j < levelHeight - 1 && j > 0
                     && landArray[i + 1, j] == 1 && landArray[i - 1, j] == 0)
                     {
                         edgeArray[i, j] = 5;//左边
-                       // Instantiate(tile105, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
+                        Instantiate(tile105, new Vector3(i * (float)tileSize, j * (float)tileSize, 0), transform.rotation);
                     }
                 }
                 else
@@ -1551,22 +1608,7 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
                                 position.y = position.y + 10;
                             }
                         }
-                        else if (edgeArray[i, j + 1] == 8)//上角是左上边
-                        {
-                            if (cellState[i, j + 1].state == 8)//上角是双边左上边
-                            {
-                                position = cellState[i, j + 1].position;
-
-                                position.y = position.y - 52;
-                            }
-                            else if (cellState[i, j + 1].state == 15)//上角是单边左上边
-                            {
-                                position = cellState[i, j + 1].position;
-
-                                position.y = position.y - 52;
-                            }
-                        }
-                        else if (edgeArray[i - 1, j + 1] == 2)//左上角是单边右下角
+                        else if (edgeArray[i - 1, j + 1] == 2)//左上角是单边右下角//放在了上角是左上边前面
                         {
                             if (cellState[i - 1, j + 1].state == 12)//左上角是单边右下角
                             {
@@ -1582,6 +1624,22 @@ public class ProcedualGeneration2_2 : MonoBehaviour {
 
                             }
                         }
+                        else if (edgeArray[i, j + 1] == 8)//上角是左上边
+                        {
+                            if (cellState[i, j + 1].state == 8)//上角是双边左上边
+                            {
+                                position = cellState[i, j + 1].position;
+
+                                position.y = position.y - 52;
+                            }
+                            else if (cellState[i, j + 1].state == 15)//上角是单边左上边
+                            {
+                                position = cellState[i, j + 1].position;
+
+                                position.y = position.y - 52;
+                            }
+                        }
+                       
                         else if (edgeArray[i - 1, j + 1] == 4)//左上角是右边
                         {
                             if (cellState[i - 1, j + 1].state == 14)//左上角是右边
