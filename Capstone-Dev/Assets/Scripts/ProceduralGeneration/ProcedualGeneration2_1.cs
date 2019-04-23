@@ -199,27 +199,27 @@ public class ProcedualGeneration2_1 : MonoBehaviour {
          //   enemyNum = 100;//jumper
         //}
         //if (ratio < 0.15f)
-        if (ratio < 0.125f)
+        if (ratio < 0.2f)
         {
             enemyNum = 101;//slider
         }
         //else if (ratio < 0.35f)
-        else if (ratio < 0.25f)
+        else if (ratio < 0.4f)
         {
             enemyNum = 102;//spearThrower
         }
-        else if (ratio < 0.375f)
+        else if (ratio < 0.6f)
         //else if (ratio < 0.55f)
         {
             enemyNum = 103;//stomper
         }
         //else if (ratio < 0.85f)
-        else if (ratio < 0.5f)
+        else if (ratio < 0.8f)
         {
             enemyNum = 104;//suicider
         }
         //else if (ratio < 0.925f)
-        else if (ratio < 0.75f)
+        else if (ratio < 0.9f)
         {
             enemyNum = 105;//shotrange
         }
