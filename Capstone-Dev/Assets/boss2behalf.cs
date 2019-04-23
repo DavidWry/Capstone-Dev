@@ -7,7 +7,7 @@ public class boss2behalf : MonoBehaviour {
     Animator boss2Anim;
     int breathState = 0;
     float idleTime = 0;
-    public int hp = 500;
+    public float hp = 500;
     GameObject player;
     int p;
     // Use this for initialization
@@ -64,6 +64,9 @@ public class boss2behalf : MonoBehaviour {
     }
 
 
-
+    public void TakeDamage(float a)
+    {
+        hp -= a;
+    }
 
 }
