@@ -102,8 +102,8 @@ namespace AssemblyCSharp
         {
             if (windParticleSystem.isPlaying && other.tag != "Player")
             {
-                print("saddgf");
-                nextSpot *= -1;
+ 
+                gameObject.GetComponent<Rigidbody>().velocity *= -1;
             }
         
         }

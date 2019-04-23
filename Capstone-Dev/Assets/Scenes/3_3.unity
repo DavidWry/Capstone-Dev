@@ -11327,7 +11327,7 @@ GameObject:
   - component: {fileID: 183771079}
   m_Layer: 12
   m_Name: Tile_18(Clone) (372)
-  m_TagString: Untagged
+  m_TagString: edge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11507,7 +11507,7 @@ GameObject:
   - component: {fileID: 195715905}
   m_Layer: 12
   m_Name: Tile_18(Clone) (378)
-  m_TagString: Untagged
+  m_TagString: edge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13549,6 +13549,60 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 290
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &242402833
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 242402834}
+  - component: {fileID: 242402836}
+  - component: {fileID: 242402835}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &242402834
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 242402833}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1377060073}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &242402835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 242402833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 945b3a77e96739a45825e7a78ca3b098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timehit: 0
+--- !u!65 &242402836
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 242402833}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3223191, y: 2.7303982, z: 1}
+  m_Center: {x: 0.008481598, y: 0.59376323, z: 0}
 --- !u!1 &243658659
 GameObject:
   m_ObjectHideFlags: 0
@@ -20426,7 +20480,7 @@ GameObject:
   - component: {fileID: 443392726}
   m_Layer: 0
   m_Name: Minotaur - Sprite Sheet_0
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20442,6 +20496,7 @@ Transform:
   m_LocalScale: {x: 55, y: 55, z: 1}
   m_Children:
   - {fileID: 1220289725}
+  - {fileID: 482640654}
   m_Father: {fileID: 2055782182}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -20498,6 +20553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed93d0a20e5038846a97e03233d49066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chargetime: 0
   chargeSprite: {fileID: 1332380569}
   counta: 0
 --- !u!95 &443392724
@@ -20574,9 +20630,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.26
-  m_Height: 0.49718794
+  m_Height: 0.588778
   m_Direction: 1
-  m_Center: {x: -0.07, y: 0.019004127, z: -11.728067}
+  m_Center: {x: -0.07000001, y: -0.015384916, z: 0}
 --- !u!1 &451315566
 GameObject:
   m_ObjectHideFlags: 0
@@ -22105,6 +22161,61 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 185
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &482640653
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 482640654}
+  - component: {fileID: 482640655}
+  - component: {fileID: 482640656}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &482640654
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 482640653}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.052545454, y: 0.02909091, z: 0}
+  m_LocalScale: {x: 0.018181818, y: 0.018181818, z: 1}
+  m_Children: []
+  m_Father: {fileID: 443392719}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &482640655
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 482640653}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 8.220215
+  m_Height: 22.879456
+  m_Direction: 1
+  m_Center: {x: -7.7821655, y: -1.8609924, z: 0}
+--- !u!114 &482640656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 482640653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 945b3a77e96739a45825e7a78ca3b098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timehit: 0
 --- !u!1 &483839747
 GameObject:
   m_ObjectHideFlags: 0
@@ -23940,7 +24051,7 @@ GameObject:
   - component: {fileID: 527447604}
   m_Layer: 12
   m_Name: Tile_18(Clone) (376)
-  m_TagString: Untagged
+  m_TagString: edge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25258,6 +25369,7 @@ GameObject:
   - component: {fileID: 559043922}
   - component: {fileID: 559043924}
   - component: {fileID: 559043923}
+  - component: {fileID: 559043925}
   m_Layer: 0
   m_Name: Particle System (2)
   m_TagString: Particle
@@ -29868,6 +29980,17 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &559043925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 559043921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e113cfbb646656f4a9616dd2c001fbbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &559831302
 GameObject:
   m_ObjectHideFlags: 0
@@ -34158,7 +34281,7 @@ GameObject:
   - component: {fileID: 669400728}
   m_Layer: 12
   m_Name: Tile_18(Clone) (369)
-  m_TagString: Untagged
+  m_TagString: edge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36233,7 +36356,7 @@ GameObject:
   - component: {fileID: 723226290}
   m_Layer: 12
   m_Name: Tile_18(Clone) (370)
-  m_TagString: Untagged
+  m_TagString: edge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41984,7 +42107,7 @@ GameObject:
   - component: {fileID: 881404925}
   m_Layer: 12
   m_Name: Tile_18(Clone) (375)
-  m_TagString: Untagged
+  m_TagString: edge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74978,7 +75101,7 @@ GameObject:
   - component: {fileID: 1164731130}
   m_Layer: 12
   m_Name: Tile_18(Clone) (373)
-  m_TagString: Untagged
+  m_TagString: edge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90003,6 +90126,7 @@ MonoBehaviour:
   RightTarget: {fileID: 2145908965}
   CombineType: 0
   NPCIDs: []
+  CurrentPartner: 
   fixRightAngle: 54
   fixLeftAngle: 103
   fixAngle: 110
@@ -90093,7 +90217,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 120
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!114 &1377060071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90368,6 +90492,7 @@ Transform:
   - {fileID: 82278657}
   - {fileID: 2145908970}
   - {fileID: 1564739112}
+  - {fileID: 242402834}
   m_Father: {fileID: 0}
   m_RootOrder: 505
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -115175,7 +115300,7 @@ GameObject:
   - component: {fileID: 1529094949}
   m_Layer: 12
   m_Name: Tile_18(Clone) (371)
-  m_TagString: Untagged
+  m_TagString: edge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116017,7 +116142,7 @@ GameObject:
   - component: {fileID: 1551713816}
   m_Layer: 12
   m_Name: Tile_18(Clone) (374)
-  m_TagString: Untagged
+  m_TagString: edge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123691,7 +123816,7 @@ GameObject:
   - component: {fileID: 1731343918}
   m_Layer: 12
   m_Name: Tile_18(Clone) (377)
-  m_TagString: Untagged
+  m_TagString: edge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

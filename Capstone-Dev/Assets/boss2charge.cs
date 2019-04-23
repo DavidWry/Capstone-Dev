@@ -5,7 +5,7 @@ using UnityEngine;
 namespace AssemblyCSharp { 
 public class boss2charge : MonoBehaviour {
     int waitcount=0;
-    float chargetime = 0;
+    public float chargetime = 0;
     public GameObject chargeSprite;
     Vector3 unitvec;
     float distance = 45;
@@ -63,8 +63,8 @@ public class boss2charge : MonoBehaviour {
                 if (Vector3.Distance(GameObject.FindGameObjectWithTag("Player").gameObject.transform.position, gameObject.transform.parent.gameObject.transform.position) < distance) {
                         GameObject player = GameObject.FindGameObjectWithTag("Player");
                         player.GetComponent<Rigidbody>().AddForce(unitvec/10,ForceMode.Acceleration);
-                        player.GetComponent<Player_New>().HitPoint -= Time.deltaTime * 10;
-                       // player.GetComponent<Player_New>().TakeDamage(20);
+                        
+                        player.GetComponent<Player_New>().TakeDamage(10*Time.deltaTime);
                         
 
                     }

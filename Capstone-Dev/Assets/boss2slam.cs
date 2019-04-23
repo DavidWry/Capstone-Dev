@@ -45,7 +45,7 @@ public class boss2slam : MonoBehaviour {
         }
         else
         {
-            print("asdkj");
+ 
             gameObject.transform.parent.transform.localScale = new Vector3(-4, 4, 0);
             gameObject.transform.parent.position = new Vector3(gameObject.transform.parent.transform.position.x + 35, gameObject.transform.parent.transform.position.y, gameObject.transform.parent.transform.position.z);
 

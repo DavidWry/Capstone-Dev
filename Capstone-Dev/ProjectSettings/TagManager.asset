@@ -16,6 +16,7 @@ TagManager:
   - Boss
   - WithPopUp
   - Particle
+  - edge
   layers:
   - Default
   - TransparentFX
