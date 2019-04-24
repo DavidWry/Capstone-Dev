@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class ForPlaytest : MonoBehaviour {
 
     public GameObject mission;
+    public GameObject mission02;
     public GameObject menu;
 
 	// Use this for initialization
@@ -25,7 +26,7 @@ public class ForPlaytest : MonoBehaviour {
 
     public void manusds()
     {
-        NextScene.loadName = "3_1";
-        SceneManager.LoadScene("LoadingScene");
+        menu.SetActive(false);
+        mission02.SetActive(true);
     }
 }
