@@ -76,7 +76,7 @@ public class Shoot_New : MonoBehaviour
     private int CombineDamage_14 = 100;
     //15-4
     private float CombineBtw_15 = 0.5f;
-    private float CombineSpeed_15 = 15f;
+    private float CombineSpeed_15 = 30f;
     private float CombineDuration_15 = 50f;
     private int CombineDamage_15 = 65;
     public bool CombineTag_15 = true;

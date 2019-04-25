@@ -22,7 +22,7 @@ public class ThrowingStarBack : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         lifeTime += Time.deltaTime;
-        if ((Mathf.Round(Input.GetAxisRaw("LeftTrigger")) > 0 || Mathf.Round(Input.GetAxisRaw("RightTrigger")) > 0) && lifeTime > 1.2f)
+        if ((Mathf.Round(Input.GetAxisRaw("LeftTrigger")) > 0 || Mathf.Round(Input.GetAxisRaw("RightTrigger")) > 0) && lifeTime > 0.5f)
         {
             star.enabled = false;
             back = true;
@@ -39,7 +39,7 @@ public class ThrowingStarBack : MonoBehaviour {
         if (lifeTime > 5f)
         {
             if (PlayerObj)
-                if (PlayerObj.GetComponent<Shoot_New>().CombineOn)
+                if (!PlayerObj.GetComponent<Shoot_New>().CombineOn)
                 {
                     Destroy(gameObject);
                 }
@@ -60,7 +60,7 @@ public class ThrowingStarBack : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player" && lifeTime > 1f)
+        if (other.tag == "Player" && lifeTime > 0.5f)
         {
             if (PlayerObj)
             {
