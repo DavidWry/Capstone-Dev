@@ -110,7 +110,7 @@ MonoBehaviour:
     IsMultiBullets: 0
     BulletAngleList:
     - 0
-    TimeBetweenShot: 0.3
+    TimeBetweenShot: 0.15
     TimeWaited: 0
     ImpactFX: {fileID: 1882777859570806, guid: 26b9baa734847f140803e4e033a9212a, type: 2}
     ShotFX: {fileID: 1527268017831476, guid: 1b6caa07492f1ba4d81381fb780847eb, type: 2}

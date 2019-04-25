@@ -45,7 +45,7 @@ namespace AssemblyCSharp
             {
                 dam = 270 * Time.deltaTime;
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z + dam);
-                if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3" || NextScene.nowName == "3_1" || NextScene.nowName == "3_2")
+                if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3" || NextScene.nowName == "3_1" || NextScene.nowName == "3_2" || NextScene.nowName == "3_3")
                     RBody.velocity = transform.right * Speed * 20;
                 else
                     RBody.velocity = transform.right * Speed;
@@ -53,7 +53,7 @@ namespace AssemblyCSharp
             if (IsReady)
             {
                 IsReady = false;
-                if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3" || NextScene.nowName == "3_1" || NextScene.nowName == "3_2")
+                if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3" || NextScene.nowName == "3_1" || NextScene.nowName == "3_2" || NextScene.nowName == "3_3")
                     RBody.velocity = transform.right * Speed * 20;
                 else
                     RBody.velocity = transform.right * Speed;
@@ -65,7 +65,7 @@ namespace AssemblyCSharp
                 {
                     Speed = 0;
                 }
-                if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3" || NextScene.nowName == "3_1" || NextScene.nowName == "3_2")
+                if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3" || NextScene.nowName == "3_1" || NextScene.nowName == "3_2" || NextScene.nowName == "3_3")
                     RBody.velocity = transform.right * Speed * 20;
                 else
                     RBody.velocity = transform.right * Speed;

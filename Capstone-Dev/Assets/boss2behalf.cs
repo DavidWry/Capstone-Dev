@@ -12,6 +12,7 @@ public class boss2behalf : MonoBehaviour {
     int p;
     // Use this for initialization
     void Start () {
+        NextScene.nowName = "3_3";
         boss2Sprite = gameObject.transform.GetChild(0).gameObject;
         boss2Anim = boss2Sprite.GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
