@@ -2308,7 +2308,9 @@ public class ProcedualGeneration3_1 : MonoBehaviour {
                     }
                     if (Random.Range(1, 100) < 2 && !isClose && !isCreated)
                     {
-                        Instantiate(NPCObject, new Vector3(i*tileSize, j*tileSize, 0), transform.rotation);
+                        Instantiate(textManager.GetComponent<NPCManager>().NPCPortal, new Vector3(i * tileSize, j * tileSize, 0), transform.rotation);
+                        textManager.GetComponent<NPCManager>().PortalPosition = new Vector3(i * tileSize, j * tileSize, 0);
+                        Instantiate(NPCObject, new Vector3(310, -610, 0), transform.rotation);
                         // player1.transform.localScale = new Vector3(15.0f, 15.0f, 15.0f);
                         // player1.GetComponent<Movement_New>().WalkSpeed = 5;
                         isCreated = true;
