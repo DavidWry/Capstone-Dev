@@ -4291,6 +4291,7 @@ MonoBehaviour:
   LeftHand: {fileID: 4899022458591688}
   RightHand: {fileID: 4892194566540712}
   Head: {fileID: 4397608821431086}
+  SpriteRenderers: []
   IsHit: 0
   mat1: {fileID: 2100000, guid: 06c6b5ea54c44a82841c784fc6314e23, type: 3}
   mat2: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}

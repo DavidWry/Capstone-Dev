@@ -27,7 +27,7 @@ namespace AssemblyCSharp
         public Transform Head;
         XmlDocument goldDoc = new XmlDocument();
         string progressionFilePath;
-        private Component[] SpriteRenderers;
+        public List<SpriteRenderer> SpriteRenderers;
         public bool IsHit = false;
         private float FlashTime = 0;
         private float WillFlashTime = 0.05f;
@@ -62,13 +62,14 @@ namespace AssemblyCSharp
         {
             progressionFilePath = Application.dataPath + "/Resources/Progression.xml";
             goldDoc.Load(progressionFilePath);
+
             HitPoint = 100;
             rotateSpeed = 100f;
             playerMovement = GetComponent<Movement_New>();
             playerShoot = GetComponent<Shoot_New>();
             playerPick = GetComponent<PickUp_New>();
             Character = GetComponent<Character>();
-            SpriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+            SpriteRenderers = GetComponent<LayerManager>().Sprites;
             if (goldDoc.DocumentElement.SelectSingleNode("UC3/Completed").InnerText == "true")
             {
                 Slots = 1;
@@ -96,7 +97,7 @@ namespace AssemblyCSharp
             playerShoot = GetComponent<Shoot_New>();
             playerPick = GetComponent<PickUp_New>();
             Character = GetComponent<Character>();
-            SpriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+            SpriteRenderers = GetComponent<LayerManager>().Sprites;
         }
 
         private void Update()
@@ -108,14 +109,16 @@ namespace AssemblyCSharp
                 {
                     foreach (SpriteRenderer spt in SpriteRenderers)
                     {
-                        spt.material = mat1;
+                        if (spt != null)
+                            spt.material = mat1;
                     }
                 }
                 else
                 {
                     foreach (SpriteRenderer spt in SpriteRenderers)
                     {
-                        spt.material = mat2;
+                        if (spt != null)
+                            spt.material = mat2;
                     }
                     FlashTime = 0;
                     IsHit = false;
@@ -379,7 +382,7 @@ namespace AssemblyCSharp
         public void TakeDamage(float Damage)
         {
             HitPoint -= (Damage * armor);
-            SpriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+            //SpriteRenderers = GetComponentsInChildren<SpriteRenderer>();
             IsHit = true;
         }
 
