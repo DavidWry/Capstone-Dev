@@ -3,6 +3,7 @@ using HeroEditor.Common;
 using Assets.HeroEditor.Common.CharacterScripts;
 using Assets.HeroEditor.Common.EditorScripts;
 using UnityEngine;
+using System.Xml;
 
 namespace AssemblyCSharp
 {
@@ -16,7 +17,7 @@ namespace AssemblyCSharp
         public int CombineType;
         public List<string> NPCIDs;          //NPCs player met.
         public string CurrentPartner;
-
+        float armor = 1;
         public float fixRightAngle = 0;
         public float fixLeftAngle = 0;
         public float fixAngle = 110;
@@ -24,7 +25,8 @@ namespace AssemblyCSharp
         public Transform LeftHand;
         public Transform RightHand;
         public Transform Head;
-
+        XmlDocument goldDoc = new XmlDocument();
+        string progressionFilePath;
         private Component[] SpriteRenderers;
         public bool IsHit = false;
         private float FlashTime = 0;
@@ -58,6 +60,8 @@ namespace AssemblyCSharp
         // Use this for initialization
         void Start()
         {
+            progressionFilePath = Application.dataPath + "/Resources/Progression.xml";
+            goldDoc.Load(progressionFilePath);
             HitPoint = 100;
             rotateSpeed = 100f;
             playerMovement = GetComponent<Movement_New>();
@@ -65,6 +69,23 @@ namespace AssemblyCSharp
             playerPick = GetComponent<PickUp_New>();
             Character = GetComponent<Character>();
             SpriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+            if (goldDoc.DocumentElement.SelectSingleNode("UC3/Completed").InnerText == "true")
+            {
+                Slots = 1;
+            }
+            else
+            {
+                Slots = 0;
+                if (GameObject.Find("Switch"))
+                GameObject.Find("Switch").SetActive(false);
+
+            }
+
+            if (goldDoc.DocumentElement.SelectSingleNode("UC5/Completed").InnerText == "true")
+            {
+                armor = 0.9f;
+            }
+            else { armor = 1; print("aslfkj"); }
         }
 
         public void Initalize()
@@ -357,7 +378,7 @@ namespace AssemblyCSharp
         //take damage with hp.
         public void TakeDamage(float Damage)
         {
-            HitPoint -= Damage;
+            HitPoint -= (Damage * armor);
             SpriteRenderers = GetComponentsInChildren<SpriteRenderer>();
             IsHit = true;
         }

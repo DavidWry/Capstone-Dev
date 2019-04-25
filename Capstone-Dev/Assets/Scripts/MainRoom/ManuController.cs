@@ -10,7 +10,7 @@ public class ManuController : MonoBehaviour {
     public List<Button> buttons;
     public ScrollRect scrollRect;
     public Transform content;
-    int currentButton = 0;
+    public int currentButton = 0;
     int top;
     float timer = 0;
 
