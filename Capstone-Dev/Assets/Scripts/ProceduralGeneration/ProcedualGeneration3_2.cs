@@ -79,8 +79,8 @@ public class ProcedualGeneration3_2 : MonoBehaviour {
         GenerateBuilding();
         DrawBuilding();
 
-        GenerateHole();
-        DrawHole();
+        //GenerateHole();
+        //DrawHole();
 
         GenerateRock();
         DrawRock();
@@ -2104,7 +2104,7 @@ public class ProcedualGeneration3_2 : MonoBehaviour {
                 {
                     float ratio = (float)Random.Range(1, 50);
                     bool isClose = false;
-                    if (ratio < 4)
+                    if (ratio < 3)
                     {
                         
                         for (int m = -2; m < 3; m++) {

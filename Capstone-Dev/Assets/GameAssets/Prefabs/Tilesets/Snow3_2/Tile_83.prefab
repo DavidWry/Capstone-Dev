@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 136090516347720328}
   m_Layer: 12
   m_Name: Tile_83
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,8 +35,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1008682546140488}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2646.774, y: 2474.4321, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 350.08694, y: 1439.8171, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -50,10 +50,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 6.968872
-  m_Height: 17.94943
+  m_Radius: 2.597046
+  m_Height: 13.34021
   m_Direction: 1
-  m_Center: {x: 15.2, y: 13.61, z: 0.10293388}
+  m_Center: {x: 9.03, y: 10.7, z: 0.10293388}
 --- !u!212 &212627275908898606
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -89,7 +89,7 @@ SpriteRenderer:
   m_SortingLayerID: 1051040845
   m_SortingLayer: 3
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 6979d33936cc96a4da660ebcae65fe41, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8ec44db30df941b49b3d694ab68dc115, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
