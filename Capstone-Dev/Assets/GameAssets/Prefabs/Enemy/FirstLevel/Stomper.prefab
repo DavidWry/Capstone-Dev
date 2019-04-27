@@ -218,8 +218,28 @@ MonoBehaviour:
     WeaponName: 0
     itemObj: {fileID: 1876295848165562, guid: 4cb0c877680f8dc429745e95ede68fb5, type: 2}
     Probability: 90
-  ItemListFor3_1: []
-  ItemListFor3_2: []
+  ItemListFor3_1:
+  - Name: RedCrystal
+    ItemName: 8
+    ItemIcon: {fileID: 0}
+    GiveWeapon: 0
+    Usable: 0
+    DamageType: 0
+    AmmoType: 0
+    WeaponName: 0
+    itemObj: {fileID: 1876295848165562, guid: 4cb0c877680f8dc429745e95ede68fb5, type: 2}
+    Probability: 90
+  ItemListFor3_2:
+  - Name: RedCrystal
+    ItemName: 8
+    ItemIcon: {fileID: 0}
+    GiveWeapon: 0
+    Usable: 0
+    DamageType: 0
+    AmmoType: 0
+    WeaponName: 0
+    itemObj: {fileID: 1876295848165562, guid: 4cb0c877680f8dc429745e95ede68fb5, type: 2}
+    Probability: 90
   sceneName: 
 --- !u!114 &114412459874061828
 MonoBehaviour:

@@ -188,7 +188,7 @@ public class EnemyRangedStomp : MonoBehaviour
                     GameObject itemObj = gameManager.GetItemObj(tempName);
                     itemObj = Instantiate(gameManager.GetItemObj(tempName), transform.position, Quaternion.Euler(0, 0, 0));
                     if (NextScene.nowName == "2_1"|| NextScene.nowName == "2_2" || scene.name == "3_1" || scene.name == "3_2")
-                        itemObj.transform.localScale = new Vector3(4, 4, 4);
+                        itemObj.transform.localScale = new Vector3(90, 90, 1);
                     var worldCanvas = GameObject.Find("worldCanvas").transform;
                     itemObj.transform.parent = worldCanvas;
                     isDrop = true;
