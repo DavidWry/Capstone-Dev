@@ -30,9 +30,15 @@ public class characteredge : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-
-
-        if (gameObject.transform.parent.tag == "Boss")
+        if (other.tag == "Projectile")
+        {
+            GetComponentInParent<boss2behalf>().TakeDamage(other.GetComponent<Projectile>().Damage);
+            Destroy(other.gameObject);
+            
+        }
+         
+         
+        if (gameObject.name=="Pig")
         {
            
             if (other.tag == "edge" && gameObject.transform.parent.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.name == "row2")
@@ -40,7 +46,7 @@ public class characteredge : MonoBehaviour {
                 p = true;
                 timehit += Time.deltaTime;
             }
-            else if (other.transform.parent.tag == "Player" && other.GetComponent<characteredge>().onEdge == true)
+            else if (other.name == "Cat" && other.GetComponent<characteredge>().onEdge == true)
             {
                 p = true;
 
@@ -51,7 +57,7 @@ public class characteredge : MonoBehaviour {
 
     private void OnTriggerStay(Collider other)
     {
-        if (gameObject.transform.parent.tag == "Player")
+        if (gameObject.name=="Cat")
         {
             if (other.tag == "edge")
             {
@@ -64,7 +70,7 @@ public class characteredge : MonoBehaviour {
     {
 
 
-        if (gameObject.transform.parent.tag == "Player")
+        if (gameObject.name=="Cat")
         {
             if (other.tag == "edge")
             {

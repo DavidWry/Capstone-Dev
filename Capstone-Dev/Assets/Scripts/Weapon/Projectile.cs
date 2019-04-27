@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using AssemblyCSharp;
-
+using UnityEngine.SceneManagement;
 namespace AssemblyCSharp
 {
     public class Projectile : MonoBehaviour
@@ -170,9 +170,12 @@ namespace AssemblyCSharp
                 Dead(collision);
             }
             else if (collision.gameObject.tag == "Boss")
-            {
-                collision.GetComponent<Fsmandhp>().takedamage(Damage);
-                Dead(collision);
+            { Scene sc=SceneManager.GetActiveScene();
+                if (sc.name != "3_3")
+                {
+                    collision.GetComponent<Fsmandhp>().takedamage(Damage);
+                    Dead(collision);
+                }
             }
             else if (collision.gameObject.tag == "Projectile" && Boom)
             { 

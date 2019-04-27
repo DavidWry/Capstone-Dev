@@ -30,7 +30,7 @@ public class boss2charge : MonoBehaviour {
                 }
                 else
                 {
-                    print("asdkj");
+ 
                     gameObject.transform.parent.transform.localScale = new Vector3(-4, 4, 0);
                     gameObject.transform.parent.position = new Vector3(temppos+70, gameObject.transform.parent.transform.position.y, gameObject.transform.parent.transform.position.z);
 

@@ -7,9 +7,11 @@ public class Progression : MonoBehaviour
 {
     public int gold = 100;
     XmlDocument goldDoc = new XmlDocument();
+    public GameObject cursor;
     string progressionFilePath;
     public GameObject circle1, circle2, circle3, circle4, circle5, circle6, circle7, circle8;
     public Sprite gou;
+    public Text cost;
     // Use this for initialization
     void Start()
     {
@@ -53,7 +55,71 @@ public class Progression : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (cursor.GetComponent<ManuController>().currentButton==0)
+        {
+            if (goldDoc.DocumentElement.SelectSingleNode("UC1/Completed").InnerText == "true")
+            {
+                cost.text = "0";
+            }
+            else { cost.text = "10"; }
 
+        }
+        if (cursor.GetComponent<ManuController>().currentButton == 1)
+        {
+            if (goldDoc.DocumentElement.SelectSingleNode("UC2/Completed").InnerText == "true")
+            {
+                cost.text = "0";
+            }
+            else { cost.text = "20"; }
+        }
+        if (cursor.GetComponent<ManuController>().currentButton == 2)
+        {
+            if (goldDoc.DocumentElement.SelectSingleNode("UC3/Completed").InnerText == "true")
+            {
+                cost.text = "0";
+            }
+            else { cost.text = "30"; }
+        }
+        if ( cursor.GetComponent<ManuController>().currentButton == 3)
+        {
+            if (goldDoc.DocumentElement.SelectSingleNode("UC4/Completed").InnerText == "true")
+            {
+                cost.text = "0";
+            }
+            else { cost.text = "40"; }
+        }
+        if (cursor.GetComponent<ManuController>().currentButton == 4)
+        {
+            if (goldDoc.DocumentElement.SelectSingleNode("UC5/Completed").InnerText == "true")
+            {
+                cost.text = "0";
+            }
+            else { cost.text = "50"; }
+        }
+        if (cursor.GetComponent<ManuController>().currentButton == 5)
+        {
+            if (goldDoc.DocumentElement.SelectSingleNode("UC6/Completed").InnerText == "true")
+            {
+                cost.text = "0";
+            }
+            else { cost.text = "60"; }
+        }
+        if (cursor.GetComponent<ManuController>().currentButton == 6)
+        {
+            if (goldDoc.DocumentElement.SelectSingleNode("UC7/Completed").InnerText == "true")
+            {
+                cost.text = "0";
+            }
+            else { cost.text = "70"; }
+        }
+        if (cursor.GetComponent<ManuController>().currentButton == 7)
+        {
+            if (goldDoc.DocumentElement.SelectSingleNode("UC8/Completed").InnerText == "true")
+            {
+                cost.text = "0";
+            }
+            else { cost.text = "80"; }
+        }
     }
 
     public void spend(int Val)
@@ -67,6 +133,7 @@ public class Progression : MonoBehaviour
                 goldDoc.DocumentElement.SelectSingleNode("Gold").InnerText = gold.ToString();
                 circle1.GetComponent<Image>().sprite = gou;
                 goldDoc.Save(progressionFilePath);
+                
             }
         }
 

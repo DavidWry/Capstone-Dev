@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Fsmandhp : MonoBehaviour {
 
-    public float hp = 500;
+    public float hp = 1500;
     public GameObject jiguang;
     public GameObject toufazuo;
     public GameObject toufayou;
