@@ -25,6 +25,7 @@ public class Loading : MonoBehaviour
     public GameObject BG2_3;
     public GameObject BGMainRoom;
     public GameObject BGWeaponRoom;
+    public GameObject BG3_1;
 
     int progress = 0;
 
@@ -53,7 +54,7 @@ public class Loading : MonoBehaviour
         }
         else if (NextScene.loadName == "3_1" || NextScene.loadName == "3_2")
         {
-            BG2_1.SetActive(true);
+            BG3_1.SetActive(true);
         }
         else if (NextScene.loadName == "2_3"|| NextScene.loadName == "3_3")
         {
@@ -129,7 +130,7 @@ public class Loading : MonoBehaviour
         }
         else if (NextScene.loadName == "3_1" || NextScene.loadName == "3_2")
         {
-            myText.text = "Welcome to Mar..." + progress;
+            myText.text = "Welcome to Titan..." + progress;
         }
         else if (NextScene.loadName == "2_3"|| NextScene.loadName == "3_3")
         {

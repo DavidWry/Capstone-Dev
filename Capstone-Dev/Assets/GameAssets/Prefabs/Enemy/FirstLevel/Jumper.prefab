@@ -219,7 +219,7 @@ MonoBehaviour:
     DamageType: 0
     AmmoType: 0
     WeaponName: 0
-    itemObj: {fileID: 1876295848165562, guid: fa456d51518b62b45aa38fb26fe23ad2, type: 2}
+    itemObj: {fileID: 1876295848165562, guid: a549ca5ee5e3397408e3e81a75629992, type: 2}
     Probability: 100
   ItemListFor2_1:
   - Name: PurpleCrystal
@@ -230,7 +230,7 @@ MonoBehaviour:
     DamageType: 0
     AmmoType: 0
     WeaponName: 0
-    itemObj: {fileID: 1876295848165562, guid: fa456d51518b62b45aa38fb26fe23ad2, type: 2}
+    itemObj: {fileID: 1876295848165562, guid: a549ca5ee5e3397408e3e81a75629992, type: 2}
     Probability: 100
   ItemListFor2_2:
   - Name: PurpleCrystal
@@ -241,10 +241,30 @@ MonoBehaviour:
     DamageType: 0
     AmmoType: 0
     WeaponName: 0
-    itemObj: {fileID: 1876295848165562, guid: fa456d51518b62b45aa38fb26fe23ad2, type: 2}
+    itemObj: {fileID: 1876295848165562, guid: a549ca5ee5e3397408e3e81a75629992, type: 2}
     Probability: 100
-  ItemListFor3_1: []
-  ItemListFor3_2: []
+  ItemListFor3_1:
+  - Name: PurpleCrystal
+    ItemName: 7
+    ItemIcon: {fileID: 0}
+    GiveWeapon: 0
+    Usable: 0
+    DamageType: 0
+    AmmoType: 0
+    WeaponName: 0
+    itemObj: {fileID: 1876295848165562, guid: a549ca5ee5e3397408e3e81a75629992, type: 2}
+    Probability: 100
+  ItemListFor3_2:
+  - Name: PurpleCrystal
+    ItemName: 7
+    ItemIcon: {fileID: 0}
+    GiveWeapon: 0
+    Usable: 0
+    DamageType: 0
+    AmmoType: 0
+    WeaponName: 0
+    itemObj: {fileID: 1876295848165562, guid: a549ca5ee5e3397408e3e81a75629992, type: 2}
+    Probability: 100
   sceneName: 
 --- !u!114 &114852922525387410
 MonoBehaviour:
