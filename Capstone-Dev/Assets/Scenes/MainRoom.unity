@@ -165,10 +165,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 5415222}
-  timeAppear: 0.73
-  timeDisappear: 0.26999998
+  timeAppear: 0.9
+  timeDisappear: 0.100000024
   recycling: 0
-  sortID: 11
+  sortID: 10
   animator: {fileID: 5415227}
   animClips:
   - {fileID: 7400000, guid: 0119420d0ff0cde4f9916081d636f3d7, type: 2}
@@ -422,10 +422,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 33677530}
-  timeAppear: 0.35
-  timeDisappear: 0.65
+  timeAppear: 0
+  timeDisappear: 1
   recycling: 0
-  sortID: 10
+  sortID: 0
   animator: {fileID: 33677533}
   animClips:
   - {fileID: 7400000, guid: 1c43ad69c324ed842a02d61b08cecdbc, type: 2}
@@ -774,10 +774,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 44452791}
-  timeAppear: 0.39
-  timeDisappear: 0.61
+  timeAppear: 0.03
+  timeDisappear: 0.97
   recycling: 0
-  sortID: 11
+  sortID: 1
   animator: {fileID: 44452794}
   animClips:
   - {fileID: 7400000, guid: 1c43ad69c324ed842a02d61b08cecdbc, type: 2}
@@ -898,10 +898,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 52297902}
-  timeAppear: 0
-  timeDisappear: 1
+  timeAppear: 0.09
+  timeDisappear: 0.90999997
   recycling: 0
-  sortID: 0
+  sortID: 1
   animator: {fileID: 52297906}
   animClips:
   - {fileID: 7400000, guid: baf288b3c6c5b544897e0acbeaa32963, type: 2}
@@ -6125,6 +6125,7 @@ GameObject:
   - component: {fileID: 120504808}
   - component: {fileID: 120504807}
   - component: {fileID: 120504806}
+  - component: {fileID: 120504809}
   m_Layer: 0
   m_Name: customText (1)
   m_TagString: Untagged
@@ -6201,6 +6202,26 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 120504804}
   m_CullTransparentMesh: 0
+--- !u!114 &120504809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 120504804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 573961e380f210b4d9d02153ca5ffa5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjectRef: {fileID: 120504804}
+  timeAppear: 0.74
+  timeDisappear: 0.26
+  recycling: 0
+  sortID: 20
+  animator: {fileID: 0}
+  animClips: []
+  currentState: 3
+  isNested_IAM: 0
 --- !u!1 &131048998
 GameObject:
   m_ObjectHideFlags: 0
@@ -6251,10 +6272,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 131048998}
-  timeAppear: 0
-  timeDisappear: 1
+  timeAppear: 0.07
+  timeDisappear: 0.93
   recycling: 0
-  sortID: 0
+  sortID: 2
   animator: {fileID: 131049002}
   animClips:
   - {fileID: 7400000, guid: baf288b3c6c5b544897e0acbeaa32963, type: 2}
@@ -7179,8 +7200,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 240398101}
-  timeAppear: 0.36
-  timeDisappear: 0.64
+  timeAppear: 0.57
+  timeDisappear: 0.43
   recycling: 0
   sortID: 4
   animator: {fileID: 240398104}
@@ -7453,10 +7474,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 261657749}
-  timeAppear: 0.75
-  timeDisappear: 0.25
+  timeAppear: 0.7
+  timeDisappear: 0.3
   recycling: 0
-  sortID: 21
+  sortID: 19
   animator: {fileID: 261657753}
   animClips:
   - {fileID: 7400000, guid: 1c43ad69c324ed842a02d61b08cecdbc, type: 2}
@@ -7700,18 +7721,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elementsList:
+  - {fileID: 33677532}
+  - {fileID: 44452793}
+  - {fileID: 131049000}
   - {fileID: 583105134}
   - {fileID: 851000858}
   - {fileID: 738197056}
   - {fileID: 1030889031}
   - {fileID: 2013061771}
-  - {fileID: 0}
   - {fileID: 1732129963}
   - {fileID: 1781800455}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 33677532}
-  - {fileID: 44452793}
   - {fileID: 2109266141}
   - {fileID: 1252343745}
   - {fileID: 898016311}
@@ -7722,13 +7741,14 @@ MonoBehaviour:
   - {fileID: 1194609299}
   - {fileID: 1061194939}
   - {fileID: 261657751}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 120504809}
+  - {fileID: 792316248}
+  - {fileID: 1199636087}
+  - {fileID: 1542902845}
+  - {fileID: 939911436}
+  - {fileID: 2122190862}
+  - {fileID: 880088061}
+  - {fileID: 1946275583}
   autoStart: 1
   invertDelays: 1
   cloneDelays: 0
@@ -8548,6 +8568,37 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 318486733}
   m_CullTransparentMesh: 0
+--- !u!84 &331505370
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1589
+  m_Height: 894
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &355420395
 GameObject:
   m_ObjectHideFlags: 0
@@ -10159,10 +10210,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 468944136}
-  timeAppear: 0.63
-  timeDisappear: 0.37
+  timeAppear: 0.85
+  timeDisappear: 0.14999998
   recycling: 0
-  sortID: 7
+  sortID: 6
   animator: {fileID: 468944140}
   animClips:
   - {fileID: 7400000, guid: 632e50b9605259841a67eb5027863986, type: 2}
@@ -10521,12 +10572,8 @@ MonoBehaviour:
   - {fileID: 1910433567}
   - {fileID: 586483199}
   - {fileID: 240398103}
-  - {fileID: 0}
   - {fileID: 1144849926}
   - {fileID: 468944138}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 950165646}
   autoStart: 1
   invertDelays: 1
@@ -11490,10 +11537,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 583105132}
-  timeAppear: 0
-  timeDisappear: 1
+  timeAppear: 0.11
+  timeDisappear: 0.89
   recycling: 0
-  sortID: 0
+  sortID: 3
   animator: {fileID: 583105136}
   animClips:
   - {fileID: 7400000, guid: baf288b3c6c5b544897e0acbeaa32963, type: 2}
@@ -11613,8 +11660,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 586483197}
-  timeAppear: 0.27
-  timeDisappear: 0.73
+  timeAppear: 0.42
+  timeDisappear: 0.58000004
   recycling: 0
   sortID: 3
   animator: {fileID: 586483200}
@@ -11850,10 +11897,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 635034725}
-  timeAppear: 0.53
-  timeDisappear: 0.47000003
+  timeAppear: 0.81
+  timeDisappear: 0.19
   recycling: 0
-  sortID: 8
+  sortID: 9
   animator: {fileID: 0}
   animClips: []
   currentState: 3
@@ -12286,19 +12333,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elementsList:
+  - {fileID: 1599966953}
   - {fileID: 52297904}
   - {fileID: 891848013}
   - {fileID: 1718864304}
   - {fileID: 1255332269}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 1180568533}
   - {fileID: 756011237}
   - {fileID: 1391451229}
-  - {fileID: 0}
   - {fileID: 815235835}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 635034727}
+  - {fileID: 5415224}
+  - {fileID: 1753750860}
   autoStart: 1
   invertDelays: 1
   cloneDelays: 0
@@ -13744,10 +13790,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 738197054}
-  timeAppear: 0.07
-  timeDisappear: 0.93
+  timeAppear: 0.18
+  timeDisappear: 0.82
   recycling: 0
-  sortID: 2
+  sortID: 5
   animator: {fileID: 738197058}
   animClips:
   - {fileID: 7400000, guid: 1c43ad69c324ed842a02d61b08cecdbc, type: 2}
@@ -13868,10 +13914,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 744758494}
-  timeAppear: 0.64
-  timeDisappear: 0.36
+  timeAppear: 0.59
+  timeDisappear: 0.41000003
   recycling: 0
-  sortID: 18
+  sortID: 16
   animator: {fileID: 744758498}
   animClips:
   - {fileID: 7400000, guid: 1c43ad69c324ed842a02d61b08cecdbc, type: 2}
@@ -14050,10 +14096,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 756011235}
-  timeAppear: 0.58
-  timeDisappear: 0.42000002
+  timeAppear: 0.54
+  timeDisappear: 0.45999998
   recycling: 0
-  sortID: 7
+  sortID: 6
   animator: {fileID: 756011239}
   animClips:
   - {fileID: 7400000, guid: 0119420d0ff0cde4f9916081d636f3d7, type: 2}
@@ -14406,10 +14452,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 792316246}
-  timeAppear: 0.91
-  timeDisappear: 0.089999974
+  timeAppear: 0.77
+  timeDisappear: 0.23000002
   recycling: 0
-  sortID: 11
+  sortID: 21
   animator: {fileID: 792316251}
   animClips:
   - {fileID: 7400000, guid: 22e0207d6cd021842b84a65cae6707b7, type: 2}
@@ -14626,10 +14672,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 815235833}
-  timeAppear: 0.83
-  timeDisappear: 0.17000002
+  timeAppear: 0.72
+  timeDisappear: 0.27999997
   recycling: 0
-  sortID: 10
+  sortID: 8
   animator: {fileID: 815235838}
   animClips:
   - {fileID: 7400000, guid: 22e0207d6cd021842b84a65cae6707b7, type: 2}
@@ -15342,10 +15388,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 851000856}
-  timeAppear: 0.03
-  timeDisappear: 0.97
+  timeAppear: 0.14
+  timeDisappear: 0.86
   recycling: 0
-  sortID: 1
+  sortID: 4
   animator: {fileID: 851000860}
   animClips:
   - {fileID: 7400000, guid: 695b42840dbe73b4f956c1d91931ab2e, type: 2}
@@ -15465,10 +15511,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 880088059}
-  timeAppear: 0.53
-  timeDisappear: 0.47000003
+  timeAppear: 0.96
+  timeDisappear: 0.04000002
   recycling: 0
-  sortID: 8
+  sortID: 26
   animator: {fileID: 0}
   animClips: []
   currentState: 3
@@ -15888,10 +15934,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 891848011}
-  timeAppear: 0.08
-  timeDisappear: 0.92
+  timeAppear: 0.18
+  timeDisappear: 0.82
   recycling: 0
-  sortID: 1
+  sortID: 2
   animator: {fileID: 891848015}
   animClips:
   - {fileID: 7400000, guid: 695b42840dbe73b4f956c1d91931ab2e, type: 2}
@@ -16011,10 +16057,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 898016309}
-  timeAppear: 0.5
-  timeDisappear: 0.5
+  timeAppear: 0.44
+  timeDisappear: 0.56
   recycling: 0
-  sortID: 14
+  sortID: 12
   animator: {fileID: 898016313}
   animClips:
   - {fileID: 7400000, guid: 1c43ad69c324ed842a02d61b08cecdbc, type: 2}
@@ -16657,10 +16703,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 939911434}
-  timeAppear: 0.53
-  timeDisappear: 0.47000003
+  timeAppear: 0.88
+  timeDisappear: 0.120000005
   recycling: 0
-  sortID: 8
+  sortID: 24
   animator: {fileID: 0}
   animClips: []
   currentState: 3
@@ -16829,7 +16875,7 @@ MonoBehaviour:
   timeAppear: 1
   timeDisappear: 0
   recycling: 0
-  sortID: 11
+  sortID: 7
   animator: {fileID: 950165648}
   animClips:
   - {fileID: 7400000, guid: baf288b3c6c5b544897e0acbeaa32963, type: 2}
@@ -17043,10 +17089,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 956878118}
-  timeAppear: 0.53
-  timeDisappear: 0.47000003
+  timeAppear: 0.48
+  timeDisappear: 0.52
   recycling: 0
-  sortID: 15
+  sortID: 13
   animator: {fileID: 956878122}
   animClips:
   - {fileID: 7400000, guid: 1c43ad69c324ed842a02d61b08cecdbc, type: 2}
@@ -17167,8 +17213,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 957943351}
-  timeAppear: 0.09
-  timeDisappear: 0.90999997
+  timeAppear: 0.14
+  timeDisappear: 0.86
   recycling: 0
   sortID: 1
   animator: {fileID: 957943354}
@@ -17390,11 +17436,11 @@ RectTransform:
   - {fileID: 1691850245}
   - {fileID: 904152605}
   m_Father: {fileID: 1753750858}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 133.00003, y: -38.2482}
+  m_AnchoredPosition: {x: -54.9, y: -38.2482}
   m_SizeDelta: {x: 177.5, y: 258.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &980838242
@@ -17580,7 +17626,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 0
   m_RenderingPath: 1
-  m_TargetTexture: {fileID: 2072348401}
+  m_TargetTexture: {fileID: 1583575108}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -18227,10 +18273,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 1030889029}
-  timeAppear: 0.1
-  timeDisappear: 0.9
+  timeAppear: 0.22
+  timeDisappear: 0.78
   recycling: 0
-  sortID: 3
+  sortID: 6
   animator: {fileID: 1030889033}
   animClips:
   - {fileID: 7400000, guid: 1c43ad69c324ed842a02d61b08cecdbc, type: 2}
@@ -18693,10 +18739,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 1061194937}
-  timeAppear: 0.71
-  timeDisappear: 0.29000002
+  timeAppear: 0.66
+  timeDisappear: 0.33999997
   recycling: 0
-  sortID: 20
+  sortID: 18
   animator: {fileID: 1061194941}
   animClips:
   - {fileID: 7400000, guid: 1c43ad69c324ed842a02d61b08cecdbc, type: 2}
@@ -18936,7 +18982,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1096953131}
   m_HandleRect: {fileID: 2119801536}
   m_Direction: 2
-  m_Value: 0.99999994
+  m_Value: 1
   m_Size: 0.6371428
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -22658,10 +22704,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 1144849924}
-  timeAppear: 0.54
-  timeDisappear: 0.45999998
+  timeAppear: 0.71
+  timeDisappear: 0.29000002
   recycling: 0
-  sortID: 6
+  sortID: 5
   animator: {fileID: 1144849928}
   animClips:
   - {fileID: 7400000, guid: 632e50b9605259841a67eb5027863986, type: 2}
@@ -23185,10 +23231,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 1180568531}
-  timeAppear: 0.5
-  timeDisappear: 0.5
+  timeAppear: 0.45
+  timeDisappear: 0.55
   recycling: 0
-  sortID: 6
+  sortID: 5
   animator: {fileID: 1180568535}
   animClips:
   - {fileID: 7400000, guid: 0119420d0ff0cde4f9916081d636f3d7, type: 2}
@@ -23490,10 +23536,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 1194609297}
-  timeAppear: 0.67
-  timeDisappear: 0.32999998
+  timeAppear: 0.62
+  timeDisappear: 0.38
   recycling: 0
-  sortID: 19
+  sortID: 17
   animator: {fileID: 1194609301}
   animClips:
   - {fileID: 7400000, guid: 1c43ad69c324ed842a02d61b08cecdbc, type: 2}
@@ -23656,10 +23702,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 1199636085}
-  timeAppear: 0.53
-  timeDisappear: 0.47000003
+  timeAppear: 0.81
+  timeDisappear: 0.19
   recycling: 0
-  sortID: 8
+  sortID: 22
   animator: {fileID: 0}
   animClips: []
   currentState: 3
@@ -24437,10 +24483,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 1252343743}
-  timeAppear: 0.46
-  timeDisappear: 0.53999996
+  timeAppear: 0.4
+  timeDisappear: 0.6
   recycling: 0
-  sortID: 13
+  sortID: 11
   animator: {fileID: 1252343747}
   animClips:
   - {fileID: 7400000, guid: 1c43ad69c324ed842a02d61b08cecdbc, type: 2}
@@ -24561,10 +24607,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 1255332267}
-  timeAppear: 0.25
-  timeDisappear: 0.75
+  timeAppear: 0.36
+  timeDisappear: 0.64
   recycling: 0
-  sortID: 3
+  sortID: 4
   animator: {fileID: 1255332270}
   animClips:
   - {fileID: 7400000, guid: a0df9ac6fa7372e4ebda37c5534f4da5, type: 2}
@@ -26038,10 +26084,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 1391451227}
-  timeAppear: 0.66
-  timeDisappear: 0.33999997
+  timeAppear: 0.63
+  timeDisappear: 0.37
   recycling: 0
-  sortID: 8
+  sortID: 7
   animator: {fileID: 1391451231}
   animClips:
   - {fileID: 7400000, guid: 1c43ad69c324ed842a02d61b08cecdbc, type: 2}
@@ -27620,11 +27666,11 @@ RectTransform:
   - {fileID: 135086819}
   - {fileID: 1891632757}
   m_Father: {fileID: 1753750858}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -54.749977, y: -38.248146}
+  m_AnchoredPosition: {x: 140, y: -38.248146}
   m_SizeDelta: {x: 177.5, y: 258.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1490348398
@@ -28038,10 +28084,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 1542902843}
-  timeAppear: 0.73
-  timeDisappear: 0.26999998
+  timeAppear: 0.85
+  timeDisappear: 0.14999998
   recycling: 0
-  sortID: 11
+  sortID: 23
   animator: {fileID: 1542902848}
   animClips:
   - {fileID: 7400000, guid: 0119420d0ff0cde4f9916081d636f3d7, type: 2}
@@ -28172,10 +28218,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 1544381684}
-  timeAppear: 0.57
-  timeDisappear: 0.43
+  timeAppear: 0.51
+  timeDisappear: 0.49
   recycling: 0
-  sortID: 16
+  sortID: 14
   animator: {fileID: 1544381688}
   animClips:
   - {fileID: 7400000, guid: 1c43ad69c324ed842a02d61b08cecdbc, type: 2}
@@ -28457,6 +28503,37 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1576583547}
   m_CullTransparentMesh: 0
+--- !u!84 &1583575108
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1589
+  m_Height: 894
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 0
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1588677334
 GameObject:
   m_ObjectHideFlags: 0
@@ -29747,10 +29824,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 1718864302}
-  timeAppear: 0.16
-  timeDisappear: 0.84000003
+  timeAppear: 0.27
+  timeDisappear: 0.73
   recycling: 0
-  sortID: 2
+  sortID: 3
   animator: {fileID: 1718864305}
   animClips:
   - {fileID: 7400000, guid: a0df9ac6fa7372e4ebda37c5534f4da5, type: 2}
@@ -29870,10 +29947,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 1732129961}
-  timeAppear: 0.21
-  timeDisappear: 0.79
+  timeAppear: 0.29
+  timeDisappear: 0.71000004
   recycling: 0
-  sortID: 6
+  sortID: 8
   animator: {fileID: 1732129965}
   animClips:
   - {fileID: 7400000, guid: 1c43ad69c324ed842a02d61b08cecdbc, type: 2}
@@ -29994,10 +30071,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 1737693691}
-  timeAppear: 0.6
-  timeDisappear: 0.39999998
+  timeAppear: 0.55
+  timeDisappear: 0.45
   recycling: 0
-  sortID: 17
+  sortID: 15
   animator: {fileID: 1737693695}
   animClips:
   - {fileID: 7400000, guid: 1c43ad69c324ed842a02d61b08cecdbc, type: 2}
@@ -30077,6 +30154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1753750858}
   - component: {fileID: 1753750859}
+  - component: {fileID: 1753750860}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -30095,8 +30173,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1487157490}
-  - {fileID: 1490348397}
   - {fileID: 980838241}
+  - {fileID: 1490348397}
   m_Father: {fileID: 664474140}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -30118,6 +30196,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttons: []
   content: {fileID: 1753750858}
+--- !u!114 &1753750860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1753750857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 573961e380f210b4d9d02153ca5ffa5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjectRef: {fileID: 1753750857}
+  timeAppear: 1
+  timeDisappear: 0
+  recycling: 0
+  sortID: 11
+  animator: {fileID: 0}
+  animClips: []
+  currentState: 3
+  isNested_IAM: 0
 --- !u!1 &1762030829
 GameObject:
   m_ObjectHideFlags: 0
@@ -30363,10 +30461,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 1781800453}
-  timeAppear: 0.25
-  timeDisappear: 0.75
+  timeAppear: 0.33
+  timeDisappear: 0.66999996
   recycling: 0
-  sortID: 7
+  sortID: 9
   animator: {fileID: 1781800457}
   animClips:
   - {fileID: 7400000, guid: 0119420d0ff0cde4f9916081d636f3d7, type: 2}
@@ -30502,37 +30600,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1796700044}
   m_CullTransparentMesh: 0
---- !u!84 &1797659491
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 688
-  m_Height: 387
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &1807455165 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 104074, guid: 57730597c1ed306468dbe94e97ce1703,
@@ -32077,8 +32144,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 1910433565}
-  timeAppear: 0.18
-  timeDisappear: 0.82
+  timeAppear: 0.28
+  timeDisappear: 0.72
   recycling: 0
   sortID: 2
   animator: {fileID: 1910433568}
@@ -32778,10 +32845,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 1946275581}
-  timeAppear: 0.73
-  timeDisappear: 0.26999998
+  timeAppear: 1
+  timeDisappear: 0
   recycling: 0
-  sortID: 11
+  sortID: 27
   animator: {fileID: 1946275586}
   animClips:
   - {fileID: 7400000, guid: 0119420d0ff0cde4f9916081d636f3d7, type: 2}
@@ -33820,10 +33887,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 2013061769}
-  timeAppear: 0.14
-  timeDisappear: 0.86
+  timeAppear: 0.25
+  timeDisappear: 0.75
   recycling: 0
-  sortID: 4
+  sortID: 7
   animator: {fileID: 2013061773}
   animClips:
   - {fileID: 7400000, guid: 1c43ad69c324ed842a02d61b08cecdbc, type: 2}
@@ -33973,37 +34040,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2e5f753fcf49c64d87884c1108debe8, type: 2}
   m_IsPrefabAsset: 0
---- !u!84 &2072348401
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 688
-  m_Height: 387
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 0
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &2077587197 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 104074, guid: 57730597c1ed306468dbe94e97ce1703,
@@ -34310,10 +34346,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 2109266139}
-  timeAppear: 0.42
-  timeDisappear: 0.58000004
+  timeAppear: 0.37
+  timeDisappear: 0.63
   recycling: 0
-  sortID: 12
+  sortID: 10
   animator: {fileID: 2109266143}
   animClips:
   - {fileID: 7400000, guid: 1c43ad69c324ed842a02d61b08cecdbc, type: 2}
@@ -34505,10 +34541,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectRef: {fileID: 2122190860}
-  timeAppear: 0.73
-  timeDisappear: 0.26999998
+  timeAppear: 0.92
+  timeDisappear: 0.07999998
   recycling: 0
-  sortID: 11
+  sortID: 25
   animator: {fileID: 2122190865}
   animClips:
   - {fileID: 7400000, guid: 0119420d0ff0cde4f9916081d636f3d7, type: 2}
@@ -34971,5 +35007,5 @@ MonoBehaviour:
   sourceCamera: {fileID: 2144244037}
   outlineCamera: {fileID: 987493587}
   outlineShaderMaterial: {fileID: 0}
-  renderTexture: {fileID: 2072348401}
-  extraRenderTexture: {fileID: 1797659491}
+  renderTexture: {fileID: 1583575108}
+  extraRenderTexture: {fileID: 331505370}

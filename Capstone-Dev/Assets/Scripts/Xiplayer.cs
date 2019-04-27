@@ -17,6 +17,7 @@ namespace AssemblyCSharp
         public GameObject spark;
         // Use this for initialization
         void Start() {
+            NextScene.nowName = "2_3";
             if (GameObject.FindGameObjectWithTag("Player"))
             {
                 var emission = p1.emission;
