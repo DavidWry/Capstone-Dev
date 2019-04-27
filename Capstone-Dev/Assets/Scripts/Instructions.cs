@@ -16,7 +16,7 @@ public class Instructions : MonoBehaviour {
         sprite = GetComponent<SpriteRenderer>();
         activate = false;
         hasLeft = false;
-        showTime = 3.0f;
+        showTime = 3.5f;
         color = sprite.color;
         color.a = 0;
         sprite.color = color;  
@@ -29,7 +29,7 @@ public class Instructions : MonoBehaviour {
         if (activate == true)
         {
             color = sprite.color;
-            color.a += (Time.deltaTime / 1.3f);
+            color.a += (Time.deltaTime / 0.8f);
             
             // showTime -= Time.deltaTime;
             sprite.color = color;

@@ -288,9 +288,9 @@ public class EnemySlider : MonoBehaviour
         {
             if (hasCollidedWithOthers == false)
             {
-                Debug.Log("dont move");
+                rb.velocity = Vector3.zero;
                 hasReached = true;
-                Debug.Log("move");
+                
                 hasCollidedWithOthers = true;
 
             }
@@ -312,9 +312,10 @@ public class EnemySlider : MonoBehaviour
         {
             if (hasCollidedWithOthers == false)
             {
-                Debug.Log("dont move");
+                rb.velocity = Vector3.zero;
+              //  Debug.Log("dont move");
                 hasReached = true;
-                Debug.Log("move");
+               // Debug.Log("move");
                // hasCollidedWithOthers = true;
 
             }
@@ -328,7 +329,7 @@ public class EnemySlider : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+  /*  private void OnCollisionExit(Collision collision)
     {
 
         if ((collision.gameObject.tag == "Minion") || (collision.gameObject.tag == "Chest") || (collision.gameObject.tag == "Obstacle"))
@@ -336,7 +337,7 @@ public class EnemySlider : MonoBehaviour
 
             dashTime = 0.0f;
         }
-    }
+    }*/
 
 
     public void TakeDamage(int damage)

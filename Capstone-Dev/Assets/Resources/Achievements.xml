@@ -21,7 +21,7 @@
   <AC5>
     <Name>Clean Sweep</Name>
     <Completed>false</Completed>
-    <Remaining>39515</Remaining>
+    <Remaining>39347</Remaining>
   </AC5>
   <AC6>
     <Name>BEAT IT</Name>
@@ -38,7 +38,7 @@
   </AC8>
   <AC9>
     <Name>TREASURE HUNTER</Name>
-    <Completed>false</Completed>
+    <Completed>true</Completed>
   </AC9>
   <AC10>
     <Name>Say Hello to My Little Friend</Name>
@@ -47,7 +47,7 @@
   <AC11>
     <Name>Rush Hour</Name>
     <Completed>false</Completed>
-    <Time>396.0628</Time>
+    <Time>323.4683</Time>
   </AC11>
   <AC12>
     <Name>Glass Cutter</Name>
