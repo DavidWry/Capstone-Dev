@@ -11405,8 +11405,8 @@ GameObject:
   m_Component:
   - component: {fileID: 183771077}
   - component: {fileID: 183771076}
-  - component: {fileID: 183771078}
   - component: {fileID: 183771079}
+  - component: {fileID: 183771078}
   m_Layer: 12
   m_Name: Tile_18(Clone) (372)
   m_TagString: edge
@@ -11473,8 +11473,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 497
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &183771078
-CapsuleCollider:
+--- !u!65 &183771078
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -11482,10 +11482,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 11.999999
-  m_Height: 24
-  m_Direction: 1
-  m_Center: {x: 11.999999, y: 12, z: 0}
+  serializedVersion: 2
+  m_Size: {x: 24.000004, y: 24.000004, z: 135.77}
+  m_Center: {x: 12.000002, y: 12.000002, z: 0}
 --- !u!54 &183771079
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11585,8 +11584,8 @@ GameObject:
   m_Component:
   - component: {fileID: 195715908}
   - component: {fileID: 195715907}
-  - component: {fileID: 195715906}
   - component: {fileID: 195715905}
+  - component: {fileID: 195715906}
   m_Layer: 12
   m_Name: Tile_18(Clone) (378)
   m_TagString: edge
@@ -11609,8 +11608,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 1
---- !u!136 &195715906
-CapsuleCollider:
+--- !u!65 &195715906
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -11618,10 +11617,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 12.280816
-  m_Height: 33.393864
-  m_Direction: 1
-  m_Center: {x: 12.204717, y: 7.597203, z: 0}
+  serializedVersion: 2
+  m_Size: {x: 24, y: 24, z: 179.47}
+  m_Center: {x: 12, y: 12, z: 0}
 --- !u!212 &195715907
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13683,7 +13681,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.3223191, y: 2.7303982, z: 1}
+  m_Size: {x: 0.52, y: 1.96, z: 1}
   m_Center: {x: 0.008481598, y: 0.59376323, z: 0}
 --- !u!1 &243658659
 GameObject:
@@ -24166,8 +24164,8 @@ GameObject:
   m_Component:
   - component: {fileID: 527447602}
   - component: {fileID: 527447601}
-  - component: {fileID: 527447603}
   - component: {fileID: 527447604}
+  - component: {fileID: 527447603}
   m_Layer: 12
   m_Name: Tile_18(Clone) (376)
   m_TagString: edge
@@ -24234,8 +24232,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 501
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &527447603
-CapsuleCollider:
+--- !u!65 &527447603
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -24243,10 +24241,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 12.000002
-  m_Height: 23.999998
-  m_Direction: 1
-  m_Center: {x: 12.000002, y: 11.999999, z: 0}
+  serializedVersion: 2
+  m_Size: {x: 24, y: 22.527004, z: 161.6}
+  m_Center: {x: 12, y: 12.736496, z: 0}
 --- !u!54 &527447604
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -24257,7 +24254,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
@@ -34480,8 +34477,8 @@ GameObject:
   m_Component:
   - component: {fileID: 669400726}
   - component: {fileID: 669400725}
-  - component: {fileID: 669400727}
   - component: {fileID: 669400728}
+  - component: {fileID: 669400727}
   m_Layer: 12
   m_Name: Tile_18(Clone) (369)
   m_TagString: edge
@@ -34548,8 +34545,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 493
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &669400727
-CapsuleCollider:
+--- !u!65 &669400727
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -34557,10 +34554,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 12.725532
-  m_Height: 28.26628
-  m_Direction: 1
-  m_Center: {x: 11.921126, y: 11.588519, z: 15.919113}
+  serializedVersion: 2
+  m_Size: {x: 24, y: 24, z: 111.93}
+  m_Center: {x: 12, y: 12, z: 0}
 --- !u!54 &669400728
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -75388,8 +75384,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1164731128}
   - component: {fileID: 1164731127}
-  - component: {fileID: 1164731129}
   - component: {fileID: 1164731130}
+  - component: {fileID: 1164731129}
   m_Layer: 12
   m_Name: Tile_18(Clone) (373)
   m_TagString: edge
@@ -75456,8 +75452,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 498
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &1164731129
-CapsuleCollider:
+--- !u!65 &1164731129
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -75465,10 +75461,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 12.280816
-  m_Height: 24.827936
-  m_Direction: 0
-  m_Center: {x: 12.204718, y: 12.330944, z: 0}
+  serializedVersion: 2
+  m_Size: {x: 24, y: 24, z: 238.78}
+  m_Center: {x: 12, y: 12, z: 0}
 --- !u!54 &1164731130
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -90298,13 +90293,13 @@ GameObject:
   - component: {fileID: 1377060072}
   - component: {fileID: 1377060071}
   - component: {fileID: 1377060070}
-  - component: {fileID: 1377060069}
   - component: {fileID: 1377060068}
   - component: {fileID: 1377060067}
   - component: {fileID: 1377060066}
   - component: {fileID: 1377060065}
   - component: {fileID: 1377060064}
   - component: {fileID: 1377060074}
+  - component: {fileID: 1377060069}
   m_Layer: 0
   m_Name: New_Character(Clone)
   m_TagString: Player
@@ -90607,8 +90602,8 @@ MonoBehaviour:
   CameraObj: {fileID: 0}
   LeftWeaponObj: {fileID: 1764757158}
   RightWeaponObj: {fileID: 0}
---- !u!136 &1377060069
-CapsuleCollider:
+--- !u!65 &1377060069
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -90616,10 +90611,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.57
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: -0.04593277, y: 0.24688911, z: 0}
+  serializedVersion: 2
+  m_Size: {x: 1.7379276, y: 2.6725867, z: 1.4495445}
+  m_Center: {x: -0.06131751, y: 0.5764949, z: 0.13402902}
 --- !u!54 &1377060070
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -90634,7 +90628,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 120
-  m_CollisionDetection: 2
+  m_CollisionDetection: 1
 --- !u!114 &1377060071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124241,8 +124235,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 24, y: 24, z: 636.035}
-  m_Center: {x: 12, y: 12, z: 56.23584}
+  m_Size: {x: 24, y: 19.742771, z: 636}
+  m_Center: {x: 12, y: 9.871386, z: 56.23584}
 --- !u!54 &1731343919
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -124253,7 +124247,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
