@@ -22,7 +22,7 @@ public class ThrowingStarBack : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         lifeTime += Time.deltaTime;
-        if ((Mathf.Round(Input.GetAxisRaw("LeftTrigger")) > 0 || Mathf.Round(Input.GetAxisRaw("RightTrigger")) > 0) && lifeTime > 0.5f)
+        if ((Mathf.Round(Input.GetAxisRaw("LeftTrigger")) > 0 || Mathf.Round(Input.GetAxisRaw("RightTrigger")) > 0) && lifeTime > 0.2f)
         {
             star.enabled = false;
             back = true;
@@ -58,9 +58,9 @@ public class ThrowingStarBack : MonoBehaviour {
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player" && lifeTime > 0.5f)
+        if (other.tag == "Player" && lifeTime > 0.2f)
         {
             if (PlayerObj)
             {
