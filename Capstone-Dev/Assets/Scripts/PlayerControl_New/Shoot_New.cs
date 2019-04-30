@@ -253,20 +253,6 @@ public class Shoot_New : MonoBehaviour
                             NewProj.transform.localScale *= 15;
                         CombineTag_35 = false;
                     }
-                    if (player.CombineType == 55 && CombineTag_55)
-                    {
-                        if (Mathf.Round(Input.GetAxisRaw("RightTrigger")) > 0)
-                        {
-                            CombineShoot_55_R();
-                        }
-                        else
-                        {
-                            Time.timeScale = 1;
-                            movement.WalkSpeed = speed;
-                            player.Character.Animator.speed = 1;
-                            GetComponent<TrailRenderer>().enabled = false;
-                        }
-                    }
                 }
                 if (Mathf.Round(Input.GetAxisRaw("RightTrigger")) > 0 || Mathf.Round(Input.GetAxisRaw("LeftTrigger")) > 0)
                 {
@@ -302,14 +288,6 @@ public class Shoot_New : MonoBehaviour
                 }
                 IsLeftShooting = false;
                 IsRightShooting = false;
-                if (Input.GetButtonDown("XButton"))
-                {
-
-                }
-                else
-                {
-                    
-                }
             }
 
             if (Input.GetButtonDown("YButton"))
@@ -335,6 +313,7 @@ public class Shoot_New : MonoBehaviour
             zoomOn = false;
             if (player.CombineType == 15)
                 combine_15.SetActive(false);
+            CombineTag_15 = true;
             if (player.Power < 100 && SkillReady)
             {
                 SkillReady = false;
@@ -476,7 +455,7 @@ public class Shoot_New : MonoBehaviour
                     Proj.Duration = player.leftWeapon.Duration;
                     Proj.Thrust = player.leftWeapon.IsThrust;
                 }
-                if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "3_1" || NextScene.nowName == "3_2" )
+                if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3" || NextScene.nowName == "3_3" || NextScene.nowName == "3_1" || NextScene.nowName == "3_2" )
                 {
                     GameObject.FindGameObjectWithTag("MainCamera").GetComponent<scshake>().time = 0.2f;
                 }
@@ -587,7 +566,7 @@ public class Shoot_New : MonoBehaviour
                     Proj.Duration = player.rightWeapon.Duration;
                     Proj.Thrust = player.rightWeapon.IsThrust;
                 }
-                if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "3_1" || NextScene.nowName == "3_2" )
+                if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "3_1" || NextScene.nowName == "2_3" || NextScene.nowName == "3_3" || NextScene.nowName == "3_2" )
                 {
                     GameObject.FindGameObjectWithTag("MainCamera").GetComponent<scshake>().time = 0.2f;
                 }
@@ -1030,8 +1009,6 @@ public class Shoot_New : MonoBehaviour
 
     private void CombineShoot_55()
     {
-        if (Mathf.Round(Input.GetAxisRaw("RightTrigger")) == 0 && Mathf.Round(Input.GetAxisRaw("LeftTrigger")) > 0)
-        {
             GameObject NewProj = Instantiate(gameManager.CombineProjectile[15]);
             NewProj.transform.position = CombineBulPos.position;
             NewProj.transform.rotation = CombineBulPos.rotation;
@@ -1044,17 +1021,6 @@ public class Shoot_New : MonoBehaviour
             Proj.Damage = CombineDamage_55;
             Proj.Pierce = true;
             player.Jab();
-        }
-    }
-
-    private void CombineShoot_55_R()
-    {
-        Time.timeScale = 0.2f;
-        movement.WalkSpeed = 2 * speed;
-        player.Character.Animator.speed = 5;
-        GetComponent<TrailRenderer>().enabled = true;
-        if (NextScene.nowName == "2_1" || NextScene.nowName == "2_2" || NextScene.nowName == "2_3" || NextScene.nowName == "3_1" || NextScene.nowName == "3_2" || NextScene.nowName == "3_3")
-            GetComponent<TrailRenderer>().widthMultiplier = 20;
     }
 
     private void useSkill()
