@@ -9,6 +9,7 @@ public class boss2behalf : MonoBehaviour {
     float idleTime = 0;
     public float hp = 1500;
     GameObject player;
+
     int p;
     // Use this for initialization
     void Start () {
@@ -45,6 +46,7 @@ public class boss2behalf : MonoBehaviour {
             else if (hp <= 0)
             {
                 boss2Anim.SetInteger("state", 10);
+             
             }
             else
             {

@@ -15,6 +15,11 @@ namespace AssemblyCSharp
         float timeCount = 0;
         Vector3 nextSpot;
         float distance = 5;
+        public ParticleSystem zhaptc;
+        public GameObject portal;
+        public GameObject emptyone;
+        float cs = 3;
+        bool sile = false;
         // Use this for initialization
         void Start()
         {
@@ -25,6 +30,8 @@ namespace AssemblyCSharp
         // Update is called once per frame
         void Update()
         {
+ 
+             
             if (player)
             {
                 if (gameObject.GetComponentInParent<boss2behalf>().hp > 0)
@@ -94,25 +101,34 @@ namespace AssemblyCSharp
         }
         public void destroyThis()
         {
+            zhaptc.transform.position = gameObject.transform.position;
+            zhaptc.Play();
             Destroy(gameObject.transform.parent.gameObject);
-
+            portal.transform.position = gameObject.transform.parent.position;
+            emptyone.GetComponent<emptyone>().pig = true;
+          
         }
 
         void OnTriggerEnter(Collider other)
         {
-            if (windParticleSystem.isPlaying && other.tag != "Player")
+            if (gameObject.transform.parent.GetComponent<boss2behalf>().hp > 0)
             {
- 
-                gameObject.GetComponentInParent<Rigidbody>().velocity *= -1;
+                if (windParticleSystem.isPlaying && other.tag != "Player")
+                {
+
+                    gameObject.GetComponentInParent<Rigidbody>().velocity *= -1;
+                }
             }
-        
         }
  
         private void OnTriggerStay(Collider other)
         {
-            if (windParticleSystem.isPlaying && other.tag== "Player")
+            if (gameObject.transform.parent.GetComponent<boss2behalf>().hp > 0)
             {
-                player.GetComponent<Player_New>().TakeDamage(25 * Time.deltaTime);
+                if (windParticleSystem.isPlaying && other.tag == "Player")
+                {
+                    player.GetComponent<Player_New>().TakeDamage(25 * Time.deltaTime);
+                }
             }
         }
 
