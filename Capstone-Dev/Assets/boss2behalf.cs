@@ -8,8 +8,13 @@ public class boss2behalf : MonoBehaviour {
     int breathState = 0;
     float idleTime = 0;
     public float hp = 1500;
+    float flashtime = 0;
+    bool hitflash = false;
     GameObject player;
-
+    public GameObject bossspt;
+    
+    public Material mat1;
+    public Material mat2;
     int p;
     // Use this for initialization
     void Start () {
@@ -21,8 +26,41 @@ public class boss2behalf : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+
         if (player)
         {
+
+
+
+            if (hitflash)
+            {
+                flashtime += Time.deltaTime;
+                if (flashtime < .1f)
+                {
+                    bossspt.gameObject.GetComponent<SpriteRenderer>().material = mat1;
+
+                }
+                else if (flashtime < 0.2f)
+                {
+                    bossspt.gameObject.GetComponent<SpriteRenderer>().material = mat2;
+                }
+                else if (flashtime < 0.3f)
+                {
+                    bossspt.gameObject.GetComponent<SpriteRenderer>().material = mat1;
+                }
+                else
+                {
+
+                    bossspt.gameObject.GetComponent<SpriteRenderer>().material = mat2;
+
+                    hitflash = false;
+                    flashtime = 0;
+
+
+                }
+            }
+
+
             if (Vector3.Distance(player.transform.position, gameObject.transform.position) < 40)
             {
                 p = (int)Random.Range(0, 6);
@@ -72,6 +110,7 @@ public class boss2behalf : MonoBehaviour {
     public void TakeDamage(float a)
     {
         hp -= a;
+        hitflash = true;
     }
 
 }
