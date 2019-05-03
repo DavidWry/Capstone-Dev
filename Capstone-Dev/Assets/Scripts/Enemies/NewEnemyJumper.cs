@@ -62,6 +62,7 @@ public class NewEnemyJumper : MonoBehaviour
 
     private bool shouldMakeSound;
     private bool hasMadeSound;
+    private float soundTime;
 
     // public AnimationClip death;
 
@@ -86,6 +87,7 @@ public class NewEnemyJumper : MonoBehaviour
             arcHeight =17f;
             reachedDistance = 2.0f;
             offset = new Vector3(0, 9f, 0);
+            soundTime = 14f;
         }
         else if (scene.name == "First Level")
         {
@@ -99,6 +101,7 @@ public class NewEnemyJumper : MonoBehaviour
             arcHeight = 1f;
             reachedDistance = 0.1f;
             offset = new Vector3(0, 0.5f, 0);
+            soundTime = 0.6f;
         }
 
     }
@@ -290,7 +293,7 @@ public class NewEnemyJumper : MonoBehaviour
                 }
 
 
-                if(Vector3.Distance(nextPos, targetPos) <= 0.6f)
+                if(Vector3.Distance(nextPos, targetPos) <= soundTime)
                 {
                     shouldMakeSound = true;
                 }
