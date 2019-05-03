@@ -55,10 +55,13 @@ public class EnemySlider : MonoBehaviour
     private float shakeTime;
 
     private bool producePeffect;
- 
+
+    private SoundManager soundmanager;
+
+
     // public AnimationClip death;
 
-   
+
     void Start()
     {
         isDrop = false;
@@ -118,6 +121,8 @@ public class EnemySlider : MonoBehaviour
 
         producePeffect = false;
 
+        soundmanager = GetComponent<SoundManager>();
+
     }
 
     // Update is called once per frame
@@ -161,9 +166,11 @@ public class EnemySlider : MonoBehaviour
 
 
                     rb.velocity = dir;
+                    SoundManager.PlaySound("Sliding");
 
-                   // Sliding effect
-                   // producePeffect = true;
+
+                    // Sliding effect
+                    // producePeffect = true;
 
                     Instantiate(peffect, transform.position, Quaternion.identity);
 

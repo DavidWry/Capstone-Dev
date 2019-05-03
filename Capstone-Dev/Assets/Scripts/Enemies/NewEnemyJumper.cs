@@ -59,6 +59,10 @@ public class NewEnemyJumper : MonoBehaviour
    
     private bool shouldShake;
     private bool hasShaken;
+
+    private bool shouldMakeSound;
+    private bool hasMadeSound;
+
     // public AnimationClip death;
 
     private void Awake()
@@ -135,6 +139,9 @@ public class NewEnemyJumper : MonoBehaviour
  
         shouldShake = false;
         hasShaken = false;
+
+        shouldMakeSound = true;
+        hasMadeSound = false;
     }
 
     void Update()
@@ -232,6 +239,8 @@ public class NewEnemyJumper : MonoBehaviour
                     hasCollidedWithObjects = false;
                     hasShaken = false;
                     shouldShake = false;
+                    shouldMakeSound = false;
+                    hasMadeSound = false;
                 }
                 if ((Vector3.Distance(startPos, targetPos) <= rangeForAttack) && (canJump == true) &&(hasCollidedWithObjects == false))
                 {
@@ -264,6 +273,7 @@ public class NewEnemyJumper : MonoBehaviour
                     transform.position = nextPos;
 
                     waitTime = 2f;
+                    
                 }
                 else
                 {
@@ -276,9 +286,16 @@ public class NewEnemyJumper : MonoBehaviour
                     
                     hasReached = true;
                     shouldShake = true;
+                   
                 }
 
-                if(shouldShake == true && hasShaken == false)
+
+                if(Vector3.Distance(nextPos, targetPos) <= 0.6f)
+                {
+                    shouldMakeSound = true;
+                }
+
+                if (shouldShake == true && hasShaken == false)
                 {
                     if (scene.name == "First Level")
                     {
@@ -289,6 +306,12 @@ public class NewEnemyJumper : MonoBehaviour
                         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<scshake>().time = shakeTime;
                     }
                     hasShaken = true;
+                }
+
+                if (shouldMakeSound == true  && hasMadeSound == false)
+                {
+                    SoundManager.PlaySound("Jumper");
+                    hasMadeSound = true;
                 }
 
                 if(hasReached == true)

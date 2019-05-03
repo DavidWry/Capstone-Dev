@@ -22,6 +22,7 @@ public class HealthPack : MonoBehaviour {
     {
         if(other.tag == "Player" && other.gameObject.GetComponent<Player_New>().HitPoint < 100)
         {
+            SoundManager.PlaySound("Health_Pack_Pickup");
             if (SorL)
             {
                 other.gameObject.GetComponent<Player_New>().HitPoint += 20;

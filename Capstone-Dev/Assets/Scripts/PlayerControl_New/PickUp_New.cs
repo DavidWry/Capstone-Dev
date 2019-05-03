@@ -168,6 +168,7 @@ public class PickUp_New : MonoBehaviour
         //get the item or weapon.
         if (isLootNearby && Input.GetButtonDown("BButton") && currentLoot != null  || Input.GetKeyDown(KeyCode.B))//button B on controller
         {
+            SoundManager.PlaySound("Pickup");
             if (!currentLoot.Item.GiveWeapon)
             {
                 if (currentLoot.Item.Name == "PurpleCrystal")

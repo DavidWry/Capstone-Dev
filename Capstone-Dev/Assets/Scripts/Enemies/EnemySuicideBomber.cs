@@ -55,6 +55,9 @@ public class EnemySuicideBomber : MonoBehaviour
     private bool isStunned;
     private CapsuleCollider capsule;
 
+    //Sound
+    private SoundManager soundmanager;
+
 
 
     private void Awake()
@@ -122,7 +125,10 @@ public class EnemySuicideBomber : MonoBehaviour
         moveSpot = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY),0);
         reachedPatrolPoint = false;
 
-  
+      //  soundmanager = GetComponent<SoundManager>();
+
+
+
     }
 
     void Update()
@@ -176,7 +182,8 @@ public class EnemySuicideBomber : MonoBehaviour
                         anim.SetBool("isRunning", true);
 
                         transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-                        myRenderer.material.color = Color.Lerp(startColor, endColor, distanceForColor / rangeForAttack);
+                    
+                    myRenderer.material.color = Color.Lerp(startColor, endColor, distanceForColor / rangeForAttack);
                         isChasing = true;
                     //   reachedPatrolPoint = true;
                 }
@@ -208,7 +215,7 @@ public class EnemySuicideBomber : MonoBehaviour
 
             if (currentHealth <= 0)
             {
-
+               
                 //drop item
                 if (probability)
                 {
@@ -220,6 +227,7 @@ public class EnemySuicideBomber : MonoBehaviour
                     var worldCanvas = GameObject.Find("worldCanvas").transform;
                     itemObj.transform.parent = worldCanvas;
                 }
+                
                 Destroy(gameObject);
             }
             if (collidedWithObstacle == true)
@@ -261,7 +269,7 @@ public class EnemySuicideBomber : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-
+            SoundManager.PlaySound("Suicider_Exploding");
             GameObject expl = Instantiate(explosion, transform.position, Quaternion.identity) as GameObject;
             Destroy(gameObject);
             other.gameObject.GetComponent<Player_New>().TakeDamage(damage);
