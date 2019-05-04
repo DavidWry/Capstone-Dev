@@ -42,14 +42,7 @@ public class Progression : MonoBehaviour
         {
             circle6.GetComponent<Image>().sprite = gou;
         }
-        if (goldDoc.DocumentElement.SelectSingleNode("UC7/Completed").InnerText == "true")
-        {
-            circle7.GetComponent<Image>().sprite = gou;
-        }
-        if (goldDoc.DocumentElement.SelectSingleNode("UC8/Completed").InnerText == "true")
-        {
-            circle8.GetComponent<Image>().sprite = gou;
-        }
+ 
     }
 
     // Update is called once per frame
@@ -104,22 +97,7 @@ public class Progression : MonoBehaviour
             }
             else { cost.text = "60"; }
         }
-        if (cursor.GetComponent<ManuController>().currentButton == 6)
-        {
-            if (goldDoc.DocumentElement.SelectSingleNode("UC7/Completed").InnerText == "true")
-            {
-                cost.text = "0";
-            }
-            else { cost.text = "70"; }
-        }
-        if (cursor.GetComponent<ManuController>().currentButton == 7)
-        {
-            if (goldDoc.DocumentElement.SelectSingleNode("UC8/Completed").InnerText == "true")
-            {
-                cost.text = "0";
-            }
-            else { cost.text = "80"; }
-        }
+ 
     }
 
     public void spend(int Val)
@@ -137,7 +115,7 @@ public class Progression : MonoBehaviour
             }
         }
 
-        else if (Val == 2)
+         else if (Val == 2)
         {
             if (gold > 20 && goldDoc.DocumentElement.SelectSingleNode("UC2/Completed").InnerText == "false")
             {
@@ -159,7 +137,7 @@ public class Progression : MonoBehaviour
                 goldDoc.Save(progressionFilePath);
             }
         }
-        else if (Val == 4 && goldDoc.DocumentElement.SelectSingleNode("UC4/Completed").InnerText == "false")
+         else if (Val == 4 && goldDoc.DocumentElement.SelectSingleNode("UC4/Completed").InnerText == "false")
         {
             if (gold > 40)
             {
@@ -192,28 +170,7 @@ public class Progression : MonoBehaviour
                 goldDoc.Save(progressionFilePath);
             }
         }
-        else if (Val == 7 && goldDoc.DocumentElement.SelectSingleNode("UC7/Completed").InnerText == "false")
-        {
-            if (gold > 70)
-            {
-                gold -= 70;
-                goldDoc.DocumentElement.SelectSingleNode("UC7/Completed").InnerText = "true";
-                goldDoc.DocumentElement.SelectSingleNode("Gold").InnerText = gold.ToString();
-                circle7.GetComponent<Image>().sprite = gou;
-                goldDoc.Save(progressionFilePath);
-            }
-        }
-        else if (Val == 8 && goldDoc.DocumentElement.SelectSingleNode("UC8/Completed").InnerText == "false")
-        {
-            if (gold > 80)
-            {
-                gold -= 80;
-                goldDoc.DocumentElement.SelectSingleNode("UC8/Completed").InnerText = "true";
-                goldDoc.DocumentElement.SelectSingleNode("Gold").InnerText = gold.ToString();
-                circle8.GetComponent<Image>().sprite = gou;
-                goldDoc.Save(progressionFilePath);
-            }
-        }
+
 
     }
 

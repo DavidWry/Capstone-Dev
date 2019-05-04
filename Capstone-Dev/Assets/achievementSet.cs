@@ -10,8 +10,11 @@ public class achievementSet : MonoBehaviour {
     GameObject player;
     public bool ac1, ac2, ac3, ac4, ac5, ac6, ac7, ac8, ac9, ac10, ac11, ac12, ac13, ac14, ac15, ac16, ac17, ac18, ac19, ac20;
     XmlDocument achievementDoc = new XmlDocument();
+    XmlDocument goldDoc = new XmlDocument();
+    string progressionFilePath;
     public Image img1;
     public Text txt1;
+    int gold = 0;
     public Text txt2;
     public float transp = 0;
     public bool popping;
@@ -23,7 +26,10 @@ public class achievementSet : MonoBehaviour {
     void Start () {
         imgcolor = img1.color;
         txtcolor = txt1.color;
-            string achievementFilePath = Application.dataPath + "/Resources/Achievements.xml";
+        progressionFilePath = Application.dataPath + "/Resources/Progression.xml";
+        goldDoc.Load(progressionFilePath);
+        gold = int.Parse(goldDoc.DocumentElement.SelectSingleNode("Gold").InnerText);
+        string achievementFilePath = Application.dataPath + "/Resources/Achievements.xml";
         achievementDoc.Load(achievementFilePath);
         ac1 = bool.Parse(achievementDoc.DocumentElement.SelectSingleNode("AC1/Completed").InnerText);
         ac2 = bool.Parse(achievementDoc.DocumentElement.SelectSingleNode("AC2/Completed").InnerText);
@@ -113,6 +119,11 @@ public class achievementSet : MonoBehaviour {
             {
                 if (SceneManager.GetActiveScene().name == "MainRoom" && bool.Parse(achievementDoc.DocumentElement.SelectSingleNode("AC2/Count").InnerText) == true && bool.Parse(achievementDoc.DocumentElement.SelectSingleNode("AC2/Completed").InnerText) == false)
                 {
+                    gold += 50;
+                    
+                    goldDoc.DocumentElement.SelectSingleNode("Gold").InnerText = gold.ToString();
+                
+                    goldDoc.Save(progressionFilePath);
                     popup(2);
                     string achievementFilePath = Application.dataPath + "/Resources/Achievements.xml";
                     achievementDoc.Load(achievementFilePath);
@@ -124,7 +135,11 @@ public class achievementSet : MonoBehaviour {
             if (!ac3)
             {
                 if (SceneManager.GetActiveScene().name == "2_1")
-                {
+                {  gold += 50;
+                    
+                    goldDoc.DocumentElement.SelectSingleNode("Gold").InnerText = gold.ToString();
+                
+                    goldDoc.Save(progressionFilePath);
                     print("nimasile");
                     string achievementFilePath = Application.dataPath + "/Resources/Achievements.xml";
                     achievementDoc.Load(achievementFilePath);
@@ -139,6 +154,11 @@ public class achievementSet : MonoBehaviour {
             {
                 if (float.Parse(achievementDoc.DocumentElement.SelectSingleNode("AC4/Time").InnerText) > 600.0f)
                 {
+                    gold += 50;
+
+                    goldDoc.DocumentElement.SelectSingleNode("Gold").InnerText = gold.ToString();
+
+                    goldDoc.Save(progressionFilePath);
                     popup(4);
                     string achievementFilePath = Application.dataPath + "/Resources/Achievements.xml";
                     achievementDoc.Load(achievementFilePath);
@@ -155,6 +175,11 @@ public class achievementSet : MonoBehaviour {
                 {
                     if (GameObject.Find("Portal_2(Clone)"))
                     {
+                        gold += 50;
+
+                        goldDoc.DocumentElement.SelectSingleNode("Gold").InnerText = gold.ToString();
+
+                        goldDoc.Save(progressionFilePath);
                         string achievementFilePath = Application.dataPath + "/Resources/Achievements.xml";
                         achievementDoc.Load(achievementFilePath);
                         achievementDoc.DocumentElement.SelectSingleNode("AC5/Completed").InnerText = "true";
@@ -185,6 +210,11 @@ public class achievementSet : MonoBehaviour {
                 {
                     if (GameObject.Find("Portal_2(Clone)"))
                     {
+                        gold += 50;
+
+                        goldDoc.DocumentElement.SelectSingleNode("Gold").InnerText = gold.ToString();
+
+                        goldDoc.Save(progressionFilePath);
                         popup(7);
                         string achievementFilePath = Application.dataPath + "/Resources/Achievements.xml";
                         achievementDoc.Load(achievementFilePath);
@@ -201,7 +231,11 @@ public class achievementSet : MonoBehaviour {
 
                     if (GameObject.Find("Portal_2(Clone)") && GameObject.FindWithTag("Player").GetComponent<Player_New>().HitPoint > 95)
                     {
+                        gold += 50;
 
+                        goldDoc.DocumentElement.SelectSingleNode("Gold").InnerText = gold.ToString();
+
+                        goldDoc.Save(progressionFilePath);
 
                         popup(8);
                         string achievementFilePath = Application.dataPath + "/Resources/Achievements.xml";
@@ -220,6 +254,11 @@ public class achievementSet : MonoBehaviour {
                 ac9 = bool.Parse(achievementDoc.DocumentElement.SelectSingleNode("AC9/Completed").InnerText);
                 if (ac9)
                 {
+                    gold += 50;
+
+                    goldDoc.DocumentElement.SelectSingleNode("Gold").InnerText = gold.ToString();
+
+                    goldDoc.Save(progressionFilePath);
                     popup(9);
                     string achievementFilePath = Application.dataPath + "/Resources/Achievements.xml";
                     achievementDoc.Load(achievementFilePath);
@@ -243,6 +282,11 @@ public class achievementSet : MonoBehaviour {
                     {
                         if (float.Parse(achievementDoc.DocumentElement.SelectSingleNode("AC11/Time").InnerText + levelTime) < 600)
                         {
+                            gold += 50;
+
+                            goldDoc.DocumentElement.SelectSingleNode("Gold").InnerText = gold.ToString();
+
+                            goldDoc.Save(progressionFilePath);
                             string achievementFilePath = Application.dataPath + "/Resources/Achievements.xml";
                             achievementDoc.Load(achievementFilePath);
                             achievementDoc.DocumentElement.SelectSingleNode("AC11/Completed").InnerText = "true";
@@ -272,6 +316,11 @@ public class achievementSet : MonoBehaviour {
             {
                 if (player.GetComponent<Player_New>().leftWeapon.Name == "Laser" || player.GetComponent<Player_New>().rightWeapon.Name == "Laser")
                 {
+                    gold += 50;
+
+                    goldDoc.DocumentElement.SelectSingleNode("Gold").InnerText = gold.ToString();
+
+                    goldDoc.Save(progressionFilePath);
                     string achievementFilePath = Application.dataPath + "/Resources/Achievements.xml";
                     achievementDoc.Load(achievementFilePath);
                     achievementDoc.DocumentElement.SelectSingleNode("AC12/Completed").InnerText = "true";
@@ -292,6 +341,11 @@ public class achievementSet : MonoBehaviour {
 
                     if (GameObject.Find("Portal_2(Clone)") && GameObject.FindWithTag("Player").GetComponent<Player_New>().HitPoint > 0 && GameObject.FindWithTag("Player").GetComponent<Player_New>().HitPoint < 5)
                     {
+                        gold += 50;
+
+                        goldDoc.DocumentElement.SelectSingleNode("Gold").InnerText = gold.ToString();
+
+                        goldDoc.Save(progressionFilePath);
                         string achievementFilePath = Application.dataPath + "/Resources/Achievements.xml";
                         achievementDoc.Load(achievementFilePath);
                         achievementDoc.DocumentElement.SelectSingleNode("AC13/Completed").InnerText = "true";
@@ -307,6 +361,11 @@ public class achievementSet : MonoBehaviour {
             {
                 if (int.Parse(achievementDoc.DocumentElement.SelectSingleNode("AC14/Count").InnerText) >= 100)
                 {
+                    gold += 50;
+
+                    goldDoc.DocumentElement.SelectSingleNode("Gold").InnerText = gold.ToString();
+
+                    goldDoc.Save(progressionFilePath);
                     string achievementFilePath = Application.dataPath + "/Resources/Achievements.xml";
                     achievementDoc.Load(achievementFilePath);
                     achievementDoc.DocumentElement.SelectSingleNode("AC14/Completed").InnerText = "true";
@@ -322,6 +381,11 @@ public class achievementSet : MonoBehaviour {
             {
                 if (ac1 && ac2 && ac3 && ac4 && ac5 && ac6 && ac7 && ac8 && ac9 && ac10 && ac11 && ac12 && ac13 && ac14)
                 {
+                    gold += 50;
+
+                    goldDoc.DocumentElement.SelectSingleNode("Gold").InnerText = gold.ToString();
+
+                    goldDoc.Save(progressionFilePath);
 
                     popup(18);
                 }

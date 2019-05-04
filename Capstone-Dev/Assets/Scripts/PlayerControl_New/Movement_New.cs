@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using Assets.HeroEditor.Common.CharacterScripts;
 using UnityEngine;
 using AssemblyCSharp;
-
+using System.Xml;
 public class Movement_New : MonoBehaviour {
 
-    public float WalkSpeed = 3.0f;
+    public float WalkSpeed = 150.0f;
     public bool IsFaceRight = true;
     public GameObject RightAimIcon = null;
     public GameObject LeftAimIcon = null;
     public Vector3 Recoil;
-
+    XmlDocument goldDoc = new XmlDocument();
+    string progressionFilePath;
     private float yRotate;
     public bool isBulletTime;
     private Player_New player;
@@ -25,6 +26,12 @@ public class Movement_New : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        progressionFilePath = Application.dataPath + "/Resources/Progression.xml";
+        goldDoc.Load(progressionFilePath);
+        if (goldDoc.DocumentElement.SelectSingleNode("UC5/Completed").InnerText == "true")
+        {
+            WalkSpeed = 160.0f;
+        }
         playerShoot = GetComponent<Shoot_New>();
         aimDistance = 8f;
         Recoil = Vector3.zero;
