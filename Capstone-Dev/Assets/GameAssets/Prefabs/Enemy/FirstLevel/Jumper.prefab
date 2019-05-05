@@ -172,6 +172,9 @@ MonoBehaviour:
   landing: {fileID: 1034316369797678, guid: 017b6804f774ee4458498d4fde6af4a5, type: 2}
   impact: {fileID: 1393680872821408, guid: 65628002773a70345a2524ec75e3681e, type: 2}
   healthBar: {fileID: 114155619709965156}
+  shouldInstParticle: 0
+  hasInstParticle: 0
+  rainEffect: {fileID: 1833764971513180, guid: 3f4128f03d134aa4cb8717558d733802, type: 2}
 --- !u!114 &114439938367802316
 MonoBehaviour:
   m_ObjectHideFlags: 1

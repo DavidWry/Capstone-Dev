@@ -50,7 +50,12 @@ public class EnemyRangedStomp : MonoBehaviour
     private bool isDrop;
 
     private float shakeTime;
-  
+
+    public bool shouldInstParticle;
+    public bool hasInstParticle;
+    public GameObject rainEffect;
+    GameObject tempRain;
+    private float healTimer;
 
     private void Awake()
     {
@@ -109,7 +114,11 @@ public class EnemyRangedStomp : MonoBehaviour
         color = myRenderer.color;
 
         shakeTime = 0.3f;
-       
+
+        shouldInstParticle = false;
+        hasInstParticle = false;
+        healTimer = 10f;
+
     }
 
     // Update is called once per frame
@@ -200,6 +209,41 @@ public class EnemyRangedStomp : MonoBehaviour
 
         }
 
+        if (health >= 70)
+        {
+            health = 70;
+        }
+
+        if (currentHealth >= 70)
+        {
+            currentHealth = 70;
+        }
+
+        if (shouldInstParticle == true & hasInstParticle == false)
+        {
+            // rainEffect.SetActive(true);
+            tempRain = (GameObject)Instantiate(rainEffect, transform.position, Quaternion.identity);
+            hasInstParticle = true;
+        }
+
+        if (tempRain != null)
+        {
+            tempRain.transform.position = transform.position;
+        }
+
+        if (hasInstParticle == true)
+        {
+            healTimer -= Time.deltaTime;
+        }
+
+        if (healTimer <= 0.0f)
+        {
+            shouldInstParticle = false;
+            hasInstParticle = false;
+            healTimer = 10f;
+            Destroy(tempRain);
+        }
+
     }
 
     // Spawns x number of projectiles.
@@ -249,6 +293,12 @@ public class EnemyRangedStomp : MonoBehaviour
     {
         currentHealth -= damage;
 
+        healthBar.fillAmount = currentHealth / health;
+    }
+
+    public void RainHealthUpdate(float amount)
+    {
+        currentHealth += amount;
         healthBar.fillAmount = currentHealth / health;
     }
 

@@ -58,7 +58,11 @@ public class EnemySlider : MonoBehaviour
 
     private SoundManager soundmanager;
 
-
+    public bool shouldInstParticle;
+    public bool hasInstParticle;
+    public GameObject rainEffect;
+    GameObject tempRain;
+    private float healTimer;
     // public AnimationClip death;
 
 
@@ -123,6 +127,9 @@ public class EnemySlider : MonoBehaviour
 
         soundmanager = GetComponent<SoundManager>();
 
+        shouldInstParticle = false;
+        hasInstParticle = false;
+        healTimer = 10f;
     }
 
     // Update is called once per frame
@@ -257,6 +264,41 @@ public class EnemySlider : MonoBehaviour
             }
 
         }
+
+        if (health >= 130)
+        {
+            health = 130;
+        }
+
+        if (currentHealth >= 130)
+        {
+            currentHealth = 130;
+        }
+
+        if (shouldInstParticle == true & hasInstParticle == false)
+        {
+            // rainEffect.SetActive(true);
+            tempRain = (GameObject)Instantiate(rainEffect, transform.position, Quaternion.identity);
+            hasInstParticle = true;
+        }
+
+        if (tempRain != null)
+        {
+            tempRain.transform.position = transform.position;
+        }
+
+        if (hasInstParticle == true)
+        {
+            healTimer -= Time.deltaTime;
+        }
+
+        if (healTimer <= 0.0f)
+        {
+            shouldInstParticle = false;
+            hasInstParticle = false;
+            healTimer = 10f;
+            Destroy(tempRain);
+        }
     }
 
     private void OnCollisionEnter(Collision other)
@@ -291,24 +333,19 @@ public class EnemySlider : MonoBehaviour
 
         }
 
-        if ((other.gameObject.tag == "Minion") || (other.gameObject.tag == "Chest") || (other.gameObject.tag == "Obstacle"))
+     /*   if ((other.gameObject.tag == "Minion") || (other.gameObject.tag == "Chest") || (other.gameObject.tag == "Obstacle"))
         {
-            if (hasCollidedWithOthers == false)
-            {
-                rb.velocity = Vector3.zero;
-                hasReached = true;
+            //   if (hasCollidedWithOthers == false)
+            // {
+         
+            rb.velocity = Vector3.zero;
+            hasReached = true;
                 
-                hasCollidedWithOthers = true;
+              //  hasCollidedWithOthers = true;
 
-            }
-            //  Debug.Log("Collided");
-            // rb.velocity = Vector3.zero;
 
-            // StartCoroutine(WaitAfterStun(1.6f));
 
-            // }
-
-        }
+        }*/
 
     }
 
@@ -317,15 +354,15 @@ public class EnemySlider : MonoBehaviour
 
         if ((collision.gameObject.tag == "Minion") || (collision.gameObject.tag == "Chest") || (collision.gameObject.tag == "Obstacle"))
         {
-            if (hasCollidedWithOthers == false)
-            {
+           // if (hasCollidedWithOthers == false)
+          //  {
                 rb.velocity = Vector3.zero;
               //  Debug.Log("dont move");
                 hasReached = true;
                // Debug.Log("move");
-               // hasCollidedWithOthers = true;
+             //   hasCollidedWithOthers = true;
 
-            }
+           // }
             //  Debug.Log("Collided");
             // rb.velocity = Vector3.zero;
 
@@ -351,6 +388,12 @@ public class EnemySlider : MonoBehaviour
     {
         currentHealth -= damage;
 
+        healthBar.fillAmount = currentHealth / health;
+    }
+
+    public void RainHealthUpdate(float amount)
+    {
+        currentHealth += amount;
         healthBar.fillAmount = currentHealth / health;
     }
 

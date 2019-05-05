@@ -39,7 +39,13 @@ public class EnemyRangedSpear : MonoBehaviour
     private float addTime;
 
     private bool isDrop;
-    
+
+    public bool shouldInstParticle;
+    public bool hasInstParticle;
+    public GameObject rainEffect;
+    GameObject tempRain;
+    private float healTimer;
+
     private void Awake()
     {
 
@@ -90,6 +96,9 @@ public class EnemyRangedSpear : MonoBehaviour
         myRenderer = GetComponent<SpriteRenderer>();
         color = myRenderer.color;
 
+        shouldInstParticle = false;
+        hasInstParticle = false;
+        healTimer = 10f;
     }
 
 
@@ -165,18 +174,44 @@ public class EnemyRangedSpear : MonoBehaviour
 
                 //Instantiate(crystal, transform.position,Quaternion.identity);
             }
-            if (health >= 65)
-            {
-                health = 65;
-            }
-
-            if (currentHealth >= 65)
-            {
-                currentHealth = 65;
-            }
 
         }
 
+        if (health >= 65)
+        {
+            health = 65;
+        }
+
+        if (currentHealth >= 65)
+        {
+            currentHealth = 65;
+        }
+
+        if (shouldInstParticle == true & hasInstParticle == false)
+        {
+           // rainEffect.SetActive(true);
+           tempRain = (GameObject)Instantiate(rainEffect, transform.position, Quaternion.identity);
+            hasInstParticle = true;
+        }
+
+        if (tempRain != null)
+        {
+            tempRain.transform.position = transform.position;
+        }
+        
+        if (hasInstParticle == true)
+        {
+            healTimer -= Time.deltaTime; 
+        }
+
+        if (healTimer <= 0.0f)
+        {
+            shouldInstParticle = false;
+            hasInstParticle = false;
+            healTimer = 10f;
+            Destroy(tempRain);
+        }      
+      
     }
 
    /* private void OnCollisionEnter(Collision other)

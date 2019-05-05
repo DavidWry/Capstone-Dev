@@ -64,6 +64,12 @@ public class NewEnemyJumper : MonoBehaviour
     private bool hasMadeSound;
     private float soundTime;
 
+    public bool shouldInstParticle;
+    public bool hasInstParticle;
+    public GameObject rainEffect;
+    GameObject tempRain;
+    private float healTimer;
+
     // public AnimationClip death;
 
     private void Awake()
@@ -145,6 +151,10 @@ public class NewEnemyJumper : MonoBehaviour
 
         shouldMakeSound = true;
         hasMadeSound = false;
+
+        shouldInstParticle = false;
+        hasInstParticle = false;
+        healTimer = 10f;
     }
 
     void Update()
@@ -358,6 +368,41 @@ public class NewEnemyJumper : MonoBehaviour
 
             //Instantiate(crystal, transform.position,Quaternion.identity);
         }
+
+        if (health >= 90)
+        {
+            health = 90;
+        }
+
+        if (currentHealth >= 90)
+        {
+            currentHealth = 90;
+        }
+
+        if (shouldInstParticle == true & hasInstParticle == false)
+        {
+            // rainEffect.SetActive(true);
+            tempRain = (GameObject)Instantiate(rainEffect, transform.position, Quaternion.identity);
+            hasInstParticle = true;
+        }
+
+        if (tempRain != null)
+        {
+            tempRain.transform.position = transform.position;
+        }
+
+        if (hasInstParticle == true)
+        {
+            healTimer -= Time.deltaTime;
+        }
+
+        if (healTimer <= 0.0f)
+        {
+            shouldInstParticle = false;
+            hasInstParticle = false;
+            healTimer = 10f;
+            Destroy(tempRain);
+        }
     }
     public void TakeDamage(int damage)
     {
@@ -366,6 +411,13 @@ public class NewEnemyJumper : MonoBehaviour
         healthBar.fillAmount = currentHealth / health;
 
     }
+
+    public void RainHealthUpdate(float amount)
+    {
+        currentHealth += amount;
+        healthBar.fillAmount = currentHealth / health;
+    }
+
     static Quaternion LookAt2D(Vector2 forward)
     {
         return Quaternion.Euler(0, 0, Mathf.Atan2(forward.y, forward.x) * Mathf.Rad2Deg);

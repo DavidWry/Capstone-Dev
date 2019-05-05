@@ -300,6 +300,8 @@ MonoBehaviour:
   projectile: {fileID: 1703279415655862, guid: 2988a8320a4f0864caf9262881400612, type: 2}
   crystal: {fileID: 1141863764639654, guid: e71aca9953d2e5d4380aedac964a59d5, type: 2}
   healthBar: {fileID: 114863465515715956}
+  shouldInstParticle: 0
+  rainEffect: {fileID: 1833764971513180, guid: 3f4128f03d134aa4cb8717558d733802, type: 2}
 --- !u!114 &114780490760066186
 MonoBehaviour:
   m_ObjectHideFlags: 1

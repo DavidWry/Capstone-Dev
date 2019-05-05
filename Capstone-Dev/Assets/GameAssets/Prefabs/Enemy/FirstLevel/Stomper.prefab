@@ -349,6 +349,9 @@ MonoBehaviour:
     type: 2}
   speed: 2.5
   healthBar: {fileID: 114907955608895052}
+  shouldInstParticle: 0
+  hasInstParticle: 0
+  rainEffect: {fileID: 1833764971513180, guid: 3f4128f03d134aa4cb8717558d733802, type: 2}
 --- !u!136 &136051613644614004
 CapsuleCollider:
   m_ObjectHideFlags: 1

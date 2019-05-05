@@ -108,7 +108,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1833249985577980}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1802.501, y: 2954.857, z: -287.4403}
+  m_LocalPosition: {x: 804.53735, y: 933, z: 0}
   m_LocalScale: {x: -0.3, y: 0.3, z: 1}
   m_Children:
   - {fileID: 4966434530361284}
@@ -241,6 +241,9 @@ MonoBehaviour:
   cameraShake: {fileID: 0}
   slide: {fileID: 1230012007418544, guid: dd99df70f774652448fc8b36065a48c8, type: 2}
   peffect: {fileID: 1081290548906732, guid: 2845de73501765341a8b86e1a730ec24, type: 2}
+  shouldInstParticle: 0
+  hasInstParticle: 0
+  rainEffect: {fileID: 1833764971513180, guid: 3f4128f03d134aa4cb8717558d733802, type: 2}
 --- !u!114 &114933114416713924
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -34,7 +34,7 @@ public class EnvironmentalControl : MonoBehaviour {
                 rain.SetActive(true);
                 largeWind.SetActive(false);
                 shortWind.SetActive(false);
-                effectTime = 60f;
+                effectTime = 10f;
 
             }
             else if (num == 2)  // Large Wind

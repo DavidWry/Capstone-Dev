@@ -58,7 +58,11 @@ public class EnemySuicideBomber : MonoBehaviour
     //Sound
     private SoundManager soundmanager;
 
-
+    public bool shouldInstParticle;
+    public bool hasInstParticle;
+    public GameObject rainEffect;
+    GameObject tempRain;
+    private float healTimer;
 
     private void Awake()
     {
@@ -125,9 +129,11 @@ public class EnemySuicideBomber : MonoBehaviour
         moveSpot = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY),0);
         reachedPatrolPoint = false;
 
-      //  soundmanager = GetComponent<SoundManager>();
+        shouldInstParticle = false;
+        hasInstParticle = false;
+        healTimer = 10f;
 
-
+        //  soundmanager = GetComponent<SoundManager>();
 
     }
 
@@ -262,6 +268,41 @@ public class EnemySuicideBomber : MonoBehaviour
             }
         }
 
+        if (health >= 51)
+        {
+            health = 51;
+        }
+
+        if (currentHealth >= 51)
+        {
+            currentHealth = 51;
+        }
+
+        if (shouldInstParticle == true & hasInstParticle == false)
+        {
+            // rainEffect.SetActive(true);
+            tempRain = (GameObject)Instantiate(rainEffect, transform.position, Quaternion.identity);
+            hasInstParticle = true;
+        }
+
+        if (tempRain != null)
+        {
+            tempRain.transform.position = transform.position;
+        }
+
+        if (hasInstParticle == true)
+        {
+            healTimer -= Time.deltaTime;
+        }
+
+        if (healTimer <= 0.0f)
+        {
+            shouldInstParticle = false;
+            hasInstParticle = false;
+            healTimer = 10f;
+            Destroy(tempRain);
+        }
+
 
     }
 
@@ -312,6 +353,12 @@ public class EnemySuicideBomber : MonoBehaviour
     {
         currentHealth -= damage;
 
+        healthBar.fillAmount = currentHealth / health;
+    }
+
+    public void RainHealthUpdate(float amount)
+    {
+        currentHealth += amount;
         healthBar.fillAmount = currentHealth / health;
     }
     public void Stun(float stunTime)

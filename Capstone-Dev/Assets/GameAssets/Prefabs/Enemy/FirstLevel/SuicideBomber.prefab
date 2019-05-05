@@ -250,6 +250,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 1873022225680536, guid: 331432d36bfbc124ab5fc1349bea9ab0, type: 2}
   healthBar: {fileID: 114519725208145954}
+  shouldInstParticle: 0
+  hasInstParticle: 0
+  rainEffect: {fileID: 1833764971513180, guid: 3f4128f03d134aa4cb8717558d733802, type: 2}
 --- !u!114 &114997125114100562
 MonoBehaviour:
   m_ObjectHideFlags: 1
