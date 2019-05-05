@@ -296,6 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2.3
+  health: 0
   projectile: {fileID: 1703279415655862, guid: 2988a8320a4f0864caf9262881400612, type: 2}
   crystal: {fileID: 1141863764639654, guid: e71aca9953d2e5d4380aedac964a59d5, type: 2}
   healthBar: {fileID: 114863465515715956}

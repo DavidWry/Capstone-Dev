@@ -7,12 +7,16 @@ public class Rain : MonoBehaviour
     private bool shouldMakeSound;
     private bool hasMadeSound;
     private float soundTime;
+
+    private float hp;
     // Use this for initialization
     void Start ()
     {
         shouldMakeSound = true;
         hasMadeSound = false;
         soundTime = 15f;
+   
+        
         
     }
 	
@@ -31,7 +35,24 @@ public class Rain : MonoBehaviour
             shouldMakeSound = true;
             soundTime = 15f;
         }
-        
        
+       
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Minion")
+        {
+            if (other.gameObject.GetComponent<EnemyRangedSpear>() != null)
+            {
+                Debug.Log("I am here spear");
+                hp = other.GetComponent<EnemyRangedSpear>().health;
+                hp = hp + 0.1f;
+                other.GetComponent<EnemyRangedSpear>().health = hp;
+                other.GetComponent<EnemyRangedSpear>().RainHealthUpdate(0.1f);
+            }
+           
+
+        }
     }
 }

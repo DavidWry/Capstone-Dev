@@ -24,7 +24,7 @@ public class WindEffect : MonoBehaviour {
 
     private void Update()
     {
-       // transform.position += new Vector3(speed,0,0);
+        transform.position += new Vector3(speed,0,0);
         if (shouldMakeSound == true && soundTime == 6f)
         {
             num = Random.Range(1, 4);

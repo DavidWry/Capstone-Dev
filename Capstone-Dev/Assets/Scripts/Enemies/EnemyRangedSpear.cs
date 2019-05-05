@@ -15,7 +15,7 @@ public class EnemyRangedSpear : MonoBehaviour
     private float startTimeBetweenShots;
 
     private float currentHealth;
-    private float health;
+    public float health;
     public GameObject projectile;
 
 
@@ -165,6 +165,15 @@ public class EnemyRangedSpear : MonoBehaviour
 
                 //Instantiate(crystal, transform.position,Quaternion.identity);
             }
+            if (health >= 65)
+            {
+                health = 65;
+            }
+
+            if (currentHealth >= 65)
+            {
+                currentHealth = 65;
+            }
 
         }
 
@@ -194,6 +203,12 @@ public class EnemyRangedSpear : MonoBehaviour
 
         healthBar.fillAmount = currentHealth / health;
 
+    }
+
+    public void RainHealthUpdate(float amount)
+    {
+        currentHealth += amount;
+        healthBar.fillAmount = currentHealth / health;
     }
 
     public void Stun(float stunTime)
