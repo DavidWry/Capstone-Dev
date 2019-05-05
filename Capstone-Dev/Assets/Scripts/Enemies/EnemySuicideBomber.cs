@@ -312,7 +312,9 @@ public class EnemySuicideBomber : MonoBehaviour
         {
             SoundManager.PlaySound("Suicider_Exploding");
             GameObject expl = Instantiate(explosion, transform.position, Quaternion.identity) as GameObject;
+            Destroy(tempRain);
             Destroy(gameObject);
+            
             other.gameObject.GetComponent<Player_New>().TakeDamage(damage);
             Destroy(expl, 3);
 

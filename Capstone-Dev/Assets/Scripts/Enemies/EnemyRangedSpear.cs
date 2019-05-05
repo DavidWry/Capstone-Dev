@@ -158,7 +158,7 @@ public class EnemyRangedSpear : MonoBehaviour
             {
                 anim.SetTrigger("hasDied");
                 Destroy(gameObject, 0.75f);
-
+                Destroy(tempRain);
                 if (probability && !isDrop)
                 {
                     //drop item

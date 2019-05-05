@@ -248,7 +248,8 @@ public class EnemySlider : MonoBehaviour
 
                 anim.SetTrigger("hasDied");
                 Destroy(gameObject, 0.75f);
-              //  Destroy(tempSlide, 0.5f);
+                Destroy(tempRain);
+                //  Destroy(tempSlide, 0.5f);
                 if (probability && !isDrop)
                 {
                     string tempName = probability.DetermineDrop();

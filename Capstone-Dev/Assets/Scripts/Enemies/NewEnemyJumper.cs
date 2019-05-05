@@ -353,6 +353,7 @@ public class NewEnemyJumper : MonoBehaviour
         {
             anim.SetTrigger("hasDied");
             Destroy(gameObject, 0.75f);
+            Destroy(tempRain);
             if (probability && !isDrop)
             {
                 //drop item

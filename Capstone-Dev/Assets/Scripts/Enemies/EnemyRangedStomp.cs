@@ -190,6 +190,7 @@ public class EnemyRangedStomp : MonoBehaviour
                     gameManager.GetComponent<ProcedualGeneration2_2>().enemyCount--;
                 anim.SetTrigger("hasDied");
                 Destroy(gameObject, 0.75f);
+                Destroy(tempRain);
                 if (probability &&!isDrop)
                 {
                     //drop item

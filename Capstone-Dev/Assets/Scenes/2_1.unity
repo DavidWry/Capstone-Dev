@@ -7127,8 +7127,54 @@ Prefab:
       value: 
       objectReference: {fileID: 1448291497953222, guid: 5868501d9b8ded94aa5c706e5fdc4e8d,
         type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7430308c60b9dc74396db2694886222b, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!1001 &1963573139
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4070145490632496, guid: 7fb69566646b72e45b85290237555924, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1345
+      objectReference: {fileID: 0}
+    - target: {fileID: 4070145490632496, guid: 7fb69566646b72e45b85290237555924, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 688
+      objectReference: {fileID: 0}
+    - target: {fileID: 4070145490632496, guid: 7fb69566646b72e45b85290237555924, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4070145490632496, guid: 7fb69566646b72e45b85290237555924, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4070145490632496, guid: 7fb69566646b72e45b85290237555924, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4070145490632496, guid: 7fb69566646b72e45b85290237555924, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4070145490632496, guid: 7fb69566646b72e45b85290237555924, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4070145490632496, guid: 7fb69566646b72e45b85290237555924, type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7fb69566646b72e45b85290237555924, type: 2}
   m_IsPrefabAsset: 0
 --- !u!114 &1977990191 stripped
 MonoBehaviour:
