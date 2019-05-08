@@ -137,7 +137,7 @@ Rigidbody:
   m_GameObject: {fileID: 1903549743834008}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 10
+  m_Drag: 2
   m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 0
@@ -301,6 +301,7 @@ MonoBehaviour:
   crystal: {fileID: 1141863764639654, guid: e71aca9953d2e5d4380aedac964a59d5, type: 2}
   healthBar: {fileID: 114863465515715956}
   shouldInstParticle: 0
+  hasInstParticle: 0
   rainEffect: {fileID: 1833764971513180, guid: 3f4128f03d134aa4cb8717558d733802, type: 2}
 --- !u!114 &114780490760066186
 MonoBehaviour:

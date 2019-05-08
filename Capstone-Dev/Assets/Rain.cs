@@ -10,31 +10,50 @@ public class Rain : MonoBehaviour
 
     private float hp;
 
-
+    private float lifeTime;
 
     // Use this for initialization
     void Start ()
     {
         shouldMakeSound = true;
         hasMadeSound = false;
-        soundTime = 15f;   
+        soundTime = 16f;
+        lifeTime = 15f;
 
     }
-	
-	// Update is called once per frame
-	void Update ()
-    { 
-        if (shouldMakeSound == true && soundTime == 15f)
+
+     void OnEnable()
+    {
+        shouldMakeSound = true;
+        hasMadeSound = false;
+        soundTime = 16f;
+        lifeTime = 15f;
+    }
+
+    // Update is called once per frame
+    void Update ()
+    {
+        if (lifeTime <= 0)
+        {
+            gameObject.SetActive(false);
+            shouldMakeSound = false;
+            lifeTime = 15f;
+        }
+        lifeTime -= Time.deltaTime;
+
+
+        if (shouldMakeSound == true && soundTime == 16f)
         {
             SoundManager.PlaySound("Raining");
             shouldMakeSound = false;
         }
         soundTime -= Time.deltaTime;
 
+
         if(soundTime <= 0.0f)
         {
             shouldMakeSound = true;
-            soundTime = 15f;
+            soundTime = 16f;
         }
 
     }

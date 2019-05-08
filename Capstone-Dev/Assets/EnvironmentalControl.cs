@@ -10,9 +10,9 @@ public class EnvironmentalControl : MonoBehaviour {
     public GameObject shortWind;
     public GameObject rain;
 
-    private float waitTime;
+    public float waitTime;
     private int num;
-    private float effectTime;
+    public float effectTime;
     void Start ()
     {
         waitTime = 10f;
@@ -34,25 +34,25 @@ public class EnvironmentalControl : MonoBehaviour {
                 rain.SetActive(true);
                 largeWind.SetActive(false);
                 shortWind.SetActive(false);
-                effectTime = 10f;
+                effectTime = 15f;
 
             }
             else if (num == 2)  // Large Wind
             {
-                rain.SetActive(false);
                 largeWind.SetActive(true);
+                rain.SetActive(false);
                 shortWind.SetActive(false);
-                effectTime = 15f;
+                effectTime = 20f;
             }
             else if (num == 3)  // Short Wind
             {
                 shortWind.SetActive(true);
                 largeWind.SetActive(false);
                 rain.SetActive(false);
-                effectTime = 15f;
+                effectTime = 16f;
             }
 
-            waitTime = 13f;
+            waitTime = 12f;
             waitTime += effectTime;
         }
        
